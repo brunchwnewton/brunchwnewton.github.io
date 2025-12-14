@@ -1,6 +1,7 @@
 ---
 title: "Nexic Reasoning: Defining a Generalized Calculus Over Anthropic Parameters"
 collection: publications
+category: manuscripts
 permalink: /publication/2024-12-21-nexic-reasoning.md
 date: 2024-12-21
 venue: 'PhilArchive (Preprint)'
