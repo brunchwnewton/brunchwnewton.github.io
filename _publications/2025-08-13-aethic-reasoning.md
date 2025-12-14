@@ -4,8 +4,8 @@ collection: publications
 permalink: /publication/2025-08-01-aethic-reasoning
 date: 2025-08-01
 venue: 'Rochester Institute of Technology'
-paperurl: '/files/Aethic Reasoning: Addressing the Quantum Observer Effect With Abstract Relational Logic.pdf'
+paperurl: 'https://philpapers.org/archive/BENARA-6.pdf'
 ---
 This paper introduces Aethic reasoning, a novel framework that resolves the measurement problem by reformulating the logical and relational structure that underpins reality. It proposes three foundational postulates that redefine realism, superposition, and state validity from a relational standpoint.
 
-[Download PDF](/files/Aethic Reasoning_ Addressing the Quantum Observer Effect With Abstract Relational Logic.pdf)
+[Download PDF](https://philpapers.org/archive/BENARA-6.pdf)
