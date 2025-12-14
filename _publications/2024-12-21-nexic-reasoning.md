@@ -1,0 +1,11 @@
+---
+title: "Nexic Reasoning: Defining a Generalized Calculus Over Anthropic Parameters"
+collection: publications
+permalink: /publication/2024-12-21-nexic-reasoning.md
+date: 2024-12-21
+venue: 'Rochester Institute of Technology'
+paperurl: 'https://philpapers.org/archive/BENNRD.pdf'
+---
+Nexic reasoning extends the premises of Aethic reasoning to Earth's biological history. By applying generalized calculus to anthropic parameters—such as the "Accordance Principle"—this framework models evolutionary history and implies the Rare Earth hypothesis through a lens of probability and observer selection.
+
+[Download PDF](https://philpapers.org/archive/BENNRD.pdf)
