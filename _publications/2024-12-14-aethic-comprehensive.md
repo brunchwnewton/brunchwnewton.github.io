@@ -2,7 +2,7 @@
 title: "Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem"
 collection: publications
 category: manuscripts
-permalink: /publication/2024-12-14-aethic-comprehensive.md
+permalink: /publication/2024-12-14-aethic-comprehensive
 date: 2024-12-14
 venue: 'PhilArchive (Preprint)'
 paperurl: 'https://philpapers.org/archive/BENARA-5.pdf'
