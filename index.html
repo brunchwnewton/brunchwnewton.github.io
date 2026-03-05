@@ -228,6 +228,25 @@ layout: default
     <!-- ═══════════════════════════════════════════ -->
     <nav class="main-nav" id="main-nav">
         <div style="display: flex; justify-content: center; gap: 0.25rem; padding: 0 1rem; flex-wrap: wrap;">
+            <div style="position: relative; display: inline-block;">
+                <a href="#" class="tab-btn"
+                onclick="event.preventDefault(); var d=document.getElementById('site-dropdown'); d.style.display = d.style.display==='block' ? 'none' : 'block';">
+                    Site ▾
+                </a>
+                <div id="site-dropdown" 
+                    style="display: none; position: absolute; top: 100%; left: 0; background: var(--bg-card, #1a1a2e); border: 1px solid rgba(167,139,250,0.2); border-radius: 0.5rem; padding: 0.5rem 0; min-width: 200px; z-index: 100; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                    <a href="/ajax/" style="display: block; padding: 0.6rem 1rem; color: var(--text-secondary, #ccc); text-decoration: none; font-size: 0.85rem; transition: background 0.2s;" 
+                    onmouseover="this.style.background='rgba(167,139,250,0.1)'" 
+                    onmouseout="this.style.background='transparent'">
+                        About Ajax ↗
+                    </a>
+                    <a href="/aethic-code/" style="display: block; padding: 0.6rem 1rem; color: var(--text-secondary, #ccc); text-decoration: none; font-size: 0.85rem; transition: background 0.2s;" 
+                    onmouseover="this.style.background='rgba(167,139,250,0.1)'" 
+                    onmouseout="this.style.background='transparent'">
+                        Interactive Code ↗
+                    </a>
+                </div>
+            </div>
             <a href="#top" class="tab-btn" data-target="home-content">Home</a>
             <a href="#aethic-content" class="tab-btn active-tab" data-target="aethic-content">Aethic</a>
             <a href="#acespective-content" class="tab-btn" data-target="acespective-content">Acespective</a>
