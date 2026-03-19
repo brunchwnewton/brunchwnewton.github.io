@@ -309,6 +309,8 @@ a{color:inherit;text-decoration:none;}
   font-size:0.82rem;color:var(--text-dim);
   transition:all 0.2s;
 }
+.contact-pill svg{flex-shrink:0;opacity:0.6;}
+.contact-pill:hover svg{opacity:1;}
 .contact-pill:hover{
   border-color:var(--border);color:var(--text-bright);
   background:var(--bg-card);
@@ -342,14 +344,13 @@ footer{
 <!-- ═══ TOP NAV ═══ -->
 <nav class="topnav" id="topnav">
   <div class="topnav-inner">
-    <a href="/" class="topnav-brand"><span>a</span>ethus.org</a>
+    <a href="/" class="topnav-brand"><span>aethus</span>.org</a>
     <div class="topnav-links">
-      <a href="#research">Research</a>
-      <a href="#guides" class="hide-mobile">Guides</a>
-      <a href="#about" class="hide-mobile">About</a>
-      <a href="#pages">Pages</a>
-      <a href="#updates" class="hide-mobile">Updates</a>
-      <a href="https://philarchive.org/rec/BENARA-5" target="_blank" rel="noopener" class="ext">Papers ↗</a>
+      <a href="/aethic-reasoning-guide.html">Aethic Guide</a>
+      <a href="/nexic-reasoning-guide.html">Nexic Guide</a>
+      <a href="/aethic-code/" class="hide-mobile">Aethic Code</a>
+      <a href="/ajax/" class="hide-mobile">About Ajax</a>
+      <a href="https://philpeople.org/profiles/ajax-benander" target="_blank" rel="noopener" class="ext">Papers ↗</a>
     </div>
   </div>
 </nav>
@@ -363,7 +364,7 @@ footer{
     <h1>Welcome to <span class="accent">aethus</span>.org</h1>
     <p class="tagline">The research of Ajax Benander. Developing Aethic reasoning: a graph-theoretic framework for quantum foundations, the ontology of time, and the measurement problem.</p>
     <p style="max-width:620px;margin:1rem auto 0;font-size:0.88rem;color:var(--text-dim);line-height:1.65;">A framework proposing that wavefunction collapse is not a physical process but a <em style="color:var(--text);">logical necessity</em> — the universe enforcing its own consistency. Built on three postulates, it derives the double-slit result, resolves EPR without violating locality, and makes experimentally testable predictions that differ from standard quantum mechanics.</p>
-    <p class="affil"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5d3c363f64696d651d2f342973383928">[email&#160;protected]</a></p>
+    <p class="affil">by <a href="/ajax/" style="color:var(--accent);text-decoration:none;">Ajax Benander</a></p>
   </div>
 </section>
 
@@ -390,16 +391,16 @@ footer{
         <h3>How Nexic Reasoning Works</h3>
         <p>Extending anthropic reasoning to circumstantial parameters: the Accordance Principle, Optimation, the Dark Era hypothesis, and a derivation of the Rare Earth hypothesis.</p>
       </div>
-      <div class="arrow">Coming soon <span>→</span></div>
+      <div class="arrow">Explore the guide <span>→</span></div>
     </a>
   </div>
 
   <!-- Our Place teaser -->
   <div style="margin-top:1.5rem;padding:1.3rem 1.8rem;background:var(--bg-card);border:1px solid rgba(255,217,61,0.12);border-radius:var(--radius);max-width:680px;">
     <div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,217,61,0.6);font-weight:600;margin-bottom:0.4rem;">From the Nexic Paper</div>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--text-bright);font-weight:400;line-height:1.45;margin-bottom:0.5rem;">Our Place in the Universe</p>
+    <a href="/our-place.html" style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--text-bright);font-weight:400;line-height:1.45;margin-bottom:0.5rem;display:block;text-decoration:none;">Our Place in the Universe</a>
     <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.55;margin-bottom:0.6rem;">The Nexic derivation of the Rare Earth hypothesis reveals the cosmos as an unthinkably vast graveyard, making the fact that you are alive not a coincidence but a mathematical coupling between your existence and the specific history that produced you.</p>
-    <a href="/aethic-reasoning-guide.html" style="font-size:0.78rem;color:rgba(255,217,61,0.6);border-bottom:1px solid rgba(255,217,61,0.2);">Read more in the guide →</a>
+    <a href="/our-place.html" style="font-size:0.78rem;color:rgba(255,217,61,0.6);border-bottom:1px solid rgba(255,217,61,0.2);">Read more →</a>
   </div>
 </section>
 
@@ -468,11 +469,11 @@ footer{
   <div class="section-title">Papers & manuscripts</div>
   <div class="section-desc">Core papers developing the Aethic and Nexic reasoning frameworks.</div>
   <div class="papers-grid">
-    <a href="https://philarchive.org/rec/BENARA-5" target="_blank" rel="noopener" class="paper-card">
+    <a href="https://philpapers.org/archive/BENARA-5" target="_blank" rel="noopener" class="paper-card">
       <div class="paper-icon">📄</div>
       <div class="paper-info">
         <h4>Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem</h4>
-        <div class="meta">November 2024 · Comprehensive paper · PhilArchive</div>
+        <div class="meta">November 2024 · Comprehensive paper · PhilPapers</div>
       </div>
     </a>
     <a href="https://philpapers.org/archive/BENNRD.pdf" target="_blank" rel="noopener" class="paper-card">
@@ -523,7 +524,7 @@ footer{
     <a href="/nexic-reasoning-guide.html" class="page-card">
       <div class="pc-icon">🌍</div>
       <h4>Nexic Reasoning Guide</h4>
-      <p>Interactive walkthrough of the anthropic parameter framework. Coming soon.</p>
+      <p>Interactive walkthrough of the anthropic parameter framework.</p>
     </a>
   </div>
 </section>
@@ -582,8 +583,12 @@ footer{
   <div class="section-label">Contact</div>
   <div class="section-title">Get in touch</div>
   <div class="contact-row">
-    <a href="/cdn-cgi/l/email-protection#adccc6cf94999d95eddfc4d983c8c9d8" class="contact-pill">✉️ <span class="__cf_email__" data-cfemail="fa9b9198c3cecac2ba88938ed49f9e8f">[email&#160;protected]</span></a>
-    <a href="https://philarchive.org/rec/BENARA-5" target="_blank" rel="noopener" class="contact-pill">📚 PhilArchive</a>
+    <a href="/ajax/" class="contact-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> About Ajax</a>
+    <a href="mailto:akb9408@rit.edu" class="contact-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> akb9408@rit.edu</a>
+    <a href="https://philpeople.org/profiles/ajax-benander" target="_blank" rel="noopener" class="contact-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> PhilPeople</a>
+    <a href="https://youtube.com/@BrunchWithNewton" target="_blank" rel="noopener" class="contact-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg> YouTube</a>
+    <a href="https://bsky.app/profile/ajax-science.bsky.social" target="_blank" rel="noopener" class="contact-pill"><svg width="16" height="16" viewBox="0 0 600 530" fill="currentColor"><path d="M135.7 44.3C202 98 274 210 300 261c26-51 98-163 164.3-216.7C491.5 22 568-3.5 568 67.5c0 14.3-8.2 120-13 137.2-16.7 60-77.4 75.3-131.5 66 94.5 16.1 118.6 69.5 66.6 123-99 101.5-142.3-25.5-153.4-58-.7-2-2-2-2.7 0-11.1 32.5-54.4 159.5-153.4 58C128.9 340.2 153 286.8 247.5 270.7c-54.1 9.3-114.8-5.9-131.5-66C111.2 187.5 103 81.8 103 67.5c0-71 76.5-45.5 32.7-23.2z"/></svg> Bluesky</a>
+    <a href="https://linkedin.com/in/ajax-benander-5aaa65260" target="_blank" rel="noopener" class="contact-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
   </div>
 </section>
 
@@ -591,8 +596,12 @@ footer{
   © 2025–2026 Ajax Benander · All rights reserved
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Navbar scroll effect
 const nav = document.getElementById('topnav');
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.s
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+</script>
+</body>
+</html>
