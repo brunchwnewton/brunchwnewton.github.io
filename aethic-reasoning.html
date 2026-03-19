@@ -1832,64 +1832,243 @@ body::before {
           <p>Famous golfer Rocco Mediate once said: "You gotta look at what the ball is doing. It's simple. If it's going crooked, there's a problem." But what if you <em>couldn't</em> look at what the ball is doing?</p>
 
           <div id="billiard-sim" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1.2rem 0;">
-            <div style="display:flex;justify-content:center;gap:0.8rem;margin-bottom:1rem;flex-wrap:wrap;">
-              <button id="bb-hidden" onclick="setBilliardMode('hidden')" style="padding:0.45rem 1rem;border-radius:6px;border:1px solid var(--accent-3);background:rgba(78,205,196,0.12);color:var(--accent-3);cursor:pointer;font-size:0.8rem;font-weight:500;font-family:inherit;">Information Hidden</button>
-              <button id="bb-accessible" onclick="setBilliardMode('accessible')" style="padding:0.45rem 1rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.8rem;font-weight:500;font-family:inherit;">Information Accessible</button>
+            <div style="display:flex;justify-content:center;gap:0.5rem;margin-bottom:0.6rem;flex-wrap:wrap;">
+              <button id="bb-hidden" onclick="setBBMode('hidden')" style="padding:0.45rem 0.9rem;border-radius:6px;border:1px solid var(--accent-3);background:rgba(78,205,196,0.12);color:var(--accent-3);cursor:pointer;font-size:0.78rem;font-weight:500;font-family:inherit;">Agreeing (hidden info)</button>
+              <button id="bb-accessible" onclick="setBBMode('accessible')" style="padding:0.45rem 0.9rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.78rem;font-weight:500;font-family:inherit;">Disagreeing (accessible info)</button>
+              <button id="bb-play" onclick="bbPlay()" style="padding:0.45rem 1.2rem;border-radius:6px;border:1px solid rgba(255,217,61,0.5);background:rgba(255,217,61,0.08);color:rgba(255,217,61,0.8);cursor:pointer;font-size:0.78rem;font-weight:600;font-family:inherit;">▶ Play</button>
             </div>
-            <div style="display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;">
-              <div style="text-align:center;">
-                <svg id="bb-svg" width="100%" height="240" viewBox="0 0 400 240" style="max-width:400px;">
-                  <!-- Table with felt -->
-                  <rect x="10" y="10" width="380" height="220" rx="12" fill="rgba(16,48,32,0.7)" stroke="rgba(78,205,196,0.35)" stroke-width="2"/>
-                  <!-- Table rail -->
-                  <rect x="16" y="16" width="368" height="208" rx="8" fill="none" stroke="rgba(78,205,196,0.12)" stroke-width="1"/>
-                  <!-- Barrier -->
-                  <rect id="bb-barrier" x="258" y="75" width="8" height="90" rx="3" fill="rgba(255,217,61,0.7)" stroke="rgba(255,217,61,0.4)" stroke-width="1" style="transition:all 0.5s;"/>
-                  <text id="bb-barrier-label" x="262" y="68" text-anchor="middle" fill="rgba(255,217,61,0.5)" font-size="8" font-family="monospace" style="transition:opacity 0.5s;">barrier</text>
-                  <!-- Target zone -->
-                  <circle cx="350" cy="120" r="16" fill="rgba(255,110,138,0.06)" stroke="rgba(255,110,138,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
-                  <circle cx="350" cy="120" r="3" fill="rgba(255,110,138,0.4)"/>
-                  <text x="350" y="147" text-anchor="middle" fill="rgba(255,110,138,0.5)" font-size="8" font-family="monospace">target</text>
-                  <!-- Launch point -->
-                  <circle cx="50" cy="120" r="4" fill="rgba(200,200,220,0.3)" stroke="rgba(200,200,220,0.2)" stroke-width="1"/>
-                  <!-- Path A (goes up, hits barrier area) -->
-                  <path id="bb-pathA" d="M 50,120 C 100,50 180,35 260,75" fill="none" stroke="rgba(110,92,255,0.55)" stroke-width="2" stroke-dasharray="6,4" style="transition:opacity 0.5s;"/>
-                  <circle id="bb-ballA" cx="50" cy="120" r="8" fill="rgba(110,92,255,0.7)" stroke="rgba(110,92,255,0.9)" stroke-width="1" style="transition:opacity 0.5s;"/>
-                  <text id="bb-labelA" x="130" y="42" text-anchor="middle" fill="rgba(110,92,255,0.6)" font-size="9" font-weight="500" font-family="monospace" style="transition:opacity 0.5s;">scenario A</text>
-                  <!-- Path B (goes down, curves to target) -->
-                  <path id="bb-pathB" d="M 50,120 C 120,200 220,195 350,120" fill="none" stroke="rgba(78,205,196,0.55)" stroke-width="2" stroke-dasharray="6,4" style="transition:all 0.5s;"/>
-                  <circle id="bb-ballB" cx="50" cy="120" r="8" fill="rgba(78,205,196,0.7)" stroke="rgba(78,205,196,0.9)" stroke-width="1" style="transition:opacity 0.5s;"/>
-                  <text id="bb-labelB" x="170" y="210" text-anchor="middle" fill="rgba(78,205,196,0.6)" font-size="9" font-weight="500" font-family="monospace" style="transition:opacity 0.5s;">scenario B</text>
-                </svg>
-                <div id="bb-result" style="font-size:0.78rem;color:var(--text-dim);margin-top:0.5rem;min-height:2.5rem;max-width:400px;line-height:1.45;margin-left:auto;margin-right:auto;"></div>
-              </div>
+            <div style="display:flex;justify-content:center;">
+              <canvas id="bb-canvas" width="280" height="400" style="max-width:100%;border-radius:8px;"></canvas>
             </div>
+            <div id="bb-result" style="text-align:center;font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;min-height:2.5rem;max-width:420px;line-height:1.5;margin-left:auto;margin-right:auto;"></div>
           </div>
 
           <script>
-          function setBilliardMode(mode) {
-            var h = mode === 'hidden';
-            var hB = document.getElementById('bb-hidden'), aB = document.getElementById('bb-accessible');
-            hB.style.borderColor = h ? 'var(--accent-3)' : 'var(--border)';
-            hB.style.background = h ? 'rgba(78,205,196,0.12)' : 'transparent';
-            hB.style.color = h ? 'var(--accent-3)' : 'var(--text-dim)';
-            aB.style.borderColor = h ? 'var(--border)' : 'var(--accent-2)';
-            aB.style.background = h ? 'transparent' : 'rgba(255,110,138,0.12)';
-            aB.style.color = h ? 'var(--text-dim)' : 'var(--accent-2)';
-            var ids = ['bb-pathA','bb-pathB','bb-ballA','bb-ballB','bb-labelA','bb-labelB'];
-            ids.forEach(function(id){ document.getElementById(id).style.opacity = h ? '1' : '0.5'; });
-            var bar = document.getElementById('bb-barrier'), res = document.getElementById('bb-result');
-            if (h) {
-              bar.style.opacity = '0.15'; bar.setAttribute('fill','rgba(255,217,61,0.15)');
-              document.getElementById('bb-pathB').setAttribute('d','M 50,120 C 120,200 220,195 350,120');
-              res.innerHTML = '<span style="color:var(--accent-3)">Agreeing superposition.</span> Scenario A removes the barrier; scenario B passes through. Both interact — <strong>100% hit rate</strong>.';
-            } else {
-              bar.style.opacity = '1'; bar.setAttribute('fill','rgba(255,217,61,0.7)');
-              document.getElementById('bb-pathB').setAttribute('d','M 50,120 C 120,200 210,190 255,155');
-              res.innerHTML = '<span style="color:var(--accent-2)">Disagreeing superposition.</span> Scenarios are independent. B hits the barrier — <strong>50% hit rate</strong>. Classical mutual exclusivity.';
+          (function(){
+            var cv=document.getElementById('bb-canvas'),c=cv.getContext('2d');
+            var W=280,H=400;
+            var mode='hidden',t=0,playing=false,aid=null,dChoice=0;
+
+            var P=18,RL=6;
+            var fL=P+RL,fT=P+RL,fR=W-P-RL,fB=H-P-RL;
+            var fW=fR-fL,fH=fB-fT,mx=(fL+fR)/2,midY=(fT+fB)/2;
+
+            var startX=mx, startY=fB-8;
+            var targetX=mx, targetY=fT+8;
+            // Button: left wall, vertical midpoint
+            var btnX=fL, btnY=midY;
+            // Bounce: right wall, vertical midpoint (mirror of button)
+            var bncX=fR, bncY=midY;
+            // Barrier: horizontal bar just below target pocket
+            var barY=targetY+6, barHalf=fW*0.42;
+
+            // === PATHS (all straight-line segments, mirror-reflection V-shapes) ===
+
+            // Left ball: Start → LeftWallMid(button) → Target
+            var pathL=[{x:startX,y:startY},{x:btnX,y:btnY},{x:targetX,y:targetY}];
+            // Right ball: Start → RightWallMid(bounce) → Target
+            var pathR=[{x:startX,y:startY},{x:bncX,y:bncY},{x:targetX,y:targetY}];
+            // Right ball BLOCKED: Start → RightWallMid → barrier → LeftWallMid(button) → Start
+            // Mirror reflection off horizontal barrier at barY sends ball from near-target to button
+            var pathRB=[{x:startX,y:startY},{x:bncX,y:bncY},{x:targetX,y:barY},{x:btnX,y:btnY},{x:startX,y:startY}];
+
+            // Path helpers
+            function sLen(a,b){return Math.sqrt((b.x-a.x)**2+(b.y-a.y)**2);}
+            function pLen(pts){var L=0;for(var i=1;i<pts.length;i++)L+=sLen(pts[i-1],pts[i]);return L;}
+            function pPos(pts,p){
+              if(p<=0)return{x:pts[0].x,y:pts[0].y};
+              if(p>=1)return{x:pts[pts.length-1].x,y:pts[pts.length-1].y};
+              var tot=pLen(pts),tgt=p*tot,acc=0;
+              for(var i=1;i<pts.length;i++){
+                var s=sLen(pts[i-1],pts[i]);
+                if(acc+s>=tgt){var f=(tgt-acc)/s;return{x:pts[i-1].x+f*(pts[i].x-pts[i-1].x),y:pts[i-1].y+f*(pts[i].y-pts[i-1].y)};}
+                acc+=s;
+              }
+              return{x:pts[pts.length-1].x,y:pts[pts.length-1].y};
             }
-          }
-          setBilliardMode('hidden');
+            function wFrac(pts,idx){
+              if(idx<=0)return 0;if(idx>=pts.length-1)return 1;
+              var tot=pLen(pts),acc=0;
+              for(var j=1;j<=idx;j++)acc+=sLen(pts[j-1],pts[j]);
+              return acc/tot;
+            }
+
+            // Drawing
+            function rr(x,y,w,h,r,fi,st){
+              c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);
+              c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+              c.lineTo(x+r,y+h);c.quadraticCurveTo(x,y+h,x,y+h-r);
+              c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);c.closePath();
+              if(fi)c.fill();if(st)c.stroke();
+            }
+            function drawTable(){
+              c.fillStyle='#1a1208';c.strokeStyle='rgba(140,110,50,0.3)';c.lineWidth=2;
+              rr(3,3,W-6,H-6,10,true,true);
+              c.fillStyle='#14301a';c.strokeStyle='rgba(78,205,196,0.1)';c.lineWidth=1;
+              rr(P,P,W-2*P,H-2*P,5,true,true);
+              c.fillStyle='#0d3320';rr(fL,fT,fW,fH,3,true,false);
+              [[fL,fT],[fR,fT],[fL,fB],[fR,fB]].forEach(function(p){
+                c.beginPath();c.arc(p[0],p[1],4,0,Math.PI*2);c.fillStyle='#050505';c.fill();
+              });
+              // Pockets
+              c.beginPath();c.arc(startX,fB,5,0,Math.PI,true);c.fillStyle='#0a0a0a';c.fill();
+              c.strokeStyle='rgba(200,200,220,0.12)';c.lineWidth=1;c.stroke();
+              c.beginPath();c.arc(targetX,fT,5,Math.PI,Math.PI*2);c.fillStyle='#0a0a0a';c.fill();
+              c.strokeStyle='rgba(255,110,138,0.2)';c.lineWidth=1;c.stroke();
+            }
+            function drawBarrier(alpha){
+              if(alpha<=0)return;
+              c.save();c.globalAlpha=alpha;
+              c.fillStyle='rgba(255,217,61,0.8)';
+              rr(mx-barHalf,barY-2,barHalf*2,4,2,true,false);
+              c.strokeStyle='rgba(255,217,61,0.4)';c.lineWidth=1;
+              rr(mx-barHalf,barY-2,barHalf*2,4,2,false,true);
+              c.restore();
+            }
+            function drawButton(glow){
+              c.beginPath();c.arc(btnX+3,btnY,5,0,Math.PI*2);
+              c.fillStyle=glow?'rgba(110,92,255,0.3)':'rgba(110,92,255,0.08)';c.fill();
+              c.strokeStyle='rgba(110,92,255,0.5)';c.lineWidth=1.5;c.stroke();
+              if(glow){c.beginPath();c.arc(btnX+3,btnY,9,0,Math.PI*2);c.fillStyle='rgba(110,92,255,0.1)';c.fill();}
+            }
+            function drawLabels(){
+              c.font='9px monospace';c.textAlign='center';
+              c.fillStyle='rgba(255,110,138,0.5)';c.fillText('Target',targetX,targetY-8);
+              c.fillStyle='rgba(200,200,220,0.3)';c.fillText('Start',startX,startY+12);
+              c.fillStyle='rgba(255,217,61,0.35)';c.fillText('Barrier',(mx-barHalf)/2+mx/2+barHalf/2,barY+12);
+              c.textAlign='left';c.fillStyle='rgba(110,92,255,0.4)';c.fillText('Btn',btnX+12,btnY-6);
+              c.textAlign='right';c.fillStyle='rgba(200,200,220,0.2)';c.fillText('Bnc',bncX-6,bncY-6);
+            }
+            function drawTrail(pts,prog,col){
+              if(prog<=0)return;
+              c.beginPath();c.strokeStyle=col;c.lineWidth=1.6;c.setLineDash([4,4]);
+              var N=Math.max(1,Math.floor(prog*100));
+              for(var i=0;i<=N;i++){var p=pPos(pts,i/100);if(i===0)c.moveTo(p.x,p.y);else c.lineTo(p.x,p.y);}
+              c.stroke();c.setLineDash([]);
+              // Arrows
+              [0.2,0.5,0.8].forEach(function(ap){
+                if(prog>ap){
+                  var p1=pPos(pts,ap-0.015),p2=pPos(pts,ap);
+                  var a=Math.atan2(p2.y-p1.y,p2.x-p1.x),s=5;
+                  c.beginPath();c.moveTo(p2.x,p2.y);
+                  c.lineTo(p2.x-s*Math.cos(a-0.45),p2.y-s*Math.sin(a-0.45));
+                  c.lineTo(p2.x-s*Math.cos(a+0.45),p2.y-s*Math.sin(a+0.45));
+                  c.closePath();c.fillStyle=col;c.fill();
+                }
+              });
+            }
+            function drawBall(x,y,col,sCol,label){
+              c.beginPath();c.arc(x+1.2,y+1.2,6,0,Math.PI*2);c.fillStyle='rgba(0,0,0,0.3)';c.fill();
+              c.beginPath();c.arc(x,y,6,0,Math.PI*2);c.fillStyle=col;c.fill();c.strokeStyle=sCol;c.lineWidth=1.5;c.stroke();
+              c.beginPath();c.arc(x-1.5,y-1.5,1.8,0,Math.PI*2);c.fillStyle='rgba(255,255,255,0.18)';c.fill();
+              if(label){c.font='bold 9px monospace';c.fillStyle='rgba(255,255,255,0.7)';c.textAlign='center';c.fillText(label,x,y+3.5);}
+            }
+            function drawResultFlash(text,col){
+              c.save();
+              c.fillStyle='rgba(0,0,0,0.5)';c.fillRect(fL,midY-22,fW,44);
+              c.strokeStyle=col;c.lineWidth=1;c.strokeRect(fL+1,midY-21,fW-2,42);
+              c.font='bold 16px monospace';c.fillStyle=col;c.textAlign='center';
+              c.fillText(text,mx,midY+6);
+              c.restore();
+            }
+
+            function draw(){
+              c.clearRect(0,0,W,H);
+              drawTable();drawLabels();
+
+              if(!playing&&t===0){
+                drawBarrier(mode==='hidden'?0.5:0.7);
+                drawButton(false);
+                drawBall(startX,startY,'rgba(180,180,200,0.5)','rgba(200,200,220,0.5)',null);
+                return;
+              }
+
+              var p=Math.min(t,1);
+
+              if(mode==='hidden'){
+                // === AGREEING: both balls, same speed ===
+                var btnHit=wFrac(pathL,1); // left ball hits button
+                var barA=t>=btnHit?Math.max(0,0.5-3*(t-btnHit)):0.5;
+                drawBarrier(barA);
+                drawButton(t>=btnHit);
+
+                drawTrail(pathL,p,'rgba(110,92,255,0.28)');
+                drawTrail(pathR,p,'rgba(78,205,196,0.28)');
+                var pos1=pPos(pathL,p),pos2=pPos(pathR,p);
+                drawBall(pos1.x,pos1.y,'rgba(110,92,255,0.85)','rgba(140,120,255,0.9)','1');
+                drawBall(pos2.x,pos2.y,'rgba(78,205,196,0.85)','rgba(100,230,210,0.9)','2');
+
+                if(t>=1.02) drawResultFlash('TARGET ✓  100%','rgba(78,205,196,0.8)');
+              } else {
+                if(dChoice===0){
+                  // Scenario 1: left ball, button → barrier gone → target
+                  var btnHit=wFrac(pathL,1);
+                  var barA=t>=btnHit?Math.max(0,0.7-4*(t-btnHit)):0.7;
+                  drawBarrier(barA);
+                  drawButton(t>=btnHit);
+                  drawTrail(pathL,p,'rgba(110,92,255,0.28)');
+                  var pos=pPos(pathL,p);
+                  drawBall(pos.x,pos.y,'rgba(110,92,255,0.85)','rgba(140,120,255,0.9)','1');
+                  if(t>=1.02) drawResultFlash('TARGET ✓  (50% luck)','rgba(110,92,255,0.8)');
+                } else {
+                  // Scenario 2: right ball, barrier blocks, bounces to button, back to start
+                  var barHitF=wFrac(pathRB,2);  // hits barrier
+                  var btnHitF=wFrac(pathRB,3);  // hits button
+                  // Barrier stays until button is hit on way back
+                  var barA=t>=btnHitF?Math.max(0,0.7-4*(t-btnHitF)):0.7;
+                  drawBarrier(barA);
+                  drawButton(t>=btnHitF);
+
+                  drawTrail(pathRB,p,'rgba(78,205,196,0.28)');
+                  var pos=pPos(pathRB,p);
+                  drawBall(pos.x,pos.y,'rgba(78,205,196,0.85)','rgba(100,230,210,0.9)','2');
+
+                  // Barrier hit flash
+                  if(t>=barHitF&&t<barHitF+0.04){
+                    c.beginPath();c.arc(targetX,barY,8,0,Math.PI*2);
+                    c.fillStyle='rgba(255,217,61,0.25)';c.fill();
+                  }
+                  // Button hit flash on way back
+                  if(t>=btnHitF&&t<btnHitF+0.04){
+                    c.beginPath();c.arc(btnX+3,btnY,10,0,Math.PI*2);
+                    c.fillStyle='rgba(110,92,255,0.2)';c.fill();
+                  }
+                  if(t>=1.02) drawResultFlash('START ✗  (50% bad luck)','rgba(255,110,138,0.7)');
+                }
+              }
+            }
+
+            function animate(){
+              t+=0.004;if(t>1.08){t=1.08;playing=false;}
+              draw();if(playing)aid=requestAnimationFrame(animate);
+            }
+
+            window.setBBMode=function(m){
+              mode=m;t=0;playing=false;if(aid)cancelAnimationFrame(aid);
+              var hB=document.getElementById('bb-hidden'),aB=document.getElementById('bb-accessible');
+              hB.style.borderColor=m==='hidden'?'var(--accent-3)':'var(--border)';
+              hB.style.background=m==='hidden'?'rgba(78,205,196,0.12)':'transparent';
+              hB.style.color=m==='hidden'?'var(--accent-3)':'var(--text-dim)';
+              aB.style.borderColor=m==='accessible'?'var(--accent-2)':'var(--border)';
+              aB.style.background=m==='accessible'?'rgba(255,110,138,0.12)':'transparent';
+              aB.style.color=m==='accessible'?'var(--accent-2)':'var(--text-dim)';
+              draw();
+              var r=document.getElementById('bb-result');
+              if(m==='hidden') r.innerHTML='<span style="color:var(--accent-3)">Agreeing superposition.</span> Both scenarios happen at once. Ball 1 hits Button → barrier vanishes → both reach <strong>Target. 100%.</strong>';
+              else r.innerHTML='<span style="color:var(--accent-2)">Disagreeing superposition.</span> One scenario plays (coin flip). Press <strong>Play</strong>.';
+            };
+            window.bbPlay=function(){
+              t=0;playing=true;
+              if(mode==='accessible')dChoice=Math.random()<0.5?0:1;
+              if(aid)cancelAnimationFrame(aid);animate();
+              if(mode==='accessible'){
+                var r=document.getElementById('bb-result');
+                if(dChoice===0) r.innerHTML='<span style="color:var(--accent-1)">Scenario 1.</span> Left ball → hits Button → barrier removed → <strong>Target ✓</strong>';
+                else r.innerHTML='<span style="color:var(--accent-2)">Scenario 2.</span> Right ball → bounces → <strong>hits Barrier</strong> → bounces to Button (barrier removed, but too late!) → back to <strong>Start ✗</strong>';
+              }
+            };
+            setBBMode('hidden');
+          })();
           </script>
 
           <p>This is <em>not</em> quantum interference. It is the <span class="hl">logical primitive of agreeing superposition</span> operating at macroscopic scale. The billiard balls move along classical paths of stationary action (by Dirac's classical limit), yet different scenarios interact because they're in agreeing superposition. The fundamental theorem identifies the cause as purely logical.</p>
@@ -2014,7 +2193,17 @@ body::before {
 
       <div class="formal">
         <span class="formal-label">The Quantum Nexus Integral</span>
-        N ∝ ∫ ∬ A(T) · χ_T(q₁) · χ_T(q₂) · cos(1/ℏ · (S[q₁(t)] − S[q₂(t)])) D[q₂] D[q₁] dμ(T)
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-style:italic;letter-spacing:0.01em;line-height:1.7;text-align:center;padding:0.3rem 0;">
+          <span style="font-style:normal;">N</span> ∝ 
+          <span style="font-style:normal;font-size:1.5em;vertical-align:-0.12em;">∭</span> 
+          <span style="font-style:normal;">A</span>(<span style="font-style:normal;">T</span>) · 
+          χ<sub style="font-style:normal;">T</sub>(<span style="font-style:normal;">q</span><sub>1</sub>) · 
+          χ<sub style="font-style:normal;">T</sub>(<span style="font-style:normal;">q</span><sub>2</sub>) · 
+          cos<span style="font-size:0.85em;">(</span><sup>1</sup>⁄<sub>ℏ</sub> · 
+          <span style="font-size:0.85em;">(</span><span style="font-style:normal;">S</span>[<span style="font-style:normal;">q</span><sub>1</sub>(<span style="font-style:normal;">t</span>)] − <span style="font-style:normal;">S</span>[<span style="font-style:normal;">q</span><sub>2</sub>(<span style="font-style:normal;">t</span>)]<span style="font-size:0.85em;">)</span><span style="font-size:0.85em;">)</span> 
+          <span style="font-style:normal;">D</span>[<span style="font-style:normal;">q</span><sub>2</sub>] <span style="font-style:normal;">D</span>[<span style="font-style:normal;">q</span><sub>1</sub>] 
+          <span style="font-style:normal;">d</span>μ(<span style="font-style:normal;">T</span>)
+        </div>
       </div>
 
       <p>The <span class="hl">A(T)</span> factor — an Aethus term over every possible subset T of paths — acts as a "kill switch" that zeroes out any collection of paths rendered invalid by Aethic intersection. The entire dynamics of Aethic reasoning are encoded in a single integral via self-destructing terms. The Nexus concept from Layer 5 (a weighted superposition of Aethae) reaches its full generalization here: the Quantum Nexus wraps the path integral in a powerset-level integration, with A(T) performing the Aethic pruning that determines which path-clusters survive.</p>
@@ -2040,48 +2229,180 @@ body::before {
           <p>As the number of slits increases toward infinity, the powerset invalidation theorem from Layer 8 transitions into the Feynman path integral. Each "slit" becomes a continuous path through spacetime. Toggle the detector to watch paths get pruned:</p>
 
           <div id="path-sim" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1.2rem 0;">
-            <div style="display:flex;justify-content:center;gap:0.8rem;margin-bottom:0.8rem;flex-wrap:wrap;">
+            <div style="display:flex;justify-content:center;gap:0.6rem;margin-bottom:0.8rem;flex-wrap:wrap;">
               <button id="pa-off" onclick="setPathMode('off')" style="padding:0.45rem 1rem;border-radius:6px;border:1px solid var(--accent-3);background:rgba(78,205,196,0.12);color:var(--accent-3);cursor:pointer;font-size:0.8rem;font-weight:500;font-family:inherit;">No detection (all paths)</button>
               <button id="pa-on" onclick="setPathMode('on')" style="padding:0.45rem 1rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.8rem;font-weight:500;font-family:inherit;">Partial detection (pruned)</button>
             </div>
-            <svg id="path-svg" width="100%" height="200" viewBox="0 0 460 200" style="display:block;margin:0 auto;max-width:460px;">
-              <!-- Source and screen -->
-              <circle cx="40" cy="100" r="5" fill="rgba(110,92,255,0.6)" stroke="rgba(110,92,255,0.4)" stroke-width="1"/>
-              <text x="40" y="85" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">source</text>
-              <rect x="415" y="20" width="4" height="160" rx="1" fill="rgba(167,139,250,0.3)"/>
-              <text x="430" y="105" fill="var(--text-dim)" font-size="8" font-family="monospace">screen</text>
-
-              <!-- Paths (12 paths in 3 clusters) -->
-              <!-- Cluster 1 (top) — survives -->
-              <path id="pa-p1" d="M 40,100 C 120,30 300,20 417,45" fill="none" stroke="rgba(110,92,255,0.35)" stroke-width="1.3" style="transition:all 0.5s;"/>
-              <path id="pa-p2" d="M 40,100 C 130,40 280,30 417,50" fill="none" stroke="rgba(110,92,255,0.3)" stroke-width="1.2" style="transition:all 0.5s;"/>
-              <path id="pa-p3" d="M 40,100 C 140,50 290,25 417,55" fill="none" stroke="rgba(110,92,255,0.25)" stroke-width="1.1" style="transition:all 0.5s;"/>
-              <path id="pa-p4" d="M 40,100 C 110,45 310,35 417,48" fill="none" stroke="rgba(110,92,255,0.2)" stroke-width="1" style="transition:all 0.5s;"/>
-
-              <!-- Cluster 2 (middle) — survives -->
-              <path id="pa-p5" d="M 40,100 C 150,90 300,95 417,100" fill="none" stroke="rgba(78,205,196,0.35)" stroke-width="1.3" style="transition:all 0.5s;"/>
-              <path id="pa-p6" d="M 40,100 C 160,105 280,110 417,105" fill="none" stroke="rgba(78,205,196,0.3)" stroke-width="1.2" style="transition:all 0.5s;"/>
-              <path id="pa-p7" d="M 40,100 C 140,95 310,90 417,95" fill="none" stroke="rgba(78,205,196,0.25)" stroke-width="1.1" style="transition:all 0.5s;"/>
-              <path id="pa-p8" d="M 40,100 C 170,110 290,100 417,108" fill="none" stroke="rgba(78,205,196,0.2)" stroke-width="1" style="transition:all 0.5s;"/>
-
-              <!-- Cluster 3 (bottom) — gets pruned in "on" mode -->
-              <path id="pa-p9" d="M 40,100 C 120,160 300,170 417,155" fill="none" stroke="rgba(255,217,61,0.35)" stroke-width="1.3" style="transition:all 0.5s;"/>
-              <path id="pa-p10" d="M 40,100 C 130,170 280,175 417,160" fill="none" stroke="rgba(255,217,61,0.3)" stroke-width="1.2" style="transition:all 0.5s;"/>
-              <path id="pa-p11" d="M 40,100 C 140,155 310,165 417,150" fill="none" stroke="rgba(255,217,61,0.25)" stroke-width="1.1" style="transition:all 0.5s;"/>
-              <path id="pa-p12" d="M 40,100 C 110,165 290,180 417,162" fill="none" stroke="rgba(255,217,61,0.2)" stroke-width="1" style="transition:all 0.5s;"/>
-
-              <!-- A(T) labels -->
-              <text id="pa-la" x="220" y="22" text-anchor="middle" fill="rgba(110,92,255,0.4)" font-size="8" font-family="monospace" style="transition:opacity 0.5s;">A(T₁) — surviving cluster</text>
-              <text id="pa-lb" x="220" y="122" text-anchor="middle" fill="rgba(78,205,196,0.4)" font-size="8" font-family="monospace" style="transition:opacity 0.5s;">A(T₂) — surviving cluster</text>
-              <text id="pa-lc" x="220" y="192" text-anchor="middle" fill="rgba(255,217,61,0.4)" font-size="8" font-family="monospace" style="transition:all 0.5s;">A(T₃) — surviving cluster</text>
-            </svg>
-            <div id="path-result" style="text-align:center;font-size:0.78rem;color:var(--text-dim);margin-top:0.3rem;min-height:1.8rem;line-height:1.45;"></div>
+            <div style="display:flex;justify-content:center;">
+              <canvas id="pa-canvas" width="480" height="260" style="max-width:100%;border-radius:8px;"></canvas>
+            </div>
+            <div id="path-result" style="text-align:center;font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;min-height:1.8rem;line-height:1.5;"></div>
           </div>
 
           <script>
           (function(){
+            var cv = document.getElementById('pa-canvas');
+            var cx = cv.getContext('2d');
+            var W = 480, H = 260;
+            var pruned = false;
+            var animT = 0, animating = false, animId = null;
+
+            var srcX = 40, srcY = H/2;
+            var scrX = W - 35, scrY1 = 30, scrY2 = H - 30;
+
+            // Generate path clusters with smooth curves
+            var clusters = [
+              {color:[110,92,255], yCenter:-65, spread:18, count:5, label:'A(T₁)'},
+              {color:[78,205,196], yCenter:0, spread:14, count:5, label:'A(T₂)'},
+              {color:[255,217,61], yCenter:65, spread:18, count:5, label:'A(T₃)'}
+            ];
+
+            // Seed paths deterministically
+            var paths = [];
+            clusters.forEach(function(cl, ci){
+              for (var i = 0; i < cl.count; i++) {
+                var yOff = cl.yCenter + (i - (cl.count-1)/2) * (cl.spread / cl.count * 2);
+                var wobble1 = ((i*7+ci*13) % 11 - 5) * 3;
+                var wobble2 = ((i*11+ci*7) % 9 - 4) * 4;
+                paths.push({
+                  cluster: ci,
+                  cp1x: srcX + (scrX-srcX)*0.3 + wobble1,
+                  cp1y: srcY + yOff*0.6 + wobble2,
+                  cp2x: srcX + (scrX-srcX)*0.7 + wobble2,
+                  cp2y: srcY + yOff*0.9 + wobble1*0.5,
+                  endY: srcY + yOff + (i%2===0?2:-2)
+                });
+              }
+            });
+
+            function drawPath(p, alpha, dashed) {
+              var cl = clusters[p.cluster];
+              cx.beginPath();
+              cx.moveTo(srcX, srcY);
+              cx.bezierCurveTo(p.cp1x, p.cp1y, p.cp2x, p.cp2y, scrX, p.endY);
+              cx.strokeStyle = 'rgba('+cl.color.join(',')+','+alpha+')';
+              cx.lineWidth = 1.4;
+              if (dashed) cx.setLineDash([3,5]);
+              else cx.setLineDash([]);
+              cx.stroke();
+              cx.setLineDash([]);
+            }
+
+            function draw() {
+              cx.clearRect(0,0,W,H);
+
+              // Background
+              cx.fillStyle = '#0a0d14';
+              cx.fillRect(0,0,W,H);
+
+              // Source glow
+              cx.beginPath();
+              cx.arc(srcX, srcY, 18, 0, Math.PI*2);
+              var g = cx.createRadialGradient(srcX,srcY,2,srcX,srcY,18);
+              g.addColorStop(0,'rgba(110,92,255,0.2)');
+              g.addColorStop(1,'rgba(110,92,255,0)');
+              cx.fillStyle = g;
+              cx.fill();
+
+              cx.beginPath();
+              cx.arc(srcX, srcY, 5, 0, Math.PI*2);
+              cx.fillStyle = 'rgba(110,92,255,0.7)';
+              cx.fill();
+              cx.strokeStyle = 'rgba(110,92,255,0.4)';
+              cx.lineWidth = 1;
+              cx.stroke();
+
+              // Source label
+              cx.font = '10px monospace';
+              cx.fillStyle = 'rgba(200,200,220,0.4)';
+              cx.textAlign = 'center';
+              cx.fillText('source', srcX, srcY - 22);
+
+              // Screen
+              cx.fillStyle = 'rgba(167,139,250,0.2)';
+              cx.fillRect(scrX - 2, scrY1, 5, scrY2 - scrY1);
+              cx.strokeStyle = 'rgba(167,139,250,0.15)';
+              cx.lineWidth = 1;
+              cx.strokeRect(scrX - 2, scrY1, 5, scrY2 - scrY1);
+              cx.fillStyle = 'rgba(200,200,220,0.3)';
+              cx.fillText('screen', scrX, scrY2 + 14);
+
+              // Detector indicator (when pruned)
+              if (pruned) {
+                var detY = srcY + clusters[2].yCenter - 15;
+                cx.beginPath();
+                cx.moveTo(srcX + (scrX-srcX)*0.5 - 5, detY - 8);
+                cx.lineTo(srcX + (scrX-srcX)*0.5 + 5, detY - 8);
+                cx.lineTo(srcX + (scrX-srcX)*0.5, detY);
+                cx.closePath();
+                cx.fillStyle = 'rgba(255,110,138,0.4)';
+                cx.fill();
+                cx.font = '9px monospace';
+                cx.fillStyle = 'rgba(255,110,138,0.4)';
+                cx.fillText('detector', srcX + (scrX-srcX)*0.5, detY - 13);
+              }
+
+              // Pruning animation factor
+              var pruneFactor = pruned ? Math.min(animT, 1) : 0;
+
+              // Draw paths
+              paths.forEach(function(p){
+                var isPruned = p.cluster === 2 && pruned;
+                var alpha = isPruned ? Math.max(0.06, 0.35 * (1 - pruneFactor)) : 0.35;
+                drawPath(p, alpha, isPruned && pruneFactor > 0.3);
+              });
+
+              // Cluster labels
+              clusters.forEach(function(cl, ci){
+                var isPruned = ci === 2 && pruned;
+                var labelX = srcX + (scrX-srcX)*0.5;
+                var labelY = srcY + cl.yCenter - cl.spread - 8;
+                cx.font = '11px monospace';
+                cx.textAlign = 'center';
+                if (isPruned && pruneFactor > 0.5) {
+                  cx.fillStyle = 'rgba(255,110,138,0.4)';
+                  cx.fillText(cl.label + ' = 0  (pruned)', labelX, labelY);
+                  // Strikethrough
+                  cx.beginPath();
+                  cx.moveTo(labelX - 55, labelY - 4);
+                  cx.lineTo(labelX + 55, labelY - 4);
+                  cx.strokeStyle = 'rgba(255,110,138,0.25)';
+                  cx.lineWidth = 1;
+                  cx.stroke();
+                } else if (!isPruned && pruned) {
+                  cx.fillStyle = 'rgba('+cl.color.join(',')+',0.5)';
+                  cx.fillText(cl.label + '  ✓ surviving', labelX, labelY);
+                } else if (!pruned) {
+                  cx.fillStyle = 'rgba('+cl.color.join(',')+',0.3)';
+                  cx.fillText(cl.label, labelX, labelY);
+                }
+              });
+
+              // Arrival glow on screen for surviving clusters
+              if (pruned && pruneFactor > 0.5) {
+                [0,1].forEach(function(ci){
+                  var cl = clusters[ci];
+                  var cy2 = srcY + cl.yCenter;
+                  cx.beginPath();
+                  cx.arc(scrX, cy2, 12, 0, Math.PI*2);
+                  var gg = cx.createRadialGradient(scrX,cy2,2,scrX,cy2,12);
+                  gg.addColorStop(0,'rgba('+cl.color.join(',')+',0.15)');
+                  gg.addColorStop(1,'rgba('+cl.color.join(',')+',0)');
+                  cx.fillStyle = gg;
+                  cx.fill();
+                });
+              }
+            }
+
+            function animatePrune() {
+              animT += 0.025;
+              draw();
+              if (animT < 1.2) animId = requestAnimationFrame(animatePrune);
+            }
+
             window.setPathMode = function(mode) {
               var off = mode === 'off';
+              pruned = !off;
               var offBtn = document.getElementById('pa-off'), onBtn = document.getElementById('pa-on');
               offBtn.style.borderColor = off ? 'var(--accent-3)' : 'var(--border)';
               offBtn.style.background = off ? 'rgba(78,205,196,0.12)' : 'transparent';
@@ -2089,25 +2410,17 @@ body::before {
               onBtn.style.borderColor = off ? 'var(--border)' : 'var(--accent-2)';
               onBtn.style.background = off ? 'transparent' : 'rgba(255,110,138,0.12)';
               onBtn.style.color = off ? 'var(--text-dim)' : 'var(--accent-2)';
-              // Cluster 3 paths
-              for (var i = 9; i <= 12; i++) {
-                var p = document.getElementById('pa-p' + i);
-                p.style.opacity = off ? '1' : '0.08';
-                p.style.strokeDasharray = off ? 'none' : '2,4';
-              }
-              // Label for cluster 3
-              var lc = document.getElementById('pa-lc');
-              lc.textContent = off ? 'A(T₃) — surviving cluster' : 'A(T₃) = 0 — pruned by P3';
-              lc.style.fill = off ? 'rgba(255,217,61,0.4)' : 'rgba(255,110,138,0.3)';
-              // Show/hide surviving labels
-              document.getElementById('pa-la').style.opacity = off ? '0' : '1';
-              document.getElementById('pa-lb').style.opacity = off ? '0' : '1';
-              // Result
+
+              if (animId) cancelAnimationFrame(animId);
+              animT = 0;
+
               var res = document.getElementById('path-result');
               if (off) {
-                res.innerHTML = 'All path clusters survive. Full interference from all agreeing superpositions. Each cluster is one A(T) term in the Quantum Nexus.';
+                draw();
+                res.innerHTML = 'All path clusters survive. Full interference from all agreeing superpositions. Each cluster is one A(T) term.';
               } else {
-                res.innerHTML = 'Detection distinguishes cluster 3 from clusters 1&2. A(T₃) → 0. Surviving clusters form the <strong>preferred basis</strong>.';
+                animatePrune();
+                res.innerHTML = 'Detection distinguishes cluster 3. A(T₃) → 0. Surviving clusters form the <strong>preferred basis</strong>.';
               }
             };
             setPathMode('off');
