@@ -156,11 +156,11 @@ body::before {
   position: relative;
 }
 .nav-dot.active {
-  background: var(--accent-1);
-  border-color: var(--accent-1);
-  box-shadow: 0 0 8px var(--accent-1);
+  background: var(--accent-6);
+  border-color: var(--accent-6);
+  box-shadow: 0 0 8px var(--accent-6);
 }
-.nav-dot:hover { border-color: var(--accent-1); }
+.nav-dot:hover { border-color: var(--accent-6); }
 .nav-dot .tooltip {
   position: absolute;
   right: 20px;
@@ -461,34 +461,89 @@ body::before {
   .hero h1 { font-size: 2.2rem; }
   .layer-container { padding: 0 1rem 4rem; }
 }
+/* ─── SHARED TOP NAV ─── */
+.topnav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(7,7,12,0.82);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(200,200,222,0.06);
+  transition:box-shadow 0.3s;
+}
+.topnav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.4);}
+.topnav-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.8rem 2rem;
+}
+.topnav-brand{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:1.25rem;font-weight:500;
+  color:#eeeef8;letter-spacing:-0.01em;
+  text-decoration:none;
+}
+.topnav-brand span{color:#6e5cff;font-weight:600;}
+.topnav-links{display:flex;gap:1.8rem;align-items:center;}
+.topnav-links a{
+  font-size:0.82rem;color:#7a7a96;
+  letter-spacing:0.03em;transition:color 0.2s;
+  position:relative;text-decoration:none;
+}
+.topnav-links a:hover{color:#eeeef8;}
+.topnav-links a::after{
+  content:'';position:absolute;bottom:-2px;left:0;
+  width:0;height:1.5px;background:#6e5cff;
+  transition:width 0.3s;
+}
+.topnav-links a:hover::after{width:100%;}
+.topnav-links .ext{
+  font-size:0.72rem;padding:0.35rem 0.75rem;
+  border:1px solid rgba(110,92,255,0.12);border-radius:5px;
+  color:#7a7a96;transition:all 0.2s;
+}
+.topnav-links .ext:hover{border-color:rgba(110,92,255,0.3);color:#eeeef8;}
+.topnav-links .ext::after{display:none;}
+@media(max-width:768px){
+  .topnav-inner{padding:0.7rem 1rem;}
+  .topnav-links{gap:1rem;}
+  .topnav-links a{font-size:0.75rem;}
+}
+@media(max-width:500px){
+  .topnav-links .hide-mobile{display:none;}
+}
 </style>
 </head>
 <body>
-
-<section class="hero">
-  <h1>How <em>Aethic Reasoning</em> Works</h1>
-  <p class="subtitle">A layered walkthrough of the framework — from ontological foundations through mathematical structure to the derivation of wavefunction collapse and beyond.</p>
-  <p class="byline">Based on the work of Ajax Benander</p>
-  <a href="https://philpapers.org/rec/BENARA-5" target="_blank" rel="noopener" style="display:inline-block;margin-top:1.2rem;padding:0.5rem 1.4rem;border:1px solid var(--border);border-radius:6px;color:var(--accent-1);font-size:0.82rem;text-decoration:none;letter-spacing:0.04em;transition:all 0.2s;position:relative;z-index:1;" onmouseover="this.style.borderColor='var(--accent-1)';this.style.background='rgba(110,92,255,0.08)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='transparent'">Read the original paper on PhilPapers ↗</a>
-  <div class="scroll-hint">
-    <span>Scroll to explore</span>
-    <span class="arrow">↓</span>
+<nav class="topnav" id="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="topnav-brand"><span>aethus</span>.org</a>
+    <div class="topnav-links">
+      <a href="/aethic-reasoning-guide.html">Aethic Guide</a>
+      <a href="/nexic-reasoning-guide.html">Nexic Guide</a>
+      <a href="/aethic-code/" class="hide-mobile">Aethic Code</a>
+      <a href="/ajax/" class="hide-mobile">About Ajax</a>
+      <a href="https://philpeople.org/profiles/ajax-benander" target="_blank" rel="noopener" class="ext">Papers ↗</a>
+    </div>
   </div>
-</section>
+</nav>
+
+<header style="text-align:center;padding:5.5rem 2rem 2rem;">
+  <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(96,165,250,0.5);margin-bottom:0.8rem;">A Comprehensive Solution to the Quantum Measurement Problem</div>
+  <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:300;color:var(--text-bright);margin-bottom:0.6rem;">How Aethic Reasoning Works</h1>
+  <p style="max-width:620px;margin:0 auto;color:var(--text-dim);font-size:0.92rem;line-height:1.6;">Ten layers from the Extrusion Principle through the Quantum Nexus integral. Click any layer to expand.</p>
+  <div style="margin-top:1.2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <button onclick="toggleAll(true)" style="padding:0.4rem 1rem;border-radius:6px;border:1px solid rgba(96,165,250,0.2);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.78rem;font-family:inherit;">Open all</button>
+    <button onclick="toggleAll(false)" style="padding:0.4rem 1rem;border-radius:6px;border:1px solid rgba(96,165,250,0.2);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.78rem;font-family:inherit;">Close all</button>
+  </div>
+</header>
 
 <nav class="nav-sidebar" id="navSidebar"></nav>
 
 <section class="layer-container" id="layers">
 
-  <div class="controls">
-    <button onclick="toggleAll(true)">Expand all layers</button>
-    <button onclick="toggleAll(false)">Collapse all</button>
-  </div>
-
   <!-- LAYER 1 -->
-  <div class="layer" id="layer-1" data-accent="var(--accent-1)">
+  <div class="layer" id="layer-1" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-1)">1</div>
+      <div class="layer-number" style="color:var(--accent-6)">1</div>
       <div class="layer-title-block">
         <div class="layer-title">The Ontology of Time — The Extrusion Principle</div>
         <div class="layer-role">Foundation · The shape of reality itself</div>
@@ -667,9 +722,9 @@ body::before {
   </div>
 
   <!-- LAYER 2 -->
-  <div class="layer" id="layer-2" data-accent="var(--accent-3)">
+  <div class="layer" id="layer-2" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-3)">2</div>
+      <div class="layer-number" style="color:var(--accent-6)">2</div>
       <div class="layer-title-block">
         <div class="layer-title">The First Postulate & Philosophical Framework</div>
         <div class="layer-role">The observer as reference frame</div>
@@ -769,9 +824,9 @@ body::before {
   </div>
 
   <!-- LAYER 3 -->
-  <div class="layer" id="layer-3" data-accent="var(--accent-5)">
+  <div class="layer" id="layer-3" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-5)">3</div>
+      <div class="layer-number" style="color:var(--accent-6)">3</div>
       <div class="layer-title-block">
         <div class="layer-title">The Mathematical Aethus — Definitional Hierarchy</div>
         <div class="layer-role">Substrate · The structure on which everything operates</div>
@@ -1083,9 +1138,9 @@ body::before {
   </div>
 
   <!-- LAYER 5 -->
-  <div class="layer" id="layer-5" data-accent="var(--accent-lavender)">
+  <div class="layer" id="layer-5" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-lavender)">5</div>
+      <div class="layer-number" style="color:var(--accent-6)">5</div>
       <div class="layer-title-block">
         <div class="layer-title">Weighted Aethae, Centric Unfolding & the Nexus</div>
         <div class="layer-role">Dynamics · How the Aethus moves and weighs</div>
@@ -1244,9 +1299,9 @@ body::before {
   </div>
 
   <!-- LAYER 6 -->
-  <div class="layer" id="layer-6" data-accent="var(--accent-4)">
+  <div class="layer" id="layer-6" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-4)">6</div>
+      <div class="layer-number" style="color:var(--accent-6)">6</div>
       <div class="layer-title-block">
         <div class="layer-title">The Union Principle</div>
         <div class="layer-role">Medium · The canvas on which the algorithm paints</div>
@@ -1427,9 +1482,9 @@ body::before {
   </div>
 
   <!-- LAYER 7 -->
-  <div class="layer" id="layer-7" data-accent="var(--accent-2)">
+  <div class="layer" id="layer-7" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-2)">7</div>
+      <div class="layer-number" style="color:var(--accent-6)">7</div>
       <div class="layer-title-block">
         <div class="layer-title">The Reduced Form & the Third Postulate</div>
         <div class="layer-role">Algorithm · Running on the Union Principle's medium</div>
@@ -1613,9 +1668,9 @@ body::before {
   </div>
 
   <!-- LAYER 8 -->
-  <div class="layer" id="layer-8" data-accent="var(--accent-8)">
+  <div class="layer" id="layer-8" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-8)">8</div>
+      <div class="layer-number" style="color:var(--accent-6)">8</div>
       <div class="layer-title-block">
         <div class="layer-title">Applications — Double-Slit, Delayed-Choice & Multi-Slit</div>
         <div class="layer-role">Application · The machinery at work</div>
@@ -1807,9 +1862,9 @@ body::before {
   </div>
 
   <!-- LAYER 9 -->
-  <div class="layer" id="layer-9" data-accent="var(--accent-7)">
+  <div class="layer" id="layer-9" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-7)">9</div>
+      <div class="layer-number" style="color:var(--accent-6)">9</div>
       <div class="layer-title-block">
         <div class="layer-title">The Fundamental Theorem & Falsifiability</div>
         <div class="layer-role">Generalization · From quantum to everywhere</div>
@@ -2144,9 +2199,9 @@ body::before {
   </div>
 
   <!-- LAYER 10 -->
-  <div class="layer" id="layer-10" data-accent="var(--accent-9)">
+  <div class="layer" id="layer-10" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-9)">10</div>
+      <div class="layer-number" style="color:var(--accent-6)">10</div>
       <div class="layer-title-block">
         <div class="layer-title">Prelude to Active Reasoning — The Quantum Nexus Integral</div>
         <div class="layer-role">Horizon · Where the framework meets quantum mechanics head-on</div>
@@ -2443,9 +2498,9 @@ body::before {
 
 
 <footer style="text-align:center; padding:3rem 2rem 4rem; color:var(--text-dim); font-size:0.82rem;">
-  Based on "<a href="https://philpapers.org/rec/BENARA-5" target="_blank" rel="noopener" style="color:var(--accent-1);text-decoration:none;">Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem</a>" by Ajax Benander (December 2024).
-  <br>This interactive guide is an interpretive summary — refer to the original paper for formal proofs and complete argumentation.
-  <br><a href="/" style="color:var(--text-dim);text-decoration:none;margin-top:0.5rem;display:inline-block;">← Back to ajaxbenander.com</a>
+  Based on "<a href="https://philpapers.org/rec/BENARA-5" target="_blank" rel="noopener" style="color:var(--accent-6);text-decoration:none;">Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem</a>" by Ajax Benander (November 2024).
+  <br>This interactive guide is an interpretive summary. Refer to the original paper for formal proofs and complete argumentation.
+  <br><a href="/" style="color:var(--text-dim);text-decoration:none;margin-top:0.5rem;display:inline-block;">← Back to aethus.org</a>
 </footer>
 
 <script>
@@ -2508,6 +2563,14 @@ function updateNav() {
 window.addEventListener('scroll', updateNav);
 buildNav();
 updateNav();
+</script>
+<script>
+const topnav = document.getElementById('topnav');
+if (topnav) {
+  window.addEventListener('scroll', () => {
+    topnav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+}
 </script>
 </body>
 </html>
