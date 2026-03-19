@@ -7,6 +7,14 @@ layout: default
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How Aethic Reasoning Works</title>
+<script>
+MathJax = {
+  tex: {inlineMath: [['$','$'],['\\(','\\)']]},
+  svg: {fontCache: 'global'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -2106,48 +2114,192 @@ body::before {
           <h4>The Phone Booth — Time-Reversals & the Entropic Principle</h4>
 
           <div style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1rem 0;">
-            <svg width="100%" height="200" viewBox="0 0 520 200" style="display:block;margin:0 auto;max-width:520px;">
-              <!-- Yard background -->
-              <rect x="10" y="10" width="500" height="170" rx="8" fill="rgba(30,50,30,0.35)" stroke="rgba(78,205,196,0.2)" stroke-width="1"/>
-              <text x="350" y="28" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace" letter-spacing="0.05em">yard (outside world)</text>
-              <!-- Phone booth -->
-              <rect x="40" y="40" width="80" height="110" rx="5" fill="rgba(110,92,255,0.06)" stroke="rgba(110,92,255,0.5)" stroke-width="2"/>
-              <text x="80" y="60" text-anchor="middle" fill="rgba(110,92,255,0.7)" font-size="9" font-weight="600" font-family="monospace">PHONE BOOTH</text>
-              <!-- Observer inside (stick figure) -->
-              <circle cx="72" cy="85" r="7" fill="none" stroke="rgba(167,139,250,0.7)" stroke-width="1.5"/>
-              <line x1="72" y1="92" x2="72" y2="115" stroke="rgba(167,139,250,0.7)" stroke-width="1.5"/>
-              <line x1="72" y1="100" x2="60" y2="108" stroke="rgba(167,139,250,0.7)" stroke-width="1.5"/>
-              <line x1="72" y1="100" x2="84" y2="108" stroke="rgba(167,139,250,0.7)" stroke-width="1.5"/>
-              <text x="72" y="138" text-anchor="middle" fill="rgba(167,139,250,0.5)" font-size="7" font-family="monospace">you</text>
-              <!-- Switch -->
-              <rect x="95" y="90" width="12" height="22" rx="3" fill="rgba(255,110,138,0.45)" stroke="rgba(255,110,138,0.35)" stroke-width="1"/>
-              <line x1="101" y1="95" x2="101" y2="101" stroke="rgba(255,110,138,0.8)" stroke-width="2" stroke-linecap="round"/>
-              <text x="108" y="106" fill="rgba(255,110,138,0.6)" font-size="7" font-family="monospace" dominant-baseline="middle">t → −t</text>
-              <!-- Person 1 (thrower) -->
-              <circle cx="290" cy="100" r="7" fill="none" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <line x1="290" y1="107" x2="290" y2="130" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <line x1="290" y1="115" x2="278" y2="123" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <line x1="290" y1="115" x2="302" y2="108" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <line x1="290" y1="130" x2="282" y2="145" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <line x1="290" y1="130" x2="298" y2="145" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <!-- Person 2 (catcher) -->
-              <circle cx="430" cy="100" r="7" fill="none" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <line x1="430" y1="107" x2="430" y2="130" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <line x1="430" y1="115" x2="418" y2="108" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <line x1="430" y1="115" x2="442" y2="123" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <line x1="430" y1="130" x2="422" y2="145" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <line x1="430" y1="130" x2="438" y2="145" stroke="rgba(255,217,61,0.6)" stroke-width="1.5"/>
-              <!-- Football arc -->
-              <path d="M 302,108 C 340,50 400,50 418,108" fill="none" stroke="rgba(255,217,61,0.4)" stroke-width="1.5" stroke-dasharray="5,4"/>
-              <!-- Football -->
-              <ellipse cx="360" cy="58" rx="9" ry="5.5" fill="rgba(160,100,40,0.7)" stroke="rgba(255,217,61,0.5)" stroke-width="1" transform="rotate(-15,360,58)"/>
-              <line x1="356" y1="58" x2="364" y2="58" stroke="rgba(255,255,255,0.3)" stroke-width="0.7"/>
-              <!-- Time reversal arrow -->
-              <path d="M 130,165 C 185,185 260,185 310,165" fill="none" stroke="rgba(255,110,138,0.35)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowR9)"/>
-              <text x="220" y="193" text-anchor="middle" fill="rgba(255,110,138,0.45)" font-size="8" font-family="monospace">time reversed outside</text>
-              <defs><marker id="arrowR9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,110,138,0.35)"/></marker></defs>
-            </svg>
+            <div style="display:flex;justify-content:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap;">
+              <button id="pb-before" onclick="setPBMode('before')" style="padding:0.45rem 1rem;border-radius:6px;border:1px solid var(--accent-3);background:rgba(78,205,196,0.12);color:var(--accent-3);cursor:pointer;font-size:0.78rem;font-weight:500;font-family:inherit;">Before switch</button>
+              <button id="pb-after" onclick="setPBMode('after')" style="padding:0.45rem 1rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.78rem;font-weight:500;font-family:inherit;">After t → −t flip</button>
+            </div>
+            <div style="display:flex;justify-content:center;">
+              <canvas id="pb-canvas" width="500" height="220" style="max-width:100%;border-radius:8px;"></canvas>
+            </div>
+            <div id="pb-result" style="text-align:center;font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;min-height:2rem;max-width:500px;line-height:1.5;margin-left:auto;margin-right:auto;"></div>
           </div>
+          <script>
+          (function(){
+            var cv=document.getElementById('pb-canvas'),c=cv.getContext('2d');
+            var W=500,H=220,pbMode='before';
+
+            function rr(x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);c.lineTo(x+r,y+h);c.quadraticCurveTo(x,y+h,x,y+h-r);c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);c.closePath();}
+            function stick(x,y,col,armL,armR){
+              // Head
+              c.beginPath();c.arc(x,y,6,0,Math.PI*2);c.strokeStyle=col;c.lineWidth=1.5;c.stroke();
+              // Body
+              c.beginPath();c.moveTo(x,y+6);c.lineTo(x,y+26);c.stroke();
+              // Arms
+              c.beginPath();c.moveTo(x,y+12);c.lineTo(x+armL[0],y+12+armL[1]);c.stroke();
+              c.beginPath();c.moveTo(x,y+12);c.lineTo(x+armR[0],y+12+armR[1]);c.stroke();
+              // Legs
+              c.beginPath();c.moveTo(x,y+26);c.lineTo(x-6,y+38);c.stroke();
+              c.beginPath();c.moveTo(x,y+26);c.lineTo(x+6,y+38);c.stroke();
+            }
+
+            function draw(){
+              c.clearRect(0,0,W,H);
+              var isAfter=pbMode==='after';
+
+              // Sky/ground
+              c.fillStyle='#0a1210';c.fillRect(0,0,W,H);
+              // Ground
+              c.fillStyle='rgba(30,60,30,0.3)';c.fillRect(0,170,W,50);
+              c.strokeStyle='rgba(78,205,196,0.1)';c.lineWidth=1;
+              c.beginPath();c.moveTo(0,170);c.lineTo(W,170);c.stroke();
+              // Yard label
+              c.font='9px monospace';c.fillStyle='rgba(200,200,220,0.25)';c.textAlign='center';
+              c.fillText('yard (outside world)',340,185);
+
+              // Phone booth
+              c.fillStyle='rgba(110,92,255,0.05)';c.strokeStyle='rgba(110,92,255,0.5)';c.lineWidth=2;
+              rr(20,30,85,140,5);c.fill();c.stroke();
+              c.font='bold 9px monospace';c.fillStyle='rgba(110,92,255,0.6)';c.textAlign='center';
+              c.fillText('PHONE BOOTH',62,48);
+              // Observer
+              stick(58,65,'rgba(167,139,250,0.7)',[-10,8],[10,8]);
+              c.font='8px monospace';c.fillStyle='rgba(167,139,250,0.45)';c.fillText('you',58,120);
+
+              // Switch on booth wall
+              c.fillStyle=isAfter?'rgba(255,110,138,0.6)':'rgba(255,110,138,0.3)';
+              rr(90,82,14,22,3);c.fill();
+              c.strokeStyle='rgba(255,110,138,0.4)';c.lineWidth=1;rr(90,82,14,22,3);c.stroke();
+              // Switch lever
+              c.beginPath();
+              if(isAfter){c.moveTo(97,98);c.lineTo(97,103);}
+              else{c.moveTo(97,84);c.lineTo(97,89);}
+              c.strokeStyle='rgba(255,110,138,0.9)';c.lineWidth=2.5;c.lineCap='round';c.stroke();c.lineCap='butt';
+              c.font='8px monospace';c.fillStyle='rgba(255,110,138,0.5)';c.textAlign='left';
+              c.fillText('t → −t',108,97);
+
+              // Separator line
+              c.beginPath();c.moveTo(120,30);c.lineTo(120,170);
+              c.strokeStyle='rgba(110,92,255,0.15)';c.lineWidth=1;c.setLineDash([3,3]);c.stroke();c.setLineDash([]);
+
+              // --- FRIENDS AND FOOTBALL ---
+              var throwerX=240,catcherX=400,friendY=115;
+
+              if(!isAfter){
+                // BEFORE: Thrower throwing to catcher
+                // Thrower: right arm raised
+                stick(throwerX,friendY,'rgba(255,217,61,0.6)',[-10,8],[12,-8]);
+                c.font='9px monospace';c.fillStyle='rgba(255,217,61,0.4)';c.textAlign='center';
+                c.fillText('thrower',throwerX,friendY+50);
+
+                // Catcher: arms up ready
+                stick(catcherX,friendY,'rgba(255,217,61,0.6)',[-12,-6],[12,-6]);
+                c.fillText('catcher',catcherX,friendY+50);
+
+                // Football arc: thrower → catcher
+                c.beginPath();
+                c.moveTo(throwerX+14,friendY+4);
+                c.quadraticCurveTo(320,friendY-55,catcherX-14,friendY+4);
+                c.strokeStyle='rgba(255,217,61,0.3)';c.lineWidth=1.5;c.setLineDash([5,4]);c.stroke();c.setLineDash([]);
+
+                // Arrow on arc
+                var ax=345,ay=friendY-50;
+                c.beginPath();c.moveTo(ax,ay);c.lineTo(ax-4,ay-5);c.lineTo(ax+3,ay-3);c.closePath();
+                c.fillStyle='rgba(255,217,61,0.35)';c.fill();
+
+                // Football at apex
+                c.save();c.translate(320,friendY-52);c.rotate(-0.3);
+                c.beginPath();c.ellipse(0,0,9,5.5,0,0,Math.PI*2);
+                c.fillStyle='rgba(160,100,40,0.8)';c.fill();
+                c.strokeStyle='rgba(255,217,61,0.5)';c.lineWidth=1;c.stroke();
+                c.beginPath();c.moveTo(-4,0);c.lineTo(4,0);c.strokeStyle='rgba(255,255,255,0.3)';c.lineWidth=0.7;c.stroke();
+                c.restore();
+
+                // Velocity arrow on football
+                c.beginPath();c.moveTo(328,friendY-54);c.lineTo(350,friendY-44);
+                c.strokeStyle='rgba(78,205,196,0.5)';c.lineWidth=1.5;c.stroke();
+                c.beginPath();c.moveTo(350,friendY-44);c.lineTo(345,friendY-50);c.lineTo(348,friendY-39);c.closePath();
+                c.fillStyle='rgba(78,205,196,0.5)';c.fill();
+                c.font='8px monospace';c.fillStyle='rgba(78,205,196,0.45)';c.textAlign='left';
+                c.fillText('v →',352,friendY-44);
+
+              } else {
+                // AFTER: Time reversed. Velocity kicks backwards, but entropy still increases.
+                // Both friends stumble/react to sudden reversal
+                stick(throwerX,friendY,'rgba(255,217,61,0.6)',[-8,10],[14,4]);
+                c.font='9px monospace';c.fillStyle='rgba(255,217,61,0.4)';c.textAlign='center';
+                c.fillText('thrower',throwerX,friendY+50);
+
+                stick(catcherX,friendY,'rgba(255,217,61,0.6)',[-14,2],[8,10]);
+                c.fillText('catcher',catcherX,friendY+50);
+
+                // Football: was going right, now velocity kicks LEFT, but then curves down (gravity+air resistance forward)
+                // Show a short backward arc then dropping
+                var fbX=320,fbY=friendY-52;
+                // Original velocity arrow (ghosted)
+                c.beginPath();c.moveTo(fbX+8,fbY-2);c.lineTo(fbX+30,fbY+8);
+                c.strokeStyle='rgba(78,205,196,0.12)';c.lineWidth=1;c.setLineDash([3,3]);c.stroke();c.setLineDash([]);
+
+                // NEW velocity arrow (reversed)
+                c.beginPath();c.moveTo(fbX-6,fbY);c.lineTo(fbX-28,fbY+10);
+                c.strokeStyle='rgba(255,110,138,0.6)';c.lineWidth=1.8;c.stroke();
+                c.beginPath();c.moveTo(fbX-28,fbY+10);c.lineTo(fbX-22,fbY+6);c.lineTo(fbX-26,fbY+16);c.closePath();
+                c.fillStyle='rgba(255,110,138,0.6)';c.fill();
+                c.font='8px monospace';c.fillStyle='rgba(255,110,138,0.5)';c.textAlign='right';
+                c.fillText('← v kicked back',fbX-32,fbY+8);
+
+                // Football at same position but slightly shifted
+                c.save();c.translate(fbX,fbY);c.rotate(0.3);
+                c.beginPath();c.ellipse(0,0,9,5.5,0,0,Math.PI*2);
+                c.fillStyle='rgba(160,100,40,0.8)';c.fill();
+                c.strokeStyle='rgba(255,110,138,0.5)';c.lineWidth=1;c.stroke();
+                c.beginPath();c.moveTo(-4,0);c.lineTo(4,0);c.strokeStyle='rgba(255,255,255,0.3)';c.lineWidth=0.7;c.stroke();
+                c.restore();
+
+                // Projected path: curves back and DOWN (air resistance + gravity, entropy forward)
+                c.beginPath();
+                c.moveTo(fbX,fbY);
+                c.quadraticCurveTo(fbX-40,fbY+15,fbX-50,fbY+65);
+                c.strokeStyle='rgba(255,110,138,0.25)';c.lineWidth=1.5;c.setLineDash([4,4]);c.stroke();c.setLineDash([]);
+
+                // "NOT" this path label (rewind arc back to thrower)
+                c.beginPath();
+                c.moveTo(fbX,fbY);
+                c.quadraticCurveTo(280,friendY-55,throwerX+14,friendY+4);
+                c.strokeStyle='rgba(200,200,220,0.08)';c.lineWidth=1;c.setLineDash([2,4]);c.stroke();c.setLineDash([]);
+                c.font='8px monospace';c.fillStyle='rgba(200,200,220,0.15)';c.textAlign='center';
+                c.fillText('NOT this (no rewind)',270,friendY-40);
+
+                // Annotation
+                c.font='9px monospace';c.fillStyle='rgba(255,110,138,0.4)';c.textAlign='center';
+                c.fillText('entropy still increases →',340,190);
+
+                // Arrow of Aethic time
+                c.beginPath();c.moveTo(145,195);c.lineTo(470,195);
+                c.strokeStyle='rgba(167,139,250,0.2)';c.lineWidth=1;c.stroke();
+                c.beginPath();c.moveTo(470,195);c.lineTo(464,191);c.lineTo(464,199);c.closePath();
+                c.fillStyle='rgba(167,139,250,0.2)';c.fill();
+                c.font='8px monospace';c.fillStyle='rgba(167,139,250,0.25)';c.textAlign='left';
+                c.fillText('Aethic time →',145,210);
+              }
+            }
+
+            window.setPBMode=function(m){
+              pbMode=m;
+              var bB=document.getElementById('pb-before'),aB=document.getElementById('pb-after');
+              bB.style.borderColor=m==='before'?'var(--accent-3)':'var(--border)';
+              bB.style.background=m==='before'?'rgba(78,205,196,0.12)':'transparent';
+              bB.style.color=m==='before'?'var(--accent-3)':'var(--text-dim)';
+              aB.style.borderColor=m==='after'?'var(--accent-2)':'var(--border)';
+              aB.style.background=m==='after'?'rgba(255,110,138,0.12)':'transparent';
+              aB.style.color=m==='after'?'var(--accent-2)':'var(--text-dim)';
+              draw();
+              var r=document.getElementById('pb-result');
+              if(m==='before') r.innerHTML='Normal time. Football arcs from thrower to catcher. Velocity <strong>v</strong> points forward along the arc.';
+              else r.innerHTML='Switch flipped: <strong>t → −t</strong>. Velocity gets an instantaneous backwards kick. But entropy <em>still increases</em> — the football doesn\'t rewind. It curves down under gravity + air resistance, moving forward in Aethic time.';
+            };
+            setPBMode('before');
+          })();
+          </script>
 
           <p>You stand in a sealed phone booth next to a yard where two friends throw a football. You flip a switch to reverse time outside relative to your perspective. The <strong>entropic principle</strong> (Principle 32) says: entropy <em>still increases</em>. Since you rely on your own Aethic centric unfolding to register statistical entropy increase, you must <em>not</em> see the day backtrack precisely. Instead: all odd-dimensional quantities (velocity) get an instantaneous backwards kick, after which people resume moving forward entropically. The football doesn't follow its trajectory back to the thrower's hands — it gets a kick of momentum backwards, then feels air resistance and gravity as if time were flowing forward still.</p>
           <p>Why? Aethic time (centric unfolding through the Markov chain) is decoupled from Einsteinian time (coordinate direction within each block universe). Even if Einsteinian time reverses, your Aethic evolution continues forward. The "ladder ontology" explains why you can revisit the same spacetime point and see different contents: spacetime was never rigid, since different Aethic block universes coexist as perspectival viewings of the same physical spacetime. By CPT symmetry, time-reversal plus charge-conjugation is just a parity flip — making it intuitive why entropic rewinding isn't involved. (Caveat: you'd want to flip charge too, to avoid an ocean of antimatter in the booth.)</p>
@@ -2196,17 +2348,8 @@ body::before {
 
       <div class="formal">
         <span class="formal-label">The Quantum Nexus Integral</span>
-        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-style:italic;letter-spacing:0.01em;line-height:1.7;text-align:center;padding:0.3rem 0;">
-          <span style="font-style:normal;">N</span> ∝ 
-          <span style="font-style:normal;font-size:1.5em;vertical-align:-0.12em;">∭</span> 
-          <span style="font-style:normal;">A</span>(<span style="font-style:normal;">T</span>) · 
-          χ<sub style="font-style:normal;">T</sub>(<span style="font-style:normal;">q</span><sub>1</sub>) · 
-          χ<sub style="font-style:normal;">T</sub>(<span style="font-style:normal;">q</span><sub>2</sub>) · 
-          cos<span style="font-size:0.85em;">(</span><sup>1</sup>⁄<sub>ℏ</sub> · 
-          <span style="font-size:0.85em;">(</span><span style="font-style:normal;">S</span>[<span style="font-style:normal;">q</span><sub>1</sub>(<span style="font-style:normal;">t</span>)] − <span style="font-style:normal;">S</span>[<span style="font-style:normal;">q</span><sub>2</sub>(<span style="font-style:normal;">t</span>)]<span style="font-size:0.85em;">)</span><span style="font-size:0.85em;">)</span> 
-          <span style="font-style:normal;">D</span>[<span style="font-style:normal;">q</span><sub>2</sub>] <span style="font-style:normal;">D</span>[<span style="font-style:normal;">q</span><sub>1</sub>] 
-          <span style="font-style:normal;">d</span>μ(<span style="font-style:normal;">T</span>)
-        </div>
+        <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$N \propto \int_{\mathcal{P}(X)} \!\!\! \iint A(T) \, \chi_T(q_1) \, \chi_T(q_2) \, \cos\!\left( \frac{1}{\hbar} \bigl( S[q_1(t)] - S[q_2(t)] \bigr) \right) \mathcal{D}[q_2(t)] \, \mathcal{D}[q_1(t)] \, d\mu(T)$$</div>
+      </div>
 
       <p>The <span class="hl">A(T)</span> factor — an Aethus term over every possible subset T of paths — acts as a "kill switch" that zeroes out any collection of paths rendered invalid by Aethic intersection. The entire dynamics of Aethic reasoning are encoded in a single integral via self-destructing terms. The Nexus concept from Layer 5 (a weighted superposition of Aethae) reaches its full generalization here: the Quantum Nexus wraps the path integral in a powerset-level integration, with A(T) performing the Aethic pruning that determines which path-clusters survive.</p>
 
