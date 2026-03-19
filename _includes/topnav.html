@@ -1,0 +1,73 @@
+<style>
+/* ─── SHARED TOP NAV ─── */
+.topnav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(7,7,12,0.82);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(200,200,222,0.06);
+  transition:box-shadow 0.3s;
+}
+.topnav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.4);}
+.topnav-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.8rem 2rem;
+}
+.topnav-brand{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:1.25rem;font-weight:500;
+  color:#eeeef8;letter-spacing:-0.01em;
+  text-decoration:none;
+}
+.topnav-brand span{color:#6e5cff;font-weight:600;}
+.topnav-links{display:flex;gap:1.8rem;align-items:center;}
+.topnav-links a{
+  font-size:0.82rem;color:#7a7a96;
+  letter-spacing:0.03em;transition:color 0.2s;
+  position:relative;text-decoration:none;
+}
+.topnav-links a:hover{color:#eeeef8;}
+.topnav-links a::after{
+  content:'';position:absolute;bottom:-2px;left:0;
+  width:0;height:1.5px;background:#6e5cff;
+  transition:width 0.3s;
+}
+.topnav-links a:hover::after{width:100%;}
+.topnav-links .ext{
+  font-size:0.72rem;padding:0.35rem 0.75rem;
+  border:1px solid rgba(110,92,255,0.12);border-radius:5px;
+  color:#7a7a96;transition:all 0.2s;
+}
+.topnav-links .ext:hover{border-color:rgba(110,92,255,0.3);color:#eeeef8;}
+.topnav-links .ext::after{display:none;}
+@media(max-width:768px){
+  .topnav-inner{padding:0.7rem 1rem;}
+  .topnav-links{gap:1rem;}
+  .topnav-links a{font-size:0.75rem;}
+}
+@media(max-width:500px){
+  .topnav-links .hide-mobile{display:none;}
+}
+</style>
+
+<nav class="topnav" id="topnav">
+  <div class="topnav-inner">
+    <a href="/" class="topnav-brand"><span>aethus</span>.org</a>
+    <div class="topnav-links">
+      <a href="/aethic-reasoning-guide.html">Aethic Guide</a>
+      <a href="/nexic-reasoning-guide.html">Nexic Guide</a>
+      <a href="/aethic-code/" class="hide-mobile">Aethic Code</a>
+      <a href="/ajax/" class="hide-mobile">About Ajax</a>
+      <a href="https://philpeople.org/profiles/ajax-benander" target="_blank" rel="noopener" class="ext">Papers ↗</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+const topnav = document.getElementById('topnav');
+if (topnav) {
+  window.addEventListener('scroll', () => {
+    topnav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+}
+</script>
