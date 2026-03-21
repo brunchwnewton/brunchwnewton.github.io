@@ -346,6 +346,7 @@ footer{
   <div class="topnav-inner">
     <a href="/" class="topnav-brand"><span>aethus</span>.org</a>
     <div class="topnav-links">
+      <a href="/start-here.html">Start Here</a>
       <a href="/aethic-reasoning-guide.html">Aethic Guide</a>
       <a href="/nexic-reasoning-guide.html">Nexic Guide</a>
       <a href="/aethic-code/" class="hide-mobile">Aethic Code</a>
@@ -367,6 +368,20 @@ footer{
     <p class="affil">by <a href="/ajax/" style="color:var(--accent);text-decoration:none;">Ajax Benander</a></p>
   </div>
 </section>
+
+<!-- ═══ START HERE ═══ -->
+<div style="max-width:680px;margin:0 auto;padding:0 2rem;">
+  <a href="/start-here.html" style="display:block;padding:1.3rem 1.8rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='var(--bg-card-hover)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';this.style.transform='none'">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);font-weight:600;white-space:nowrap;">New here?</div>
+      <div>
+        <div style="font-size:0.92rem;color:var(--text-bright);font-weight:500;">Aethic Reasoning in Five Minutes</div>
+        <div style="font-size:0.78rem;color:var(--text-dim);margin-top:0.15rem;">The measurement problem, natural history, and why this might matter — in a single read.</div>
+      </div>
+      <div style="margin-left:auto;color:var(--text-dim);font-size:0.85rem;">→</div>
+    </div>
+  </a>
+</div>
 
 <!-- ═══ INTERACTIVE GUIDES ═══ -->
 <hr class="divider">
@@ -597,10 +612,15 @@ footer{
 </footer>
 
 <script>
-// Navbar scroll effect
-const nav = document.getElementById('topnav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 30);
+document.addEventListener('scroll', () => {
+  document.getElementById('topnav').classList.toggle('scrolled', window.scrollY > 40);
+});
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 });
 </script>
 </body>
