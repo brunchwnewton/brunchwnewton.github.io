@@ -152,11 +152,11 @@ body::before {
   position: relative;
 }
 .nav-dot.active {
-  background: var(--accent-1);
-  border-color: var(--accent-1);
-  box-shadow: 0 0 8px var(--accent-1);
+  background: var(--accent-4);
+  border-color: var(--accent-4);
+  box-shadow: 0 0 8px var(--accent-4);
 }
-.nav-dot:hover { border-color: var(--accent-1); }
+.nav-dot:hover { border-color: var(--accent-4); }
 .nav-dot .tooltip {
   position: absolute;
   right: 20px;
@@ -506,7 +506,7 @@ body::before {
 @media(max-width:500px){
   .topnav-links .hide-mobile{display:none;}
 }
-</style>
+</style></head>
 
 <header style="text-align:center;padding:5.5rem 2rem 2rem;">
   <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(251,191,36,0.5);margin-bottom:0.8rem;">A Generalized Calculus Over Anthropic Parameters</div>
@@ -1207,24 +1207,25 @@ function buildNav() {
   sidebar.innerHTML = '';
   layers.forEach((l, i) => {
     const dot = document.createElement('div');
-    dot.title = titles[i] || ('Layer ' + (i+1));
-    dot.style.cssText = 'width:8px;height:8px;border-radius:50%;background:rgba(251,191,36,0.25);cursor:pointer;transition:all 0.3s;';
+    dot.className = 'nav-dot';
+    dot.innerHTML = `<span class="tooltip">${titles[i]}</span>`;
     dot.addEventListener('click', () => l.scrollIntoView({behavior:'smooth',block:'start'}));
     sidebar.appendChild(dot);
   });
-  updateNav();
 }
 function updateNav() {
-  const dots = document.querySelectorAll('#navSidebar > div');
+  const dots = document.querySelectorAll('.nav-dot');
   const layers = document.querySelectorAll('.layer');
+  const scrollY = window.scrollY + 80;
+  let activeIdx = 0;
   layers.forEach((l, i) => {
-    if (dots[i]) {
-      dots[i].style.background = l.classList.contains('open') ? 'rgba(251,191,36,0.8)' : 'rgba(251,191,36,0.25)';
-      dots[i].style.transform = l.classList.contains('open') ? 'scale(1.3)' : 'scale(1)';
-    }
+    if (l.offsetTop <= scrollY) activeIdx = i;
   });
+  dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
 }
+window.addEventListener('scroll', updateNav);
 buildNav();
+updateNav();
 </script>
 
 <script>
