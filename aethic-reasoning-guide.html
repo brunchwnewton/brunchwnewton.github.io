@@ -507,7 +507,6 @@ body::before {
   .topnav-links .hide-mobile{display:none;}
 }
 </style>
-</style>
 
 <header style="text-align:center;padding:5.5rem 2rem 2rem;">
   <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(96,165,250,0.5);margin-bottom:0.8rem;">A Comprehensive Solution to the Quantum Measurement Problem</div>
@@ -2536,12 +2535,12 @@ function buildNav() {
 function updateNav() {
   const dots = document.querySelectorAll('.nav-dot');
   const layers = document.querySelectorAll('.layer');
-  const scrollY = window.scrollY + window.innerHeight / 3;
+  const scrollY = window.scrollY + 80;
+  let activeIdx = 0;
   layers.forEach((l, i) => {
-    const top = l.offsetTop;
-    const bot = top + l.offsetHeight;
-    dots[i].classList.toggle('active', scrollY >= top && scrollY < bot);
+    if (l.offsetTop <= scrollY) activeIdx = i;
   });
+  dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
 }
 window.addEventListener('scroll', updateNav);
 buildNav();
