@@ -1,176 +1,122 @@
 ---
 layout: default
+title: "Start Here — Aethic Reasoning in Five Minutes"
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start Here — Aethic Reasoning in Five Minutes</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #07070c;
-  --bg-elevated: #0e0e18;
-  --bg-card: #131322;
-  --text: #c8c8de;
-  --text-dim: #7a7a96;
-  --text-bright: #eeeef8;
-  --accent: #6e5cff;
-  --accent-glow: rgba(110,92,255,0.15);
-  --accent-gold: #ffd93d;
-  --border: rgba(110,92,255,0.12);
-  --border-subtle: rgba(200,200,222,0.06);
+  --bg: #0a0a0f;
+  --bg-layer: #10101a;
+  --bg-card: #161625;
+  --text: #d4d4e8;
+  --text-dim: #8888aa;
+  --text-bright: #f0f0ff;
+  --accent-1: #fbbf24;
+  --accent-6: #60a5fa;
+  --border: rgba(110,92,255,0.15);
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'DM Sans',system-ui,sans-serif;
-  font-size:16px;
-  line-height:1.7;
-}
-
-/* ─── TOP NAV ─── */
-.topnav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  background:rgba(7,7,12,0.82);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border-subtle);
-}
-.topnav-inner{
-  max-width:1100px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0.8rem 2rem;
-}
-.topnav-brand{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.35rem;font-weight:400;color:var(--text-bright);
-  text-decoration:none;letter-spacing:0.01em;
-}
-.topnav-brand span{color:var(--accent);}
-.topnav-links{display:flex;gap:1.8rem;align-items:center;}
-.topnav-links a{
-  font-size:0.78rem;color:var(--text-dim);text-decoration:none;
-  transition:color 0.2s;letter-spacing:0.01em;
-}
-.topnav-links a:hover{color:var(--text-bright);}
-.topnav-links .ext{
-  padding:0.3rem 0.8rem;border-radius:6px;
-  border:1px solid var(--border-subtle);font-size:0.72rem;
-}
-.topnav-links .ext:hover{border-color:var(--accent);color:var(--accent);}
-.topnav-links .active{color:var(--text-bright);}
-@media(max-width:700px){
-  .topnav-links{gap:1rem;}
-  .topnav-links a{font-size:0.72rem;}
-  .topnav-links .hide-mobile{display:none;}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
 }
 
 /* ─── ARTICLE ─── */
-.article-wrap{
-  max-width:680px;
-  margin:0 auto;
-  padding:7rem 2rem 4rem;
+.article-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 5rem 2rem 4rem;
 }
-.article-wrap h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2rem,5vw,2.8rem);
-  font-weight:400;
-  color:var(--text-bright);
-  line-height:1.25;
-  margin-bottom:0.6rem;
+.article-wrap h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--text-bright);
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
 }
-.article-wrap .subtitle{
-  font-size:0.85rem;
-  color:var(--text-dim);
-  margin-bottom:2.5rem;
-  line-height:1.6;
+.article-wrap .subtitle {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
 }
-.article-wrap h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.5rem;
-  font-weight:400;
-  color:var(--text-bright);
-  margin:2.8rem 0 1rem;
-  padding-top:1rem;
-  border-top:1px solid var(--border-subtle);
+.article-wrap h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-bright);
+  margin: 2.8rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
 }
-.article-wrap p{
-  margin-bottom:1.1rem;
-  line-height:1.75;
-  font-size:0.94rem;
+.article-wrap p {
+  margin-bottom: 1.1rem;
+  line-height: 1.75;
+  font-size: 0.94rem;
 }
-.article-wrap em{color:var(--text-bright);font-style:italic;}
-.article-wrap strong{color:var(--text-bright);font-weight:600;}
-.article-wrap hr{
-  border:none;
-  border-top:1px solid var(--border-subtle);
-  margin:2.5rem 0;
+.article-wrap em { color: var(--text-bright); font-style: italic; }
+.article-wrap strong { color: var(--text-bright); font-weight: 600; }
+.article-wrap hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
 }
-.article-wrap a.inline{
-  color:var(--accent);
-  text-decoration:none;
-  border-bottom:1px solid rgba(110,92,255,0.3);
-  transition:border-color 0.2s;
-}
-.article-wrap a.inline:hover{border-color:var(--accent);}
 
 /* ─── NEXT LINKS ─── */
-.next-links{
-  display:grid;gap:0.8rem;
-  margin-top:2rem;
+.next-links {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 2rem;
 }
-.next-link{
-  display:flex;align-items:center;gap:1rem;
-  padding:1rem 1.2rem;
-  border-radius:8px;
-  border:1px solid var(--border-subtle);
-  background:var(--bg-elevated);
-  text-decoration:none;
-  transition:all 0.2s;
+.next-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-layer);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
 }
-.next-link:hover{
-  border-color:var(--border);
-  background:var(--bg-card);
-  transform:translateY(-1px);
+.next-link:hover {
+  border-color: rgba(110,92,255,0.3);
+  background: var(--bg-card);
+  transform: translateY(-1px);
 }
-.next-link .nl-label{
-  font-size:0.88rem;color:var(--text-bright);font-weight:500;
+.next-link .nl-label {
+  font-size: 0.88rem;
+  color: var(--text-bright);
+  font-weight: 500;
 }
-.next-link .nl-desc{
-  font-size:0.75rem;color:var(--text-dim);margin-top:0.15rem;
+.next-link .nl-desc {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 0.15rem;
 }
-.next-link .nl-arrow{
-  margin-left:auto;color:var(--text-dim);font-size:0.85rem;
+.next-link .nl-arrow {
+  margin-left: auto;
+  color: var(--text-dim);
+  font-size: 0.85rem;
 }
 
 /* ─── FOOTER ─── */
-footer{
-  text-align:center;
-  padding:3rem 2rem 4rem;
-  color:var(--text-dim);
-  font-size:0.78rem;
+.sh-footer {
+  text-align: center;
+  padding: 3rem 2rem 4rem;
+  color: var(--text-dim);
+  font-size: 0.78rem;
 }
-footer a{color:var(--accent);text-decoration:none;}
+.sh-footer a {
+  color: var(--accent-6);
+  text-decoration: none;
+}
 </style>
-</head>
-<body>
-
-<nav class="topnav">
-  <div class="topnav-inner">
-    <a href="/" class="topnav-brand"><span>aethus</span>.org</a>
-    <div class="topnav-links">
-      <a href="/start-here.html" class="active">Start Here</a>
-      <a href="/aethic-reasoning-guide.html">Aethic Guide</a>
-      <a href="/nexic-reasoning-guide.html">Nexic Guide</a>
-      <a href="/aethic-code/" class="hide-mobile">Aethic Code</a>
-      <a href="/ajax/" class="hide-mobile">About Ajax</a>
-      <a href="https://philpeople.org/profiles/ajax-benander" target="_blank" rel="noopener" class="ext">Papers ↗</a>
-    </div>
-  </div>
-</nav>
 
 <article class="article-wrap">
 
@@ -291,9 +237,6 @@ footer a{color:var(--accent);text-decoration:none;}
 
 </article>
 
-<footer>
+<div class="sh-footer">
   <a href="/">← Back to aethus.org</a>
-</footer>
-
-</body>
-</html>
+</div>
