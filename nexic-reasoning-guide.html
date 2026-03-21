@@ -516,6 +516,7 @@ body::before {
   <div class="topnav-inner">
     <a href="/" class="topnav-brand"><span>aethus</span>.org</a>
     <div class="topnav-links">
+      <a href="/start-here.html">Start Here</a>
       <a href="/aethic-reasoning-guide.html">Aethic Guide</a>
       <a href="/nexic-reasoning-guide.html">Nexic Guide</a>
       <a href="/aethic-code/" class="hide-mobile">Aethic Code</a>
@@ -624,6 +625,120 @@ body::before {
 
       <p><strong>Node 1:</strong> Dinosaurs evolve (A, ~33%, since one of three Phanerozoic eras produced a dominant clade to that extent) vs. extended Paleozoic (A', ~67%).<br>
       <strong>Node 2 (under A only):</strong> K-Pg extinction succeeds with mammals surviving (B|A, ~13%, from crater-location analysis) vs. dinosaurs persist (B'|A, ~87%, and P(H|B') ≈ 0 by dinosaurian dominance).</p>
+
+      <!-- Two-node diagram -->
+      <div style="margin:2rem auto;max-width:560px;overflow-x:auto;">
+      <svg viewBox="0 0 560 530" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'DM Sans',system-ui,sans-serif;">
+        <defs>
+          <style>
+            .tl{stroke:#444;stroke-width:1.8;fill:none;}
+            .tl-dash{stroke:#444;stroke-width:1.5;fill:none;stroke-dasharray:4,4;}
+            .t-bright{fill:#eeeef8;font-size:12px;font-weight:600;text-anchor:middle;}
+            .t-blue{fill:#60a5fa;font-size:11px;font-weight:600;text-anchor:middle;}
+            .t-gold{fill:#fbbf24;font-size:11px;font-weight:600;text-anchor:middle;}
+            .t-green{fill:#4ade80;font-size:13px;font-weight:700;text-anchor:middle;}
+            .t-red{fill:#f87171;font-size:11px;font-weight:600;text-anchor:middle;}
+            .t-dim{fill:#7a7a96;font-size:9.5px;text-anchor:middle;}
+            .t-cap{fill:#555;font-size:8.5px;text-anchor:middle;}
+            .fig{stroke:#c8c8de;stroke-width:1;fill:none;}
+            .fig-dim{stroke:#555;stroke-width:1;fill:none;}
+            .fig-x{stroke:#f87171;stroke-width:1.2;opacity:0.7;}
+          </style>
+        </defs>
+
+        <!-- NODE 1: center top -->
+        <circle cx="280" cy="22" r="5" fill="#fbbf24"/>
+
+        <!-- Left branch: timeline concavity (flat out, then drops) -->
+        <path d="M280,27 C200,27 160,40 160,82" class="tl"/>
+        <!-- Right branch: symmetric -->
+        <path d="M280,27 C360,27 400,40 400,82" class="tl"/>
+
+        <text x="160" y="60" class="t-bright">Dinosaurs Evolve</text>
+        <text x="160" y="75" class="t-blue">≤33%</text>
+
+        <text x="400" y="60" class="t-bright">Dinosaurs Never Evolve</text>
+        <text x="400" y="75" class="t-gold">≥67%</text>
+
+        <!-- NODE 2: under left -->
+        <circle cx="160" cy="82" r="4" fill="#fbbf24"/>
+
+        <!-- Sub-branches: same timeline concavity -->
+        <path d="M160,86 C120,86 90,98 90,135" class="tl"/>
+        <path d="M160,86 C200,86 230,98 230,135" class="tl"/>
+
+        <text x="90" y="120" class="t-bright" style="font-size:11px;">Extinct</text>
+        <text x="90" y="134" class="t-blue" style="font-size:10px;">≤13%</text>
+
+        <text x="230" y="120" class="t-bright" style="font-size:11px;">Never Extinct</text>
+        <text x="230" y="134" class="t-gold" style="font-size:10px;">≥87%</text>
+
+        <!-- RIGHT: dashed line down -->
+        <line x1="400" y1="86" x2="400" y2="148" class="tl-dash"/>
+
+        <!-- ═══ LEAF ZONE ═══ -->
+
+        <!-- Leaf 1: Extinct path -->
+        <circle cx="90" cy="158" r="5" class="fig"/>
+        <line x1="90" y1="163" x2="90" y2="175" class="fig"/>
+        <line x1="90" y1="175" x2="84" y2="185" class="fig"/>
+        <line x1="90" y1="175" x2="96" y2="185" class="fig"/>
+        <line x1="90" y1="167" x2="82" y2="173" class="fig"/>
+        <line x1="90" y1="167" x2="98" y2="173" class="fig"/>
+        <text x="90" y="202" class="t-dim">P(H) ≤100%</text>
+        <text x="90" y="224" class="t-green">≤4%</text>
+
+        <!-- Leaf 2: Never Extinct -->
+        <circle cx="230" cy="158" r="5" class="fig-dim"/>
+        <line x1="230" y1="163" x2="230" y2="175" class="fig-dim"/>
+        <line x1="230" y1="175" x2="224" y2="185" class="fig-dim"/>
+        <line x1="230" y1="175" x2="236" y2="185" class="fig-dim"/>
+        <line x1="230" y1="167" x2="222" y2="173" class="fig-dim"/>
+        <line x1="230" y1="167" x2="238" y2="173" class="fig-dim"/>
+        <line x1="222" y1="153" x2="238" y2="173" class="fig-x"/>
+        <line x1="238" y1="153" x2="222" y2="173" class="fig-x"/>
+        <text x="230" y="202" class="t-dim">P(H) ≈0%</text>
+        <text x="230" y="224" class="t-red">≈0%</text>
+
+        <!-- Leaf 3: Never Evolve -->
+        <circle cx="400" cy="158" r="5" stroke="#7a7a96" stroke-width="1" fill="none"/>
+        <line x1="400" y1="163" x2="400" y2="175" stroke="#7a7a96" stroke-width="1"/>
+        <line x1="400" y1="175" x2="394" y2="185" stroke="#7a7a96" stroke-width="1"/>
+        <line x1="400" y1="175" x2="406" y2="185" stroke="#7a7a96" stroke-width="1"/>
+        <line x1="400" y1="167" x2="392" y2="173" stroke="#7a7a96" stroke-width="1"/>
+        <line x1="400" y1="167" x2="408" y2="173" stroke="#7a7a96" stroke-width="1"/>
+        <text x="400" y="202" class="t-dim">P(H) ≤6%</text>
+        <text x="400" y="224" class="t-green">≤4%</text>
+
+        <!-- ═══ COMBINING ═══ -->
+        <path d="M90,234 L90,248 L230,248 L230,234" fill="none" stroke="#444" stroke-width="1"/>
+        <text x="160" y="252" style="fill:#666;font-size:12px;text-anchor:middle;">+</text>
+        <line x1="160" y1="254" x2="160" y2="298" stroke="#444" stroke-width="1"/>
+        <text x="160" y="316" class="t-green">≤4%</text>
+
+        <line x1="400" y1="234" x2="400" y2="308" stroke="#444" stroke-width="1"/>
+        <text x="400" y="316" class="t-green">≤4%</text>
+
+        <!-- Accordance: split dashed line with ≥ in gap -->
+        <line x1="198" y1="313" x2="252" y2="313" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <line x1="308" y1="313" x2="362" y2="313" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <text x="280" y="308" style="fill:#fbbf24;font-size:22px;font-weight:700;text-anchor:middle;">≥</text>
+        <text x="280" y="340" class="t-dim" style="font-size:8px;letter-spacing:0.06em;">ACCORDANCE PRINCIPLE</text>
+
+        <!-- Convergence -->
+        <path d="M160,326 C160,370 280,370 280,392" fill="none" stroke="#4ade80" stroke-width="1" opacity="0.35"/>
+        <path d="M400,326 C400,370 280,370 280,392" fill="none" stroke="#4ade80" stroke-width="1" opacity="0.35"/>
+
+        <!-- Final box -->
+        <rect x="230" y="388" width="100" height="34" rx="5" fill="rgba(248,113,113,0.06)" stroke="rgba(248,113,113,0.3)" stroke-width="1"/>
+        <text x="280" y="410" style="fill:#f87171;font-size:14px;font-weight:700;text-anchor:middle;">P(H) ≤ 8%</text>
+
+        <!-- Caption -->
+        <text x="280" y="455" class="t-cap">The two-node dinosaurian circumstance.</text>
+        <text x="280" y="468" class="t-cap">The left branch (≤4%) must be ≥ the right branch (≤4%)</text>
+        <text x="280" y="481" class="t-cap">by the Accordance Principle, bounding P(H) ≤ 8% per biosphere.</text>
+      </svg>
+      </div>
 
       <p>The Accordance Principle then forces: the path we're on (A∩B → humans) must have higher joint probability than the alternative (A' → humans). The algebra yields <span class="hl3">P(H|A')/P(H|B) ≲ 6%</span>. An extended Paleozoic never produces humans at more than 6% the rate of the post-extinction world. This single derivation simultaneously proves that dinosaur <em>origination</em> (not just extinction) is an anthropic parameter, and seeds the Rare Earth calculation.</p>
 
