@@ -1,0 +1,310 @@
+---
+layout: default
+title: "Common Objections — Aethic & Nexic Reasoning"
+---
+<style>
+:root {
+  --bg: #0a0a0f;
+  --bg-layer: #10101a;
+  --bg-card: #161625;
+  --text: #d4d4e8;
+  --text-dim: #8888aa;
+  --text-bright: #f0f0ff;
+  --accent-1: #6e5cff;
+  --accent-3: #4ecdc4;
+  --accent-6: #60a5fa;
+  --accent-2: #ff6e8a;
+  --accent-gold: #fbbf24;
+  --border: rgba(110,92,255,0.15);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
+}
+.faq-wrap {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 5.5rem 2rem 4rem;
+}
+.faq-wrap h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 300;
+  color: var(--text-bright);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.faq-intro {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+.faq-item {
+  margin-bottom: 1.8rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.faq-item:hover { border-color: rgba(110,92,255,0.25); }
+.faq-q {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+  user-select: none;
+  background: var(--bg-card);
+  transition: background 0.2s;
+}
+.faq-q:hover { background: rgba(22,22,37,0.9); }
+.faq-q-text {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  line-height: 1.4;
+}
+.faq-chevron {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  transition: transform 0.3s ease;
+  padding-top: 0.3rem;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-chevron { transform: rotate(90deg); color: var(--accent-1); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq-item.open .faq-a { max-height: 3000px; }
+.faq-a-inner {
+  padding: 0.8rem 1.3rem 1.4rem;
+  border-top: 1px solid var(--border);
+}
+.faq-a-inner p {
+  font-size: 0.88rem;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+.faq-a-inner p:last-child { margin-bottom: 0; }
+.faq-a-inner a {
+  color: var(--accent-6);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(96,165,250,0.2);
+}
+.faq-a-inner a:hover { border-color: rgba(96,165,250,0.5); }
+.faq-a-inner a.nexic-ref { color: var(--accent-gold); border-color: rgba(251,191,36,0.2); }
+.faq-a-inner a.nexic-ref:hover { border-color: rgba(251,191,36,0.5); }
+.faq-a-inner em { color: var(--text-bright); }
+.faq-section-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-6);
+  margin: 2.5rem 0 1rem;
+  font-weight: 600;
+}
+.faq-section-label:first-of-type { margin-top: 0; }
+.faq-section-label.nexic { color: var(--accent-gold); }
+.faq-footer {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+}
+.faq-footer a { color: var(--accent-6); text-decoration: none; }
+</style>
+
+<div class="faq-wrap">
+
+<h1>Common Objections</h1>
+<p class="faq-intro">Questions a scientifically literate reader will ask within the first few minutes. Each answer is concise, honest about limitations, and links to the relevant layer for the full treatment.</p>
+
+<!-- FOUNDATIONAL -->
+<div class="faq-section-label">Foundational / first reactions</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">How is this different from Many-Worlds? Isn't this just Many-Worlds with fewer universes?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>Many-Worlds is an extension of the <em>growing</em> block universe: outcomes branch at the present into spatially separate copies. Aethic reasoning keeps a single spacetime and navigates it perspectivally. No new universes are created at any point.</p>
+    <p>The sharpest distinction is under time-reversal. Many-Worlds, like Copenhagen, says reversing time would un-collapse a superposition. Aethic reasoning says this is impossible: in the subsequent block universe, there was <em>never a superposition to un-collapse</em>. The prior block universe retains its superposition indefinitely; the subsequent one never had it.</p>
+    <p>Additionally, Many-Worlds cannot express the concept of an agreeing superposition at all. In the Aethic framework, agreeing superposition is a categorically new primitive that is literally undefinable in a timeline-branching metaphysics. And Many-Worlds has no principled derivation of the Born rule, which remains an open problem within that framework.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-1">Full treatment &#8594; Aethic Layer 1 deep dive</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">How is this different from Relational Quantum Mechanics?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>Relational QM (Rovelli) correctly identifies that reality is observer-indexed. The frameworks share this commitment. The difference is that RQM leaves a critical gap: how are different observers guaranteed to give consistent accounts of the world? RQM requires additional axioms to handle Wigner's Friend scenarios.</p>
+    <p>Aethic reasoning fills this gap structurally. The Third Postulate proves that contradictory observers cannot coexist in any valid Aethus: multi-observer consistency is <em>derived</em> as a theorem, not assumed. Additionally, Aethic reasoning provides the extrusion principle (the mechanism for how collapse happens), the Union Principle (the algebraic structure distinguishing agreeing from disagreeing superposition), and the Quantum Nexus integral (the bridge to empirical predictions). None of these have counterparts in RQM.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-7">Full treatment &#8594; Aethic Layer 7 deep dive (RQM consistency)</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">Isn't the Aethus just a hidden variable? How does this avoid Bell's theorem?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>No. A hidden variable is a pre-existing definite value that is merely unknown to the observer. An Aethus is a structure of partial information where blank attributes are not secretly filled in; they are ontologically productive, generating genuine superposition via the Second Postulate.</p>
+    <p>Bell's theorem rules out local hidden variable theories. Aethic reasoning is not a hidden variable theory at all: the prior Aethic reality (before extrusion) is genuinely non-hidden-variables, with the wavefunction carrying full ontological weight. The subsequent Aethic reality (after extrusion) is effectively deterministic but retrospectively so, because the entire history of the new block universe was always consistent with the observed result. The framework does not smuggle in pre-existing values; it replaces collapse with a perspectival transition between complete spacetimes.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-1">Full treatment &#8594; Aethic Layer 1 (EPR preview)</a> &#183; <a href="/aethic-reasoning-guide.html#layer-8">Layer 8 (EPR resolution)</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">What would falsify this framework?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>Find a single system where information about some parameter is permanently and irrecoverably hidden, yet the possible states of that parameter fail to interact as if they physically coexisted. One instance, in any domain, falsifies the Fundamental Theorem and thereby the entire framework.</p>
+    <p>For Nexic reasoning specifically: a systematic failure of the Accordance Principle across dozens of paleontological test cases would constitute evidence against it. The Hateg Island hypothesis (primate fossils in the Late Cretaceous deposits of Romania) provides a concrete verification target. The Chicxulub impactor mass constraint provides another quantitative prediction.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-9">Aethic &#8594; Layer 9</a> &#183; <a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-7">Nexic &#8594; Layer 7 (Hateg)</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">Why should I take an unreviewed framework seriously?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>We should definitely take this as having the <em>potential</em> to be taken seriously, but no, we shouldn't take it seriously in any real sense until it has legitimate review behind it. Duh. If we took every proposal out of left field seriously, we'd be going in circles forever. So it's something we can be excited about, but also that's more reason than ever to use your head before jumping to conclusions!</p>
+    <p>The papers are publicly available, the predictions are explicit, and the derivations are laid out step by step. From here it's a communal exercise: the framework needs people to stress-test it, poke holes in it, and try to break it. That's the whole point of putting it out there.</p>
+    <p><a href="https://philpeople.org/profiles/ajax-benander" target="_blank" rel="noopener">All papers on PhilPeople &#8599;</a></p>
+  </div></div>
+</div>
+
+<!-- CORE MACHINERY -->
+<div class="faq-section-label">On the core machinery</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">Isn't "permanent unknowability" impossible in practice? Information always leaks.</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>At the quantum scale, permanent unknowability is guaranteed by Heisenberg's uncertainty principle. The which-path information in the double-slit experiment is not merely difficult to recover; it is physically, permanently, irrecoverably gone. The framework uses Heisenberg as input, not as something it needs to derive.</p>
+    <p>At macroscopic scales, permanent unknowability is indeed harder to achieve, which is precisely why macroscopic objects are almost always in disagreeing superposition (classical behavior). The billiard ball experiment's difficulty is building a contraption that achieves permanent information destruction at macro scale. This is an engineering challenge, not a logical impossibility. And the framework predicts that wherever it <em>can</em> be achieved, scenario interaction will follow.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-4">Full treatment &#8594; Aethic Layer 4 deep dive (permanencible attributes)</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">Where's the Born rule derivation? Without it, how is this better than other interpretations?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>The full Born rule derivation from first principles is an open problem, deferred to the forthcoming Active Reasoning paper (Step X in the three-step architecture). The current framework takes the Born Rule Onset Principle as an additional axiom: the Born rule is applied after summing agreeing superpositions but before summing disagreeing superpositions.</p>
+    <p>However, the framework does more toward the Born rule than other interpretations. The Quantum Nexus integral embeds the Aethic postulates directly into the mathematical language of the path integral, providing the structural scaffolding on which a full derivation could be built. It identifies exactly where the Born rule sits in the architecture (between agreeing and disagreeing summation) and why it sits there (agreeing superposition is the default substrate; disagreeing is the further constraint). This is significant progress relative to Many-Worlds, where the Born rule derivation remains a fundamentally open problem with no clear structural pathway.</p>
+    <p>The measurement problem solution itself (Steps Z and Y) does not depend on Step X. The framework derives collapse, resolves EPR, and makes Case C predictions independently of the Born rule's origin.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-10">Full treatment &#8594; Aethic Layer 10</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">If disagreeing superpositions are empirically invisible, how is this ontology testable rather than purely philosophical?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>The ontology is testable because the framework predicts something standard QM does not: <em>Case C</em>. Standard physics has one knob for the quantum-to-classical transition (scale). Aethic reasoning has two independent knobs (scale and information structure), and they can be set independently. Case C is what happens when you turn scale to "classical" but leave information on "quantum." No version of standard QM predicts macroscopic scenario interaction.</p>
+    <p>Additionally, the density matrix reformulation (the standard density matrix as a lossy compression of a powerset-indexed family) makes a structural claim that could in principle yield numerically different predictions in specific multi-slit configurations. The disagreeing superposition ontology is the <em>explanation</em> for why Case C should exist; Case C itself is the testable prediction.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-9">Full treatment &#8594; Aethic Layer 9 (Case A/B/C/D table)</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">How does centric unfolding handle unconscious observers &#8212; a camera, a Geiger counter, a rock? Is consciousness doing hidden work here?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>Consciousness is not doing hidden work. A "detector" in Aethic reasoning is not a special ontological category: it is simply any system whose interaction creates information that could distinguish between superposed states. A camera is a detector. A Geiger counter is a detector. A grain of dust is a detector. Only the question of whether distinguishing information is created matters.</p>
+    <p>The Aethus-Reality Dualism principle (Principle 36) proposes that for any valid Aethus there is automatically a corresponding reality: biological life, by climbing the evolutionary ladder toward more sophisticated information-gathering mechanisms, implies a corresponding Aethus arising in parallel. Even a flatworm gauging water salinity has the grounds for a rudimentary Aethus. Consciousness becomes a matter of degree rather than kind. But crucially, the Third Postulate's pruning mechanism operates on information structure, not on conscious awareness.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-2">Full treatment &#8594; Aethic Layer 2 deep dive (consciousness)</a> &#183; <a href="/aethic-reasoning-guide.html#layer-9">Layer 9 (ontology of detectors)</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">How does the Third Postulate's checkmate condition handle the fact that decoherence is continuous and gradual, not binary?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>The Third Postulate operates on the binary question of whether an avenue to contradiction exists, but the <em>weighted</em> Aethic framework handles the continuous case. Each A(T) term in the Quantum Nexus integral is individually binary (valid or invalid for a given path-cluster), but the totality of A(T) terms across the powerset produces a continuous decoherence landscape.</p>
+    <p>The paper reinterprets the exponential decay of off-diagonal density matrix terms not as a continuous dynamical process but as survival analysis: each environmental interaction is an independent Bernoulli threat to a given agreeing superposition, and the exponential decay emerges from the cumulative survival probability over vast numbers of such threats. The individual pruning events are discrete; the aggregate is continuous. Same statistics, categorically different ontological foundations.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-10">Full treatment &#8594; Aethic Layer 10 deep dive (density matrix)</a></p>
+  </div></div>
+</div>
+
+<!-- SCOPE AND GENERALIZATION -->
+<div class="faq-section-label">On scope and generalization</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">Has anyone tried to run the billiard ball experiment? Is it even feasible with current technology?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>Not yet, and not with current technology. The core engineering challenge is achieving permanent information destruction for a macroscopic object's trajectory. At quantum scales, Heisenberg guarantees this automatically. At macroscopic scales, thermal radiation, air molecules, and gravitational interactions all leak information continuously. The thought experiment is a <em>falsification protocol</em>, not a lab manual.</p>
+    <p>The paper draws an explicit parallel with general relativity: Einstein's predictions of gravitational waves (1916) preceded experimental detection (LIGO, 2015) by nearly a century. The billiard ball experiment may require comparable advances in information isolation. In the meantime, the framework's testability rests on the broader Fundamental Theorem: any system in any domain that achieves permanently hidden information and fails to show scenario interaction falsifies the framework. Intermediate experimental targets (tabletop optics, multi-slit configurations) may offer nearer-term tests.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-9">Full treatment &#8594; Aethic Layer 9</a></p>
+  </div></div>
+</div>
+
+<!-- TONE AND CREDIBILITY -->
+<div class="faq-section-label">On tone and credibility</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">Isn't the comparison to Einstein's derivational architecture premature for unreviewed work?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>The comparison is about derivational <em>pattern</em>, not about claiming equivalent significance. The specific parallel is the dual-edged constraint: two principles that would each be untenable alone but become mutually necessary together. Einstein's equivalence principle and spacetime curvature have this structure; so do the Extrusion Principle and the Union Principle. Similarly, the Galois parallel is about stepping above a formalism to explain why it works, not about claiming equivalent mathematical importance.</p>
+    <p>That said, the concern is fair. Structural parallels are easier to draw than to substantiate, and unreviewed work should draw them with particular care. The framework's merits rest on whether the postulates hold and the predictions succeed, not on which historical figures the derivational architecture resembles.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-6">Full treatment &#8594; Aethic Layer 6 deep dive (dual-edged constraint)</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">What has the response from professional physicists and philosophers been so far?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>The work is early-stage. The papers were published on PhilArchive in November 2024, with additional papers archived in 2025. As of this writing, the framework has not undergone formal peer review, and no professional physicist or philosopher has published a response. Early private correspondence has been engaged and constructive, but it would be misleading to characterize any broader professional reception at this stage.</p>
+    <p>The site exists to make the ideas accessible so that substantive engagement can happen. The papers are public, the predictions are explicit, and the derivations are laid out step by step.</p>
+  </div></div>
+</div>
+
+<!-- BROADER PHILOSOPHICAL CLAIMS -->
+<div class="faq-section-label">On the broader philosophical claims</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">How literally should I take the Eastern philosophy parallels? Are these structural claims or poetic analogies?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>Structural claims. The paper draws parallels not by vague analogy but by identifying specific formal correspondences: the Null Aethus (maximal unknowing, everything in superposition) maps to Brahman/Tao as a primordial unity; the First Postulate's relational realism maps to the Buddhist concept of Sunyata (phenomena lack inherent existence); the fundamental theorem of empirical Aethae ("writing down your Aethus yields white noise") maps to "the Tao that can be spoken is not the true Tao."</p>
+    <p>These are not claims that ancient traditions anticipated quantum mechanics. They are claims that both Aethic reasoning and these traditions arrived at structurally similar conclusions about the relationship between knowledge, observation, and reality, through very different methods. The paper argues this convergence is evidence that the underlying structure is real, not that the traditions were doing physics.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-2">Full treatment &#8594; Aethic Layer 2 deep dive (Eastern philosophy)</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">Does the framework commit to any position on the hard problem of consciousness, or just gesture at one?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>It commits to a structural position without claiming to solve the hard problem outright. The Aethus-Reality Dualism principle states that for any valid Aethus there is automatically a corresponding reality (and vice versa). This makes consciousness a matter of degree rather than kind: any information-gathering system has the grounds for a rudimentary Aethus, from a flatworm gauging water salinity to a human contemplating quantum mechanics.</p>
+    <p>The framework does <em>not</em> claim to explain why there is something it is like to be an observer. It claims that the structure of the Aethus makes the question more tractable: if consciousness is the experience of centric unfolding (movement along the Aethic dimension via information gain), then the hard problem reduces to explaining why information gain has a qualitative character. This is a genuine narrowing of the question, not a solution to it.</p>
+    <p><a href="/aethic-reasoning-guide.html#layer-2">Full treatment &#8594; Aethic Layer 2 deep dive (hard problem)</a></p>
+  </div></div>
+</div>
+
+<!-- NEXIC -->
+<div class="faq-section-label nexic">Nexic reasoning</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">How do you distinguish Optimation from confirmation bias in selecting which events count as "anthropic parameters"?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>The primary safeguard is the Theorem of Aimless Optimation: for any Aethus statistically independent of Optimation, the Cosmic Nexus and Optimation must agree. This provides a built-in control group. Sister clades (lineages that diverged from our ancestry) serve as natural baselines. Old World monkeys diverged from our lineage roughly 25 million years ago; in over 100 extant species across all that time, not one evolved ape-level intelligence. Their observed frequency under Optimation equals their frequency under the Cosmic Nexus, because their fate is statistically independent of whether humans exist.</p>
+    <p>The Accordance Principle itself is quantitative, not narrative. It produces a specific inequality constraining alternative histories. The question is not "does this event <em>feel</em> important for human existence?" but "does replacing this attribute with its complement change the probability of observer existence by more than the bound allows?" Confirmation bias selects events that feel significant; the Accordance Principle constrains which events mathematically <em>must</em> be significant.</p>
+    <p><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-3">Full treatment &#8594; Nexic Layer 3 (Aimless Optimation)</a></p>
+  </div></div>
+</div>
+
+<div class="faq-item" onclick="this.classList.toggle('open')">
+  <div class="faq-q"><div class="faq-q-text">Why should the Accordance Principle apply to contingent historical events and not just physical constants?</div><span class="faq-chevron">&#9654;</span></div>
+  <div class="faq-a"><div class="faq-a-inner">
+    <p>This is the founding question of Nexic reasoning, and the answer is that there is no principled distinction. Under the Indiscriminate Time Principle from Aethic reasoning, the unobserved past is genuinely in superposition relative to an observer's Aethus. A historical event is no more "settled" than a physical constant: both are simply stated-attributes. The gravitational constant and the K-Pg extinction are both features of reality that we observe retrospectively; both are requisites for our existence; both constrain the space of possible histories we could inhabit.</p>
+    <p>The standard anthropic principle already has genuine predictive power when applied to physical constants (Hoyle's carbon-12 resonance prediction). Nexic reasoning's claim is that the same logic, applied with the same rigor, extends to circumstantial parameters. If there is a principled reason it should not, the framework invites critics to identify it.</p>
+    <p><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-1">Full treatment &#8594; Nexic Layer 1 (Fundamental Principle)</a></p>
+  </div></div>
+</div>
+
+</div>
+
+<div class="faq-footer">
+  <a href="/aethic-reasoning-guide.html">Aethic Guide</a> &#183; <a href="/nexic-reasoning-guide.html">Nexic Guide</a> &#183; <a href="/glossary.html">Glossary</a> &#183; <a href="/">&#8592; Back to aethus.org</a>
+</div>
