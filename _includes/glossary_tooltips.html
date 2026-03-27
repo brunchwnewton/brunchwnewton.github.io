@@ -1,0 +1,242 @@
+<!-- Glossary Auto-Linker: include in default.html layout -->
+<!-- Fetches /glossary.html, parses terms, wraps first occurrences with hover tooltips -->
+<style>
+/* Glossary tooltip links */
+a.gterm-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(110,92,255,0.3);
+  position: relative;
+  cursor: help;
+  transition: border-color 0.2s;
+}
+a.gterm-link:hover {
+  border-bottom-color: rgba(110,92,255,0.6);
+}
+.gterm-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  max-width: 90vw;
+  background: #161625;
+  border: 1px solid rgba(110,92,255,0.25);
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  z-index: 500;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+}
+a.gterm-link:hover .gterm-tooltip {
+  opacity: 1;
+}
+.gterm-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(110,92,255,0.25);
+}
+.gterm-tooltip-name {
+  font-weight: 600;
+  color: #f0f0ff;
+  font-size: 0.82rem;
+  margin-bottom: 0.25rem;
+}
+.gterm-tooltip-def {
+  color: #d4d4e8;
+  font-size: 0.78rem;
+}
+.gterm-tooltip-tag {
+  display: inline-block;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+.gterm-tooltip-tag.t-aethic { background: rgba(96,165,250,0.15); color: rgba(96,165,250,0.8); }
+.gterm-tooltip-tag.t-nexic { background: rgba(251,191,36,0.15); color: rgba(251,191,36,0.8); }
+.gterm-tooltip-tag.t-both { background: rgba(110,92,255,0.15); color: rgba(167,139,250,0.8); }
+/* Keep tooltip on screen */
+@media (max-width: 500px) {
+  .gterm-tooltip { width: 260px; left: 0; transform: none; }
+  .gterm-tooltip::after { left: 20px; transform: none; }
+}
+</style>
+
+<script>
+(function() {
+  // Only run on non-glossary pages
+  if (window.location.pathname.indexOf('glossary') !== -1) return;
+
+  // Wait for DOM
+  document.addEventListener('DOMContentLoaded', function() {
+    // Fetch glossary
+    fetch('/glossary.html')
+      .then(function(r) { return r.ok ? r.text() : null; })
+      .then(function(html) {
+        if (!html) return;
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        var gterms = doc.querySelectorAll('.gterm[id]');
+        if (!gterms.length) return;
+
+        // Build term list
+        var terms = [];
+        gterms.forEach(function(el) {
+          var id = el.id;
+          var nameEl = el.querySelector('.gterm-name');
+          if (!nameEl) return;
+          // Get clean name (strip tag spans)
+          var name = nameEl.childNodes[0].textContent.trim();
+          var defEl = el.querySelector('.gterm-def');
+          var def = defEl ? defEl.textContent.trim() : '';
+          // Truncate def for tooltip
+          if (def.length > 180) def = def.substring(0, 177) + '…';
+          // Framework tag
+          var tagEl = nameEl.querySelector('.framework-tag');
+          var tag = '';
+          if (tagEl) {
+            if (tagEl.classList.contains('tag-aethic')) tag = 'aethic';
+            else if (tagEl.classList.contains('tag-nexic')) tag = 'nexic';
+            else tag = 'both';
+          }
+          // Search phrases: from data-terms + the name itself
+          var dataTerms = (el.getAttribute('data-terms') || '').split(/\s+/);
+          // Also add the display name and variants
+          var searchPhrases = [name];
+          // Add multi-word terms from data-terms (recombine adjacents)
+          var rawTerms = el.getAttribute('data-terms') || '';
+          // The data-terms are space-separated keywords; use the name as the primary match
+          // Also add common variants
+          var cleanName = name.replace(/\s*\(.*?\)/g, '').trim();
+          if (cleanName !== name) searchPhrases.push(cleanName);
+          // Handle slash variants: "Aetherian / Aetherian Nexus" → ["Aetherian", "Aetherian Nexus"]
+          if (cleanName.indexOf(' / ') !== -1) {
+            cleanName.split(' / ').forEach(function(p) {
+              p = p.trim();
+              if (p && searchPhrases.indexOf(p) === -1) searchPhrases.push(p);
+            });
+          }
+
+          terms.push({
+            id: id,
+            name: name,
+            cleanName: cleanName,
+            phrases: searchPhrases,
+            def: def,
+            tag: tag
+          });
+        });
+
+        // Build flat list of (phrase, termObj) sorted longest-first
+        var phraseList = [];
+        terms.forEach(function(t) {
+          t.phrases.forEach(function(p) {
+            phraseList.push({ phrase: p, term: t });
+          });
+        });
+        phraseList.sort(function(a, b) { return b.phrase.length - a.phrase.length; });
+
+        // Find content areas to scan
+        var containers = document.querySelectorAll('.layer-body, .detail-inner, .pitch, .article-wrap');
+        if (!containers.length) return;
+
+        var linked = {}; // track which terms already linked (by id)
+
+        phraseList.forEach(function(item) {
+          if (linked[item.term.id]) return; // already linked this term
+
+          var phrase = item.phrase;
+          // Build regex: whole word, case-insensitive for first letter
+          var escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          // Allow case-insensitive first letter
+          var first = escaped.charAt(0);
+          var pattern = '[' + first.toLowerCase() + first.toUpperCase() + ']' + escaped.substring(1);
+          var regex = new RegExp('\\b' + pattern + '\\b');
+
+          // Walk text nodes
+          for (var ci = 0; ci < containers.length; ci++) {
+            if (linked[item.term.id]) break;
+            var walker = document.createTreeWalker(
+              containers[ci],
+              NodeFilter.SHOW_TEXT,
+              {
+                acceptNode: function(node) {
+                  // Skip if inside a link, heading, button, script, formal box, or already-linked term
+                  var p = node.parentElement;
+                  if (!p) return NodeFilter.FILTER_REJECT;
+                  var tag = p.tagName;
+                  if (tag === 'A' || tag === 'H1' || tag === 'H2' || tag === 'H3' || tag === 'H4' ||
+                      tag === 'BUTTON' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' ||
+                      tag === 'SVG' || tag === 'TEXT') return NodeFilter.FILTER_REJECT;
+                  if (p.closest('a, button, script, style, svg, .formal-label, .ki-label, .layer-title, .layer-role, .detail-label, .gterm-tooltip'))
+                    return NodeFilter.FILTER_REJECT;
+                  return NodeFilter.FILTER_ACCEPT;
+                }
+              }
+            );
+
+            var node;
+            while (node = walker.nextNode()) {
+              if (linked[item.term.id]) break;
+              var match = regex.exec(node.textContent);
+              if (!match) continue;
+
+              // Split text node and insert link
+              var before = node.textContent.substring(0, match.index);
+              var matched = node.textContent.substring(match.index, match.index + match[0].length);
+              var after = node.textContent.substring(match.index + match[0].length);
+
+              var beforeNode = document.createTextNode(before);
+              var afterNode = document.createTextNode(after);
+
+              var link = document.createElement('a');
+              link.className = 'gterm-link';
+              link.href = '/glossary.html#' + item.term.id;
+              link.textContent = matched;
+
+              // Build tooltip
+              var tooltip = document.createElement('span');
+              tooltip.className = 'gterm-tooltip';
+              var tagClass = item.term.tag === 'aethic' ? 't-aethic' : item.term.tag === 'nexic' ? 't-nexic' : 't-both';
+              tooltip.innerHTML =
+                '<div class="gterm-tooltip-name">' + item.term.cleanName +
+                ' <span class="gterm-tooltip-tag ' + tagClass + '">' + item.term.tag + '</span></div>' +
+                '<div class="gterm-tooltip-def">' + item.term.def + '</div>';
+              link.appendChild(tooltip);
+
+              var parent = node.parentNode;
+              parent.insertBefore(beforeNode, node);
+              parent.insertBefore(link, node);
+              parent.insertBefore(afterNode, node);
+              parent.removeChild(node);
+
+              linked[item.term.id] = true;
+              break;
+            }
+          }
+        });
+      })
+      .catch(function(e) {
+        // Glossary fetch failed (local preview, offline, etc.) — degrade gracefully
+        console.log('Glossary tooltips: fetch failed, skipping.', e);
+      });
+  });
+})();
+</script>
