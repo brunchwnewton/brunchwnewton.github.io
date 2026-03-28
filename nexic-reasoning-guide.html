@@ -457,61 +457,13 @@ body::before {
   .hero h1 { font-size: 2.2rem; }
   .layer-container { padding: 0 1rem 4rem; }
 }
-/* ─── SHARED TOP NAV ─── */
-.topnav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  background:rgba(7,7,12,0.82);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(200,200,222,0.06);
-  transition:box-shadow 0.3s;
-}
-.topnav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.4);}
-.topnav-inner{
-  max-width:1100px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0.8rem 2rem;
-}
-.topnav-brand{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:1.25rem;font-weight:500;
-  color:#eeeef8;letter-spacing:-0.01em;
-  text-decoration:none;
-}
-.topnav-brand span{color:#6e5cff;font-weight:600;}
-.topnav-links{display:flex;gap:1.8rem;align-items:center;}
-.topnav-links a{
-  font-size:0.82rem;color:#7a7a96;
-  letter-spacing:0.03em;transition:color 0.2s;
-  position:relative;text-decoration:none;
-}
-.topnav-links a:hover{color:#eeeef8;}
-.topnav-links a::after{
-  content:'';position:absolute;bottom:-2px;left:0;
-  width:0;height:1.5px;background:#6e5cff;
-  transition:width 0.3s;
-}
-.topnav-links a:hover::after{width:100%;}
-.topnav-links .ext{
-  font-size:0.72rem;padding:0.35rem 0.75rem;
-  border:1px solid rgba(110,92,255,0.12);border-radius:5px;
-  color:#7a7a96;transition:all 0.2s;
-}
-.topnav-links .ext:hover{border-color:rgba(110,92,255,0.3);color:#eeeef8;}
-.topnav-links .ext::after{display:none;}
-@media(max-width:768px){
-  .topnav-inner{padding:0.7rem 1rem;}
-  .topnav-links{gap:1rem;}
-  .topnav-links a{font-size:0.75rem;}
-}
-@media(max-width:500px){
-  .topnav-links .hide-mobile{display:none;}
-}
 </style></head>
 
 <header style="text-align:center;padding:5.5rem 2rem 2rem;">
   <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(251,191,36,0.5);margin-bottom:0.8rem;">A Generalized Calculus Over Anthropic Parameters</div>
   <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:300;color:var(--text-bright);margin-bottom:0.6rem;">How Nexic Reasoning Works</h1>
   <p style="max-width:620px;margin:0 auto;color:var(--text-dim);font-size:0.92rem;line-height:1.6;">Nine layers from the Fundamental Principle through the Rare Earth derivation and our place in the universe. Click any layer to expand.</p>
+  <p style="max-width:620px;margin:0.6rem auto 0;color:var(--text-dim);font-size:0.82rem;line-height:1.6;">This guide builds on the <a href="/aethic-reasoning-guide.html" style="color:var(--accent-gold);text-decoration:none;border-bottom:1px solid rgba(251,191,36,0.2);">Aethic Reasoning Guide</a>. See also: <a href="/glossary.html" style="color:var(--accent-gold);text-decoration:none;border-bottom:1px solid rgba(251,191,36,0.2);">Glossary</a> · <a href="/faq.html" style="color:var(--accent-gold);text-decoration:none;border-bottom:1px solid rgba(251,191,36,0.2);">Common Objections</a></p>
   <div style="margin-top:1.2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
     <button onclick="toggleAll(true)" style="padding:0.4rem 1rem;border-radius:6px;border:1px solid rgba(251,191,36,0.2);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.78rem;font-family:inherit;">Open all</button>
     <button onclick="toggleAll(false)" style="padding:0.4rem 1rem;border-radius:6px;border:1px solid rgba(251,191,36,0.2);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.78rem;font-family:inherit;">Close all</button>
@@ -533,11 +485,11 @@ body::before {
       <div class="layer-toggle">+</div>
     </div>
     <div class="layer-content"><div class="layer-body">
-      <p>The anthropic principle is traditionally applied to physical constants: "the gravitational constant has this value because otherwise observers wouldn't exist to measure it." This logic has genuine predictive power, as demonstrated by Fred Hoyle's remarkable prediction of the carbon-12 resonance: reasoning anthropically that life requires carbon, carbon requires stellar synthesis via the triple-alpha process, and therefore a specific nuclear resonance must exist at a precise energy level, Hoyle predicted its energy before it was confirmed experimentally.</p>
+      <p>The anthropic principle is traditionally applied to physical constants: “the gravitational constant has this value because otherwise observers wouldn’t exist to measure it.” This logic has genuine predictive power, as demonstrated by Fred Hoyle’s remarkable prediction of the carbon-12 resonance: reasoning anthropically that life requires carbon, carbon requires stellar synthesis via the triple-alpha process, and therefore a specific nuclear resonance must exist at a precise energy level, Hoyle predicted its energy before it was confirmed experimentally.</p>
 
       <p>Nexic reasoning extends this logic beyond physical constants to <span class="hl">circumstantial anthropic parameters</span>: specific events in natural history that served as requisites for human existence. Consider eukaryogenesis via endosymbiosis, the incorporation of mitochondria into ancestral cells. Prokaryotic life cannot sustain the ATP production required for complex multicellularity. The event of symbiogenesis was therefore a requisite for animal life, and thus for human existence. It is an anthropic parameter: not numerical like a physical constant, but circumstantial, embedded in the contingent flow of natural history.</p>
 
-      <p>But what truly distinguishes circumstantial from physical anthropic parameters? Under the Indiscriminate Time Principle from Aethic reasoning, the line between "variable" and "fundamental" contingency is drastically reshaped. The unobserved past is genuinely in superposition. A historical event is no more "settled" than a physical constant: both are simply stated-attributes of your Aethus. Rather than endlessly pursuing a return to the old distinction, the framework dissolves it entirely:</p>
+      <p>But what truly distinguishes circumstantial from physical anthropic parameters? Under the Indiscriminate Time Principle from Aethic reasoning, the line between “variable” and “fundamental” contingency is drastically reshaped. The unobserved past is genuinely in superposition. A historical event is no more “settled” than a physical constant: both are simply stated-attributes of your Aethus. Rather than endlessly pursuing a return to the old distinction, the framework dissolves it entirely:</p>
 
       <div class="formal">
         <span class="formal-label">Principle 1: The Fundamental Principle of Nexic Reasoning</span>
@@ -548,7 +500,7 @@ body::before {
 
       <div class="key-insight">
         <div class="ki-label">The Paradigm Shift</div>
-        <p>Classical view: natural history is a <em>random pattern unfolding</em> on an objective backdrop, modeled sequentially forward in time. Nexic view: natural history is a <em>retrospective review</em> anchored to one's own Aethus. Existence isn't something that "happened to happen." It's the anchor from which all of history must be understood.</p>
+        <p>Classical view: natural history is a <em>random pattern unfolding</em> on an objective backdrop, modeled sequentially forward in time. Nexic view: natural history is a <em>retrospective review</em> anchored to one’s own Aethus. Existence isn’t something that “happened to happen.” It’s the anchor from which all of history must be understood.</p>
       </div>
 
       <div class="detail">
@@ -561,17 +513,17 @@ body::before {
         <div class="detail-body"><div class="detail-inner">
 
           <h4>The Specific Earth Bias</h4>
-          <p>Standard anthropic reasoning confines its reference class to moments along a single timeline: "where am I within this history?" This creates what the paper terms the <strong>Specific Earth Bias</strong>: the implicit assumption that Earth's actual history is the only history under consideration, with the question being merely where within it the observer is located. Under this reference class, any anthropic argument about natural history would be trivial: of course we observe the history we're in.</p>
-          <p>Nexic reasoning dissolves this bias. The reference class is the set of <em>all Aethae</em>: all possible observer-situations across all possible histories. An observer asking "Why this history?" is not comparing their temporal position to other positions in the same history, but comparing their entire history to other histories that could have housed observers. Under this expanded reference class, the Accordance Principle becomes substantive rather than trivial.</p>
+          <p>Standard anthropic reasoning confines its reference class to moments along a single timeline: “where am I within this history?” This creates what the paper terms the <strong>Specific Earth Bias</strong>: the implicit assumption that Earth’s actual history is the only history under consideration, with the question being merely where within it the observer is located. Under this reference class, any anthropic argument about natural history would be trivial: of course we observe the history we’re in.</p>
+          <p>Nexic reasoning dissolves this bias. The reference class is the set of <em>all Aethae</em>: all possible observer-situations across all possible histories. An observer asking “Why this history?” is not comparing their temporal position to other positions in the same history, but comparing their entire history to other histories that could have housed observers. Under this expanded reference class, the Accordance Principle becomes substantive rather than trivial.</p>
 
           <h4>The Aethic Ontological Connection</h4>
-          <p>The Fundamental Principle achieves its full force when embedded in Aethic reasoning's ontology. Two features are essential:</p>
-          <p><strong>The Extrusion Principle:</strong> The passage of time is not movement along a pre-existing timeline, but the "extrusion" of new Aethic states from prior ones. Information gain generates the future through the act of observation. The space of possible histories is not a static ensemble but a dynamically evolving structure.</p>
-          <p><strong>Observer-Relative Ontology:</strong> Reality is fundamentally observer-relative. Different observers may inhabit different branches of the Aethic tree without contradiction. "Which history is the real one?" dissolves in favor of "Which history is real for this observer?"</p>
-          <p>Together, these features make the Accordance Principle not merely an epistemic heuristic but an <strong>ontological constraint</strong>. An observer's Aethus determines which histories are accessible to them, and the Accordance Principle asserts that this Aethus is, with overwhelming probability, the one corresponding to the optimized history.</p>
+          <p>The Fundamental Principle achieves its full force when embedded in Aethic reasoning’s ontology. Two features are essential:</p>
+          <p><strong>The Extrusion Principle:</strong> The passage of time is not movement along a pre-existing timeline, but the “extrusion” of new Aethic states from prior ones. Information gain generates the future through the act of observation. The space of possible histories is not a static ensemble but a dynamically evolving structure.</p>
+          <p><strong>Observer-Relative Ontology:</strong> Reality is fundamentally observer-relative. Different observers may inhabit different branches of the Aethic tree without contradiction. “Which history is the real one?” dissolves in favor of “Which history is real for this observer?”</p>
+          <p>Together, these features make the Accordance Principle not merely an epistemic heuristic but an <strong>ontological constraint</strong>. An observer’s Aethus determines which histories are accessible to them, and the Accordance Principle asserts that this Aethus is, with overwhelming probability, the one corresponding to the optimized history.</p>
 
           <h4>The Leibnizian Methodology</h4>
-          <p>A subtle but foundational design choice: the Nexic framework is built precisely so as not to state more than can be asserted from the content of known empiricism directly. Natural histories are modeled in <strong>probabilistically-incomplete Aethae</strong> rather than fully-complete classical timelines. This matters because a "complete history" mathematical object would imply a binary indicator function (does this history contain humans: yes/no), which is ill-defined under the Aethic reversal principle. Fully-determinate timelines don't exist in the Aethic ontology, because the unobserved past is itself in superposition. By insisting on the indicator-function model, the entire richness and potential of the Accordance Principle would be flattened. The framework avoids this trap by reasoning locally, attribute-by-attribute, within partial-information Aethae.</p>
+          <p>A subtle but foundational design choice: the Nexic framework is built precisely so as not to state more than can be asserted from the content of known empiricism directly. Natural histories are modeled in <strong>probabilistically-incomplete Aethae</strong> rather than fully-complete classical timelines. This matters because a “complete history” mathematical object would imply a binary indicator function (does this history contain humans: yes/no), which is ill-defined under the Aethic reversal principle. Fully-determinate timelines don’t exist in the Aethic ontology, because the unobserved past is itself in superposition. By insisting on the indicator-function model, the entire richness and potential of the Accordance Principle would be flattened. The framework avoids this trap by reasoning locally, attribute-by-attribute, within partial-information Aethae.</p>
 
         </div></div>
       </div>
@@ -589,24 +541,24 @@ body::before {
       <div class="layer-toggle">+</div>
     </div>
     <div class="layer-content"><div class="layer-body">
-      <p>The Accordance Principle is the deductive engine of Nexic reasoning. It descends from the mediocrity principle, the assumption that one's observations are typical of observers in one's reference class. But rather than asking "Where am I among all locations?" or "When am I among all times?", it asks: <em>Which natural history am I in, among all natural histories capable of producing an observer to ask this question?</em></p>
+      <p>The Accordance Principle is the deductive engine of Nexic reasoning. It descends from the mediocrity principle, the assumption that one’s observations are typical of observers in one’s reference class. But rather than asking “Where am I among all locations?” or “When am I among all times?”, it asks: <em>Which natural history am I in, among all natural histories capable of producing an observer to ask this question?</em></p>
 
-      <p>Crucially, the Accordance Principle is a <span class="hl">local, attribute-by-attribute constraint</span>. For a given stated-attribute A of your natural history, it is usually likelier than not that A is likelier to have produced you than a probabilistically disjoint alternative A':</p>
+      <p>Crucially, the Accordance Principle is a <span class="hl">local, attribute-by-attribute constraint</span>. For a given stated-attribute A of your natural history, it is usually likelier than not that A is likelier to have produced you than a probabilistically disjoint alternative A’:</p>
 
       <div class="formal">
         <span class="formal-label">The Accordance Principle (General Form)</span>
-        $$\frac{P(H \mid A')}{P(H \mid A)} \lesssim \frac{P(A)}{1 - P(A)}$$
-        <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;">For attribute A of Earth's history and H denoting human existence. P(A) runs with respect to the Cosmic Nexus. This is "more likely true than not," not a certainty.</div>
+        $$\frac{P(H \mid A’)}{P(H \mid A)} \lesssim \frac{P(A)}{1 - P(A)}$$
+        <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;">For attribute A of Earth’s history and H denoting human existence. P(A) runs with respect to the Cosmic Nexus. This is “more likely true than not,” not a certainty.</div>
       </div>
 
-      <p>This works like the fundamental theorem of calculus: just as the FTC, by establishing the integral as the antiderivative, removes us from having to concretely construct geometry like Archimedes, the Accordance Principle creates a <span class="hl">"deductive-intermediary step"</span> that derives whether an alternate history could produce humans <em>without having to directly deduce human-hospitality from the actual content of that history</em>. A suspension of disbelief: an abstract reinterpretation that produces equivalent results through an entirely different object.</p>
+      <p>This works like the fundamental theorem of calculus: just as the FTC, by establishing the integral as the antiderivative, removes us from having to concretely construct geometry like Archimedes, the Accordance Principle creates a <span class="hl">”deductive-intermediary step”</span> that derives whether an alternate history could produce humans <em>without having to directly deduce human-hospitality from the actual content of that history</em>. A suspension of disbelief: an abstract reinterpretation that produces equivalent results through an entirely different object.</p>
 
       <p>The principle is derived from two sub-principles working in concert: <strong>self-mediocrity</strong> (oneself is a random observer among all observers) and <strong>cosmic mediocrity</strong> (observers across possible universes occur with probabilistic frequency matching their inherent generation probabilities). Their conjunction yields the Accordance Principle directly.</p>
 
-      <p><strong>The founding example:</strong> the principle originated around 2018 from a question about dinosaurs, "Are dinosaurs a prerequisite to humans?" The <span class="hl2">two-node dinosaurian circumstance</span> was quite literally the origin of the entire Aethic-Nexic research program. The derivation proceeds as a two-branch probability tree:</p>
+      <p><strong>The founding example:</strong> the principle originated around 2018 from a question about dinosaurs, “Are dinosaurs a prerequisite to humans?” The <span class="hl2">two-node dinosaurian circumstance</span> was quite literally the origin of the entire Aethic-Nexic research program. The derivation proceeds as a two-branch probability tree:</p>
 
-      <p><strong>Node 1:</strong> Dinosaurs evolve (A, ~33%, since one of three Phanerozoic eras produced a dominant clade to that extent) vs. extended Paleozoic (A', ~67%).<br>
-      <strong>Node 2 (under A only):</strong> K-Pg extinction succeeds with mammals surviving (B|A, ~13%, from crater-location analysis) vs. dinosaurs persist (B'|A, ~87%, and P(H|B') ≈ 0 by dinosaurian dominance).</p>
+      <p><strong>Node 1:</strong> Dinosaurs evolve (A, ~33%, since one of three Phanerozoic eras produced a dominant clade to that extent) vs. extended Paleozoic (A’, ~67%).<br>
+      <strong>Node 2 (under A only):</strong> K-Pg extinction succeeds with mammals surviving (B|A, ~13%, from crater-location analysis) vs. dinosaurs persist (B’|A, ~87%, and P(H|B’) ≈ 0 by dinosaurian dominance).</p>
 
       <!-- Two-node diagram -->
       <div style="margin:2rem auto;max-width:560px;overflow-x:auto;">
@@ -722,7 +674,7 @@ body::before {
       </svg>
       </div>
 
-      <p>The Accordance Principle then forces: the path we're on (A∩B → humans) must have higher joint probability than the alternative (A' → humans). The algebra yields <span class="hl3">P(H|A')/P(H|B) ≲ 6%</span>. An extended Paleozoic never produces humans at more than 6% the rate of the post-extinction world. This single derivation simultaneously proves that dinosaur <em>origination</em> (not just extinction) is an anthropic parameter, and seeds the Rare Earth calculation.</p>
+      <p>The Accordance Principle then forces: the path we’re on (A∩B → humans) must have higher joint probability than the alternative (A’ → humans). The algebra yields <span class="hl3">P(H|A’)/P(H|B) ≲ 6%</span>. An extended Paleozoic never produces humans at more than 6% the rate of the post-extinction world. This single derivation simultaneously proves that dinosaur <em>origination</em> (not just extinction) is an anthropic parameter, and seeds the Rare Earth calculation.</p>
 
       <div class="key-insight">
         <div class="ki-label">The Second-Order Insight</div>
@@ -739,17 +691,17 @@ body::before {
         <div class="detail-body"><div class="detail-inner">
 
           <h4>The Bayesian Derivation</h4>
-          <p>The Accordance Principle is derived from the Aethic mediocrity principle. Consider yourself at present (Aethus A₂), and a past Aethic version of yourself (H₀) for which some natural historical attribute A is still nonpresent. H₀ is a parent to A₂ by centric unfolding. Partition H₀ into the branch where A occurs (H₁ = H₀ ∩ A) and the branch where it doesn't (H₀ ∩ A'). The Aethic mediocrity principle says you typically centric-unfold to the likelier branch. Applying Bayes' theorem to P(A'|H₀) ≲ P(A|H₀) and substituting P(A|H₀) = P(H₀|A)·P(A)/P(H₀) for each side, then canceling P(H₀) and substituting H for H₀, yields the general Accordance Principle inequality directly.</p>
+          <p>The Accordance Principle is derived from the Aethic mediocrity principle. Consider yourself at present (Aethus A₂), and a past Aethic version of yourself (H₀) for which some natural historical attribute A is still nonpresent. H₀ is a parent to A₂ by centric unfolding. Partition H₀ into the branch where A occurs (H₁ = H₀ ∩ A) and the branch where it doesn’t (H₀ ∩ A’). The Aethic mediocrity principle says you typically centric-unfold to the likelier branch. Applying Bayes’ theorem to P(A’|H₀) ≲ P(A|H₀) and substituting P(A|H₀) = P(H₀|A)·P(A)/P(H₀) for each side, then canceling P(H₀) and substituting H for H₀, yields the general Accordance Principle inequality directly.</p>
 
           <h4>The Two-Node Derivation in Full</h4>
-          <p>Let A = dinosaurs evolving, B = their extinction with mammals surviving, H = eventual human existence. The Accordance Principle gives P(H ∩ (B∩A)') ≳ P(H ∩ B ∩ A). Expanding: P(H∩B∩A) = P(H|B)·P(B|A)·P(A). For the complement: P(H|(B∩A)') = P(H∩B') + P(H∩A'). By dinosaurian dominance, P(H|B') ≈ 0, so P(H|(B∩A)') = P(H∩A'). Substituting the empirical values (P(B|A) ≈ 13%, P(A) ≈ 33%) gives P(H∩A')/P(H|B) ≲ 4%. Converting via P(H∩A') = P(H|A')·P(A') with P(A') ≈ 67% gives the final result: P(H|A')/P(H|B) ≲ 6%.</p>
+          <p>Let A = dinosaurs evolving, B = their extinction with mammals surviving, H = eventual human existence. The Accordance Principle gives P(H ∩ (B∩A)’) ≳ P(H ∩ B ∩ A). Expanding: P(H∩B∩A) = P(H|B)·P(B|A)·P(A). For the complement: P(H|(B∩A)’) = P(H∩B’) + P(H∩A’). By dinosaurian dominance, P(H|B’) ≈ 0, so P(H|(B∩A)’) = P(H∩A’). Substituting the empirical values (P(B|A) ≈ 13%, P(A) ≈ 33%) gives P(H∩A’)/P(H|B) ≲ 4%. Converting via P(H∩A’) = P(H|A’)·P(A’) with P(A’) ≈ 67% gives the final result: P(H|A’)/P(H|B) ≲ 6%.</p>
 
           <h4>Survivorship Bias as a Limiting Case</h4>
-          <p>Standard survivorship bias (observers can't exist in histories that don't produce them) is not a separate principle. It's a degenerate case of the Accordance Principle when alternative histories approach zero observer-probability. Consider a history where Earth is sterilized by a Hadean gamma-ray burst. Does P(H|Aⱼ) = 0? Not precisely: there remains some extraordinarily small probability that quantum fluctuations or unspecified degrees of freedom could lead to a deviation that ultimately produces observers. The probability is negligible (perhaps 10⁻¹⁰⁰) but not identically zero.</p>
-          <p>This dissolves the binary partition between "observer-producing" and "non-observer-producing" histories. The Accordance Principle governs all histories without exception: for histories with P(H|Aᵢ) ≈ 0, the formula yields P(Aᵢ|H) ≈ 0 automatically. No separate principle needed. What we call "survivorship bias" is simply the Accordance Principle operating where one probability is negligible. The Accordance Principle is a <strong>continuous analogue</strong> to survivorship bias.</p>
+          <p>Standard survivorship bias (observers can’t exist in histories that don’t produce them) is not a separate principle. It’s a degenerate case of the Accordance Principle when alternative histories approach zero observer-probability. Consider a history where Earth is sterilized by a Hadean gamma-ray burst. Does P(H|Aⱼ) = 0? Not precisely: there remains some extraordinarily small probability that quantum fluctuations or unspecified degrees of freedom could lead to a deviation that ultimately produces observers. The probability is negligible (perhaps 10⁻¹⁰⁰) but not identically zero.</p>
+          <p>This dissolves the binary partition between “observer-producing” and “non-observer-producing” histories. The Accordance Principle governs all histories without exception: for histories with P(H|Aᵢ) ≈ 0, the formula yields P(Aᵢ|H) ≈ 0 automatically. No separate principle needed. What we call “survivorship bias” is simply the Accordance Principle operating where one probability is negligible. The Accordance Principle is a <strong>continuous analogue</strong> to survivorship bias.</p>
 
           <h4>Why Local, Not Global</h4>
-          <p>The Accordance Principle is an attribute-by-attribute "local" constraint, not a global optimization over "entire histories." The global picture (A* = arg max P(H|Aᵢ)·P(Aᵢ)) is an intuitive stepping stone, but misleading: a "complete history" implies a binary indicator function (does it contain humans: yes/no), which is <strong>ill-defined under the Aethic reversal principle</strong>, since fully-determinate timelines don't exist when the unobserved past is in superposition. The framework is built in the Leibnizian tradition: it states no more than can be asserted from known empiricism directly, modeling natural history in probabilistically-incomplete Aethae rather than fully-complete classical timelines. The global picture emerges later via the Optimal-Earth Conjecture (Layer 5), which requires the amplifying effect of the High-Contrast Earth Hypothesis (Layer 4) to upgrade the local constraint into something approximating global optimization.</p>
+          <p>The Accordance Principle is an attribute-by-attribute “local” constraint, not a global optimization over “entire histories.” The global picture (A* = arg max P(H|Aᵢ)·P(Aᵢ)) is an intuitive stepping stone, but misleading: a “complete history” implies a binary indicator function (does it contain humans: yes/no), which is <strong>ill-defined under the Aethic reversal principle</strong>, since fully-determinate timelines don’t exist when the unobserved past is in superposition. The framework is built in the Leibnizian tradition: it states no more than can be asserted from known empiricism directly, modeling natural history in probabilistically-incomplete Aethae rather than fully-complete classical timelines. The global picture emerges later via the Optimal-Earth Conjecture (Layer 5), which requires the amplifying effect of the High-Contrast Earth Hypothesis (Layer 4) to upgrade the local constraint into something approximating global optimization.</p>
 
           <h4>Counterfactual Quantification as Aethic Interaction-Free Measurement</h4>
           <p>The paper notes that the ability of Nexic reasoning to provide information about alternate histories to arbitrary probabilistic precision constitutes a special case of an Aethic interaction-free measurement outside of the domain of quantum mechanics. The Accordance Principle lets you constrain properties of histories you have never observed and can never visit, using only the empirical facts of the history you do inhabit, the same way the Elitzur-Vaidman bomb tester extracts information about a bomb without detonating it. The mechanism is structural (logical pruning via the Accordance Principle) rather than physical (photon interference), but the informational achievement is analogous.</p>
@@ -770,24 +722,24 @@ body::before {
       <div class="layer-toggle">+</div>
     </div>
     <div class="layer-content"><div class="layer-body">
-      <p>A Nexus is a weighting scheme over Aethae: a lens asking "how typical is this informational state?" By the first postulate of the Aethus, all probabilities require a reference Nexus. There are no "naked" probabilities. Three principal Nexae drive the framework:</p>
+      <p>A Nexus is a weighting scheme over Aethae: a lens asking “how typical is this informational state?” By the first postulate of the Aethus, all probabilities require a reference Nexus. There are no “naked” probabilities. Three principal Nexae drive the framework:</p>
 
       <table class="aethic-table">
         <tr><th>Nexus</th><th>Weights By</th><th>Question</th></tr>
-        <tr><td style="color:var(--text-bright)">Cosmic (N₀)</td><td>Volumetric frequency in the open cosmos</td><td>"How common is this?"</td></tr>
-        <tr><td style="color:var(--accent-3)">Aetherian (N<sub>H</sub>)</td><td>Probability of containing conscious observers</td><td>"How likely to be observed?"</td></tr>
-        <tr><td style="color:var(--accent-1)">Optimation (N<sub>Hₑ</sub>)</td><td>Membership in biosphere producing eventual observers</td><td>"How typical for our evolutionary history?"</td></tr>
+        <tr><td style="color:var(--text-bright)">Cosmic (N₀)</td><td>Volumetric frequency in the open cosmos</td><td>”How common is this?”</td></tr>
+        <tr><td style="color:var(--accent-3)">Aetherian (N<sub>H</sub>)</td><td>Probability of containing conscious observers</td><td>”How likely to be observed?”</td></tr>
+        <tr><td style="color:var(--accent-1)">Optimation (N<sub>Hₑ</sub>)</td><td>Membership in biosphere producing eventual observers</td><td>”How typical for our evolutionary history?”</td></tr>
       </table>
 
       <p><span class="hl">Optimation</span> is the mechanism through which the Accordance Principle operates in natural history. It is not natural selection (which is forward-looking and mechanistic), nor is it teleology (which implies intentional guidance). It is <em>retrospective optimization</em>: the emergent appearance of intention in a history that is entirely mechanistically random, arising solely from the fact that we can only observe histories that produced us.</p>
 
       <p>Formally: P(B|A, N<sub>Hₑ</sub>) ⟺ P(B|A, N₀, H̃), where H̃ is the Boolean attribute that an Aetherian exists somewhere in the same biosphere, past, present, or future. Optimation is simply the Cosmic Nexus <em>conditioned on eventual observer-production</em>.</p>
 
-      <p>This yields the central philosophical paradox: <span class="hl3">a natural history which is both philosophically intentional and mechanistically random, like a wave-particle duality for life science.</span> Viewed through the Optimation lens, Earth's history takes on a story-like structure: beginning, middle, end, hero's journey. If Optimation were "cut" at any stage of evolutionary development, progress toward humans would cease at that point. An archaea would never become a eukaryote, a lobe-finned fish would never leave the ocean, a basal primate would never become human: likelihoods beyond negligible, similarly to entropy-defying flukes.</p>
+      <p>This yields the central philosophical paradox: <span class="hl3">a natural history which is both philosophically intentional and mechanistically random, like a wave-particle duality for life science.</span> Viewed through the Optimation lens, Earth’s history takes on a story-like structure: beginning, middle, end, hero’s journey. If Optimation were “cut” at any stage of evolutionary development, progress toward humans would cease at that point. An archaea would never become a eukaryote, a lobe-finned fish would never leave the ocean, a basal primate would never become human: likelihoods beyond negligible, similarly to entropy-defying flukes.</p>
 
       <div class="key-insight">
         <div class="ki-label">The Optimation Fallacy</div>
-        <p>A crucial logical error pervades paleontology: using the Cosmic Nexus where Optimation should be used. Three specific forms: (1) "Evolution tends toward humans" (misreading Optimation as teleology, when in fact most lineages stagnate, requiring continual Miraculous luck to rise), (2) "Extinction proves ecological inferiority" (dinosaurs dominated mammals by every measure of fitness except the one fluke that actually occurred), (3) Treating Optimation as mere uncertainty (it is a specific, predictive constraint, not hand-waving about the unknown).</p>
+        <p>A crucial logical error pervades paleontology: using the Cosmic Nexus where Optimation should be used. Three specific forms: (1) “Evolution tends toward humans” (misreading Optimation as teleology, when in fact most lineages stagnate, requiring continual Miraculous luck to rise), (2) “Extinction proves ecological inferiority” (dinosaurs dominated mammals by every measure of fitness except the one fluke that actually occurred), (3) Treating Optimation as mere uncertainty (it is a specific, predictive constraint, not hand-waving about the unknown).</p>
       </div>
 
       <div class="detail">
@@ -809,14 +761,14 @@ body::before {
           <h4>Sister Clades as Control Cases: Old World Monkeys</h4>
           <p>The Catarrhini last common ancestor diverged ~25 million years ago into Cercopithecoidea (Old World monkeys) and Hominoidea (apes → humans). The empirical record: Old World monkeys comprise <strong>over 100 extant species</strong> spanning 25 million years of evolution. <strong>Not one</strong> evolved ape-level intelligence. Not one progressed significantly up the evolutionary ladder toward increased cognitive capacity.</p>
           <p>Since Old World monkey intelligence evolution is statistically independent of human existence (their developing intelligence would neither prevent nor enable ours), the Theorem of Aimless Optimation applies. Their observed frequency (≈ 0 out of 100+ species over 25 million years) represents the <em>baseline cosmic probability</em> of our own lineage at the Catarrhini node evolving ape-level intelligence. The fact that our lineage did reveals strong anthropic selection: Optimation made an inherently improbable transition occur with certainty by conditioning on our existence.</p>
-          <p style="color:var(--text-dim);font-size:0.85rem;"><strong>Caveat:</strong> Not all sister clades satisfy statistical independence. Theropod dinosaurs specifically evolved under Optimation's guidance to causally trigger human evolution through the Dark Era. Their anatomical formidability was necessary. Clades constrained by Optimation to enable our existence cannot serve as valid controls.</p>
+          <p style="color:var(--text-dim);font-size:0.85rem;"><strong>Caveat:</strong> Not all sister clades satisfy statistical independence. Theropod dinosaurs specifically evolved under Optimation’s guidance to causally trigger human evolution through the Dark Era. Their anatomical formidability was necessary. Clades constrained by Optimation to enable our existence cannot serve as valid controls.</p>
 
           <h4>The 100 Strategists Thought Experiment</h4>
           <p>Assemble the one hundred most brilliant strategists in human history. Grant them whatever technology they wish. Their task: travel back to the final day of the Cretaceous and end the reign of the theropods while preserving the primates. Deploy nuclear weapons? Smaller theropods survive and refill niches. Ground forces? Tedious beyond measure, one percent eliminated before exhaustion. The optimal solution is an asteroid impact, but even granting this insight: how large? What composition? What angle? What velocity? What location? The variables are too numerous, the margins too fine.</p>
           <p>And yet, this is precisely what transpired. The Chicxulub impactor struck a shallow, sulfur-rich sea at the precise parameters necessary to trigger a mass extinction of sufficient magnitude to eliminate the dominant theropods while preserving the mammalian lineages. The probability: on the order of 10⁻²⁷ or lower. The mechanism navigates probability spaces so incomprehensibly vast that the achievement dwarfs the greatest conceivable feats of human reasoning. And yet it is wholly reducible to material processes: survivorship bias at root, operating over the Accordance Principle, amplified by the High-Contrast Earth Hypothesis.</p>
 
-          <h4>"Miraculous" as a Formal Term</h4>
-          <p>The paper introduces a precise semantic convention: <strong>Miraculous</strong> (capital M) is the adjective for that which is driven by Optimation. "The K-Pg extinction was a Miraculous event" means: the extinction was an unlikely occurrence under the Cosmic Nexus, but an immense prerequisite to human existence, and therefore a consequence of Optimation effects. A <strong>Miracle</strong> is any Aethus satisfying both criteria: unlikely in the Open Cosmos and a prerequisite to Aetherian existence. This distinguishes contingent accidents from Aethic stated-attributes that should be singled out for their Nexic significance.</p>
+          <h4>”Miraculous” as a Formal Term</h4>
+          <p>The paper introduces a precise semantic convention: <strong>Miraculous</strong> (capital M) is the adjective for that which is driven by Optimation. “The K-Pg extinction was a Miraculous event” means: the extinction was an unlikely occurrence under the Cosmic Nexus, but an immense prerequisite to human existence, and therefore a consequence of Optimation effects. A <strong>Miracle</strong> is any Aethus satisfying both criteria: unlikely in the Open Cosmos and a prerequisite to Aetherian existence. This distinguishes contingent accidents from Aethic stated-attributes that should be singled out for their Nexic significance.</p>
 
         </div></div>
       </div>
@@ -834,18 +786,18 @@ body::before {
       <div class="layer-toggle">+</div>
     </div>
     <div class="layer-content"><div class="layer-body">
-      <p>Seemingly minute changes in Earth's history are sufficient to offset the probability of observer existence by <span class="hl2">extremely many orders of magnitude</span>. This is not about individual magnitudes but about the <em>ratio</em> between any two habitable-planet-implying Aethae.</p>
+      <p>Seemingly minute changes in Earth’s history are sufficient to offset the probability of observer existence by <span class="hl2">extremely many orders of magnitude</span>. This is not about individual magnitudes but about the <em>ratio</em> between any two habitable-planet-implying Aethae.</p>
 
       <div class="key-insight">
         <div class="ki-label">The Sisyphean Trap</div>
         <p>Consider Aetherian life around a red dwarf. The habitable zone is closer, so the planet becomes tidally locked. Fix this with a binary system, but now stable orbits are needed. Fix that, but now reasonable day length for atmospheric circulation is needed. Each fix demands another fix. The <strong>Sisyphean trap</strong>: the multiplicative probability of all patches collapses toward zero. But this is only the secondary result. The primary result is that wherever this probability falls, it is effectively at a <em>random order of magnitude</em> between zero and one. Doing this process for two different strings of Aethic attributes is effectively guaranteed to give a vast ratio between the two. The High-Contrast Earth Hypothesis is fundamentally not a claim about absolute magnitudes, but about the relationship between any two habitable-planet-implying Aethae, even if they differ by only a single attribute.</p>
       </div>
 
-      <p>When this combines with the Accordance Principle, the loose mediocrity-driven bound becomes almost surely rigid: the <span class="hl">Strong Accordance Principle</span>. The inequality tightens from "more likely true than not" to "effectively guaranteed." Any change to our history almost surely <em>lowers</em> the probability of observers. This converts Earth's natural history from a sequence of contingent events into an optimized trajectory, where the planet, <span class="hl3">almost like a vector embedding, points directly at some goal to beat the vast probability falloff of success, proceeds to achieve it, and then immediately pivots to point toward the next goal</span>. The Paleozoic → Mesozoic → Cenozoic progression is reframed as successive optimal pivots: each era is optimally tailored for its specific developmental achievement, and is effectively random at performing any other era's achievement.</p>
+      <p>When this combines with the Accordance Principle, the loose mediocrity-driven bound becomes almost surely rigid: the <span class="hl">Strong Accordance Principle</span>. The inequality tightens from “more likely true than not” to “effectively guaranteed.” Any change to our history almost surely <em>lowers</em> the probability of observers. This converts Earth’s natural history from a sequence of contingent events into an optimized trajectory, where the planet, <span class="hl3">almost like a vector embedding, points directly at some goal to beat the vast probability falloff of success, proceeds to achieve it, and then immediately pivots to point toward the next goal</span>. The Paleozoic → Mesozoic → Cenozoic progression is reframed as successive optimal pivots: each era is optimally tailored for its specific developmental achievement, and is effectively random at performing any other era’s achievement.</p>
 
       <div class="formal">
         <span class="formal-label">The Strong Accordance Principle</span>
-        $$\frac{P(H \mid A')}{P(H \mid A)} < \frac{P(A)}{1 - P(A)}$$
+        $$\frac{P(H \mid A’)}{P(H \mid A)} < \frac{P(A)}{1 - P(A)}$$
         <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;">The strict inequality (not just ≲) holds almost surely once the High-Contrast Earth Hypothesis is incorporated. The mediocrity bound becomes effectively absolute.</div>
       </div>
 
@@ -859,14 +811,14 @@ body::before {
         <div class="detail-body"><div class="detail-inner">
 
           <h4>Imperfection Magnitude Drops (IMDs)</h4>
-          <p>An IMD is any targeted perturbation away from one's own ontological Aethus where P(H ∩ Aᵢ) is drastically minute. The key insight: a Hadean gamma-ray burst and a red dwarf Aetherian scenario are <strong>not categorically separate</strong>. They are different locations on a <em>continuous spectrum</em> of IMDs by probabilistic severity. In both cases, the intersection probability of an Aetherian and the Aethus defining the scenario is minute enough to qualify as an IMD. That is the only objective signifier of devastation without straying into arbitrary convention. This unification dissolves the intuitive but misleading distinction between "direct fatal destruction of habitability" and "merely severely limiting the prior Bayesian probability of habitability."</p>
+          <p>An IMD is any targeted perturbation away from one’s own ontological Aethus where P(H ∩ Aᵢ) is drastically minute. The key insight: a Hadean gamma-ray burst and a red dwarf Aetherian scenario are <strong>not categorically separate</strong>. They are different locations on a <em>continuous spectrum</em> of IMDs by probabilistic severity. In both cases, the intersection probability of an Aetherian and the Aethus defining the scenario is minute enough to qualify as an IMD. That is the only objective signifier of devastation without straying into arbitrary convention. This unification dissolves the intuitive but misleading distinction between “direct fatal destruction of habitability” and “merely severely limiting the prior Bayesian probability of habitability.”</p>
 
           <h4>The Cascading Numerosity Argument</h4>
           <p>Consider what a counterfactual natural history looks like if life on Earth goes completely extinct during its development. The total probability of that Aethus and Aetherian existence would roughly equal the <em>square</em> of Aetherian existence under our own history, since life would have to independently pass Great Filters not once, but twice. This hints at a remarkable structure: the more extreme the IMD (three rather than two independent evolutions of life), the <em>more numerous</em> the abstract natural histories under that new category, due to the cascading means of changing that attribute. So what we find is that the more devastating the probability tier, the more independent IMD Aethae can be descriptively articulated which sit on that tier.</p>
-          <p>Tracing this backwards: as we move to higher probabilities, the number of describable Aethae decreases drastically. The Accordance Principle compels that we should exist near the peak. Yet near the peak, the number of Aethae which can be descriptively articulated are so sparse that <strong>by so much as naming any Aethus besides our own, we already expect it to sit far, far lower in probability space, effectively as a sure IMD</strong>. Hence the Optimal-Earth Conjecture: we are at a "local optimal point" not because we've proved global maximality, but because purely up to the limitations of our active powers of description, any named perturbation holds less probability than our own.</p>
+          <p>Tracing this backwards: as we move to higher probabilities, the number of describable Aethae decreases drastically. The Accordance Principle compels that we should exist near the peak. Yet near the peak, the number of Aethae which can be descriptively articulated are so sparse that <strong>by so much as naming any Aethus besides our own, we already expect it to sit far, far lower in probability space, effectively as a sure IMD</strong>. Hence the Optimal-Earth Conjecture: we are at a “local optimal point” not because we’ve proved global maximality, but because purely up to the limitations of our active powers of description, any named perturbation holds less probability than our own.</p>
 
           <h4>Application to Paleontological Environments</h4>
-          <p>Each era in Earth's history is optimally tailored for its specific developmental achievement, and is effectively random at performing any other era's achievement. The Paleozoic is ill-equipped to produce mammalian evolution because an extended Paleozoic is environmentally analogous to the actual Paleozoic, and by the two-node derivation, the extended Paleozoic produces humans at ≲ 6% the rate. By induction from this base case via the Optimal-Earth Conjecture: any environment in Earth's history is ill-equipped to produce results specific to any other environment, because the two are already separately tailored to enable their own respective developmental achievements. By the High-Contrast Earth Hypothesis, that "randomness in capacity" implies significant probabilistic contrast, so the realized past eras must hold the greatest probability of any era at achieving their specially-tailored event.</p>
+          <p>Each era in Earth’s history is optimally tailored for its specific developmental achievement, and is effectively random at performing any other era’s achievement. The Paleozoic is ill-equipped to produce mammalian evolution because an extended Paleozoic is environmentally analogous to the actual Paleozoic, and by the two-node derivation, the extended Paleozoic produces humans at ≲ 6% the rate. By induction from this base case via the Optimal-Earth Conjecture: any environment in Earth’s history is ill-equipped to produce results specific to any other environment, because the two are already separately tailored to enable their own respective developmental achievements. By the High-Contrast Earth Hypothesis, that “randomness in capacity” implies significant probabilistic contrast, so the realized past eras must hold the greatest probability of any era at achieving their specially-tailored event.</p>
 
         </div></div>
       </div>
@@ -886,25 +838,25 @@ body::before {
     <div class="layer-content"><div class="layer-body">
       <div class="formal">
         <span class="formal-label">The Optimal-Earth Conjecture</span>
-        For any attribute of Earth's natural history that is at least moderately correlated with conscious observers, replacing that attribute with its complement results in a <strong>strictly lower</strong> probability of our existence.
+        For any attribute of Earth’s natural history that is at least moderately correlated with conscious observers, replacing that attribute with its complement results in a <strong>strictly lower</strong> probability of our existence.
       </div>
 
-      <p>Take any significant feature of Earth's history and imagine it had gone differently. The Moon never forms. The K-Pg extinction doesn't happen. α-gal production persists. The conjecture says the alternative history would be <em>worse</em> for producing beings like us. Not equally good, not randomly different: <span class="hl3">worse</span>.</p>
+      <p>Take any significant feature of Earth’s history and imagine it had gone differently. The Moon never forms. The K-Pg extinction doesn’t happen. α-gal production persists. The conjecture says the alternative history would be <em>worse</em> for producing beings like us. Not equally good, not randomly different: <span class="hl3">worse</span>.</p>
 
-      <p>This is <em>not teleology</em>. It does not claim Earth was "designed" for us, that Earth is the only possible home for intelligence, that our history is the global maximum, or that evolution "tends toward" humans. It claims our history is a <span class="hl">local optimum</span>: any <em>named</em> perturbation almost surely drops observer probability. The key qualifier is "named": the conjecture cannot compare against histories you can't even describe. It is the strongest thing you can assert without leaving the Leibnizian methodology of reasoning within known empiricism.</p>
+      <p>This is <em>not teleology</em>. It does not claim Earth was “designed” for us, that Earth is the only possible home for intelligence, that our history is the global maximum, or that evolution “tends toward” humans. It claims our history is a <span class="hl">local optimum</span>: any <em>named</em> perturbation almost surely drops observer probability. The key qualifier is “named”: the conjecture cannot compare against histories you can’t even describe. It is the strongest thing you can assert without leaving the Leibnizian methodology of reasoning within known empiricism.</p>
 
       <p>The difference from the Strong Accordance Principle: the Strong Accordance Principle asserts that alternative stated-attributes produce Aetherians with lower probability. The Optimal-Earth Conjecture looks backwards from these alternatives and infers that our own stated-attribute must have been the optimal against its alternatives. It is a <em>methodological corollary</em>: it converts the Accordance Principle from a retrospective explanatory tool into a <span class="hl2">predictive calculus</span>.</p>
 
       <div class="key-insight">
         <div class="ki-label">A New Methodology for Paleontology</div>
-        <p>Given some unknown of whether A or A' occurred in Earth's history, the Optimal-Earth Conjecture states that whichever has higher probability under the Aetherian or Cosmic Nexus is the correct empirical answer. Natural history can be treated with <strong>optimization queries</strong> rather than simply waiting for fossil evidence. The optimization results should be taken as experimental predictions that need validation, not infallible proofs. The real power comes from reinterpreting and rerunning experiments under many contexts via the scientific method.</p>
+        <p>Given some unknown of whether A or A’ occurred in Earth’s history, the Optimal-Earth Conjecture states that whichever has higher probability under the Aetherian or Cosmic Nexus is the correct empirical answer. Natural history can be treated with <strong>optimization queries</strong> rather than simply waiting for fossil evidence. The optimization results should be taken as experimental predictions that need validation, not infallible proofs. The real power comes from reinterpreting and rerunning experiments under many contexts via the scientific method.</p>
       </div>
 
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
           <span class="detail-icon">&#9881;&#65039;</span>
           <span class="detail-label">Deep Dive: Derivation, the Aetherian Independence Principle & Nexic Packaging</span>
-          <span class="detail-hint">Fundamental Theorem of Nexusing · attentor/contentor · Hooke's catenary analogy</span>
+          <span class="detail-hint">Fundamental Theorem of Nexusing · attentor/contentor · Hooke’s catenary analogy</span>
           <span class="detail-chevron">&#9654;</span>
         </div>
         <div class="detail-body"><div class="detail-inner">
@@ -913,10 +865,10 @@ body::before {
           <p>The Optimal-Earth Conjecture is a special case of the Fundamental Theorem of Nexusing, where the <strong>attentor</strong> (observer-selection Nexus) is the Aetherian Nexus N<sub>H</sub> and the <strong>contentor</strong> (cosmic baseline Nexus) is the Cosmic Nexus N₀. The theorem states: if something is typical among observers and rare in the cosmos, then its alternative must be vastly rarer still under the cosmos. The <strong>Aetherian Independence Principle</strong> (Principle 6) bridges this: the Cosmic and Aetherian Nexae are statistically independent, meaning the volumetric frequency of a situation is uncorrelated with its probability of containing observers. This is what makes the framework non-trivial: if observer-existence were correlated with cosmic frequency, the Accordance Principle would collapse to the Copernican Principle.</p>
 
           <h4>Nexic Packaging</h4>
-          <p>When direct optimization is too complex, identify other examples in natural history of the same general trend and transfer the pattern to the current query. The analogy: Robert Hooke inferred a dome's shape from a hanging cord by symmetry. Nexic packaging infers unknown historical facts from known ones by pattern transfer across Nexae. Example: does life trace to the Hadean or only the Archean? Since the general trend under the Optimal-Earth Conjecture favors clades being substantially older than their oldest fossils (as with primate origins predating their fossil record), by Nexic packaging, life should trace to the Hadean. This is a genuinely new mode of scientific inference.</p>
+          <p>When direct optimization is too complex, identify other examples in natural history of the same general trend and transfer the pattern to the current query. The analogy: Robert Hooke inferred a dome’s shape from a hanging cord by symmetry. Nexic packaging infers unknown historical facts from known ones by pattern transfer across Nexae. Example: does life trace to the Hadean or only the Archean? Since the general trend under the Optimal-Earth Conjecture favors clades being substantially older than their oldest fossils (as with primate origins predating their fossil record), by Nexic packaging, life should trace to the Hadean. This is a genuinely new mode of scientific inference.</p>
 
           <h4>The Open Cosmos</h4>
-          <p>The abstract medium in which all Nexic reasoning operates: the set of all possible histories, including those on other planets, treated as "alternate histories of Earth" constructed by abstractly altering Aethic properties. Even a physically existent system like Proxima Centauri b is modeled not by its spatial separation from us but by the process of altering Earth's Aethic attributes until the system is constructed. This dissolves the distinction between "alternate timelines" and "other planets." The Cosmic Nexus weights events by their frequency in the Open Cosmos, making it the probability substrate for all Nexic calculations.</p>
+          <p>The abstract medium in which all Nexic reasoning operates: the set of all possible histories, including those on other planets, treated as “alternate histories of Earth” constructed by abstractly altering Aethic properties. Even a physically existent system like Proxima Centauri b is modeled not by its spatial separation from us but by the process of altering Earth’s Aethic attributes until the system is constructed. This dissolves the distinction between “alternate timelines” and “other planets.” The Cosmic Nexus weights events by their frequency in the Open Cosmos, making it the probability substrate for all Nexic calculations.</p>
 
         </div></div>
       </div>
@@ -936,11 +888,11 @@ body::before {
     <div class="layer-content"><div class="layer-body">
       <p>The Mesozoic functioned as an evolutionary crucible in which <span class="hl2">theropod predation pressure was causally necessary</span> for mammalian cognitive architecture. Mammalian quality of life was so low that the major leaps in evolution, both physical and mental, were forced by ecological pressure. Without that pressure, those leaps would never materialize.</p>
 
-      <p>The derivation proceeds from the Accordance Principle: the two-node circumstance (Layer 2) establishes that a world without dinosaurs produces humans at ≲ 6% the rate. Therefore there must be some ontologically describable <em>obstruction</em> throughout the chain of human evolution which the ecological existence of dinosaurs relieved. The optimal hypothesis, by Occam's razor and paleontological evidence: the near-improbability of evolving the <span class="hl">limbic system</span>, the distinctively mammalian portion of the triune brain. Without theropod pressure, no limbic system. Without the limbic system, no path to human cognition.</p>
+      <p>The derivation proceeds from the Accordance Principle: the two-node circumstance (Layer 2) establishes that a world without dinosaurs produces humans at ≲ 6% the rate. Therefore there must be some ontologically describable <em>obstruction</em> throughout the chain of human evolution which the ecological existence of dinosaurs relieved. The optimal hypothesis, by Occam’s razor and paleontological evidence: the near-improbability of evolving the <span class="hl">limbic system</span>, the distinctively mammalian portion of the triune brain. Without theropod pressure, no limbic system. Without the limbic system, no path to human cognition.</p>
 
       <p>The anomalous cognition of a mediocre consciousness is, strangely, simply a consequence of the most scarring of pressures inflicted from dinosaurian predation. Our ancestors were nocturnal, small, perpetually outmatched. The product ranges from the jittery lifestyle of a chipmunk to the core of restlessness coupled with the human experience. This is the <span class="hl3">Dark Era of human evolution</span>: dark in a literal sense (our ancestors were nocturnal), and dark in a literary sense (an unpleasant and limiting stretch of time when the first legs of the human condition were assembled by evolution).</p>
 
-      <p><strong>Wretched evolution:</strong> the phenomenon where established Miracles often originally appeared as tragedies (though not the reverse: under the Cosmic Nexus, tragedies usually stay tragedies). The <em>evolution of dinosaurs</em> was Optimation's "cancelled flight": the catastrophe that plunged mammals into 186 million years of darkness. The mammalian brain — the limbic system forged under theropod pressure — was the stranger at the airport: the outcome you could never have reached without the catastrophe, the thing that eclipses anything the prior trajectory could have yielded.</p>
+      <p><strong>Wretched evolution:</strong> the phenomenon where established Miracles often originally appeared as tragedies (though not the reverse: under the Cosmic Nexus, tragedies usually stay tragedies). The <em>evolution of dinosaurs</em> was Optimation’s “cancelled flight”: the catastrophe that plunged mammals into 186 million years of darkness. The mammalian brain — the limbic system forged under theropod pressure — was the stranger at the airport: the outcome you could never have reached without the catastrophe, the thing that eclipses anything the prior trajectory could have yielded.</p>
 
       <div class="key-insight">
         <div class="ki-label">The Accordance Timescale</div>
@@ -950,7 +902,7 @@ body::before {
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
           <span class="detail-icon">&#9881;&#65039;</span>
-          <span class="detail-label">Deep Dive: The 12-Step Derivation, the Cancelled Flight & Why Natural Selection Isn't Enough</span>
+          <span class="detail-label">Deep Dive: The 12-Step Derivation, the Cancelled Flight & Why Natural Selection Isn’t Enough</span>
           <span class="detail-hint">derivation from Accordance Principle · theropod specificity · wretched evolution in detail</span>
           <span class="detail-chevron">&#9654;</span>
         </div>
@@ -971,11 +923,11 @@ body::before {
           <p>12. Therefore: the Dark Era of human evolution.</p>
 
           <h4>The Cancelled Flight</h4>
-          <p>You're traveling to the most important meeting of your career. Your flight gets canceled. Your employer terminates you. Your career implodes. Yet stranded at the airport overnight, you strike up a conversation with a stranger who is seeking a co-founder in your field. Five years later, you've built something that eclipses anything your previous trajectory could have yielded. Without the canceled flight, you would never have been in that terminal, in that seat, at that hour.</p>
-          <p>The <em>evolution of dinosaurs</em> was Optimation's cancelled flight: the event that condemned our ancestors to 186 million years of nocturnal, marginal existence under relentless theropod predation. The career implosion is the Dark Era itself. And the stranger at the airport — the outcome that eclipses anything the prior trajectory could have produced — is the <em>mammalian brain</em>, the limbic system forged under that very pressure, which could never have evolved without the catastrophe that made it necessary. This is <strong>wretched evolution</strong>: in order to reach the outcome, we needed a catastrophe that placed us in a position we had no other access to, rather than persisting along a comfortable trajectory that would never have intersected with this possibility. This is the headlong charge through which Optimation beats out biological improbability.</p>
+          <p>You’re traveling to the most important meeting of your career. Your flight gets canceled. Your employer terminates you. Your career implodes. Yet stranded at the airport overnight, you strike up a conversation with a stranger who is seeking a co-founder in your field. Five years later, you’ve built something that eclipses anything your previous trajectory could have yielded. Without the canceled flight, you would never have been in that terminal, in that seat, at that hour.</p>
+          <p>The <em>evolution of dinosaurs</em> was Optimation’s cancelled flight: the event that condemned our ancestors to 186 million years of nocturnal, marginal existence under relentless theropod predation. The career implosion is the Dark Era itself. And the stranger at the airport — the outcome that eclipses anything the prior trajectory could have produced — is the <em>mammalian brain</em>, the limbic system forged under that very pressure, which could never have evolved without the catastrophe that made it necessary. This is <strong>wretched evolution</strong>: in order to reach the outcome, we needed a catastrophe that placed us in a position we had no other access to, rather than persisting along a comfortable trajectory that would never have intersected with this possibility. This is the headlong charge through which Optimation beats out biological improbability.</p>
 
-          <h4>Why Natural Selection Alone Isn't Enough</h4>
-          <p>The claim: the foundational theory of evolution by natural selection, in all of its astounding beauty, cannot describe the entire story of human evolution on its own. For that, we must also include Optimation. If Optimation were "cut" at any stage, progress toward humans would cease. Natural selection would still operate, but an archaea would never become a eukaryote, a lobe-finned fish would never leave the ocean, a basal primate would never become human. These likelihoods are beyond negligible, similarly to entropy-defying flukes. Under Optimation, the story of life on Earth is one such entropy-defying possibility: the second law of thermodynamics allows for unimaginably improbable possibilities that decrease system entropy, and Optimation states that life on Earth is one of them.</p>
+          <h4>Why Natural Selection Alone Isn’t Enough</h4>
+          <p>The claim: the foundational theory of evolution by natural selection, in all of its astounding beauty, cannot describe the entire story of human evolution on its own. For that, we must also include Optimation. If Optimation were “cut” at any stage, progress toward humans would cease. Natural selection would still operate, but an archaea would never become a eukaryote, a lobe-finned fish would never leave the ocean, a basal primate would never become human. These likelihoods are beyond negligible, similarly to entropy-defying flukes. Under Optimation, the story of life on Earth is one such entropy-defying possibility: the second law of thermodynamics allows for unimaginably improbable possibilities that decrease system entropy, and Optimation states that life on Earth is one of them.</p>
 
           <h4>These Predictions Are Testable</h4>
           <p>The direct consequences of the Dark Era hypothesis onto the functioning of the world hold crucial importance to the scientific validity of the Accordance Principle: they generate direct predictions testable by the scientific method. If these predictions generally hold true, the Accordance Principle holds respectable merit. If many do not, it is falsified. This operates as a direct avenue through which we can test claims to scientific rigor, relaying results to their implications within Nexic reasoning, Aethic reasoning, and the Fermi paradox.</p>
@@ -1002,10 +954,10 @@ body::before {
 
       <p><strong>The α-gal crisis</strong> (~25-35 Mya): a viral epidemic struck our Catarrhine primate ancestors. The virus contained α-gal, the same carbohydrate our cells produced via GGTA1. We could not generate antibodies without attacking our own cells. A mutation appeared: individuals who lost GGTA1 stopped producing α-gal and became immune. These few survivors are our direct ancestors. Every mammal still produces α-gal <em>except</em> the group containing apes and humans. Through the Accordance Principle, the loss of GGTA1 has immensely high existential linkage, and keeping it has correspondingly highly negative linkage. It was a necessity, by Optimation, to lose that gene at all costs. The virus was the instrument that forced a gene loss natural selection alone could never accomplish.</p>
 
-      <p><span class="hl3">Wretched evolution</span> exemplified: the epidemic was simultaneously a catastrophe (near-extinction of our lineage) and the very mechanism of our salvation. This pattern, where Optimation's instruments appear as tragedies while they unfold, is characteristic of optimal evolutionary trajectories.</p>
+      <p><span class="hl3">Wretched evolution</span> exemplified: the epidemic was simultaneously a catastrophe (near-extinction of our lineage) and the very mechanism of our salvation. This pattern, where Optimation’s instruments appear as tragedies while they unfold, is characteristic of optimal evolutionary trajectories.</p>
 
       <div class="key-insight">
-        <div class="ki-label">The "Cut Optimation" Thought Experiment</div>
+        <div class="ki-label">The “Cut Optimation” Thought Experiment</div>
         <p>Cut Optimation just before the virus: no virus materializes, our ancestors live on into the indefinite future incapable of evolving toward humans (highly negative existential linkage of keeping α-gal), and die with the Earth. Cut Optimation just after the virus but before the immunity: the virus wipes through the population with the Miracle mutation never materializing. End of the human experiment. This is how important Optimation is with just <em>one single event</em>: now consider what it means for the K-Pg extinction, the dawn of eukaryotic life, or interstellar panspermia if it occurred.</p>
       </div>
 
@@ -1019,7 +971,7 @@ body::before {
         <div class="detail-body"><div class="detail-inner">
 
           <h4>Doomsday Pacing and the Arrival Time</h4>
-          <p>When should our ancestors have arrived on Hațeg? The paper derives a general principle called <strong>biosphere doomsday pacing</strong>: whenever a constant hazard rate of the world's end exists, major transitions must occur as close to their first possible time as achievable. The math: if you shorten Earth's natural history by time t, external survival improves by e<sup>λt</sup> (constant hazard rate λ), but internal doomsday probability grows at least exponentially: P(I₁)/P(I₀) ≥ e<sup>λt</sup>. At the optimal timeline length t₀, the derivative of P(H) w.r.t. time equals zero, yielding: lowering external hazard extends the optimal timeline; raising it compresses it. The consequence: each transition is paced to happen "just in time." This is why the arrival on Hațeg should be close to the island's formation (~93 Mya, end of the Cenomanian), which would imply <strong>Euarchontoglires</strong> (the superorder containing primates, rodents, and lagomorphs) originated on Hațeg Island.</p>
+          <p>When should our ancestors have arrived on Hațeg? The paper derives a general principle called <strong>biosphere doomsday pacing</strong>: whenever a constant hazard rate of the world’s end exists, major transitions must occur as close to their first possible time as achievable. The math: if you shorten Earth’s natural history by time t, external survival improves by e<sup>λt</sup> (constant hazard rate λ), but internal doomsday probability grows at least exponentially: P(I₁)/P(I₀) ≥ e<sup>λt</sup>. At the optimal timeline length t₀, the derivative of P(H) w.r.t. time equals zero, yielding: lowering external hazard extends the optimal timeline; raising it compresses it. The consequence: each transition is paced to happen “just in time.” This is why the arrival on Hațeg should be close to the island’s formation (~93 Mya, end of the Cenomanian), which would imply <strong>Euarchontoglires</strong> (the superorder containing primates, rodents, and lagomorphs) originated on Hațeg Island.</p>
 
           <h4>The Euarchontoglires Hypothesis</h4>
           <p>If our ancestor arrived at ~93 Mya: rodents and lagomorphs both trace their ancestry to Hațeg Island at the K-Pg extinction. Their explosive Cenozoic success, like that of primates, may stem from having already diversified on the island. The prediction of a substantial sea level decline in the early Paleocene (allowing departure from the island) is <strong>confirmed</strong> at ~65.95 Mya in the sea level data.</p>
@@ -1050,18 +1002,18 @@ body::before {
 
       <div class="formal">
         <span class="formal-label">The Rare Earth Derivation</span>
-        $$P(A) \cdot P(H|A) \gtrsim P(A') \cdot P(H|A')$$
+        $$P(A) \cdot P(H|A) \gtrsim P(A’) \cdot P(H|A’)$$
         $$\Rightarrow\; 2\,P(A) \cdot P(H|A) \gtrsim P(H)$$
         $$\Rightarrow\; P(H) \lesssim 2\,P(A)$$
       </div>
 
-      <p>Using the dinosaurian two-node result (P(A) ≲ 4% for the combined probability of dinosaurs evolving and going extinct with mammals surviving): <span class="hl2">P(H) ≲ 1/12 per biosphere</span>. Extrapolated over Earth's full history via further circumstantial attributes: <span class="hl3">P(H) ~ 10⁻²⁷ at planetary formation</span>. The revolutionary aspect is not the conclusion (others have argued for Rare Earth) but the method: this is claimed as the first derivation of a Fermi paradox solution from a falsifiable principle.</p>
+      <p>Using the dinosaurian two-node result (P(A) ≲ 4% for the combined probability of dinosaurs evolving and going extinct with mammals surviving): <span class="hl2">P(H) ≲ 1/12 per biosphere</span>. Extrapolated over Earth’s full history via further circumstantial attributes: <span class="hl3">P(H) ~ 10⁻²⁷ at planetary formation</span>. The revolutionary aspect is not the conclusion (others have argued for Rare Earth) but the method: this is claimed as the first derivation of a Fermi paradox solution from a falsifiable principle.</p>
 
       <p>The <strong>Accordance Theorem</strong> establishes this formally: self-mediocrity, cosmic-mediocrity, and the Copernican principle cannot all be true at once. Since the first two are supported by strong intuitive arguments (denying either leads to absurdity), the Copernican principle breaks, yielding the Rare Earth hypothesis as a <span class="hl">derivation, not an assumption</span>.</p>
 
       <div class="formal">
         <span class="formal-label">Existential Linkage</span>
-        $$L_A = \frac{P(H|A) - P(H|A')}{P(H|A) + P(H|A')}$$
+        $$L_A = \frac{P(H|A) - P(H|A’)}{P(H|A) + P(H|A’)}$$
         <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;">L<sub>A</sub> > 0: A favors observers. L<sub>A</sub> < 0: disfavors. L<sub>A</sub> = 0: statistical independence. Rewriting the Accordance Principle in terms of L<sub>A</sub>: <strong>L<sub>A</sub> ≳ 1 − 2P(A)</strong>. For any attribute with low cosmic probability, existential linkage must be close to 1: unlikely events in our history are almost certainly anthropic parameters.</div>
       </div>
 
@@ -1082,7 +1034,7 @@ body::before {
         <div class="detail-body"><div class="detail-inner">
 
           <h4>Significance of the Mass of Chicxulub</h4>
-          <p>A compact quantitative derivation: crater frequency follows P(W=w) ∝ w⁻³. Converting through the mass-radius relationship (m ∝ r³), the probability of an impactor of mass m satisfies P(M=m) ∝ m⁻¹. Comparing an impactor of different mass (scaled by factor s) to Chicxulub's actual mass m₀: the probability ratio is s³. Substituting into the Strong Accordance Principle: <strong>P(H|M=m) ≤ k·m</strong>. The probability of human existence given a different impactor mass is at most proportional to that mass. Chicxulub's specific mass was near-optimal. This is the paper's most compact demonstration of the Optimal-Earth Conjecture yielding a testable quantitative prediction from a simple physical model.</p>
+          <p>A compact quantitative derivation: crater frequency follows P(W=w) ∝ w⁻³. Converting through the mass-radius relationship (m ∝ r³), the probability of an impactor of mass m satisfies P(M=m) ∝ m⁻¹. Comparing an impactor of different mass (scaled by factor s) to Chicxulub’s actual mass m₀: the probability ratio is s³. Substituting into the Strong Accordance Principle: <strong>P(H|M=m) ≤ k·m</strong>. The probability of human existence given a different impactor mass is at most proportional to that mass. Chicxulub’s specific mass was near-optimal. This is the paper’s most compact demonstration of the Optimal-Earth Conjecture yielding a testable quantitative prediction from a simple physical model.</p>
 
           <h4>Orders of Nexic Arguments</h4>
           <p>The order counts how many inductive applications of the Accordance Principle separate a claim from empirical evidence. Zero-order: direct empirical statement. First-order: one application. The recursive definition ensures the minimal order is always used (analogous to ODE classification by highest derivative):</p>
@@ -1093,8 +1045,8 @@ body::before {
           <p>This provides a rigorous way to assess inferential distance and epistemic risk of any Nexic prediction.</p>
 
           <h4>The Accordance Theorem in Full</h4>
-          <p>The Copernican principle asserts that our cosmic neighborhood is typical: life must be common, otherwise our existence would be anomalous. The Accordance Theorem shows this is incompatible with self-mediocrity and cosmic-mediocrity. Consider: if you are a random observer among all observers (self-mediocrity), and the universe doesn't disproportionately present you with events beyond their likelihoods (cosmic-mediocrity), then by the Accordance Principle you should find yourself in the history most likely to produce observers. But the Rare Earth derivation shows this probability is vanishingly small per biosphere. Therefore life is rare in the universe. The Copernican principle breaks.</p>
-          <p>The irony: the Copernican principle is itself an application of the mediocrity principle. So this is "fighting fire with fire": the Aethic mediocrity principle, properly applied across the space of histories rather than just spatial locations, yields the opposite of the Copernican conclusion.</p>
+          <p>The Copernican principle asserts that our cosmic neighborhood is typical: life must be common, otherwise our existence would be anomalous. The Accordance Theorem shows this is incompatible with self-mediocrity and cosmic-mediocrity. Consider: if you are a random observer among all observers (self-mediocrity), and the universe doesn’t disproportionately present you with events beyond their likelihoods (cosmic-mediocrity), then by the Accordance Principle you should find yourself in the history most likely to produce observers. But the Rare Earth derivation shows this probability is vanishingly small per biosphere. Therefore life is rare in the universe. The Copernican principle breaks.</p>
+          <p>The irony: the Copernican principle is itself an application of the mediocrity principle. So this is “fighting fire with fire”: the Aethic mediocrity principle, properly applied across the space of histories rather than just spatial locations, yields the opposite of the Copernican conclusion.</p>
 
         </div></div>
       </div>
@@ -1114,7 +1066,7 @@ body::before {
     <div class="layer-content"><div class="layer-body">
       <p>The Nexic derivation of the Rare Earth hypothesis renders the outside universe as an <span class="hl3">unthinkably vast and unfeeling graveyard</span> as far as the eye can see. Life is gravely uncommon outside the Solar System, and what life exists elsewhere has an extraordinarily short half-life of survival on geologic timescales.</p>
 
-      <p>Probably one of the most significant events in the history of civilization is that moment when you realize how empty the universe is of life. Maybe you are having that moment right now. Maybe it's still coming. What matters is not the realization itself. It's how you choose to react to it.</p>
+      <p>Probably one of the most significant events in the history of civilization is that moment when you realize how empty the universe is of life. Maybe you are having that moment right now. Maybe it’s still coming. What matters is not the realization itself. It’s how you choose to react to it.</p>
 
       <div class="key-insight">
         <div class="ki-label">The Pivot</div>
@@ -1123,12 +1075,12 @@ body::before {
 
       <p>Every standard anti-nihilist move fails because it operates at the same level as nihilism itself: assertion against assertion. The Accordance Principle works differently. What it establishes, if correct, is that the mathematical structure of reality and the fact of your existence <strong>are not statistically independent</strong>. They are coupled. The coupling is quantifiable. And the coupling produces specific, testable predictions.</p>
 
-      <p>You are here not because you happened to be here, but because in some profound sense you were intertwined with it all along. Over the course of Earth's history, there has been a series of absolute Miracles: the Moon formed from a collision so improbably precise that your jaw would drop. Then an asteroid hit a bullseye off the coast of Mexico. Then a virus nearly wiped out your entire lineage, only for a Miracle mutation to save the last survivors. All of this, every single one of these impossible events, points at you.</p>
+      <p>You are here not because you happened to be here, but because in some profound sense you were intertwined with it all along. Over the course of Earth’s history, there has been a series of absolute Miracles: the Moon formed from a collision so improbably precise that your jaw would drop. Then an asteroid hit a bullseye off the coast of Mexico. Then a virus nearly wiped out your entire lineage, only for a Miracle mutation to save the last survivors. All of this, every single one of these impossible events, points at you.</p>
 
-      <p>The nihilist's own premise, cosmic indifference and the vastness of empty space, becomes the mathematical fuel for the counter-argument. The darker the cosmos, the more improbable your existence, the stronger the coupling. <em>The graveyard is not rhetorical decoration atop a separate argument. The graveyard <strong>is</strong> the argument.</em></p>
+      <p>The nihilist’s own premise, cosmic indifference and the vastness of empty space, becomes the mathematical fuel for the counter-argument. The darker the cosmos, the more improbable your existence, the stronger the coupling. <em>The graveyard is not rhetorical decoration atop a separate argument. The graveyard <strong>is</strong> the argument.</em></p>
 
       <div class="formal">
-        <span class="formal-label">"We Are Not Merely Some Fluttering Inscription on the Hull of the Cosmos"</span>
+        <span class="formal-label">”We Are Not Merely Some Fluttering Inscription on the Hull of the Cosmos”</span>
         With the dual Aethic and Nexic paradigms operating together: we have counterarguments to straight materialism from Aethic reasoning (observer-centrality, the extrusion principle, relativist superposition content), and now with Nexic reasoning augment this with a sweeping demonstration of the uniqueness of native-Earth consciousness against the probabilistic standards of the cosmos. We are the embodiment of the universe itself. We get to live in the most beautiful place in the universe, on a planet where you can stare into the blue sky and the white, puffy clouds above. This is a grounding that we must keep close in order to handle the next key stages of our existence on this planet.
       </div>
 
@@ -1142,16 +1094,16 @@ body::before {
         <div class="detail-body"><div class="detail-inner">
 
           <h4>The Fermi Solution</h4>
-          <p>The entire spectrum of proposed solutions to the Fermi paradox represents a genuinely ascientific debate: every proposed solution is unfalsifiable by proactive means. The Nexic derivation changes this. If the Accordance Principle survives sufficient falsification attempts, humanity gets its <strong>first theory of the Fermi paradox solution</strong>, derived to scientific rigor from a falsifiable principle rather than mere speculation. The Rare Earth hypothesis is implied as a function of the net sum of unlikely circumstances satisfying the Accordance Principle, rather than the proportion of them which do. This is the most compelling facet of Nexic reasoning's immediate scientific potential.</p>
+          <p>The entire spectrum of proposed solutions to the Fermi paradox represents a genuinely ascientific debate: every proposed solution is unfalsifiable by proactive means. The Nexic derivation changes this. If the Accordance Principle survives sufficient falsification attempts, humanity gets its <strong>first theory of the Fermi paradox solution</strong>, derived to scientific rigor from a falsifiable principle rather than mere speculation. The Rare Earth hypothesis is implied as a function of the net sum of unlikely circumstances satisfying the Accordance Principle, rather than the proportion of them which do. This is the most compelling facet of Nexic reasoning’s immediate scientific potential.</p>
           <p>A consequence: all life beyond our Solar System is now long sterilized. Any life sharing our biochemistry likely arrived via panspermia. The original world of extraterrestrial life: liquid water but practically no free oxygen. A sad conclusion, but all the more reason to cherish life on Earth.</p>
 
           <h4>The Cultural Horizon</h4>
           <p>Establishing that the universe behaves in this characteristically Nexic fashion would be <strong>one of the most significant changes in our understanding of the human experience that we have ever faced</strong>. It would force a restructuring of what meaning is, and what our place really is in this now Nexically-knowable universe. The primary scientific goal: that we be able to discourse the Rare Earth hypothesis to the same specificity that we can discourse fundamental physics. It really is this massive territory of personal relevance that has not even been touched.</p>
-          <p>This is potentially the movement beyond Postmodernism itself. Aethic reasoning can be considered a template for <strong>Metamodernism</strong>: the structural capacity of Modernism (insisting stubbornly that quantum-compatible realities are of a rational configuration) together with the philosophical advancements of Postmodernism (acknowledging that reality is quantum-compatible in the first place). The forbidden-epistemic antirealism principle (Principle 17 of the Aethic paper) rejects both "the brain can't understand quantum mechanics" and "quantum mechanics can't be rationally described," just as Newton rejected the "invisible angels" that previously explained planetary orbits.</p>
+          <p>This is potentially the movement beyond Postmodernism itself. Aethic reasoning can be considered a template for <strong>Metamodernism</strong>: the structural capacity of Modernism (insisting stubbornly that quantum-compatible realities are of a rational configuration) together with the philosophical advancements of Postmodernism (acknowledging that reality is quantum-compatible in the first place). The forbidden-epistemic antirealism principle (Principle 17 of the Aethic paper) rejects both “the brain can’t understand quantum mechanics” and “quantum mechanics can’t be rationally described,” just as Newton rejected the “invisible angels” that previously explained planetary orbits.</p>
 
           <h4>The Dual-Paradigm Argument</h4>
           <p>The novelty is not in claiming that humans are special (religion has done that for millennia) nor in claiming that the universe is empty (the Rare Earth hypothesis predates this paper). The novelty is in deriving <em>both claims simultaneously</em> from a falsifiable mathematical framework that <em>also</em> resolves the quantum measurement problem. The argument rests on two pillars working in concert:</p>
-          <p><strong>From Aethic reasoning:</strong> observer-centrality (reality is fundamentally observer-relative), consciousness operates on a deeper layer than the physical world (via the extrusion principle and relativist superposition content), and the Null Aethus implies each consciousness begins at a "high-potential clean slate" from which reality's attributes unfold.</p>
+          <p><strong>From Aethic reasoning:</strong> observer-centrality (reality is fundamentally observer-relative), consciousness operates on a deeper layer than the physical world (via the extrusion principle and relativist superposition content), and the Null Aethus implies each consciousness begins at a “high-potential clean slate” from which reality’s attributes unfold.</p>
           <p><strong>From Nexic reasoning:</strong> cosmic uniqueness (the Accordance Principle demonstrates that our existence is not accidental but the probability-weighted optimum across possible histories), and the Rare Earth hypothesis establishes that native-Earth consciousness is effectively singular against cosmic probabilistic standards.</p>
           <p>Together: conscious observers are not incidental inhabitants of a pre-existing universe but the very medium through which the universe becomes determinate, and this medium is cosmically precious beyond measure. If the Accordance Principle is empirically validated, the existential implications follow with the same rigor as the paleontological predictions. That is genuinely without precedent.</p>
 
@@ -1163,7 +1115,7 @@ body::before {
 </section>
 
 <footer style="text-align:center; padding:3rem 2rem 4rem; color:var(--text-dim); font-size:0.82rem;">
-  Based on "<a href="https://philpapers.org/rec/BENNRD" target="_blank" rel="noopener" style="color:var(--accent-4);text-decoration:none;">Nexic Reasoning: Defining a Generalized Calculus Over Anthropic Parameters</a>" by Ajax Benander (November 2024).
+  Based on “<a href="https://philpapers.org/rec/BENNRD" target="_blank" rel="noopener" style="color:var(--accent-4);text-decoration:none;">Nexic Reasoning: Defining a Generalized Calculus Over Anthropic Parameters</a>” by Ajax Benander (November 2024).
   <br>This interactive guide is an interpretive summary. Refer to the original paper for formal proofs and complete argumentation.
   <br><a href="/" style="color:var(--text-dim);text-decoration:none;margin-top:0.5rem;display:inline-block;">← Back to aethus.org</a>
 </footer>
@@ -1228,11 +1180,4 @@ buildNav();
 updateNav();
 </script>
 
-<script>
-const topnav = document.getElementById('topnav');
-if (topnav) {
-  window.addEventListener('scroll', () => {
-    topnav.classList.toggle('scrolled', window.scrollY > 30);
-  });
-}
-</script>
+<script></script>
