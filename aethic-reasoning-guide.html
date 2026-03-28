@@ -12,6 +12,7 @@ extra_head: |
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 ---
+<script>if(window.location.hash!=='#technical')document.body.classList.add('explorer-mode');</script>
 <style>
 :root {
   --bg: #0a0a0f;
@@ -462,12 +463,97 @@ body::before {
       }
 @media(max-width:500px){
 }
+/* On-ramp collapsible */
+.onramp {
+  margin-bottom:2.5rem;
+  border:1px solid rgba(110,92,255,0.12);
+  border-radius:12px;
+  overflow:hidden;
+  transition:border-color 0.3s;
+}
+.onramp:hover { border-color:rgba(110,92,255,0.35); }
+.onramp-header {
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.5rem;cursor:pointer;user-select:none;
+  background:linear-gradient(135deg, rgba(110,92,255,0.04) 0%, rgba(96,165,250,0.04) 100%);
+  transition:all 0.3s;position:relative;overflow:hidden;
+}
+.onramp-header::before {
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(110,92,255,0.08), rgba(78,205,196,0.06), rgba(96,165,250,0.08));
+  background-size:200% 100%;
+  opacity:0;transition:opacity 0.4s;
+  animation:onramp-shimmer 3s ease-in-out infinite;
+}
+@keyframes onramp-shimmer { 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
+.onramp-header:hover::before { opacity:1; }
+.onramp-header:hover { background:linear-gradient(135deg, rgba(110,92,255,0.08) 0%, rgba(96,165,250,0.08) 100%); }
+.onramp-title {
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;
+  color:var(--text-bright);position:relative;z-index:1;
+}
+.onramp-subtitle {
+  font-size:0.78rem;color:var(--text-dim);margin-left:0.8rem;position:relative;z-index:1;
+}
+.onramp-chevron {
+  font-size:0.7rem;color:var(--accent-1);transition:transform 0.3s, color 0.3s;
+  position:relative;z-index:1;
+}
+.onramp-header:hover .onramp-chevron { color:var(--text-bright); }
+.onramp.open .onramp-chevron { transform:rotate(90deg); }
+.onramp-body {
+  max-height:0;overflow:hidden;
+  transition:max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.onramp.open .onramp-body { max-height:3000px; }
+.onramp-body-inner { padding:0.5rem 1.5rem 1.5rem; }
+.mode-toggle {
+  display:inline-flex;border-radius:8px;overflow:hidden;border:1px solid rgba(110,92,255,0.2);margin-top:1rem;
+}
+.mode-toggle button {
+  padding:0.4rem 1.1rem;border:none;background:transparent;color:var(--text-dim);
+  cursor:pointer;font-size:0.78rem;font-family:inherit;font-weight:500;transition:all 0.2s;letter-spacing:0.02em;
+}
+.mode-toggle button.active {
+  background:rgba(110,92,255,0.15);color:var(--accent-1);
+}
+.mode-toggle button:hover:not(.active) { color:var(--text-bright); }
+/* Explorer mode hides technical-only content */
+body.explorer-mode .technical-only { display:none !important; }
+body.explorer-mode .explorer-note { display:block !important; }
+body.explorer-mode .layer-body { display:none !important; }
+body.explorer-mode .explorer-body { display:block !important; }
+body.explorer-mode .detail { display:none !important; }
+.explorer-body { display:none; }
+.explorer-note {
+  display:none;
+  background:rgba(110,92,255,0.06);border:1px solid rgba(110,92,255,0.12);
+  border-radius:8px;padding:0.7rem 1rem;margin:0.8rem 0;
+  font-size:0.8rem;color:var(--text-dim);line-height:1.5;font-style:italic;
+}
+.explorer-body p { font-size:0.92rem; line-height:1.75; margin-bottom:1rem; }
+.explorer-body .analogy {
+  background:rgba(96,165,250,0.05);border-left:3px solid rgba(96,165,250,0.3);
+  padding:0.8rem 1rem;border-radius:0 8px 8px 0;margin:1rem 0;
+  font-size:0.88rem;line-height:1.65;
+}
+.explorer-body .takeaway {
+  background:rgba(110,92,255,0.06);border:1px solid rgba(110,92,255,0.15);
+  border-radius:8px;padding:0.8rem 1rem;margin:1.2rem 0;
+  font-size:0.88rem;line-height:1.6;
+}
+.explorer-body .takeaway strong { color:var(--text-bright); }
 </style>
 
 <header style="text-align:center;padding:5.5rem 2rem 2rem;">
   <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(96,165,250,0.5);margin-bottom:0.8rem;">A Comprehensive Solution to the Quantum Measurement Problem</div>
   <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:300;color:var(--text-bright);margin-bottom:0.6rem;">How Aethic Reasoning Works</h1>
-  <p style="max-width:620px;margin:0 auto;color:var(--text-dim);font-size:0.92rem;line-height:1.6;">Ten layers from the Extrusion Principle through the Quantum Nexus integral. Click any layer to expand.</p>
+  <p style="max-width:620px;margin:0 auto;color:var(--text-dim);font-size:0.92rem;line-height:1.6;">Ten layers from the Extrusion Principle through the Quantum Nexus integral. Click any layer to expand. Summaries only: ~25 min. With all deep dives: ~80 min.</p>
+  <div class="mode-toggle" id="modeToggle">
+    <button onclick="setMode('explorer')" id="mode-explorer" class="active">Explorer</button>
+    <button onclick="setMode('technical')" id="mode-technical">Technical</button>
+  </div>
+  <div style="max-width:500px;margin:0.5rem auto 0;font-size:0.72rem;color:var(--text-dim);line-height:1.4;" id="modeDesc">Showing conceptual content. Formal mathematics is hidden — switch to Technical to see it.</div>
 </header>
 
 <nav class="nav-sidebar" id="navSidebar"></nav>
@@ -475,17 +561,24 @@ body::before {
 <section class="layer-container" id="layers">
 
   <!-- LAYER 0: ON-RAMP -->
-  <div style="margin-bottom:3.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border);">
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--text-bright);margin-bottom:1.2rem;">Before You Begin</h2>
+  <div class="onramp" id="onramp" onclick="this.classList.toggle('open')">
+    <div class="onramp-header">
+      <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:0.3rem;">
+        <span class="onramp-title">Before You Begin</span>
+        <span class="onramp-subtitle">Map of all ten layers, reading times, and where to start</span>
+      </div>
+      <span class="onramp-chevron">&#9654;</span>
+    </div>
+    <div class="onramp-body"><div class="onramp-body-inner">
 
     <p style="margin-bottom:1rem;">Quantum mechanics works. Its predictions are confirmed to extraordinary precision. But it has never explained <em>why</em> observing a particle changes what it does. For a century, the measurement problem has been treated as either an unsolvable mystery or a matter of philosophical taste. Aethic reasoning proposes that it is neither: it is a logical problem with a logical solution.</p>
 
     <p style="margin-bottom:1rem;">The guide below walks through the framework in ten layers. You do not need to understand every layer to get value from it. Here is the map:</p>
 
-    <div style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.5rem 1.8rem;margin:1.5rem 0;">
+    <div class="technical-only" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.5rem 1.8rem;margin:1.5rem 0;">
 
       <div style="margin-bottom:1.2rem;">
-        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-6);margin-bottom:0.6rem;font-weight:600;">Layers 1–4 · The Worldview</div>
+        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-6);margin-bottom:0.6rem;font-weight:600;">Layers 1–4 · The Worldview <span style="font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0;">— ~15 min summaries · ~30 min with deep dives</span></div>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-6);font-weight:500;">1 · Extrusion Principle</span> — Reality is a Markov chain of block universes. Observation doesn’t collapse anything; you transition to a different universe whose history was always consistent.</p>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-6);font-weight:500;">2 · First Postulate</span> — There is no view from nowhere. Reality is always indexed to an observer’s informational state, the way a reference frame is always indexed to an observer’s motion.</p>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-6);font-weight:500;">3 · Mathematical Aethus</span> — The formal object encoding an observer’s information. The Aethus hierarchy exists because standard sets cannot distinguish “I don’t know” from “this is contradictory,” and that distinction is exactly what the measurement problem is about.</p>
@@ -493,14 +586,14 @@ body::before {
       </div>
 
       <div style="margin-bottom:1.2rem;">
-        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-3);margin-bottom:0.6rem;font-weight:600;">Layers 5–7 · The Machinery</div>
+        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-3);margin-bottom:0.6rem;font-weight:600;">Layers 5–7 · The Machinery <span style="font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0;">— ~5 min summaries · ~20 min with deep dives</span></div>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-3);font-weight:500;">5 · Weighted Aethae & Centric Unfolding</span> — How the Aethus handles probability and how observers actually move through the Markov chain. Probability turns out to be algebraic, not frequentist.</p>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-3);font-weight:500;">6 · Union Principle</span> — Both logical AND and logical OR manifest as physical AND. The difference between “interfering” and “exclusive” superposition is purely algebraic nesting, not physical presence vs. absence.</p>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0;"><span style="color:var(--accent-3);font-weight:500;">7 · Reduced Form & Third Postulate</span> — The pruning algorithm. If every possible future leads to a contradiction, the state is invalid. This is the engine that does collapse’s work, and it runs on the Union Principle’s vocabulary.</p>
       </div>
 
       <div>
-        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-9);margin-bottom:0.6rem;font-weight:600;">Layers 8–10 · The Results</div>
+        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-9);margin-bottom:0.6rem;font-weight:600;">Layers 8–10 · The Results <span style="font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0;">— ~5 min summaries · ~25 min with deep dives</span></div>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-9);font-weight:500;">8 · Applications</span> — The framework derives the double-slit result, resolves EPR without violating locality, and generalizes to arbitrary multi-slit experiments via the powerset invalidation theorem.</p>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-9);font-weight:500;">9 · Fundamental Theorem & Falsifiability</span> — The generalization beyond quantum mechanics: wherever information is permanently hidden, scenarios interact. One failed prediction, in any domain, kills the framework.</p>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0;"><span style="color:var(--accent-9);font-weight:500;">10 · Quantum Nexus Integral</span> — The bridge to empirical quantum mechanics: the Feynman path integral augmented with an Aethic validity factor over the powerset of paths.</p>
@@ -508,10 +601,39 @@ body::before {
 
     </div>
 
-    <p style="margin-bottom:0;color:var(--text-dim);font-size:0.88rem;">Each layer builds on the ones before it, but the deep dives (the dropdown sections inside each layer) are optional. If you are comfortable with the double-slit experiment and the idea of a block universe, start at Layer 1. If not, the <a href="/start-here.html" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Start Here</a> page provides a gentler introduction. You can also browse the <a href="/glossary.html" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Glossary</a> for quick definitions or see the <a href="/faq.html" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Common Objections</a> page for answers to the questions readers ask most.</p>
+    <div class="explorer-body" style="display:none;background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.5rem 1.8rem;margin:1.5rem 0;">
+
+      <div style="margin-bottom:1.2rem;">
+        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-6);margin-bottom:0.6rem;font-weight:600;">Layers 1–4 · The Worldview <span style="font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0;">— ~15 min</span></div>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-6);font-weight:500;">1 · The Extrusion Principle</span> — Looking at something doesn’t change it. You move to a different version of reality. Jenny’s Japanese re-rolls when you time-travel back three hours.</p>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-6);font-weight:500;">2 · No View From Nowhere</span> — Reality is always relative to someone’s information. Kevin the rabbit’s chances of being eaten don’t depend on Kevin’s beliefs.</p>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-6);font-weight:500;">3 · The Aethus</span> — A new mathematical object that treats “I don’t know” as fundamentally different from “that’s impossible.” Tim’s dog Biscuit and the color you haven’t asked about.</p>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0;"><span style="color:var(--accent-6);font-weight:500;">4 · Ignorance Creates Reality</span> — What you don’t know becomes physically real. The double-slit experiment in one sentence: unknown → superposition, knowable → no superposition.</p>
+      </div>
+
+      <div style="margin-bottom:1.2rem;">
+        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-3);margin-bottom:0.6rem;font-weight:600;">Layers 5–7 · The Machinery <span style="font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0;">— ~5 min</span></div>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-3);font-weight:500;">5 · Probability as Pruning</span> — The Monty Hall problem becomes obvious: lay out the possibilities, cross off the contradictions, redistribute. That’s all probability is.</p>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-3);font-weight:500;">6 · Logic Isn’t What You Think</span> — “Or” is not a basic feature of reality. The multiverse starts at the edge of your senses, not the edge of the cosmos.</p>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0;"><span style="color:var(--accent-3);font-weight:500;">7 · The Universe Plays Chess</span> — If every possible future leads to a contradiction, the state gets deleted. This is the engine behind wavefunction collapse.</p>
+      </div>
+
+      <div>
+        <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-9);margin-bottom:0.6rem;font-weight:600;">Layers 8–10 · The Results <span style="font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0;">— ~5 min</span></div>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-9);font-weight:500;">8 · It Actually Works</span> — The double-slit result derived from scratch. Einstein was right about locality. No collapse axiom assumed.</p>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-9);font-weight:500;">9 · The Billiard Ball & the Bolas</span> — One stone shatters a vase because it’s pretending to be two. One failed test kills the framework.</p>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0;"><span style="color:var(--accent-9);font-weight:500;">10 · The Kill Switch</span> — One new factor added to Feynman’s equation. If it’s right, this isn’t philosophy. It’s a completion of quantum mechanics.</p>
+      </div>
+
+    </div>
+
+    <p class="technical-only" style="margin-bottom:0;color:var(--text-dim);font-size:0.88rem;">Each layer builds on the ones before it, but the deep dives (the dropdown sections inside each layer) are optional. If you are comfortable with the double-slit experiment and the idea of a block universe, start at Layer 1. If not, the <a href="/start-here.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Start Here</a> page provides a gentler introduction. You can also browse the <a href="/glossary.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Glossary</a> for quick definitions or see the <a href="/faq.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Common Objections</a> page for answers to the questions readers ask most.</p>
+    <p class="explorer-body" style="display:none;margin-bottom:0;color:var(--text-dim);font-size:0.88rem;">Each layer builds on the ones before it. No physics background required. If you want a five-minute overview first, try the <a href="/start-here.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Start Here</a> page. You can also browse the <a href="/glossary.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Glossary</a> for quick definitions or see the <a href="/faq.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Common Objections</a> page.</p>
+
+    </div></div>
   </div>
 
-  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
+<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
     <button onclick="toggleAll(true)" style="padding:0.4rem 1rem;border-radius:6px;border:1px solid rgba(96,165,250,0.2);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.78rem;font-family:inherit;">Open all layers</button>
     <button onclick="toggleAll(false)" style="padding:0.4rem 1rem;border-radius:6px;border:1px solid rgba(96,165,250,0.2);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.78rem;font-family:inherit;">Close all layers</button>
   </div>
@@ -528,11 +650,11 @@ body::before {
     </div>
     <div class="layer-content"><div class="layer-body">
 
-      <p>Aethic reasoning begins with a radical restructuring of <em>what time is</em>. The block universe (all of spacetime as a static 4D object) is compatible with relativity but can’t account for temporal flow or quantum collapse. The growing block universe captures flow but clashes with relativity. The resolution: reality is not one block universe but a <span class="hl">Markov chain of block universes</span>. Each node is a complete, static, relativistic spacetime. An observer’s experience of time is their movement along this chain, driven by the acquisition of information. An additional degree of freedom — the <span class="hl2">”Aethic dimension”</span> — is orthogonal to spacetime itself.</p>
+      <p>Aethic reasoning begins with a radical restructuring of <em>what time is</em>. The block universe (all of spacetime as a static 4D object) is compatible with relativity but can’t account for temporal flow or quantum collapse. The growing block universe captures flow but clashes with relativity. The resolution: reality is not one block universe but a <span class="hl">Markov chain of block universes</span>. Each node is a complete, static, relativistic spacetime. An observer’s experience of time is their movement along this chain, driven by the acquisition of information. An additional degree of freedom — the <span class="hl2">“Aethic dimension”</span> — is orthogonal to spacetime itself.</p>
 
       <p>The driving analogy: imagine driving past a forest. At 2:00 PM you glance left and see a young tree; at 2:05 you see an old tree. Copenhagen says the car is parked and one tree grew up. Aethic reasoning says <em>you moved</em> — you were always looking at two different trees (two different block universes) with two different histories.</p>
 
-      <div class="formal">
+      <div class="formal technical-only">
         <span class="formal-label">The Extrusion Principle</span>
         When an observer gains information, they do not collapse a wavefunction within their current universe. They <em>extrude</em> — transition to a different block universe whose entire history is consistent with the new knowledge. The particle never changed; your Aethus did.
       </div>
@@ -549,6 +671,45 @@ body::before {
       <p>The <span class="hl2">indiscriminate time principle</span> holds that uncertainty fans out into the past just as it does into the future; the ontological nature of not-knowing is the same in both directions. Consider the <strong>Battle of Brémule</strong>, fought in the High Middle Ages: unless you already know the outcome, it is in Aethic superposition relative to your Aethus right now — even though it happened 900 years ago. Upon learning the English won, you extrude to a block universe where the English <em>always</em> won.</p>
 
       <p><strong>Zoe’s time-travel password</strong> makes the re-rolling precise. Zoe must crack a 5-option password and can jump back 5 minutes. Classically, she uses process of elimination (expected ≈ 3 tries). Aethically, each jump erases her knowledge — she returns to a prior block universe where the correct answer is re-rolled. She expects 5 tries (geometric distribution), not 3. And <strong>Jenny’s Japanese</strong> extends this to identity: your best friend reveals she secretly learned Japanese at 30; you accidentally time-travel back 3 hours and the secret re-rolls — Jenny learned Italian instead. Rewind further and progressively more of her personality gets randomized, creating a Ship-of-Theseus interpolation rather than the classical all-or-nothing.</p>
+
+</div><div class="explorer-body">
+
+      <p>Jenny is your childhood best friend. You’ve known each other since you were both two. You know everything about her. That’s what makes it so shocking when, at her 30th birthday party, with the cameras rolling and everyone singing, she starts speaking fluent Japanese with Tim, your brother-in-law from Japan, seconds before she blows out the candles. After the party, she tells you the whole story: she secretly taught herself Japanese starting at <em>age ten</em>. She worked her way from library books to YouTube to online classes. Twenty years, and you had no idea.</p>
+
+      <p>Now here’s where it gets strange. Two hours after the party, going to sleep, you accidentally activate a time-travel device your colleague Zoe gave you. It sends you back three hours, to ten minutes before the candles.</p>
+
+      <p>According to this framework, something disturbing happens. You rewound to <em>before</em> Jenny told you she speaks Japanese, which means the information hasn’t been transferred to you yet. And because it hasn’t been transferred, it gets <em>re-rolled</em>. When Tim says a few words in Japanese at the candles, Jenny blinks. She doesn’t understand. She never learned Japanese. She never had that secret life. It’s gone.</p>
+
+      <p>But here’s the truly unsettling part: Tim also studied Italian in college. When he switches to Italian, this version of Jenny perks right up. Apparently she secretly taught herself <em>Italian</em> instead.</p>
+
+      <div class="analogy">
+        <strong>Jenny learned Japanese twenty years ago. You only traveled back three hours. And it still re-rolled.</strong> Because what matters isn’t when the fact happened. It’s when <em>you</em> learned it. The framework says you don’t live in one fixed story. You live in a version of reality determined by what information you’ve received. Rewind past the moment you received it, and the story changes, even for events twenty years in the past.
+      </div>
+
+      <p>Rewind further, past the age where you learned her favorite song, her weird hobby, her childhood nickname, and each of these re-rolls too. Progressively more of Jenny’s personality gets randomized. Not all at once, like in a movie where the person was never born. Piece by piece, like a Ship of Theseus, until at some point you have to ask: is this even still Jenny?</p>
+
+      <p>This is not a metaphor. This is the framework’s first prediction, and it comes from one radical idea:</p>
+
+      <div class="analogy">
+        <strong>The particle never changed — you did.</strong> When you learn something new, you don’t change the world. You <em>move</em> to a different, complete version of reality that was always consistent with what you just learned. The old version, where it was still uncertain, is still out there. You just aren’t in it anymore.
+      </div>
+
+      <p>Here’s the physics this solves. For a hundred years, physicists have known that looking at a tiny particle, like an electron, changes what it does. Before you look, it’s doing multiple things at once. The moment you look, it “collapses” into doing one thing. Nobody knows why. This is called the measurement problem.</p>
+
+      <p>Aethic reasoning says: looking doesn’t change the particle. <em>You</em> moved. Think of it like driving past a forest. At 2:00 PM you see a young tree. At 2:05 you see an old tree. The old explanation is like saying the car was parked and the tree magically aged. Aethic reasoning says you <em>drove forward</em> — you were always looking at two different trees.</p>
+
+      <p>Each “spot” along the road is a complete version of reality: a full photograph of the universe, past and future included, and when you learn something new, you shift to a different photograph. The one you left behind? Still there. The electron in that version is still doing multiple things at once. It didn’t collapse. You just moved to a version where it was always doing the one thing you saw.</p>
+
+      <p>And this works <em>backward in time</em>. Right now, if you don’t know who won the Battle of Brémule in 1119 AD, both outcomes are equally real from your perspective. The moment you learn the English won, you shift to a version where they <em>always</em> won. Before you learned that? Genuinely undecided. Not because history is fuzzy, but because your relationship to that information hadn’t been established yet. Same mechanism as Jenny’s Japanese. Same mechanism as the electron. What you don’t know isn’t just “missing information.” It determines which version of reality you’re living in.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> When you observe something, you don’t collapse anything or change anything. You transition to a different, complete version of reality that was always consistent with what you just learned. The version you left behind still exists with its uncertainty intact. This is the <strong>Extrusion Principle</strong> — the foundation everything else is built on.
+      </div>
+
+    
+
+
+      </div>
 
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
@@ -709,9 +870,9 @@ body::before {
     </div>
     <div class="layer-content"><div class="layer-body">
 
-      <p>From the extrusion principle, it follows that the Aethus must be fundamentally <em>subjective</em> — tied to a particular observer’s informational state. Wigner and his friend, who have different knowledge about Schrödinger’s cat, occupy different Aethae. This is not anti-realism or solipsism; the Aethus is an <span class="hl">”informational analogue to a reference frame”</span> in special relativity.</p>
+      <p>From the extrusion principle, it follows that the Aethus must be fundamentally <em>subjective</em> — tied to a particular observer’s informational state. Wigner and his friend, who have different knowledge about Schrödinger’s cat, occupy different Aethae. This is not anti-realism or solipsism; the Aethus is an <span class="hl">“informational analogue to a reference frame”</span> in special relativity.</p>
 
-      <div class="formal">
+      <div class="formal technical-only">
         <span class="formal-label">First Postulate of the Aethus</span>
         Any attribution of realism is a statement of relation to a particular Aethus.
       </div>
@@ -721,6 +882,30 @@ body::before {
       <p>The <strong>Emily and Sam</strong> thought experiment develops the consequences. Emily meets Sam abroad and discovers he grew up next door. As 8-year-old Emily stares at that house, Sam’s family is in disagreeing superposition with every other possible occupant — a “bustling Aethic marketplace” of possible residents. Even Emily’s father, who may know who lives there, has the <em>contents of his mind</em> in superposition relative to Emily’s Aethus until she asks him.</p>
 
       <p>The <span class="hl2">reversal principle</span> inverts classical metaphysics: rather than building reality from exhaustively specified “possible worlds,” start from the Aethus (partial information) and generate reality from there. Your friend’s car in the <strong>parking lot</strong> is in disagreeing superposition over every spot when your back is turned. Turning around performs centric unfolding, transiting you to a new Aethus. The jarring consequence: every time you imagine what’s happening elsewhere, you are picturing something that is <em>not your reality</em>. Your actual reality is the raw superposition itself.</p>
+
+      </div>
+
+<div class="explorer-body">
+
+      <p>A rabbit named Kevin is sitting in a field. A hawk is circling overhead. What are Kevin’s chances of being eaten today?</p>
+
+      <p>Here’s the thing: Kevin’s chances don’t depend on what Kevin <em>believes</em>. A confident rabbit and a terrified rabbit have the same probability of being caught. The hawk doesn’t care about Kevin’s opinions. So probability isn’t about beliefs. It’s about the actual situation Kevin is in.</p>
+
+      <p>But here’s the twist: it also doesn’t depend on some God’s-eye view of the universe. There is no camera floating above everything that records “the real truth.” There’s just Kevin, in his field, with his information. And there’s the hawk, with <em>its</em> information. And these two perspectives might give genuinely different answers about what’s real, not because one is wrong, but because reality <em>is</em> perspective-dependent.</p>
+
+      <div class="analogy">
+        <strong>There is no view from nowhere.</strong> This is the First Postulate. Reality is always indexed to someone’s information, the way a speed is always relative to something. Asking “what’s really happening, independent of anyone’s perspective?” is like asking “how fast am I going, independent of anything else?” The question doesn’t have an answer. Not because we’re ignorant, but because that’s how reality works.
+      </div>
+
+      <p>This might sound like it’s saying truth is just opinion. It’s not. Your beliefs don’t change reality. Kevin can’t think his way out of being eaten. But reality <em>is</em> anchored to a perspective. It’s not subjective (your wishes don’t matter) and it’s not objective (there’s no God’s eye view). It’s a third thing: <em>perspectival</em>. Structurally constrained, but always indexed to an observer.</p>
+
+      <p>This is surprisingly close to ideas that have existed for thousands of years in Eastern philosophy. In Buddhism, the concept of Śūnyatā says that phenomena lack inherent, standalone existence; things are real only in relation to other things. In Hinduism, the Advaita Vedanta tradition holds that the distinctions we draw between self and world are not fundamental. These traditions arrived at structurally similar conclusions through very different methods. The framework argues this convergence isn’t a coincidence. It’s evidence that the underlying structure is real.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> Reality isn’t a story told from no one’s perspective. It’s always indexed to an observer’s informational state, the way velocity is always relative to a reference frame. This is the <strong>First Postulate</strong> — and it means the question “what’s really happening?” always needs an answer to “relative to whom?” first.
+      </div>
+
+    </div>
 
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
@@ -733,7 +918,7 @@ body::before {
 
           <!-- GETTIER PROBLEM -->
           <h4>The Gettier Problem — Unsolvable by Design</h4>
-          <p>In the stopped-clock case (Alice looks at a broken clock that coincidentally shows the correct time), the Aethic diagnosis is that assessing Alice’s “knowledge” requires referencing an Aethus independent of hers — one that knows the clock is broken. But by the first postulate, that external Aethus’s reality is not intrinsically relevant to Alice’s. The Gettier problem is declared unsolvable by design — akin to Gödel’s incompleteness theorem, but for epistemological assessment — because no mechanism within a single Aethus can distinguish lucky true belief from knowledge without importing external information.</p>
+          <p>In the stopped-clock case (Alice looks at a broken clock that coincidentally shows the correct time), the Aethic diagnosis is that assessing Alice’s “knowledge” requires referencing an Aethus independent of hers, one that knows the clock is broken. But by the first postulate, that external Aethus’s reality is not intrinsically relevant to Alice’s. The Gettier problem is declared unsolvable by design, akin to Gödel’s incompleteness theorem, but for epistemological assessment, because no mechanism within a single Aethus can distinguish lucky true belief from knowledge without importing external information.</p>
 
           <!-- DUAL LOGIC -->
           <h4>Dual Logic: Abstract vs. Causal</h4>
@@ -754,7 +939,7 @@ body::before {
           <h4>The Forbidden-Epistemic Antirealism Principle</h4>
           <p>The paper directly confronts the common philosophical stance that quantum mechanics is fundamentally beyond rational comprehension. This comes in two flavors: (1) the human brain evolved in classical settings and simply lacks the scope for quantum ontology, and (2) the quantum world itself is an ontological black box. The paper calls both <em>quantum epistemic antirealism</em> and declares them paradoxical.</p>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">Principle 17 — Forbidden-Epistemic Antirealism</span>
             The extrapolation from quantum uncertainty to epistemic antirealism confuses an uncertainty principle over <em>causal logic</em> with one over <em>abstract logic</em>. Arguing that reality cannot be rationally comprehended is itself a statement in abstract logic — and therefore paradoxical. The very notion of a measurement problem solution can be contrasted with epistemic antirealism.
           </div>
@@ -772,7 +957,7 @@ body::before {
           <h4>The Hard Problem of Consciousness</h4>
           <p>The paper approaches the hard problem through a dualism principle:</p>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">Principle 36 — Aethus-Reality Dualism</span>
             Just as for any reality there must be a corresponding Aethus (first postulate), for any valid Aethus there is automatically a corresponding reality. This is the converse of the first postulate — both directions hold.
           </div>
@@ -783,14 +968,14 @@ body::before {
           <h4>Eastern Philosophy — Structural Parallels, Not Vague Analogies</h4>
           <p>The paper draws structural parallels — not analogies — with Eastern metaphysics, finding that “many of these newfound inner truths of reality were known to the East for thousands of years.”</p>
 
-          <p><strong>Hinduism:</strong> The concept of Sākṣī (the witness-self, beyond space and time, related to the mind as the eye is to the world) maps to the Aethus itself — literally beyond space and time via the extrusion principle. <strong>Brahman</strong> maps to the Aethic tree and the Null Aethus (the superposition of all possible Aethae). <strong>Advaita Vedanta</strong>’s claim that there is no distinct self follows from the difficulty of Aethically categorizing which Aethae are “you” vs. “not you” — tracing back through centric unfolding leads everyone to the same Null Aethus.</p>
+          <p><strong>Hinduism:</strong> The concept of Sākṣī (the witness-self, beyond space and time, related to the mind as the eye is to the world) maps to the Aethus itself — literally beyond space and time via the extrusion principle. <strong>Brahman</strong> maps to the Aethic tree and the Null Aethus (the superposition of all possible Aethae). <strong>Advaita Vedanta</strong>‘s claim that there is no distinct self follows from the difficulty of Aethically categorizing which Aethae are “you” vs. “not you” — tracing back through centric unfolding leads everyone to the same Null Aethus.</p>
 
           <p><strong>Jainism:</strong> The inseparable tie between Jñāna (knowledge) and Darśana (perception) as fundamental aspects of the soul parallels the Aethic distinction between the ontological Aethus and the empirical Aethus — and the way gaining knowledge in Aethic reasoning reshapes one’s perceived reality. The Null Aethus as “divine sentience” (superposition of all possible Aethae) resonates with Jain concepts of omniscience.</p>
 
           <p><strong>Taoism:</strong> “The Tao that can be spoken is not the true Tao” corresponds to the fundamental theorem of empirical Aethae — expressing an ontological Aethus in static form yields white noise. The second postulate parallels the Taoist premise that viewing an attribute through states versus not causes a change to the underlying reality. The <strong>Null Aethus</strong> (maximal unknowing, everything superposed) echoes the Tao’s primordial unity — the “nameless origin of Heaven and Earth.”</p>
 
           <div class="key-insight">
-            <div class="ki-label">The East Was Ahead by Thousands of Years</div>
+            <div class="ki-label">Structural Parallels with Eastern Philosophy</div>
             <p>The paper argues that Aethic reasoning is the first Western-style mathematical framework to formally recover insights the East arrived at through contemplative practice. The central philosophical move of the East — equating consciousness and reality — becomes in the Aethic view inevitably observant and proficient as a means of addressing the hardest questions. “The problem with Western philosophy is that by insisting on not using the conceptual tools available to Eastern philosophy, the West inadvertently comes to the question without any of the tools needed.”</p>
           </div>
 
@@ -820,6 +1005,28 @@ body::before {
 
       <p><span class="hl">State:</span> A single piece of raw data. <span class="hl">Attribute:</span> A class of possible states with an identifier and relations — analogous to a <em>question</em>. <span class="hl">Stated-Attribute:</span> An attribute with a state — an <em>answer</em>. <span class="hl">Static Aethus:</span> A function mapping attributes to states, closed under derivable attributes. <span class="hl">Aethus:</span> An equivalence class of static Aethae (like a tensor being coordinate-independent). <span class="hl">Reality:</span> The block universe bijectively described by a given Aethus.</p>
 
+      </div>
+
+<div class="explorer-body">
+
+      <p>Imagine you have a friend named Tim, and all you know about Tim is three things: he has a pet, it’s a dog, and the dog’s name is Biscuit. That’s your entire picture of Tim.</p>
+
+      <p>Now here’s the crucial question: what color is Biscuit? You don’t know. And the framework says that <em>“I don’t know”</em> is fundamentally different from <em>“that’s impossible.”</em> If someone told you Biscuit is both brown and not-brown at the same time, that’s a contradiction. It can’t be true. But if nobody has told you Biscuit’s color at all? That’s not a contradiction. It’s a blank. Blanks and contradictions are <em>not the same thing</em>.</p>
+
+      <div class="analogy">
+        <strong>This distinction, blank vs. contradictory, is exactly what the measurement problem is about.</strong> Standard math (set theory) can’t tell the difference. A particle’s position being “unknown” and being “impossible” look the same in the usual formalism. The Aethus is a new mathematical object designed specifically to keep these two things separate.
+      </div>
+
+      <p>An Aethus is basically a list of everything you know about a system, organized by questions and answers: “What is Tim’s pet?” → Dog. “What is the dog’s name?” → Biscuit. “What color is the dog?” → [blank]. The blank isn’t a gap or an error. It’s a real, load-bearing part of the structure. As we’ll see in the next layer, blanks are where superposition comes from.</p>
+
+      <p>Different lists of facts can encode the same total information. “It’s a square” and “it’s a rectangle AND a rhombus” describe the same shape. The Aethus is the equivalence class: the underlying knowledge itself, independent of how you happened to write it down. Like how “2” and “02” and “1+1” all mean the same number.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> The <strong>Aethus</strong> is a new mathematical object that tracks what an observer knows. Its key innovation: it treats “I don’t know” as a first-class citizen, not a gap. This matters because the difference between “unknown” and “impossible” turns out to be the difference between quantum superposition and classical definiteness.
+      </div>
+
+    </div>
+
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
           <span class="detail-icon">🏗️</span>
@@ -830,7 +1037,7 @@ body::before {
         <div class="detail-body"><div class="detail-inner">
 
           <!-- INTERACTIVE HIERARCHY EXPLORER -->
-          <h4>The Definitional Hierarchy — Explored</h4>
+          <h4>The Definitional Hierarchy: Explored</h4>
           <p>Click each level of the hierarchy to see what it represents with a concrete example:</p>
 
           <div id="hier-sim" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1.2rem 0;">
@@ -847,7 +1054,7 @@ body::before {
                 <div id="hi-label" style="font-size:1.1rem;font-weight:600;color:var(--accent-1);font-family:'Cormorant Garamond',serif;margin-bottom:0.3rem;transition:all 0.3s;">State</div>
                 <div id="hi-analogy" style="font-size:0.82rem;color:var(--text-dim);margin-bottom:0.5rem;font-style:italic;transition:all 0.3s;">a raw datum</div>
                 <div id="hi-example" style="font-size:0.88rem;color:var(--text);line-height:1.55;transition:all 0.3s;">
-                  <strong style="color:var(--accent-3);">”Golden Retriever”</strong> — a single piece of data. No context, no question, just a value. It could be a pet breed, a paint color name, or a band — the state alone doesn’t tell you.
+                  <strong style="color:var(--accent-3);">“Golden Retriever”</strong> — a single piece of data. No context, no question, just a value. It could be a pet breed, a paint color name, or a band — the state alone doesn’t tell you.
                 </div>
               </div>
             </div>
@@ -915,7 +1122,7 @@ body::before {
           <p>How do you describe Mozart to a computer? The paper constructs a vivid analogy with machine learning’s <strong>double descent</strong> phenomenon. Start with binary dichotomies: “artistic vs. calculating” — sort Mozart into “artistic.” But “artistic and not calculating” is subtly more specific than “artistic” alone. Each added dichotomy introduces inaccuracies. From 5 to 10 to 20 dichotomies, correlation with the physical Mozart <em>drops</em>.</p>
           <p>But something remarkable happens at scale. With 8,000 dichotomies, the probability of any other person producing the same vector of answers becomes astronomically low — even though each individual dichotomy is a poor match. The vector “captures” Mozart through sheer combinatorial uniqueness, not through any individual attribute’s accuracy. This is the <strong>extra-Cartesian model</strong>: the Aethus captures reality not through a Cartesian decomposition into a small number of precise axes, but through a vast, noisy, overdetermined structure where identity emerges from the totality.</p>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">Word Embeddings as Static Aethae</span>
             Word embeddings in machine learning (like Word2Vec) map words to high-dimensional vectors where semantic relationships become geometric relationships. The Aethic interpretation: each word embedding <em>is</em> a static Aethus — a snapshot of the word’s informational content in a particular coordinate system. The success of embeddings is predicted by the extra-Cartesian model: the overdetermined structure captures meaning through combinatorial uniqueness rather than through individually meaningful axes. Double descent is crossing the threshold from Cartesian (too few axes, each inaccurate) to extra-Cartesian (enough axes that the totality captures the identity).
           </div>
@@ -957,12 +1164,36 @@ body::before {
 
       <p>The <span class="hl">Aethic retrieval mechanism</span> maps an attribute and an Aethus to a result: the stored state if present, <em>all possible states</em> if nonpresent, or only the logically possible states if partially present. This retrieval is the <em>substrate</em> on which the second postulate operates — the computational surface that converts blanks into superpositions.</p>
 
-      <div class="formal">
+      <div class="formal technical-only">
         <span class="formal-label">Second Postulate of the Aethus</span>
         If an Aethus is valid, then any given attribute will be in Aethic superposition relative to it if and only if it is nonpresent to it.
       </div>
 
       <p>Ignorance is <span class="hl2">ontologically productive</span>: it generates superposition. The universe’s natural resting state is superposition — the Second Postulate pushes <em>toward</em> it, while the Third Postulate holds reality <em>back</em>. This inverts the apparent empirical tendency, just as Einstein’s equivalence principle revealed free-fall as the inertial state. The <strong>Aethic dichotomy theorem</strong> is the principal computational tool: any attribute can be decomposed into a state-decomposable component (known) and a blank-decomposable component (unknown, therefore superposed), enabling the second postulate to handle mixed-decomposable attributes by splitting them at the boundary.</p>
+
+      </div>
+
+<div class="explorer-body">
+
+      <p>Here’s the most counterintuitive idea in the entire framework, and also maybe the most important: <em>what you don’t know becomes physically real</em>.</p>
+
+      <p>Go back to Tim’s dog Biscuit. You don’t know Biscuit’s color. The framework says that because of this blank in your Aethus, Biscuit is in a real, physical superposition of all possible colors, not “in your head,” but in the actual structure of the version of reality you occupy. Brown Biscuit and golden Biscuit and black Biscuit are all physically copresent.</p>
+
+      <p>At the scale of dogs, this sounds absurd. And it is, practically, because you <em>could</em> find out Biscuit’s color. You could call Tim. You could look at a photo. The information is accessible, and the framework says accessible information behaves classically. But what about information that can <em>never</em> be accessed?</p>
+
+      <div class="analogy">
+        <strong>The double-slit experiment.</strong> Fire electrons at a wall with two slits. If you <em>don’t</em> check which slit each electron goes through, you get a wave-like interference pattern, as if each electron went through both slits. If you <em>do</em> check, you get two simple bands, as if each electron went through one slit. The mere act of checking changes the result. Why?
+      </div>
+
+      <p>Because when you don’t check, the which-slit information is a permanent blank. Heisenberg’s uncertainty principle guarantees it can never be recovered. And permanent blanks generate genuine superposition. When you do check, the blank gets filled in, the superposition disappears, and you get the classical result. The rule is almost comically simple: <em>unknown → superposition (the weird quantum stuff). Knowable → no superposition (the normal everyday stuff).</em></p>
+
+      <p>This is the Second Postulate. And the reason your dog isn’t literally in a color superposition right now is that the color information is <em>knowable</em> — it’s just not currently known. The framework distinguishes permanently unknowable, which generates real superposition, from merely currently unknown, which doesn’t. That distinction is doing almost all the heavy lifting.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> The <strong>Second Postulate</strong> says that if a piece of information is nonpresent in your Aethus, the corresponding attribute is in superposition. Superposition isn’t a weird quantum anomaly. It’s the universe’s default setting. The everyday world of definite outcomes is the special case, generated by the flow of information.
+      </div>
+
+    </div>
 
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
@@ -987,7 +1218,7 @@ body::before {
               <!-- Attribute box -->
               <rect x="15" y="15" width="170" height="70" rx="8" fill="#12131f" stroke="rgba(110,92,255,0.4)" stroke-width="1.5"/>
               <text x="100" y="40" text-anchor="middle" fill="rgba(110,92,255,0.6)" font-size="12" font-weight="500" font-family="monospace">attribute</text>
-              <text id="dc-attr" x="100" y="62" text-anchor="middle" fill="rgba(110,92,255,0.9)" font-size="13" font-weight="600" font-family="monospace" style="transition:all 0.4s;">”Tim’s pet breed”</text>
+              <text id="dc-attr" x="100" y="62" text-anchor="middle" fill="rgba(110,92,255,0.9)" font-size="13" font-weight="600" font-family="monospace" style="transition:all 0.4s;">“Tim’s pet breed”</text>
 
               <!-- Arrow -->
               <line x1="190" y1="50" x2="230" y2="50" stroke="rgba(167,139,250,0.35)" stroke-width="2" marker-end="url(#arrowDC)"/>
@@ -1096,7 +1327,7 @@ body::before {
           <!-- FIXED vs VARIABLE STATES -->
           <h4>Aethically Fixed States — Behind-the-Scenes Superposition</h4>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">Generalized Fixed Principle (Principle 30)</span>
             In classical logic, a “fixed” state is one that holds a single value. In Aethic reasoning, a state may be <em>Aethically fixed</em> — appearing to hold a single value but actually carrying a disagreeing superposition behind the scenes. Because the scenarios in disagreeing superposition never interact, you only ever empirically observe compliance with the classical “fixed” phrasing. The same deductive intuition is inherited, with the extra degree of freedom acknowledged.
           </div>
@@ -1130,6 +1361,32 @@ body::before {
       <p><span class="hl2">Centric unfolding</span> is the interpretive framework for how an agent actually moves along the Aethic dimension — the “kinematics” of the Markov chain. When you learn something new, your Aethus intersects with the new stated-attribute, and you extrude to the resulting child Aethus. This is the mechanism behind every thought experiment in the framework: when you turn around and see your friend’s car in the parking lot, that act of looking <em>is</em> centric unfolding, transiting you from a parent Aethus (car in superposition) to a child Aethus (car at a definite spot). Probability in Aethic reasoning is not a frequency, a degree of belief, or a propensity — it is an <span class="hl3">Aethic weight</span> on the parent-child DAG structure, unifying subjective and objective perspectives under a single structural account.</p>
 
       <p>The concept of a <span class="hl">Nexus</span> — a weighted superposition of Aethae representing a class of systems — first appears in this context: it is the Aethic structure corresponding to a probability distribution over possible states, weighted by some criterion. Different criteria yield different Nexae: cosmic volumetric frequency gives the <em>Cosmic Nexus</em> (in Nexic reasoning), observer-existence probability gives the <em>Aetherian Nexus</em>, and the action functional gives the <em>Quantum Nexus</em> (Layer 10). The Aethic ring structure guarantees that operations on all Nexae are well-behaved under the same algebra that governs probability itself.</p>
+
+      </div>
+
+<div class="explorer-body">
+
+      <p>You’re on a game show. There are three doors, and behind one is a car. You pick Door 1. The host, who knows where the car is, opens Door 3, showing a goat. Should you switch to Door 2?</p>
+
+      <p>Yes. Always switch. Your odds go from 1/3 to 2/3. Most people get this wrong on their first try, including professional mathematicians when it was first published. The reason it’s so counterintuitive is that <em>what the host knows</em> changes the probability, even though the car hasn’t moved.</p>
+
+      <p>The framework makes this almost trivially clear. Start by splitting the situation into two branches: either Door 1 is right (your pick), or Door 2 or 3 is right (you picked wrong). There’s a 1/3 chance you picked right and a 2/3 chance you picked wrong. Now the host opens Door 3 and shows a goat. In the “Door 1 is right” branch, nothing changes: the car is still behind your door. But in the “Door 2 or 3 is right” branch, Door 3 just got crossed off as a contradiction. The only survivor is Door 2. So that entire 2/3 of the probability, which was split between Door 2 and Door 3, now lands entirely on Door 2. The host didn’t move the car. He pruned an invalid possibility, and the weight redistributed to what survived.</p>
+
+      <div class="analogy">
+        <strong>Probability isn’t about coin flips. It’s about pruning contradictions.</strong> The universe lays out every possibility with its structural weight. When new information arrives, the contradictory possibilities get crossed off, and the surviving ones absorb their weight. That’s all Bayesian reasoning is: the directed incorporation of invalid Aethae. The host didn’t change where the car is. He pruned a branch, and the weights redistributed.
+      </div>
+
+      <p>This is the same mechanism that drives everything else in the framework. When you learn something new, your Aethus intersects with that information, the contradictions get pruned, and you shift to a more specific position on the tree of possible realities. The framework calls this <strong>centric unfolding</strong>: the process of moving down the Aethic tree by gaining information. Every observation you’ve ever made, from reading a thermometer to hearing a friend’s voice on the phone, is centric unfolding. And probability, at bottom, is the structural weight on the branches that survive the pruning.</p>
+
+      <p>This is why the Monty Hall problem becomes intuitive under the framework: the host didn’t “update your beliefs.” He gave you information that pruned an invalid branch, and the algebraic structure did the rest. The same logic, scaled up, is what drives quantum collapse in Layer 7. The Third Postulate is the universe doing to superpositions what the host did to Door 3.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> Probability isn’t a tool we invented to handle uncertainty. It’s the structural weight on the Aethic tree. <strong>Centric unfolding</strong>, the process of gaining information and pruning contradictions, is the mechanism behind every observation. And Bayesian reasoning is just what it looks like from the inside.
+      </div>
+
+    </div>
+
+    </div>
 
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
@@ -1234,7 +1491,7 @@ body::before {
           <h4>The Aethic Critique of Frequentism</h4>
           <p>Frequentism defines probability as the limiting proportion of outcomes across infinitely many independent trials. The Aethic issue: the assumption that any two trials are instances of the “same” event is fundamentally a subjective choice — a decision about which attributes to treat as identical. “A wise person once said that you can never step in the same river twice.”</p>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">Definition 27 — Frequentist Bias</span>
             The bias of arbitrarily assuming that two Aethae are equal when considering a like quantity between them. Often characterized by personifying words explaining how the quantity in one is “caused” to differ from its form in the other. In Aethic reasoning, this entire sentiment is as arbitrary as whatever one subjectively supposes constitutes equivalence — and thereby violates the first postulate of the Aethus.
           </div>
@@ -1243,7 +1500,8 @@ body::before {
 
           <!-- RING AXIOMS -->
           <h4>The Aethic Ring — Why Probability Is Algebraic</h4>
-          <p>The set of weighted Aethae forms a <strong>commutative ring</strong>:</p>
+          <div class="explorer-note">The formal proof that Aethic operations form a commutative ring is hidden in Explorer mode. The key takeaway: Aethic union and intersection satisfy all the standard algebraic rules that probability requires, which is why probability theory was always operating on the surface of this structure.</div>
+<div class="technical-only"><p>The set of weighted Aethae forms a <strong>commutative ring</strong>:</p>
           <p><strong>Under Aethic union (addition):</strong> abelian group. The hyperinvalid Aethus serves as the additive identity (unioning with it changes nothing). Every weighted Aethus has an additive inverse (the negatively-weighted version). Union is commutative and associative.</p>
           <p><strong>Under Aethic intersection (multiplication):</strong> abelian monoid. Intersection is commutative and associative. The universal Aethus (all information blank) serves as the multiplicative identity.</p>
           <p><strong>Distributivity:</strong> A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C). This is verified and establishes the full ring structure.</p>
@@ -1256,8 +1514,9 @@ body::before {
           <p>One subtlety: <strong>empirical Aethic complements do not exist</strong> (§4.5). You cannot negate an empirical Aethus in the ring — the operation is mathematically ill-defined because the fundamental theorem of empirical Aethae prevents the precise specification needed for negation. This is an asymmetry in the ring that distinguishes it from a field.</p>
 
           <!-- FALLACY OF INITIAL CONDITIONS -->
-          <h4>The Fallacy of Initial Conditions</h4>
-          <p>”Initial conditions” as classically understood are a remnant of the postulate of complete reality. In Aethic reasoning, the state of a system is a function of whichever Aethus is that of the observer — not of predetermined initial conditions.</p>
+          </div><!-- end technical-only ring -->
+<h4>The Fallacy of Initial Conditions</h4>
+          <p>“Initial conditions” as classically understood are a remnant of the postulate of complete reality. In Aethic reasoning, the state of a system is a function of whichever Aethus is that of the observer — not of predetermined initial conditions.</p>
           <p>The <strong>double pendulum</strong> makes this vivid. Classically, its path is determined by its precise initial conditions — but this assumes all superpositions are disagreeing. In fact, there is always a hair of error in the ontological measurement of the pendulum’s state — it’s in a slight superposition of multiple angular orientations. Chaos theory tells us this small uncertainty amplifies vastly with time. The Aethic picture: your Aethus begins with all possibilities of where the double pendulum might go, and then progressively crops out more and more possibilities as you update your Aethae by watching the pendulum. The “initial conditions” are themselves in superposition relative to any Aethus that hasn’t fully specified them.</p>
           <p>This reframing applies broadly: information is almost never static. As the Lindy effect derivation showed (Layer 9), dynamically altering Aethic information — which manifests empirically as Bayesian updates — is the natural state of affairs. The concept of fixed initial conditions is the special case, not the rule.</p>
 
@@ -1297,6 +1556,48 @@ body::before {
       </table>
 
       <p><span class="hl2">Agreeing superposition</span> (elementary union): states that <em>can</em> interfere — “both slits at once.” <span class="hl3">Disagreeing superposition</span> (nested union-over-intersections with negations): states that <em>cannot</em> interfere — “one or the other.” Both are physically present; their algebraic nesting determines interaction. The Union Principle is the <em>medium</em> that makes the reduced form and third postulate possible — it provides the two types of superposition as the vocabulary in which Aethic pruning operates.</p>
+
+      </div>
+
+<div class="explorer-body">
+
+      <p>Put an apple on the left side of a table. It’s not on the right side. Left or right. One or the other. That feels like about as basic a fact as there is.</p>
+
+      <p>The framework says that “or” isn’t as simple as you think.</p>
+
+      <p>Here’s the question the Union Principle asks: <em>why</em> is the apple only on the left? Not “because someone put it there.” Why can’t it be on both sides at the same time, the way an electron goes through both slits? What is actually <em>stopping</em> it?</p>
+
+      <p>The answer, according to the framework: the apple’s surroundings <em>know</em> where it is. Not consciously, of course. But the table under it is bearing weight on the left side. The air molecules next to it are getting bumped on the left side. If you’re looking at it, your eyes are receiving information from the left side. There’s a massive web of interactions, all of which are consistent with “apple on the left.” That web is what locks in the position. The apple isn’t on one side because some law of the universe says “things can only be in one place.” It’s on one side because everything around it has already “recorded” that answer in a thousand different ways.</p>
+
+      <p>Now think about what happens at the quantum scale. An electron in the double-slit experiment is incredibly tiny and incredibly isolated. The environment around it hasn’t recorded which slit it went through. Nothing has that information. And because nothing has it, the two paths aren’t walled off from each other. They coexist, and they interact. That’s the interference pattern.</p>
+
+      <div class="analogy">
+        <strong>Mutual exclusivity is not built into the universe. It’s built by information.</strong> When a system’s surroundings have recorded its state in enough ways, possibilities get forced into separate, non-interacting lanes. When the surroundings haven’t recorded anything, the possibilities stay merged and can interact. Turn on a detector in the double-slit experiment and the surroundings suddenly have a record of which slit was used. The lanes separate. The interference vanishes.
+      </div>
+
+      <p>So there are two ways for multiple possibilities to be present at once. In an <em>agreeing superposition</em>, they can interact: the electron goes through both slits and the paths interfere, producing the famous wave pattern. In a <em>disagreeing superposition</em>, they’re both physically there but walled off from each other: “left AND not-right” versus “right AND not-left.” Each one carries a built-in denial of the other, and that denial is what keeps them from talking. The apple on your table is in a disagreeing superposition. Both positions exist in your version of reality. They just can’t touch each other.</p>
+
+      <p>What makes this more than wordplay is Principle 17, which the paper calls the “Deepest Layer” of the Union Principle. It says: the apple being on only one side of the table is not a fact about the apple. It’s a fact about the apple’s relationship to everything around it. Remove all those recordings (the table’s weight distribution, the air’s pattern of bumps, your visual memory) and the apple would genuinely occupy both sides, and the two versions would physically interact. The “or” we experience every day is a side effect of living in a world that’s constantly leaking information everywhere. Strip that away, and “or” dissolves into “and.”</p>
+
+      <p>This flips the mystery of quantum mechanics on its head. The question was always “why do tiny particles do this weird superposition thing?” The answer: superposition is the default. The real question is why <em>we</em> don’t see it. And the answer to that is: because we live in a world that records everything. Every surface, every interaction, every vibration creates a record that walls off possibilities from each other. The classical world of definite, either-or outcomes isn’t fundamental. It’s a byproduct of how noisy our environment is.</p>
+
+      <p>Here’s what this means in practice, and it might be the single most disorienting consequence of the framework.</p>
+
+      <p>Every human being who has ever said “what if” was imagining a multiverse. A cave painter mourning a lost friend and thinking “what if they had survived” was doing it. The idea of a multiverse is as old as language itself, because language is built on imagining possibilities you can’t touch. Every version of the multiverse, from ancient myth to modern physics, puts that boundary somewhere far away: a parallel dimension, a branching timeline, a distant corner of the cosmos.</p>
+
+      <p>This framework says they all put it too far.</p>
+
+      <p>The multiverse starts at the edge of your senses. The people in the apartment upstairs are in disagreeing superposition right now, relative to you. Not because they’re in a different universe. Because you can’t see them, and everything you don’t have direct information about is already blurred out into coexisting possibilities. The blur radius of this multiverse is <em>immensely</em> shorter than anyone has ever imagined. It’s not at the edge of the cosmos. It’s at the edge of your kitchen.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> The <strong>Union Principle</strong> says “or” is not a basic feature of reality. Both “and” and “or” show up as physical coexistence. The difference between quantum weirdness and everyday normality comes down to whether the environment carries information that walls the possibilities apart. Superposition is the resting state. The world of definite outcomes is the special case.
+      </div>
+
+    </div>
+
+    </div>
+
+    </div>
 
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
@@ -1398,7 +1699,7 @@ body::before {
           <p>The Union Principle and the Extrusion Principle create an <em>immediate paradox</em> with each other, and the resolution of this paradox is what makes both principles mutually necessary — a dual-edged constraint analogous to Einstein’s equivalence principle and spacetime curvature.</p>
           <p>The sign on the side of the road: you observe it on the left. By the Extrusion Principle, both outcomes should coexist. Yet you only see one side. <strong>Extrusion alone is paradoxical</strong> (all outcomes occur, yet we observe one). <strong>The Union Principle alone is ad hoc</strong> (why introduce nested disagreeing structure?). Together, each resolves the other’s paradox. The disagreeing superposition allows both states to be physically present while the nested structure forbids interaction — creating the <em>appearance</em> of mutual exclusivity without requiring actual physical absence.</p>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">The Einsteinian Analogy</span>
             The Union Principle addresses a constraint tension similar to the principle of relativity: it answers the question “what must a universe look like which is both <em>logically realist</em> and able to accommodate an <em>object being in two places at once</em>?” Logical realism requires preserving the law of non-contradiction — which seems to clash with superposition. The resolution: logical OR realizes as physical AND (satisfying “two places at once”) while non-contradiction is preserved because disjoint attributes taken in intersection form an Aethic contradiction (invalid Aethus). Bell’s theorem demonstrates quantum mechanics’ resistance to hidden-variable determinism, suggesting this structure is true of our universe.
           </div>
@@ -1420,7 +1721,7 @@ body::before {
 
           <!-- LADDER ONTOLOGY -->
           <h4>The Ladder Ontology</h4>
-          <p>More information can be “packed” into the same physical space than classical physics recognized. A disagreeing superposition creates a hidden hierarchy — a <strong>”ladder ontology”</strong> — where both unions and intersections manifest identically as physical AND, yet their algebraic nesting preserves crucial logical distinctions while maintaining a single phenomenological degree of freedom. Classical physics accidentally flattened this rich structure.</p>
+          <p>More information can be “packed” into the same physical space than classical physics recognized. A disagreeing superposition creates a hidden hierarchy — a <strong>“ladder ontology”</strong> — where both unions and intersections manifest identically as physical AND, yet their algebraic nesting preserves crucial logical distinctions while maintaining a single phenomenological degree of freedom. Classical physics accidentally flattened this rich structure.</p>
 
           <div class="key-insight">
             <div class="ki-label">Wave-Particle Duality Dissolved</div>
@@ -1436,7 +1737,7 @@ body::before {
           <h4>Pinpointing the Nonclassicality — Exactly Two Features</h4>
           <p>The paper identifies exactly two nonclassical features in Aethic reasoning, both connected to the Union Principle:</p>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">Nonclassical Feature 1 — Categorical</span>
             Agreeing superpositions are <em>categorically</em> nonclassical. They are an entirely new sister taxon to anything ever proposed in classical metaphysics — “as if we discovered an extra sister taxon to Earth’s entire biosphere.” An agreeing superposition is literally undefinable in a timeline-branching metaphysics.
           </div>
@@ -1445,7 +1746,7 @@ body::before {
 
           <p>Quantum interference is strictly <em>downstream</em> of agreeing superposition — more concrete but categorically dependent. Attempting to describe an agreeing superposition in terms of wave interference is like treating the distance to the sun as “a number with units” rather than a distance — there are added ontic layers beyond peripheral descriptions. Bell inequality violations, the impossibility of perfect discrimination of non-orthogonal quantum states, and quantum decoherence all follow from agreeing superpositions as their root.</p>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">Nonclassical Feature 2 — Dynamic</span>
             Aethic extrusion is <em>dynamically</em> nonclassical. The indiscriminate time principle reorganizes the classical concept of time — subtle enough to evade identification, but deeply clarifying. The classical concept of time becomes “truly unrecognizable to an Aethic worldview,” even though Aethic reasoning merely <em>organizes</em> it rather than inventing a new primitive.
           </div>
@@ -1471,13 +1772,37 @@ body::before {
 
       <p>Given some Aethus A, its <span class="hl">reduced form</span> is the version of A with all invalid child Aethae pruned away — formally, the supremum of all proper child Aethae B such that every proper child of B is valid. The Aethic partition theorem guarantees A and its reduced form are Aethically equivalent. The reduced form is the deeper concept; the <span class="hl3">Third Postulate</span> is the edge case of <em>having no reduced form at all</em>.</p>
 
-      <div class="formal">
+      <div class="formal technical-only">
         <span class="formal-label">Third Postulate of the Aethus</span>
         If some Aethus is valid, then there exists a proper child Aethus to it for which every one of its own proper child Aethae are valid.<br>
         V[A] ⇒ ∃B ⊂ A, ∀C ⊂ B, V[C]
       </div>
 
       <p>The two-generational shape (children and grandchildren) is <span class="hl2">multiply constrained</span> by two independent roles. <strong>Role 1</strong> constrains it from the empirical direction: the check-versus-checkmate structure forces the ∀B, ∃C nesting. <strong>Role 2</strong> constrains it from the qualitative direction: the desire for the reduced form to represent the <em>totality of genuine escape routes</em> from invalidity requires examining children and verifying their grandchildren are clean. Both roles converge on the same structure — an internal consistency check for the framework.</p>
+
+      </div>
+
+<div class="explorer-body">
+
+      <p>The universe plays chess against contradiction. And it always wins.</p>
+
+      <p>Think about it like this. You’re in a version of reality where some particle is in superposition, doing multiple things at once. Now ask: is there <em>any possible future</em> where someone could observe something that creates a contradiction? If yes, if even one path forward leads to an impossible situation, that path gets pruned. If <em>every</em> path forward leads to a contradiction, the entire state is invalid. Game over. Checkmate.</p>
+
+      <div class="analogy">
+        <strong>Check vs. checkmate in chess.</strong> In chess, “check” means your king is threatened, but you might be able to escape. “Checkmate” means every possible move still leaves your king threatened. No escape. The universe works the same way. A single contradiction is just “check.” There might be a way out. But if every possible future contains a contradiction, that’s checkmate, and the state is deleted from reality.
+      </div>
+
+      <p>This is the <strong>Third Postulate</strong>, and it’s the engine that does what “collapse” was supposed to do. When you turn on a detector in the double-slit experiment, you create an avenue to contradiction: if the electron is in agreeing superposition over both slits, but the detector <em>could</em> report which slit it went through, then no matter what happens next, that avenue to contradiction stays open. There’s no move the system can make to escape the threat. That’s checkmate. The superposition gets pruned, and you see a classical particle pattern instead.</p>
+
+      <p>When the detector is off, no future observer can ever determine which slit was taken. The two-slit superposition doesn’t lead to checkmate. There’s always an escape route (the information stays hidden forever). So it survives. And that surviving superposition is what produces the interference pattern.</p>
+
+      <p>The collapse postulate, the mystery at the heart of quantum mechanics for a century, is just the Third Postulate doing its job. No special rule needed. The universe simply enforces its own logical consistency.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> The <strong>Third Postulate</strong> says that if every possible future of a state leads to contradiction, that state is invalid. This “checkmate” rule is the engine behind wavefunction collapse. The collapse postulate isn’t an axiom. If these postulates hold, it’s a derived consequence of the universe refusing to contradict itself.
+      </div>
+
+    </div>
 
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
@@ -1490,7 +1815,7 @@ body::before {
 
           <!-- INTERACTIVE AETHIC TREE -->
           <h4>The Infinite Staircase — Why Checkmate Is Recursive</h4>
-          <p>The two-generational rule creates checkmate not by “invalidating all leaves” but through an <em>infinite staircase</em>. Each “escape route” Y₂ itself contains another copy of the same trap — so no matter how deep you trace, you always hit an unavoidable Y₁. Toggle between <strong>Checkmate</strong> (the staircase continues forever) and <strong>Escape</strong> (the chain breaks at one level, creating a genuine valid path).</p>
+          <p>The two-generational rule creates checkmate not by “invalidating all leaves” but through an <em>infinite staircase</em>. Each “escape route” Y₂ itself contains another copy of the same trap, so no matter how deep you trace, you always hit an unavoidable Y₁. Toggle between <strong>Checkmate</strong> (the staircase continues forever) and <strong>Escape</strong> (the chain breaks at one level, creating a genuine valid path).</p>
 
           <div id="tree-sim" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1.2rem 0;">
             <div style="display:flex;justify-content:center;gap:0.8rem;margin-bottom:0.8rem;flex-wrap:wrap;">
@@ -1596,7 +1921,7 @@ body::before {
           <!-- OLIVER'S SOCCER FIELD -->
           <h4>Oliver’s Soccer Field — The Five Words</h4>
           <p>Oliver, blindfolded, stands at a soccer field bisected by a wall with two doors. He sends friends through the doors and checks the pattern on the back wall. He observes: no interference pattern. <em>Why?</em></p>
-          <p>Five simple words: <strong>”Which door did you get?”</strong> He walks over to a friend and asks. The friend replies “Door 1.” This creates a child Aethus where the friend went through a single door — contradicting the interference pattern (which requires both doors in agreeing superposition). An Aethic contradiction in the child Aethus.</p>
+          <p>Five simple words: <strong>“Which door did you get?”</strong> He walks over to a friend and asks. The friend replies “Door 1.” This creates a child Aethus where the friend went through a single door — contradicting the interference pattern (which requires both doors in agreeing superposition). An Aethic contradiction in the child Aethus.</p>
           <p>But it goes deeper. Even if Oliver <em>never</em> asks, there are millions of other decisive clues: a camera, an onlooker, footprints in the grass, basic entropic considerations in the air molecules — even, in theory, a seagull’s brain containing visual memories of the event. For <em>any</em> child Aethus Oliver could transition to, there exists a grandchild where the contradiction fires. No escape routes. <strong>Checkmate.</strong></p>
 
           <div class="key-insight">
@@ -1655,7 +1980,7 @@ body::before {
     </div>
     <div class="layer-content"><div class="layer-body">
 
-      <p>The double-slit experiment is broken into four cases: (1) neither slit, (2) slit A only, (3) slit B only, (4) both slits. <strong>Detector off:</strong> which-slit is conceptually blank → Second Postulate puts it in agreeing superposition → Case 4 survives → interference pattern. <strong>Detector on:</strong> every future child can learn which slit → Third Postulate checkmates Case 4 → Cases 1–3 in disagreeing superposition → particle pattern. This is the first theoretical derivation of the collapse postulate from more fundamental principles.</p>
+      <p>The double-slit experiment is broken into four cases: (1) neither slit, (2) slit A only, (3) slit B only, (4) both slits. <strong>Detector off:</strong> which-slit is conceptually blank → Second Postulate puts it in agreeing superposition → Case 4 survives → interference pattern. <strong>Detector on:</strong> every future child can learn which slit → Third Postulate checkmates Case 4 → Cases 1–3 in disagreeing superposition → particle pattern. This is, if the postulates hold, a derivation of the collapse postulate from more fundamental principles — no collapse axiom assumed.</p>
 
       <table class="aethic-table">
         <tr><th></th><th>Case 1 (neither)</th><th>Case 2 (A only)</th><th>Case 3 (B only)</th><th>Case 4 (both)</th></tr>
@@ -1666,6 +1991,26 @@ body::before {
       <p>The <strong>delayed-choice experiment</strong> is where the reduced form shows its power. Partition the experimenter’s Aethus A into B₁ (which-path measured in the future) and B₂ (not measured). Take reduced forms of each. Aethic union them back. The reduced form is a <em>coupling indifferent to temporal ordering</em> — the result is a three-level nested superposition: an Aethic union of a disagreeing superposition (B₁) and an agreeing superposition (B₂). No retrocausality; just the indiscriminate time principle at work.</p>
 
       <p>The <strong>EPR resolution</strong> follows directly from the first postulate and extrusion: when Alice measures her entangled particle, she extrudes to a new block universe. She does not cause Bob’s particle to change. Bob’s particle, relative to Alice’s new Aethus, simply <em>always was</em> in the correlated state. No superluminal signaling, no preferred foliation. Multi-observer consistency follows from Aethic algebra: contradictory Aethae are structurally prevented from interacting.</p>
+
+      </div>
+
+<div class="explorer-body">
+
+      <p>Here’s where the rubber meets the road. The framework has three postulates (Layer 2, 4, and 7). If they’re right, they should be able to predict what actually happens in real experiments, without assuming any of the standard quantum rules. Let’s test them.</p>
+
+      <div class="analogy">
+        <strong>The double-slit experiment, from scratch.</strong> Detector off: the which-slit information is permanently unknowable, and Heisenberg guarantees it. So the Second Postulate puts it in agreeing superposition. No future observer can learn which slit → no avenue to contradiction → the Third Postulate doesn’t fire. Superposition survives. Interference pattern. ✔️<br><br>Detector on: the which-slit information <em>could</em> be learned. So every future contains an avenue to contradiction. Checkmate. The Third Postulate prunes the agreeing superposition. Disagreeing superposition remains. Particle pattern. ✔️
+      </div>
+
+      <p>That’s the collapse postulate, derived, not assumed. And it generalizes. The same logic handles experiments with three slits, four slits, any number of slits, through something called the powerset invalidation theorem (which systematically lists all possible combinations of superpositions and prunes the invalid ones).</p>
+
+      <p>Now the big one: <strong>Einstein was right about locality</strong>. The EPR paradox, where two entangled particles seem to instantly communicate across vast distances, has no nonlocal influence in this framework. When Alice measures her particle, she extrudes to a version of reality where <em>both</em> particles were always in the correlated state. She didn’t send a signal to Bob’s particle. She moved to a complete version of reality where Bob’s particle was always going to give the correlated result. Bob, when he measures, independently extrudes to the same version. They agree because they’re in the same story, not because they communicated.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> The three postulates reproduce the double-slit result and resolve the EPR paradox without a collapse axiom and without nonlocal influence. If this derivation holds, it means the measurement problem was never about physics. It was about logic.
+      </div>
+
+    </div>
 
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
@@ -1678,13 +2023,13 @@ body::before {
 
           <!-- MINI POWERSET DIAGRAM -->
           <h4>The Powerset of a Four-Slit Experiment</h4>
-          <p>With four slits (A, B, C, D) and a detector that fires if the particle traverses slit A or B, there are 16 possible agreeing superpositions — the full powerset. The Aethic postulates prune most of them. Here’s the result:</p>
+          <p>With four slits (A, B, C, D) and a detector that fires if the particle traverses slit A or B, there are 16 possible agreeing superpositions, the full powerset. The Aethic postulates prune most of them. Here’s the result:</p>
 
           <div style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1rem 0;">
             <svg width="100%" height="300" viewBox="0 0 440 300" style="display:block;margin:0 auto;max-width:440px;">
               <!-- 4x4 grid of the 16 cases -->
               <!-- Row labels -->
-              <text x="220" y="16" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">detector fires on A or B — which cases survive?</text>
+              <text x="220" y="16" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">detector fires on A or B, which cases survive?</text>
 
               <!-- Grid cells: 4 columns x 4 rows, each 90x55 -->
               <!-- We'll use: valid = purple, P2 = blue dim, P3 = red dim -->
@@ -1819,7 +2164,7 @@ body::before {
           <h4>The Seesaw — Quantum-Classical Boundary</h4>
           <p>As detectors are added, equivalence classes split into finer partitions. The P2/P3 balance seesaws:</p>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">The Seesaw</span>
             <em>No detectors:</em> one equivalence class, full interference, all proper subsets P2, zero P3.<br/>
             <em>Full detection:</em> each slit its own class, pure particle pattern, all multi-slit subsets P3, zero P2.<br/>
@@ -1849,14 +2194,14 @@ body::before {
     </div>
     <div class="layer-content"><div class="layer-body">
 
-      <div class="formal">
+      <div class="formal technical-only">
         <span class="formal-label">Fundamental Theorem of Aethic Reasoning</span>
         To every valid Aethic uncertainty principle there corresponds an Aethic coherence principle. That which is permanently uncertain performs every possible action at once.
       </div>
 
       <p>This is a statement about <em>logic, not physics</em>. Quantum coherence is a special case: anywhere information is permanently hidden, possible states interact as if physically coexisting. The <strong>billiard ball thought experiment</strong> makes this concrete: if you could permanently hide a billiard ball’s positional information, different “scenarios” of its trajectory would interact as if they were different physical balls. One version going left could remove a barrier for the version going right, yielding 100% target probability instead of 50%. This is <em>not</em> quantum interference — it’s the logical primitive of agreeing superposition at macroscopic scale.</p>
 
-      <p>We are watching <span class="hl">”logical OR” in its natural state</span> — alternate scenarios overlaying in space. The ocean of information-decoherent effects of our everyday world, which fires off the third postulate and reduces everything to disagreeing superposition, is the <em>irregular</em> case. We only thought it was elemental. The agreeing superposition is the basement floor; classical exclusivity is the wallpaper.</p>
+      <p>We are watching <span class="hl">“logical OR” in its natural state</span> — alternate scenarios overlaying in space. The ocean of information-decoherent effects of our everyday world, which fires off the third postulate and reduces everything to disagreeing superposition, is the <em>irregular</em> case. We only thought it was elemental. The agreeing superposition is the basement floor; classical exclusivity is the wallpaper.</p>
 
       <p>This makes Aethic reasoning <span class="hl3">extremely falsifiable</span>: find a single permanently unknowable parameter — physical or abstract, in any domain — that fails to produce scenario-interaction, and the entire framework is falsified. The paper draws a parallel with general relativity: predictions preceded experimental technology by decades, but each test either verifies or kills the theory.</p>
 
@@ -1883,6 +2228,34 @@ body::before {
         </table>
         <p>Standard physics has one knob for the quantum-to-classical transition: scale. Aethic reasoning has two, and they can be set independently. <strong>Case C</strong> is what happens when you turn the scale knob to “classical” but leave the information knob on “quantum.” The billiard ball experiment is a Case C system. If Case C exists, it is the first macroscopic quantum-like effect predicted by any framework — not wave interference, but scenario interaction between permanently hidden alternatives.</p>
       </div>
+
+      </div>
+
+<div class="explorer-body">
+
+      <p>Imagine you set up a billiard ball on a table with two possible paths. Path 1: it rolls right and hits a button that removes a barrier. Path 2: it rolls left, straight toward that barrier. Under normal conditions, this is a boring 50/50: either the button gets hit or it doesn’t.</p>
+
+      <p>Now imagine you could <em>permanently</em> hide which path the ball takes. Not just cover your eyes, but actually, physically, permanently destroy all information about the ball’s trajectory. According to the framework, something shocking would happen: the ball would take <em>both</em> paths. The version that goes right would hit the button and remove the barrier. The version that goes left would sail through where the barrier used to be. 100% chance of reaching the target. Not 50%. <em>100%.</em></p>
+
+      <div class="analogy">
+        <strong>Two versions of the same ball, interacting with each other, in real physical space.</strong> Not quantum interference. Not wave behavior. Just two scenarios of a macroscopic billiard ball physically coexisting because their distinguishing information was permanently hidden. This is the framework’s unique prediction, and nothing in standard physics predicts it.
+      </div>
+
+      <p>Now imagine something even stranger. In a warehouse-sized version of this setup, a robotic arm places a single stone on one of two spots, but with the information permanently hidden, the stone occupies <em>both</em> spots at once. The arm ties a cord between the “two stones” (really one stone in superposition), picks them up, and throws the whole thing like a <strong>bolas</strong> — the weighted throwing weapon. The two ends spin around each other with genuine tension in the cord, tangle around a horizontal bar, and drop onto a vase below. The vase shatters.</p>
+
+      <p>One stone. Two positions. Real cord tension. A real vase, really broken. And here’s the key: knowing the vase shattered doesn’t tell you <em>which</em> stone position caused it, so the superposition isn’t collapsed. The real consequence happened, and the agreeing superposition survives.</p>
+
+      <p>This comes from the <strong>Fundamental Theorem of Aethic Reasoning</strong>: wherever information is permanently hidden, possible states interact as if they physically coexisted. Quantum mechanics is just one special case. The theorem says this should happen anywhere, at any scale, in any domain: physical, abstract, or anything in between.</p>
+
+      <p>This is what makes the framework <em>extremely</em> falsifiable. Find one single system where permanently unknowable information <em>doesn’t</em> produce scenario interaction, and the entire framework is dead. One experiment. Any domain. That’s how vulnerable it is. We can’t run these experiments yet. Hiding macroscopic information permanently is beyond current technology. But Einstein predicted gravitational waves in 1916, and we didn’t detect them until 2015. The framework bets that when the technology catches up, the billiard ball will take both paths and the bolas will shatter the vase.</p>
+
+      <p>And if it does? The implications are staggering. It would mean quantum mechanics was never about being small. It was about information being hidden. Every “weird quantum effect,” interference, entanglement, superposition, would be revealed as a special case of a much deeper, much broader logical principle that operates at every scale. The boundary between the quantum world and the everyday world wouldn’t be about size at all. It would be about <em>what you can know</em>.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> The <strong>Fundamental Theorem</strong> predicts that permanently hidden information produces scenario interaction at <em>any</em> scale, not just quantum. The billiard ball and the bolas are Case C systems: macroscopic objects doing quantum-like things without quantum wave behavior. One failed test kills the whole framework. If it survives, the implications reshape what we thought we knew about the boundary between the quantum and the classical.
+      </div>
+
+    </div>
 
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
@@ -2141,7 +2514,7 @@ body::before {
 
           <p>The experiment is also Aethic reasoning’s primary <span class="hl3">falsification target</span>: if any system achieving permanently hidden information fails to show scenario-interaction, the entire framework is falsified. A single failure, in any domain, kills it.</p>
 
-          <h4>”God Does Not Play Dice” — Aethic Logical Determinism</h4>
+          <h4>“God Does Not Play Dice” — Aethic Logical Determinism</h4>
           <p>Aethic reasoning is <em>logically</em> deterministic: the postulates always generate the same reality given the same information — even if that reality is a superposition. Every child Aethus generated by centric unfolding is deterministic; all other child Aethae are also generated relative to their parent. The entire net system is invariant.</p>
           <p>But it is <em>physically</em> indeterministic, because it severs the classical assumption that logical implications and physical causality are synonymous. Einstein’s intuition is vindicated: the universe <em>is</em> logically deterministic, just not in the way anyone expected.</p>
 
@@ -2161,7 +2534,7 @@ body::before {
           <h4>The Aethic Second Law of Thermodynamics</h4>
           <p>The Boltzmann interpretation of the second law is derived as an emergent property of centric unfolding. A system of particles exists in disagreeing superposition over every possible configuration, weighted by microstate count. Centric unfolding “freezes” a chosen configuration as weighted by this disagreeing superposition — directly producing Boltzmann’s statistical second law.</p>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">Indiscriminate Arrow of Time (Principle 31)</span>
             Centric unfolding indiscriminately produces the entropic arrow of time relative to an Aethus at any point in history — not only at the present moment. One’s attainment of knowledge about any point follows the same rules of attribute-gain, with no intrinsic difference under the indiscriminate time principle.
           </div>
@@ -2174,14 +2547,14 @@ body::before {
           <p>This dissolves the <strong>grandfather paradox</strong>: navigating your worldline to a spacetime point already visited means arriving at a <em>different</em> Aethic block universe, mediated by constant entropic increase. The third postulate prunes any scenario where killing your grandfather succeeds, and the Accordance Principle acts as a “pre-pruning agent” — making it far likelier you never encounter the time machine in the first place.</p>
 
           <h4>The Lindy Effect as Aethic Consequence</h4>
-          <p>The <strong>Lindy effect</strong> — nonperishable items’ expected remaining lifetime being proportional to their current age — is derived using the mediocrity principle. The key: an item is “nonperishable” iff its hazard rate is <em>constant over dimensional time</em> relative to a fixed Aethus. A book described only by “this book exists” and “its age is <em>t</em>” yields a constant hazard rate by the Poisson limit theorem. A <em>human</em> has rich aging attributes, creating an exponentially increasing hazard rate. The distinction is the <em>specificity of Aethic attributes</em>: overarching white-noise-like attributes create nonperishable items; specific aging attributes create perishable ones.</p>
+          <p>The <strong>Lindy effect</strong> — nonperishable items’ expected remaining lifetime being proportional to their current age — is derived using the mediocrity principle. The key: an item is “nonperishable” iff its hazard rate is <em>constant over dimensional time</em> relative to a fixed Aethus. A book described only by “this book exists” and “its age is <em>t</em>“ yields a constant hazard rate by the Poisson limit theorem. A <em>human</em> has rich aging attributes, creating an exponentially increasing hazard rate. The distinction is the <em>specificity of Aethic attributes</em>: overarching white-noise-like attributes create nonperishable items; specific aging attributes create perishable ones.</p>
           <p>Given nonperishability, the mediocrity principle implies the expected hazard rate is 1/<em>t</em>. Conditioning on survival, the rate stays constant per Aethus but decreases across the passage of Aethae — yielding the Lindy effect. The Aethic tree is to the Lindy effect what the spacetime continuum is to special relativity: a vital backdrop rendering a circular notion well-defined.</p>
 
           <h4>Biological Coherence & Orch OR</h4>
           <p>The fundamental theorem predicts proteins’ ability to hide molecular information implies quantum coherence — photosynthetic energy transport is only the tip of the iceberg. The paper validates Orch OR (Penrose-Hameroff) on a technicality: consciousness is existentially dependent on neurobiological quantum coherence by one degree of causal separation — without it, the brain’s time complexity would render animal life impossible. The “warm, wet, and noisy” objection is rejected as analogous to claiming Jupiter receives no sunlight because it’s nighttime in Dallas.</p>
 
           <h4>On Being Wrong — Aethic Accidentalism</h4>
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">Principle 33 — Aethic Accidentalism</span>
             No Aethic attribute may certainly exist in one’s Aethus. At most it is in a superposition with alternatives such that the weight is very much in its favor.
           </div>
@@ -2214,7 +2587,7 @@ body::before {
 
       <p>As the number of slits in the multi-slit experiment approaches infinity — partitioning spacetime completely — the powerset invalidation theorem transitions naturally to the <strong>Feynman path integral formulation</strong>. The Quantum Nexus integral wraps this in a powerset-level integration over all possible agreeing superpositions of paths:</p>
 
-      <div class="formal">
+      <div class="formal technical-only">
         <span class="formal-label">The Quantum Nexus Integral</span>
         <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$N \propto \int_{\mathcal{P}(X)} \!\!\! \iint A(T) \, \chi_T(q_1) \, \chi_T(q_2) \, \cos\!\left( \frac{1}{\hbar} \bigl( S[q_1(t)] - S[q_2(t)] \bigr) \right) \mathcal{D}[q_2(t)] \, \mathcal{D}[q_1(t)] \, d\mu(T)$$</div>
       </div>
@@ -2228,6 +2601,28 @@ body::before {
 
       <p>If this integral is correct, it technically completes quantum mechanics when conjoined with the three postulates and an action specification — making it potentially the most compact axiomatization of quantum theory ever proposed.</p>
 
+      </div>
+
+<div class="explorer-body">
+
+      <p>Everything so far has been about the concepts. This final layer connects them to the actual math that physicists use every day, and shows they fit together like a key in a lock.</p>
+
+      <p>Physicists calculate how particles behave using something called the path integral, developed by Richard Feynman. The idea is beautiful: to figure out where a particle ends up, you consider <em>every possible path</em> it could take, assign each path a number, and add them all up. Paths that agree reinforce each other. Paths that disagree cancel out. What survives is the prediction.</p>
+
+      <div class="analogy">
+        <strong>The kill switch.</strong> The framework adds one thing to Feynman’s integral: a factor called A(T) that acts like an on/off switch for each group of paths. If a group of paths forms a valid agreeing superposition, meaning no future observer could ever distinguish which path was taken, then A(T) = 1. The group is allowed. If the Third Postulate prunes that group (because some future observer <em>could</em> tell), then A(T) = 0. The group is deleted. That single addition encodes all three postulates of Aethic reasoning in one integral.
+      </div>
+
+      <p>This is the <strong>Quantum Nexus integral</strong>. It doesn’t replace the path integral. It augments it. In every case where standard quantum mechanics works (which is all the cases we’ve ever tested), the Quantum Nexus integral gives the same answer. But it also handles Case C, the macroscopic scenario-interaction prediction from Layer 9, which the standard path integral can’t express at all.</p>
+
+      <p>The full derivation of why probability specifically follows the Born rule (the |wave function|² law) from something deeper is still an open problem. That’s the subject of an upcoming paper called Active Reasoning. But the Quantum Nexus integral identifies exactly where the Born rule sits in the architecture and why it sits there, which is more structural progress on this question than any other interpretation has made.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> The <strong>Quantum Nexus integral</strong> is the standard Feynman path integral plus one new factor: a validity switch that encodes the three Aethic postulates. If it’s correct, Aethic reasoning isn’t a philosophical interpretation of quantum mechanics. It’s a completion of it.
+      </div>
+
+    </div>
+
       <div class="detail">
         <div class="detail-header" onclick="toggleDetail(this)">
           <span class="detail-icon">∞</span>
@@ -2238,7 +2633,8 @@ body::before {
         <div class="detail-body"><div class="detail-inner">
 
           <!-- PATH PRUNING VISUALIZER -->
-          <h4>From Slits to Paths — Aethic Pruning in the Continuous Limit</h4>
+          <div class="explorer-note">The formal path integral development is hidden in Explorer mode. The key idea: the Feynman path integral gets an extra factor A(T) that equals 1 for valid agreeing superpositions and 0 for invalid ones. This single addition encodes all three Aethic postulates in the language of standard quantum mechanics.</div>
+<div class="technical-only"><h4>From Slits to Paths — Aethic Pruning in the Continuous Limit</h4>
           <p>As the number of slits increases toward infinity, the powerset invalidation theorem from Layer 8 transitions into the Feynman path integral. Each “slit” becomes a continuous path through spacetime. Toggle the detector to watch paths get pruned:</p>
 
           <div id="path-sim" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1.2rem 0;">
@@ -2443,13 +2839,14 @@ body::before {
           <p>Each surviving cluster of paths — each nonzero A(T) term — is one <em>basis element</em> in the preferred basis. The pruning that determines which clusters survive is the same reduced-form mechanism from Layer 7, just applied to continuous path-space instead of a finite set of slits.</p>
 
           <!-- MULTI-SLIT TO PATH INTEGRAL -->
-          <h4>The Transition from Discrete to Continuous</h4>
+          </div><!-- end technical-only QN -->
+<h4>The Transition from Discrete to Continuous</h4>
           <p>Consider increasing the number of slits toward infinity, effectively partitioning spacetime completely. Each “slit” becomes a continuous path, and the powerset of slits becomes the powerset of paths. The standard Feynman path integral ψ ∝ ∫ D[q(t)] exp(iS/ℏ) assigns probability amplitudes to entire continuous paths. The Quantum Nexus wraps this in a powerset-level integration: for <em>every possible subset T</em> of paths, the A(T) factor either lets the subset contribute (if it’s a valid agreeing superposition) or kills it (if Aethic pruning has rendered it invalid).</p>
           <p>This is a category shift: it’s not that “a disagreeing superposition runs over individual paths” — that’s actually a category error. The proper structure is a disagreeing superposition running over <em>agreeing superpositions of groups of paths</em>. The single-slit diffraction pattern is the tip-off: Aethic pruning doesn’t want to boil down to individual paths at all — it leaves as many paths in the system as it can without triggering contradiction.</p>
 
           <!-- BORN RULE ONSET -->
           <h4>The Born Rule Onset Principle</h4>
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">Born Rule Onset Principle (Principle 38)</span>
             The Born rule is applied <em>after</em> summing agreeing superpositions (probability amplitudes interfere) but <em>before</em> summing disagreeing superpositions (probability masses add classically). The onset order is: agreeing interference first, then disagreeing combination.
           </div>
@@ -2465,12 +2862,14 @@ body::before {
           </div>
 
           <!-- DENSITY MATRIX -->
-          <h4>The Density Matrix Structural Oversimplification</h4>
+          <div class="explorer-note">The density matrix argument is hidden in Explorer mode. The key claim: the standard density matrix is a lossy compression of a richer powerset-indexed structure. The exponential decay of quantum coherence is reinterpreted as survival analysis over independent environmental threats, not a continuous dynamical process.</div>
+<div class="technical-only"><h4>The Density Matrix Structural Oversimplification</h4>
           <p>Standard decoherence theory compresses what is actually a vast Aethic structure into a single density matrix. The Quantum Nexus reveals the compression error: each valid agreeing superposition of paths should have its own <em>independent</em> density matrix. When decoherence theory merges these into one, each off-diagonal term is not ontologically elemental but rather a sum over genuinely elemental probability weights from different A(T) terms.</p>
           <p>Concretely: a path appearing in multiple agreeing superpositions is probabilistically counted once <em>per A(T)</em> for its diagonal density matrix term. Standard decoherence incorrectly counts it once total, because the multiplicity of density matrices has been forced into one. The exponential decay of off-diagonal terms during decoherence is the accumulation of survival analysis from an exponential distribution, as avenues for path-distinguishing information propagate “virally” in the graph-theoretic sense. Each elemental invalidation is discrete (valid/invalid Bernoulli variable for each A(T) term), with the exponential distribution emerging from the weighted accumulation over vast numbers of such variables.</p>
 
           <!-- TOTALITARIAN PRINCIPLE -->
-          <h4>The Totalitarian Principle — From Puzzling to Obvious</h4>
+          </div><!-- end technical-only density -->
+<h4>The Totalitarian Principle — From Puzzling to Obvious</h4>
           <p>The quantum totalitarian principle — every Feynman diagram consistent with conservation laws contributes to probability amplitudes — is perhaps the most immediate example of the fundamental theorem in practice. Intermediate Feynman diagrams cannot be individually targeted for Aethic informational attainment: they are indiscriminate in how they present themselves. So the Aethic pruning from the third postulate <em>cannot reduce them</em>, and by the second postulate they all survive into maximal agreeing superposition. The most fundamental layers of quantum field theory are “the universe at its most unconstrained in agreeing superposition substantiality.” The totalitarian principle moves from puzzling to a direct product of the second postulate.</p>
 
           <!-- WHAT'S LEFT OF MYSTICISM -->
@@ -2478,7 +2877,7 @@ body::before {
           <p>There is not some specifically designated ontic category at the quantum scale which drives quantum coherence by maintaining path diversity. <em>Any</em> category of informational transfer will do, as long as all channels are hidden. It just happens that at the quantum scale, most of them are. With increasing scale, more channels gain access to transfer information, and Aethic pruning converts agreeing to disagreeing superpositions.</p>
           <p>The engine was purely Aethic all along. Quantum uncertainty “joins the party last” rather than being granted any categorical fundamentality. The Aethic processes control the surviving agreeing superposition of paths, which in turn controls the onset of quantum uncertainty by means of the path integral. It is the moment when you realize that an assumed-fixed parameter in a system is not only variable, but partly driving the dynamics.</p>
 
-          <div class="formal">
+          <div class="formal technical-only">
             <span class="formal-label">The Completeness Claim</span>
             If the Quantum Nexus integral is correct, it technically completes quantum mechanics when conjoined with the three postulates and an action specification — making it potentially the most compact axiomatization of quantum theory ever proposed. The full derivation of the Born rule from something ontologically deeper remains the subject of the forthcoming paper on <em>Active Reasoning</em>.
           </div>
@@ -2498,13 +2897,37 @@ body::before {
 
 
 <footer style="text-align:center; padding:3rem 2rem 4rem; color:var(--text-dim); font-size:0.82rem;">
-  Based on “<a href="https://philpapers.org/rec/BENARA-5" target="_blank" rel="noopener" style="color:var(--accent-6);text-decoration:none;">Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem</a>” by Ajax Benander (November 2024).
+  Based on “<a href="https://philpapers.org/rec/BENARA-5" target="_blank" rel="noopener" style="color:var(--accent-6);text-decoration:none;">Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem</a>“ by Ajax Benander (November 2024).
   <br>This interactive guide is an interpretive summary. Refer to the original paper for formal proofs and complete argumentation.
   <br><a href="/" style="color:var(--text-dim);text-decoration:none;margin-top:0.5rem;display:inline-block;">← Back to aethus.org</a>
 </footer>
 
 <script>
 // Layer toggle
+function setMode(mode) {
+  if (mode === 'explorer') {
+    document.body.classList.add('explorer-mode');
+    document.getElementById('mode-explorer').classList.add('active');
+    document.getElementById('mode-technical').classList.remove('active');
+    document.getElementById('modeDesc').textContent = 'Showing conceptual content. Formal mathematics is hidden — switch to Technical to see it.';
+    if (history.replaceState) history.replaceState(null, '', '#explorer');
+  } else {
+    document.body.classList.remove('explorer-mode');
+    document.getElementById('mode-technical').classList.add('active');
+    document.getElementById('mode-explorer').classList.remove('active');
+    document.getElementById('modeDesc').textContent = 'Showing all content including formal mathematics.';
+    if (history.replaceState) history.replaceState(null, '', '#technical');
+  }
+}
+// Set mode from hash on load, default to explorer
+(function() {
+  var hash = window.location.hash.replace('#', '').toLowerCase();
+  if (hash === 'technical') {
+    setMode('technical');
+  } else {
+    setMode('explorer');
+  }
+})();
 function toggleLayer(header) {
   const layer = header.closest('.layer');
   layer.classList.toggle('open');
@@ -2564,4 +2987,3 @@ window.addEventListener('scroll', updateNav);
 buildNav();
 updateNav();
 </script>
-<script></script>
