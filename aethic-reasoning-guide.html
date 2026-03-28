@@ -508,7 +508,7 @@ body::before {
 .onramp.open .onramp-body { max-height:3000px; }
 .onramp-body-inner { padding:0.5rem 1.5rem 1.5rem; }
 .mode-toggle {
-  display:inline-flex;border-radius:8px;overflow:hidden;border:1px solid rgba(110,92,255,0.2);margin-top:1rem;
+  display:inline-flex;border-radius:8px;overflow:hidden;border:1px solid rgba(110,92,255,0.2);
 }
 .mode-toggle button {
   padding:0.4rem 1.1rem;border:none;background:transparent;color:var(--text-dim);
@@ -518,6 +518,31 @@ body::before {
   background:rgba(110,92,255,0.15);color:var(--accent-1);
 }
 .mode-toggle button:hover:not(.active) { color:var(--text-bright); }
+.mode-toggle-mini {
+  display:inline-flex;border-radius:6px;overflow:hidden;border:1px solid rgba(110,92,255,0.15);
+}
+.mode-toggle-mini button {
+  padding:0.25rem 0.7rem;border:none;background:transparent;color:var(--text-dim);
+  cursor:pointer;font-size:0.68rem;font-family:inherit;font-weight:500;transition:all 0.2s;letter-spacing:0.02em;
+}
+.mode-toggle-mini button.active {
+  background:rgba(110,92,255,0.12);color:var(--accent-1);
+}
+.mode-toggle-mini button:hover:not(.active) { color:var(--text-bright); }
+/* Sticky mode bar */
+.sticky-mode-bar {
+  position:fixed;top:0;left:0;right:0;z-index:10000;
+  display:flex;align-items:center;justify-content:center;gap:0.6rem;
+  padding:0.45rem 1rem;
+  background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(110,92,255,0.1);
+  transform:translateY(-100%);transition:transform 0.3s;
+  font-size:0.72rem;color:var(--text-dim);
+}
+.sticky-mode-bar.visible { transform:translateY(0); }
+.sticky-mode-bar .sticky-label {
+  font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dim);
+}
 /* Explorer mode hides technical-only content */
 body.explorer-mode .technical-only { display:none !important; }
 body.explorer-mode .explorer-note { display:block !important; }
@@ -549,12 +574,23 @@ body.explorer-mode .detail { display:none !important; }
   <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(96,165,250,0.5);margin-bottom:0.8rem;">A Comprehensive Solution to the Quantum Measurement Problem</div>
   <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:300;color:var(--text-bright);margin-bottom:0.6rem;">How Aethic Reasoning Works</h1>
   <p style="max-width:620px;margin:0 auto;color:var(--text-dim);font-size:0.92rem;line-height:1.6;">Ten layers from the Extrusion Principle through the Quantum Nexus integral. Click any layer to expand. Summaries only: ~25 min. With all deep dives: ~80 min.</p>
-  <div class="mode-toggle" id="modeToggle">
-    <button onclick="setMode('explorer')" id="mode-explorer" class="active">Explorer</button>
-    <button onclick="setMode('technical')" id="mode-technical">Technical</button>
+  <div style="margin-top:0.8rem;">
+    <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-dim);margin-bottom:0.15rem;">Reading Mode</div>
+    <div class="mode-toggle" id="modeToggle">
+      <button onclick="setMode('explorer')" id="mode-explorer" class="active">Explorer</button>
+      <button onclick="setMode('technical')" id="mode-technical">Technical</button>
+    </div>
   </div>
   <div style="max-width:500px;margin:0.5rem auto 0;font-size:0.72rem;color:var(--text-dim);line-height:1.4;" id="modeDesc">Showing conceptual content. Formal mathematics is hidden — switch to Technical to see it.</div>
 </header>
+
+<div class="sticky-mode-bar" id="stickyModeBar">
+  <span class="sticky-label">Reading mode</span>
+  <div class="mode-toggle-mini">
+    <button class="mini-explorer active" onclick="setMode('explorer')">Explorer</button>
+    <button class="mini-technical" onclick="setMode('technical')">Technical</button>
+  </div>
+</div>
 
 <nav class="nav-sidebar" id="navSidebar"></nav>
 
@@ -572,6 +608,38 @@ body.explorer-mode .detail { display:none !important; }
     <div class="onramp-body"><div class="onramp-body-inner">
 
     <p style="margin-bottom:1rem;">Quantum mechanics works. Its predictions are confirmed to extraordinary precision. But it has never explained <em>why</em> observing a particle changes what it does. For a century, the measurement problem has been treated as either an unsolvable mystery or a matter of philosophical taste. Aethic reasoning proposes that it is neither: it is a logical problem with a logical solution.</p>
+
+    <div class="technical-only" style="background:var(--bg-layer);border:1px solid rgba(96,165,250,0.15);border-radius:10px;padding:1.3rem 1.5rem;margin:1.2rem 0 1.5rem;">
+      <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-6);margin-bottom:0.7rem;font-weight:600;">What counts as a solution?</div>
+      <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:0.8rem;line-height:1.55;">In 2022, Sabine Hossenfelder and Jonte R. Hance published <a href="https://doi.org/10.1088/2399-6528/ac96cf" onclick="event.stopPropagation()" target="_blank" rel="noopener" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">five requirements</a> for any genuine solution to the measurement problem. These are the goalposts the physics community set, not the framework. The guide shows how Aethic reasoning addresses each one.</p>
+      <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+        <tr>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--accent-6);font-weight:500;white-space:nowrap;vertical-align:top;">R1</td>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--text);">Agree with all existing data.</td>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--text-dim);font-size:0.75rem;white-space:nowrap;vertical-align:top;">Layers 8, 10</td>
+        </tr>
+        <tr>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--accent-6);font-weight:500;white-space:nowrap;vertical-align:top;">R2</td>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--text);">Reproduce quantum mechanics, including the collapse postulate and Born rule, in a well-defined limit.</td>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--text-dim);font-size:0.75rem;white-space:nowrap;vertical-align:top;">Layers 7, 8, 10</td>
+        </tr>
+        <tr>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--accent-6);font-weight:500;white-space:nowrap;vertical-align:top;">R3</td>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--text);">Give an unambiguous answer to the question of what a measurement device is.</td>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--text-dim);font-size:0.75rem;white-space:nowrap;vertical-align:top;">Layers 4, 7, 9</td>
+        </tr>
+        <tr>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--accent-6);font-weight:500;white-space:nowrap;vertical-align:top;">R4</td>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--text);">Reproduce classical physics in a well-defined limit.</td>
+          <td style="padding:0.4rem 0.6rem;border-bottom:1px solid rgba(110,92,255,0.08);color:var(--text-dim);font-size:0.75rem;white-space:nowrap;vertical-align:top;">Layers 6, 9, 10</td>
+        </tr>
+        <tr>
+          <td style="padding:0.4rem 0.6rem;color:var(--accent-6);font-weight:500;white-space:nowrap;vertical-align:top;">R5</td>
+          <td style="padding:0.4rem 0.6rem;color:var(--text);">Resolve the inconsistency between non-local measurement collapse and local stress-energy conservation.</td>
+          <td style="padding:0.4rem 0.6rem;color:var(--text-dim);font-size:0.75rem;white-space:nowrap;vertical-align:top;">Layers 1, 8</td>
+        </tr>
+      </table>
+    </div>
 
     <p style="margin-bottom:1rem;">The guide below walks through the framework in ten layers. You do not need to understand every layer to get value from it. Here is the map:</p>
 
@@ -626,6 +694,29 @@ body.explorer-mode .detail { display:none !important; }
       </div>
 
     </div>
+
+    <div class="technical-only" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.3rem 1.5rem;margin:1.5rem 0;">
+      <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-5);margin-bottom:0.7rem;font-weight:600;">Experiment \u2013 Postulate Matrix <span style="font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0;">\u2014 \u2605 = primary illustration \u00b7 \u2713 = also relevant</span></div>
+      <div style="overflow-x:auto;">
+      <table class="aethic-table" style="font-size:0.8rem;">
+        <thead><tr><th>Experiment</th><th style="text-align:center;">1st Post.</th><th style="text-align:center;">2nd Post.</th><th style="text-align:center;">3rd Post.</th><th style="text-align:center;">Extrusion</th><th style="text-align:center;">Union</th><th style="text-align:center;">Fund. Thm</th><th style="text-align:center;">Entropic</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--text-bright);">Double-Slit</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;color:var(--accent-4);">\u2605</td><td style="text-align:center;"></td><td style="text-align:center;">\u2713</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
+          <tr><td style="color:var(--text-bright);">Oliver\u2019s Soccer Field</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;color:var(--accent-4);">\u2605</td><td style="text-align:center;"></td><td style="text-align:center;">\u2713</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
+          <tr><td style="color:var(--text-bright);">EPR / Bell</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;color:var(--accent-4);">\u2605</td><td style="text-align:center;">\u2713</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
+          <tr><td style="color:var(--text-bright);">Delayed-Choice</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;color:var(--accent-4);">\u2605</td><td style="text-align:center;">\u2713</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
+          <tr><td style="color:var(--text-bright);">Billiard Ball</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;color:var(--accent-4);">\u2605</td><td style="text-align:center;"></td></tr>
+          <tr><td style="color:var(--text-bright);">Mach\u2013Zehnder</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;color:var(--accent-4);">\u2605</td><td style="text-align:center;"></td></tr>
+          <tr><td style="color:var(--text-bright);">Kevin the Rabbit</td><td style="text-align:center;color:var(--accent-4);">\u2605</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
+          <tr><td style="color:var(--text-bright);">Battle of Br\u00e9mule</td><td style="text-align:center;">\u2713</td><td style="text-align:center;color:var(--accent-4);">\u2605</td><td style="text-align:center;"></td><td style="text-align:center;">\u2713</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
+          <tr><td style="color:var(--text-bright);">Zoe\u2019s Password</td><td style="text-align:center;">\u2713</td><td style="text-align:center;">\u2713</td><td style="text-align:center;"></td><td style="text-align:center;color:var(--accent-4);">\u2605</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
+          <tr><td style="color:var(--text-bright);">Phone Booth</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">\u2713</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;color:var(--accent-4);">\u2605</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+
 
     <p class="technical-only" style="margin-bottom:0;color:var(--text-dim);font-size:0.88rem;">Each layer builds on the ones before it, but the deep dives (the dropdown sections inside each layer) are optional. If you are comfortable with the double-slit experiment and the idea of a block universe, start at Layer 1. If not, the <a href="/start-here.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Start Here</a> page provides a gentler introduction. You can also browse the <a href="/glossary.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Glossary</a> for quick definitions or see the <a href="/faq.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Common Objections</a> page for answers to the questions readers ask most.</p>
     <p class="explorer-body" style="display:none;margin-bottom:0;color:var(--text-dim);font-size:0.88rem;">Each layer builds on the ones before it. No physics background required. If you want a five-minute overview first, try the <a href="/start-here.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Start Here</a> page. You can also browse the <a href="/glossary.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Glossary</a> for quick definitions or see the <a href="/faq.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Common Objections</a> page.</p>
@@ -705,6 +796,8 @@ body.explorer-mode .detail { display:none !important; }
       <div class="takeaway">
         <strong>The takeaway:</strong> When you observe something, you don’t collapse anything or change anything. You transition to a different, complete version of reality that was always consistent with what you just learned. The version you left behind still exists with its uncertainty intact. This is the <strong>Extrusion Principle</strong> — the foundation everything else is built on.
       </div>
+
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
 
     
 
@@ -905,6 +998,8 @@ body.explorer-mode .detail { display:none !important; }
         <strong>The takeaway:</strong> Reality isn’t a story told from no one’s perspective. It’s always indexed to an observer’s informational state, the way velocity is always relative to a reference frame. This is the <strong>First Postulate</strong> — and it means the question “what’s really happening?” always needs an answer to “relative to whom?” first.
       </div>
 
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
+
     </div>
 
       <div class="detail">
@@ -1024,6 +1119,8 @@ body.explorer-mode .detail { display:none !important; }
       <div class="takeaway">
         <strong>The takeaway:</strong> The <strong>Aethus</strong> is a new mathematical object that tracks what an observer knows. Its key innovation: it treats “I don’t know” as a first-class citizen, not a gap. This matters because the difference between “unknown” and “impossible” turns out to be the difference between quantum superposition and classical definiteness.
       </div>
+
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
 
     </div>
 
@@ -1192,6 +1289,8 @@ body.explorer-mode .detail { display:none !important; }
       <div class="takeaway">
         <strong>The takeaway:</strong> The <strong>Second Postulate</strong> says that if a piece of information is nonpresent in your Aethus, the corresponding attribute is in superposition. Superposition isn’t a weird quantum anomaly. It’s the universe’s default setting. The everyday world of definite outcomes is the special case, generated by the flow of information.
       </div>
+
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
 
     </div>
 
@@ -1384,7 +1483,7 @@ body.explorer-mode .detail { display:none !important; }
         <strong>The takeaway:</strong> Probability isn’t a tool we invented to handle uncertainty. It’s the structural weight on the Aethic tree. <strong>Centric unfolding</strong>, the process of gaining information and pruning contradictions, is the mechanism behind every observation. And Bayesian reasoning is just what it looks like from the inside.
       </div>
 
-    </div>
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
 
     </div>
 
@@ -1593,9 +1692,7 @@ body.explorer-mode .detail { display:none !important; }
         <strong>The takeaway:</strong> The <strong>Union Principle</strong> says “or” is not a basic feature of reality. Both “and” and “or” show up as physical coexistence. The difference between quantum weirdness and everyday normality comes down to whether the environment carries information that walls the possibilities apart. Superposition is the resting state. The world of definite outcomes is the special case.
       </div>
 
-    </div>
-
-    </div>
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
 
     </div>
 
@@ -1784,23 +1881,27 @@ body.explorer-mode .detail { display:none !important; }
 
 <div class="explorer-body">
 
-      <p>The universe plays chess against contradiction. And it always wins.</p>
+      <p>Imagine you’re planning a surprise birthday party for your friend. You’ve got the venue, the cake, the guest list. But there’s a problem: your friend’s roommate is a gossip. If you invite anyone from the apartment building, the roommate will hear about it and spill the secret. So you rework the plan to exclude the building. But then you realize the roommate also checks your friend’s email. So even an e-invite would leak. You try a phone tree, but the roommate monitors the group chat. Every plan you come up with has a path that leads to the secret getting out.</p>
 
-      <p>Think about it like this. You’re in a version of reality where some particle is in superposition, doing multiple things at once. Now ask: is there <em>any possible future</em> where someone could observe something that creates a contradiction? If yes, if even one path forward leads to an impossible situation, that path gets pruned. If <em>every</em> path forward leads to a contradiction, the entire state is invalid. Game over. Checkmate.</p>
+      <p>That’s checkmate. Not that the party is ruined <em>right now</em>, but that there’s no move you can make that avoids the threat. Every possible future version of the plan contains a leak.</p>
+
+      <p>The universe works the same way, except instead of party leaks, it’s watching for logical contradictions.</p>
 
       <div class="analogy">
-        <strong>Check vs. checkmate in chess.</strong> In chess, “check” means your king is threatened, but you might be able to escape. “Checkmate” means every possible move still leaves your king threatened. No escape. The universe works the same way. A single contradiction is just “check.” There might be a way out. But if every possible future contains a contradiction, that’s checkmate, and the state is deleted from reality.
+        <strong>Check vs. checkmate.</strong> In chess, “check” means your king is under threat, but you might escape. “Checkmate” means every possible move still leaves your king under threat. No escape. The Third Postulate says: if every possible future of a quantum state contains an avenue to contradiction, that state is invalid from the start. Deleted. Not because a contradiction happened, but because no move avoids the <em>threat</em> of one.
       </div>
 
-      <p>This is the <strong>Third Postulate</strong>, and it’s the engine that does what “collapse” was supposed to do. When you turn on a detector in the double-slit experiment, you create an avenue to contradiction: if the electron is in agreeing superposition over both slits, but the detector <em>could</em> report which slit it went through, then no matter what happens next, that avenue to contradiction stays open. There’s no move the system can make to escape the threat. That’s checkmate. The superposition gets pruned, and you see a classical particle pattern instead.</p>
+      <p>Here’s what this means for the double-slit experiment. When the detector is on, it <em>could</em> report which slit the electron went through. That report would contradict the agreeing superposition (which requires both slits). And there’s no future where that threat goes away: the detector is sitting right there, ready to fire. Every possible next step still has the leak. Checkmate. The agreeing superposition gets pruned, and you see the classical particle pattern.</p>
 
-      <p>When the detector is off, no future observer can ever determine which slit was taken. The two-slit superposition doesn’t lead to checkmate. There’s always an escape route (the information stays hidden forever). So it survives. And that surviving superposition is what produces the interference pattern.</p>
+      <p>When the detector is off? The which-slit information is permanently gone. No future observer can ever recover it. The threat can never materialize. That’s not checkmate; there’s always an escape (the information stays hidden forever). So the agreeing superposition survives. And that’s the interference pattern.</p>
 
-      <p>The collapse postulate, the mystery at the heart of quantum mechanics for a century, is just the Third Postulate doing its job. No special rule needed. The universe simply enforces its own logical consistency.</p>
+      <p>The collapse postulate, the mystery at the heart of quantum mechanics for a century, is just the Third Postulate doing its job. No special rule needed. The universe simply refuses to let a state exist if every possible future of that state contains an unavoidable logical contradiction. It plays chess against paradox, and it always wins.</p>
 
       <div class="takeaway">
-        <strong>The takeaway:</strong> The <strong>Third Postulate</strong> says that if every possible future of a state leads to contradiction, that state is invalid. This “checkmate” rule is the engine behind wavefunction collapse. The collapse postulate isn’t an axiom. If these postulates hold, it’s a derived consequence of the universe refusing to contradict itself.
+        <strong>The takeaway:</strong> The <strong>Third Postulate</strong> says: if every possible future of a state leads to an unavoidable avenue to contradiction, that state is invalid. This “checkmate” rule is the engine behind wavefunction collapse. The collapse postulate isn’t an axiom. If these postulates hold, it’s a consequence of the universe refusing to contradict itself.
       </div>
+
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
 
     </div>
 
@@ -1996,19 +2097,31 @@ body.explorer-mode .detail { display:none !important; }
 
 <div class="explorer-body">
 
-      <p>Here’s where the rubber meets the road. The framework has three postulates (Layer 2, 4, and 7). If they’re right, they should be able to predict what actually happens in real experiments, without assuming any of the standard quantum rules. Let’s test them.</p>
+      <p>Three rules. One experiment. No collapse assumed. Let’s see if they work.</p>
+
+      <p>The double-slit experiment: fire electrons one at a time at a wall with two slits. With no detector, you get a wave-like interference pattern. With a detector watching which slit each electron goes through, you get two plain bands. Why?</p>
 
       <div class="analogy">
-        <strong>The double-slit experiment, from scratch.</strong> Detector off: the which-slit information is permanently unknowable, and Heisenberg guarantees it. So the Second Postulate puts it in agreeing superposition. No future observer can learn which slit → no avenue to contradiction → the Third Postulate doesn’t fire. Superposition survives. Interference pattern. ✔️<br><br>Detector on: the which-slit information <em>could</em> be learned. So every future contains an avenue to contradiction. Checkmate. The Third Postulate prunes the agreeing superposition. Disagreeing superposition remains. Particle pattern. ✔️
+        <strong>The three-postulate walkthrough.</strong> Detector off: the which-slit information is permanently unknowable (Heisenberg guarantees it). So the Second Postulate says it’s in superposition. Now the Third Postulate checks: is there any future where someone could discover which slit, creating a contradiction? No. The information is gone forever. No checkmate. The superposition survives. Result: interference pattern. ✔️<br><br>Detector on: the detector <em>could</em> report which slit. That’s an avenue to contradiction, and no future escapes the threat. Checkmate. The superposition gets pruned. Result: two plain bands. ✔️
       </div>
 
-      <p>That’s the collapse postulate, derived, not assumed. And it generalizes. The same logic handles experiments with three slits, four slits, any number of slits, through something called the powerset invalidation theorem (which systematically lists all possible combinations of superpositions and prunes the invalid ones).</p>
+      <p>That’s the collapse postulate, derived from three rules. No magic, no special axiom. The interference pattern appears because the universe has no grounds to prune the superposition. The particle pattern appears because it does. Same rules, different information, different outcomes.</p>
 
-      <p>Now the big one: <strong>Einstein was right about locality</strong>. The EPR paradox, where two entangled particles seem to instantly communicate across vast distances, has no nonlocal influence in this framework. When Alice measures her particle, she extrudes to a version of reality where <em>both</em> particles were always in the correlated state. She didn’t send a signal to Bob’s particle. She moved to a complete version of reality where Bob’s particle was always going to give the correlated result. Bob, when he measures, independently extrudes to the same version. They agree because they’re in the same story, not because they communicated.</p>
+      <p>Now the big one. In 1935, Einstein argued that quantum mechanics must be incomplete because entangled particles seem to communicate instantly across any distance. He called this “spooky action at a distance” and spent the rest of his life troubled by it. Eighty years of physics said he was wrong.</p>
+
+      <p>This framework says he was right.</p>
+
+      <div class="analogy">
+        <strong>Einstein was right about locality.</strong> When Alice measures her entangled particle, she doesn’t send a signal to Bob’s particle. She <em>extrudes</em>: she moves to a version of reality where both particles were always in the correlated state. The entire history of that version was always consistent with her result. When Bob measures his particle, he independently extrudes to the same version. They agree because they’re in the same story, not because they communicated. No signal. No spooky action. No violation of the speed of light. Just two observers independently arriving at the same complete version of reality.
+      </div>
+
+      <p>If this derivation holds, the measurement problem was never about physics. It was about logic. The universe doesn’t need a special collapse rule. It just needs to be consistent.</p>
 
       <div class="takeaway">
-        <strong>The takeaway:</strong> The three postulates reproduce the double-slit result and resolve the EPR paradox without a collapse axiom and without nonlocal influence. If this derivation holds, it means the measurement problem was never about physics. It was about logic.
+        <strong>The takeaway:</strong> The three postulates reproduce the double-slit result and resolve the EPR paradox without a collapse axiom and without violating locality. If this derivation holds, it means the measurement problem was never about physics. It was about the universe enforcing its own logical consistency.
       </div>
+
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
 
     </div>
 
@@ -2201,7 +2314,11 @@ body.explorer-mode .detail { display:none !important; }
 
       <p>This is a statement about <em>logic, not physics</em>. Quantum coherence is a special case: anywhere information is permanently hidden, possible states interact as if physically coexisting. The <strong>billiard ball thought experiment</strong> makes this concrete: if you could permanently hide a billiard ball’s positional information, different “scenarios” of its trajectory would interact as if they were different physical balls. One version going left could remove a barrier for the version going right, yielding 100% target probability instead of 50%. This is <em>not</em> quantum interference — it’s the logical primitive of agreeing superposition at macroscopic scale.</p>
 
-      <p>We are watching <span class="hl">“logical OR” in its natural state</span> — alternate scenarios overlaying in space. The ocean of information-decoherent effects of our everyday world, which fires off the third postulate and reduces everything to disagreeing superposition, is the <em>irregular</em> case. We only thought it was elemental. The agreeing superposition is the basement floor; classical exclusivity is the wallpaper.</p>
+      <p>A second Case C system extends this prediction by adding inter-scenario physical coupling. In the <strong>bolas thought experiment</strong>, a robotic arm places a single stone on one of two spots in a warehouse, with the positional information permanently hidden. The stone occupies both spots in agreeing superposition. The arm ties a cord between the “two stones” (one stone, two superposed positions), picks them up by the cord, and throws the assembly end-over-end as a bolas. The cord bears genuine tension: the two superposed positions of the same stone exert forces on each other through the physical connector. The bolas tangles on a horizontal bar and drops onto a vase below. The vase shatters. Crucially, the shattering does not collapse the superposition: knowing the vase broke does not reveal which of the two stone positions caused it, so no avenue to contradiction is opened and the Third Postulate does not fire. This parallels the Elitzur–Vaidman bomb tester, where a genuinely consequential result follows from an agreeing superposition without implying its collapse. The only constraint: after the experiment, the two stone positions must be recombined (perhaps by a second robotic arm) so that no residual positional difference leaks distinguishing information.</p>
+
+      <p>Where the billiard ball demonstrates cooperative path interaction (one scenario removing a barrier for another), the bolas demonstrates <em>self-force across superposed positions</em>: cord tension, angular momentum, and a causal consequence (the shattered vase) that survives without collapsing the agreeing superposition. These are qualitatively different experimental architectures, each targeting a distinct facet of the Fundamental Theorem’s prediction.</p>
+
+<p>We are watching <span class="hl">“logical OR” in its natural state</span> — alternate scenarios overlaying in space. The ocean of information-decoherent effects of our everyday world, which fires off the third postulate and reduces everything to disagreeing superposition, is the <em>irregular</em> case. We only thought it was elemental. The agreeing superposition is the basement floor; classical exclusivity is the wallpaper.</p>
 
       <p>This makes Aethic reasoning <span class="hl3">extremely falsifiable</span>: find a single permanently unknowable parameter — physical or abstract, in any domain — that fails to produce scenario-interaction, and the entire framework is falsified. The paper draws a parallel with general relativity: predictions preceded experimental technology by decades, but each test either verifies or kills the theory.</p>
 
@@ -2226,7 +2343,7 @@ body.explorer-mode .detail { display:none !important; }
             <td style="text-align:center;"><strong style="color:var(--text-dim);">Case D: Classical</strong><br><span style="font-size:0.82rem;">Baseballs, planets. Both mechanisms suppress quantum effects.</span><br><span style="font-size:0.75rem;color:var(--accent-3);">✓ Recognized</span></td>
           </tr>
         </table>
-        <p>Standard physics has one knob for the quantum-to-classical transition: scale. Aethic reasoning has two, and they can be set independently. <strong>Case C</strong> is what happens when you turn the scale knob to “classical” but leave the information knob on “quantum.” The billiard ball experiment is a Case C system. If Case C exists, it is the first macroscopic quantum-like effect predicted by any framework — not wave interference, but scenario interaction between permanently hidden alternatives.</p>
+        <p>Standard physics has one knob for the quantum-to-classical transition: scale. Aethic reasoning has two, and they can be set independently. <strong>Case C</strong> is what happens when you turn the scale knob to “classical” but leave the information knob on “quantum.” The billiard ball experiment is a Case C system. If Case C exists, it would be the first macroscopic quantum-like effect predicted by any framework — not wave interference, but scenario interaction between permanently hidden alternatives.</p>
       </div>
 
       </div>
@@ -2254,6 +2371,8 @@ body.explorer-mode .detail { display:none !important; }
       <div class="takeaway">
         <strong>The takeaway:</strong> The <strong>Fundamental Theorem</strong> predicts that permanently hidden information produces scenario interaction at <em>any</em> scale, not just quantum. The billiard ball and the bolas are Case C systems: macroscopic objects doing quantum-like things without quantum wave behavior. One failed test kills the whole framework. If it survives, the implications reshape what we thought we knew about the boundary between the quantum and the classical.
       </div>
+
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
 
     </div>
 
@@ -2621,6 +2740,8 @@ body.explorer-mode .detail { display:none !important; }
         <strong>The takeaway:</strong> The <strong>Quantum Nexus integral</strong> is the standard Feynman path integral plus one new factor: a validity switch that encodes the three Aethic postulates. If it’s correct, Aethic reasoning isn’t a philosophical interpretation of quantum mechanics. It’s a completion of it.
       </div>
 
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
+
     </div>
 
       <div class="detail">
@@ -2893,8 +3014,25 @@ body.explorer-mode .detail { display:none !important; }
 
 </section>
 
-
-
+<section class="layer-container" style="padding-top:2rem;">
+  <div class="technical-only" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:2rem;">
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--text-bright);margin-bottom:0.5rem;">How This Compares</h3>
+    <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:1.2rem;">Existing interpretations produce the same predictions as standard QM. Aethic reasoning produces different predictions (Case C, density matrix structure). This places it in a different category: a physical theory, not an interpretation.</p>
+    <div style="overflow-x:auto;">
+    <table class="aethic-table" style="font-size:0.78rem;">
+      <thead><tr><th>Framework</th><th>Collapse Mechanism</th><th>Observer Role</th><th>Relativity</th><th>Multi-Observer</th><th>New Predictions?</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--text-bright);">Copenhagen</td><td>Unexplained axiom</td><td>Special, undefined</td><td style="color:var(--accent-4);">Problematic</td><td>Ambiguous</td><td style="color:var(--accent-2);">No</td></tr>
+        <tr><td style="color:var(--text-bright);">Many-Worlds</td><td>None (branching)</td><td>Minimal</td><td style="color:var(--accent-4);">Problematic</td><td>Branch duplication</td><td style="color:var(--accent-2);">No</td></tr>
+        <tr><td style="color:var(--text-bright);">RQM</td><td>Relational</td><td>Central</td><td style="color:var(--accent-3);">Good</td><td>Requires axioms</td><td style="color:var(--accent-2);">No</td></tr>
+        <tr><td style="color:var(--text-bright);">QBism</td><td>Belief update</td><td>Central (subjective)</td><td style="color:var(--accent-3);">Good</td><td>Per-agent</td><td style="color:var(--accent-2);">No</td></tr>
+        <tr><td style="color:var(--text-bright);">GRW</td><td>Spontaneous (physical)</td><td>Minimal</td><td style="color:var(--accent-4);">Challenging</td><td>Per collapse event</td><td style="color:var(--accent-4);">Marginal</td></tr>
+        <tr style="background:rgba(110,92,255,0.06);"><td style="color:var(--accent-1);font-weight:500;">Aethic</td><td style="color:var(--accent-1);">Checkmate (logical)</td><td>Central (Aethus)</td><td style="color:var(--accent-3);">Excellent</td><td style="color:var(--accent-1);">Derived</td><td style="color:var(--accent-3);font-weight:500;">Yes \u2014 Case C</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
 
 <footer style="text-align:center; padding:3rem 2rem 4rem; color:var(--text-dim); font-size:0.82rem;">
   Based on “<a href="https://philpapers.org/rec/BENARA-5" target="_blank" rel="noopener" style="color:var(--accent-6);text-decoration:none;">Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem</a>“ by Ajax Benander (November 2024).
@@ -2905,11 +3043,22 @@ body.explorer-mode .detail { display:none !important; }
 <script>
 // Layer toggle
 function setMode(mode) {
+  // Find nearest visible layer to anchor scroll
+  var layers = document.querySelectorAll('.layer');
+  var anchorLayer = null, anchorOffset = 0;
+  for (var i = 0; i < layers.length; i++) {
+    var rect = layers[i].getBoundingClientRect();
+    if (rect.top <= 120 && rect.bottom > 0) {
+      anchorLayer = layers[i];
+      anchorOffset = rect.top;
+    }
+  }
+
   if (mode === 'explorer') {
     document.body.classList.add('explorer-mode');
     document.getElementById('mode-explorer').classList.add('active');
     document.getElementById('mode-technical').classList.remove('active');
-    document.getElementById('modeDesc').textContent = 'Showing conceptual content. Formal mathematics is hidden — switch to Technical to see it.';
+    document.getElementById('modeDesc').textContent = 'Showing conceptual content. Formal mathematics is hidden \u2014 switch to Technical to see it.';
     if (history.replaceState) history.replaceState(null, '', '#explorer');
   } else {
     document.body.classList.remove('explorer-mode');
@@ -2917,6 +3066,19 @@ function setMode(mode) {
     document.getElementById('mode-explorer').classList.remove('active');
     document.getElementById('modeDesc').textContent = 'Showing all content including formal mathematics.';
     if (history.replaceState) history.replaceState(null, '', '#technical');
+  }
+  // Sync all mini toggles
+  document.querySelectorAll('.mode-toggle-mini').forEach(function(t) {
+    t.querySelector('.mini-explorer').classList.toggle('active', mode === 'explorer');
+    t.querySelector('.mini-technical').classList.toggle('active', mode === 'technical');
+  });
+
+  // Restore scroll position relative to anchor layer
+  if (anchorLayer) {
+    requestAnimationFrame(function() {
+      var newRect = anchorLayer.getBoundingClientRect();
+      window.scrollBy(0, newRect.top - anchorOffset);
+    });
   }
 }
 // Set mode from hash on load, default to explorer
@@ -2927,6 +3089,19 @@ function setMode(mode) {
   } else {
     setMode('explorer');
   }
+})();
+
+// Sticky mode bar: show when scrolled past the toggle
+(function() {
+  var toggleEl = document.getElementById('modeToggle');
+  var stickyBar = document.getElementById('stickyModeBar');
+  if (!toggleEl || !stickyBar) return;
+  // Move to body to escape any layout containers that break position:fixed
+  document.body.appendChild(stickyBar);
+  window.addEventListener('scroll', function() {
+    var toggleBottom = toggleEl.getBoundingClientRect().bottom;
+    stickyBar.classList.toggle('visible', toggleBottom < 0);
+  }, {passive: true});
 })();
 function toggleLayer(header) {
   const layer = header.closest('.layer');
