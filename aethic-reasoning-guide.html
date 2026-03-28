@@ -531,7 +531,7 @@ body::before {
 .mode-toggle-mini button:hover:not(.active) { color:var(--text-bright); }
 /* Sticky mode bar */
 .sticky-mode-bar {
-  position:fixed;top:3rem;left:0;right:0;z-index:199;
+  position:fixed;top:3.5rem;left:0;right:0;z-index:199;
   display:flex;align-items:center;justify-content:center;gap:0.6rem;
   padding:0.45rem 1rem;
   background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);
@@ -3078,6 +3078,11 @@ function setMode(mode) {
   if (!toggleEl || !stickyBar) return;
   // Move to body to escape any layout containers that break position:fixed
   document.body.appendChild(stickyBar);
+  // Position below the topnav
+  var topnav = document.querySelector('.topnav');
+  if (topnav) {
+    stickyBar.style.top = topnav.offsetHeight + 'px';
+  }
   window.addEventListener('scroll', function() {
     var toggleBottom = toggleEl.getBoundingClientRect().bottom;
     stickyBar.classList.toggle('visible', toggleBottom < 0);
