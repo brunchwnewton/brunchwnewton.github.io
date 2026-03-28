@@ -531,7 +531,7 @@ body::before {
 .mode-toggle-mini button:hover:not(.active) { color:var(--text-bright); }
 /* Sticky mode bar */
 .sticky-mode-bar {
-  position:fixed;top:0;left:0;right:0;z-index:10000;
+  position:fixed;top:3rem;left:0;right:0;z-index:199;
   display:flex;align-items:center;justify-content:center;gap:0.6rem;
   padding:0.45rem 1rem;
   background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);
@@ -3012,26 +3012,6 @@ body.explorer-mode .detail { display:none !important; }
     </div></div>
   </div>
 
-</section>
-
-<section class="layer-container" style="padding-top:2rem;">
-  <div class="technical-only" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:2rem;">
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--text-bright);margin-bottom:0.5rem;">How This Compares</h3>
-    <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:1.2rem;">Existing interpretations produce the same predictions as standard QM. Aethic reasoning produces different predictions (Case C, density matrix structure). This places it in a different category: a physical theory, not an interpretation.</p>
-    <div style="overflow-x:auto;">
-    <table class="aethic-table" style="font-size:0.78rem;">
-      <thead><tr><th>Framework</th><th>Collapse Mechanism</th><th>Observer Role</th><th>Relativity</th><th>Multi-Observer</th><th>New Predictions?</th></tr></thead>
-      <tbody>
-        <tr><td style="color:var(--text-bright);">Copenhagen</td><td>Unexplained axiom</td><td>Special, undefined</td><td style="color:var(--accent-4);">Problematic</td><td>Ambiguous</td><td style="color:var(--accent-2);">No</td></tr>
-        <tr><td style="color:var(--text-bright);">Many-Worlds</td><td>None (branching)</td><td>Minimal</td><td style="color:var(--accent-4);">Problematic</td><td>Branch duplication</td><td style="color:var(--accent-2);">No</td></tr>
-        <tr><td style="color:var(--text-bright);">RQM</td><td>Relational</td><td>Central</td><td style="color:var(--accent-3);">Good</td><td>Requires axioms</td><td style="color:var(--accent-2);">No</td></tr>
-        <tr><td style="color:var(--text-bright);">QBism</td><td>Belief update</td><td>Central (subjective)</td><td style="color:var(--accent-3);">Good</td><td>Per-agent</td><td style="color:var(--accent-2);">No</td></tr>
-        <tr><td style="color:var(--text-bright);">GRW</td><td>Spontaneous (physical)</td><td>Minimal</td><td style="color:var(--accent-4);">Challenging</td><td>Per collapse event</td><td style="color:var(--accent-4);">Marginal</td></tr>
-        <tr style="background:rgba(110,92,255,0.06);"><td style="color:var(--accent-1);font-weight:500;">Aethic</td><td style="color:var(--accent-1);">Checkmate (logical)</td><td>Central (Aethus)</td><td style="color:var(--accent-3);">Excellent</td><td style="color:var(--accent-1);">Derived</td><td style="color:var(--accent-3);font-weight:500;">Yes — Case C</td></tr>
-      </tbody>
-    </table>
-    </div>
-  </div>
 </section>
 
 <footer style="text-align:center; padding:3rem 2rem 4rem; color:var(--text-dim); font-size:0.82rem;">
