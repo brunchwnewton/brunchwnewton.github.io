@@ -14,10 +14,7 @@ span.gterm-link:hover {
   border-bottom-color: rgba(110,92,255,0.6);
 }
 .gterm-tooltip {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
   width: 360px;
   max-width: 90vw;
   background: #161625;
@@ -34,29 +31,11 @@ span.gterm-link:hover {
   font-weight: 400;
   font-style: normal;
   text-align: left;
+  display: none;
 }
 span.gterm-link:hover .gterm-tooltip {
   opacity: 1;
-}
-/* Flip tooltip below when near top of viewport */
-span.gterm-link .gterm-tooltip.flip-below {
-  bottom: auto;
-  top: calc(100% + 8px);
-}
-span.gterm-link .gterm-tooltip.flip-below::after {
-  top: auto;
-  bottom: 100%;
-  border-top-color: transparent;
-  border-bottom-color: rgba(110,92,255,0.25);
-}
-.gterm-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: rgba(110,92,255,0.25);
+  display: block;
 }
 .gterm-tooltip-name {
   font-weight: 600;
@@ -83,11 +62,6 @@ span.gterm-link .gterm-tooltip.flip-below::after {
 .gterm-tooltip-tag.t-aethic { background: rgba(96,165,250,0.15); color: rgba(96,165,250,0.8); }
 .gterm-tooltip-tag.t-nexic { background: rgba(251,191,36,0.15); color: rgba(251,191,36,0.8); }
 .gterm-tooltip-tag.t-both { background: rgba(110,92,255,0.15); color: rgba(167,139,250,0.8); }
-/* Keep tooltip on screen */
-@media (max-width: 500px) {
-  .gterm-tooltip { width: 260px; left: 0; transform: none; }
-  .gterm-tooltip::after { left: 20px; transform: none; }
-}
 </style>
 
 <script>
@@ -239,15 +213,26 @@ span.gterm-link .gterm-tooltip.flip-below::after {
                   '<div class="gterm-tooltip-def">' + item.term.def + '</div>';
                 link.appendChild(tooltip);
 
-                // Flip tooltip below if near top of viewport
+                // Position tooltip on hover using fixed coords (escapes overflow:hidden)
                 link.addEventListener('mouseenter', function() {
                   var tt = this.querySelector('.gterm-tooltip');
                   if (!tt) return;
-                  tt.classList.remove('flip-below');
                   var rect = this.getBoundingClientRect();
-                  if (rect.top < 200) {
-                    tt.classList.add('flip-below');
+                  var ttWidth = 360;
+                  // Horizontal: center on the word, clamp to viewport
+                  var left = rect.left + rect.width / 2 - ttWidth / 2;
+                  left = Math.max(8, Math.min(left, window.innerWidth - ttWidth - 8));
+                  tt.style.left = left + 'px';
+                  // Vertical: prefer above, flip below if near top
+                  tt.style.display = 'block';
+                  tt.style.opacity = '0';
+                  var ttHeight = tt.offsetHeight;
+                  if (rect.top > ttHeight + 12) {
+                    tt.style.top = (rect.top - ttHeight - 8) + 'px';
+                  } else {
+                    tt.style.top = (rect.bottom + 8) + 'px';
                   }
+                  tt.style.opacity = '1';
                 });
 
                 var parent = node.parentNode;
