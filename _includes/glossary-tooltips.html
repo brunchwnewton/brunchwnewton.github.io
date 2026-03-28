@@ -251,6 +251,18 @@ span.gterm-link:hover {
           }
         });
 
+        // Hide all tooltips on scroll
+        var scrollTimer;
+        window.addEventListener('scroll', function() {
+          if (scrollTimer) clearTimeout(scrollTimer);
+          scrollTimer = setTimeout(function() {
+            document.querySelectorAll('.gterm-tooltip').forEach(function(tt) {
+              tt.style.opacity = '0';
+              tt.style.display = 'none';
+            });
+          }, 50);
+        }, true);
+
         // Debug: summary
         console.log('[Glossary tooltips] Created ' + linkCount + ' tooltip links');
       })
