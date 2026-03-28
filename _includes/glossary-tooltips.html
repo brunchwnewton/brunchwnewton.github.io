@@ -33,10 +33,6 @@ span.gterm-link:hover {
   text-align: left;
   display: none;
 }
-span.gterm-link:hover .gterm-tooltip {
-  opacity: 1;
-  display: block;
-}
 .gterm-tooltip-name {
   font-weight: 600;
   color: #f0f0ff;
@@ -233,6 +229,12 @@ span.gterm-link:hover .gterm-tooltip {
                     tt.style.top = (rect.bottom + 8) + 'px';
                   }
                   tt.style.opacity = '1';
+                });
+                link.addEventListener('mouseleave', function() {
+                  var tt = this.querySelector('.gterm-tooltip');
+                  if (!tt) return;
+                  tt.style.opacity = '0';
+                  tt.style.display = 'none';
                 });
 
                 var parent = node.parentNode;
