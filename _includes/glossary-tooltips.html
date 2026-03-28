@@ -1,8 +1,8 @@
 <!-- Glossary Auto-Linker: include in default.html layout -->
 <!-- Fetches /glossary.html, parses terms, wraps first occurrences with hover tooltips -->
 <style>
-/* Glossary tooltip links */
-a.gterm-link {
+/* Glossary tooltip spans */
+span.gterm-link {
   color: inherit;
   text-decoration: none;
   border-bottom: 1px dotted rgba(110,92,255,0.3);
@@ -10,7 +10,7 @@ a.gterm-link {
   cursor: help;
   transition: border-color 0.2s;
 }
-a.gterm-link:hover {
+span.gterm-link:hover {
   border-bottom-color: rgba(110,92,255,0.6);
 }
 .gterm-tooltip {
@@ -18,7 +18,7 @@ a.gterm-link:hover {
   bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
-  width: 320px;
+  width: 360px;
   max-width: 90vw;
   background: #161625;
   border: 1px solid rgba(110,92,255,0.25);
@@ -35,7 +35,7 @@ a.gterm-link:hover {
   font-style: normal;
   text-align: left;
 }
-a.gterm-link:hover .gterm-tooltip {
+span.gterm-link:hover .gterm-tooltip {
   opacity: 1;
 }
 .gterm-tooltip::after {
@@ -106,8 +106,6 @@ a.gterm-link:hover .gterm-tooltip {
           var name = nameEl.childNodes[0].textContent.trim();
           var defEl = el.querySelector('.gterm-def');
           var def = defEl ? defEl.textContent.trim() : '';
-          // Truncate def for tooltip
-          if (def.length > 180) def = def.substring(0, 177) + '…';
           // Framework tag
           var tagEl = nameEl.querySelector('.framework-tag');
           var tag = '';
@@ -116,17 +114,20 @@ a.gterm-link:hover .gterm-tooltip {
             else if (tagEl.classList.contains('tag-nexic')) tag = 'nexic';
             else tag = 'both';
           }
-          // Search phrases: from data-terms + the name itself
-          var dataTerms = (el.getAttribute('data-terms') || '').split(/\s+/);
-          // Also add the display name and variants
-          var searchPhrases = [name];
-          // Add multi-word terms from data-terms (recombine adjacents)
-          var rawTerms = el.getAttribute('data-terms') || '';
-          // The data-terms are space-separated keywords; use the name as the primary match
-          // Also add common variants
+          // Search phrases: from data-aliases (pipe-separated) + the name itself
+          var searchPhrases = [];
+          var aliases = el.getAttribute('data-aliases');
+          if (aliases) {
+            aliases.split('|').forEach(function(a) {
+              a = a.trim();
+              if (a && searchPhrases.indexOf(a) === -1) searchPhrases.push(a);
+            });
+          }
+          // Also add the display name and clean name
+          if (searchPhrases.indexOf(name) === -1) searchPhrases.push(name);
           var cleanName = name.replace(/\s*\(.*?\)/g, '').trim();
-          if (cleanName !== name) searchPhrases.push(cleanName);
-          // Handle slash variants: "Aetherian / Aetherian Nexus" → ["Aetherian", "Aetherian Nexus"]
+          if (cleanName !== name && searchPhrases.indexOf(cleanName) === -1) searchPhrases.push(cleanName);
+          // Handle slash variants
           if (cleanName.indexOf(' / ') !== -1) {
             cleanName.split(' / ').forEach(function(p) {
               p = p.trim();
@@ -157,81 +158,86 @@ a.gterm-link:hover .gterm-tooltip {
         var containers = document.querySelectorAll('.layer-body, .detail-inner, .pitch, .article-wrap');
         if (!containers.length) return;
 
-        var linked = {}; // track which terms already linked (by id)
+        var linkCount = 0;
 
+        // Debug: log what we found
+        console.log('[Glossary tooltips] Loaded ' + terms.length + ' terms (' + phraseList.length + ' phrases), scanning ' + containers.length + ' containers');
+
+        // For each container, for each phrase, find and link ALL occurrences
         phraseList.forEach(function(item) {
-          if (linked[item.term.id]) return; // already linked this term
-
           var phrase = item.phrase;
-          // Build regex: whole word, case-insensitive for first letter
+          // Build regex: whole word, case-insensitive, global
           var escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-          // Allow case-insensitive first letter
-          var first = escaped.charAt(0);
-          var pattern = '[' + first.toLowerCase() + first.toUpperCase() + ']' + escaped.substring(1);
-          var regex = new RegExp('\\b' + pattern + '\\b');
+          var regex = new RegExp('\\b' + escaped + '\\b', 'gi');
 
-          // Walk text nodes
+          // Walk text nodes in each container, link ALL occurrences
           for (var ci = 0; ci < containers.length; ci++) {
-            if (linked[item.term.id]) break;
-            var walker = document.createTreeWalker(
-              containers[ci],
-              NodeFilter.SHOW_TEXT,
-              {
-                acceptNode: function(node) {
-                  // Skip if inside a link, heading, button, script, formal box, or already-linked term
-                  var p = node.parentElement;
-                  if (!p) return NodeFilter.FILTER_REJECT;
-                  var tag = p.tagName;
-                  if (tag === 'A' || tag === 'H1' || tag === 'H2' || tag === 'H3' || tag === 'H4' ||
-                      tag === 'BUTTON' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' ||
-                      tag === 'SVG' || tag === 'TEXT') return NodeFilter.FILTER_REJECT;
-                  if (p.closest('a, button, script, style, svg, .formal-label, .ki-label, .layer-title, .layer-role, .detail-label, .gterm-tooltip'))
-                    return NodeFilter.FILTER_REJECT;
-                  return NodeFilter.FILTER_ACCEPT;
+            // Restart walk after each replacement since DOM changes
+            var found = true;
+            while (found) {
+              found = false;
+              var walker = document.createTreeWalker(
+                containers[ci],
+                NodeFilter.SHOW_TEXT,
+                {
+                  acceptNode: function(node) {
+                    var p = node.parentElement;
+                    if (!p) return NodeFilter.FILTER_REJECT;
+                    var tag = p.tagName;
+                    if (tag === 'A' || tag === 'H1' || tag === 'H2' || tag === 'H3' || tag === 'H4' ||
+                        tag === 'BUTTON' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' ||
+                        tag === 'SVG' || tag === 'TEXT') return NodeFilter.FILTER_REJECT;
+                    if (p.closest('a, button, script, style, svg, .formal-label, .ki-label, .layer-title, .layer-role, .detail-label, .gterm-tooltip, .gterm-link'))
+                      return NodeFilter.FILTER_REJECT;
+                    return NodeFilter.FILTER_ACCEPT;
+                  }
                 }
+              );
+
+              var node;
+              while (node = walker.nextNode()) {
+                regex.lastIndex = 0; // reset for global regex
+                var match = regex.exec(node.textContent);
+                if (!match) continue;
+
+                // Split text node and insert link
+                var before = node.textContent.substring(0, match.index);
+                var matched = node.textContent.substring(match.index, match.index + match[0].length);
+                var after = node.textContent.substring(match.index + match[0].length);
+
+                var beforeNode = document.createTextNode(before);
+                var afterNode = document.createTextNode(after);
+
+                var link = document.createElement('span');
+                link.className = 'gterm-link';
+                link.textContent = matched;
+
+                // Build tooltip
+                var tooltip = document.createElement('span');
+                tooltip.className = 'gterm-tooltip';
+                var tagClass = item.term.tag === 'aethic' ? 't-aethic' : item.term.tag === 'nexic' ? 't-nexic' : 't-both';
+                tooltip.innerHTML =
+                  '<div class="gterm-tooltip-name">' + item.term.cleanName +
+                  ' <span class="gterm-tooltip-tag ' + tagClass + '">' + item.term.tag + '</span></div>' +
+                  '<div class="gterm-tooltip-def">' + item.term.def + '</div>';
+                link.appendChild(tooltip);
+
+                var parent = node.parentNode;
+                parent.insertBefore(beforeNode, node);
+                parent.insertBefore(link, node);
+                parent.insertBefore(afterNode, node);
+                parent.removeChild(node);
+
+                linkCount++;
+                found = true; // restart walker for this container
+                break; // break inner walker loop, restart outer while
               }
-            );
-
-            var node;
-            while (node = walker.nextNode()) {
-              if (linked[item.term.id]) break;
-              var match = regex.exec(node.textContent);
-              if (!match) continue;
-
-              // Split text node and insert link
-              var before = node.textContent.substring(0, match.index);
-              var matched = node.textContent.substring(match.index, match.index + match[0].length);
-              var after = node.textContent.substring(match.index + match[0].length);
-
-              var beforeNode = document.createTextNode(before);
-              var afterNode = document.createTextNode(after);
-
-              var link = document.createElement('a');
-              link.className = 'gterm-link';
-              link.href = '/glossary.html#' + item.term.id;
-              link.textContent = matched;
-
-              // Build tooltip
-              var tooltip = document.createElement('span');
-              tooltip.className = 'gterm-tooltip';
-              var tagClass = item.term.tag === 'aethic' ? 't-aethic' : item.term.tag === 'nexic' ? 't-nexic' : 't-both';
-              tooltip.innerHTML =
-                '<div class="gterm-tooltip-name">' + item.term.cleanName +
-                ' <span class="gterm-tooltip-tag ' + tagClass + '">' + item.term.tag + '</span></div>' +
-                '<div class="gterm-tooltip-def">' + item.term.def + '</div>';
-              link.appendChild(tooltip);
-
-              var parent = node.parentNode;
-              parent.insertBefore(beforeNode, node);
-              parent.insertBefore(link, node);
-              parent.insertBefore(afterNode, node);
-              parent.removeChild(node);
-
-              linked[item.term.id] = true;
-              break;
             }
           }
         });
+
+        // Debug: summary
+        console.log('[Glossary tooltips] Created ' + linkCount + ' tooltip links');
       })
       .catch(function(e) {
         // Glossary fetch failed (local preview, offline, etc.) — degrade gracefully
