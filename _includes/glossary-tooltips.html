@@ -141,9 +141,6 @@ span.gterm-link:hover {
 
         var linkCount = 0;
 
-        // Debug: log what we found
-        console.log('[Glossary tooltips] Loaded ' + terms.length + ' terms (' + phraseList.length + ' phrases), scanning ' + containers.length + ' containers');
-
         // For each container, for each phrase, find and link ALL occurrences
         phraseList.forEach(function(item) {
           var phrase = item.phrase;
@@ -263,8 +260,6 @@ span.gterm-link:hover {
           }, 50);
         }, true);
 
-        // Debug: summary
-        console.log('[Glossary tooltips] Created ' + linkCount + ' tooltip links');
       })
       .catch(function(e) {
         // Glossary fetch failed (local preview, offline, etc.) — degrade gracefully
