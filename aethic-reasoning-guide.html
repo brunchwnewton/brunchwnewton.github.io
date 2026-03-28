@@ -12,7 +12,7 @@ extra_head: |
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 ---
-<script>if(window.location.hash!=='#technical')document.body.classList.add('explorer-mode');</script>
+<script>if(window.location.hash==='#explorer')document.body.classList.add('explorer-mode');</script>
 <style>
 :root {
   --bg: #0a0a0f;
@@ -577,18 +577,18 @@ body.explorer-mode .detail { display:none !important; }
   <div style="margin-top:0.8rem;">
     <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-dim);margin-bottom:0.15rem;">Reading Mode</div>
     <div class="mode-toggle" id="modeToggle">
-      <button onclick="setMode('explorer')" id="mode-explorer" class="active">Explorer</button>
-      <button onclick="setMode('technical')" id="mode-technical">Technical</button>
+      <button onclick="setMode('explorer')" id="mode-explorer">Explorer</button>
+      <button onclick="setMode('technical')" id="mode-technical" class="active">Technical</button>
     </div>
   </div>
-  <div style="max-width:500px;margin:0.5rem auto 0;font-size:0.72rem;color:var(--text-dim);line-height:1.4;" id="modeDesc">Showing conceptual content. Formal mathematics is hidden — switch to Technical to see it.</div>
+  <div style="max-width:500px;margin:0.5rem auto 0;font-size:0.72rem;color:var(--text-dim);line-height:1.4;" id="modeDesc">Showing all content including formal mathematics.</div>
 </header>
 
 <div class="sticky-mode-bar" id="stickyModeBar">
   <span class="sticky-label">Reading mode</span>
   <div class="mode-toggle-mini">
-    <button class="mini-explorer active" onclick="setMode('explorer')">Explorer</button>
-    <button class="mini-technical" onclick="setMode('technical')">Technical</button>
+    <button class="mini-explorer" onclick="setMode('explorer')">Explorer</button>
+    <button class="mini-technical active" onclick="setMode('technical')">Technical</button>
   </div>
 </div>
 
@@ -3061,13 +3061,13 @@ function setMode(mode) {
     });
   }
 }
-// Set mode from hash on load, default to explorer
+// Set mode from hash on load, default to technical
 (function() {
   var hash = window.location.hash.replace('#', '').toLowerCase();
-  if (hash === 'technical') {
-    setMode('technical');
-  } else {
+  if (hash === 'explorer') {
     setMode('explorer');
+  } else {
+    setMode('technical');
   }
 })();
 
