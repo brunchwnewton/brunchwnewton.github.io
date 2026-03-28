@@ -597,8 +597,8 @@ body.explorer-mode .detail { display:none !important; }
 <section class="layer-container" id="layers">
 
   <!-- LAYER 0: ON-RAMP -->
-  <div class="onramp" id="onramp" onclick="this.classList.toggle('open')">
-    <div class="onramp-header">
+  <div class="onramp" id="onramp">
+    <div class="onramp-header" onclick="document.getElementById('onramp').classList.toggle('open')" style="cursor:pointer;">
       <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:0.3rem;">
         <span class="onramp-title">Before You Begin</span>
         <span class="onramp-subtitle">Map of all ten layers, reading times, and where to start</span>
