@@ -669,7 +669,7 @@ body.explorer-mode .detail { display:none !important; }
 
     </div>
 
-    <div class="explorer-body" style="display:none;background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.5rem 1.8rem;margin:1.5rem 0;">
+    <div class="explorer-body" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.5rem 1.8rem;margin:1.5rem 0;">
 
       <div style="margin-bottom:1.2rem;">
         <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-6);margin-bottom:0.6rem;font-weight:600;">Layers 1–4 · The Worldview <span style="font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0;">— ~15 min</span></div>
@@ -723,7 +723,7 @@ body.explorer-mode .detail { display:none !important; }
 
 
     <p class="technical-only" style="margin-bottom:0;color:var(--text-dim);font-size:0.88rem;">Each layer builds on the ones before it, but the deep dives (the dropdown sections inside each layer) are optional. If you are comfortable with the double-slit experiment and the idea of a block universe, start at Layer 1. If not, the <a href="/start-here.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Start Here</a> page provides a gentler introduction. You can also browse the <a href="/glossary.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Glossary</a> for quick definitions or see the <a href="/faq.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Questions & Context</a> page.</p>
-    <p class="explorer-body" style="display:none;margin-bottom:0;color:var(--text-dim);font-size:0.88rem;">Each layer builds on the ones before it. No physics background required. If you want a five-minute overview first, try the <a href="/start-here.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Start Here</a> page. You can also browse the <a href="/glossary.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Glossary</a> for quick definitions or see the <a href="/faq.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Questions & Context</a> page.</p>
+    <p class="explorer-body" style="margin-bottom:0;color:var(--text-dim);font-size:0.88rem;">Each layer builds on the ones before it. No physics background required. If you want a five-minute overview first, try the <a href="/start-here.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Start Here</a> page. You can also browse the <a href="/glossary.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Glossary</a> for quick definitions or see the <a href="/faq.html" onclick="event.stopPropagation()" style="color:var(--accent-6);text-decoration:none;border-bottom:1px solid rgba(96,165,250,0.3);">Questions & Context</a> page.</p>
 
     </div></div>
   </div>
@@ -1450,7 +1450,7 @@ body.explorer-mode .detail { display:none !important; }
 
           <!-- MACH-ZEHNDER -->
           <h4>The Mach–Zehnder Interferometer</h4>
-          <p>The Mach–Zehnder interferometer provides a clean two-path illustration of the retrieval mechanism at work. A photon hits a beam-splitter and can take two paths through the interferometer. <strong>With a detector:</strong> information about which path is permanently available to the observer’s Aethus → disagreeing superposition → no interference at the output. <strong>Without a detector:</strong> the which-path information is permanently inaccessible (permanencible attribute) → the third postulate cannot checkmate → agreeing superposition → the paths interfere at the second beam-splitter, producing the characteristic constructive/destructive interference pattern at the outputs.</p>
+          <p>The Mach–Zehnder interferometer provides a clean two-path illustration of the retrieval mechanism at work. A photon hits a beam-splitter and can take two paths through the interferometer. <strong>With a detector:</strong> information about which path is permanently available to the observer’s Aethus → disagreeing superposition → no interference at the output. <strong>Without a detector:</strong> the which-path information is permanently blank, protected by a permanencible attribute (Heisenberg’s uncertainty principle, which is itself permanently stated in the Aethus) → the third postulate cannot checkmate → agreeing superposition → the paths interfere at the second beam-splitter, producing the characteristic constructive/destructive interference pattern at the outputs.</p>
           <p>This is the same mechanism as the double-slit experiment (Layer 8), just with a different physical setup — confirming that the Aethic explanation is structural rather than apparatus-dependent. The ontological nature of the wave interference component itself is deferred to Step X in the Active Reasoning paper.</p>
 
         </div></div>
@@ -3081,13 +3081,13 @@ function setMode(mode) {
     document.getElementById('mode-explorer').classList.add('active');
     document.getElementById('mode-technical').classList.remove('active');
     document.getElementById('modeDesc').textContent = 'Showing conceptual content. Formal mathematics is hidden — switch to Technical to see it.';
-    if (history.replaceState) history.replaceState(null, '', '#explorer');
+    if (history.replaceState) try { history.replaceState(null, '', '#explorer'); } catch(e) {}
   } else {
     document.body.classList.remove('explorer-mode');
     document.getElementById('mode-technical').classList.add('active');
     document.getElementById('mode-explorer').classList.remove('active');
     document.getElementById('modeDesc').textContent = 'Showing all content including formal mathematics.';
-    if (history.replaceState) history.replaceState(null, '', '#technical');
+    if (history.replaceState) try { history.replaceState(null, '', '#technical'); } catch(e) {}
   }
   // Sync all mini toggles
   document.querySelectorAll('.mode-toggle-mini').forEach(function(t) {
