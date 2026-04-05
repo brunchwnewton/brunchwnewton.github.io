@@ -165,17 +165,44 @@ body {
   border-top: 1px solid var(--border);
   margin: 3rem 0 2.5rem;
 }
+
+/* ─── EPISTEMIC NOTE ─── */
+.epistemic-note {
+  margin: 0 0 2rem;
+  padding: 0.95rem 1.15rem;
+  border-left: 2px solid rgba(110,92,255,0.4);
+  background: rgba(110,92,255,0.04);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+.epistemic-note a {
+  color: var(--accent-6);
+  text-decoration: none;
+}
+.epistemic-note a:hover {
+  text-decoration: underline;
+}
+.epistemic-note strong {
+  color: var(--text);
+  font-weight: 500;
+}
 </style>
 
 <!-- ═══ ABOVE-THE-FOLD PITCH ═══ -->
 <div class="pitch">
 
 <h1>Aethic Reasoning in Five Minutes</h1>
-<p class="subtitle">The measurement problem, solved by logic. Natural history, reframed by anthropic reasoning. Start here if you’re new.</p>
+<p class="subtitle">The measurement problem, solved by logic. Natural history, reframed by anthropic reasoning. Start here if you're new.</p>
+
+<div class="epistemic-note">
+<strong>Before you read:</strong> this is independent research. The papers are public and the derivations are laid out step-by-step, but the work hasn't been peer-reviewed yet and no physicist or philosopher has published a response. This page tries to make the framework legible enough that you can evaluate it on its own terms. If you'd rather start with the hardest questions, <a href="/faq.html">Questions & Context</a> addresses them directly.
+</div>
 
 <p>For a hundred years, no one has explained why observing a quantum particle changes its behavior. Aethic reasoning proposes an answer: wavefunction collapse is not a physical process. It is the universe enforcing its own logical consistency.</p>
 
-<p>The framework replaces a single evolving universe with a Markov chain of static block universes, connected by information gain. What you don’t know manifests as physical superposition. And a derived pruning rule, a logical “checkmate,” eliminates any state whose future inevitably leads to contradiction. There is no collapse postulate in Aethic reasoning: instead, the framework operates over the medium of the structure of an observer’s informational access, and measurement renders from the structure of avenues to contradictions within this substrate. Together, these three principles reproduce the double-slit experiment’s results from first principles.</p>
+<p>The framework replaces a single evolving universe with a Markov chain of static block universes, connected by information gain. What you don't know manifests as physical superposition. And a derived pruning rule, a logical "checkmate," eliminates any state whose future inevitably leads to contradiction. There is no collapse postulate in Aethic reasoning: instead, the framework operates over the medium of the structure of an observer's informational access, and measurement renders from the structure of avenues to contradictions within this substrate. Together, these three principles reproduce the double-slit experiment's results from first principles.</p>
 
 <p>A companion framework, Nexic reasoning, extends the same logic to natural history. Applying anthropic reasoning to contingent events like the K-Pg extinction yields a derivation of the Rare Earth hypothesis and falsifiable paleontological predictions, including one that a single fossil discovery in Romania could confirm.</p>
 
@@ -197,7 +224,7 @@ body {
 
 <h2 id="full" style="border-top:none;margin-top:0;padding-top:0;scroll-margin-top:5rem;">The Measurement Problem</h2>
 
-<p>For nearly a century, physics has had an open wound at its center. When you fire a single particle at two slits, it produces an interference pattern — as if it went through both slits at once. But place a detector at the slits, and the pattern vanishes. The particle picks one. No energy was added. No force was exerted. The only difference is <em>information</em>: whether the path could, in principle, be known.</p>
+<p>For nearly a century, physics has had an open wound at its center. When you fire a single particle at two slits, it produces an interference pattern, as if it went through both slits at once. But place a detector at the slits, and the pattern vanishes. The particle picks one. No energy was added. No force was exerted. The only difference is <em>information</em>: whether the path could, in principle, be known.</p>
 
 <p>This is the quantum measurement problem. Every interpretation of quantum mechanics since the 1920s has either assumed collapse as an unexplained axiom (Copenhagen), denied it happens at all (Many-Worlds), or sidestepped it. None have <em>derived</em> it: explained <em>why</em> measurement changes the outcome from logical principles alone.</p>
 
@@ -209,11 +236,11 @@ body {
 
 <p>The framework rests on three moves.</p>
 
-<p><strong>First</strong>, it replaces the standard picture of reality (a single universe evolving through time) with a <em>Markov chain of block universes</em>. Each link in the chain is a complete, static, four-dimensional spacetime. What we experience as “the passage of time” is our movement along this chain, driven by gaining new information. When you learn something new, you don’t change your universe. You <em>shift</em> to a different one whose entire history was always consistent with what you just learned. The prior universe, with its superposition intact, stays exactly as it was. This is the <strong>Extrusion Principle</strong>.</p>
+<p><strong>First</strong>, it replaces the standard picture of reality (a single universe evolving through time) with a <em>Markov chain of block universes</em>. Each link in the chain is a complete, static, four-dimensional spacetime. What we experience as "the passage of time" is our movement along this chain, driven by gaining new information. When you learn something new, you don't change your universe. You <em>shift</em> to a different one whose entire history was always consistent with what you just learned. The prior universe, with its superposition intact, stays exactly as it was. This is the <strong>Extrusion Principle</strong>.</p>
 
-<p><strong>Second</strong>, it introduces a new mathematical object called the <strong>Aethus</strong>, which represents the totality of information accessible to a given observer. Your Aethus determines which block universe you inhabit. Crucially, what you <em>don’t</em> know is not merely absent; it is ontologically productive. An unknown attribute doesn’t sit there waiting to be revealed; it manifests as a physical superposition of all its possible states. Ignorance <em>generates</em> superposition. This is the <strong>Second Postulate</strong>.</p>
+<p><strong>Second</strong>, it introduces a new mathematical object called the <strong>Aethus</strong>, which represents the totality of information accessible to a given observer. Your Aethus determines which block universe you inhabit. Crucially, what you <em>don't</em> know is not merely absent; it is ontologically productive. An unknown attribute doesn't sit there waiting to be revealed; it manifests as a physical superposition of all its possible states. Ignorance <em>generates</em> superposition. This is the <strong>Second Postulate</strong>.</p>
 
-<p><strong>Third</strong>, it derives a pruning rule. If gaining information would <em>inevitably</em> lead to a logical contradiction, no matter what you do next, then the state that would cause that contradiction is invalid. It’s not just in “check” (one bad future); it’s in “checkmate” (no escape from a bad future). The universe prunes these states automatically. This is the <strong>Third Postulate</strong>, and it does the work that the collapse postulate does in Copenhagen, but it’s derived from a macroscopic thought experiment rather than assumed.</p>
+<p><strong>Third</strong>, it derives a pruning rule. If gaining information would <em>inevitably</em> lead to a logical contradiction, no matter what you do next, then the state that would cause that contradiction is invalid. It's not just in "check" (one bad future); it's in "checkmate" (no escape from a bad future). The universe prunes these states automatically. This is the <strong>Third Postulate</strong>, and it does the work that the collapse postulate does in Copenhagen, but it's derived from a macroscopic thought experiment rather than assumed.</p>
 
 <hr>
 
@@ -221,7 +248,7 @@ body {
 
 <p>Applied to the double-slit experiment, the three postulates reproduce the correct result in both cases:</p>
 
-<p><strong>Detector off.</strong> The which-slit information is permanently unknowable (Heisenberg’s uncertainty principle). So the Second Postulate puts the system in superposition of both paths. The Third Postulate checks for checkmate, but finds none, because no future observation can ever reveal which slit the particle took. The superposition stands. The paths interact. You get an interference pattern.</p>
+<p><strong>Detector off.</strong> The which-slit information is permanently unknowable (Heisenberg's uncertainty principle). So the Second Postulate puts the system in superposition of both paths. The Third Postulate checks for checkmate, but finds none, because no future observation can ever reveal which slit the particle took. The superposition stands. The paths interact. You get an interference pattern.</p>
 
 <p><strong>Detector on.</strong> The which-slit information is now permanently available: at any future moment, the experimenter could check the detector readout. The Third Postulate finds checkmate: for every possible future, there exists a path to contradiction (checking the detector while maintaining a both-slits superposition). The superposition is pruned. The paths cannot interact. You get a particle pattern.</p>
 
@@ -239,13 +266,13 @@ body {
 
 <p>Or consider the α-gal crisis. Roughly 30 million years ago, a viral epidemic struck our Catarrhine primate ancestors. The virus contained α-gal, the same carbohydrate our own cells produced, so our immune system could not fight it without attacking itself. Near-extinction. But a handful of individuals carried a mutation that disabled the gene responsible for producing α-gal, making them immune. Those few survivors are our direct ancestors. Every mammal on Earth still produces α-gal except the group containing apes and humans. Through the lens of Optimation, the epidemic was not a random catastrophe we merely endured. It was the only mechanism by which a gene loss that natural selection alone could never accomplish was forced through. The tragedy <em>was</em> the instrument of salvation.</p>
 
-<p>This is not a vague philosophical stance. It generates numbers. The combined probability of dinosaurs evolving (~33%), the K-Pg extinction succeeding with mammals surviving (~13%), and the cascading chain of further contingencies yields an upper bound of roughly 10⁻²⁷ for the probability of conscious life arising on any given planet: approximately one civilization per observable universe. The framework claims this as the first derivation of the Rare Earth hypothesis from a falsifiable principle, rather than speculation.</p>
+<p>This is not a vague philosophical stance. It generates numbers. The combined probability of dinosaurs evolving (~33%), the K-Pg extinction succeeding with mammals surviving (~13%), and the cascading chain of further contingencies yields an upper bound of roughly 10⁻²⁷ for the probability of conscious life arising on any given planet: approximately one civilization per observable universe. The framework deduces—not merely hypothesizes—the Rare Earth hypothesis from the Accordance Principle. The Accordance Principle itself is an extension of the mediocrity principle to contingent historical events, tested through cascading paleontological predictions below.</p>
 
 <hr>
 
 <h2>Falsifiable Predictions</h2>
 
-<p>The framework’s predictions are specific enough to be tested:</p>
+<p>The framework's predictions are specific enough to be tested:</p>
 
 <p>The <strong>billiard ball experiment</strong> proposes that if distinguishing information between two macroscopic scenarios is made permanently unknowable, the scenarios should interact as if both occurred, even at everyday scales. A single failure of this prediction, in any domain, would falsify the entire framework.</p>
 
@@ -255,17 +282,23 @@ body {
 
 <hr>
 
+<h2>What's Still Open</h2>
+
+<p>The framework is a work in progress, and the open problems are load-bearing. The Born rule has not been derived from first principles yet: the current work takes it as an additional axiom, with full derivation deferred to a forthcoming paper on what Ajax calls <em>Active Reasoning</em>. The billiard ball experiment has not been run, and achieving permanent information destruction at macroscopic scale is an engineering challenge that may take decades. The framework has not been peer-reviewed, and no physicist or philosopher has yet published a response. <a href="/faq.html">Questions & Context</a> walks through these and other honest limits.</p>
+
+<hr>
+
 <h2>Why This Might Matter to You</h2>
 
 <p>If Aethic reasoning is correct, it would mean that wavefunction collapse was never a physical mystery. It was a logical consequence of a universe that refuses to contradict itself, and we lacked the ontological framework to see it. That alone, if it holds up, would be one of the most significant results in the foundations of physics in decades.</p>
 
-<p>But the Nexic extension reaches further still. The Rare Earth derivation renders the cosmos outside our solar system as an unthinkably vast and unfeeling graveyard: life not merely uncommon, but incomprehensibly rare. The natural response might be existential dread.</p>
+<p>The Nexic extension reaches further. The Rare Earth derivation recasts the cosmos outside our solar system as an unthinkably vast and unfeeling graveyard: life not merely uncommon, but incomprehensibly rare. The natural response might be existential dread.</p>
 
-<p>The framework argues the opposite. The darker the cosmos, the more improbable your existence, the stronger the mathematical coupling between the fact that you are here and the specific history that produced you. You are not an accident drifting through indifferent space. Over the course of Earth’s history, a series of events so improbable they defy comprehension — the formation of the Moon, a bullseye asteroid impact off the coast of Mexico, a viral epidemic that nearly wiped out your lineage only for a mutation to save the last survivors — all of it points, with quantifiable precision, at the existence of conscious observers. At you.</p>
+<p>The framework argues the opposite. The darker the cosmos and the more improbable your existence, the stronger the mathematical coupling between the fact that you are here and the specific history that produced you. You are not an accident drifting through indifferent space. Over the course of Earth's history, a series of events so improbable they defy comprehension—the formation of the Moon, a bullseye asteroid impact off the coast of Mexico, a viral epidemic that nearly wiped out your lineage only for a mutation to save the last survivors—all of it points, with quantifiable precision, at the existence of conscious observers. At you.</p>
 
-<p>The nihilist’s own premise — cosmic emptiness, the vastness of dead space — becomes the mathematical fuel for the counter-argument. The graveyard is not decoration atop a separate argument. The graveyard <em>is</em> the argument.</p>
+<p>The nihilist's own premise—cosmic emptiness, the vastness of dead space—becomes the mathematical fuel for the counter-argument. The graveyard isn't decoration atop a separate argument. The graveyard <em>is</em> the argument.</p>
 
-<p>The framework is still young and has not yet undergone formal peer review. Its claims are extraordinary and should be treated with the scrutiny that extraordinary claims demand. But the papers are public, the predictions are falsifiable, and the download counts suggest the physics and philosophy communities are paying attention.</p>
+<p>Whether any of this holds is the open question. The papers are public, the predictions are falsifiable, and the main paper has quietly accumulated 2,500+ downloads on PhilArchive in its first 17 months without any author promotion, with the rate currently running above 500 per month. Whether the framework survives contact with the physics and philosophy communities is what the next few years will decide.</p>
 
 <hr>
 
@@ -286,6 +319,13 @@ body {
     </div>
     <span class="nl-arrow">→</span>
   </a>
+  <a href="/faq.html" class="next-link">
+    <div>
+      <div class="nl-label">Questions & Context</div>
+      <div class="nl-desc">The hardest questions a scientifically literate reader will ask, answered directly.</div>
+    </div>
+    <span class="nl-arrow">→</span>
+  </a>
   <a href="https://philpapers.org/archive/BENARA-5" target="_blank" rel="noopener" class="next-link">
     <div>
       <div class="nl-label">The Main Paper</div>
@@ -297,13 +337,6 @@ body {
     <div>
       <div class="nl-label">Glossary</div>
       <div class="nl-desc">Every framework-specific term defined in one or two sentences, with cross-references.</div>
-    </div>
-    <span class="nl-arrow">→</span>
-  </a>
-  <a href="/faq.html" class="next-link">
-    <div>
-      <div class="nl-label">Questions & Context</div>
-      <div class="nl-desc">Questions a scientifically literate reader will ask within the first few minutes.</div>
     </div>
     <span class="nl-arrow">→</span>
   </a>
