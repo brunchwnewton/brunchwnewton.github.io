@@ -568,6 +568,45 @@ extra_head: |
     border-top: 1px solid var(--rule-soft);
   }
   .filter-bar-controls .count-line { margin: 0; flex: 1; min-width: 180px; }
+  .tier-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Newsreader", serif;
+    font-size: 13px;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: opacity 0.2s ease;
+  }
+  .tier-indicator-label { font-size: 11px; }
+  .tier-indicator-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 10px;
+    border-radius: 14px;
+    font-family: "Fraunces", serif;
+    font-variation-settings: "SOFT" 50, "WONK" 1;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1;
+    background: var(--bg-card, #fff);
+    border: 1.5px solid var(--ink-faint, #ccc);
+    color: var(--ink-faint, #999);
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+  .tier-indicator-pill[data-tier="s"] { border-color: var(--tier-s); color: var(--tier-s); }
+  .tier-indicator-pill[data-tier="a"] { border-color: var(--tier-a); color: var(--tier-a); }
+  .tier-indicator-pill[data-tier="b"] { border-color: var(--tier-b); color: var(--tier-b); }
+  .tier-indicator-pill[data-tier="c"] { border-color: var(--tier-c); color: var(--tier-c); }
+  .tier-indicator-pill[data-tier="d"] { border-color: var(--tier-d); color: var(--tier-d); }
+  body.mode-graph .tier-indicator,
+  body.filters-collapsed .tier-indicator { display: none; }
+
   /* Mode toggle (Reading vs Graph) */
   .mode-toggle {
     display: inline-flex;
@@ -820,6 +859,7 @@ extra_head: |
   </div>
   <div class="filter-bar-controls">
     <div class="count-line">Showing <strong><span id="count-visible">—</span></strong> of <strong><span id="count-total">—</span></strong> entries</div>
+    <div class="tier-indicator" id="tierIndicator"><span class="tier-indicator-label">Tier</span><span class="tier-indicator-pill" id="currentTierPill" data-tier="s">S</span></div>
     <div class="mode-toggle" id="modeToggle">
       <button class="mode-btn active" data-mode="reading">Reading</button>
       <button class="mode-btn" data-mode="graph">Graph</button>
@@ -2365,7 +2405,7 @@ extra_head: |
   <div class="entry-top"><span class="entry-num" data-id="158">158</span><h3>Sublimity of Optimation / Footnote 49</h3></div>
   <div class="tags"><span class="tag fw-both">Nexic/Meta</span><span class="tag type">Philosophical</span><span class="tag status">Concept</span></div>
   <div class="date">Nexic paper footnote 49 (§8.5)</div>
-  <div class="desc"><p>The most affectively concentrated passage in the entire Nexic paper, located in a footnote of the panspermia analysis. Ajax explicitly invokes “sublimity” as a technical aesthetic category, stages progressive imagination-failures via Graham’s number, arcsecond-to-lifeless-universe asymmetry, 52!-draining-oceans, and cathedral-within-cathedral recursion, then breaks the fourth wall to identify the cosmic focal point as the reader’s current act of cognition. Closes with the aphorism “too vast to be conveyed and yet too personal to be named.” Doubles as the cleanest single articulation in the work of the Personally-Convergent Sublime category.</p></div>
+  <div class="desc"><p>The most affectively concentrated passage in the entire Nexic paper, located in a footnote of the panspermia analysis (§8.5). Ajax explicitly invokes “sublimity” as a technical aesthetic category, stages progressive imagination-failures via Graham’s number, arcsecond-to-lifeless-universe asymmetry, 52!-draining-oceans, and cathedral-within-cathedral recursion, then breaks the fourth wall to identify the cosmic focal point as the reader’s current act of cognition. Doubles as the cleanest single articulation in the work of the Personally-Convergent Sublime category and is one of the most rhetorically distinctive moments in the entire framework. Reproduced in full below for reference.</p><blockquote style="margin: 1.2em 0; padding: 0.8em 1.2em; border-left: 3px solid #c9a86a; font-style: italic; color: #4a4a4a; background: rgba(201, 168, 106, 0.05);"><p style="margin-top: 0;">The sublimity of this sort of Optimation-driven event, in my view, is in the stakes primarily. For each such Miracle event the stakes are incomprehensible in a way that is reminiscent only to the trying and failing to picture the vastness of Graham’s number. It is simply a magnitude of such consequence focused into a package so compact that effectively the remainder of all existential considerations in the universe amount to the null set by comparison. This is a consistent principle across all Nexic Miracles, but the stellar lithopanspermia illustrates this particularly concisely—a fraction of a fraction of an arcsecond of faulty trajectory would have rendered the length of the observable universe lifeless forevermore—this being one shot against the Rare Earth hypothesis’s universe—and by deduction from the strong Accordance Principle the original planet or setting of abiogenesis itself hits the head of a needle in life-generating optimization that no other place in the cosmos could approach by trillions upon trillions of probabilistic factors. What kind of chemical environment alone would such an optimization point have housed? There is one question—and like the null set analogy emphasizes it itself would be lost in the crowd amongst the infinity of others at its level of consequence or higher.</p><p>And remember that this would be just one Miracle, fleshed out with two stated-attributes (being origination and transfer to Earth). So by combining all possible Miracles which occurred—each more consequential than the last because the gap to Aetherians was that much closer—what we are left with is a cumulative level of profundity which overloads the reasoned senses like the probability of 52!’s draining the oceans being a speck in a cathedral which is itself a speck in a cathedral iterated quintillions of times. And yet, each as a parent Aethus ad infinitum, we focus this entire infinitude of consequentiality into a single spark—and that spark is the Aethus with which you currently read this page.</p><p style="margin-bottom: 0;">If I leave you with any message, it is that what has occurred on this planet sources to a register I cannot even fathom passing the tiniest inkling of to you in finitely-many words. If I have conveyed enough of that probability to render you transfixed by epiphany, I still will not have passed you the tiniest fragment of actually conceptualizing it. We are dealing with a level of luck in the face of improbability that is simply <strong>too vast to be conveyed and yet too personal to be named</strong>.</p></blockquote><p>Three structural moves worth noting in how the passage is built. First, the <em>imagination-failure cascade</em>: each successive image (Graham’s number, the arcsecond margin, 52!’s draining the oceans, cathedrals nested in cathedrals iterated quintillions of times) is offered not as a successful conveyance but as a successively-honest admission of conveyance-failure, with each failure raising rather than lowering the stakes. Second, the <em>focal-point inversion</em>: after stacking the cosmic-scale magnitude as high as it will go, Ajax collapses the entire infinitude of consequentiality “into a single spark—and that spark is the Aethus with which you currently read this page,” converting the cosmological argument into a personal address mid-paragraph. Third, the closing aphorism, which functions as both a thesis statement and a self-undermining gesture—“too vast to be conveyed” declares the conveyance impossible at the same moment that the passage as a whole has just attempted it. This rhetorical structure is what makes the footnote the canonical instance of what is elsewhere catalogued as the Personally-Convergent Sublime: an aesthetic category in which the cosmic and the personal are not opposed but identified, with the reader’s own act of cognition serving as the focal point at which all the cosmological scales converge.</p></div>
 </article>
 
 <article class="entry fw-meta" data-fw="meta" data-type="philosophical" data-tier="c" data-status="concept" data-parent="158">
@@ -2624,7 +2664,7 @@ extra_head: |
   <div class="entry-top"><span class="entry-num" data-id="300">300</span><h3>Miracleism as Third-Way Secular Metaphysics</h3></div>
   <div class="tags"><span class="tag fw-meta">Meta</span><span class="tag type">Philosophical</span><span class="tag status">Concept</span></div>
   <div class="date">Implicit framing throughout Nexic paper</div>
-  <div class="desc"><p>Miracleism considered specifically as a candidate secular metaphysical tradition: a framework that derives the directional significance of contingent existence from formal machinery without requiring theological backing or mystical identification. Distinguished from theism (which posits an intending agent behind the structure) and from the Nietzschean settlement (which holds that any directional significance is a human projection on an indifferent cosmos). The Miraculist position sits between them as a third option: the cosmos is not indifferent to its observers because the Accordance Principle and its downstream machinery derive specific directional claims about observer-compatible histories, but the direction does not require any agent to have set it up. It is derivable and felt, but not given. Potentially a generatively new entry in secular metaphysics—the meaning-literature equivalent of what the Union Principle is on the physics-ontology side.</p></div>
+  <div class="desc"><p>Miracleism considered specifically as a candidate secular metaphysical tradition: a framework that derives the directional significance of contingent existence from formal machinery without requiring theological backing or mystical identification. Distinguished from theism (which posits an intending agent behind the structure) and from the Nietzschean settlement (which holds that any directional significance is a human projection on an indifferent cosmos). The Miracleist position sits between them as a third option: the cosmos is not indifferent to its observers because the Accordance Principle and its downstream machinery derive specific directional claims about observer-compatible histories, but the direction does not require any agent to have set it up. It is derivable and felt, but not given. Potentially a generatively new entry in secular metaphysics—the meaning-literature equivalent of what the Union Principle is on the physics-ontology side.</p></div>
 </article>
 
 <article class="entry fw-aethic nexic" data-fw="aethic nexic" data-type="mathematical ontological" data-tier="c" data-status="theorem" data-parent="131">
@@ -2666,7 +2706,7 @@ extra_head: |
   <div class="entry-top"><span class="entry-num" data-id="306">306</span><h3>“Huma” as Miracle Exemplar</h3></div>
   <div class="tags"><span class="tag fw-nexic">Nexic</span><span class="tag type">Definitional</span><span class="tag type">Empirical</span><span class="tag status">Concept</span></div>
   <div class="date">Journal entries (2021) and Nexic paper</div>
-  <div class="desc"><p>“Huma” is the nickname Ajax has used for the Chicxulub impactor in his writing since at least 2021—specifically when analyzing it as a Miracle attribute in the technical Nexic sense. The nickname is affective: it marks the specific asteroid as deserving its own name rather than merely a technical designation, reflecting the Miraculist stance toward the Miracle. Huma’s properties (carbonaceous chondrite composition, approximate 10 km diameter, specific trajectory and angle) are analyzed as candidate Rebetary vs Linked attributes, and the analysis itself served as the seed of the “Eta Perfection and Rarity of Attribute” journal entry that became the Theorem of Aimless Optimation. Huma is arguably the single most scrutinized Miracle in the Nexic corpus.</p></div>
+  <div class="desc"><p>“Huma” is the nickname Ajax has used for the Chicxulub impactor in his writing since at least 2021—specifically when analyzing it as a Miracle attribute in the technical Nexic sense. The nickname is affective: it marks the specific asteroid as deserving its own name rather than merely a technical designation, reflecting the Miracleist stance toward the Miracle. Huma’s properties (carbonaceous chondrite composition, approximate 10 km diameter, specific trajectory and angle) are analyzed as candidate Rebetary vs Linked attributes, and the analysis itself served as the seed of the “Eta Perfection and Rarity of Attribute” journal entry that became the Theorem of Aimless Optimation. Huma is arguably the single most scrutinized Miracle in the Nexic corpus.</p></div>
 </article>
 
 <article class="entry fw-nexic" data-fw="nexic" data-type="definitional" data-tier="c" data-status="definition" data-parent="04 271">
@@ -4546,7 +4586,51 @@ extra_head: |
   })();
 
   // === Sticky filter bar: sit flush below the site topnav, dynamically ===
-  // Mirrors the approach used in aethic-reasoning-guide.html. The sticky
+
+
+  // ----- Tier indicator: update as the viewer scrolls through tier sections -----
+  (function setupTierIndicator() {
+    var pill = document.getElementById('currentTierPill');
+    if (!pill) return;
+    var TIER_LABELS = { s: 'S', a: 'A', b: 'B', c: 'C', d: 'D' };
+    var sections = Array.prototype.slice.call(document.querySelectorAll('section.tier-section'));
+    if (!sections.length) return;
+    var filterBar = document.querySelector('nav.filters');
+    var rafPending = false;
+    function update() {
+      rafPending = false;
+      if (document.body.classList.contains('mode-graph')) return;
+      var anchorY = (filterBar ? filterBar.getBoundingClientRect().bottom : 0) + 8;
+      var current = sections[0];
+      for (var i = 0; i < sections.length; i++) {
+        var rect = sections[i].getBoundingClientRect();
+        if (rect.top <= anchorY && rect.bottom > anchorY) {
+          current = sections[i];
+          break;
+        }
+        if (rect.top > anchorY) break;
+        current = sections[i];
+      }
+      var tier = current.getAttribute('data-tier') || 's';
+      if (pill.getAttribute('data-tier') !== tier) {
+        pill.setAttribute('data-tier', tier);
+        pill.textContent = TIER_LABELS[tier] || tier.toUpperCase();
+      }
+    }
+    function onScroll() {
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(update);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+    // Also update when mode changes (Reading/Graph) so the indicator stays in sync
+    var modeToggle = document.getElementById('modeToggle');
+    if (modeToggle) modeToggle.addEventListener('click', function () { setTimeout(update, 50); });
+  })();
+
+    // Mirrors the approach used in aethic-reasoning-guide.html. The sticky
   // filter bar's `top` is set at runtime to the topnav's measured height,
   // so it never overlaps the global header bar and re-adjusts on resize.
   (function() {
