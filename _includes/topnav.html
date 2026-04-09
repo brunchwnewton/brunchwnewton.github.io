@@ -68,12 +68,20 @@
 .show-mobile-only{display:none;}
 @media(max-width:768px){
   .topnav-inner{padding:0.7rem 1rem;}
-  .topnav-links{gap:1rem;}
+  .topnav-links{gap:0.9rem;}
   .topnav-links a{font-size:0.75rem;}
 }
 @media(max-width:500px){
+  .topnav-links{gap:0.7rem;}
+  .topnav-links a{font-size:0.72rem;}
   .topnav-links .hide-mobile{display:none;}
   .show-mobile-only{display:inline-block;}
+}
+@media(max-width:380px){
+  .topnav-inner{padding:0.65rem 0.8rem;}
+  .topnav-links{gap:0.55rem;}
+  .topnav-links a{font-size:0.68rem;letter-spacing:0.02em;}
+  .topnav-brand{font-size:1.1rem;}
 }
 </style>
 
