@@ -784,6 +784,52 @@ extra_head: |
     color: var(--accent);
     margin: 0 0 10px;
   }
+  .seq-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 10px;
+    padding: 6px 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .seq-toolbar .seq-toolbar-label {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-right: 4px;
+  }
+  .seq-toolbar button {
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--ink-dim);
+    padding: 4px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .seq-toolbar button:hover:not(:disabled) {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .seq-toolbar button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .seq-toolbar .toolbar-spacer { flex: 1; }
+  .seq-toolbar .undo-count {
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
   .seq-list {
     display: flex;
     flex-direction: column;
@@ -799,10 +845,10 @@ extra_head: |
   }
   .seq-row {
     display: grid;
-    grid-template-columns: 22px 36px 1fr auto auto auto;
+    grid-template-columns: 22px 32px 1fr auto auto auto auto auto;
     align-items: center;
-    gap: 7px;
-    padding: 8px 10px;
+    gap: 5px;
+    padding: 8px 8px;
     background: var(--bg-card);
     border: 1px solid var(--rule);
     border-radius: 4px;
@@ -837,13 +883,37 @@ extra_head: |
     background: transparent;
     border: 1px solid transparent;
     color: var(--ink-dim);
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 24px;
     padding: 0;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1;
+  }
+  .seq-row button.move-btn {
+    width: 18px;
+    font-size: 11px;
+  }
+  .seq-row .seq-move {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .seq-row .seq-move button {
+    height: 12px;
+    width: 18px;
+    font-size: 9px;
+    border-radius: 2px;
+  }
+  .seq-row button:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+  }
+  .seq-row button:disabled:hover {
+    background: transparent;
+    border-color: transparent;
+    color: var(--ink-dim);
   }
   .seq-row button:hover {
     background: var(--bg-elev);
@@ -1217,10 +1287,17 @@ extra_head: |
       <button data-seq-action="clear" class="danger">Clear all</button>
     </div>
     <h4 class="seq-subhead">Sequence</h4>
+    <div id="seqToolbar" class="seq-toolbar" aria-label="Sequence editing tools">
+      <span class="seq-toolbar-label">Edit:</span>
+      <button type="button" data-seq-action="undo" id="seqUndoBtn" title="Undo last sequence change" disabled>↶ Undo</button>
+      <button type="button" data-seq-action="redo" id="seqRedoBtn" title="Redo" disabled>↷ Redo</button>
+      <span class="toolbar-spacer"></span>
+      <span class="undo-count" id="seqUndoCount"></span>
+    </div>
     <div id="seqList" class="seq-list"></div>
     <h4 class="seq-subhead">Neighborhood</h4>
     <svg id="seqGraph" class="seq-graph-svg" viewBox="0 0 720 200" preserveAspectRatio="xMidYMid meet"></svg>
-    <p class="seq-graph-note">Arcs below connect pairs of visited entries that are directly parent-and-child. Dashed nodes above are nearest common ancestors shared by two or more visited entries; click them to jump.</p>
+    <p class="seq-graph-note">The bottom row holds the visited entries that have no descendants among the others (the leaves of this neighborhood). The top row holds (a) visited entries that <em>are</em> ancestors of other visited entries or are major hubs in the wider ontology, and (b) smaller unlabelled circles for nearest common ancestors shared by two or more leaves. Arcs below the bottom row connect pairs of leaves that are directly parent-and-child. Click any node to jump to it.</p>
   </div>
 </aside>
 
@@ -1790,14 +1867,14 @@ extra_head: |
   <div class="desc"><p>Ajax’s explicitly named methodology for good inductive reasoning, drawn from Einstein’s derivation of general relativity and applied systematically throughout Aethic reasoning. The pattern: a single ontology rapidly injects flexibility into the framework, and then a second ontology rapidly reinstates a constraint from an entirely different direction. Neither move is defensible on its own—the flexibility injection looks like catastrophe by itself, and the constraint reinstatement looks ad hoc by itself—but together they resolve each other’s shortcomings and reveal a deeper necessary truth. Ajax calls this “the gold standard of theory-building that Aethic reasoning seeks to emulate.”</p><p>The archetypal example is Einstein: the equivalence principle alone presents an empirical absurdity (a coordinate-motionless observer accelerating), and gravity-as-curvature alone would seem ad hoc and unmotivated—but together, spacetime curvature is the only medium in which the equivalence principle can hold without paradox, and the equivalence principle provides the crucial justification for the radical redefinition of gravity. Aethic reasoning’s archetypal instance is the Extrusion Principle + Union Principle pair: Extrusion alone is paradoxical (all outcomes occur as physical ‘and’ yet we observe one), Union alone is ad hoc (why introduce nested disagreeing superposition structure?), but together disagreeing superposition is the only logical structure allowing extrusion to hold without contradicting observation. Another example from footnote 90: quantum energy density stays invariant even after the Extrusion Principle increases the flexibility of the past, because energy density is controlled by agreeing superpositions and those cannot be collapsed without violating the Fundamental Theorem. “The art of good inductive reasoning is carrying out these sorts of commitments, which are perhaps notorious because the first move almost always looks like a catastrophe by itself.”</p></div>
 </article>
 
-<article class="entry fw-aethic" data-fw="aethic" data-type="mathematical ontological" data-tier="b" data-status="principle" data-parent="02 16">
+<article class="entry fw-aethic" data-fw="aethic" data-type="mathematical ontological" data-tier="b" data-status="principle" data-parent="02 16 57">
   <div class="entry-top"><span class="entry-num" data-id="328">328</span><h3>Third Postulate as “Every Valid Aethus Has a Reduced Form”</h3></div>
   <div class="tags"><span class="tag fw-aethic">Aethic</span><span class="tag type">Mathematical</span><span class="tag type">Ontological</span><span class="tag status">Principle</span></div>
   <div class="date">Main paper §6.6 · original 2022 motivation</div>
   <div class="desc"><p>An alternative formulation of the Third Postulate that Ajax explicitly identifies as his original vision for it. The bare postulate statement <em>V[A] ⇒ ∃B ⊂ A, ∀C ⊂ B, V[C]</em> is the downstream tangible expression; the deeper ontological reading is simply: <em>every valid Aethus has a reduced form</em>. Equivalently by contrapositive: an Aethus without a reduced form is necessarily invalid. The Aethic partition theorem is what makes this equivalence work—it shows that any Aethus A is equivalent to its reduced form Ā under Aethic equivalence, because the difference between them is always an invalid Aethus that gets partitioned out.</p><p>Ajax’s own framing: “While of course this is only one interpretation of the ‘ontic stuff’ of the third postulate, I should mention that it was effectively my original vision for it when writing it down in the first place, with the striking practical features of it then simply being a natural complement to this metaphysics.” The reformulation matters because it exposes what the postulate is really doing—ensuring that Aethae which cannot be “grounded on a baseline of being well-defined” get pruned before they can enter the domain of ontological realization—rather than merely prescribing a quantifier structure that works in specific empirical cases. It is also the formulation that makes the postulate’s cooperation with the Aethic partition theorem feel natural rather than coincidental.</p></div>
 </article>
 
-<article class="entry fw-aethic" data-fw="aethic" data-type="mathematical definitional" data-tier="b" data-status="definition" data-parent="02 328">
+<article class="entry fw-aethic" data-fw="aethic" data-type="mathematical definitional" data-tier="b" data-status="definition" data-parent="02 328 57">
   <div class="entry-top"><span class="entry-num" data-id="329">329</span><h3>Reduced Form of an Aethus (Definition 26)</h3></div>
   <div class="tags"><span class="tag fw-aethic">Aethic</span><span class="tag type">Mathematical</span><span class="tag type">Definitional</span><span class="tag status">Definition</span></div>
   <div class="date">Main paper §6.6 · Definition 26</div>
@@ -1874,7 +1951,7 @@ extra_head: |
   <div class="desc"><p>An alternative framing of how Aethic updates work that Ajax introduces in footnote 22 as a more visual intuitive illustration of the Union Principle. Where centric unfolding always insists you view your block universe from your own perspective—moving forward through the Aethic graph as the experiencer—this alternative invites you to instead view your Aethic updating from a single fixed Aethus in your own Aethic past. Under this framing, when you observe one of two signs in a disagreeing superposition, you do not “cause” the other sign to disappear; rather, you “sort into the pocket” of the ladder ontology where you become permanently unable to interact with the second sign yourself. From your own current perspective your Aethus just updated; from the fixed past Aethus’s block universe, you simply moved into a different ladder-ontology layer where the second sign is still perfectly co-present with you as a physical “and” but is now permanently inaccessible to you specifically.</p><p>The deep insight Ajax draws from this alternative framing is a principle about temporal perspective: “The way you yourself view disagreeing superpositions that will be resolved in your Aethic future is how past versions of yourself view you currently.” Both vantage points are simultaneously valid, just indexed to different Aethae. Your current self’s prospective view of your future contains superpositions; your past self’s retrospective view of you contains those same superpositions, only resolved differently because your current Aethus has sorted into a specific pocket that your past self did not yet know about. This symmetry is what makes the framework categorically relational rather than merely epistemic. Promoted to Tier B because it also gives rise to an alternative derivation of the qualitative facet of the Extrusion Principle: if we trace the Aethus all the way back to the Null Aethus and then render every last disagreeing superposition in the block universe, what we get is “everything currently co-present with you physically,” which directly derives the qualitative-facet claim that different Aethic block universes share the same physical spacetime. The derivation is independent of the Extrusion Principle’s original motivation and converges on the same conclusion from a different starting point—a dual-edged constraint in miniature.</p></div>
 </article>
 
-<article class="entry fw-aethic" data-fw="aethic" data-type="thought-experiment philosophical" data-tier="b" data-status="concept" data-parent="03 05 01">
+<article class="entry fw-aethic" data-fw="aethic" data-type="thought-experiment philosophical" data-tier="b" data-status="concept" data-parent="03 05 01 433">
   <div class="entry-top"><span class="entry-num" data-id="424">424</span><h3>Emily and Sam Prague Reunion</h3></div>
   <div class="tags"><span class="tag fw-aethic">Aethic</span><span class="tag type">Thought Experiment</span><span class="tag type">Philosophical</span><span class="tag status">Concept</span></div>
   <div class="date">Main paper §2</div>
@@ -2028,7 +2105,7 @@ extra_head: |
   <div class="desc"><p>A diagnostic observation from a footnote in §2.2.6 about <em>where</em> the non-interactivity between the pockets of a disagreeing superposition is attributed—and why the Union Principle’s answer to that question is what lets it stay consistent with the Boolean revolution in sentential logic. Empirically we know that non-interaction is enforced between the relative systems in a disagreeing superposition, so the structural source of that enforcement has to come from somewhere. The classical multiverse framework assumes the source must be the <em>exterior</em> operation that holds the states apart—the “or” which combines the pockets. This move forces the classical “or” to function precisely the way intuition suggests it does in classical metaphysics: with strict one-or-the-other choosiness that rules out any coalescent semantics.</p><p>The fallacious downstream consequence of this choice, as Ajax argues in footnote form, is that it directly generates the <em>choppiness problem</em> articulated in §2.2.6 (see #264 Ontic Choppiness in Timeline Metaphysics): the nature of physical-world “ors” is artificially deemed inequivalent to the precedent already established by sentential logic for how a disjunction ought to operate. The civilizational commitment to Boolean sentential logic is deep enough to find this inequivalence suspicious—so, tracing the problem back to the source, the Union Principle proposes an alternative attribution: the non-interactivity comes from the <em>interior</em> of the pockets, not the exterior disjunction. Each pocket internally states, via conjunctive logical negations, that the other pockets are logically negated. It is not that the pockets are externally blocked off from one another; it is that each one internally explicitly forbids the others by nested logical structure, exactly as the formal statement of the inner nesting specifies.</p><p>The consequences of this interior attribution are substantial. First, it leaves the outer Aethic disjunction as a clean disjunction consistent with Boole–Jevons inclusive “or”—no special metaphysical choosiness is required of it. Second, it predicts by process of elimination the existence of agreeing superpositions as the dual case: if the non-interactivity comes from internal nested negations, then whenever a pocket fails to internally forbid the others, whatever it ceases to forbid automatically registers as an agreeing superposition where interaction is permitted. This is the precise payoff the Union Principle extracts from the interior attribution, and it is why Ajax frames the deepest layer of the Union Principle (see #257) as a consequence rather than a further axiom: once the non-interactivity is interiorized, the deepest layer and the agreeing-superposition prediction both fall out, rather than having to be separately imposed. A compact structural diagnosis that distinguishes the Union Principle’s conceptual move from the classical multiverse framework at the level of <em>where</em> in the formal apparatus the non-interactivity lives—not what it is.</p></div>
 </article>
 
-<article class="entry fw-nexic" data-fw="nexic" data-type="methodological" data-tier="c" data-status="concept" data-parent="11 189 09 76">
+<article class="entry fw-nexic" data-fw="nexic" data-type="methodological" data-tier="c" data-status="concept" data-parent="11 189 09 76 132">
   <div class="entry-top"><span class="entry-num" data-id="447">447</span><h3>FTC Suspension of Disbelief (Accordance vs Drake)</h3></div>
   <div class="tags"><span class="tag fw-nexic">Nexic</span><span class="tag type">Methodological</span><span class="tag status">Concept</span></div>
   <div class="date">Nexic paper footnote 9, §1.3.4</div>
@@ -2196,7 +2273,7 @@ extra_head: |
   <div class="desc"><p>A child Aethus inherits all information from its parent plus additional attributes. The inheritance relation is directed and transitive, creating the DAG structure of the Aethic tree. These relations are what the Third Postulate quantifies over—its “∀B ⊂ A, ∃C ⊂ B” structure refers to proper children and grandchildren of A in the parent/child relation.</p></div>
 </article>
 
-<article class="entry fw-aethic" data-fw="aethic" data-type="mathematical ontological" data-tier="c" data-status="definition" data-parent="329">
+<article class="entry fw-aethic" data-fw="aethic" data-type="mathematical ontological" data-tier="c" data-status="definition" data-parent="329 119">
   <div class="entry-top"><span class="entry-num" data-id="59">59</span><h3>Reduced Form of an Aethus</h3></div>
   <div class="tags"><span class="tag fw-aethic">Aethic</span><span class="tag type">Mathematical</span><span class="tag type">Ontological</span><span class="tag status">Definition</span></div>
   <div class="date">§6.3 of main paper</div>
@@ -2680,7 +2757,7 @@ extra_head: |
   <div class="desc"><p>The Monty Hall problem’s counterintuitive 2/3 result is reframed as an Aethic update: the contestant’s Aethus transitions to a new block universe upon Monty’s reveal, and the asymmetry between the original and new Aethae produces the probability shift. Not a new resolution of the math—the probabilities are the same—but a reframing that makes the asymmetry structural rather than mysterious. A test case for whether Aethic reasoning’s phenomenology can track standard probabilistic intuition.</p></div>
 </article>
 
-<article class="entry fw-aethic" data-fw="aethic" data-type="thought-experiment philosophical" data-tier="c" data-status="concept" data-parent="408 05 01 02 09">
+<article class="entry fw-aethic" data-fw="aethic" data-type="thought-experiment philosophical" data-tier="c" data-status="concept" data-parent="408 05 01 02 09 119">
   <div class="entry-top"><span class="entry-num" data-id="142">142</span><h3>Maria–Clark NDE Analysis</h3></div>
   <div class="tags"><span class="tag fw-aethic">Aethic</span><span class="tag type">Thought Experiment</span><span class="tag type">Philosophical</span><span class="tag status">Concept</span></div>
   <div class="date">Main paper §9.28.3 footnote 187</div>
@@ -2743,7 +2820,7 @@ extra_head: |
   <div class="desc"><p>The Aethus defined by the single attribute that an Aetherian eventually exists, without further specification. The minimal Aetherian-conditional reference point for Nexic probability calculations.</p></div>
 </article>
 
-<article class="entry fw-nexic" data-fw="nexic" data-type="ontological" data-tier="c" data-status="concept" data-parent="11">
+<article class="entry fw-nexic" data-fw="nexic" data-type="ontological" data-tier="c" data-status="concept" data-parent="11 111">
   <div class="entry-top"><span class="entry-num" data-id="151">151</span><h3>External vs Internal Doomsday Partition</h3></div>
   <div class="tags"><span class="tag fw-nexic">Nexic</span><span class="tag type">Ontological</span><span class="tag status">Concept</span></div>
   <div class="date">Nexic paper §8.2</div>
@@ -2757,7 +2834,7 @@ extra_head: |
   <div class="desc"><p>The apparently puzzling lateness of eukaryote emergence in Earth’s history is reframed as a Goldilocks condition: the timing is exactly where the internal-doomsday risk of compressing the prokaryotic phase balances against the external-doomsday risk of extending it. “Vast eons of only prokaryotic life may have been expansive, they were far from unnecessary.” Converts a puzzle in the origin-of-complexity literature into a prediction of Nexic reasoning.</p></div>
 </article>
 
-<article class="entry fw-nexic" data-fw="nexic" data-type="empirical" data-tier="c" data-status="resolution" data-parent="10">
+<article class="entry fw-nexic" data-fw="nexic" data-type="empirical" data-tier="c" data-status="resolution" data-parent="10 111">
   <div class="entry-top"><span class="entry-num" data-id="153">153</span><h3>Origin of Life Post-Hadean Timing</h3></div>
   <div class="tags"><span class="tag fw-nexic">Nexic</span><span class="tag type">Empirical</span><span class="tag status">Resolution</span></div>
   <div class="date">Nexic paper §8.2 footnote 43</div>
@@ -2925,7 +3002,7 @@ extra_head: |
   <div class="desc"><p>The specific Google Doc that is the first documented record of the Accordance Principle’s seed concept. Full title: “Things That had to go Perfectly Right for our Particular Civilization to Develop.” Ajax was fourteen years old. The document’s framing—not a formal axiomatic statement but a list of contingent historical events that had to thread a narrow path—is already carrying the core intuition that becomes the Accordance Principle: that our existence is structurally constrained by the history that produced it, and that the constraint can be reasoned from. The seven-year distance between the document’s creation and the Nexic paper’s formal articulation is itself diagnostic of how long foundational work takes to crystallize from seed to formal statement, and is one of the small number of dated primary-source records in the framework’s developmental lineage.</p></div>
 </article>
 
-<article class="entry fw-nexic" data-fw="nexic" data-type="definitional philosophical" data-tier="c" data-status="definition" data-parent="04">
+<article class="entry fw-nexic" data-fw="nexic" data-type="definitional philosophical" data-tier="c" data-status="definition" data-parent="04 42">
   <div class="entry-top"><span class="entry-num" data-id="282">282</span><h3>Anthropic Parameter: Physical vs Circumstantial</h3></div>
   <div class="tags"><span class="tag fw-nexic">Nexic</span><span class="tag type">Definitional</span><span class="tag type">Philosophical</span><span class="tag status">Definition</span></div>
   <div class="date">§1.2 of Nexic paper</div>
@@ -3233,7 +3310,7 @@ extra_head: |
   <div class="desc"><p>Ajax’s position on the individual vs collective debate in scientific progress. The basic commitment is Kuhnian in the sense that both are absolutely indispensable to the flow of human progress, and insisting on picking just one is naive. There are two distinct roles: individuals are necessary for sparking paradigm shifts, and the collective is necessary for the normal-science work between paradigm shifts. If one had to pick which is more important in sheer degree of activity, it would be the collective (because of its dominance over larger stretches of time), but removing either would be catastrophic. Ajax’s specific analogy: it is precisely like how the body depends on both the heart and the spine to survive—it would be absurd to suggest that one is more important than the other, since removing either will kill you instantly. The position is that both play important and distinct roles, often at separate points in history, and removing either from the equation would be catastrophic on a level that is difficult to overstate.</p></div>
 </article>
 
-<article class="entry fw-meta" data-fw="meta" data-type="philosophical methodological" data-tier="c" data-status="concept" data-parent="331">
+<article class="entry fw-meta" data-fw="meta" data-type="philosophical methodological" data-tier="c" data-status="concept" data-parent="331 310">
   <div class="entry-top"><span class="entry-num" data-id="332">332</span><h3>Ontological Work Requires the Individual</h3></div>
   <div class="tags"><span class="tag fw-meta">Meta</span><span class="tag type">Philosophical</span><span class="tag type">Methodological</span><span class="tag status">Concept</span></div>
   <div class="date">Main paper Kuhnian footnote · Ajax’s refinement</div>
@@ -3261,7 +3338,7 @@ extra_head: |
   <div class="desc"><p>Ajax’s specific derivational motivation for the Third Postulate, stated in footnote 95: “Given the intuition of a permanently blank attribute, where information is forever unknowable to an Aethus, I was simply looking for a way for the explanation of why non-permanently blank attributes break perfect agreeing superpositions to be well-defined to the same extent that the concept of an ‘open set’ is well-defined.” The comparison is deliberate and instructive. In standard mathematics, an “open set” is not defined by fiat as a primitive; it is defined constructively (e.g., as “not a closed set” or “a set that doesn’t contain its boundary”), with the constructive definition embedding the concept into the “ethereal layer of mathematical abstraction” rather than positing it ad hoc. Ajax felt that simply declaring permanently blank attributes to be categorically primitive was a “definitive wrong move” because it would have forced Aethic reasoning to assert this central structural aspect ad hoc. The Third Postulate’s entire job, in this light, is to provide the constructive well-definition that makes permanently blank attributes a derived consequence rather than a primitive.</p></div>
 </article>
 
-<article class="entry fw-aethic" data-fw="aethic" data-type="mathematical logical" data-tier="c" data-status="concept" data-parent="329 02">
+<article class="entry fw-aethic" data-fw="aethic" data-type="mathematical logical" data-tier="c" data-status="concept" data-parent="329 02 96">
   <div class="entry-top"><span class="entry-num" data-id="336">336</span><h3>Two-Role Convergence on Two-Generational Structure</h3></div>
   <div class="tags"><span class="tag fw-aethic">Aethic</span><span class="tag type">Mathematical</span><span class="tag type">Logical</span><span class="tag status">Concept</span></div>
   <div class="date">Main paper §6.6.1</div>
@@ -3275,7 +3352,7 @@ extra_head: |
   <div class="desc"><p>Ajax’s observation that the Aethic partition theorem and the Third Postulate behave “as if they were born of the same substance”—the two principles seem meant to cooperate with a naturalness that would be suspicious if it weren’t mathematically necessary. The specific cooperation: any Aethus A is writable as the Aethic partition of Ā (its reduced form), A/ (the Aethic union of all proper child Aethae for which not all of their further children are valid), and K/ (the union of non-proper child Aethae). The Third Postulate is what deduces that A/ must be an invalid Aethus, which lets the Aethic partition theorem conclude A ≡ Ā. Neither principle alone produces this equivalence; both are required.</p><p>The depth of the cooperation is revealed by the fact that the Third Postulate can be <em>equivalently stated</em> in the language of reduced forms: “every valid Aethus has a reduced form” is mathematically interchangeable with the quantifier form ∀B ∃C, ¬V[C] ⇒ ¬V[A] because the Aethic partition theorem supplies the translation between them. This is the sense in which the partition theorem is the more structurally fundamental of the two—the Third Postulate is the edge case of having no reduced form at all, not the foundational axiom from which reduced forms follow. Ajax: “The main takeaway is just the level of logical interplay between the third postulate and the Aethic partition theorem, as if they were born of the same substance.”</p></div>
 </article>
 
-<article class="entry fw-aethic" data-fw="aethic" data-type="mathematical logical" data-tier="c" data-status="concept" data-parent="02 241">
+<article class="entry fw-aethic" data-fw="aethic" data-type="mathematical logical" data-tier="c" data-status="concept" data-parent="02 241 96">
   <div class="entry-top"><span class="entry-num" data-id="338">338</span><h3>Isomorphic Reasoning Constraint in Third Postulate Derivation</h3></div>
   <div class="tags"><span class="tag fw-aethic">Aethic</span><span class="tag type">Mathematical</span><span class="tag type">Logical</span><span class="tag status">Concept</span></div>
   <div class="date">Main paper §6.3 derivation</div>
@@ -4034,7 +4111,7 @@ extra_head: |
   <div class="desc"><p>The last common ancestor of all primates lived on Hațeg Island itself, because the island would have allowed primates to evolve away from the protective niches that enabled their survival on the theropod-dominated mainland. Solves two problems in one stroke: explains why primates were able to exist as far back as the Campanian without being wiped out by theropods, and ties an argument back into the initial Anthropic Accordance Principle premise of Hațeg Island needing to be an anthropic parameter.</p></div>
 </article>
 
-<article class="entry fw-nexic" data-fw="nexic" data-type="empirical" data-tier="d" data-status="concept" data-parent="13 17">
+<article class="entry fw-nexic" data-fw="nexic" data-type="empirical" data-tier="d" data-status="concept" data-parent="13 17 74">
   <div class="entry-top"><span class="entry-num" data-id="113">113</span><h3>Interstellar Panspermia Analysis</h3></div>
   <div class="tags"><span class="tag fw-nexic">Nexic</span><span class="tag type">Empirical</span><span class="tag status">Concept</span></div>
   <div class="date">§10.5 of Nexic paper</div>
@@ -4130,7 +4207,7 @@ extra_head: |
   <div class="desc"><p>Properly defined Aethic subtraction does not multiply coefficients (as “and not” operations would) but operates strictly by the Aethic union domain of addition with opposite signs. Reframes event complement operations as shadows of deeper Aethic union structure.</p></div>
 </article>
 
-<article class="entry fw-aethic" data-fw="aethic" data-type="logical" data-tier="d" data-status="concept" data-parent="06">
+<article class="entry fw-aethic" data-fw="aethic" data-type="logical" data-tier="d" data-status="concept" data-parent="06 67">
   <div class="entry-top"><span class="entry-num" data-id="172">172</span><h3>Event Complement Fallacy</h3></div>
   <div class="tags"><span class="tag fw-aethic">Aethic</span><span class="tag type">Logical</span><span class="tag status">Concept</span></div>
   <div class="desc"><p>The assumption that event complements ontologically exist as first-class entities rather than as derived shadows of Aethic subtraction. Ajax’s most direct counterclaim to the ontological capacity of standard modal logic.</p></div>
@@ -4229,7 +4306,7 @@ extra_head: |
   <div class="desc"><p>Ajax’s conjecture that Mozart’s Serenade No. 10 K. 361 III. Adagio has a Galois-group-equivalent complexity that makes it intuitable only as a whole, not composable piecewise. Extends to a general theory of compositional complexity in which the maximum Galois-group complexity a person can hold in one thought determines the ceiling of their creative output.</p></div>
 </article>
 
-<article class="entry fw-nexic" data-fw="nexic" data-type="empirical" data-tier="d" data-status="concept" data-parent="13">
+<article class="entry fw-nexic" data-fw="nexic" data-type="empirical" data-tier="d" data-status="concept" data-parent="13 111">
   <div class="entry-top"><span class="entry-num" data-id="188">188</span><h3>Hazard Rates as Fundamental Cognitive Quantity</h3></div>
   <div class="tags"><span class="tag fw-nexic">Nexic</span><span class="tag type">Empirical</span><span class="tag status">Concept</span></div>
   <div class="desc"><p>Ajax’s claim that hazard rates are the most fundamental quantity in nature and that the brain is essentially “a glorified processing unit for hazard rates.” Danger itself is just the hazard rate of death; time and probability are both derivable from hazard rate structures. A methodological commitment underlying the Doomsday Pacing machinery.</p></div>
@@ -4328,7 +4405,7 @@ extra_head: |
   <div class="desc"><p>An aspect of the Strong Accordance Principle: if event A implies event B in an anthropic chain, then P(A ∩ B) ≤ P(B) can often be tightened to P(A) since A entails B structurally. Used throughout the panspermia derivation.</p></div>
 </article>
 
-<article class="entry fw-nexic" data-fw="nexic" data-type="empirical" data-tier="d" data-status="concept" data-parent="99 72">
+<article class="entry fw-nexic" data-fw="nexic" data-type="empirical" data-tier="d" data-status="concept" data-parent="99 72 111">
   <div class="entry-top"><span class="entry-num" data-id="204">204</span><h3>Hațeg Island 93 Mya Arrival</h3></div>
   <div class="tags"><span class="tag fw-nexic">Nexic</span><span class="tag type">Empirical</span><span class="tag status">Concept</span></div>
   <div class="desc"><p>The specific timecode (93 Mya) at which Nexic reasoning argues our ancestors arrived on Hațeg Island, based on Optimation calculations about the timing of the effective end of mammalian Dark Era evolutionary pressure. Interacts with doomsday pacing to constrain the K-Pg timing.</p></div>
@@ -4497,7 +4574,7 @@ extra_head: |
   <div class="desc"><p>The period from late 2024 through early 2026 during which the Aethic-Nexic work has accumulated thousands of downloads without substantive engagement. Consistent with both correctness (reception gap for foundational work is historically common) and incorrectness (ignored work may simply be wrong); the silence alone is uninterpretable. Flagged here as a datum rather than a prediction—what the historical parallels (Boole-Jevons, Mendel-modern-genetics, etc.) show is that reforms of a certain structural shape have often taken generations to land, not that any specific work will land eventually. The three-year silence is neither evidence for nor evidence against the framework’s merit in itself.</p></div>
 </article>
 
-<article class="entry fw-meta" data-fw="meta" data-type="methodological" data-tier="d" data-status="concept" data-parent="259">
+<article class="entry fw-meta" data-fw="meta" data-type="methodological" data-tier="d" data-status="concept" data-parent="259 158">
   <div class="entry-top"><span class="entry-num" data-id="232">232</span><h3>Phenomenological Methodology</h3></div>
   <div class="tags"><span class="tag fw-meta">Meta</span><span class="tag type">Methodological</span><span class="tag status">Concept</span></div>
   <div class="desc"><p>The writing-produces-response methodology used in Nexic footnote 49 and elsewhere: the reality of an affective response is demonstrated not by describing it but by producing it in the reader, with the success of the production as the evidence for the claim. Parallels to Eckhart’s sermons, Husserl’s phenomenological instructions, and some Heidegger.</p></div>
@@ -4515,7 +4592,7 @@ extra_head: |
   <div class="desc"><p>The specific term Ajax uses for the mammalian cognitive advances driven by theropod Dark Era pressure. A direct result of the predation regime that would have been impossible to replicate without the specific dinosaurian nature of theropods.</p></div>
 </article>
 
-<article class="entry fw-nexic" data-fw="nexic" data-type="empirical" data-tier="d" data-status="concept" data-parent="13">
+<article class="entry fw-nexic" data-fw="nexic" data-type="empirical" data-tier="d" data-status="concept" data-parent="13 74">
   <div class="entry-top"><span class="entry-num" data-id="235">235</span><h3>LUCA Pre-Hadean Implication</h3></div>
   <div class="tags"><span class="tag fw-nexic">Nexic</span><span class="tag type">Empirical</span><span class="tag status">Concept</span></div>
   <div class="desc"><p>If the sister-clade trends hold, life in our solar system ought to trace to the Hadean regardless of whether it originated on Earth. The Last Universal Common Ancestor’s timeline is pushed back by Nexic packaging analogous to clade-vs-first-fossil inference.</p></div>
@@ -5025,13 +5102,15 @@ extra_head: |
 
   // ----- Sequence explorer: forward/back, pin (overwrite), drawer, URL hash, neighborhood graph -----
   (function setupSequenceManager() {
-    var state = { sequence: [], current: -1, mode: 'random' };
+    var state = { sequence: [], current: -1, mode: 'random', undoStack: [], redoStack: [] };
+    var UNDO_CAP = 50;
 
     // Cached DOM references (populated at init)
     var dom = {
       backBtn: null, fwdBtn: null, pinBtn: null, drawerBtn: null,
       seqCount: null, seqList: null, seqGraph: null, seqCopyLink: null,
-      drawer: null, backdrop: null
+      drawer: null, backdrop: null,
+      seqUndoBtn: null, seqRedoBtn: null, seqUndoCount: null
     };
 
     function cacheDom() {
@@ -5045,6 +5124,9 @@ extra_head: |
       dom.seqCopyLink = document.getElementById('seqCopyLink');
       dom.drawer = document.getElementById('seqDrawer');
       dom.backdrop = document.getElementById('seqDrawerBackdrop');
+      dom.seqUndoBtn = document.getElementById('seqUndoBtn');
+      dom.seqRedoBtn = document.getElementById('seqRedoBtn');
+      dom.seqUndoCount = document.getElementById('seqUndoCount');
     }
 
     // ----- Helpers -----
@@ -5194,6 +5276,61 @@ extra_head: |
       return true;
     }
 
+    // ----- Undo/redo machinery -----
+    // pushUndo() snapshots the current sequence state into the undo stack and
+    // clears the redo stack. Call it BEFORE any mutation the user might want
+    // to roll back. State changes that only move `current` (back, forward
+    // mid-sequence, jumpToIdx) are NOT snapshotted — those are reachable via
+    // the back button itself, so undo is reserved for structural mutations.
+    function pushUndo() {
+      state.undoStack.push({ sequence: state.sequence.slice(), current: state.current });
+      if (state.undoStack.length > UNDO_CAP) state.undoStack.shift();
+      state.redoStack.length = 0;
+    }
+    function undoSequence() {
+      if (!state.undoStack.length) return;
+      var snap = state.undoStack.pop();
+      state.redoStack.push({ sequence: state.sequence.slice(), current: state.current });
+      state.sequence = snap.sequence.slice();
+      state.current = Math.max(-1, Math.min(snap.current, state.sequence.length - 1));
+      afterChange(true);
+    }
+    function redoSequence() {
+      if (!state.redoStack.length) return;
+      var snap = state.redoStack.pop();
+      state.undoStack.push({ sequence: state.sequence.slice(), current: state.current });
+      state.sequence = snap.sequence.slice();
+      state.current = Math.max(-1, Math.min(snap.current, state.sequence.length - 1));
+      afterChange(true);
+    }
+
+    // moveItem(idx, dir) — swap sequence[idx] with its neighbor in dir (-1 or +1).
+    // Updates state.current to follow the moved item if it was the current entry.
+    function moveItem(idx, dir) {
+      var target = idx + dir;
+      if (idx < 0 || idx >= state.sequence.length) return;
+      if (target < 0 || target >= state.sequence.length) return;
+      pushUndo();
+      var tmp = state.sequence[idx];
+      state.sequence[idx] = state.sequence[target];
+      state.sequence[target] = tmp;
+      // If the moved entry was current, the current pointer follows it
+      if (state.current === idx) state.current = target;
+      else if (state.current === target) state.current = idx;
+      afterChange(false);
+    }
+
+    // randomizeItem(idx) — replace sequence[idx] with a fresh random entry,
+    // excluding the entire existing sequence so we never duplicate.
+    function randomizeItem(idx) {
+      if (idx < 0 || idx >= state.sequence.length) return;
+      var newId = pickRandomVisible(state.sequence);
+      if (!newId || newId === state.sequence[idx]) return;
+      pushUndo();
+      state.sequence[idx] = newId;
+      afterChange(idx === state.current);
+    }
+
     // ----- Actions (new keyframe model) -----
     // Forward: traverse existing sequence, or at end append a new step.
     // Special case — first click in an empty sequence (random mode only): we seed
@@ -5201,46 +5338,55 @@ extra_head: |
     // has a meaningful destination (the point the user started from). After this
     // bootstrapping the auto-seed never kicks in again.
     function goForward() {
-      // Normal traversal if not at end
+      // Normal traversal if not at end — no mutation, no undo snapshot
       if (state.sequence.length > 0 && state.current < state.sequence.length - 1) {
         state.current += 1;
         afterChange(true);
         return;
       }
-      // Empty-sequence bootstrap: seed position 0 with viewport entry
-      // so the user has an implicit starting point to return to via back.
+      // Below this line is mutation territory. We collect what we're going
+      // to do first, then take a SINGLE undo snapshot at the bottom — that
+      // way one Forward click is one undo step, regardless of whether it
+      // bootstraps + appends or just appends.
+
+      // Empty-sequence bootstrap: capture the viewport entry as position 0
+      var bootstrapId = null;
       if (state.sequence.length === 0) {
-        var viewportId = getCurrentViewportEntryId();
-        if (viewportId) {
-          state.sequence.push(viewportId);
-          state.current = 0;
-          // In "view" mode this IS the action — the user wanted to capture
-          // the current viewport, so stop here. One click → one entry.
-          if (state.mode === 'view') {
-            afterChange(false); // no scroll; already at this entry
+        bootstrapId = getCurrentViewportEntryId();
+      }
+
+      // Append step: in random mode always; in view mode only if not just bootstrapping.
+      // (View-mode bootstrap IS the action — one click captures one entry.)
+      var appendId = null;
+      var skipAppend = (bootstrapId && state.mode === 'view');
+      if (!skipAppend) {
+        if (state.mode === 'random') {
+          // Build exclude list from existing sequence + (potential) bootstrap entry
+          // so the random pick never duplicates anything we're about to commit.
+          var exclude = state.sequence.slice();
+          if (bootstrapId) exclude.push(bootstrapId);
+          appendId = pickRandomVisible(exclude);
+        } else {
+          appendId = getCurrentViewportEntryId();
+          // Don't append duplicate if already at this entry
+          if (state.current >= 0 && state.sequence[state.current] === appendId) {
             return;
           }
-          // In "random" mode, fall through to append a random second entry
-          // so back becomes usable immediately after a single click.
         }
       }
-      // Append new step at end
-      var newId;
-      if (state.mode === 'random') {
-        // Exclude the entire reading list so the next pick is never a repeat,
-        // unless all visible entries are already in the list (fallback inside
-        // pickRandomVisible handles that edge case).
-        newId = pickRandomVisible(state.sequence);
-      } else {
-        newId = getCurrentViewportEntryId();
-        // Don't append duplicate if already at this entry
-        if (state.current >= 0 && state.sequence[state.current] === newId) {
-          return;
-        }
+
+      if (!bootstrapId && !appendId) return;
+
+      // Single snapshot for the entire user action
+      pushUndo();
+      if (bootstrapId) {
+        state.sequence.push(bootstrapId);
+        state.current = 0;
       }
-      if (!newId) return;
-      state.sequence.push(newId);
-      state.current = state.sequence.length - 1;
+      if (appendId) {
+        state.sequence.push(appendId);
+        state.current = state.sequence.length - 1;
+      }
       afterChange(true);
     }
 
@@ -5255,6 +5401,9 @@ extra_head: |
     function overwritePin() {
       var id = getCurrentViewportEntryId();
       if (!id) return;
+      // No-op if pin would not actually change anything
+      if (state.sequence.length > 0 && state.current >= 0 && state.sequence[state.current] === id) return;
+      pushUndo();
       if (state.sequence.length === 0 || state.current < 0) {
         state.sequence = [id];
         state.current = 0;
@@ -5266,6 +5415,7 @@ extra_head: |
 
     function removeItem(idx) {
       if (idx < 0 || idx >= state.sequence.length) return;
+      pushUndo();
       state.sequence.splice(idx, 1);
       if (state.current >= state.sequence.length) state.current = state.sequence.length - 1;
       else if (state.current > idx) state.current -= 1;
@@ -5274,6 +5424,8 @@ extra_head: |
     function replaceItem(idx) {
       var id = getCurrentViewportEntryId();
       if (!id || idx < 0 || idx >= state.sequence.length) return;
+      if (state.sequence[idx] === id) return;
+      pushUndo();
       state.sequence[idx] = id;
       afterChange(false);
     }
@@ -5287,6 +5439,8 @@ extra_head: |
       afterChange(false);
     }
     function clearSequence() {
+      if (!state.sequence.length) return;
+      pushUndo();
       state.sequence = [];
       state.current = -1;
       afterChange(false);
@@ -5317,6 +5471,16 @@ extra_head: |
           ((state.current + 1) + '/' + state.sequence.length + ' ') : '';
       }
     }
+    function renderToolbar() {
+      if (dom.seqUndoBtn) dom.seqUndoBtn.disabled = state.undoStack.length === 0;
+      if (dom.seqRedoBtn) dom.seqRedoBtn.disabled = state.redoStack.length === 0;
+      if (dom.seqUndoCount) {
+        var u = state.undoStack.length, r = state.redoStack.length;
+        if (u || r) dom.seqUndoCount.textContent = u + ' undo, ' + r + ' redo';
+        else dom.seqUndoCount.textContent = '';
+      }
+    }
+
     function escapeHtml(s) {
       return String(s).replace(/[<>&"']/g, function(c) {
         return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&#39;' }[c];
@@ -5328,19 +5492,28 @@ extra_head: |
         dom.seqList.innerHTML = '<div class="seq-empty">No entries yet. Press \u25b6 (Forward) to begin. In <em>random</em> mode it rolls a new entry; in <em>entry in view</em> mode it captures whatever is currently in the viewport (the entry with the gold bar on the left).</div>';
       } else {
         var html = '';
+        var lastIdx = state.sequence.length - 1;
         state.sequence.forEach(function(id, i) {
           var title = escapeHtml(getEntryTitle(id));
+          var upDisabled = (i === 0) ? ' disabled' : '';
+          var downDisabled = (i === lastIdx) ? ' disabled' : '';
           html += '<div class="seq-row' + (i === state.current ? ' current' : '') + '">' +
                   '<span class="seq-pos">' + (i + 1) + '</span>' +
                   '<span class="seq-id">#' + escapeHtml(id) + '</span>' +
                   '<span class="seq-title" title="' + title + '">' + title + '</span>' +
+                  '<span class="seq-move">' +
+                    '<button type="button" data-seq-item="up" data-idx="' + i + '" title="Move up"' + upDisabled + '>\u25b2</button>' +
+                    '<button type="button" data-seq-item="down" data-idx="' + i + '" title="Move down"' + downDisabled + '>\u25bc</button>' +
+                  '</span>' +
                   '<button type="button" data-seq-item="jump" data-idx="' + i + '" title="Jump to this entry">\u2192</button>' +
                   '<button type="button" data-seq-item="replace" data-idx="' + i + '" title="Overwrite with entry in view">\u27f2</button>' +
+                  '<button type="button" data-seq-item="randomize" data-idx="' + i + '" title="Replace with a random entry">\u21bb</button>' +
                   '<button type="button" data-seq-item="remove" data-idx="' + i + '" title="Remove from sequence">\u00d7</button>' +
                   '</div>';
         });
         dom.seqList.innerHTML = html;
       }
+      renderToolbar();
       var modeBtns = document.querySelectorAll('.seq-mode-btn');
       for (var mb = 0; mb < modeBtns.length; mb++) {
         modeBtns[mb].classList.toggle('active', modeBtns[mb].getAttribute('data-mode') === state.mode);
@@ -5623,6 +5796,8 @@ extra_head: |
         else if (action === 'close-drawer') closeDrawer();
         else if (action === 'clear') { if (window.confirm('Clear the whole sequence?')) clearSequence(); }
         else if (action === 'copy-link') copyLink();
+        else if (action === 'undo') undoSequence();
+        else if (action === 'redo') redoSequence();
         return;
       }
 
@@ -5634,6 +5809,9 @@ extra_head: |
           if (itemAction === 'jump') jumpToIdx(idx);
           else if (itemAction === 'replace') replaceItem(idx);
           else if (itemAction === 'remove') removeItem(idx);
+          else if (itemAction === 'up') moveItem(idx, -1);
+          else if (itemAction === 'down') moveItem(idx, 1);
+          else if (itemAction === 'randomize') randomizeItem(idx);
         }
         return;
       }
@@ -5727,6 +5905,10 @@ extra_head: |
     function syncStickyOffset() {
       var topnav = document.querySelector('.topnav');
       var offset = topnav ? topnav.offsetHeight : 0;
+      // Also push the sequence drawer down so the topnav doesn't cover its
+      // close button. The drawer is position:fixed, so we set its `top`.
+      var drawer = document.getElementById('seqDrawer');
+      if (drawer) drawer.style.top = offset + 'px';
       filterBar.style.top = offset + 'px';
     }
     syncStickyOffset();
