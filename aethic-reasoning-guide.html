@@ -664,7 +664,7 @@ body.explorer-mode .detail { display:none !important; }
         <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-9);margin-bottom:0.6rem;font-weight:600;">Layers 8–10 · The Results <span style="font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0;">— ~5 min summaries · ~25 min with deep dives</span></div>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-9);font-weight:500;">8 · Applications</span>—The framework derives the double-slit result, resolves EPR without violating locality, and generalizes to arbitrary multi-slit experiments via the powerset invalidation theorem.</p>
         <p style="font-size:0.88rem;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--accent-9);font-weight:500;">9 · Fundamental Theorem & Falsifiability</span>—The generalization beyond quantum mechanics: wherever information is permanently hidden, scenarios interact. One failed prediction, in any domain, kills the framework.</p>
-        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0;"><span style="color:var(--accent-9);font-weight:500;">10 · Quantum Nexus Integral</span>—The bridge to empirical quantum mechanics: the Feynman path integral augmented with an Aethic validity factor over the powerset of paths.</p>
+        <p style="font-size:0.88rem;color:var(--text);margin-bottom:0;"><span style="color:var(--accent-9);font-weight:500;">10 · Quantum Nexus Integral</span>—The bridge to empirical quantum mechanics: a triple integral over the powerset of paths × pairs of paths, with an Aethic validity factor that contains the standard path integral as inner machinery.</p>
       </div>
 
     </div>
@@ -831,11 +831,11 @@ body.explorer-mode .detail { display:none !important; }
               <button id="ext-reset" onclick="resetExtrusion()" style="padding:0.45rem 1rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;font-size:0.8rem;font-weight:500;font-family:inherit;">Reset</button>
             </div>
             <svg id="ext-svg" width="100%" height="260" viewBox="0 0 560 260" style="display:block;margin:0 auto;max-width:560px;">
-              <!-- Prior Block Universe -->
-              <rect id="ext-prior" x="20" y="20" width="240" height="220" rx="8" fill="rgba(110,92,255,0.06)" stroke="rgba(110,92,255,0.4)" stroke-width="1.5" style="transition:all 0.6s;"/>
+              <!-- Prior Block Universe (always at full presence — superposition persists indefinitely) -->
+              <rect id="ext-prior" x="20" y="20" width="240" height="220" rx="8" fill="rgba(110,92,255,0.06)" stroke="rgba(110,92,255,0.4)" stroke-width="1.5"/>
               <text x="140" y="48" text-anchor="middle" fill="rgba(110,92,255,0.8)" font-size="11" font-weight="600" font-family="monospace">Prior Block Universe</text>
-              <!-- Superposition indicator -->
-              <g id="ext-super" style="transition:opacity 0.6s;">
+              <!-- Superposition indicator (stays at full intensity even after extrusion) -->
+              <g id="ext-super">
                 <circle cx="100" cy="130" r="22" fill="rgba(78,205,196,0.15)" stroke="rgba(78,205,196,0.5)" stroke-width="1.5"/>
                 <text x="100" y="134" text-anchor="middle" fill="rgba(78,205,196,0.8)" font-size="10" font-family="monospace">heads</text>
                 <circle cx="180" cy="130" r="22" fill="rgba(255,110,138,0.15)" stroke="rgba(255,110,138,0.5)" stroke-width="1.5"/>
@@ -843,8 +843,15 @@ body.explorer-mode .detail { display:none !important; }
                 <text x="140" y="105" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">superposition</text>
                 <path d="M 118,130 L 162,130" stroke="rgba(255,217,61,0.4)" stroke-width="1" stroke-dasharray="3,2"/>
               </g>
-              <!-- Observer -->
-              <!-- Observer (stick figure) -->
+              <!-- Observer ghost (appears in prior universe after extrusion to mark "no longer here") -->
+              <g id="ext-observer-ghost" style="opacity:0;transition:opacity 0.8s;">
+                <circle cx="140" cy="185" r="6" fill="none" stroke="rgba(167,139,250,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+                <line x1="140" y1="191" x2="140" y2="207" stroke="rgba(167,139,250,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+                <line x1="140" y1="197" x2="131" y2="203" stroke="rgba(167,139,250,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+                <line x1="140" y1="197" x2="149" y2="203" stroke="rgba(167,139,250,0.25)" stroke-width="1" stroke-dasharray="2,2"/>
+                <text x="140" y="222" text-anchor="middle" fill="rgba(167,139,250,0.3)" font-size="8" font-style="italic" font-family="monospace">no longer here</text>
+              </g>
+              <!-- Observer (stick figure, the live one) -->
               <g id="ext-observer-g" style="transition:transform 0.8s;">
                 <circle cx="140" cy="185" r="6" fill="none" stroke="rgba(167,139,250,0.8)" stroke-width="1.5"/>
                 <line x1="140" y1="191" x2="140" y2="207" stroke="rgba(167,139,250,0.8)" stroke-width="1.5"/>
@@ -880,28 +887,26 @@ body.explorer-mode .detail { display:none !important; }
             extruded = true;
             var result = Math.random() < 0.5 ? 'heads' : 'tails';
             document.getElementById('ext-result').textContent = result;
-            // Fade prior
-            document.getElementById('ext-prior').style.stroke = 'rgba(110,92,255,0.15)';
-            document.getElementById('ext-prior').style.fill = 'rgba(110,92,255,0.02)';
-            document.getElementById('ext-super').style.opacity = '0.25';
+            // Prior block universe stays at full presence — superposition persists indefinitely.
+            // No fade applied to ext-prior or ext-super: this is the framework's central claim.
+            // Instead, reveal the ghost-observer in the prior position to mark "you are no longer here."
+            document.getElementById('ext-observer-ghost').style.opacity = '1';
             // Highlight subsequent
             document.getElementById('ext-subseq').style.stroke = 'rgba(78,205,196,0.6)';
             document.getElementById('ext-subseq').style.fill = 'rgba(78,205,196,0.06)';
             document.getElementById('ext-subseq-label').style.fill = 'rgba(78,205,196,0.8)';
             document.getElementById('ext-definite').style.opacity = '1';
-            // Move observer
+            // Move the live observer
             document.getElementById('ext-observer-g').style.transform = 'translateX(280px)';
             document.getElementById('ext-you').setAttribute('x', '420');
             // Show arrow
             document.getElementById('ext-arrow').style.opacity = '1';
             // Caption
-            document.getElementById('ext-caption').innerHTML = 'You extruded to the subsequent block universe. The coin was <strong>' + result + '</strong> all along—the superposition was never present in this universe. The prior block universe retains its superposition indefinitely.';
+            document.getElementById('ext-caption').innerHTML = 'You extruded to the subsequent block universe. The coin was <strong>' + result + '</strong> all along here. <strong>The prior block universe persists at full presence</strong>—its superposition is intact, you are simply no longer in it.';
           }
           function resetExtrusion() {
             extruded = false;
-            document.getElementById('ext-prior').style.stroke = 'rgba(110,92,255,0.4)';
-            document.getElementById('ext-prior').style.fill = 'rgba(110,92,255,0.06)';
-            document.getElementById('ext-super').style.opacity = '1';
+            document.getElementById('ext-observer-ghost').style.opacity = '0';
             document.getElementById('ext-subseq').style.stroke = 'rgba(78,205,196,0.2)';
             document.getElementById('ext-subseq').style.fill = 'rgba(78,205,196,0.04)';
             document.getElementById('ext-subseq-label').style.fill = 'rgba(78,205,196,0.4)';
@@ -2060,12 +2065,20 @@ body.explorer-mode .detail { display:none !important; }
                 <text x="430" y="358" fill="rgba(78,205,196,0.2)" font-size="7" font-family="monospace">forever</text>
               </g>
 
-              <!-- Level 4 ESCAPE: Z (genuine valid node) -->
+              <!-- Level 4 ESCAPE: Z replaces what would have been X₂. Show the absence visibly. -->
               <g id="tr-escape-group" style="opacity:0;transition:opacity 0.4s;">
-                <circle cx="320" cy="282" r="14" fill="#121f18" stroke="rgba(78,205,196,0.6)" stroke-width="2"/>
-                <text x="320" y="287" text-anchor="middle" fill="rgba(78,205,196,0.9)" font-size="10" font-weight="600" font-family="monospace">Z</text>
-                <text x="320" y="305" text-anchor="middle" fill="rgba(78,205,196,0.5)" font-size="7" font-family="monospace">genuine escape!</text>
-                <text x="320" y="315" text-anchor="middle" fill="rgba(78,205,196,0.35)" font-size="7" font-family="monospace">no X-copy beneath</text>
+                <!-- Z node — solid, larger, clearly distinct -->
+                <circle cx="320" cy="282" r="16" fill="#0e2218" stroke="rgba(78,205,196,0.85)" stroke-width="2.3"/>
+                <text x="320" y="287" text-anchor="middle" fill="rgba(78,205,196,1)" font-size="11" font-weight="700" font-family="monospace">Z</text>
+                <text x="320" y="305" text-anchor="middle" fill="rgba(78,205,196,0.65)" font-size="7" font-weight="500" font-family="monospace">genuine valid node</text>
+                <!-- "Crossed-out" ghost X-copy: shows what WOULD have been there, with diagonal strikethrough -->
+                <g style="opacity:0.35;">
+                  <circle cx="320" cy="345" r="11" fill="none" stroke="rgba(110,92,255,0.3)" stroke-width="1" stroke-dasharray="2,2"/>
+                  <text x="320" y="349" text-anchor="middle" fill="rgba(110,92,255,0.35)" font-size="8" font-style="italic" font-family="monospace">X̸</text>
+                  <line x1="307" y1="333" x2="333" y2="357" stroke="rgba(255,110,138,0.5)" stroke-width="1.4"/>
+                </g>
+                <text x="362" y="347" fill="rgba(255,110,138,0.55)" font-size="7" font-family="monospace">no X-copy here</text>
+                <text x="362" y="357" fill="rgba(78,205,196,0.45)" font-size="7" font-family="monospace">staircase ends</text>
               </g>
 
               <!-- Side annotation -->
@@ -2230,107 +2243,117 @@ body.explorer-mode .detail { display:none !important; }
           <p>With four slits (A, B, C, D) and a detector that fires if the particle traverses slit A or B, there are 16 possible agreeing superpositions, the full powerset. The Aethic postulates prune most of them. Here’s the result:</p>
 
           <div style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1rem 0;">
-            <svg width="100%" height="300" viewBox="0 0 440 300" style="display:block;margin:0 auto;max-width:440px;">
-              <!-- 4x4 grid of the 16 cases -->
-              <!-- Row labels -->
-              <text x="220" y="16" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">detector fires on A or B, which cases survive?</text>
+            <svg width="100%" height="340" viewBox="0 0 440 340" style="display:block;margin:0 auto;max-width:440px;">
+              <!-- Detector indicator at top -->
+              <text x="220" y="14" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">detector setup</text>
+              <g transform="translate(110,22)">
+                <!-- Slit A (in detected class) -->
+                <rect x="0" y="0" width="40" height="22" rx="3" fill="rgba(255,217,61,0.08)" stroke="rgba(255,217,61,0.5)" stroke-width="1"/>
+                <text x="20" y="15" text-anchor="middle" fill="rgba(255,217,61,0.8)" font-size="10" font-weight="600" font-family="monospace">A</text>
+                <!-- Slit B (in detected class) -->
+                <rect x="45" y="0" width="40" height="22" rx="3" fill="rgba(255,217,61,0.08)" stroke="rgba(255,217,61,0.5)" stroke-width="1"/>
+                <text x="65" y="15" text-anchor="middle" fill="rgba(255,217,61,0.8)" font-size="10" font-weight="600" font-family="monospace">B</text>
+                <!-- Bracket grouping A,B as one class -->
+                <path d="M -4,0 Q -8,11 -4,22" fill="none" stroke="rgba(255,217,61,0.5)" stroke-width="1"/>
+                <path d="M 89,0 Q 93,11 89,22" fill="none" stroke="rgba(255,217,61,0.5)" stroke-width="1"/>
+                <text x="42.5" y="36" text-anchor="middle" fill="rgba(255,217,61,0.6)" font-size="7" font-family="monospace">class {A,B}: detector fires</text>
+                <!-- Slit C (undetected class) -->
+                <rect x="130" y="0" width="40" height="22" rx="3" fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.4)" stroke-width="1"/>
+                <text x="150" y="15" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="10" font-weight="600" font-family="monospace">C</text>
+                <!-- Slit D (undetected class) -->
+                <rect x="175" y="0" width="40" height="22" rx="3" fill="rgba(167,139,250,0.06)" stroke="rgba(167,139,250,0.4)" stroke-width="1"/>
+                <text x="195" y="15" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="10" font-weight="600" font-family="monospace">D</text>
+                <path d="M 126,0 Q 122,11 126,22" fill="none" stroke="rgba(167,139,250,0.4)" stroke-width="1"/>
+                <path d="M 219,0 Q 223,11 219,22" fill="none" stroke="rgba(167,139,250,0.4)" stroke-width="1"/>
+                <text x="172.5" y="36" text-anchor="middle" fill="rgba(167,139,250,0.55)" font-size="7" font-family="monospace">class {C,D}: detector silent</text>
+              </g>
 
-              <!-- Grid cells: 4 columns x 4 rows, each 90x55 -->
-              <!-- We'll use: valid = purple, P2 = blue dim, P3 = red dim -->
+              <text x="220" y="76" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">→ which subsets of {A,B,C,D} survive as valid superpositions?</text>
+
+              <!-- 4x4 grid of the 16 cases (shifted down by ~58px to make room for header) -->
+              <!-- Letters in each cell are now color-coded by their equivalence class:
+                   yellow ({A,B}) or purple ({C,D}). This makes valid/invalid status self-explaining. -->
 
               <!-- Row 1: ∅, {A}, {B}, {C} -->
-              <!-- ∅ = valid (trivially) -->
-              <rect x="20" y="28" width="90" height="52" rx="5" fill="rgba(110,92,255,0.06)" stroke="rgba(110,92,255,0.35)" stroke-width="1.2"/>
-              <text x="65" y="50" text-anchor="middle" fill="rgba(110,92,255,0.8)" font-size="10" font-family="monospace">∅</text>
-              <text x="65" y="68" text-anchor="middle" fill="rgba(110,92,255,0.45)" font-size="7" font-family="monospace">valid</text>
+              <rect x="20" y="86" width="90" height="52" rx="5" fill="rgba(110,92,255,0.06)" stroke="rgba(110,92,255,0.35)" stroke-width="1.2"/>
+              <text x="65" y="108" text-anchor="middle" fill="rgba(110,92,255,0.8)" font-size="11" font-family="monospace">∅</text>
+              <text x="65" y="126" text-anchor="middle" fill="rgba(110,92,255,0.45)" font-size="7" font-family="monospace">valid (trivial)</text>
 
-              <!-- {A} = P2 (indistinguishable from {B} within class {A,B}) -->
-              <rect x="120" y="28" width="90" height="52" rx="5" fill="rgba(96,165,250,0.04)" stroke="rgba(96,165,250,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="165" y="50" text-anchor="middle" fill="rgba(96,165,250,0.5)" font-size="10" font-family="monospace">{A}</text>
-              <text x="165" y="68" text-anchor="middle" fill="rgba(96,165,250,0.35)" font-size="7" font-family="monospace">P2</text>
+              <rect x="120" y="86" width="90" height="52" rx="5" fill="rgba(96,165,250,0.04)" stroke="rgba(96,165,250,0.15)" stroke-width="1" opacity="0.5"/>
+              <text x="165" y="108" text-anchor="middle" font-size="10" font-family="monospace"><tspan fill="rgba(255,217,61,0.5)">{A}</tspan></text>
+              <text x="165" y="126" text-anchor="middle" fill="rgba(96,165,250,0.4)" font-size="7" font-family="monospace">P2: too narrow</text>
 
-              <!-- {B} = P2 -->
-              <rect x="220" y="28" width="90" height="52" rx="5" fill="rgba(96,165,250,0.04)" stroke="rgba(96,165,250,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="265" y="50" text-anchor="middle" fill="rgba(96,165,250,0.5)" font-size="10" font-family="monospace">{B}</text>
-              <text x="265" y="68" text-anchor="middle" fill="rgba(96,165,250,0.35)" font-size="7" font-family="monospace">P2</text>
+              <rect x="220" y="86" width="90" height="52" rx="5" fill="rgba(96,165,250,0.04)" stroke="rgba(96,165,250,0.15)" stroke-width="1" opacity="0.5"/>
+              <text x="265" y="108" text-anchor="middle" font-size="10" font-family="monospace"><tspan fill="rgba(255,217,61,0.5)">{B}</tspan></text>
+              <text x="265" y="126" text-anchor="middle" fill="rgba(96,165,250,0.4)" font-size="7" font-family="monospace">P2: too narrow</text>
 
-              <!-- {C} = P2 (indistinguishable from {D} within class {C,D}) -->
-              <rect x="320" y="28" width="90" height="52" rx="5" fill="rgba(96,165,250,0.04)" stroke="rgba(96,165,250,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="365" y="50" text-anchor="middle" fill="rgba(96,165,250,0.5)" font-size="10" font-family="monospace">{C}</text>
-              <text x="365" y="68" text-anchor="middle" fill="rgba(96,165,250,0.35)" font-size="7" font-family="monospace">P2</text>
+              <rect x="320" y="86" width="90" height="52" rx="5" fill="rgba(96,165,250,0.04)" stroke="rgba(96,165,250,0.15)" stroke-width="1" opacity="0.5"/>
+              <text x="365" y="108" text-anchor="middle" font-size="10" font-family="monospace"><tspan fill="rgba(167,139,250,0.5)">{C}</tspan></text>
+              <text x="365" y="126" text-anchor="middle" fill="rgba(96,165,250,0.4)" font-size="7" font-family="monospace">P2: too narrow</text>
 
               <!-- Row 2: {D}, {A,B}, {A,C}, {A,D} -->
-              <!-- {D} = P2 -->
-              <rect x="20" y="88" width="90" height="52" rx="5" fill="rgba(96,165,250,0.04)" stroke="rgba(96,165,250,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="65" y="110" text-anchor="middle" fill="rgba(96,165,250,0.5)" font-size="10" font-family="monospace">{D}</text>
-              <text x="65" y="128" text-anchor="middle" fill="rgba(96,165,250,0.35)" font-size="7" font-family="monospace">P2</text>
+              <rect x="20" y="146" width="90" height="52" rx="5" fill="rgba(96,165,250,0.04)" stroke="rgba(96,165,250,0.15)" stroke-width="1" opacity="0.5"/>
+              <text x="65" y="168" text-anchor="middle" font-size="10" font-family="monospace"><tspan fill="rgba(167,139,250,0.5)">{D}</tspan></text>
+              <text x="65" y="186" text-anchor="middle" fill="rgba(96,165,250,0.4)" font-size="7" font-family="monospace">P2: too narrow</text>
 
-              <!-- {A,B} = VALID (equivalence class!) -->
-              <rect x="120" y="88" width="90" height="52" rx="5" fill="rgba(110,92,255,0.08)" stroke="rgba(110,92,255,0.5)" stroke-width="1.5"/>
-              <text x="165" y="110" text-anchor="middle" fill="rgba(110,92,255,0.9)" font-size="10" font-weight="600" font-family="monospace">{A,B}</text>
-              <text x="165" y="128" text-anchor="middle" fill="rgba(110,92,255,0.55)" font-size="7" font-family="monospace">valid ★</text>
+              <!-- {A,B} = VALID (matches detector class) -->
+              <rect x="120" y="146" width="90" height="52" rx="5" fill="rgba(110,92,255,0.1)" stroke="rgba(110,92,255,0.6)" stroke-width="1.8"/>
+              <text x="165" y="168" text-anchor="middle" font-size="10" font-weight="600" font-family="monospace"><tspan fill="rgba(255,217,61,0.95)">{A,B}</tspan></text>
+              <text x="165" y="186" text-anchor="middle" fill="rgba(110,92,255,0.7)" font-size="7" font-family="monospace">★ valid (= class)</text>
 
-              <!-- {A,C} = P3 (spans two classes) -->
-              <rect x="220" y="88" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="265" y="110" text-anchor="middle" fill="rgba(255,110,138,0.5)" font-size="10" font-family="monospace">{A,C}</text>
-              <text x="265" y="128" text-anchor="middle" fill="rgba(255,110,138,0.35)" font-size="7" font-family="monospace">P3</text>
+              <!-- {A,C} = P3 (spans both classes — yellow + purple letters) -->
+              <rect x="220" y="146" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.6"/>
+              <text x="265" y="168" text-anchor="middle" font-size="10" font-family="monospace"><tspan fill="rgba(255,217,61,0.55)">{A,</tspan><tspan fill="rgba(167,139,250,0.55)">C}</tspan></text>
+              <text x="265" y="186" text-anchor="middle" fill="rgba(255,110,138,0.4)" font-size="7" font-family="monospace">P3: spans classes</text>
 
-              <!-- {A,D} = P3 -->
-              <rect x="320" y="88" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="365" y="110" text-anchor="middle" fill="rgba(255,110,138,0.5)" font-size="10" font-family="monospace">{A,D}</text>
-              <text x="365" y="128" text-anchor="middle" fill="rgba(255,110,138,0.35)" font-size="7" font-family="monospace">P3</text>
+              <rect x="320" y="146" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.6"/>
+              <text x="365" y="168" text-anchor="middle" font-size="10" font-family="monospace"><tspan fill="rgba(255,217,61,0.55)">{A,</tspan><tspan fill="rgba(167,139,250,0.55)">D}</tspan></text>
+              <text x="365" y="186" text-anchor="middle" fill="rgba(255,110,138,0.4)" font-size="7" font-family="monospace">P3: spans classes</text>
 
               <!-- Row 3: {B,C}, {B,D}, {C,D}, {A,B,C} -->
-              <!-- {B,C} = P3 -->
-              <rect x="20" y="148" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="65" y="170" text-anchor="middle" fill="rgba(255,110,138,0.5)" font-size="10" font-family="monospace">{B,C}</text>
-              <text x="65" y="188" text-anchor="middle" fill="rgba(255,110,138,0.35)" font-size="7" font-family="monospace">P3</text>
+              <rect x="20" y="206" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.6"/>
+              <text x="65" y="228" text-anchor="middle" font-size="10" font-family="monospace"><tspan fill="rgba(255,217,61,0.55)">{B,</tspan><tspan fill="rgba(167,139,250,0.55)">C}</tspan></text>
+              <text x="65" y="246" text-anchor="middle" fill="rgba(255,110,138,0.4)" font-size="7" font-family="monospace">P3: spans classes</text>
 
-              <!-- {B,D} = P3 -->
-              <rect x="120" y="148" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="165" y="170" text-anchor="middle" fill="rgba(255,110,138,0.5)" font-size="10" font-family="monospace">{B,D}</text>
-              <text x="165" y="188" text-anchor="middle" fill="rgba(255,110,138,0.35)" font-size="7" font-family="monospace">P3</text>
+              <rect x="120" y="206" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.6"/>
+              <text x="165" y="228" text-anchor="middle" font-size="10" font-family="monospace"><tspan fill="rgba(255,217,61,0.55)">{B,</tspan><tspan fill="rgba(167,139,250,0.55)">D}</tspan></text>
+              <text x="165" y="246" text-anchor="middle" fill="rgba(255,110,138,0.4)" font-size="7" font-family="monospace">P3: spans classes</text>
 
-              <!-- {C,D} = VALID (equivalence class!) -->
-              <rect x="220" y="148" width="90" height="52" rx="5" fill="rgba(110,92,255,0.08)" stroke="rgba(110,92,255,0.5)" stroke-width="1.5"/>
-              <text x="265" y="170" text-anchor="middle" fill="rgba(110,92,255,0.9)" font-size="10" font-weight="600" font-family="monospace">{C,D}</text>
-              <text x="265" y="188" text-anchor="middle" fill="rgba(110,92,255,0.55)" font-size="7" font-family="monospace">valid ★</text>
+              <!-- {C,D} = VALID (matches detector class) -->
+              <rect x="220" y="206" width="90" height="52" rx="5" fill="rgba(110,92,255,0.1)" stroke="rgba(110,92,255,0.6)" stroke-width="1.8"/>
+              <text x="265" y="228" text-anchor="middle" font-size="10" font-weight="600" font-family="monospace"><tspan fill="rgba(167,139,250,0.95)">{C,D}</tspan></text>
+              <text x="265" y="246" text-anchor="middle" fill="rgba(110,92,255,0.7)" font-size="7" font-family="monospace">★ valid (= class)</text>
 
-              <!-- {A,B,C} = P3 -->
-              <rect x="320" y="148" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="365" y="170" text-anchor="middle" fill="rgba(255,110,138,0.5)" font-size="9" font-family="monospace">{A,B,C}</text>
-              <text x="365" y="188" text-anchor="middle" fill="rgba(255,110,138,0.35)" font-size="7" font-family="monospace">P3</text>
+              <rect x="320" y="206" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.6"/>
+              <text x="365" y="228" text-anchor="middle" font-size="9" font-family="monospace"><tspan fill="rgba(255,217,61,0.55)">{A,B,</tspan><tspan fill="rgba(167,139,250,0.55)">C}</tspan></text>
+              <text x="365" y="246" text-anchor="middle" fill="rgba(255,110,138,0.4)" font-size="7" font-family="monospace">P3: spans classes</text>
 
               <!-- Row 4: {A,B,D}, {A,C,D}, {B,C,D}, {A,B,C,D} -->
-              <!-- {A,B,D} = P3 -->
-              <rect x="20" y="208" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="65" y="230" text-anchor="middle" fill="rgba(255,110,138,0.5)" font-size="9" font-family="monospace">{A,B,D}</text>
-              <text x="65" y="248" text-anchor="middle" fill="rgba(255,110,138,0.35)" font-size="7" font-family="monospace">P3</text>
+              <rect x="20" y="266" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.6"/>
+              <text x="65" y="288" text-anchor="middle" font-size="9" font-family="monospace"><tspan fill="rgba(255,217,61,0.55)">{A,B,</tspan><tspan fill="rgba(167,139,250,0.55)">D}</tspan></text>
+              <text x="65" y="306" text-anchor="middle" fill="rgba(255,110,138,0.4)" font-size="7" font-family="monospace">P3: spans classes</text>
 
-              <!-- {A,C,D} = P3 -->
-              <rect x="120" y="208" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="165" y="230" text-anchor="middle" fill="rgba(255,110,138,0.5)" font-size="9" font-family="monospace">{A,C,D}</text>
-              <text x="165" y="248" text-anchor="middle" fill="rgba(255,110,138,0.35)" font-size="7" font-family="monospace">P3</text>
+              <rect x="120" y="266" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.6"/>
+              <text x="165" y="288" text-anchor="middle" font-size="9" font-family="monospace"><tspan fill="rgba(255,217,61,0.55)">{A,</tspan><tspan fill="rgba(167,139,250,0.55)">C,D}</tspan></text>
+              <text x="165" y="306" text-anchor="middle" fill="rgba(255,110,138,0.4)" font-size="7" font-family="monospace">P3: spans classes</text>
 
-              <!-- {B,C,D} = P3 -->
-              <rect x="220" y="208" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="265" y="230" text-anchor="middle" fill="rgba(255,110,138,0.5)" font-size="9" font-family="monospace">{B,C,D}</text>
-              <text x="265" y="248" text-anchor="middle" fill="rgba(255,110,138,0.35)" font-size="7" font-family="monospace">P3</text>
+              <rect x="220" y="266" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.6"/>
+              <text x="265" y="288" text-anchor="middle" font-size="9" font-family="monospace"><tspan fill="rgba(255,217,61,0.55)">{B,</tspan><tspan fill="rgba(167,139,250,0.55)">C,D}</tspan></text>
+              <text x="265" y="306" text-anchor="middle" fill="rgba(255,110,138,0.4)" font-size="7" font-family="monospace">P3: spans classes</text>
 
-              <!-- {A,B,C,D} = P3 -->
-              <rect x="320" y="208" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.5"/>
-              <text x="365" y="230" text-anchor="middle" fill="rgba(255,110,138,0.5)" font-size="8" font-family="monospace">{A,B,C,D}</text>
-              <text x="365" y="248" text-anchor="middle" fill="rgba(255,110,138,0.35)" font-size="7" font-family="monospace">P3</text>
+              <rect x="320" y="266" width="90" height="52" rx="5" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1" opacity="0.6"/>
+              <text x="365" y="288" text-anchor="middle" font-size="8" font-family="monospace"><tspan fill="rgba(255,217,61,0.55)">{A,B,</tspan><tspan fill="rgba(167,139,250,0.55)">C,D}</tspan></text>
+              <text x="365" y="306" text-anchor="middle" fill="rgba(255,110,138,0.4)" font-size="7" font-family="monospace">P3: spans classes</text>
 
               <!-- Legend -->
-              <rect x="20" y="272" width="10" height="10" rx="2" fill="rgba(110,92,255,0.08)" stroke="rgba(110,92,255,0.5)" stroke-width="1"/>
-              <text x="36" y="281" fill="rgba(110,92,255,0.6)" font-size="8" font-family="monospace">valid (3)</text>
-              <rect x="120" y="272" width="10" height="10" rx="2" fill="rgba(96,165,250,0.04)" stroke="rgba(96,165,250,0.15)" stroke-width="1"/>
-              <text x="136" y="281" fill="rgba(96,165,250,0.4)" font-size="8" font-family="monospace">P2—too narrow (4)</text>
-              <rect x="300" y="272" width="10" height="10" rx="2" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1"/>
-              <text x="316" y="281" fill="rgba(255,110,138,0.4)" font-size="8" font-family="monospace">P3—too broad (9)</text>
+              <rect x="20" y="328" width="10" height="10" rx="2" fill="rgba(110,92,255,0.1)" stroke="rgba(110,92,255,0.6)" stroke-width="1.5"/>
+              <text x="36" y="337" fill="rgba(110,92,255,0.7)" font-size="8" font-family="monospace">valid (3)</text>
+              <rect x="120" y="328" width="10" height="10" rx="2" fill="rgba(96,165,250,0.04)" stroke="rgba(96,165,250,0.15)" stroke-width="1"/>
+              <text x="136" y="337" fill="rgba(96,165,250,0.4)" font-size="8" font-family="monospace">P2: too narrow (4)</text>
+              <rect x="280" y="328" width="10" height="10" rx="2" fill="rgba(255,110,138,0.04)" stroke="rgba(255,110,138,0.15)" stroke-width="1"/>
+              <text x="296" y="337" fill="rgba(255,110,138,0.4)" font-size="8" font-family="monospace">P3: spans classes (9)</text>
             </svg>
-            <div style="text-align:center;margin-top:0.4rem;font-size:0.75rem;color:var(--text-dim);line-height:1.45;">Equivalence classes: <span style="color:rgba(110,92,255,0.8)">{A,B}</span> and <span style="color:rgba(110,92,255,0.8)">{C,D}</span>. Only subsets matching an exact class survive.<br/>
+            <div style="text-align:center;margin-top:0.4rem;font-size:0.75rem;color:var(--text-dim);line-height:1.45;">Look at the <strong>color of the letters</strong> in each cell: <span style="color:rgba(255,217,61,0.85)">yellow = detected class</span>, <span style="color:rgba(167,139,250,0.85)">purple = undetected class</span>. <strong>Single-color subsets</strong> that exactly match a class are <span style="color:rgba(110,92,255,0.85)">valid</span>. <strong>Single-color subsets too narrow</strong> for their class get P2. <strong>Mixed-color subsets</strong> get P3.<br/>
             <a href="aethic-code/demo.html" style="color:rgba(167,139,250,0.7);text-decoration:none;border-bottom:1px solid rgba(167,139,250,0.3);">Explore the full interactive tool →</a></div>
           </div>
 
@@ -2804,7 +2827,7 @@ body.explorer-mode .detail { display:none !important; }
         <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$N \propto \int_{\mathcal{P}(X)} \!\!\! \iint A(T) \, \chi_T(q_1) \, \chi_T(q_2) \, \cos\!\left( \frac{1}{\hbar} \bigl( S[q_1(t)] - S[q_2(t)] \bigr) \right) \mathcal{D}[q_2(t)] \, \mathcal{D}[q_1(t)] \, d\mu(T)$$</div>
       </div>
 
-      <p>The <span class="hl">A(T)</span> factor—an Aethus term over every possible subset T of paths—acts as a “kill switch” that zeroes out any collection of paths rendered invalid by Aethic intersection. The Nexus concept from Layer 5 (a weighted superposition of Aethae) reaches its full generalization here: the Quantum Nexus wraps the path integral in a powerset-level integration, with A(T) performing the Aethic pruning that determines which path-clusters survive.</p>
+      <p>The structure is a <em>triple</em> integral, not a single integral with a factor pasted on. From outside in: the outer ∫<sub>𝒫(X)</sub> ranges over the powerset of paths in spacetime; the inner ∬ runs over <em>pairs</em> of paths (q₁, q₂)—this double-path structure is the probability-mass form, derived by applying the Born rule and the |Σa|² = Σ<sub>u,v</sub> u·v identity to the standard wavefunction-form path integral; and the <span class="hl">A(T)</span> factor inside is an Aethus over each path-subset T, acting as a “kill switch” that zeroes out any subset rendered invalid by Aethic intersection. The Nexus concept from Layer 5 (a weighted superposition of Aethae) reaches its full generalization here: probability over path-subsets is rendered as Aethic weight on the Aethus that holds those paths in agreeing superposition, with A(T) performing the pruning that determines which path-clusters survive.</p>
 
       <p class="technical-only">But how does the pruning actually <em>happen</em>? The Quantum Nexus N is a universal object—it encodes <em>all</em> possible agreeing superpositions of paths, weighted by their phase factors. To get the physics of any particular system, you take the <strong>Aethic intersection</strong> of N with a system Aethus S encoding the detector configuration, initial conditions, and whatever other information specifies your experiment. By the <strong>distributive property</strong> of Aethic intersection over Aethic union, this intersection distributes term-by-term across every A(T) inside the integral: each becomes A(T) ∩ S individually. Any A(T) ∩ S that forms an invalid Aethus—because the system Aethus contains information that distinguishes between paths in T—self-destructs: its Aethic weight drops to zero, and the term vanishes from the reduced form. What survives is the physics of your system.</p>
 
@@ -2826,15 +2849,15 @@ body.explorer-mode .detail { display:none !important; }
       <p>Physicists calculate how particles behave using something called the path integral, developed by Richard Feynman. The idea is beautiful: to figure out where a particle ends up, you consider <em>every possible path</em> it could take, assign each path a number, and add them all up. Paths that agree reinforce each other. Paths that disagree cancel out. What survives is the prediction.</p>
 
       <div class="analogy">
-        <strong>The kill switch.</strong> The framework adds one thing to Feynman’s integral: a factor called A(T) that acts like an on/off switch for each group of paths. If a group of paths forms a valid agreeing superposition, meaning no future observer could ever distinguish which path was taken, then A(T) = 1. The group is allowed. If the Third Postulate prunes that group (because some future observer <em>could</em> tell), then A(T) = 0. The group is deleted. That single addition encodes all three postulates of Aethic reasoning in one integral.
+        <strong>The kill switch — and the reorganization around it.</strong> The framework doesn't just paste a new factor onto Feynman's integral. It reorganizes the whole structure into a <em>triple</em> integral: an outer integral over every possible <em>group</em> of paths (the powerset 𝒫(X)), an inner double integral over <em>pairs</em> of paths (which gives probability mass directly, by applying the Born rule), and a kill-switch factor A(T) that gates each group. If a group of paths forms a valid agreeing superposition — meaning no future observer could ever distinguish which path was taken — then A(T) = 1 and the group contributes. If the Third Postulate prunes the group (because some future observer <em>could</em> tell), A(T) = 0 and the group is deleted. The whole architecture encodes all three Aethic postulates inside one mathematical object.
       </div>
 
-      <p>This is the <strong>Quantum Nexus integral</strong>. It doesn’t replace the path integral. It augments it. In every case where standard quantum mechanics works (which is all the cases we’ve ever tested), the Quantum Nexus integral gives the same answer. But it also handles Case C, the macroscopic scenario-interaction prediction from Layer 9, which the standard path integral can’t express at all.</p>
+      <p>This is the <strong>Quantum Nexus integral</strong>. In every case where standard quantum mechanics works (which is all the cases we've ever tested), it produces the same predictions. But it also handles Case C, the macroscopic scenario-interaction prediction from Layer 9, which the standard path integral can't even express.</p>
 
       <p>The full derivation of why probability specifically follows the Born rule (the |wave function|² law) from something deeper is still an open problem. That’s the subject of an upcoming paper called Active Reasoning. But the Quantum Nexus integral identifies exactly where the Born rule sits in the architecture and why it sits there, which is more structural progress on this question than any other interpretation has made.</p>
 
       <div class="takeaway">
-        <strong>The takeaway:</strong> The <strong>Quantum Nexus integral</strong> is the standard Feynman path integral plus one new factor: a validity switch that encodes the three Aethic postulates. If it’s correct, Aethic reasoning isn’t a philosophical interpretation of quantum mechanics. It’s a completion of it.
+        <strong>The takeaway:</strong> The <strong>Quantum Nexus integral</strong> is a triple integral — outer over every group of paths, inner double over pairs of paths (giving probability mass directly), with a validity switch A(T) that encodes the three Aethic postulates. It contains the standard Feynman path integral structurally (the inner machinery is what you get from applying the Born rule to it), but the outer powerset wrapping is where the Aethic content lives. If it's correct, Aethic reasoning isn't a philosophical interpretation of quantum mechanics. It's a completion of it.
       </div>
 
       <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
@@ -2851,7 +2874,7 @@ body.explorer-mode .detail { display:none !important; }
         <div class="detail-body"><div class="detail-inner">
 
           <!-- PATH PRUNING VISUALIZER -->
-          <div class="explorer-note">The formal path integral development is hidden in Explorer mode. The key idea: the Feynman path integral gets an extra factor A(T) that equals 1 for valid agreeing superpositions and 0 for invalid ones. This single addition encodes all three Aethic postulates in the language of standard quantum mechanics.</div>
+          <div class="explorer-note">The full path integral development is hidden in Explorer mode. The key idea: the Quantum Nexus reorganizes the Feynman path integral into a triple integral — outer over every <em>group</em> of paths (the powerset 𝒫(X)), inner over <em>pairs</em> of paths (giving probability mass directly), with an A(T) factor that equals 1 for valid agreeing superpositions and 0 for invalid ones. This restructured architecture encodes all three Aethic postulates in the language of standard quantum mechanics.</div>
 <div class="technical-only"><h4>From Slits to Paths—Aethic Pruning in the Continuous Limit</h4>
           <p>As the number of slits increases toward infinity, the powerset invalidation theorem from Layer 8 transitions into the Feynman path integral. Each “slit” becomes a continuous path through spacetime. Toggle the detector to watch paths get pruned:</p>
 
@@ -2954,6 +2977,35 @@ body.explorer-mode .detail { display:none !important; }
               cx.fillStyle = 'rgba(200,200,220,0.3)';
               cx.fillText('screen', scrX, scrY2 + 14);
 
+              // Integral overlay (top-left): a compressed but structurally honest
+              // representation of the actual Quantum Nexus integral. The full form
+              // (Principle 41) is: N ∝ ∫_{P(X)} ∬ A(T) χ_T(q1) χ_T(q2)
+              //   cos((1/ℏ)(S[q1] - S[q2])) D[q2] D[q1] dμ(T).
+              // What's load-bearing in this canvas: an OUTER integral over P(X)
+              // (the powerset of paths), inside which A(T) gates the inner
+              // double-path-integral that produces probability mass directly.
+              cx.font = 'italic 12px monospace';
+              cx.fillStyle = 'rgba(200,200,220,0.55)';
+              cx.textAlign = 'left';
+              cx.fillText('N  ∝  ∫', 10, 22);
+              // Subscript P(X) on outer integral — marks the powerset-of-paths domain
+              cx.font = 'italic 8px monospace';
+              cx.fillText('P(X)', 50, 28);
+              cx.font = 'italic 12px monospace';
+              // A(T) factor — color shifts based on whether pruning is active
+              var atColor = pruned ? 'rgba(255,110,138,0.85)' : 'rgba(78,205,196,0.85)';
+              cx.fillStyle = atColor;
+              cx.fillText('A(T)', 78, 22);
+              cx.fillStyle = 'rgba(200,200,220,0.55)';
+              cx.fillText('· ∬[paths] dμ(T)', 116, 22);
+              // Subscript hint under A(T)
+              cx.font = '8px monospace';
+              cx.fillStyle = pruned ? 'rgba(255,110,138,0.55)' : 'rgba(78,205,196,0.55)';
+              cx.fillText(pruned ? 'some subsets killed' : 'all subsets survive', 70, 38);
+              cx.font = '8px monospace';
+              cx.fillStyle = 'rgba(200,200,220,0.4)';
+              cx.fillText('outer = powerset of paths · inner = pair-of-paths probability mass', 10, 52);
+
               // Detector indicator (when pruned)
               if (pruned) {
                 var detY = srcY + clusters[2].yCenter - 15;
@@ -2966,6 +3018,7 @@ body.explorer-mode .detail { display:none !important; }
                 cx.fill();
                 cx.font = '9px monospace';
                 cx.fillStyle = 'rgba(255,110,138,0.4)';
+                cx.textAlign = 'center';
                 cx.fillText('detector', srcX + (scrX-srcX)*0.5, detY - 13);
               }
 
@@ -2979,29 +3032,29 @@ body.explorer-mode .detail { display:none !important; }
                 drawPath(p, alpha, isPruned && pruneFactor > 0.3);
               });
 
-              // Cluster labels
+              // Cluster labels — now show A(T_i) = 1 or A(T_i) = 0 explicitly
+              cx.textAlign = 'center';
               clusters.forEach(function(cl, ci){
                 var isPruned = ci === 2 && pruned;
                 var labelX = srcX + (scrX-srcX)*0.5;
                 var labelY = srcY + cl.yCenter - cl.spread - 8;
                 cx.font = '11px monospace';
-                cx.textAlign = 'center';
                 if (isPruned && pruneFactor > 0.5) {
-                  cx.fillStyle = 'rgba(255,110,138,0.4)';
-                  cx.fillText(cl.label + ' = 0  (pruned)', labelX, labelY);
-                  // Strikethrough
+                  cx.fillStyle = 'rgba(255,110,138,0.55)';
+                  cx.fillText(cl.label + ' = 0', labelX, labelY);
+                  // Strikethrough through entire label
                   cx.beginPath();
-                  cx.moveTo(labelX - 55, labelY - 4);
-                  cx.lineTo(labelX + 55, labelY - 4);
-                  cx.strokeStyle = 'rgba(255,110,138,0.25)';
-                  cx.lineWidth = 1;
+                  cx.moveTo(labelX - 38, labelY - 4);
+                  cx.lineTo(labelX + 38, labelY - 4);
+                  cx.strokeStyle = 'rgba(255,110,138,0.35)';
+                  cx.lineWidth = 1.2;
                   cx.stroke();
                 } else if (!isPruned && pruned) {
-                  cx.fillStyle = 'rgba('+cl.color.join(',')+',0.5)';
-                  cx.fillText(cl.label + '  ✓ surviving', labelX, labelY);
+                  cx.fillStyle = 'rgba('+cl.color.join(',')+',0.65)';
+                  cx.fillText(cl.label + ' = 1  ✓', labelX, labelY);
                 } else if (!pruned) {
-                  cx.fillStyle = 'rgba('+cl.color.join(',')+',0.3)';
-                  cx.fillText(cl.label, labelX, labelY);
+                  cx.fillStyle = 'rgba('+cl.color.join(',')+',0.5)';
+                  cx.fillText(cl.label + ' = 1', labelX, labelY);
                 }
               });
 
@@ -3059,8 +3112,198 @@ body.explorer-mode .detail { display:none !important; }
           <!-- MULTI-SLIT TO PATH INTEGRAL -->
           </div><!-- end technical-only QN -->
 <h4>The Transition from Discrete to Continuous</h4>
-          <p>Consider increasing the number of slits toward infinity, effectively partitioning spacetime completely. Each “slit” becomes a continuous path, and the powerset of slits becomes the powerset of paths. The standard Feynman path integral ψ ∝ ∫ D[q(t)] exp(iS/ℏ) assigns probability amplitudes to entire continuous paths. The Quantum Nexus wraps this in a powerset-level integration: for <em>every possible subset T</em> of paths, the A(T) factor either lets the subset contribute (if it’s a valid agreeing superposition) or kills it (if Aethic pruning has rendered it invalid).</p>
+          <p>Consider increasing the number of slits toward infinity, effectively partitioning spacetime completely. Each “slit” becomes a continuous path, and the powerset of slits becomes the powerset of paths. The starting point is the standard Feynman path integral ψ ∝ ∫ 𝒟[q(t)] exp(iS/ℏ), which assigns probability amplitudes to entire continuous paths. Building the Quantum Nexus from this is a three-step structural reorganization, not a one-factor patch:</p>
+
+          <p><strong>Step 1: convert amplitude to probability mass.</strong> Apply the Born rule and use the identity |Σa|² = Σ<sub>u,v</sub> |u||v| cos(arg(u) − arg(v)) to expand the squared amplitude. The single integral over q(t) becomes a <em>double</em> integral over pairs (q₁, q₂), with cos((1/ℏ)(S[q₁] − S[q₂])) as the integrand. This is a structural change: probability mass directly, not amplitude.</p>
+
+          <p><strong>Step 2: restrict the inner double integral to a subset T of paths</strong> using indicator functions χ<sub>T</sub>(q₁) χ<sub>T</sub>(q₂). For each subset T, this gives the probability mass that the particle traverses one of the paths in T as an agreeing superposition.</p>
+
+          <p><strong>Step 3: integrate over the powerset 𝒫(X)</strong> of all possible such subsets, weighted by A(T) — the Aethus that holds the agreeing superposition over T. A(T) acts as a “kill switch”: it survives if T is a valid agreeing superposition and zeroes out if Aethic pruning has rendered it invalid. The full Quantum Nexus integral is therefore a <em>triple</em> integral: outer ∫<sub>𝒫(X)</sub> over path-subsets, inner ∬ over path pairs, with A(T) gating each subset.</p>
+
           <p>This is a category shift: it’s not that “a disagreeing superposition runs over individual paths”—that’s actually a category error. The proper structure is a disagreeing superposition running over <em>agreeing superpositions of groups of paths</em>. The single-slit diffraction pattern is the tip-off: Aethic pruning doesn’t want to boil down to individual paths at all—it leaves as many paths in the system as it can without triggering contradiction.</p>
+
+          <!-- SLITS-TO-PATHS INTERPOLATION INTERACTIVE -->
+          <h4>Watching Slits Become Paths</h4>
+          <p>The bridge between the discrete powerset of Layer 8 and the continuous path integral above is direct, not hand-waved. Drag the slider to increase the number of slits—at 2, you have the original double-slit; at 4, you have the powerset visualization from Layer 8; as the count climbs, the apparatus dissolves into the continuous limit, and the equivalence-class structure preserves itself smoothly across the transition.</p>
+
+          <div id="interp-sim" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1.2rem 0;">
+            <div style="display:flex;justify-content:center;align-items:center;gap:0.8rem;margin-bottom:0.8rem;flex-wrap:wrap;">
+              <label for="interp-slits" style="font-size:0.78rem;color:var(--text-dim);font-family:monospace;">slits:</label>
+              <input id="interp-slits" type="range" min="2" max="64" value="2" step="1" style="width:200px;accent-color:var(--accent-1);" oninput="updateInterp()"/>
+              <span id="interp-count" style="font-size:0.85rem;color:var(--accent-1);font-family:monospace;font-weight:600;min-width:2.5rem;text-align:left;">2</span>
+              <label style="font-size:0.78rem;color:var(--text-dim);font-family:monospace;display:inline-flex;align-items:center;gap:0.4rem;cursor:pointer;">
+                <input id="interp-detector" type="checkbox" onchange="updateInterp()" style="accent-color:var(--accent-2);"/> detector on left half
+              </label>
+            </div>
+            <canvas id="interp-canvas" width="500" height="240" style="display:block;margin:0 auto;max-width:100%;border-radius:8px;"></canvas>
+            <div id="interp-result" style="text-align:center;font-size:0.78rem;color:var(--text-dim);margin-top:0.5rem;min-height:2.4rem;line-height:1.5;"></div>
+          </div>
+
+          <script>
+          (function(){
+            var cv = document.getElementById('interp-canvas');
+            if (!cv) return;
+            var cx = cv.getContext('2d');
+            var W = 500, H = 240;
+            var srcX = 50, srcY = H/2;
+            var slitX = 230;
+            var scrX = 460;
+            var apertureTop = 30, apertureBot = H - 30;
+
+            function draw(n, detect) {
+              cx.clearRect(0,0,W,H);
+              cx.fillStyle = '#0a0d14';
+              cx.fillRect(0,0,W,H);
+
+              // Source
+              cx.beginPath();
+              cx.arc(srcX, srcY, 4, 0, Math.PI*2);
+              cx.fillStyle = 'rgba(110,92,255,0.7)';
+              cx.fill();
+              cx.font = '9px monospace';
+              cx.textAlign = 'center';
+              cx.fillStyle = 'rgba(200,200,220,0.4)';
+              cx.fillText('source', srcX, srcY - 12);
+
+              // Screen
+              cx.fillStyle = 'rgba(167,139,250,0.18)';
+              cx.fillRect(scrX, apertureTop, 4, apertureBot - apertureTop);
+              cx.fillStyle = 'rgba(200,200,220,0.4)';
+              cx.fillText('screen', scrX + 2, apertureBot + 14);
+
+              // Slit wall — fades as n grows (apparatus dissolves)
+              var wallAlpha = Math.max(0, 1 - (n - 2) / 30);
+              cx.strokeStyle = 'rgba(167,139,250,' + (0.4 * wallAlpha) + ')';
+              cx.lineWidth = 1.5;
+
+              // Compute slit positions and detector partition
+              var H_slit = apertureBot - apertureTop;
+              var slits = [];
+              for (var i = 0; i < n; i++) {
+                var y = apertureTop + (H_slit) * (i + 0.5) / n;
+                slits.push(y);
+              }
+              var midY = srcY;
+
+              // Draw wall segments between slits
+              if (wallAlpha > 0.05) {
+                var slitHalfH = Math.min(8, H_slit / (n * 2.2));
+                var prevY = apertureTop;
+                for (var i = 0; i < n; i++) {
+                  var topGap = slits[i] - slitHalfH;
+                  var botGap = slits[i] + slitHalfH;
+                  cx.beginPath();
+                  cx.moveTo(slitX, prevY);
+                  cx.lineTo(slitX, topGap);
+                  cx.stroke();
+                  prevY = botGap;
+                }
+                cx.beginPath();
+                cx.moveTo(slitX, prevY);
+                cx.lineTo(slitX, apertureBot);
+                cx.stroke();
+              }
+
+              // Draw paths from source through each slit to a spread on screen
+              // Color each path by equivalence class:
+              //   - if detect is on, top half slits = "detected class" (yellow/red), bottom = "undetected" (purple)
+              //   - if detect is off, all paths are one class (teal)
+              var pathAlpha = Math.max(0.08, 0.55 / Math.sqrt(n));
+              for (var i = 0; i < n; i++) {
+                var topHalf = slits[i] < midY;
+                var color, isPruned;
+                if (detect) {
+                  if (topHalf) {
+                    color = 'rgba(255,217,61,'; // detected class
+                    isPruned = true;
+                  } else {
+                    color = 'rgba(167,139,250,'; // undetected class
+                    isPruned = false;
+                  }
+                } else {
+                  color = 'rgba(78,205,196,';
+                  isPruned = false;
+                }
+                // Multiple endpoints per slit to suggest the spread
+                var endpoints = 3;
+                for (var j = 0; j < endpoints; j++) {
+                  var endY = slits[i] + (j - 1) * 18 + (Math.sin(i*1.7 + j*2.3) * 6);
+                  if (endY < apertureTop) endY = apertureTop + 5;
+                  if (endY > apertureBot) endY = apertureBot - 5;
+                  cx.beginPath();
+                  cx.moveTo(srcX + 4, srcY);
+                  cx.lineTo(slitX, slits[i]);
+                  cx.lineTo(scrX, endY);
+                  if (isPruned) {
+                    cx.strokeStyle = color + (pathAlpha * 0.4) + ')';
+                    cx.setLineDash([2, 4]);
+                  } else {
+                    cx.strokeStyle = color + pathAlpha + ')';
+                    cx.setLineDash([]);
+                  }
+                  cx.lineWidth = 0.8;
+                  cx.stroke();
+                  cx.setLineDash([]);
+                }
+              }
+
+              // Detector indicator (when on)
+              if (detect) {
+                cx.fillStyle = 'rgba(255,110,138,0.3)';
+                cx.fillRect(slitX - 14, apertureTop, 12, midY - apertureTop);
+                cx.font = '8px monospace';
+                cx.fillStyle = 'rgba(255,110,138,0.55)';
+                cx.textAlign = 'right';
+                cx.fillText('det', slitX - 4, apertureTop + 12);
+              }
+
+              // Info overlay
+              cx.font = '10px monospace';
+              cx.textAlign = 'left';
+              cx.fillStyle = 'rgba(200,200,220,0.5)';
+              cx.fillText('n = ' + n + (n >= 32 ? '  → continuous limit' : ''), 14, 18);
+              cx.fillText('subsets in powerset: 2^n = ' + (n <= 20 ? Math.pow(2, n).toLocaleString() : '≈ 10^' + Math.round(n * 0.301)), 14, 32);
+              if (detect) {
+                cx.fillStyle = 'rgba(255,217,61,0.6)';
+                cx.fillText('class A = top half (detected)', 14, H - 24);
+                cx.fillStyle = 'rgba(167,139,250,0.7)';
+                cx.fillText('class B = bottom half (silent) → only valid surviving class', 14, H - 10);
+              } else {
+                cx.fillStyle = 'rgba(78,205,196,0.6)';
+                cx.fillText('one equivalence class containing all slits → full interference', 14, H - 12);
+              }
+            }
+
+            window.updateInterp = function() {
+              var n = parseInt(document.getElementById('interp-slits').value, 10);
+              var detect = document.getElementById('interp-detector').checked;
+              document.getElementById('interp-count').textContent = n;
+              draw(n, detect);
+              var res = document.getElementById('interp-result');
+              if (n === 2) {
+                res.innerHTML = detect
+                  ? '<strong>Original double-slit, detector on:</strong> the {top} class is invalidated → only {bottom} survives. Standard particle pattern.'
+                  : '<strong>Original double-slit, detector off:</strong> all slits in one equivalence class → standard interference pattern.';
+              } else if (n === 4) {
+                res.innerHTML = detect
+                  ? '<strong>n=4: the powerset of Layer 8.</strong> 16 subsets total; only the equivalence class matching the detector partition survives. P2 prunes too-narrow subsets, P3 prunes cross-class subsets.'
+                  : '<strong>n=4: the powerset of Layer 8.</strong> 16 subsets total; only ∅ and the full set {A,B,C,D} are valid (one equivalence class). All others fail P2.';
+              } else if (n <= 16) {
+                res.innerHTML = detect
+                  ? '<strong>Mid-transition.</strong> The apparatus is dissolving but the equivalence-class structure is intact. P2/P3 still classify every one of the 2^n subsets.'
+                  : '<strong>Mid-transition.</strong> One equivalence class contains all paths, just as in the n=2 case. The pruning rule scales without modification.';
+              } else {
+                res.innerHTML = detect
+                  ? '<strong>Continuous limit.</strong> The discrete powerset becomes the outer integral ∫<sub>𝒫(X)</sub> in the Quantum Nexus, ranging over all subsets T of paths. A(T) → 0 on any subset containing a detected path; A(T) → 1 on subsets confined to the silent half. <strong>This is the full Quantum Nexus integral firing.</strong>'
+                  : '<strong>Continuous limit.</strong> The discrete powerset becomes ∫<sub>𝒫(X)</sub> dμ(T), with A(T) = 1 throughout (single equivalence class). What sits inside is a <em>double</em> path integral over pairs (q₁, q₂) producing probability mass directly — not a single wavefunction integral. The framework recovers standard quantum mechanics as the special case where no Aethic pruning fires.';
+              }
+            };
+            updateInterp();
+          })();
+          </script>
+
+          <p>The slider makes the central technical claim of Layer 10 inspectable: the move from discrete slits to continuous paths is not a separate construction layered on top of the powerset machinery, but a smooth limit of it. Every subset of slits at finite n becomes a subset of paths in the limit; the A(T) factor that classifies subsets as valid or invalid in the discrete case becomes the validity factor inside the integral in the continuous case. The framework's claim is that this is the correct structure underneath standard quantum mechanics—the Feynman path integral has been computing the right answer all along, but the structural reason it works is the Quantum Nexus.</p>
+
 
           <!-- BORN RULE ONSET -->
           <h4>The Born Rule Onset Principle</h4>
