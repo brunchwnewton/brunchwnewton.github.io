@@ -727,7 +727,7 @@ body.explorer-mode .detail { display: none !important; }
 
         <div class="formal">
           <span class="formal-label">The Accordance Principle (General Form)</span>
-          $$\frac{P(H \mid A')}{P(H \mid A)} \lesssim \frac{P(A)}{1 - P(A)}$$
+          <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$\frac{P(H \mid A')}{P(H \mid A)} \lesssim \frac{P(A)}{1 - P(A)}$$</div>
           <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;">For attribute $A$ of Earth's history and $H$ denoting human existence. $P(A)$ runs with respect to the Cosmic Nexus. This is "more likely true than not," not a certainty — but in conjunction with the High-Contrast Earth Hypothesis (Layer 5) it tightens to "almost surely."</div>
         </div>
 
@@ -740,155 +740,121 @@ body.explorer-mode .detail { display: none !important; }
         <p><strong>Node 1:</strong> Dinosaurs evolve ($A$, ~33%, since one of three Phanerozoic eras produced a dominant clade to that extent) vs. extended Paleozoic ($A'$, ~67%).<br>
         <strong>Node 2 (under $A$ only):</strong> K-Pg extinction succeeds with mammals surviving ($B \mid A$, ~13%, from crater-location analysis) vs. dinosaurs persist ($B' \mid A$, ~87%, and $P(H \mid B') \approx 0$ by dinosaurian dominance).</p>
 
-        <!-- INTERACTIVE TWO-NODE DIAGRAM -->
+        <!-- TWO-NODE DIAGRAM -->
       <div style="margin:2rem auto;max-width:560px;">
       <div style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.5rem;">
-        <div style="text-align:center;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-1);margin-bottom:0.5rem;font-weight:600;">The Two-Node Dinosaurian Circumstance</div>
-        <div style="text-align:center;font-size:0.78rem;color:var(--text-dim);margin-bottom:1rem;">Click each node to inspect the probability cascade</div>
-        <svg viewBox="0 0 560 530" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'DM Sans',system-ui,sans-serif;" id="twoNodeSvg">
-          <defs>
-            <style>
-              .tl{stroke:#444;stroke-width:1.8;fill:none;}
-              .tl-dash{stroke:#444;stroke-width:1.5;fill:none;stroke-dasharray:4,4;}
-              .t-bright{fill:#eeeef8;font-size:12px;font-weight:600;text-anchor:middle;}
-              .t-blue{fill:#60a5fa;font-size:11px;font-weight:600;text-anchor:middle;}
-              .t-gold{fill:#fbbf24;font-size:11px;font-weight:600;text-anchor:middle;}
-              .t-green{fill:#4ade80;font-size:13px;font-weight:700;text-anchor:middle;}
-              .t-red{fill:#f87171;font-size:11px;font-weight:600;text-anchor:middle;}
-              .t-dim{fill:#7a7a96;font-size:9.5px;text-anchor:middle;}
-              .t-cap{fill:#555;font-size:8.5px;text-anchor:middle;}
-              .fig{stroke:#c8c8de;stroke-width:1;fill:none;}
-              .fig-dim{stroke:#555;stroke-width:1;fill:none;}
-              .fig-x{stroke:#f87171;stroke-width:1.2;opacity:0.7;}
-              .interactive-node{cursor:pointer;transition:transform 0.2s;}
-              .interactive-node:hover circle{r:7;filter:drop-shadow(0 0 4px rgba(251,191,36,0.6));}
-              .branch-highlight{stroke-width:2.6;stroke:#fbbf24;}
-              .branch-dim{opacity:0.35;}
-            </style>
-          </defs>
+<svg viewBox="0 0 560 530" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'DM Sans',system-ui,sans-serif;">
+        <defs>
+          <style>
+            .tl{stroke:#444;stroke-width:1.8;fill:none;}
+            .tl-dash{stroke:#444;stroke-width:1.5;fill:none;stroke-dasharray:4,4;}
+            .t-bright{fill:#eeeef8;font-size:12px;font-weight:600;text-anchor:middle;}
+            .t-blue{fill:#60a5fa;font-size:11px;font-weight:600;text-anchor:middle;}
+            .t-gold{fill:#fbbf24;font-size:11px;font-weight:600;text-anchor:middle;}
+            .t-green{fill:#4ade80;font-size:13px;font-weight:700;text-anchor:middle;}
+            .t-red{fill:#f87171;font-size:11px;font-weight:600;text-anchor:middle;}
+            .t-dim{fill:#7a7a96;font-size:9.5px;text-anchor:middle;}
+            .t-cap{fill:#555;font-size:8.5px;text-anchor:middle;}
+            .fig{stroke:#c8c8de;stroke-width:1;fill:none;}
+            .fig-dim{stroke:#555;stroke-width:1;fill:none;}
+            .fig-x{stroke:#f87171;stroke-width:1.2;opacity:0.7;}
+          </style>
+        </defs>
 
-          <!-- NODE 1: center top -->
-          <g class="interactive-node" onclick="highlightBranch('node1')"><circle cx="280" cy="22" r="5" fill="#fbbf24"/></g>
+        <!-- NODE 1: center top -->
+        <circle cx="280" cy="22" r="5" fill="#fbbf24"/>
 
-          <!-- Left branch -->
-          <path d="M280,27 C200,27 160,40 160,82" class="tl" id="branch-left"/>
-          <!-- Right branch -->
-          <path d="M280,27 C360,27 400,40 400,82" class="tl" id="branch-right"/>
+        <!-- Left branch: timeline concavity (flat out, then drops) -->
+        <path d="M280,27 C200,27 160,40 160,82" class="tl"/>
+        <!-- Right branch: symmetric -->
+        <path d="M280,27 C360,27 400,40 400,82" class="tl"/>
 
-          <text x="160" y="60" class="t-bright">Dinosaurs Evolve</text>
-          <text x="160" y="75" class="t-blue">≤33%</text>
+        <text x="160" y="60" class="t-bright">Dinosaurs Evolve</text>
+        <text x="160" y="75" class="t-blue">≤33%</text>
 
-          <text x="400" y="60" class="t-bright">Dinosaurs Never Evolve</text>
-          <text x="400" y="75" class="t-gold">≥67%</text>
+        <text x="400" y="60" class="t-bright">Dinosaurs Never Evolve</text>
+        <text x="400" y="75" class="t-gold">≥67%</text>
 
-          <!-- NODE 2: under left -->
-          <g class="interactive-node" onclick="highlightBranch('node2')"><circle cx="160" cy="82" r="4" fill="#fbbf24"/></g>
+        <!-- NODE 2: under left -->
+        <circle cx="160" cy="82" r="4" fill="#fbbf24"/>
 
-          <!-- Left-left: extinct (good) -->
-          <path d="M160,87 C120,87 80,105 80,145" class="tl" id="branch-ll"/>
-          <text x="80" y="125" class="t-bright">Dinosaurs Extinct</text>
-          <text x="80" y="140" class="t-blue">≤13%</text>
+        <!-- Sub-branches: same timeline concavity -->
+        <path d="M160,86 C120,86 90,98 90,135" class="tl"/>
+        <path d="M160,86 C200,86 230,98 230,135" class="tl"/>
 
-          <!-- Left-right: persist (bad) -->
-          <path d="M160,87 C200,87 240,105 240,145" class="tl" id="branch-lr"/>
-          <text x="240" y="125" class="t-bright">Dinosaurs Never Extinct</text>
-          <text x="240" y="140" class="t-gold">≥87%</text>
+        <text x="90" y="120" class="t-bright" style="font-size:11px;">Extinct</text>
+        <text x="90" y="134" class="t-blue" style="font-size:10px;">≤13%</text>
 
-          <!-- Three terminal humanoid figures with probabilities -->
+        <text x="230" y="120" class="t-bright" style="font-size:11px;">Never Extinct</text>
+        <text x="230" y="134" class="t-gold" style="font-size:10px;">≥87%</text>
 
-          <!-- TERMINAL 1: under left-left (extinct) -->
-          <g transform="translate(80,180)">
-            <circle cx="0" cy="0" r="6" class="fig"/>
-            <line x1="0" y1="6" x2="0" y2="22" class="fig"/>
-            <line x1="0" y1="12" x2="-7" y2="20" class="fig"/>
-            <line x1="0" y1="12" x2="7" y2="20" class="fig"/>
-            <line x1="0" y1="22" x2="-5" y2="32" class="fig"/>
-            <line x1="0" y1="22" x2="5" y2="32" class="fig"/>
-          </g>
-          <text x="80" y="232" class="t-dim">Humans /</text>
-          <text x="80" y="244" class="t-dim">Mediocre Cons.</text>
-          <text x="80" y="258" class="t-dim">Evolve ≤100%</text>
-          <text x="80" y="282" class="t-green">≤4%</text>
+        <!-- RIGHT: dashed line down -->
+        <line x1="400" y1="86" x2="400" y2="148" class="tl-dash"/>
 
-          <!-- TERMINAL 2: under left-right (persist) -->
-          <g transform="translate(240,180)">
-            <circle cx="0" cy="0" r="6" class="fig-dim"/>
-            <line x1="0" y1="6" x2="0" y2="22" class="fig-dim"/>
-            <line x1="0" y1="12" x2="-7" y2="20" class="fig-dim"/>
-            <line x1="0" y1="12" x2="7" y2="20" class="fig-dim"/>
-            <line x1="0" y1="22" x2="-5" y2="32" class="fig-dim"/>
-            <line x1="0" y1="22" x2="5" y2="32" class="fig-dim"/>
-            <line x1="-9" y1="-7" x2="9" y2="35" class="fig-x"/>
-            <line x1="9" y1="-7" x2="-9" y2="35" class="fig-x"/>
-          </g>
-          <text x="240" y="232" class="t-dim">Humans /</text>
-          <text x="240" y="244" class="t-dim">Mediocre Cons.</text>
-          <text x="240" y="258" class="t-dim">Evolve ≈0%</text>
-          <text x="240" y="282" class="t-red">≈0%</text>
+        <!-- ═══ LEAF ZONE ═══ -->
 
-          <!-- TERMINAL 3: under right (no dinosaurs) -->
-          <g transform="translate(420,180)">
-            <circle cx="0" cy="0" r="6" class="fig"/>
-            <line x1="0" y1="6" x2="0" y2="22" class="fig"/>
-            <line x1="0" y1="12" x2="-7" y2="20" class="fig"/>
-            <line x1="0" y1="12" x2="7" y2="20" class="fig"/>
-            <line x1="0" y1="22" x2="-5" y2="32" class="fig"/>
-            <line x1="0" y1="22" x2="5" y2="32" class="fig"/>
-            <path d="M 8,8 Q 18,2 22,-2" class="fig" stroke-dasharray="2,2"/>
-            <text x="32" y="0" class="t-dim" style="text-anchor:start;">?</text>
-          </g>
-          <text x="420" y="232" class="t-dim">Humans /</text>
-          <text x="420" y="244" class="t-dim">Mediocre Cons.</text>
-          <text x="420" y="258" class="t-dim">Evolve ≤6%</text>
-          <text x="420" y="282" class="t-red">≤4%</text>
+        <!-- Leaf 1: Extinct path -->
+        <circle cx="90" cy="158" r="5" class="fig"/>
+        <line x1="90" y1="163" x2="90" y2="175" class="fig"/>
+        <line x1="90" y1="175" x2="84" y2="185" class="fig"/>
+        <line x1="90" y1="175" x2="96" y2="185" class="fig"/>
+        <line x1="90" y1="167" x2="82" y2="173" class="fig"/>
+        <line x1="90" y1="167" x2="98" y2="173" class="fig"/>
+        <text x="90" y="202" class="t-dim">P(H) ≤100%</text>
+        <text x="90" y="224" class="t-green">≤4%</text>
 
-          <!-- Comparison brackets and equation at the bottom -->
-          <text x="160" y="340" class="t-cap" style="font-size:10px;">Realized Path</text>
-          <text x="420" y="340" class="t-cap" style="font-size:10px;">Counterfactual</text>
+        <!-- Leaf 2: Never Extinct -->
+        <circle cx="230" cy="158" r="5" class="fig-dim"/>
+        <line x1="230" y1="163" x2="230" y2="175" class="fig-dim"/>
+        <line x1="230" y1="175" x2="224" y2="185" class="fig-dim"/>
+        <line x1="230" y1="175" x2="236" y2="185" class="fig-dim"/>
+        <line x1="230" y1="167" x2="222" y2="173" class="fig-dim"/>
+        <line x1="230" y1="167" x2="238" y2="173" class="fig-dim"/>
+        <line x1="222" y1="153" x2="238" y2="173" class="fig-x"/>
+        <line x1="238" y1="153" x2="222" y2="173" class="fig-x"/>
+        <text x="230" y="202" class="t-dim">P(H) ≈0%</text>
+        <text x="230" y="224" class="t-red">≈0%</text>
 
-          <line x1="80" y1="350" x2="80" y2="370" stroke="#4ade80" stroke-width="1.5"/>
-          <line x1="80" y1="370" x2="240" y2="370" stroke="#4ade80" stroke-width="1.5"/>
-          <line x1="240" y1="350" x2="240" y2="370" stroke="#4ade80" stroke-width="1.5"/>
-          <text x="160" y="390" class="t-green" style="font-size:14px;">≤4%</text>
+        <!-- Leaf 3: Never Evolve -->
+        <circle cx="400" cy="158" r="5" stroke="#7a7a96" stroke-width="1" fill="none"/>
+        <line x1="400" y1="163" x2="400" y2="175" stroke="#7a7a96" stroke-width="1"/>
+        <line x1="400" y1="175" x2="394" y2="185" stroke="#7a7a96" stroke-width="1"/>
+        <line x1="400" y1="175" x2="406" y2="185" stroke="#7a7a96" stroke-width="1"/>
+        <line x1="400" y1="167" x2="392" y2="173" stroke="#7a7a96" stroke-width="1"/>
+        <line x1="400" y1="167" x2="408" y2="173" stroke="#7a7a96" stroke-width="1"/>
+        <text x="400" y="202" class="t-dim">P(H) ≤6%</text>
+        <text x="400" y="224" class="t-green">≤4%</text>
 
-          <text x="320" y="395" class="t-bright" style="font-size:18px;">≥</text>
+        <!-- ═══ COMBINING ═══ -->
+        <path d="M90,234 L90,248 L230,248 L230,234" fill="none" stroke="#444" stroke-width="1"/>
+        <text x="160" y="252" style="fill:#666;font-size:12px;text-anchor:middle;">+</text>
+        <line x1="160" y1="254" x2="160" y2="298" stroke="#444" stroke-width="1"/>
+        <text x="160" y="316" class="t-green">≤4%</text>
 
-          <line x1="420" y1="350" x2="420" y2="370" stroke="#f87171" stroke-width="1.5"/>
-          <text x="420" y="390" class="t-red" style="font-size:14px;">≤4%</text>
+        <line x1="400" y1="234" x2="400" y2="308" stroke="#444" stroke-width="1"/>
+        <text x="400" y="316" class="t-green">≤4%</text>
 
-          <text x="280" y="425" class="t-dim" style="font-size:10px;">Combined cap from accumulated cascading attributes:</text>
-          <text x="280" y="445" class="t-bright" style="font-size:13px;font-weight:600;">P(H) ≤ 8% per biosphere</text>
-          <text x="280" y="465" class="t-cap">(further attributes drive this toward ~10⁻²⁷)</text>
+        <!-- Accordance: split dashed line with ≥ in gap -->
+        <line x1="198" y1="313" x2="252" y2="313" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <line x1="308" y1="313" x2="362" y2="313" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <text x="280" y="308" style="fill:#fbbf24;font-size:22px;font-weight:700;text-anchor:middle;">≥</text>
+        <text x="280" y="340" class="t-dim" style="font-size:8px;letter-spacing:0.06em;">ACCORDANCE PRINCIPLE</text>
 
-          <text x="280" y="500" class="t-dim" style="font-size:10px;font-style:italic;">Full derivation in the deep dive below</text>
-        </svg>
+        <!-- Convergence -->
+        <path d="M160,326 C160,370 280,370 280,392" fill="none" stroke="#4ade80" stroke-width="1" opacity="0.35"/>
+        <path d="M400,326 C400,370 280,370 280,392" fill="none" stroke="#4ade80" stroke-width="1" opacity="0.35"/>
+
+        <!-- Final box -->
+        <rect x="230" y="388" width="100" height="34" rx="5" fill="rgba(248,113,113,0.06)" stroke="rgba(248,113,113,0.3)" stroke-width="1"/>
+        <text x="280" y="410" style="fill:#f87171;font-size:14px;font-weight:700;text-anchor:middle;">P(H) ≤ 8%</text>
+
+        <!-- Caption -->
+        <text x="280" y="455" class="t-cap">The two-node dinosaurian circumstance.</text>
+        <text x="280" y="468" class="t-cap">The left branch (≤4%) must be ≥ the right branch (≤4%)</text>
+        <text x="280" y="481" class="t-cap">by the Accordance Principle, bounding P(H) ≤ 8% per biosphere.</text>
+      </svg>
       </div>
       </div>
-
-      <script>
-      function highlightBranch(node) {
-        const left = document.getElementById('branch-left');
-        const right = document.getElementById('branch-right');
-        const ll = document.getElementById('branch-ll');
-        const lr = document.getElementById('branch-lr');
-        if (!left) return;
-        // Reset
-        [left, right, ll, lr].forEach(b => {
-          b.classList.remove('branch-highlight');
-          b.classList.remove('branch-dim');
-        });
-        if (node === 'node1') {
-          // Highlight the realized path (left → left-left)
-          left.classList.add('branch-highlight');
-          ll.classList.add('branch-highlight');
-          right.classList.add('branch-dim');
-          lr.classList.add('branch-dim');
-        } else if (node === 'node2') {
-          ll.classList.add('branch-highlight');
-          lr.classList.add('branch-dim');
-        }
-      }
-      </script>
 
       <div class="technical-only">
         <p>Working through the math: starting from the realized path, the joint probability $P(H \cap B \cap A) = P(H \mid B) \cdot P(B \mid A) \cdot P(A) \leq 1 \cdot 0.13 \cdot 0.33 \approx 0.043$ — call it ≤4% per biosphere just from the dinosaurian context. The Accordance Principle then constrains the counterfactual: the no-dinosaurs branch is bounded above by this same ≤4% (via $P(H \mid (B \cap A)') \gtrsim P(H \cap B \cap A)$), so a world without dinosaurs is at most ~6% as likely to produce humans as the world we live in.</p>
@@ -924,14 +890,14 @@ body.explorer-mode .detail { display: none !important; }
           <h4>The Full Derivation</h4>
           <p>Begin with the Aethic mediocrity principle: of all observers across all observer-producing histories, you are a typical sample. Formally, $P(\text{you} \mid A_i) \propto P(H \mid A_i)$ — your existence-probability under each history is proportional to that history's observer-production probability. By Bayes:</p>
           <div class="formal">
-            $$P(A_i \mid H) = \frac{P(H \mid A_i) \cdot P(A_i)}{P(H)}$$
+            <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$P(A_i \mid H) = \frac{P(H \mid A_i) \cdot P(A_i)}{P(H)}$$</div>
           </div>
           <p>For two competing histories $A$ (realized) and $A'$ (counterfactual), since you are likelier to find yourself in the more probable history under your existence:</p>
           <div class="formal">
-            $$P(A \mid H) \gtrsim P(A' \mid H)$$
+            <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$P(A \mid H) \gtrsim P(A' \mid H)$$</div>
             <p style="margin:0.5rem 0 0;">Substituting and simplifying:</p>
-            $$P(H \mid A) \cdot P(A) \gtrsim P(H \mid A') \cdot P(A')$$
-            $$\Rightarrow \frac{P(H \mid A')}{P(H \mid A)} \lesssim \frac{P(A)}{P(A')}$$
+            <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$P(H \mid A) \cdot P(A) \gtrsim P(H \mid A') \cdot P(A')$$</div>
+            <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$\Rightarrow \frac{P(H \mid A')}{P(H \mid A)} \lesssim \frac{P(A)}{P(A')}$$</div>
           </div>
           <p>For a binary partition where $A' = \bar{A}$, this becomes the standard form: $\frac{P(H \mid A')}{P(H \mid A)} \lesssim \frac{P(A)}{1-P(A)}$.</p>
 
@@ -945,7 +911,7 @@ body.explorer-mode .detail { display: none !important; }
           <h4>Existential Linkage</h4>
           <div class="formal">
             <span class="formal-label">Existential Linkage</span>
-            $$L_A = \frac{P(H \mid A) - P(H \mid A')}{P(H \mid A) + P(H \mid A')}$$
+            <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$L_A = \frac{P(H \mid A) - P(H \mid A')}{P(H \mid A) + P(H \mid A')}$$</div>
             <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;">$L_A > 0$: $A$ favors observers. $L_A < 0$: disfavors. $L_A = 0$: statistical independence. Rewriting the Accordance Principle in terms of $L_A$: $\boldsymbol{L_A \gtrsim 1 - 2P(A)}$. For any attribute with low cosmic probability, existential linkage must be close to 1: unlikely events in our history are almost certainly anthropic parameters.</div>
           </div>
           <p>The existential linkage formalism has practical use in distinguishing genuine anthropic parameters from accidents. Statistical-independence ($L_A = 0$) means the attribute is decoupled from observer existence — Aimless Optimation (Layer 4) applies, and the attribute can be used as a control case. High positive linkage means the attribute is structurally necessary; high negative linkage means its presence would have prevented us, and we should be suspicious of any history that contains it.</p>
@@ -1039,7 +1005,7 @@ body.explorer-mode .detail { display: none !important; }
         <div class="formal">
           <span class="formal-label">The Theorem of Aimless Optimation</span>
           If some attribute $X$ is statistically independent of Aetherian existence ($\tilde{H}$), then it operates precisely as it would under the Cosmic Nexus alone:
-          $$P(X \cap \tilde{H} \mid N_0) = P(X \mid N_0) \cdot P(\tilde{H} \mid N_0) \;\Rightarrow\; P(X \mid N_0) = P(X \mid \tilde{H} \cap N_0)$$
+          <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$P(X \cap \tilde{H} \mid N_0) = P(X \mid N_0) \cdot P(\tilde{H} \mid N_0) \;\Rightarrow\; P(X \mid N_0) = P(X \mid \tilde{H} \cap N_0)$$</div>
           <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;">When an attribute has no effect on whether observers eventually exist, Optimation and the Cosmic Nexus agree. This seemingly simple theorem has profound methodological consequences.</div>
         </div>
 
@@ -1159,7 +1125,7 @@ body.explorer-mode .detail { display: none !important; }
 
         <div class="formal">
           <span class="formal-label">The Strong Accordance Principle</span>
-          $$\frac{P(H \mid A')}{P(H \mid A)} < \frac{P(A)}{1 - P(A)}$$
+          <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$\frac{P(H \mid A')}{P(H \mid A)} < \frac{P(A)}{1 - P(A)}$$</div>
           <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;">The strict inequality (not just $\lesssim$) holds almost surely once the High-Contrast Earth Hypothesis is incorporated. The mediocrity bound becomes effectively absolute.</div>
         </div>
 
@@ -1547,9 +1513,9 @@ body.explorer-mode .detail { display: none !important; }
     </div><div class="explorer-body">
         <p>Picture a mammal in the late Cretaceous. Picture it specifically, not abstractly: about the size of a chipmunk, fur, large eyes. It is your direct ancestor, and it is alive on a Tuesday roughly 75 million years ago. The Sun is going down. It has spent the day in a burrow, motionless, because moving in daylight is not survivable. As the light fades, it emerges. Its job, from this moment until dawn, is to find enough food to live another day without being killed by something that is far better at killing than it is at hiding.</p>
 
-        <p>The "something" is not a metaphor. The world above the burrow is dominated by theropod dinosaurs &mdash; bipedal predators whose body plans have been refined by 160 million years of evolution into anatomical killing machines that have no analogue in the modern world. The visceral instinct to picture a tiger here, or a wolf, badly underestimates what is actually present. A modern paradigm comparing dinosaurs to extant predators rates them by weight, which is wrong. Anatomically, a mid-sized theropod like <em>Dakotaraptor</em> overpowers a big cat the way a lion overpowers an unarmed human &mdash; a fight measured in seconds, not because the dinosaur is heavier but because its sickle claws, jaw mechanics, and posture are purpose-built weapons against which any modern predator is essentially undefended. The land was overrun by these creatures, in a way that is genuinely difficult to overstate. By any measure of evolutionary fitness, our mammal ancestors had no answer.</p>
+        <p>The "something" is not a metaphor. The world above the burrow is dominated by theropod dinosaurs &mdash; bipedal predators whose body plans have been refined by 160 million years of evolution into anatomical killing machines that have no analogue in the modern world. As the framework's videos put it, the Mesozoic environment was an environment that <em>"would seem alien to us in the present"</em> &mdash; over 100 million years of natural history during which our ancestors lived under a constant state of terror. The visceral instinct to picture a tiger here, or a wolf, badly underestimates what is actually present. A modern paradigm comparing dinosaurs to extant predators rates them by weight, which is wrong. Anatomically, a mid-sized theropod like <em>Dakotaraptor</em> overpowers a big cat the way a lion overpowers an unarmed human &mdash; a fight measured in seconds, not because the dinosaur is heavier but because its sickle claws, jaw mechanics, and posture are purpose-built weapons against which any modern predator is essentially undefended. The land was overrun by these creatures, in a way that is genuinely difficult to overstate. By any measure of evolutionary fitness, our mammal ancestors had no answer.</p>
 
-        <p>Their strategy was the only one available: hide. Go nocturnal. Stay small. Stay underground. Burrow, scavenge, never compete. The Synapsids &mdash; the broader mammal-like-reptile clade that had once dominated the Permian, before being knocked back almost completely &mdash; survived the entire Mesozoic this way, with mammals as its surviving subclade. The framework calls this stretch the <strong>Dark Era of Human Evolution</strong>: dark in a literal sense (our ancestors were nocturnal for over a hundred million years) and dark in a literary sense (a prolonged stretch of perpetual freefall under threats from creatures Ajax describes in his videos as "the phantom predators of the dark era," "nocturnal monsters," "literal shadows in the night").</p>
+        <p>Their strategy was the only one available: hide. Go nocturnal. Stay small. Stay underground. Burrow, scavenge, never compete. The Synapsids &mdash; the broader mammal-like-reptile clade that had once dominated the Permian, before being knocked back almost completely &mdash; survived the entire Mesozoic this way, with mammals as its surviving subclade. The framework calls this stretch the <strong>Dark Era of Human Evolution</strong>: dark in a literal sense, since our ancestors were nocturnal for over a hundred million years, and dark in a literary sense as well &mdash; what the videos describe as a kind of <em>"surreal hellscape in the distant past,"</em> a prolonged perpetual freefall under threats from creatures Ajax calls <em>"the phantom predators of the dark era."</em></p>
 
         <div class="analogy">
           <strong>Now turn the camera around.</strong> If you ask why the mammalian brain is so much more developed than the dinosaur brain &mdash; why a small Cretaceous mammal had a richer affective life than a massive contemporary theropod &mdash; the framework's answer is that the brain was forged by exactly this pressure. To survive in that world, our ancestors needed to process huge volumes of safety data on the fly: who is nearby, what direction did that sound come from, what does this scent mean, when can I move, when must I freeze. The structure that does this work is the <strong>limbic system</strong> &mdash; the distinctively mammalian portion of the brain that handles emotion, fear, memory, attention, motivation. Layer 3 derived that a world without dinosaurs would have produced humans at maybe a fifteenth the rate of the world that did have them. The Dark Era is what was happening during that productivity gap. The thing the dinosaur pressure was producing, mostly invisibly while being terrifying for our ancestors in real time, was the substrate of human consciousness itself.
@@ -1625,7 +1591,7 @@ body.explorer-mode .detail { display: none !important; }
 
         <div class="formal">
           <span class="formal-label">Chicxulub Mass-Optimality</span>
-          $$P(H \mid M=m) \leq k \cdot m$$
+          <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$P(H \mid M=m) \leq k \cdot m$$</div>
           <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;">The probability of human existence given a different impactor mass is at most proportional to that mass. <em>Chicxulub's specific mass was near-optimal.</em> A larger impactor would have wiped out the mammals along with the dinosaurs; a smaller one wouldn't have ended the theropods' reign. The mass we got is the one that maximizes our existence-probability.</div>
         </div>
 
@@ -1734,9 +1700,9 @@ body.explorer-mode .detail { display: none !important; }
 
         <div class="formal">
           <span class="formal-label">The Rare Earth Derivation</span>
-          $$P(A) \cdot P(H \mid A) \gtrsim P(A') \cdot P(H \mid A')$$
-          $$\Rightarrow\; 2\, P(A) \cdot P(H \mid A) \gtrsim P(H)$$
-          $$\Rightarrow\; P(H) \lesssim 2\, P(A)$$
+          <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$P(A) \cdot P(H \mid A) \gtrsim P(A') \cdot P(H \mid A')$$</div>
+          <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$\Rightarrow\; 2\, P(A) \cdot P(H \mid A) \gtrsim P(H)$$</div>
+          <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$\Rightarrow\; P(H) \lesssim 2\, P(A)$$</div>
         </div>
 
         <p>That is the entire derivation. <em>One algebraic step</em> separates the Accordance Principle from a quantitative bound on observer probability per biosphere. Using the dinosaurian two-node result ($P(A) \lesssim 4\%$ for the combined probability of dinosaurs evolving and going extinct with mammals surviving): <span class="hl2">$P(H) \lesssim 1/12$ per biosphere</span>. Extrapolated over Earth's full history via further circumstantial attributes: <span class="hl3">$P(H) \sim 10^{-27}$ at planetary formation</span>. The novel aspect is not the conclusion (others have argued for Rare Earth) but the method: this is claimed as the first derivation of a Fermi paradox solution from a falsifiable principle.</p>
@@ -1745,7 +1711,7 @@ body.explorer-mode .detail { display: none !important; }
 
         <div class="formal">
           <span class="formal-label">Existential Linkage</span>
-          $$L_A = \frac{P(H \mid A) - P(H \mid A')}{P(H \mid A) + P(H \mid A')}$$
+          <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$L_A = \frac{P(H \mid A) - P(H \mid A')}{P(H \mid A) + P(H \mid A')}$$</div>
           <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.5rem;">$L_A > 0$: $A$ favors observers. $L_A < 0$: disfavors. $L_A = 0$: statistical independence. Rewriting the Accordance Principle in terms of $L_A$: <strong>$L_A \gtrsim 1 - 2P(A)$</strong>. For any attribute with low cosmic probability, existential linkage must be close to 1: unlikely events in our history are almost certainly anthropic parameters.</div>
         </div>
 
@@ -1775,7 +1741,7 @@ body.explorer-mode .detail { display: none !important; }
           <p>The order counts how many inductive applications of the Accordance Principle separate a claim from empirical evidence. Zero-order: direct empirical statement. First-order: one application. The recursive definition ensures the minimal order is always used (analogous to ODE classification by highest derivative):</p>
           <div class="formal">
             <span class="formal-label">Order of a Nexic Argument</span>
-            $$O(X) = \min_{D \in \mathcal{D}(X)} \left[ 0 \text{ if } D = \emptyset, \;\text{else } 1 + \max_{Y \in D} O(Y) \right]$$
+            <div style="text-align:center;padding:0.5rem 0;overflow-x:auto;">$$O(X) = \min_{D \in \mathcal{D}(X)} \left[ 0 \text{ if } D = \emptyset, \;\text{else } 1 + \max_{Y \in D} O(Y) \right]$$</div>
           </div>
           <p>This provides a rigorous way to assess inferential distance and epistemic risk of any Nexic prediction. A first-order prediction (like dinosaurian peak prosperity, derived directly from Aimless Optimation) carries less epistemic risk than a higher-order prediction (like Hadean origin of life, derived via Nexic Packaging from a separate first-order trend). Both are legitimate, but the higher-order ones should be tested first or held with proportionally less confidence.</p>
 
@@ -1981,7 +1947,7 @@ body.explorer-mode .detail { display: none !important; }
 
         <p>The framework's most direct statement of all of this lives in the videos rather than the papers:</p>
 
-        <blockquote style="border-left:3px solid var(--accent-1);padding-left:1.2rem;margin:1.2rem 0;font-size:1.02rem;line-height:1.55;color:var(--text);">Probably one of the most significant events in the history of civilization is that moment when you realize how empty the universe is of life. Maybe I've given you that moment just now, or maybe it's still coming up for you.<br><br>What's so important about it is not the realization itself, but the way you choose to react to it. We live in a funny time where the prevailing response is pessimistic dread that builds some form or another of nihilism. But you see, this could not be more ironic, because the correct response, I would argue, is the utter opposite.<br><br>We have to treat this with pure, soul spanning optimism. Okay, sure, we're surrounded by a cosmic graveyard. But guess what? You made it, and I made it. It's a fantastic journey and triumph against the ultimate challenge. And by ultimate, I mean ultimate. There's something beautiful and unprecedented about this world that words can scarcely depict. And here you are, a part of that world. Living and breathing with it.<br><br><span style="font-size:1.15rem;font-weight:600;">You have no idea how special you are.</span></blockquote>
+        <blockquote style="border-left:3px solid var(--accent-1);padding-left:1.2rem;margin:1.2rem 0;font-size:1.02rem;line-height:1.55;color:var(--text);">Probably one of the most significant events in the history of civilization is that moment when you realize how empty the universe is of life. Maybe I've given you that moment just now, or maybe it's still coming up for you.<br><br>What's so important about it is not the realization itself, but the way you choose to react to it. We live in a funny time where the prevailing response is pessimistic dread that builds some form or another of nihilism. But you see, this could not be more ironic, because the correct response, I would argue, is the utter opposite.<br><br>We have to treat this with pure, soul spanning optimism. Okay, sure, we're surrounded by a cosmic graveyard. But guess what? You made it. And it's a fantastic journey and triumph against the ultimate challenge. And by ultimate, I mean ultimate. There's something beautiful and unprecedented about this world that words can scarcely depict. And here you are, a part of that world. Living and breathing with it.<br><br><span style="font-size:1.15rem;font-weight:600;">You have no idea how special you are.</span></blockquote>
 
 
         <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the philosophical scaffolding &mdash; what the postmodern settlement was, why Nexic reasoning constitutes a third route? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(251,191,36,0.3);">Switch to Technical mode</a>.</p>
@@ -2038,10 +2004,6 @@ function setMode(mode) {
       var newRect = anchorLayer.getBoundingClientRect();
       window.scrollBy(0, newRect.top - anchorOffset);
     });
-  }
-
-  if (window.MathJax && window.MathJax.typesetPromise) {
-    window.MathJax.typesetPromise();
   }
 }
 
