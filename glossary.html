@@ -67,6 +67,64 @@ body {
 .glossary-search:focus { border-color: rgba(110,92,255,0.4); }
 .glossary-search::placeholder { color: var(--text-dim); }
 
+/* Instance filter toggle */
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 420px;
+  margin: -1.8rem auto 2.5rem;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  user-select: none;
+}
+.filter-toggle label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+.filter-toggle label:hover { color: var(--text); background: rgba(110,92,255,0.05); }
+.filter-toggle input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--bg-layer);
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.filter-toggle input[type="checkbox"]:hover { border-color: rgba(110,92,255,0.4); }
+.filter-toggle input[type="checkbox"]:checked {
+  background: var(--accent-1);
+  border-color: var(--accent-1);
+}
+.filter-toggle input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.filter-toggle .filter-hint {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  opacity: 0.6;
+}
+.gterm[data-kind="instance"].filtered-out { display: none; }
+
 /* Letter headings */
 .letter-heading {
   font-family: 'Cormorant Garamond', serif;
@@ -143,6 +201,14 @@ body {
 <p class="glossary-intro">Every framework-specific term used in the Aethic and Nexic reasoning guides, defined in one or two sentences with cross-references to the layer where each appears.</p>
 
 <input type="text" class="glossary-search" id="glossary-search" placeholder="Search terms…" oninput="filterGlossary()">
+
+<div class="filter-toggle">
+  <label>
+    <input type="checkbox" id="show-instances" onchange="filterGlossary()">
+    <span>Show instance cases</span>
+    <span class="filter-hint">(specific worked examples)</span>
+  </label>
+</div>
 
 <!-- ═══ A ═══ -->
 <div class="letter-heading">A</div>
@@ -221,6 +287,12 @@ body {
 </div>
 
 
+<div class="gterm" id="g-aethic-markov-chain" data-aliases="Aethic Markov Chain|Markov chain of block universes|Markov chain" data-terms="aethic markov chain block universe transitions extrusion">
+  <div class="gterm-name">Aethic Markov Chain <span class="framework-tag tag-aethic">Aethic</span></div>
+  <div class="gterm-def">The structural object the Extrusion Principle replaces single-timeline ontology with: a chain of complete, static, relativistic block universes, with observer-experienced time being movement along the chain rather than within any one of them. Each transition between blocks is driven by the acquisition of new information; each block is itself permanent and holds its Aethic superposition content indefinitely. The structural facet of the Extrusion Principle.</div>
+  <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-1">Aethic Layer 1</a></div>
+</div>
+
 <div class="gterm" id="g-aethic-mediocrity" data-aliases="Aethic mediocrity principle|Aethic mediocrity|mediocrity principle" data-terms="mediocrity principle typical quantile confidence">
   <div class="gterm-name">Aethic Mediocrity Principle <span class="framework-tag tag-aethic">Aethic</span> <span class="framework-tag tag-nexic">Nexic</span></div>
   <div class="gterm-def">An Aethus B is mediocre in parent A if, under some probability distribution over a partition of A, B lies in the central quantile interval. The engine behind both self-mediocrity and cosmic mediocrity. Applied to oneself, it yields the postulate of self-mediocrity; applied to the cosmos, it yields the postulate of cosmic mediocrity.</div>
@@ -239,6 +311,12 @@ body {
   <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-5">Aethic Layer 5</a></div>
 </div>
 
+
+<div class="gterm" id="g-aethic-stratification" data-aliases="Aethic stratification|Aethic Stratification" data-terms="aethic stratification observers different block universes wigner friend consistency">
+  <div class="gterm-name">Aethic Stratification <span class="framework-tag tag-aethic">Aethic</span></div>
+  <div class="gterm-def">The structural arrangement under which observers with different information genuinely occupy different Aethae and therefore different block universes, with each correct about their situation relative to their own Aethus. The shape the Wigner&rsquo;s Friend and Frauchiger&ndash;Renner setups leave behind once the First Postulate is in place: no single shared description forces conflict, because the observers&rsquo; predictions are about distinct Aethic block universes rather than a single shared one.</div>
+  <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-2">Aethic Layer 2</a></div>
+</div>
 
 <div class="gterm" id="g-aethic-superposition" data-aliases="Aethic superposition|superposition|superpositions|in superposition" data-terms="superposition quantum aethic agreeing disagreeing">
   <div class="gterm-name">Aethic Superposition <span class="framework-tag tag-aethic">Aethic</span></div>
@@ -316,12 +394,24 @@ body {
   <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-3">Nexic Layer 3</a></div>
 </div>
 
+<div class="gterm" id="g-anthropic-facet" data-aliases="Anthropic Facet|anthropic facet of the Exotic Accordance Principle" data-terms="anthropic facet exotic accordance prerequisite miracle inference">
+  <div class="gterm-name">Anthropic Facet <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The second facet of the Exotic Accordance Principle. Takes the regime classification (established by the Category Facet) as input and outputs the anthropic-necessity claim: established exotic structure in one&rsquo;s block-universe past is almost surely a Prerequisite to observer-existence, because its presence would otherwise be a cosmic fluke. Conjoined with the Category Facet, produces the Miracle classification via the two-step inference.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
+</div>
+
 <div class="gterm" id="g-anthropic-parameter" data-aliases="anthropic parameter|anthropic parameters|circumstantial anthropic parameter|circumstantial anthropic parameters" data-terms="anthropic parameter circumstantial physical">
   <div class="gterm-name">Anthropic Parameter <span class="framework-tag tag-nexic">Nexic</span></div>
   <div class="gterm-def">Any feature of reality that served as a requisite for human existence. Physical anthropic parameters are numerical constants (gravitational constant, fine-structure constant). Circumstantial anthropic parameters are historical events (K-Pg extinction, endosymbiosis). Nexic reasoning’s founding insight is that no principled distinction separates the two.</div>
   <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-1">Nexic Layer 1</a></div>
 </div>
 
+
+<div class="gterm" id="g-assembly-index" data-aliases="assembly index|Assembly Index|assembly-index bimodal signature|assembly theory" data-terms="assembly index bimodal molecular biological non-biological sharma 2023">
+  <div class="gterm-name">Assembly-Index Bimodal Signature <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The empirical signature the Exotic Principle predicts at the molecular scale: biological molecules and non-biological molecules cluster categorically separately on the assembly-index distribution (Sharma et al. 2023), with no smooth gradient between them. The molecular-scale version of the bimodal hazard-rate regime, treated by the framework as a scale-model projection of the same exotic-versus-common structure dichotomy that shows up at the natural-historical scale (K-Pg, eukaryotic merger, &alpha;-gal, Ha&#539;eg).</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
+</div>
 
 <div class="gterm" id="g-attentor-contentor" data-aliases="attentor|contentor|attentors|contentors" data-terms="attentor contentor selection pressure predation">
   <div class="gterm-name">Attentor / Contentor <span class="framework-tag tag-nexic">Nexic</span></div>
@@ -337,6 +427,12 @@ body {
 
 <!-- ═══ B ═══ -->
 <div class="letter-heading">B</div>
+
+<div class="gterm" id="g-bimodal-regime" data-aliases="Bimodal Hazard-Rate Regime|bimodal regime|bimodal distribution|bimodal structure" data-terms="bimodal hazard rate regime common exotic structure regimes categorical separation">
+  <div class="gterm-name">Bimodal Hazard-Rate Regime <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The structural feature of Aethic hazard-rate distributions the Exotic Principle names: natural history under Optimation clusters into two categorically separated regimes &mdash; common structure (where most cosmic processes live) and exotic structure (where Miracle-class events live) &mdash; with the intermediate region almost empty. The underlying probabilistic substrate is continuous; the categorical separation is the empirical signature of how Optimation populates that substrate, not a discontinuity in the substrate itself.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
+</div>
 
 <div class="gterm" id="g-biological-hyperblock" data-aliases="biological hyperblock|the biological hyperblock" data-terms="biological hyperblock cartesian product aethic dimension cosmos">
   <div class="gterm-name">Biological Hyperblock <span class="framework-tag tag-nexic">Nexic</span></div>
@@ -378,10 +474,22 @@ body {
 <div class="letter-heading">C</div>
 
 
+<div class="gterm" id="g-cancelled-flight" data-aliases="cancelled flight|cancelled flight illustration|canceled flight" data-terms="cancelled flight wretched evolution k-pg miracle tragedy">
+  <div class="gterm-name">Cancelled Flight Illustration <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The framework&rsquo;s canonical analogy for wretched evolution: a catastrophe that turns out to have opened the only door one could have walked through, the way a cancelled flight occasionally turns out to have saved the would-be passenger&rsquo;s life. The K-Pg extinction is the framework&rsquo;s flagship cancelled-flight case &mdash; an asteroid impact that, on its own merits, would read as a tragedy, but which retrospectively appears as the cancelled flight that routed our lineage through to the present.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-6">Nexic Layer 6</a></div>
+</div>
+
 <div class="gterm" id="g-case-c" data-aliases="Case C|macroscopic Aethic coherence|macroscopic scenario interaction" data-terms="case c prediction macroscopic coherence">
   <div class="gterm-name">Case C <span class="framework-tag tag-aethic">Aethic</span></div>
   <div class="gterm-def">The new prediction: macroscopic scenario interaction without wave behavior. Standard physics has one knob for the quantum-to-classical transition (scale). Aethic reasoning has two independent knobs (scale and information structure). Case C is what happens when scale is classical but information is permanently hidden. The billiard ball experiment is a Case C system.</div>
   <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-9">Aethic Layer 9</a></div>
+</div>
+
+<div class="gterm" id="g-category-facet" data-aliases="Category Facet|category facet of the Exotic Accordance Principle" data-terms="category facet exotic accordance regime classification improbability">
+  <div class="gterm-name">Category Facet <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The first facet of the Exotic Accordance Principle. Takes empirical improbability as input and outputs the regime classification: any extraordinarily improbable event occurring in the observer&rsquo;s block-universe past must be exotic structure rather than ordinary common-structure variation, since common structure is defined by intrinsic-rate-matches-realized-rate and the established improbability is exactly the case where these come apart. Conjoined with the Anthropic Facet, produces the Miracle classification via the two-step inference.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
 </div>
 
 <div class="gterm" id="g-centric-unfolding" data-aliases="centric unfolding|Centric unfolding" data-terms="centric unfolding kinematics">
@@ -394,6 +502,12 @@ body {
   <div class="gterm-name">Checkmate (vs. Check) <span class="framework-tag tag-aethic">Aethic</span></div>
   <div class="gterm-def"><em>Check</em>: a single child Aethus is invalid (one future leads to contradiction, but escape routes exist). <em>Checkmate</em>: every child Aethus has at least one invalid grandchild — no escape route exists. The Third Postulate invalidates an Aethus only on checkmate, not mere check.</div>
   <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-7">Aethic Layer 7</a></div>
+</div>
+
+<div class="gterm" id="g-common-structure" data-aliases="common structure|Common Structure" data-terms="common structure intrinsic realized frequency match ordinary cosmic processes">
+  <div class="gterm-name">Common Structure <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">Events whose intrinsic Cosmic-Nexus hazard rate approximately matches their realized frequency in the observer&rsquo;s biosphere &mdash; the kind of structure standard physics, chemistry, and stellar dynamics produce by ordinary mechanisms. Paired with exotic structure as the two regimes the Exotic Principle names. Most of the universe consists of common structure; the empirical signature of exotic structure is precisely the gap between its intrinsic and realized frequencies.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
 </div>
 
 <div class="gterm" id="g-copernican-principle" data-aliases="Copernican principle|the Copernican principle|astrobiological Copernican principle" data-terms="copernican principle mediocrity life abundance">
@@ -423,10 +537,16 @@ body {
 <!-- ═══ D ═══ -->
 <div class="letter-heading">D</div>
 
-<div class="gterm" id="g-dark-era" data-aliases="Dark Era|the Dark Era" data-terms="dark era mesozoic theropod dinosaur">
+<div class="gterm" id="g-dark-era" data-kind="instance" data-aliases="Dark Era|the Dark Era" data-terms="dark era mesozoic theropod dinosaur">
   <div class="gterm-name">Dark Era <span class="framework-tag tag-nexic">Nexic</span></div>
   <div class="gterm-def">The Mesozoic period reinterpreted as an evolutionary crucible in which theropod predation pressure was causally necessary for mammalian cognitive architecture. The existence and subsequent extinction of dinosaurs are treated not as incidental but as prerequisite anthropic parameters.</div>
   <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-6">Nexic Layer 6</a></div>
+</div>
+
+<div class="gterm" id="g-dark-lost-multiverse" data-aliases="Dark Multiverse|Lost Multiverse|dark multiverse|lost multiverse" data-terms="dark multiverse lost multiverse qualitative facet counterfactuality">
+  <div class="gterm-name">Dark Multiverse / Lost Multiverse <span class="framework-tag tag-aethic">Aethic</span></div>
+  <div class="gterm-def">Two complementary forms the Aethic multiverse takes. The <em>Dark Multiverse</em> is the vast array of possibility unfolding right under one&rsquo;s nose &mdash; inside the same physical space as one&rsquo;s own block universe, encoded informationally via the qualitative facet of the Extrusion Principle. The <em>Lost Multiverse</em>, by contrast, is the array of ways one&rsquo;s own reality could have unfolded but did not &mdash; the counterfactual branches strung together by centric unfolding, including the many that would have held no life on Earth at all. Where the Dark Multiverse is about co-presence, the Lost Multiverse is about counterfactuality.</div>
+  <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-1">Aethic Layer 1</a></div>
 </div>
 
 <div class="gterm" id="g-decomposition-trichotomy" data-aliases="decomposition trichotomy|state-decomposable|mixed-decomposable|semiblank" data-terms="decomposition trichotomy state-decomposable mixed-decomposable semiblank">
@@ -463,6 +583,12 @@ body {
 <div class="letter-heading">E</div>
 
 
+<div class="gterm" id="g-early-occurrence-probability" data-aliases="early-occurrence probability|early occurrence probability" data-terms="early occurrence probability structured rare earth scalar projection">
+  <div class="gterm-name">Early-Occurrence Probability <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The structured probability that an exotic-structure event &mdash; one whose intrinsic Cosmic-Nexus frequency places its expected wait at trillions of years or more &mdash; nevertheless realized within the comparatively pinpoint-minute window of the observer&rsquo;s specific Aethic block-universe interval. The framework&rsquo;s reading of what the flat Rare Earth probability scalars used in standard astrobiology actually are, once the two-stage lossy projection is undone.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
+</div>
+
 <div class="gterm" id="g-epr-resolution" data-aliases="EPR resolution|EPR|Einstein-Podolsky-Rosen" data-terms="epr einstein podolsky rosen entanglement locality">
   <div class="gterm-name">EPR Resolution <span class="framework-tag tag-aethic">Aethic</span></div>
   <div class="gterm-def">The Aethic resolution of the Einstein-Podolsky-Rosen paradox. When Alice measures her particle, she extrudes to a block universe where both particles’ entire histories were always consistent with her result. No nonlocal influence occurs because no timeline is altered. Bob’s particle was always in the correlated state in Alice’s new block universe. Locality is preserved absolutely.</div>
@@ -473,6 +599,24 @@ body {
   <div class="gterm-name">Existential Linkage <span class="framework-tag tag-nexic">Nexic</span></div>
   <div class="gterm-def">L_A = [P(H|A) − P(H|A′)] / [P(H|A) + P(H|A′)]. Measures how strongly an attribute A favors or disfavors observer existence. L_A > 0 favors, L_A < 0 disfavors, L_A = 0 means statistical independence.</div>
   <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-8">Nexic Layer 8</a></div>
+</div>
+
+<div class="gterm" id="g-exotic-accordance" data-aliases="Exotic Accordance Principle|the Exotic Accordance Principle" data-terms="exotic accordance principle two facets category anthropic miracle inference">
+  <div class="gterm-name">Exotic Accordance Principle <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The inferential apparatus that licenses an observer to identify exotic structure when they encounter it and to infer its anthropic role once identified. Composed of two facets that do inferentially distinct work: the Category Facet (unlikeliness implies exotic structure) and the Anthropic Facet (exotic structure implies Prerequisite). Their conjunction produces the Miracle classification via the two-step inference. The inferential complement to the Exotic Principle of Optimation&rsquo;s structural claim.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
+</div>
+
+<div class="gterm" id="g-exotic-principle" data-aliases="Exotic Principle|Exotic Principle of Optimation|the Exotic Principle" data-terms="exotic principle optimation common exotic structure bimodal miracle categorical">
+  <div class="gterm-name">Exotic Principle of Optimation <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The structural-ontological claim Nexic reasoning makes about what kind of probabilistic object the past of an observer-supporting biosphere actually is: the natural history of an observer-supporting biosphere is a system jointly composed of common structure and exotic structure, with any and all instances of exotic structure almost surely traceable to co-existing with a Miracle. The Miracle is the probabilistic object so far removed in likelihood of occurrence on timescales near billions of years that its existing renders it categorically separate from the universe&rsquo;s normal constituents. Load-bearing for the formal Miracle classification and the structural ground of Layer 2.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
+</div>
+
+<div class="gterm" id="g-exotic-structure" data-aliases="exotic structure|Exotic Structure" data-terms="exotic structure intrinsic realized frequency combinatorial mismatch miracle imported">
+  <div class="gterm-name">Exotic Structure <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">Events whose intrinsic Cosmic-Nexus hazard rate is combinatorially slower than their realized frequency in the observer&rsquo;s biosphere &mdash; events the universe would essentially never produce in any window it has had, yet which have happened in the observer&rsquo;s specific natural history. The K-Pg extinction, the eukaryotic merger, the &alpha;-gal crisis, and the Ha&#539;eg refuge structure are the framework&rsquo;s canonical instances. Paired with common structure as the two regimes the Exotic Principle names; treated by the framework as &ldquo;imported&rdquo; into the observer&rsquo;s block-universe past by Optimation.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
 </div>
 
 <div class="gterm" id="g-extrusion-principle" data-aliases="Extrusion Principle|extrusion principle|the extrusion principle|Aethic extrusion|principle of extrusion|extrude|extrudes|extruded|extrusion" data-terms="extrusion principle extrude transition">
@@ -520,7 +664,7 @@ body {
 <div class="letter-heading">H</div>
 
 
-<div class="gterm" id="g-hateg-island" data-aliases="Hațeg Island|Hateg Island|Hațeg|the Hațeg hypothesis" data-terms="hateg island romania cretaceous primate fossil">
+<div class="gterm" id="g-hateg-island" data-kind="instance" data-aliases="Hațeg Island|Hateg Island|Hațeg|the Hațeg hypothesis" data-terms="hateg island romania cretaceous primate fossil">
   <div class="gterm-name">Hațeg Island <span class="framework-tag tag-nexic">Nexic</span></div>
   <div class="gterm-def">A Late Cretaceous island in what is now Romania, proposed as the site where early primates survived theropod predation pressure due to insular isolation. The Nexic prediction: primate fossils should be found in the Hațeg deposits. This would constitute direct evidence for the framework. Doomsday pacing constrains how long they could have survived before theropod arrival.</div>
   <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-7">Nexic Layer 7</a></div>
@@ -548,6 +692,12 @@ body {
 
 <div class="letter-heading">I</div>
 
+<div class="gterm" id="g-nameability-principle" data-aliases="IMD Nameability Principle|Nameability Principle|nameability" data-terms="nameability principle imd articulation cascading combinatorics optimal earth">
+  <div class="gterm-name">IMD Nameability Principle <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The structural property of Imperfection Magnitude Drops concerning the asymmetry between the numerosity of articulable Aethae and the population of high-probability Aethae. The more extreme the IMD, the more numerous the abstract natural histories that can be descriptively articulated at that probability tier &mdash; meaning any specific Aethus articulated as an alternative to our own is overwhelmingly likely to be a sure IMD, not because the high-probability vicinity is empty but because articulation operates over a population concentrated almost entirely on the IMDs. The Accordance Principle resolves the asymmetry from the other side, delivering peak content from the inside.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-7">Nexic Layer 7</a></div>
+</div>
+
 <div class="gterm" id="g-imperfection-magnitude-drop" data-aliases="Imperfection Magnitude Drop|IMD|IMDs" data-terms="imperfection magnitude drop imd perturbation">
   <div class="gterm-name">Imperfection Magnitude Drop (IMD) <span class="framework-tag tag-nexic">Nexic</span></div>
   <div class="gterm-def">Any targeted perturbation away from one’s own Aethus where the probability of observer existence becomes drastically minute. IMDs form a continuous spectrum by probabilistic severity — a gamma-ray burst and a red-dwarf scenario differ only in magnitude, not in kind.</div>
@@ -560,10 +710,28 @@ body {
   <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-1">Aethic Layer 1</a></div>
 </div>
 
+<div class="gterm" id="g-inference-null-case" data-aliases="inference case|null case|Inference Case|Null Case" data-terms="inference case null case fluke licensing leg one">
+  <div class="gterm-name">Inference Case / Null Case <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The two cases the licensing argument of Leg 1 partitions historical improbable events into. In the <em>inference case</em>, the event prompts structural inference &mdash; the observer&rsquo;s Aethus contains some feature preventing the event from having been a mere fluke. In the <em>null case</em>, the event is accepted as a genuine fluke and no inference is licensed. The Indiscriminate Time Principle&rsquo;s contribution is to make the null case inaccessible for retrospectively-learned past events, forcing the inference case obtains.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-3">Nexic Layer 3</a></div>
+</div>
+
 <div class="gterm" id="g-inheritance-paradox" data-aliases="inheritance paradox|Inheritance Paradox|the inheritance paradox" data-terms="inheritance paradox third postulate derivation soccer field">
   <div class="gterm-name">Inheritance Paradox <span class="framework-tag tag-aethic">Aethic</span></div>
   <div class="gterm-def">The central obstacle in deriving the Third Postulate. If contradictions in a child Aethus propagate back to the parent Aethus via simple single-generational rules, then contradictions propagate between <em>any</em> two Aethae — which would force an objective reality and violate the First Postulate. The Third Postulate's two-generational quantifier structure (∃B, ∀C) is precisely what resolves the paradox while preserving relational ontology. Encountered on a soccer field in August 2022.</div>
   <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-7">Aethic Layer 7</a></div>
+</div>
+
+<div class="gterm" id="g-intermediate-region" data-aliases="intermediate-region emptiness|empty middle|intermediate regime" data-terms="intermediate region emptiness empty middle bimodal cluster between">
+  <div class="gterm-name">Intermediate-Region Emptiness <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The empirical prediction that intermediate-regime objects &mdash; events at moderately exotic but not deeply exotic hazard rates &mdash; are almost absent in the observer&rsquo;s biosphere. Squeezed from both sides: the common-structure perturbation pool has cosmically low probability of reaching the intermediate region; the exotic-structure regime&rsquo;s Optimal-Earth corollary makes identifying any intermediate-regime exotic event almost impossibly difficult. Events tend to discretely skip the intermediate region, presenting either as common structure or as deep-exotic Miracle-class structure.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
+</div>
+
+<div class="gterm" id="g-intrinsic-frequency" data-aliases="Intrinsic Frequency Principle|intrinsic vs realized frequency|intrinsic frequencies" data-terms="intrinsic frequency principle realized cosmic nexus optimation empirical bridge sea level">
+  <div class="gterm-name">Intrinsic Frequency Principle <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The empirical inferential prerequisite that motivates the Exotic Principle: natural history broadly provides empirical events whose intrinsic Cosmic-Nexus frequencies are drastically lower than the frequencies with which they actually occurred in the observer&rsquo;s biosphere. The empirical bridge between the Optimation Fallacy (the negative warning that probabilistic mediocrity in our biosphere is not reflective of objective mediocrity) and the Exotic Principle (the positive structural claim that some events live in an entirely different probabilistic regime).</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
 </div>
 
 <!-- ═══ L ═══ -->
@@ -573,6 +741,12 @@ body {
   <div class="gterm-name">Ladder Ontology <span class="framework-tag tag-aethic">Aethic</span></div>
   <div class="gterm-def">The structural form that the Union Principle takes: disagreeing-superposition states are layered into nested "pockets" that share the same spatial substrate but cannot causally interact. Each observer lives in one specific pocket determined by their accumulated Aethic information. Both unions and intersections manifest identically as physical AND, yet their algebraic nesting preserves logical distinctions while maintaining a single phenomenological degree of freedom — packing more structure into the same physical space than classical ontology recognized.</div>
   <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-6">Aethic Layer 6</a></div>
+</div>
+
+<div class="gterm" id="g-leg-one-leg-two" data-kind="instance" data-aliases="Leg 1|Leg 2|Leg One|Leg Two|two-leg derivation" data-terms="leg one leg two two-leg derivation indiscriminate time accordance principle">
+  <div class="gterm-name">Leg 1 / Leg 2 <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The two stages of the Accordance Principle&rsquo;s derivation. <em>Leg 1</em> is the licensing step: the Indiscriminate Time Principle dissolves the null case for retrospectively-learned past events, forcing the observer to infer that some structural feature of their Aethus prevented the event from having been a fluke. <em>Leg 2</em> is the quantitative step: Aethic Mediocrity, applied at the parent-Aethus partition Leg 1&rsquo;s output identifies, converts the bare structural-inference demand into the anthropic-necessity-shaped Bayesian bound that constitutes the General Form of the Accordance Principle.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-3">Nexic Layer 3</a></div>
 </div>
 
 <!-- ═══ M ═══ -->
@@ -674,10 +848,22 @@ body {
   <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-4">Aethic Layer 4</a></div>
 </div>
 
+<div class="gterm" id="g-personally-convergent-sublime" data-aliases="Personally-Convergent Sublime|personally convergent sublime|sublime|personal sublime" data-terms="personally convergent sublime aesthetic category miracleism cosmic personal panspermia footnote">
+  <div class="gterm-name">Personally-Convergent Sublime <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The aesthetic category Nexic reasoning&rsquo;s existential face elaborates: an experience in which the cosmic and the personal are not opposed but identified, with the reader&rsquo;s own act of cognition serving as the focal point at which all the cosmological scales converge. The canonical articulation is the panspermia footnote of the comprehensive monograph (&sect;8.5), with its closing aphorism &ldquo;too vast to be conveyed and yet too personal to be named.&rdquo; Distinguished from the impersonal Kantian sublime by the convergence onto the observer rather than the dwarfing of them.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-12">Nexic Layer 12</a></div>
+</div>
+
 <div class="gterm" id="g-powerset-invalidation-theorem" data-aliases="powerset invalidation theorem|the powerset invalidation theorem" data-terms="powerset invalidation theorem equivalence class seesaw">
   <div class="gterm-name">Powerset Invalidation Theorem <span class="framework-tag tag-aethic">Aethic</span></div>
   <div class="gterm-def">For an N-slit experiment, the full powerset of possible agreeing superpositions is enumerated. P2 (Second Postulate contrapositive) prunes subsets that over-specify within an equivalence class. P3 (Third Postulate) prunes subsets that bridge across classes. The valid survivors are exactly the equivalence classes themselves.</div>
   <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-8">Aethic Layer 8</a></div>
+</div>
+
+<div class="gterm" id="g-prerequisite" data-aliases="Prerequisite|Nexic Prerequisite|prerequisite" data-terms="prerequisite nexic miracle anthropic parameter aetherian nexus aethus-valued">
+  <div class="gterm-name">Prerequisite <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">An Aethus whose weight within the Aetherian Nexus is drastically higher than its complement&rsquo;s &mdash; formally, P(A | H) &gg; P(A&prime; | H). Intuitively, an event or circumstance whose realization was near-exactly required for observer-existence. The formal Aethus-valued analogue of what standard anthropic methodology calls an &ldquo;anthropic parameter,&rdquo; lifted into the Aethic ontology where it can do the inferential work the Exotic Accordance Principle requires. The Miracle classification is exotic structure plus Prerequisite.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
 </div>
 
 <!-- ═══ Q ═══ -->
@@ -731,6 +917,12 @@ body {
 <!-- ═══ S ═══ -->
 <div class="letter-heading">S</div>
 
+<div class="gterm" id="g-sea-level-analysis" data-kind="instance" data-aliases="sea-level analysis|sea level analysis|Late Cretaceous sea level" data-terms="sea level analysis late cretaceous hateg empirical bridge intrinsic frequency falsifiability">
+  <div class="gterm-name">Sea-Level Analysis <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The framework&rsquo;s preliminary empirical demonstration of the Intrinsic Frequency Principle. Late Cretaceous sea levels held within a narrow survival-permitting band at frequencies vastly exceeding what cosmic-baseline geophysical processes would predict, with the disparity correlating with the islands-and-land-bridges biogeographic structure that mammalian survival required. Explicitly preliminary &mdash; the framework&rsquo;s opening empirical move in a much longer falsification program targeting ~100 tests across paleontology, evolutionary biology, and astrobiology.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-10">Nexic Layer 10</a></div>
+</div>
+
 <div class="gterm" id="g-second-postulate" data-aliases="Second Postulate|the Second Postulate|second postulate|Postulate 2" data-terms="second postulate superposition unknowing ignorance">
   <div class="gterm-name">Second Postulate <span class="framework-tag tag-aethic">Aethic</span></div>
   <div class="gterm-def">If an Aethus is valid, then any given attribute will be in Aethic superposition relative to it if and only if it is nonpresent to it. Ignorance generates superposition. The universe’s natural resting state is superposition; the Third Postulate holds reality back from it.</div>
@@ -746,7 +938,7 @@ body {
 
 
 
-<div class="gterm" id="g-sister-clade" data-aliases="sister clade|sister clades" data-terms="sister clade control group aimless optimation">
+<div class="gterm" id="g-sister-clade" data-kind="instance" data-aliases="sister clade|sister clades" data-terms="sister clade control group aimless optimation">
   <div class="gterm-name">Sister Clade <span class="framework-tag tag-nexic">Nexic</span></div>
   <div class="gterm-def">A lineage that diverged from our ancestry and serves as a natural control case for the Theorem of Aimless Optimation. Since a sister clade’s fate is statistically independent of whether humans exist, its observed frequency under Optimation must equal its frequency under the Cosmic Nexus. Old World monkeys (100+ species, none with ape-level intelligence) are the primary example.</div>
   <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-3">Nexic Layer 3</a></div>
@@ -799,10 +991,22 @@ body {
 
 <!-- ═══ U ═══ -->
 
-<div class="gterm" id="g-two-node-dinosaurian" data-aliases="two-node dinosaurian circumstance|dinosaurian circumstance|two-node circumstance" data-terms="two node dinosaurian circumstance kpg extinction">
+<div class="gterm" id="g-two-node-dinosaurian" data-kind="instance" data-aliases="two-node dinosaurian circumstance|dinosaurian circumstance|two-node circumstance" data-terms="two node dinosaurian circumstance kpg extinction">
   <div class="gterm-name">Two-Node Dinosaurian Circumstance <span class="framework-tag tag-nexic">Nexic</span></div>
   <div class="gterm-def">The combined constraint from (1) theropod predation pressure being causally necessary for mammalian cognitive architecture (Node 1) and (2) the K-Pg extinction being necessary to remove that pressure before it extinguished the primate lineage (Node 2). The product yields an upper bound of roughly 10⁻²⁷ for the probability of conscious life per planet at formation.</div>
   <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-7">Nexic Layer 7</a></div>
+</div>
+
+<div class="gterm" id="g-two-stage-projection" data-aliases="Two-Stage Lossy Projection Chain|two-stage projection|projection chain|lossy projection" data-terms="two stage lossy projection chain aethus valued hazard rate flat scalar marginalization">
+  <div class="gterm-name">Two-Stage Lossy Projection Chain <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The structural object underlying the Rare Earth reframe: a two-stage projection sending an Aethus-valued exotic-structure event down through its intrinsic Cosmic-Nexus hazard rate &lambda;<sub>A</sub><sup>intrinsic</sup>, then down again to a flat early-occurrence probability scalar P<sub>flat</sub>(A). Each arrow is lossy &mdash; the first drops the Aethic-structural content and keeps only the rate parameter; the second marginalizes over the timing distribution and keeps only the scalar. Standard astrobiological reasoning operates on the rightmost object.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
+</div>
+
+<div class="gterm" id="g-two-step-inference" data-aliases="Two-Step Inference|two-step inference to Miracle status" data-terms="two step inference miracle exotic accordance category anthropic facet">
+  <div class="gterm-name">Two-Step Inference to Miracle Status <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The inferential structure the Exotic Accordance Principle&rsquo;s two facets jointly produce. <em>Step one</em>: the Category Facet takes empirical improbability as input and identifies the regime &mdash; the event is exotic structure. <em>Step two</em>: the Anthropic Facet takes the regime classification as input and infers anthropic role &mdash; established exotic structure is almost surely a Prerequisite. Together: exotic structure plus Prerequisite equals Miracle. This is what makes the framework deductive rather than merely descriptive about Miracle status.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
 </div>
 
 <div class="letter-heading">U</div>
@@ -811,6 +1015,12 @@ body {
   <div class="gterm-name">Union Principle <span class="framework-tag tag-aethic">Aethic</span></div>
   <div class="gterm-def">Both logical AND and logical OR manifest as physical AND (occupation of the block universe). The difference between agreeing and disagreeing superposition is purely algebraic nesting, not physical presence vs. absence. “Physical or” is a category error from classical thinking.</div>
   <div class="gterm-ref"><a href="/aethic-reasoning-guide.html#layer-6">Aethic Layer 6</a></div>
+</div>
+
+<div class="gterm" id="g-upstream-downstream" data-aliases="Upstream-vs-Downstream|upstream vs downstream|upstream inference|downstream inference" data-terms="upstream downstream inference locations methodological aethus-valued flat scalar operating where">
+  <div class="gterm-name">Upstream / Downstream Inference <span class="framework-tag tag-nexic">Nexic</span></div>
+  <div class="gterm-def">The methodological distinction between operating over the Aethus-valued exotic-structure layer (<em>upstream</em>, where the framework&rsquo;s mathematical substance lives) versus operating over the flat probability scalars that result from the two-stage projection (<em>downstream</em>, where the standard astrobiological literature has operated). Downstream supports only multiplication of scalars; upstream supports joint Aethus-valued cascade reasoning across the full exotic-structure cascade. The framework&rsquo;s commitment is to upstream operation.</div>
+  <div class="gterm-ref"><a class="nexic-ref" href="/nexic-reasoning-guide.html#layer-2">Nexic Layer 2</a></div>
 </div>
 
 <!-- ═══ W ═══ -->
@@ -845,14 +1055,22 @@ body {
 <script>
 function filterGlossary() {
   var q = document.getElementById('glossary-search').value.toLowerCase().trim();
+  var showInstances = document.getElementById('show-instances').checked;
   document.querySelectorAll('.gterm').forEach(function(el) {
-    if (!q) { el.classList.remove('hidden'); return; }
-    var terms = (el.getAttribute('data-terms') || '') + ' ' +
-      (el.querySelector('.gterm-name') ? el.querySelector('.gterm-name').textContent.toLowerCase() : '') + ' ' +
-      (el.querySelector('.gterm-def') ? el.querySelector('.gterm-def').textContent.toLowerCase() : '');
-    el.classList.toggle('hidden', terms.indexOf(q) === -1);
+    var isInstance = el.getAttribute('data-kind') === 'instance';
+    // Instance filter: hide instances unless show-instances is checked
+    var hiddenByKind = isInstance && !showInstances;
+    // Search filter
+    var hiddenBySearch = false;
+    if (q) {
+      var terms = (el.getAttribute('data-terms') || '') + ' ' +
+        (el.querySelector('.gterm-name') ? el.querySelector('.gterm-name').textContent.toLowerCase() : '') + ' ' +
+        (el.querySelector('.gterm-def') ? el.querySelector('.gterm-def').textContent.toLowerCase() : '');
+      hiddenBySearch = terms.indexOf(q) === -1;
+    }
+    el.classList.toggle('hidden', hiddenByKind || hiddenBySearch);
   });
-  // Hide letter headings with no visible terms
+  // Hide letter headings whose sections have no visible terms
   document.querySelectorAll('.letter-heading').forEach(function(h) {
     var next = h.nextElementSibling;
     var anyVisible = false;
@@ -860,7 +1078,17 @@ function filterGlossary() {
       if (next.classList.contains('gterm') && !next.classList.contains('hidden')) anyVisible = true;
       next = next.nextElementSibling;
     }
-    h.style.display = anyVisible || !q ? '' : 'none';
+    h.style.display = anyVisible ? '' : 'none';
   });
 }
+
+// URL hash support: #cases or #instances auto-enables the instance filter
+(function() {
+  var hash = (window.location.hash || '').toLowerCase();
+  if (hash === '#cases' || hash === '#instances') {
+    var box = document.getElementById('show-instances');
+    if (box) box.checked = true;
+  }
+  filterGlossary();
+})();
 </script>
