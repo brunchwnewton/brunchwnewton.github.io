@@ -134,45 +134,23 @@ body::before {
 
 /* Navigation sidebar */
 .nav-sidebar {
-  position: fixed;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%);
+  z-index: 100; display: flex; flex-direction: column; gap: 0.6rem;
 }
 .nav-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  border: 1.5px solid var(--text-dim);
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s;
-  position: relative;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--text-dim); opacity: 0.3; cursor: pointer;
+  transition: all 0.3s; position: relative;
 }
-.nav-dot.active {
-  background: var(--accent-6);
-  border-color: var(--accent-6);
-  box-shadow: 0 0 8px var(--accent-6);
+.nav-dot:hover, .nav-dot.active {
+  opacity: 1; transform: scale(1.5); background: var(--accent-6);
 }
-.nav-dot:hover { border-color: var(--accent-6); }
 .nav-dot .tooltip {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  padding: 0.3rem 0.7rem;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  color: var(--text);
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
+  position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+  background: var(--bg-card); color: var(--text-bright);
+  padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.72rem;
+  white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s; border: 1px solid var(--border);
 }
 .nav-dot:hover .tooltip { opacity: 1; }
 
@@ -954,11 +932,11 @@ body.explorer-mode .detail { display:none !important; }
 
           <!-- EPR PREVIEW -->
           <h4>EPR & Requirement 5—Preview</h4>
-          <p>The extrusion principle previews the EPR resolution (Layer 8): when Alice measures her entangled particle, she extrudes to a new block universe—she does not cause Bob’s particle to change. No preferred foliation of spacetime is needed because there’s no objective collapse event. Bell’s quote about the Queen dying and the Prince becoming King is reframed: the Prince <em>always was</em> King in the block universe Alice extruded into. This satisfies Requirement 5 (reconciling nonlocal collapse with local stress-energy conservation) without additional machinery. The key: by removing Copenhagen’s cross-causal influence, we disallow spacelike-separated collapse events from forming a net contradiction over an objective reality.</p>
+          <p>The extrusion principle previews the EPR resolution (Layer 9): when Alice measures her entangled particle, she extrudes to a new block universe—she does not cause Bob’s particle to change. No preferred foliation of spacetime is needed because there’s no objective collapse event. Bell’s quote about the Queen dying and the Prince becoming King is reframed: the Prince <em>always was</em> King in the block universe Alice extruded into. This satisfies Requirement 5 (reconciling nonlocal collapse with local stress-energy conservation) without additional machinery. The key: by removing Copenhagen’s cross-causal influence, we disallow spacelike-separated collapse events from forming a net contradiction over an objective reality.</p>
 
-          <!-- DARK & LOST MULTIVERSE (brief, cross-ref to Layer 9) -->
+          <!-- DARK & LOST MULTIVERSE (brief, cross-ref to Layer 10) -->
           <h4>The Dark Multiverse</h4>
-          <p>The epiphany behind the extrusion principle was the realization that what we call the “multiverse” is not distant parallel timelines but a <strong>dark multiverse</strong> right under your nose—vast arrays of possibility unfolding right here, right now, inside the physical contents of a single room. The multiverse doesn’t contain different instances of the same room; the same room contains a corresponding leg of the multiverse within its physical contents. This is the qualitative facet made concrete. (For the full dark multiverse / lost multiverse distinction, see Layer 9.)</p>
+          <p>The epiphany behind the extrusion principle was the realization that what we call the “multiverse” is not distant parallel timelines but a <strong>dark multiverse</strong> right under your nose—vast arrays of possibility unfolding right here, right now, inside the physical contents of a single room. The multiverse doesn’t contain different instances of the same room; the same room contains a corresponding leg of the multiverse within its physical contents. This is the qualitative facet made concrete. (For the full dark multiverse / lost multiverse distinction, see Layer 10.)</p>
 
         </div></div>
       </div>
@@ -1060,7 +1038,7 @@ body.explorer-mode .detail { display:none !important; }
           <!-- SIMULATION -->
           <h4>Simulation, Dreams & Existential Significance</h4>
           <p>The simulation hypothesis loses its bite under Aethic reasoning. If you don’t know which level of a simulation stack you’re in, the second postulate puts you in <em>superposition across all levels</em>—perhaps even an agreeing one if some kind of uncertainty principle applies. And even discovering you <em>are</em> in a simulation changes nothing existentially: by the first postulate, your simulated Aethus is no less real than any other Aethus. No Aethus is existentially superior to any other—that’s simply not how the Aethic tree works.</p>
-          <p>The “pavement but really grass” dream-world (from the Accidentalism principle, Layer 9) extends this: even if every time you walk on pavement you’re actually walking on grass, the Aethus asserts that this qualia now lines up with whatever qualia you involuntarily aligned it with before. The mediocrity principle argues it was probably the same yesterday too. The Aethic postulates still apply regardless of simulation depth, because of their relational nature.</p>
+          <p>The “pavement but really grass” dream-world (from the Accidentalism principle, Layer 10) extends this: even if every time you walk on pavement you’re actually walking on grass, the Aethus asserts that this qualia now lines up with whatever qualia you involuntarily aligned it with before. The mediocrity principle argues it was probably the same yesterday too. The Aethic postulates still apply regardless of simulation depth, because of their relational nature.</p>
 
           <!-- HARD PROBLEM -->
           <h4>The Hard Problem of Consciousness</h4>
@@ -1262,7 +1240,7 @@ body.explorer-mode .detail { display:none !important; }
 
           <!-- GENERAL AETHIC UNION -->
           <h4>The General Aethic Union—Powerset-Level Superposition</h4>
-          <p>The <strong>General Aethic Union</strong> of a set of Aethae is the Aethic union of all agreeing superpositions corresponding to every element of the <em>powerset</em> of those Aethae. This lists every possible combination of how things could coexist. The most generic use of “Aethic superposition” refers to the General Aethic Union followed by the reduced form—a two-step procedure: (1) list all possible coexistence combinations, (2) prune the invalid ones via the third postulate. This two-step procedure is exactly what the Quantum Nexus integral (Layer 10) encodes in the continuous limit, with A(T) terms performing the pruning.</p>
+          <p>The <strong>General Aethic Union</strong> of a set of Aethae is the Aethic union of all agreeing superpositions corresponding to every element of the <em>powerset</em> of those Aethae. This lists every possible combination of how things could coexist. The most generic use of “Aethic superposition” refers to the General Aethic Union followed by the reduced form—a two-step procedure: (1) list all possible coexistence combinations, (2) prune the invalid ones via the third postulate. This two-step procedure is exactly what the Quantum Nexus integral (Layer 11) encodes in the continuous limit, with A(T) terms performing the pruning.</p>
 
           <!-- STACKABLE ATTRIBUTES -->
           <h4>Stackable Attributes—Time, Spin & the Refresh Problem</h4>
@@ -1303,7 +1281,7 @@ body.explorer-mode .detail { display:none !important; }
 
       <p>The principal computational tool is the <span class="hl3">Aethic Dichotomy Theorem</span>: any attribute can be cleanly decomposed into a state-decomposable component (known) and a blank-decomposable component (unknown, therefore superposed), enabling the second postulate to handle mixed-decomposable attributes by splitting them at the boundary. The theorem is what converts the trichotomy of Layer 3 from a classification scheme into a working algorithm—it tells you exactly which part of any partially-specified attribute the second postulate operates on, with no ambiguity about where the boundary sits.</p>
 
-      <p>Two structural observations carry forward. First, the second postulate operates only on the <em>blank</em> side of the dichotomy; it never asks whether superposition is “real” or “merely epistemic” because the question is malformed at this level—blank generates superposition by definition, and the further question of how that superposition manifests physically is the business of the Union Principle (Layer 6). Second, the postulate is a biconditional, not just an implication: presence of information is sufficient as well as necessary for collapse. This is what justifies treating measured states as load-bearing in the Quantum Nexus integral (Layer 10), and what makes the framework’s account of measurement clean rather than ad hoc.</p>
+      <p>Two structural observations carry forward. First, the second postulate operates only on the <em>blank</em> side of the dichotomy; it never asks whether superposition is “real” or “merely epistemic” because the question is malformed at this level—blank generates superposition by definition, and the further question of how that superposition manifests physically is the business of the Union Principle (Layer 6). Second, the postulate is a biconditional, not just an implication: presence of information is sufficient as well as necessary for collapse. This is what justifies treating measured states as load-bearing in the Quantum Nexus integral (Layer 11), and what makes the framework’s account of measurement clean rather than ad hoc.</p>
 
       </div>
 
@@ -1463,7 +1441,7 @@ body.explorer-mode .detail { display:none !important; }
           <!-- P2 CONTRAPOSITIVE -->
           <h4>The P2 Contrapositive—The Second Postulate as Pruning Mechanism</h4>
           <p>The second postulate has two faces. Its <strong>positive face</strong>: if an Aethus is valid and an attribute is nonpresent, that attribute is in agreeing superposition. Its <strong>contrapositive face</strong>: if an Aethus asserts a definite state for an attribute that should be in superposition (because it’s conceptually blank), that Aethus is <em>invalid</em>.</p>
-          <p>This is “P2 invalidation”—the pruning mechanism complementary to P3 (the third postulate). In the powerset invalidation theorem (Layer 8), P2 catches subsets that are “too narrow”: asserting a specific slit within an equivalence class when no detector can distinguish them. Together, P2 and P3 jointly and exhaustively cover all modes of agreeing superposition failure—P2 from below (over-specification) and P3 from above (cross-class bridging).</p>
+          <p>This is “P2 invalidation”—the pruning mechanism complementary to P3 (the third postulate). In the powerset invalidation theorem (Layer 9), P2 catches subsets that are “too narrow”: asserting a specific slit within an equivalence class when no detector can distinguish them. Together, P2 and P3 jointly and exhaustively cover all modes of agreeing superposition failure—P2 from below (over-specification) and P3 from above (cross-class bridging).</p>
 
           <!-- AGREEING vs DISAGREEING FRAMEWORK -->
           <h4>Agreeing and Disagreeing—The Full Framework</h4>
@@ -1483,7 +1461,7 @@ body.explorer-mode .detail { display:none !important; }
           <!-- MACH-ZEHNDER -->
           <h4>The Mach–Zehnder Interferometer</h4>
           <p>The Mach–Zehnder interferometer provides a clean two-path illustration of the retrieval mechanism at work. A photon hits a beam-splitter and can take two paths through the interferometer. <strong>With a detector:</strong> information about which path is permanently available to the observer’s Aethus → disagreeing superposition → no interference at the output. <strong>Without a detector:</strong> the which-path information is permanently blank, protected by a permanencible attribute (Heisenberg’s uncertainty principle, which is itself permanently stated in the Aethus) → the third postulate cannot checkmate → agreeing superposition → the paths interfere at the second beam-splitter, producing the characteristic constructive/destructive interference pattern at the outputs.</p>
-          <p>This is the same mechanism as the double-slit experiment (Layer 8), just with a different physical setup—confirming that the Aethic explanation is structural rather than apparatus-dependent. The ontological nature of the wave interference component itself is deferred to Step X in the Active Reasoning paper.</p>
+          <p>This is the same mechanism as the double-slit experiment (Layer 9), just with a different physical setup—confirming that the Aethic explanation is structural rather than apparatus-dependent. The ontological nature of the wave interference component itself is deferred to Step X in the Active Reasoning paper.</p>
 
         </div></div>
       </div>
@@ -1513,7 +1491,7 @@ body.explorer-mode .detail { display:none !important; }
         Two computationally equivalent constructions follow. <strong>Realizable</strong> probability prunes invalid Aethae and renormalizes over the survivors—the standard view. <strong>Hyperrealizable</strong> probability instead treats invalid Aethae as having nonzero weight but rejects any invalid sampling outputs, producing an infinite geometric series that converges to the same answer. The hyperrealizable case is mathematically identical to <em>rejection sampling</em> in computational statistics—a procedure used for sampling from distributions without closed-form sampling routines. The Aethic interpretation says rejection sampling is not just a computational trick; it is reflecting the underlying ontological structure of how probability is generated by the reduced form. (Ajax intuited this methodology in 2022, before encountering rejection sampling formally in a 2024 college class.)
       </div>
 
-      <p>The concept of a <span class="hl">Nexus</span>—a weighted superposition of Aethae representing a class of systems—first appears in this context: it is the Aethic structure corresponding to a probability distribution over possible states, weighted by some criterion. Different criteria yield different Nexae: cosmic volumetric frequency gives the <em>Cosmic Nexus</em> (in Nexic reasoning), observer-existence probability gives the <em>Aetherian Nexus</em>, and the action functional gives the <em>Quantum Nexus</em> (Layer 10). The Aethic ring structure guarantees that operations on all Nexae are well-behaved under the same algebra that governs probability itself.</p>
+      <p>The concept of a <span class="hl">Nexus</span>—a weighted superposition of Aethae representing a class of systems—first appears in this context: it is the Aethic structure corresponding to a probability distribution over possible states, weighted by some criterion. Different criteria yield different Nexae: cosmic volumetric frequency gives the <em>Cosmic Nexus</em> (in Nexic reasoning), observer-existence probability gives the <em>Aetherian Nexus</em>, and the action functional gives the <em>Quantum Nexus</em> (Layer 11). The Aethic ring structure guarantees that operations on all Nexae are well-behaved under the same algebra that governs probability itself.</p>
 
       </div>
 
@@ -1671,14 +1649,14 @@ body.explorer-mode .detail { display:none !important; }
 <h4>The Fallacy of Initial Conditions</h4>
           <p>“Initial conditions” as classically understood are a remnant of the postulate of complete reality. In Aethic reasoning, the state of a system is a function of whichever Aethus is that of the observer—not of predetermined initial conditions.</p>
           <p>The <strong>double pendulum</strong> makes this vivid. Classically, its path is determined by its precise initial conditions—but this assumes all superpositions are disagreeing. In fact, there is always a hair of error in the ontological measurement of the pendulum’s state—it’s in a slight superposition of multiple angular orientations. Chaos theory tells us this small uncertainty amplifies vastly with time. The Aethic picture: your Aethus begins with all possibilities of where the double pendulum might go, and then progressively crops out more and more possibilities as you update your Aethae by watching the pendulum. The “initial conditions” are themselves in superposition relative to any Aethus that hasn’t fully specified them.</p>
-          <p>This reframing applies broadly: information is almost never static. As the Lindy effect derivation showed (Layer 9), dynamically altering Aethic information—which manifests empirically as Bayesian updates—is the natural state of affairs. The concept of fixed initial conditions is the special case, not the rule.</p>
+          <p>This reframing applies broadly: information is almost never static. As the Lindy effect derivation showed (Layer 10), dynamically altering Aethic information—which manifests empirically as Bayesian updates—is the natural state of affairs. The concept of fixed initial conditions is the special case, not the rule.</p>
 
           <!-- NEXUS VARIANTS -->
           <h4>Nexae—One Structure, Many Criteria</h4>
           <p>A Nexus is a weighted Aethic union where the weights encode a selection criterion. Different criteria yield structurally identical objects with very different interpretations:</p>
           <p><strong>Cosmic Nexus</strong> (Nexic reasoning): weights represent cosmic volumetric frequency—how common a given Aethus-configuration is across the universe. This drives the Accordance Principle that governs natural history.</p>
           <p><strong>Aetherian Nexus</strong>: weights represent observer-existence probability—the likelihood that an observer exists to occupy a given Aethus. This connects to anthropic reasoning and the fine-tuning question.</p>
-          <p><strong>Quantum Nexus</strong> (Layer 10): weights come from the action functional via the path integral. The A(T) kill-switch factor encodes Aethic pruning dynamics. This is the bridge from the abstract Aethic framework to empirical quantum mechanics.</p>
+          <p><strong>Quantum Nexus</strong> (Layer 11): weights come from the action functional via the path integral. The A(T) kill-switch factor encodes Aethic pruning dynamics. This is the bridge from the abstract Aethic framework to empirical quantum mechanics.</p>
           <p>The Aethic ring structure guarantees that operations on all Nexae are well-behaved under the same algebra that governs probability—because they <em>are</em> that algebra.</p>
 
         </div></div>
@@ -1721,7 +1699,7 @@ body.explorer-mode .detail { display:none !important; }
 
       <p>Two further consequences are worth carrying into the next layers. First, the principle distinguishes <span class="hl2">contradictions from superpositions</span> at the algebraic level: a contradiction is the intersection of disjoint Aethae (∩ on conflicting attributes—<em>invalid</em>); a superposition is the union of Aethae with information withdrawn (∪ on a blank attribute—<em>valid by the second postulate</em>). Classical logic conflates the two; the Union Principle is what lets the third postulate of Layer 7 prune the first without touching the second. Second, the algebraic nesting creates a <span class="hl3">ladder ontology</span>: more logical structure can be packed into the same physical AND than classical ontology recognizes, because nesting preserves logical distinctions while maintaining a single phenomenological degree of freedom. The classical world flattened this ladder; the Union Principle restores it.</p>
 
-      <p>This is why Layer 6 sits where it does. The reduced form and third postulate of Layer 7 operate on the vocabulary the Union Principle establishes—agreeing superpositions are what gets pruned from above (third postulate), disagreeing superpositions are what survive. The Quantum Nexus integral of Layer 10 wraps the path integral in a powerset construction whose surviving path clusters are agreeing superpositions after Aethic validity has been imposed. Layer 6 is the substrate; everything downstream runs on it.</p>
+      <p>This is why Layer 6 sits where it does. The reduced form and third postulate of Layer 7 operate on the vocabulary the Union Principle establishes—agreeing superpositions are what gets pruned from above (third postulate), disagreeing superpositions are what survive. The Quantum Nexus integral of Layer 11 wraps the path integral in a powerset construction whose surviving path clusters are agreeing superpositions after Aethic validity has been imposed. Layer 6 is the substrate; everything downstream runs on it.</p>
 
       </div>
 
@@ -1946,7 +1924,7 @@ body.explorer-mode .detail { display:none !important; }
 
       <p>Why the two-generational nesting and not something simpler? A naive ∀C ⊂ A, V[C] would be too strong: it would forbid the existence of <em>any</em> invalid child, making most realistic Aethae invalid in turn. A naive ∃B ⊂ A, V[B] would be too weak: it would allow validity to survive on a single threadbare exception, ignoring that the threat of contradiction is itself disqualifying. The ∃B, ∀C shape sits exactly between these failures—it requires that there exists at least one escape, and that the escape itself contains no further unavoidable threats. The chess analogy is exact: in “check,” a contradiction is reachable in one move; in “checkmate,” every move still leaves a contradiction reachable. The third postulate is checkmate avoidance, formalized.</p>
 
-      <p>The reduced form mechanism turns out to be <span class="hl">universal across probability theory</span>. The Monty Hall problem is its cleanest classical demonstration: write the original Aethus, intersect with the contestant’s pick and the host’s reveal, expand the product, identify the Aethic contradictions, prune them via the reduced form, and read off the surviving probabilities (1/3 vs. 2/3). No Bayes’ theorem is invoked at any step. Bayesian updating itself emerges as a special case of the reduced form acting on an Aethus after new information has eliminated some branches. The Quantum Nexus integral (Layer 10) is the same mechanism in the quantum case: the reduced form prunes invalid path clusters from the powerset of agreeing superpositions, with only the probability weights differing (classical addition vs. interference). Same backbone; different weight algebra.</p>
+      <p>The reduced form mechanism turns out to be <span class="hl">universal across probability theory</span>. The Monty Hall problem is its cleanest classical demonstration: write the original Aethus, intersect with the contestant’s pick and the host’s reveal, expand the product, identify the Aethic contradictions, prune them via the reduced form, and read off the surviving probabilities (1/3 vs. 2/3). No Bayes’ theorem is invoked at any step. Bayesian updating itself emerges as a special case of the reduced form acting on an Aethus after new information has eliminated some branches. The Quantum Nexus integral (Layer 11) is the same mechanism in the quantum case: the reduced form prunes invalid path clusters from the powerset of agreeing superpositions, with only the probability weights differing (classical addition vs. interference). Same backbone; different weight algebra.</p>
 
       <p>This "same backbone" has a name: <span class="hl">reduced form coupling</span>. When the reduced form is applied to an Aethus containing two or more attributes whose states could otherwise freely combine—a slit-traversal and a detector outcome, two distant measurements, a past prediction and a present action—the Third Postulate prunes any joint configuration whose intersection contains a downstream contradiction. What survives exhibits a structural residue: the permitted values of the attributes become mutually dependent, purely because the alternative joint values were eliminated. No causal interaction, no hidden common cause, no <em>Aethus</em>-external principle—the coupling is simply what remains once validity-preserving pruning has run its course. The key procedural observation is that Aethic invalidities typically do not localize to individual stated-attributes; it is not that <em>X</em> = <em>x</em>₁ is invalid nor that <em>Y</em> = <em>y</em>₂ is invalid, but that the Aethic intersection (<em>X</em> = <em>x</em>₁) ∩ (<em>Y</em> = <em>y</em>₂) itself is what contains the downstream contradiction. The correlation between the surviving combinations is left behind as a structural residue of pruning mutually-contradictory joint configurations.</p>
 
@@ -1954,7 +1932,7 @@ body.explorer-mode .detail { display:none !important; }
 
       <p>Methodologically, the reduced form was <em>not</em> defined with this unification in mind. It was defined procedurally, as the supremum by Aethic parentage of the set of proper child Aethae for which all further proper child Aethae are valid—simply what the Third Postulate structurally requires when expressed positively. The coupling is a side-effect of that procedural definition, and that the side-effect then reproduces entanglement, delayed-choice, the multi-slit powerset classification, cross-observer consistency, and the Newcomb coin-flip resolution—without any of these having been built in as targets—is a discovery-rather-than-design relationship that is easier to recognize than to manufacture. The convergence with Wood and Spekkens's program on quantum causal models is worth naming explicitly: their formal demonstrations that Bell-inequality violations resist all classical causal explanation have pointed toward the need for an "exotic but realist" causation beyond the A-causes-B / B-causes-A / common-cause triad, and reduced form coupling supplies exactly that ontological grounding—causation sourced neither by signal exchange nor by shared antecedent, but by validity-preserving pruning of joint configurations that would otherwise produce downstream contradictions.</p>
 
-      <p>The third postulate is also the engine that powers the <span class="hl3">Powerset Invalidation Theorem</span> of Layer 8: given an arbitrary multi-slit detector configuration, classifying every subset of the slit powerset as valid, P2-invalid (over-specification within an equivalence class), or P3-invalid (cross-class bridging) is a finite combinatorial procedure that uses the third postulate as its core check. The result is that the apparently mysterious behavior of arbitrary multi-slit experiments becomes a decidable algorithm—you can compute, in advance, exactly which superpositions will survive any given detector setup. The collapse postulate of standard quantum mechanics is, on this view, not an axiom; it is what the reduced form does.</p>
+      <p>The third postulate is also the engine that powers the <span class="hl3">Powerset Invalidation Theorem</span> of Layer 9: given an arbitrary multi-slit detector configuration, classifying every subset of the slit powerset as valid, P2-invalid (over-specification within an equivalence class), or P3-invalid (cross-class bridging) is a finite combinatorial procedure that uses the third postulate as its core check. The result is that the apparently mysterious behavior of arbitrary multi-slit experiments becomes a decidable algorithm—you can compute, in advance, exactly which superpositions will survive any given detector setup. The collapse postulate of standard quantum mechanics is, on this view, not an axiom; it is what the reduced form does.</p>
 
       </div>
 
@@ -2150,7 +2128,7 @@ body.explorer-mode .detail { display:none !important; }
 
           <!-- SOURCE-AGNOSTIC GARBAGE COLLECTION -->
           <h4>Source-Agnostic Garbage Collection</h4>
-          <p>Role 2 means the reduced form functions as a <strong>universal garbage collector</strong>: it doesn’t care <em>why</em> a grandchild is invalid, only <em>whether</em> it is. Contradictions, second postulate violations, recursive third postulate applications—all feed equivalently into the same pruning mechanism. This is visible in the powerset invalidation theorem (Layer 8), where P2 and P3 contributions fall out as complementary, non-overlapping pruning channels.</p>
+          <p>Role 2 means the reduced form functions as a <strong>universal garbage collector</strong>: it doesn’t care <em>why</em> a grandchild is invalid, only <em>whether</em> it is. Contradictions, second postulate violations, recursive third postulate applications—all feed equivalently into the same pruning mechanism. This is visible in the powerset invalidation theorem (Layer 9), where P2 and P3 contributions fall out as complementary, non-overlapping pruning channels.</p>
 
           <!-- TIM'S PET -->
           <h4>Testing on Known Valid Aethae—Tim’s Pet</h4>
@@ -2183,6 +2161,178 @@ body.explorer-mode .detail { display:none !important; }
   <div class="layer" id="layer-8" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
       <div class="layer-number" style="color:var(--accent-6)">8</div>
+      <div class="layer-title-block">
+        <div class="layer-title">Aethic Logic Proper—Eight Structural Departures from Sentential Logic</div>
+        <div class="layer-role">Synthesis · How Aethic logic differs from classical sentential logic</div>
+      </div>
+      <div class="layer-toggle">+</div>
+    </div>
+    <div class="layer-content"><div class="layer-body">
+
+      <p>The preceding seven layers built the Aethic apparatus piecewise—the Aethus (Layer 3), the Aethic retrieval and Second Postulate (Layer 4), weighted Aethae and the Nexus (Layer 5), the Union Principle (Layer 6), and the Reduced Form and Third Postulate (Layer 7). What has not yet been foregrounded is the cumulative effect on logical structure itself: when the full Aethic apparatus is set against standard Boolean theory, what specifically has changed at the level of logic? The paper’s §3.5 (“Briefly Overviewing Aethic Logic Proper”) consolidates this by walking through eight load-bearing departures from sentential logic. This layer presents those eight departures as a structural index, with each step exhibiting the sentential-logic role and the Aethic-logic replacement side by side. The reader already familiar with the construction may treat this layer as a cross-reference table; the reader still finding the apparatus alien may treat it as a brief recap of where each piece is doing its work.</p>
+
+      <p>The eight steps are not arbitrary. Each one names a specific structural commitment the framework makes that sentential logic cannot make, and each one is what enables the next. Step 1 establishes the unit of fact; Step 2 establishes the layered container; Step 3 separates the formal apparatus from empirical observation; Step 4 makes blankness a constructive primitive rather than a negation; Steps 5 and 6 reorganize disjunction and conjunction; Step 7 transposes contradiction; Step 8 replaces static truth-table semantics with the dynamic validity check of the Third Postulate. By the end, sentential logic and Aethic logic look categorically different—and the difference is operational, not stylistic.</p>
+
+      <h4 style="color:var(--accent-6);margin-top:2rem;">Step 1 — From Propositions to Stated-Attributes</h4>
+
+      <p><strong>Sentential logic.</strong> The fundamental unit of fact is the proposition—a sentence with a determinate truth value. “Topaz has Mohs hardness 8” is a proposition; it is either true or false, and its truth value is the only structural information sentential logic stores about it.</p>
+
+      <p><strong>Aethic logic.</strong> The fundamental unit of fact is the <span class="hl">stated-attribute</span> (or 1-Aethus), formed by instantiating an Attribute with a State. The proposition above becomes the pairing (“Mohs hardness of topaz”, 8), where the Attribute is itself a tuple containing an identifier, a class, and a relation set encoding its dependencies on other attributes. This is structurally richer for two reasons: the attribute and the state are <em>separable</em> (the attribute can persist as an object even when its state is unknown), and the relation set encodes logical dependencies directly into the attribute (derivability across attributes is built into the structure rather than imposed externally).</p>
+
+      <div class="formal technical-only">
+        <span class="formal-label">Load-bearing consequence</span>
+        Because attributes are separable from their states, the framework can represent the absence of a state as a primitive object (the blank), rather than treating absence as merely the negation of presence. This is the structural precondition for everything that follows.
+      </div>
+
+      <h4 style="color:var(--accent-6);margin-top:1.8rem;">Step 2 — From Sets of Propositions to the 2-/3-/4-Aethus Hierarchy</h4>
+
+      <p><strong>Sentential logic.</strong> A logical theory is a set of propositions closed under logical consequence. The container is flat: propositions are listed, their consequences are derived, and equivalent theories are theories with the same consequences.</p>
+
+      <p><strong>Aethic logic.</strong> The container is layered. A 2-Aethus (Static Aethus) is a set of stated-attributes viewed as a function mapping attributes to states. A 3-Aethus is the closure of a 2-Aethus under all derivable attributes—the logical completion. An Aethus (or 4-Aethus) is the equivalence class of all 2-Aethae that generate the same 3-Aethus. These are distinct objects: the 2-Aethus is what one writes down, the 3-Aethus is what is implied, and the Aethus is the underlying invariant that all logically-equivalent 2-Aethae point to.</p>
+
+      <div class="formal technical-only">
+        <span class="formal-label">Load-bearing consequence</span>
+        The Aethus, as an equivalence class, is invariant under changes in how the system is described. This gives the framework its claim to operate on the informational state itself rather than on any particular representation of it. Aethic operations (union, intersection, retrieval) are defined on Aethae, not on 2-Aethae—which means they respect the equivalence relation rather than depending on representational choices.
+      </div>
+
+      <h4 style="color:var(--accent-6);margin-top:1.8rem;">Step 3 — From Direct Manipulation to Backend Manipulation via Aethic Retrieval</h4>
+
+      <p><strong>Sentential logic.</strong> The propositions one manipulates and the propositions one observes are the same object. There is no separation between the formal level at which logical operations are performed and the level at which truth-value assignments are checked against the world.</p>
+
+      <p><strong>Aethic logic.</strong> The framework introduces a fundamental <span class="hl2">backend/frontend separation</span>. Structural operations—union, intersection, equivalence-class formation, blank manipulation, validity checks—are performed at the level of Aethae (the backend). What is actually observed empirically is the block universe (the frontend). The two layers are bridged by the Aethic retrieval function $R:\text{Aethus}\to\text{Block Universe}$, with the First Postulate expressible as the statement that this mapping is bijective.</p>
+
+      <div class="formal technical-only">
+        <span class="formal-label">Load-bearing consequence</span>
+        Operations on Aethae need not preserve direct propositional readability, because the read-out happens through the retrieval mapping rather than through inspection of the Aethus itself. Aethic unions can produce superpositions; blank attributes can produce sets of all possible states; agreeing and disagreeing superpositions can be algebraically nested in ways that have no direct propositional counterpart. The retrieval is what makes the backend operations operationally well-formed without forcing propositional-readability at every step.
+      </div>
+
+      <h4 style="color:var(--accent-6);margin-top:1.8rem;">Step 4 — From Absence-as-Negation to Blank-as-Constructive-Primitive</h4>
+
+      <p><strong>Sentential logic.</strong> There is no third option between “proposition P is asserted” and “proposition P is denied”—absence of a proposition from the theory has no structural role of its own.</p>
+
+      <p><strong>Aethic logic.</strong> An attribute that is not present in an Aethus is <span class="hl">blank</span>, and the blank is a constructive ontological primitive, not merely an absence. The blank participates in the Aethic retrieval via the Second Postulate. The framework refines blankness further into the <em>decomposition trichotomy</em>: stated-decomposable (all sub-attributes stated), blank-decomposable (all sub-attributes blank—conceptually blank), and mixed-decomposable (some stated, some blank—semiblank). An attribute that is either conceptually blank or semiblank is <em>directly blank</em>.</p>
+
+      <div class="formal technical-only">
+        <span class="formal-label">Load-bearing consequence</span>
+        Sentential logic has no apparatus for this trichotomy. The distinction between conceptual blankness, semiblankness, and statedness is invisible at the propositional level, yet it does substantial work in Aethic logic: it allows the framework to track the difference between a full superposition (all possibilities), a partial superposition (constrained possibilities), and a determinate state. Each category retrieves differently, and the distinctions are structural rather than terminological.
+      </div>
+
+      <h4 style="color:var(--accent-6);margin-top:1.8rem;">Step 5 — From Boolean Disjunction to Aethic Union with the Agreeing/Disagreeing Split</h4>
+
+      <p><strong>Sentential logic.</strong> The disjunction $P\vee Q$ is true if at least one of $P,Q$ is true. Boolean disjunction does one thing uniformly: it produces the union of the propositions’ truth conditions.</p>
+
+      <p><strong>Aethic logic.</strong> The Aethic union, $A\cup B$, operates on Aethae rather than on propositions, and its structural behavior splits along an axis Boolean logic does not see. <span class="hl">Agreeing superposition</span> (quantum coherence): states $A_i$ coexist and can interfere—mathematically elementary, $C_1=\bigcup_i A_i$. <span class="hl3">Disagreeing superposition</span> (classical-appearance mutual exclusivity): states $A_i$ coexist but cannot interfere—mathematically a nested union over intersections with negations, $C_2=\bigcup_i(A_i\cap\bigcap_{j\ne i}\neg A_j)$.</p>
+
+      <div class="formal technical-only">
+        <span class="formal-label">Load-bearing consequence</span>
+        The agreeing/disagreeing distinction is invisible to sentential logic, which treats both as “or.” Yet they have categorically different empirical behavior: agreeing superpositions interfere; disagreeing superpositions do not. The Union Principle’s canonical claim is that the difference lives in <em>algebraic nesting</em>, not in physical presence. Both types manifest as physical co-occupation; only the nested structure distinguishes them.
+      </div>
+
+      <h4 style="color:var(--accent-6);margin-top:1.8rem;">Step 6 — From Boolean Conjunction to Aethic Intersection with Directionality</h4>
+
+      <p><strong>Sentential logic.</strong> The conjunction $P\wedge Q$ is true if both $P$ and $Q$ are true. Conjunction and disjunction are dual operations on equal footing in the Boolean algebra.</p>
+
+      <p><strong>Aethic logic.</strong> The Aethic intersection $A\cap B$ is ontologically asymmetric to the Aethic union along the parent-child Aethus structure. Intersection moves toward the child Aethus direction (adding information, asserting both states present); union moves toward the parent Aethus direction (removing information, creating a conceptual blank that retrieves as superposition). Both pathways arrive at physical AND in the block universe, but they traverse opposite directions on the Aethic tree: the <span class="hl">additive pathway</span> (intersection, child direction) and the <span class="hl">subtractive pathway</span> (union, parent direction).</p>
+
+      <div class="formal technical-only">
+        <span class="formal-label">Load-bearing consequence</span>
+        Sentential logic flattens this directionality. There is no parent-child structure at the propositional level; conjunctions and disjunctions are symmetric duals. Aethic logic’s directionality is what allows the agreeing superposition of $A$ and $B$ to be <em>not equivalent</em> to the intersection $A\cap B$, even though both render as physical AND. The agreeing superposition forces the common attribute’s encoding to be blank (subtractive pathway); the intersection forces both attributes into the Aethus (additive pathway). They traverse opposite directions and render identically.
+      </div>
+
+      <h4 style="color:var(--accent-6);margin-top:1.8rem;">Step 7 — From Standard Contradiction to Aethic Contradiction with Two-Step Invalidity</h4>
+
+      <p><strong>Sentential logic.</strong> A contradiction is a proposition that is both asserted and denied, $P\wedge\neg P$. Contradictions are problematic because they entail every proposition (<em>ex falso quodlibet</em>), making the theory uninformative.</p>
+
+      <p><strong>Aethic logic.</strong> An <span class="hl3">Aethic contradiction</span> is a stronger form of contradiction unique to Aethic reasoning—it produces an invalid Aethus rather than just a false proposition. Crucially, any child of an invalid Aethus is also invalid: invalidity <em>propagates</em> through the parent-child structure. Aethic contradictions are not isolated propositional failures but global structural failures.</p>
+
+      <div class="formal technical-only">
+        <span class="formal-label">The pattern-matching pitfall</span>
+        Under a classical-reductionist view, many Aethic features observed in nature would be effectively misclassified as contradictions by simple pattern-matching to the schema $P\wedge\neg P$. The canonical example is quantum coherence itself—an electron simultaneously traversing both slits reads, under the classical paradigm, as a textbook contradiction. The Bohr tradition has long recognized this misclassification, but its resolution leaves quantum epistemic antirealism as the price to be paid. The classical paradigm’s misclassification can be flagged but cannot be structurally repaired at the level of the underlying logic itself.
+      </div>
+
+      <p>The two-step structure of Aethic invalidity is what enables the Third Postulate’s recursive formulation. First, narrow contradiction’s phenomenology to <em>Aethic contradictions</em> specifically (configurations where disjoint stated-attributes for the same attribute appear within a single Aethus). Then, broaden the phenomenology to <em>invalid Aethae in general</em> (which includes Aethic contradictions, third-postulate-derived invalidities, and any further invalidity sources). Ajax describes this specification-then-broadening maneuver as “perhaps the seed of Aethic reasoning’s revolutionary potential”—a structural pattern effectively unreachable from sentential logic alone.</p>
+
+      <h4 style="color:var(--accent-6);margin-top:1.8rem;">Step 8 — From Static Truth Tables to Dynamic Validity Checks</h4>
+
+      <p><strong>Sentential logic.</strong> The semantics of a Boolean formula is given by a truth table: for each assignment of truth values to atomic propositions, the formula either holds or fails. Truth tables are static; they enumerate all possible worlds and check the formula in each.</p>
+
+      <p><strong>Aethic logic.</strong> The semantics of an Aethic configuration is given by the Third Postulate’s two-generational validity check: $V[A]\implies\exists B\subset A,\,\forall C\subset B,\,V[C]$. An Aethus is valid if and only if there exists a proper child Aethus all of whose proper children are themselves valid—“check” is escapable if there exists at least one safe move (existential); the move is “safe” if every subsequent move from it is valid (universal). This $\exists$-$\forall$ alternation gives the validity operator its characteristic two-generational shape.</p>
+
+      <div class="formal technical-only">
+        <span class="formal-label">Load-bearing consequence</span>
+        Sentential logic’s truth-table semantics evaluates configurations in isolation; each row is independent. Aethic logic’s validity check propagates across the Aethic tree, pruning configurations whose descendants would force contradictions. This is the chess-checkmate condition made formal: <em>check</em> is escapable if any move avoids capture; <em>checkmate</em> is the failure of the universal condition—every escape leads to a position still in check. The validity check is therefore a constraint on the graph-theoretic structure of valid Aethae, not on the propositional content of any single Aethus.
+      </div>
+
+      <div class="key-insight">
+        <div class="ki-label">The Cumulative Shape of Aethic Logic</div>
+        <p>Eight specific structural moves separate Aethic logic from sentential logic, and they compose into a categorically richer logical apparatus rather than a notational reformulation of the classical one. The unit of fact is the stated-attribute, not the proposition. The container is the layered 2-/3-/4-Aethus hierarchy, not a flat consequence-closed set. The formal apparatus is backend-separated from observation via the Aethic retrieval, not directly identified with it. Blankness is a constructive primitive with a decomposition trichotomy, not merely the absence of an assertion. Disjunction splits into agreeing and disagreeing superpositions; conjunction has directionality between the additive (intersection) and subtractive (union) pathways. Contradiction becomes the two-step Aethic-contradiction-then-invalid-Aethus structure with propagation through the parent-child Aethus structure. And validity becomes the dynamic two-generational $\exists$-$\forall$ check of the Third Postulate, not the static truth-table evaluation of a Boolean formula. The cumulative result is what licenses every empirical move the rest of the paper makes—the double-slit derivation, the multi-slit powerset invalidation theorem, the Quantum Nexus integral. Without the eight departures, none of those derivations is reachable from within standard logical semantics.</p>
+      </div>
+
+      </div>
+
+<div class="explorer-body">
+
+      <p>If you have been wondering “how is this actually different from regular logic?”—this layer is for you. The framework introduces a number of structural pieces over the preceding seven layers, and what has not been said straight-out is what specifically changes about logic itself once they are all in place. The answer, as it turns out, has a fairly clean shape: eight specific upgrades, none of them stylistic, each one of them doing work that standard logic cannot.</p>
+
+      <p>Let’s walk through them in plain language. Standard logic is something everyone has been exposed to, at least implicitly: propositions are either true or false; you combine them with “and,” “or,” and “not”; a contradiction is when something is both asserted and denied. This is the toolbox we grew up with. Aethic logic keeps the spirit but upgrades almost every individual tool. Here is what changes.</p>
+
+      <h4 style="color:var(--accent-6);margin-top:1.6rem;">First, what counts as a basic fact</h4>
+
+      <p>Standard logic says the smallest unit of fact is the proposition: a sentence that is either true or false. “Topaz has hardness 8” is one such proposition; the only thing standard logic stores about it is whether it is true.</p>
+
+      <p>Aethic logic says the smallest unit is the stated-attribute: a question paired with an answer. “What is the hardness of topaz?” paired with “8.” The question is separable from the answer. That is the first upgrade, and it is the structural reason the framework can later say things like “the answer is blank” in a way standard logic cannot. Standard logic has no place to put a question without an answer; Aethic logic does.</p>
+
+      <h4 style="color:var(--accent-6);margin-top:1.6rem;">Second, how facts are organized</h4>
+
+      <p>Standard logic organizes facts as a flat list. You list your propositions, you derive their consequences, and you call that your theory.</p>
+
+      <p>Aethic logic organizes facts as a layered hierarchy. There is what you actually wrote down (the 2-Aethus). There is the full logical closure of what you wrote down—everything that can be derived (the 3-Aethus). And there is the abstract knowledge itself, independent of which specific list of facts you used to convey it (the 4-Aethus, or just Aethus). Two different lists that contain the same information correspond to the same Aethus. That equivalence-class move is what lets the framework operate on knowledge itself rather than on any particular way of writing it down.</p>
+
+      <h4 style="color:var(--accent-6);margin-top:1.6rem;">Third, the bridge between formal apparatus and observation</h4>
+
+      <p>Standard logic does not separate the formal level from the observable level. You manipulate the same propositions you observe. Whatever moves you make at the formal level are made to the propositions themselves.</p>
+
+      <p>Aethic logic introduces a clean separation. There is the <em>backend</em>: the level of Aethae, where structural operations like unions, intersections, and validity checks are performed. There is the <em>frontend</em>: the block universe, which is what an observer empirically experiences. The two are bridged by a mapping called the Aethic retrieval, which takes an Aethus and produces the corresponding observable reality. This is what lets the backend do things the frontend would refuse to accept—like containing a blank attribute that becomes a full superposition once retrieved.</p>
+
+      <h4 style="color:var(--accent-6);margin-top:1.6rem;">Fourth, what “blank” actually is</h4>
+
+      <p>Standard logic has only two options: a proposition is either asserted or denied. There is no third state. The absence of a proposition from the theory is not a structural object.</p>
+
+      <p>Aethic logic adds a third option: <em>blank</em>. A blank attribute is not a denial. It is a constructive primitive—a real, first-class part of the framework rather than merely a missing entry. And blank has a further refinement: an attribute can be <em>fully blank</em> (no information at all about it or its parts), <em>partially blank</em> (some sub-information present, some not), or <em>fully stated</em> (all information present). These three cases retrieve differently in the block universe: fully blank gives a full superposition, partially blank gives a partial superposition, fully stated gives a definite outcome.</p>
+
+      <h4 style="color:var(--accent-6);margin-top:1.6rem;">Fifth and sixth, what “or” and “and” really mean</h4>
+
+      <p>Standard logic has one operation for “or” (it is true if at least one side is true) and one operation for “and” (it is true if both sides are true). The two are symmetric duals.</p>
+
+      <p>Aethic logic distinguishes two flavors of “or.” The first is <em>agreeing superposition</em>, where the two outcomes coexist and can interfere—like a particle going through both slits in the double-slit experiment. The second is <em>disagreeing superposition</em>, where the two outcomes coexist but explicitly exclude each other—like the classical “one or the other” we are used to. Standard logic conflates these because it only has one “or”; Aethic logic separates them because they behave categorically differently in physics.</p>
+
+      <p>Aethic logic also adds a directionality to “and” that standard logic does not have. There are two ways to reach “both things are present at once.” The additive way: add information until both are explicitly asserted (this is the intersection in Aethic terms). The subtractive way: remove information until what is left becomes blank, and the blank then retrieves as a superposition containing both options (this is the union). Both arrive at the same physical outcome (“both options happening at once”), but they get there from opposite directions on the parent-child Aethus tree.</p>
+
+      <h4 style="color:var(--accent-6);margin-top:1.6rem;">Seventh, what counts as a contradiction</h4>
+
+      <p>Standard logic says a contradiction is a proposition both asserted and denied. The contradiction is local to that proposition.</p>
+
+      <p>Aethic logic says a contradiction is structurally stronger: an <em>Aethic contradiction</em> produces an invalid Aethus, and any descendant of an invalid Aethus is also invalid. Invalidity propagates through the parent-child structure of the Aethic tree. This matters because it means contradiction is no longer just a local property of a single statement; it is a structural property of the whole downstream configuration. There is also a built-in warning here: lots of things that look like contradictions to a standard-logic reader (quantum coherence is the headline example) are <em>not</em> Aethic contradictions, they are just pattern-matched onto $P\wedge\neg P$ when their actual structure is something Aethic logic handles natively. That pattern-matching pitfall is one of the standing methodological warnings the framework gives.</p>
+
+      <h4 style="color:var(--accent-6);margin-top:1.6rem;">Eighth, how validity gets checked</h4>
+
+      <p>Standard logic checks validity with a truth table. You enumerate every possible assignment of truth values to atomic propositions, you evaluate the formula in each row, and you read off whether the formula holds. The check is static—each row is independent.</p>
+
+      <p>Aethic logic checks validity dynamically. The Third Postulate says: an Aethus is valid if there exists a child Aethus all of whose children are themselves valid. This is the chess-checkmate condition. “Check” means there is at least one threat lurking; you escape check if there is at least one move available that avoids it. “Checkmate” means every available move still leaves you in check—no escape exists. Aethic validity is “not checkmate”: there exists an escape move, and the escape move leads only to safe positions. This is more dynamic than a truth table because the validity of any one Aethus depends on the validity of its descendants in the Aethic tree, not just on its own content.</p>
+
+      <div class="takeaway">
+        <strong>The takeaway:</strong> Eight upgrades. New unit of fact (stated-attribute). New container (layered Aethus hierarchy). New separation between backend and frontend (Aethic retrieval). New third option besides true and false (blank). New types of “or” (agreeing and disagreeing superposition). New directionality in “and” (additive vs subtractive pathways). New form of contradiction (Aethic contradiction, with propagation). New validity check (the two-generational chess-checkmate condition). What makes this <em>a logic</em> rather than a relabeling of standard logic is that each upgrade is doing structural work that the classical version cannot do, and the cumulative effect is what licenses the framework’s account of the measurement problem, superposition, contradiction, and validity itself. Sentential logic is recovered as a flat-conjunction-and-flat-disjunction special case once all eight upgrades are turned off.
+      </div>
+
+      <p style="font-size:0.75rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;">Want the formal mathematics? <a href="javascript:void(0)" onclick="event.stopPropagation();setMode('technical')" style="color:var(--accent-1);text-decoration:none;border-bottom:1px solid rgba(110,92,255,0.3);">Switch to Technical mode</a> to see the deep dive.</p>
+
+    </div></div>
+  </div>
+
+  <!-- LAYER 9 -->
+  <div class="layer" id="layer-9" data-accent="var(--accent-6)">
+    <div class="layer-header" onclick="toggleLayer(this)">
+      <div class="layer-number" style="color:var(--accent-6)">9</div>
       <div class="layer-title-block">
         <div class="layer-title">Applications—Double-Slit, Delayed-Choice & Multi-Slit</div>
         <div class="layer-role">Application · The machinery at work</div>
@@ -2432,7 +2582,7 @@ body.explorer-mode .detail { display:none !important; }
             The number of valid non-empty subsets always equals the number of equivalence classes k.
           </div>
 
-          <p>The quantum-classical boundary is not a fixed threshold but the boundary that the informational structure of the measurement apparatus induces over the equivalence classes. This discrete interpolation is the most direct bridge to the Quantum Nexus integral (Layer 10): each equivalence class corresponds to an A(T) term that survives the reduced form in the continuous limit.</p>
+          <p>The quantum-classical boundary is not a fixed threshold but the boundary that the informational structure of the measurement apparatus induces over the equivalence classes. This discrete interpolation is the most direct bridge to the Quantum Nexus integral (Layer 11): each equivalence class corresponds to an A(T) term that survives the reduced form in the continuous limit.</p>
 
           <!-- ELITZUR-VAIDMAN -->
           <h4>The Elitzur–Vaidman Bomb Tester</h4>
@@ -2443,10 +2593,10 @@ body.explorer-mode .detail { display:none !important; }
     </div></div>
   </div>
 
-  <!-- LAYER 9 -->
-  <div class="layer" id="layer-9" data-accent="var(--accent-6)">
+  <!-- LAYER 10 -->
+  <div class="layer" id="layer-10" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-6)">9</div>
+      <div class="layer-number" style="color:var(--accent-6)">10</div>
       <div class="layer-title-block">
         <div class="layer-title">The Fundamental Theorem & Falsifiability</div>
         <div class="layer-role">Generalization · From quantum to everywhere</div>
@@ -2852,10 +3002,10 @@ body.explorer-mode .detail { display:none !important; }
     </div></div>
   </div>
 
-  <!-- LAYER 10 -->
-  <div class="layer" id="layer-10" data-accent="var(--accent-6)">
+  <!-- LAYER 11 -->
+  <div class="layer" id="layer-11" data-accent="var(--accent-6)">
     <div class="layer-header" onclick="toggleLayer(this)">
-      <div class="layer-number" style="color:var(--accent-6)">10</div>
+      <div class="layer-number" style="color:var(--accent-6)">11</div>
       <div class="layer-title-block">
         <div class="layer-title">Prelude to Active Reasoning—The Quantum Nexus Integral</div>
         <div class="layer-role">Horizon · Where the framework meets quantum mechanics head-on</div>
@@ -2877,7 +3027,7 @@ body.explorer-mode .detail { display:none !important; }
 
       <p class="technical-only">But how does the pruning actually <em>happen</em>? The Quantum Nexus N is a universal object—it encodes <em>all</em> possible agreeing superpositions of paths, weighted by their phase factors. To get the physics of any particular system, you take the <strong>Aethic intersection</strong> of N with a system Aethus S encoding the detector configuration, initial conditions, and whatever other information specifies your experiment. By the <strong>distributive property</strong> of Aethic intersection over Aethic union, this intersection distributes term-by-term across every A(T) inside the integral: each becomes A(T) ∩ S individually. Any A(T) ∩ S that forms an invalid Aethus—because the system Aethus contains information that distinguishes between paths in T—self-destructs: its Aethic weight drops to zero, and the term vanishes from the reduced form. What survives is the physics of your system.</p>
 
-      <p class="technical-only">This is the dynamical core of the integral. The entire pruning mechanism—every instance of the Third Postulate firing, every transition from agreeing to disagreeing superposition, every case where a detector “collapses” a state—is encoded in a single operation: intersect N with S, let term distribution do the work, and read off what survives. The P2 and P3 invalidations from the powerset invalidation theorem (Layer 8) are exactly the discrete, finite-slit specialization of this continuous process: each equivalence class corresponds to an A(T) term that either survives or drops to zero upon intersection with the system Aethus encoding the detector configuration.</p>
+      <p class="technical-only">This is the dynamical core of the integral. The entire pruning mechanism—every instance of the Third Postulate firing, every transition from agreeing to disagreeing superposition, every case where a detector “collapses” a state—is encoded in a single operation: intersect N with S, let term distribution do the work, and read off what survives. The P2 and P3 invalidations from the powerset invalidation theorem (Layer 9) are exactly the discrete, finite-slit specialization of this continuous process: each equivalence class corresponds to an A(T) term that either survives or drops to zero upon intersection with the system Aethus encoding the detector configuration.</p>
 
       <div class="key-insight">
         <div class="ki-label">The Deepest Reveal</div>
@@ -2898,7 +3048,7 @@ body.explorer-mode .detail { display:none !important; }
         <strong>The kill switch—and the reorganization around it.</strong> The framework doesn't just paste a new factor onto Feynman's integral. It reorganizes the whole structure into a <em>triple</em> integral: an outer integral over every possible <em>group</em> of paths (the powerset 𝒫(X)), an inner double integral over <em>pairs</em> of paths (which gives probability mass directly, by applying the Born rule), and a kill-switch factor A(T) that gates each group. If a group of paths forms a valid agreeing superposition—meaning no future observer could ever distinguish which path was taken—then A(T) = 1 and the group contributes. If the Third Postulate prunes the group (because some future observer <em>could</em> tell), A(T) = 0 and the group is deleted. The whole architecture encodes all three Aethic postulates inside one mathematical object.
       </div>
 
-      <p>This is the <strong>Quantum Nexus integral</strong>. In every case where standard quantum mechanics works (which is all the cases we've ever tested), it produces the same predictions. But it also handles Case C, the macroscopic scenario-interaction prediction from Layer 9, which the standard path integral can't even express.</p>
+      <p>This is the <strong>Quantum Nexus integral</strong>. In every case where standard quantum mechanics works (which is all the cases we've ever tested), it produces the same predictions. But it also handles Case C, the macroscopic scenario-interaction prediction from Layer 10, which the standard path integral can't even express.</p>
 
       <p>The full derivation of why probability specifically follows the Born rule (the |wave function|² law) from something deeper is still an open problem. That’s the subject of an upcoming paper called Active Reasoning. But the Quantum Nexus integral identifies exactly where the Born rule sits in the architecture and why it sits there, which is more structural progress on this question than any other interpretation has made.</p>
 
@@ -2922,7 +3072,7 @@ body.explorer-mode .detail { display:none !important; }
           <!-- PATH PRUNING VISUALIZER -->
           <div class="explorer-note">The full path integral development is hidden in Explorer mode. The key idea: the Quantum Nexus reorganizes the Feynman path integral into a triple integral—outer over every <em>group</em> of paths (the powerset 𝒫(X)), inner over <em>pairs</em> of paths (giving probability mass directly), with an A(T) factor that equals 1 for valid agreeing superpositions and 0 for invalid ones. This restructured architecture encodes all three Aethic postulates in the language of standard quantum mechanics.</div>
 <div class="technical-only"><h4>From Slits to Paths—Aethic Pruning in the Continuous Limit</h4>
-          <p>As the number of slits increases toward infinity, the powerset invalidation theorem from Layer 8 transitions into the Feynman path integral. Each “slit” becomes a continuous path through spacetime. Toggle the detector to watch paths get pruned:</p>
+          <p>As the number of slits increases toward infinity, the powerset invalidation theorem from Layer 9 transitions into the Feynman path integral. Each “slit” becomes a continuous path through spacetime. Toggle the detector to watch paths get pruned:</p>
 
           <div id="path-sim" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1.2rem 0;">
             <div style="display:flex;justify-content:center;gap:0.6rem;margin-bottom:0.8rem;flex-wrap:wrap;">
@@ -3170,7 +3320,7 @@ body.explorer-mode .detail { display:none !important; }
 
           <!-- SLITS-TO-PATHS INTERPOLATION INTERACTIVE -->
           <h4>Watching Slits Become Paths</h4>
-          <p>The bridge between the discrete powerset of Layer 8 and the continuous path integral above is direct, not hand-waved. Drag the slider to increase the number of slits—at 2, you have the original double-slit; at 4, you have the powerset visualization from Layer 8; as the count climbs, the apparatus dissolves into the continuous limit, and the equivalence-class structure preserves itself smoothly across the transition.</p>
+          <p>The bridge between the discrete powerset of Layer 9 and the continuous path integral above is direct, not hand-waved. Drag the slider to increase the number of slits—at 2, you have the original double-slit; at 4, you have the powerset visualization from Layer 9; as the count climbs, the apparatus dissolves into the continuous limit, and the equivalence-class structure preserves itself smoothly across the transition.</p>
 
           <div id="interp-sim" style="background:var(--bg-layer);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin:1.2rem 0;">
             <div style="display:flex;justify-content:center;align-items:center;gap:0.8rem;margin-bottom:0.8rem;flex-wrap:wrap;">
@@ -3332,8 +3482,8 @@ body.explorer-mode .detail { display:none !important; }
                   : '<strong>Original double-slit, detector off:</strong> all slits in one equivalence class → standard interference pattern.';
               } else if (n === 4) {
                 res.innerHTML = detect
-                  ? '<strong>n=4: the powerset of Layer 8.</strong> 16 subsets total; only the equivalence class matching the detector partition survives. P2 prunes too-narrow subsets, P3 prunes cross-class subsets.'
-                  : '<strong>n=4: the powerset of Layer 8.</strong> 16 subsets total; only ∅ and the full set {A,B,C,D} are valid (one equivalence class). All others fail P2.';
+                  ? '<strong>n=4: the powerset of Layer 9.</strong> 16 subsets total; only the equivalence class matching the detector partition survives. P2 prunes too-narrow subsets, P3 prunes cross-class subsets.'
+                  : '<strong>n=4: the powerset of Layer 9.</strong> 16 subsets total; only ∅ and the full set {A,B,C,D} are valid (one equivalence class). All others fail P2.';
               } else if (n <= 16) {
                 res.innerHTML = detect
                   ? '<strong>Mid-transition.</strong> The apparatus is dissolving but the equivalence-class structure is intact. P2/P3 still classify every one of the 2^n subsets.'
@@ -3348,7 +3498,7 @@ body.explorer-mode .detail { display:none !important; }
           })();
           </script>
 
-          <p>The slider makes the central technical claim of Layer 10 inspectable: the move from discrete slits to continuous paths is not a separate construction layered on top of the powerset machinery, but a smooth limit of it. Every subset of slits at finite n becomes a subset of paths in the limit; the A(T) factor that classifies subsets as valid or invalid in the discrete case becomes the validity factor inside the integral in the continuous case. The framework's claim is that this is the correct structure underneath standard quantum mechanics—the Feynman path integral has been computing the right answer all along, but the structural reason it works is the Quantum Nexus.</p>
+          <p>The slider makes the central technical claim of Layer 11 inspectable: the move from discrete slits to continuous paths is not a separate construction layered on top of the powerset machinery, but a smooth limit of it. Every subset of slits at finite n becomes a subset of paths in the limit; the A(T) factor that classifies subsets as valid or invalid in the discrete case becomes the validity factor inside the integral in the continuous case. The framework's claim is that this is the correct structure underneath standard quantum mechanics—the Feynman path integral has been computing the right answer all along, but the structural reason it works is the Quantum Nexus.</p>
 
 
           <!-- BORN RULE ONSET -->
@@ -3505,6 +3655,7 @@ function buildNav() {
     'Centric Unfolding & Nexus',
     'Union Principle',
     'Reduced Form & 3rd Postulate',
+    'Aethic Logic Proper',
     'Applications & Multi-Slit',
     'Fundamental Theorem',
     'Quantum Nexus Integral'
@@ -3530,6 +3681,5 @@ function updateNav() {
   dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
 }
 window.addEventListener('scroll', updateNav);
-buildNav();
-updateNav();
+window.addEventListener('load', () => { buildNav(); updateNav(); });
 </script>
