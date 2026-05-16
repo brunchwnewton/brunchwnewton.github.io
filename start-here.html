@@ -188,6 +188,45 @@ body {
   color: var(--text);
   font-weight: 500;
 }
+
+/* ─── READING ORDER ─── */
+.reading-order {
+  margin: 0 0 2rem;
+  padding: 1rem 1.2rem;
+  border-left: 2px solid rgba(251,191,36,0.4);
+  background: rgba(251,191,36,0.04);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+.reading-order a {
+  color: var(--accent-6);
+  text-decoration: none;
+}
+.reading-order a:hover {
+  text-decoration: underline;
+}
+.reading-order strong {
+  color: var(--text);
+  font-weight: 500;
+}
+.reading-order .ro-note {
+  margin-bottom: 0.9rem;
+}
+.reading-order ol {
+  margin: 0.55rem 0 0 1.4rem;
+  padding: 0;
+}
+.reading-order ol li {
+  margin-bottom: 0.3rem;
+  padding-left: 0.25rem;
+}
+.reading-order .ro-parallel {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(251,191,36,0.15);
+}
 </style>
 
 <!-- ═══ ABOVE-THE-FOLD PITCH ═══ -->
@@ -197,7 +236,25 @@ body {
 <p class="subtitle">The measurement problem, solved by logic. Natural history, reframed by anthropic reasoning. Start here if you're new.</p>
 
 <div class="epistemic-note">
-<strong>Before you read:</strong> this is independent research with public papers, step-by-step derivations, and a specific set of falsifiable predictions. It has not yet been peer-reviewed, and no physicist or philosopher has published a response. This page tries to make the framework legible enough that you can evaluate it on its own terms. If you'd rather start with the hardest questions, <a href="/faq.html">Questions & Context</a> addresses them directly.
+<strong>Before you read:</strong> this is independent research with public papers, step-by-step derivations, and a specific set of falsifiable predictions. It has not yet been peer-reviewed, and no physicist or philosopher has published a response. This page tries to make the framework legible enough that you can evaluate it on its own terms. If you'd rather start with the hardest questions, <a href="https://aethus.org/faq.html">Questions & Context</a> addresses them directly.
+</div>
+
+<div class="reading-order">
+<div class="ro-note"><strong>A note on the intro document:</strong> <em>A Condensed Overview</em> (<a href="https://philpapers.org/rec/BENACO-26" target="_blank" rel="noopener">PhilArchive ↗</a>) was the originally-intended introductory paper, but the canonical intro document is now <em>Abstract Relational Logic</em> (<a href="https://philpapers.org/rec/BENARA-6" target="_blank" rel="noopener">PhilArchive ↗</a>).</div>
+<strong>Suggested reading order (Aethic reasoning):</strong>
+<ol>
+  <li>This page (<a href="#full">continue below ↓</a>)</li>
+  <li><a href="https://aethus.org/aethic-code/demo" target="_blank" rel="noopener">Aethic Code Demo ↗</a></li>
+  <li><a href="https://aethus.org/aethic-reasoning-guide" target="_blank" rel="noopener">Aethic Reasoning Guide ↗</a></li>
+  <li><a href="https://philpapers.org/rec/BENARA-6" target="_blank" rel="noopener">Abstract Relational Logic — canonical intro ↗</a></li>
+  <li><a href="https://philpapers.org/rec/BENARA-5" target="_blank" rel="noopener">The Main Paper ↗</a></li>
+</ol>
+<div class="ro-parallel"><strong>Parallel track (Nexic reasoning):</strong>
+<ol>
+  <li><a href="https://aethus.org/nexic-reasoning-guide.html">Nexic Reasoning Guide →</a></li>
+  <li><a href="https://philpapers.org/rec/BENNRD" target="_blank" rel="noopener">The Nexic Paper ↗</a></li>
+</ol>
+</div>
 </div>
 
 <p>For a hundred years, no one has explained why observing a quantum particle changes its behavior. Aethic reasoning proposes an answer: wavefunction collapse is not a physical process. It is the universe enforcing its own logical consistency.</p>
@@ -207,13 +264,6 @@ body {
 <p>A companion framework, Nexic reasoning, extends the same logic to natural history. Applying anthropic reasoning to contingent events like the K-Pg extinction yields a derivation of the Rare Earth hypothesis and falsifiable paleontological predictions, including one that a single fossil discovery in Romania could confirm.</p>
 
 <p>The papers are public. The predictions are testable. Read on for the full picture, or jump straight to the guides.</p>
-
-<div class="pitch-links">
-  <a href="#full">Read the full overview ↓</a>
-  <a href="/aethic-reasoning-guide.html#explorer">Aethic Reasoning Guide →</a>
-  <a href="/nexic-reasoning-guide.html">Nexic Reasoning Guide →</a>
-  <a href="https://philpapers.org/archive/BENARA-5" target="_blank" rel="noopener">The Main Paper ↗</a>
-</div>
 
 </div>
 
@@ -284,7 +334,7 @@ body {
 
 <h2>What's Still Open</h2>
 
-<p>The framework is a work in progress, and the open problems are load-bearing. The Born rule has not been derived from first principles yet: the current work takes it as an additional axiom, with full derivation deferred to a forthcoming paper on what Ajax calls <em>Active Reasoning</em>. The billiard ball experiment has not been run, and achieving permanent information destruction at macroscopic scale is an engineering challenge that may take decades. The framework has not been peer-reviewed, and no physicist or philosopher has yet published a response. <a href="/faq.html">Questions & Context</a> walks through these and other honest limits.</p>
+<p>The framework is a work in progress, and the open problems are load-bearing. The Born rule has not been derived from first principles yet: the current work takes it as an additional axiom, with full derivation deferred to a forthcoming paper on what Ajax calls <em>Active Reasoning</em>. The billiard ball experiment has not been run, and achieving permanent information destruction at macroscopic scale is an engineering challenge that may take decades. The framework has not been peer-reviewed, and no physicist or philosopher has yet published a response. <a href="https://aethus.org/faq.html">Questions & Context</a> walks through these and other honest limits.</p>
 
 <hr>
 
@@ -305,21 +355,21 @@ body {
 <h2>Where to Go Next</h2>
 
 <div class="next-links">
-  <a href="/aethic-reasoning-guide.html#explorer" class="next-link">
+  <a href="https://aethus.org/aethic-reasoning-guide.html#explorer" class="next-link">
     <div>
       <div class="nl-label">Aethic Reasoning Guide</div>
       <div class="nl-desc">The full ten-layer interactive walkthrough, from first principles through the Quantum Nexus integral.</div>
     </div>
     <span class="nl-arrow">→</span>
   </a>
-  <a href="/nexic-reasoning-guide.html" class="next-link">
+  <a href="https://aethus.org/nexic-reasoning-guide.html" class="next-link">
     <div>
       <div class="nl-label">Nexic Reasoning Guide</div>
       <div class="nl-desc">The extension to natural history, the Fermi paradox, and paleontological predictions.</div>
     </div>
     <span class="nl-arrow">→</span>
   </a>
-  <a href="/faq.html" class="next-link">
+  <a href="https://aethus.org/faq.html" class="next-link">
     <div>
       <div class="nl-label">Questions & Context</div>
       <div class="nl-desc">The hardest questions a scientifically literate reader will ask, answered directly.</div>
@@ -333,7 +383,7 @@ body {
     </div>
     <span class="nl-arrow">↗</span>
   </a>
-  <a href="/glossary.html" class="next-link">
+  <a href="https://aethus.org/glossary.html" class="next-link">
     <div>
       <div class="nl-label">Glossary</div>
       <div class="nl-desc">Every framework-specific term defined in one or two sentences, with cross-references.</div>
@@ -347,7 +397,7 @@ body {
     </div>
     <span class="nl-arrow">↗</span>
   </a>
-  <a href="/ajax/" class="next-link">
+  <a href="https://aethus.org/ajax/" class="next-link">
     <div>
       <div class="nl-label">About Ajax</div>
       <div class="nl-desc">The story behind the research program.</div>
@@ -359,5 +409,5 @@ body {
 </article>
 
 <div class="sh-footer">
-  <a href="/">← Back to aethus.org</a>
+  <a href="https://aethus.org/">← Back to aethus.org</a>
 </div>
