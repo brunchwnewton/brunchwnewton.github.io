@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Start Here — Aethic Reasoning in Five Minutes"
+title: "Start Here — Aethic Reasoning and the Realist Program"
 ---
 <style>
 :root {
@@ -12,6 +12,8 @@ title: "Start Here — Aethic Reasoning in Five Minutes"
   --text-bright: #f0f0ff;
   --accent-1: #fbbf24;
   --accent-6: #60a5fa;
+  --accent-agree: #4ade80;
+  --accent-disagree: #f87171;
   --border: rgba(110,92,255,0.15);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -203,8 +205,25 @@ body {
 .reading-order a {
   color: var(--accent-6);
   text-decoration: none;
+  padding: 0.05rem 0.28rem;
+  margin: 0 -0.1rem;
+  border-radius: 4px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background 0.18s ease, color 0.18s ease;
 }
 .reading-order a:hover {
+  color: var(--accent-1);
+  background: rgba(251,191,36,0.18);
+}
+.reading-order .ro-note a {
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+.reading-order .ro-note a:hover {
+  background: transparent;
+  color: var(--accent-6);
   text-decoration: underline;
 }
 .reading-order strong {
@@ -227,16 +246,157 @@ body {
   padding-top: 0.85rem;
   border-top: 1px solid rgba(251,191,36,0.15);
 }
+
+/* ─── UNION PRINCIPLE TABLE ─── */
+.union-table-wrap {
+  margin: 1.6rem 0 0.8rem;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+table.union-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 460px;
+}
+table.union-table th {
+  background: rgba(110,92,255,0.07);
+  color: var(--text-bright);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+table.union-table td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid rgba(110,92,255,0.08);
+  color: var(--text);
+  vertical-align: middle;
+}
+table.union-table tr:last-child td { border-bottom: none; }
+table.union-table .col-form {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.02rem;
+  color: var(--text-bright);
+  white-space: nowrap;
+}
+table.union-table .type-agree {
+  color: var(--accent-agree);
+  font-style: italic;
+  font-weight: 500;
+}
+table.union-table .type-disagree {
+  color: var(--accent-disagree);
+  font-style: italic;
+  font-weight: 500;
+}
+table.union-table .type-none { color: var(--text-dim); }
+.union-caption {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  margin: 0.6rem 0 1.4rem;
+}
+.union-caption strong { color: var(--text); font-weight: 500; }
+
+/* ─── PROGRAM CALLOUT ─── */
+.program-callout {
+  margin: 1.5rem 0;
+  padding: 1.05rem 1.25rem;
+  border-left: 2px solid rgba(96,165,250,0.45);
+  background: rgba(96,165,250,0.045);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.86rem;
+  line-height: 1.72;
+  color: var(--text-dim);
+}
+.program-callout strong { color: var(--text-bright); font-weight: 600; }
+.program-callout em { color: var(--text); font-style: italic; }
+.program-callout .pc-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent-6);
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+}
+
+/* ─── NEXIC DRAWER ─── */
+.nexic-drawer {
+  margin: 2.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-layer);
+}
+.nexic-drawer summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.15rem 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.nexic-drawer summary::-webkit-details-marker { display: none; }
+.nexic-drawer summary::marker { content: ""; }
+.nexic-drawer summary:hover { background: var(--bg-card); }
+.nexic-drawer .nx-kicker {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-1);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.nexic-drawer .nx-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: var(--text-bright);
+  line-height: 1.3;
+}
+.nexic-drawer .nx-sub {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+  line-height: 1.5;
+}
+.nexic-drawer .nx-chevron {
+  margin-left: auto;
+  color: var(--text-dim);
+  font-size: 1rem;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.nexic-drawer[open] .nx-chevron { transform: rotate(90deg); }
+.nexic-drawer[open] summary { border-radius: 10px 10px 0 0; }
+.nexic-drawer .nx-body {
+  padding: 1.3rem 1.3rem 0.5rem;
+  border-top: 1px solid var(--border);
+}
+.nexic-drawer .nx-body p { font-size: 0.9rem; }
+.nexic-drawer .nx-link-line { margin-top: 0.3rem; }
+.nexic-drawer .nx-link-line a {
+  color: var(--accent-6);
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+.nexic-drawer .nx-link-line a:hover { text-decoration: underline; }
 </style>
 
 <!-- ═══ ABOVE-THE-FOLD PITCH ═══ -->
 <div class="pitch">
 
 <h1>Aethic Reasoning in Five Minutes</h1>
-<p class="subtitle">The measurement problem, solved by logic. Natural history, reframed by anthropic reasoning. Start here if you're new.</p>
+<p class="subtitle">A proposed realist answer to the quantum measurement problem — built by reasoning from what an observer can <em>know</em>, not from what the universe is assumed to <em>be</em>. Start here if you're new.</p>
 
 <div class="epistemic-note">
-<strong>Before you read:</strong> this is independent research with public papers, step-by-step derivations, and a specific set of falsifiable predictions. It has not yet been peer-reviewed, and no physicist or philosopher has published a response. This page tries to make the framework legible enough that you can evaluate it on its own terms. If you'd rather start with the hardest questions, <a href="https://aethus.org/faq.html">Questions & Context</a> addresses them directly.
+<strong>Before you read:</strong> this is independent research with public papers, step-by-step derivations, and a specific set of falsifiable predictions. It engages a live research program in quantum foundations but has not itself been peer-reviewed, and no physicist or philosopher has published a response. This page tries to make the framework legible enough that you can evaluate it on its own terms. If you'd rather start with the hardest questions, <a href="/faq.html">Questions &amp; Context</a> addresses them directly.
 </div>
 
 <div class="reading-order">
@@ -244,26 +404,26 @@ body {
 <strong>Suggested reading order (Aethic reasoning):</strong>
 <ol>
   <li>This page (<a href="#full">continue below ↓</a>)</li>
-  <li><a href="https://aethus.org/aethic-code/demo" target="_blank" rel="noopener">Aethic Code Demo ↗</a></li>
-  <li><a href="https://aethus.org/aethic-reasoning-guide" target="_blank" rel="noopener">Aethic Reasoning Guide ↗</a></li>
+  <li><a href="/aethic-code/demo">Aethic Code Demo →</a></li>
+  <li><a href="/aethic-reasoning-guide">Aethic Reasoning Guide →</a></li>
   <li><a href="https://philpapers.org/rec/BENARA-6" target="_blank" rel="noopener">Abstract Relational Logic — canonical intro ↗</a></li>
   <li><a href="https://philpapers.org/rec/BENARA-5" target="_blank" rel="noopener">The Main Paper ↗</a></li>
 </ol>
 <div class="ro-parallel"><strong>Parallel track (Nexic reasoning):</strong>
 <ol>
-  <li><a href="https://aethus.org/nexic-reasoning-guide.html">Nexic Reasoning Guide →</a></li>
+  <li><a href="/nexic-reasoning-guide.html">Nexic Reasoning Guide →</a></li>
   <li><a href="https://philpapers.org/rec/BENNRD" target="_blank" rel="noopener">The Nexic Paper ↗</a></li>
 </ol>
 </div>
 </div>
 
-<p>For a hundred years, no one has explained why observing a quantum particle changes its behavior. Aethic reasoning proposes an answer: wavefunction collapse is not a physical process. It is the universe enforcing its own logical consistency.</p>
+<p>For a century, no interpretation of quantum mechanics has <em>derived</em> why observing a system changes its behavior — it has been assumed (Copenhagen), denied (Many-Worlds), or sidestepped. Aethic reasoning proposes that wavefunction collapse is not a physical event at all. It is a <strong>logical necessity</strong>: the universe refusing to contradict itself, the way a chess game forbids leaving your king in check.</p>
 
-<p>The framework replaces a single evolving universe with a Markov chain of static block universes, connected by information gain. What you don't know manifests as physical superposition. And a derived pruning rule, a logical "checkmate," eliminates any state whose future inevitably leads to contradiction. There is no collapse postulate in Aethic reasoning: instead, the framework operates over the medium of the structure of an observer's informational access, and measurement renders from the structure of avenues to contradictions within this substrate. Together, these three principles reproduce the double-slit experiment's results from first principles.</p>
+<p>The framework is built to engage a specific diagnosis. A research program in quantum foundations — associated in particular with <strong>Robert Spekkens</strong> and collaborators at the Perimeter Institute — argues that the quantum state is best read as a state of <em>knowledge</em> rather than a state of reality, that the genuine nonclassicality of quantum theory is not located in interference, and that a true realist interpretation will require an <em>exotic but still realist</em> account of causation and inference, expressed in a mathematical structure deeper than sets and functions. Aethic reasoning is offered as one candidate for exactly that structure.</p>
 
-<p>A companion framework, Nexic reasoning, extends the same logic to natural history. Applying anthropic reasoning to contingent events like the K-Pg extinction yields a derivation of the Rare Earth hypothesis and falsifiable paleontological predictions, including one that a single fossil discovery in Romania could confirm.</p>
+<p>Its central move is to reason from the <strong>epistemic root</strong>. The framework's core object, the <em>Aethus</em>, is the totality of informational context available to an observer. Three postulates run over it, sorting which parts of a system mutually <em>cohere</em> and which mutually <em>decohere</em> — and quantum interference falls out as a projection of that deeper sorting, rather than being the thing doing the work.</p>
 
-<p>The papers are public. The predictions are testable. Read on for the full picture, or jump straight to the guides.</p>
+<p>The papers are public, the derivations are explicit, and the predictions are testable. Read on for the full picture, or jump straight to the guides. (A companion framework, Nexic reasoning, extends the same logic to natural history; it runs as a parallel track, and there is an optional summary of it at the foot of this page.)</p>
 
 </div>
 
@@ -272,51 +432,95 @@ body {
 <!-- ═══ FULL OVERVIEW ═══ -->
 <article class="article-wrap" style="padding-top:0;">
 
-<h2 id="full" style="border-top:none;margin-top:0;padding-top:0;scroll-margin-top:5rem;">The Measurement Problem</h2>
+<h2 id="full" style="border-top:none;margin-top:0;padding-top:0;scroll-margin-top:5rem;">The Realist Program</h2>
 
-<p>For nearly a century, physics has had an open question at its center. When you fire a single particle at two slits, it produces an interference pattern, as if it went through both slits at once. But place a detector at the slits, and the pattern vanishes. The particle picks one. No energy was added. No force was exerted. The only difference is <em>information</em>: whether the path could, in principle, be known.</p>
+<p>Start with the experiment everything turns on. Fire single particles at two slits and they build an interference pattern, as if each went through both slits at once. Place a detector at the slits and the pattern vanishes — each particle picks one. No energy is added, no force exerted. The only thing that changed is <em>information</em>: whether the path could, in principle, be known.</p>
 
-<p>This is the quantum measurement problem. Every interpretation of quantum mechanics since the 1920s has either assumed collapse as an unexplained axiom (Copenhagen), denied it happens at all (Many-Worlds), or sidestepped it. None have <em>derived</em> it: explained <em>why</em> measurement changes the outcome from logical principles alone.</p>
+<p>This is the quantum measurement problem, and the trouble is not that we lack a description of it — it is that every description leaves something unexplained. Copenhagen posits collapse as a brute axiom and draws an arbitrary line between the quantum and the classical. Many-Worlds denies collapse happens at all, at the cost of duplicating reality. None of them <em>derive</em> the transition: none explain, from logical principles alone, <em>why</em> the detector changes the outcome.</p>
 
-<p>Aethic reasoning, developed by Ajax Benander between 2022 and 2023, proposes that the collapse of the wavefunction is not a physical event but a <strong>logical necessity</strong>. The universe enforcing its own consistency, the same way a chess game forbids leaving your king in check.</p>
+<p>One way of saying what has gone wrong is the one developed by Robert Spekkens, whose stated research aim is to <strong>unscramble the quantum omelette</strong> — E. T. Jaynes's image for a theory that has thoroughly mixed together the part describing reality and the part describing our knowledge of it. On this diagnosis, treating the wavefunction as a literal description of reality is a <em>category mistake</em>, like reading Egyptian hieroglyphs as pictograms when they were really phonetic. The wavefunction looks far more like a state of incomplete <em>knowledge</em> — a probability distribution over something deeper.</p>
+
+<div class="program-callout">
+<span class="pc-label">The program, in its own terms</span>
+The realist program does not ask us to abandon realism — it asks us to relocate where the strangeness lives. Its conjecture is that the classical realist toolkit (physical states as a <em>set</em>, dynamics as <em>functions</em>, knowledge as <em>Bayesian probability</em>) is what has to give. What replaces it should still be <em>recognizably</em> about causation and inference — correlations should still get genuine causal explanations, inference should still proceed stepwise — but the substrate underneath should be something more exotic than sets and functions, the way relativistic space and time are still space and time but no longer the Newtonian ones. The task is to find that substrate, and to find the principles that <em>pinpoint</em> quantum theory within the space of possible theories — much as Einstein's two postulates pinpoint special relativity.
+</div>
+
+<p>That is the program Aethic reasoning sets out to answer. It does not arrive at the realist conclusions by importing them; the framework was developed independently, by Ajax Benander between 2022 and 2023, and only later recognized as converging — strikingly closely — with this articulation of what a satisfying realist theory would need. What follows is the framework's proposed structure, and why it claims to fit.</p>
 
 <hr>
 
-<h2>The Core Idea</h2>
+<h2>Reasoning From the Epistemic Root: The Aethus</h2>
 
-<p>The framework rests on three moves.</p>
+<p>The framework's foundational object is the <strong>Aethus</strong>: the complete epistemic and informational context available to a given observer, taken as a <em>deductive root</em>. Everything else is deduced from it. This is the proposed answer to the call for a structure deeper than sets and functions — not because an Aethus cannot be written down with sets, but because the level at which it does its work is the relational, informational structure of <em>what is knowable</em>, not numerical states or functions between them.</p>
 
-<p><strong>First</strong>, it replaces the standard picture of reality (a single universe evolving through time) with a <em>Markov chain of block universes</em>. Each link in the chain is a complete, static, four-dimensional spacetime. What we experience as "the passage of time" is our movement along this chain, driven by gaining new information. When you learn something new, you don't change your universe. You <em>shift</em> to a different one whose entire history was always consistent with what you just learned. The prior universe, with its superposition intact, stays exactly as it was. This is the <strong>Extrusion Principle</strong>.</p>
+<p>Two consequences follow immediately, and they are doing the heavy lifting.</p>
 
-<p><strong>Second</strong>, it introduces a new mathematical object called the <strong>Aethus</strong>, which represents the totality of information accessible to a given observer. Your Aethus determines which block universe you inhabit. Crucially, what you <em>don't</em> know is not merely absent; it is ontologically productive. An unknown attribute doesn't sit there waiting to be revealed; it manifests as a physical superposition of all its possible states. Ignorance <em>generates</em> superposition. This is the <strong>Second Postulate</strong>.</p>
+<p><strong>First, ignorance is ontologically productive — and operable.</strong> What an observer's Aethus does not contain is not merely absent — a conceptual blank manifests as a physical superposition of every state it could be. Ignorance does not sit there waiting to be resolved; it <em>generates</em> superposition, and that superposition is itself <em>operable</em> — a structure the framework can reason and deduce over directly. This is the framework's <strong>Second Postulate</strong>. In something like the spirit of Gödel, it treats the permanent unknowability of certain attributes not as a defect to be patched but as a constitutive feature of reality — and rather than stopping there and calling the universe logically unfounded, it climbs one level of abstraction and operates over those unknown states themselves. The model is Newton: discovering that velocity is purely relative did not lead him to conclude there were no laws of motion, but to recognize that the <em>change</em> in velocity is what the laws constrain. The Second Postulate is the counterpart, for epistemology, of what Newton's second law is for motion — it does not legislate what is known versus unknown; it gives structure to the concept of ignorance itself.</p>
 
-<p><strong>Third</strong>, it derives a pruning rule. If gaining information would <em>inevitably</em> lead to a logical contradiction, no matter what you do next, then the state that would cause that contradiction is invalid. It's not just in "check" (one bad future); it's in "checkmate" (no escape from a bad future). The universe prunes these states automatically. This is the <strong>Third Postulate</strong>, and it does the work that the collapse postulate does in Copenhagen, but it's derived from a macroscopic thought experiment rather than assumed.</p>
+<p><strong>Second, time is information gain.</strong> The framework replaces a single evolving universe with a Markov chain of static, complete block universes. What we experience as the passage of time is movement along that chain, driven by learning. When you gain information you do not edit your universe — you <em>shift</em> to a different one whose entire history was always consistent with what you just learned. The prior universe, superposition intact, stays exactly as it was. This is the <strong>Extrusion Principle</strong>, and it is what lets the framework be observer-relative without becoming incoherent: nothing is overwritten, so different observers can carry genuinely different reality-renderings.</p>
+
+<hr>
+
+<h2>Unscrambling Logic: Agreeing and Disagreeing Superpositions</h2>
+
+<p>The most weight-bearing idea in the framework is an <em>unscrambling</em> of how logic is mapped onto physical realization — and it is here that the union principle does its work.</p>
+
+<p>Classically, we silently assume that two states separated by a logical "or" must be physically mutually exclusive: one happens, the other does not, and if both somehow persist they must occupy separate branches or separate worlds. Aethic reasoning makes four moves against this. It (1) separates <em>physical</em> and/or from <em>logical</em> and/or, treating them as different categories rather than counterparts; (2) drops "physical or" entirely; (3) makes physical co-occupation — <em>physical AND</em> — the only physical relation, since the block universe simply contains whatever it contains; and (4) reassigns genuine mutual exclusivity to a <em>special case</em> of logical disjunction rather than to disjunction in general.</p>
+
+<p>What this buys is a new logical primitive. There are now two kinds of "or," and they share the same physical space rather than branching apart:</p>
+
+<div class="union-table-wrap">
+<table class="union-table">
+<thead>
+<tr><th>Logical</th><th>Physical</th><th>Type</th><th>Mathematical Form</th></tr>
+</thead>
+<tbody>
+<tr><td>Logical OR</td><td>Physical AND</td><td class="type-agree">Agreeing</td><td class="col-form">⋃<sub>i</sub> A<sub>i</sub></td></tr>
+<tr><td>Logical AND (quantum)</td><td>Physical AND</td><td class="type-agree">Agreeing</td><td class="col-form">⋃<sub>i</sub> A<sub>i</sub></td></tr>
+<tr><td>Logical AND (classical)</td><td>Physical AND</td><td class="type-none">—</td><td class="col-form">⋂<sub>i</sub> A<sub>i</sub></td></tr>
+<tr><td>Classical "OR"</td><td>Physical AND</td><td class="type-disagree">Disagreeing</td><td class="col-form">⋃<sub>i</sub> ( A<sub>i</sub> ∩ ⋂<sub>j≠i</sub> ¬A<sub>j</sub> )</td></tr>
+</tbody>
+</table>
+</div>
+<p class="union-caption"><strong>The Aethic Union Principle.</strong> Both logical disjunction and conjunction manifest as physical AND — block-universe co-occupation — differing only in their <em>algebraic structure</em>. An <strong>agreeing superposition</strong> is an elementary union: its states coexist and can interfere. A <strong>disagreeing superposition</strong> is a nested union over intersections with negations: each state coexists with the explicit negation of all the others, so the states are physically present together yet observationally mutually exclusive. The difference between quantum interference and classical exclusivity is not a difference in physical presence — it is a difference in nesting.</p>
+
+<p>The <strong>agreeing superposition</strong> is the single load-bearing entity of the framework — a genuinely <em>coherent</em> logical disjunction. It is the abstract precursor that interference projects from: states in agreeing superposition combine before the Born rule is applied (they add as amplitudes, not as classical probabilities). The classical world is then the other branch of the table — the <em>disagreeing</em> superposition — and ordinary "physical or" turns out to be nothing more than a subcategory of it.</p>
+
+<div class="program-callout">
+<span class="pc-label">Why this answers the program</span>
+The realist program asks for the conceptual innovation that distinguishes quantum from classical structure to be <em>named</em> — pinned to a specific category, not gestured at through interference. The framework's proposal is that the agreeing superposition <em>is</em> that category: a logically well-defined object that is neither a determinate state nor a contradiction, and which is genuinely <strong>alien to classical metaphysics</strong> — there is no "physical or" anywhere in classical reasoning that is not already a disagreeing superposition. On the framework's reading, the union principle and the table above are a candidate for what Spekkens has called a <em>Quantum Rosetta Stone</em>: the dictionary that lets the quantum and classical descriptions finally be read as the same language.
+</div>
+
+<hr>
+
+<h2>The Pruning Structure</h2>
+
+<p>Naming the primitive is only half of it. The framework still needs a rule that decides, for any given system, which agreeing superpositions are permitted and which are not — and it derives one rather than assuming it.</p>
+
+<p>The rule is the <strong>Third Postulate</strong>, and it is a logical "checkmate." Borrowing the chess image: an Aethus is in <em>check</em> if there exists an avenue to a contradiction — some future piece of information that, once gained, would conflict with what the state asserts. It is in <em>checkmate</em> if <em>every</em> available move still leaves such an avenue open — if there is no escape route to a contradiction-free future. The Third Postulate says that a checkmated state is invalid, and the universe prunes it. Crucially this is two-generational: not "every future leads to a contradiction," but "every future leaves a contradiction still <em>reachable</em>." That subtlety is what makes the rule a genuine structural constraint rather than a blunt one.</p>
+
+<p>The cleanest place to watch this operate is a multi-slit experiment, and the result is the framework's <strong>Powerset Invalidation Theorem</strong>. Take <em>n</em> slits and any configuration of detectors. Two slits belong to the same <em>equivalence class</em> if no detector — present or future — can ever tell them apart. Now look at the powerset of all possible sets of traversed slits, each taken as an agreeing superposition. The two postulates sort every single subset, with no overlap and nothing left out:</p>
+
+<p><strong>Valid (✓):</strong> the empty set, or a subset that exactly matches one equivalence class. <strong>P2-invalid:</strong> a subset that is a <em>proper part</em> of one class — it over-specifies, asserting a distinction the Aethus cannot support, which the Second Postulate forbids. <strong>P3-invalid:</strong> a subset that <em>spans</em> two or more classes — it combines slits a detector <em>can</em> distinguish, so a future child Aethus could always catch it in a contradiction, which the Third Postulate forbids as checkmate.</p>
+
+<p>These three categories are mutually exclusive and jointly exhaustive — "too narrow" and "too broad" turn out to be the only two ways an agreeing superposition can fail, and they exactly partition the invalid region. What survives the pruning is precisely the set of valid cases, which the universe then places into a higher-order superposition. The deep claim is in the direction of explanation: reality is not <em>positively assembled</em> from states that share some property. It is the <strong>residue of what survives pruning</strong> — and the same pruning, by eliminating jointly contradictory configurations, is what couples one Aethus to another.</p>
+
+<div class="program-callout">
+<span class="pc-label">Why this answers the program</span>
+This is the framework's proposed <em>exotic but realist</em> causation and inference. When two distant measurements come out correlated, no superluminal influence is invoked and no signal is sent: the correlation is simply what is left once the validity-preserving pruning has eliminated every jointly contradictory configuration. Inference still runs <em>stepwise</em> through the Aethic structure, and correlations still receive a genuine structural explanation — the two things the program treats as the essence of realism — but the substrate doing the explaining is the lattice of valid and invalid Aethae, not a set of hidden variables evolving by functions. The Powerset Invalidation Theorem also makes the pinpointing concrete: the quantum–classical boundary is not a fixed threshold of energy or scale. It sits wherever the informational coupling between system and detector places it. Add a detector, split an equivalence class, and the boundary moves.
+</div>
 
 <hr>
 
 <h2>What It Produces</h2>
 
-<p>Applied to the double-slit experiment, the three postulates reproduce the correct result in both cases:</p>
+<p>Applied to the original two-slit case, the postulates reproduce both results — and, more importantly, <em>derive</em> the difference between them.</p>
 
-<p><strong>Detector off.</strong> The which-slit information is permanently unknowable (Heisenberg's uncertainty principle). So the Second Postulate puts the system in superposition of both paths. The Third Postulate checks for checkmate, but finds none, because no future observation can ever reveal which slit the particle took. The superposition stands. The paths interact. You get an interference pattern.</p>
+<p><strong>Detector off.</strong> Which slit the particle took is permanently unknowable. The Second Postulate puts the path attribute into agreeing superposition. The Third Postulate checks for checkmate and finds none — no future observation can ever reveal the path — so the superposition stands, the paths interfere, and you get a wave pattern.</p>
 
-<p><strong>Detector on.</strong> The which-slit information is now permanently available: at any future moment, the experimenter could check the detector readout. The Third Postulate finds checkmate: for every possible future, there exists a path to contradiction (checking the detector while maintaining a both-slits superposition). The superposition is pruned. The paths cannot interact. You get a particle pattern.</p>
+<p><strong>Detector on.</strong> The which-slit information is now permanently available — at any later moment the readout could be checked. The Third Postulate finds checkmate: every future leaves a contradiction reachable. The agreeing superposition is pruned; the system drops to a <em>disagreeing</em> superposition of the two paths; you get a particle pattern. The wave-to-particle transition is derived from logical consistency, not posited as a brute fact.</p>
 
-<p>The transition from wave-like to particle-like behavior is derived from logical consistency, not postulated as a brute fact.</p>
-
-<hr>
-
-<h2>Where It Goes: Natural History and the Fermi Paradox</h2>
-
-<p>A companion framework called <strong>Nexic reasoning</strong> applies the same Aethic logic to a radically different domain: the history of life on Earth. The founding insight is that there is no principled distinction between the physical constants that standard anthropic reasoning already analyzes (the gravitational constant, the fine-structure constant) and the contingent historical events that produced us (the K-Pg extinction, the evolution of the limbic system, the loss of a specific gene in our primate ancestors). Both are requisites for our existence. Both are anthropic parameters.</p>
-
-<p>From this, the framework derives the <strong>Accordance Principle</strong>: among all possible natural histories capable of producing conscious observers, ours should be the probability-weighted optimum. Not by teleology, but by survivorship bias operating across the full space of possible histories. You are not the goal of evolution; you are a filter on which evolutionary histories you can observe.</p>
-
-<p>One vivid example makes this concrete. Old World monkeys diverged from the lineage leading to humans roughly 25 million years ago. In over 100 extant species across all that time, not a single one evolved ape-level intelligence. Not one progressed significantly up the cognitive ladder. Because their fate is statistically independent of whether humans exist, their observed frequency (approximately zero) serves as the baseline cosmic probability of any primate lineage evolving human-level cognition. The fact that <em>our</em> lineage did it anyway reveals the fingerprint of what the framework calls <strong>Optimation</strong>: an inherently improbable transition made certain by the fact that we could not exist to observe a history where it failed.</p>
-
-<p>Or consider the α-gal crisis. Roughly 30 million years ago, a viral epidemic struck our Catarrhine primate ancestors. The virus contained α-gal, the same carbohydrate our own cells produced, so our immune system could not fight it without attacking itself. Near-extinction. But a handful of individuals carried a mutation that disabled the gene responsible for producing α-gal, making them immune. Those few survivors are our direct ancestors. Every mammal on Earth still produces α-gal except the group containing apes and humans. Through the lens of Optimation, the epidemic was not a random catastrophe we merely endured. It was the only mechanism by which a gene loss that natural selection alone could never accomplish was forced through. The tragedy <em>was</em> the instrument of salvation.</p>
-
-<p>This is not a vague philosophical stance. It generates numbers. The combined probability of dinosaurs evolving (~33%), the K-Pg extinction succeeding with mammals surviving (~13%), and the cascading chain of further contingencies yields an upper bound of roughly 10⁻²⁷ for the probability of conscious life arising on any given planet: approximately one civilization per observable universe. The framework deduces—not merely hypothesizes—the Rare Earth hypothesis from the Accordance Principle. The Accordance Principle itself is an extension of the mediocrity principle to contingent historical events, tested through cascading paleontological predictions below.</p>
+<p>The same machinery, via the Extrusion Principle, extends to the puzzles that usually need their own special pleading. Because reality is rendered observer-relative and nothing is ever overwritten, the framework treats <strong>delayed-choice</strong> experiments (the pruning coupling is indifferent to the proper-time order in which the coupled facts are revealed), <strong>Wigner's friend</strong> scenarios (different observers carry genuinely different valid renderings), and <strong>EPR correlations</strong> (recovered without superluminal influence, as above) as instances of one mechanism rather than three separate mysteries. The papers carry these derivations in full.</p>
 
 <hr>
 
@@ -324,54 +528,79 @@ body {
 
 <p>The framework's predictions are specific enough to be tested:</p>
 
-<p>The <strong>billiard ball experiment</strong> proposes that if distinguishing information between two macroscopic scenarios is made permanently unknowable, the scenarios should interact as if both occurred, even at everyday scales. A single failure of this prediction, in any domain, would falsify the entire framework.</p>
+<p>The <strong>billiard ball experiment</strong> proposes that if distinguishing information between two macroscopic scenarios is made permanently unknowable, the scenarios should interact as if both occurred — agreeing superposition at everyday scale. A single clean failure would falsify the framework.</p>
 
-<p>The <strong>Hațeg Island hypothesis</strong> predicts that the earliest primates evolved on Hațeg Island in Late Cretaceous Europe, the one Mesozoic environment known to lack theropod dinosaurs. A single primate fossil in the Hațeg deposits of Romania would constitute direct evidence. A further prediction, that a substantial sea-level decline occurred in the early Paleocene allowing primates to leave the island, is already confirmed in the geological record at approximately 65.95 million years ago.</p>
-
-<p>The <strong>Quantum Nexus integral</strong> proposes a unification of the Feynman path integral with Aethic pruning dynamics, wrapping quantum mechanics into a single mathematical object. If correct, it would connect the three postulates to the Born rule in what would be the most compact axiomatization of quantum theory ever proposed.</p>
+<p>The <strong>Quantum Nexus integral</strong> proposes a unification of the Feynman path integral with Aethic pruning dynamics. If correct, it would connect the three postulates to the Born rule in what would be the most compact axiomatization of quantum theory yet proposed.</p>
 
 <hr>
 
 <h2>What's Still Open</h2>
 
-<p>The framework is a work in progress, and the open problems are load-bearing. The Born rule has not been derived from first principles yet: the current work takes it as an additional axiom, with full derivation deferred to a forthcoming paper on what Ajax calls <em>Active Reasoning</em>. The billiard ball experiment has not been run, and achieving permanent information destruction at macroscopic scale is an engineering challenge that may take decades. The framework has not been peer-reviewed, and no physicist or philosopher has yet published a response. <a href="https://aethus.org/faq.html">Questions & Context</a> walks through these and other honest limits.</p>
+<p>The framework is a work in progress, and the open problems are load-bearing. The Born rule has not yet been derived from first principles: the current work takes it as an additional axiom, with full derivation deferred to forthcoming work on what Ajax calls <em>Active Reasoning</em>. The billiard ball experiment has not been run, and achieving permanent information destruction at macroscopic scale is a hard engineering problem. And the framework has not been peer-reviewed — no physicist or philosopher has yet published a response. <a href="/faq.html">Questions &amp; Context</a> walks through these and other honest limits.</p>
 
 <hr>
 
-<h2>Why This Might Matter to You</h2>
+<h2>Why This Speaks to the Realist Program</h2>
 
-<p>If Aethic reasoning is correct, it would mean that wavefunction collapse was never a physical mystery. It was a logical consequence of a universe that refuses to contradict itself, and we lacked the ontological framework to see it. That alone, if it holds up, would be one of the most significant results in the foundations of physics in decades.</p>
+<p>If the framework holds, the claim it makes to the realist program is a fairly precise one. It offers the Aethus as the structure deeper than sets and functions; the agreeing superposition as the named, well-defined category in which quantum nonclassicality actually lives; and the validity-preserving pruning of the Third Postulate as a causation-and-inference substrate that is exotic but still genuinely realist — correlations explained, inference stepwise, locality intact. It would mean wavefunction collapse was never a physical mystery at all, only a logical consequence of a universe that refuses to contradict itself, which we lacked the ontological vocabulary to see.</p>
 
-<p>The Nexic extension reaches further. The Rare Earth derivation recasts the cosmos outside our solar system as an unthinkably vast and unfeeling graveyard: life not merely uncommon, but incomprehensibly rare. The natural response might be existential dread.</p>
+<p>That is a large "if," and the framework is the first to say so. The point of this page is not to settle it but to make the proposal legible enough to be argued with — which, on the program's own preferred methodology of stating assumptions plainly and then testing them to destruction, is exactly the right place for a new idea to start.</p>
 
-<p>The framework argues the opposite. The darker the cosmos and the more improbable your existence, the stronger the mathematical coupling between the fact that you are here and the specific history that produced you. You are not an accident drifting through indifferent space. Over the course of Earth's history, a series of events so improbable they defy comprehension—the formation of the Moon, a bullseye asteroid impact off the coast of Mexico, a viral epidemic that nearly wiped out your lineage only for a mutation to save the last survivors—all of it points, with quantifiable precision, at the existence of conscious observers. At you.</p>
+<p>The papers are public, the predictions are falsifiable, and the main paper has quietly accumulated 2,500+ downloads on PhilArchive in its first seventeen months without author promotion, currently running above 500 per month. Whether the framework survives contact with the physics and philosophy communities is what the next few years will decide.</p>
 
-<p>The nihilist's own premise—cosmic emptiness, the vastness of dead space—becomes the mathematical fuel for the counter-argument. The graveyard isn't decoration atop a separate argument. The graveyard <em>is</em> the argument.</p>
+<hr>
 
-<p>Whether any of this holds is the open question. The papers are public, the predictions are falsifiable, and the main paper has quietly accumulated 2,500+ downloads on PhilArchive in its first 17 months without any author promotion, with the rate currently running above 500 per month. Whether the framework survives contact with the physics and philosophy communities is what the next few years will decide.</p>
+<details class="nexic-drawer">
+  <summary>
+    <div class="nx-summary-text">
+      <div class="nx-kicker">Parallel track — optional</div>
+      <div class="nx-title">Nexic Reasoning: the same logic, applied to natural history</div>
+      <div class="nx-sub">How Aethic-style anthropic reasoning yields a derivation of the Rare Earth hypothesis. Expand if you want it.</div>
+    </div>
+    <span class="nx-chevron">▸</span>
+  </summary>
+  <div class="nx-body">
+    <p>Everything above is the Aethic framework — the quantum side. <strong>Nexic reasoning</strong> is a companion framework that applies the same logic to a completely different domain: the history of life on Earth. It is a parallel track rather than a prerequisite, which is why it lives here rather than in the main flow.</p>
+
+    <p>Its founding insight is that there is no principled line between the physical constants standard anthropic reasoning already analyzes (the gravitational constant, the fine-structure constant) and the contingent historical events that produced us (the K-Pg extinction, a specific gene loss in our primate ancestors). Both are requisites for our existence; both are anthropic parameters.</p>
+
+    <p>From this it derives the <strong>Accordance Principle</strong>: among all natural histories capable of producing conscious observers, ours should be the probability-weighted optimum — not by teleology, but by survivorship bias operating across the whole space of possible histories. You are not the goal of evolution; you are a filter on which evolutionary histories you can find yourself inside of. The framework turns this into numbers, deducing an upper bound near 10⁻²⁷ for conscious life arising on a given planet — roughly one civilization per observable universe, a derivation of the Rare Earth hypothesis rather than a hypothesis of it.</p>
+
+    <p>It also carries its own falsifiable prediction. The <strong>Hațeg Island hypothesis</strong> predicts that the earliest primates evolved on Hațeg Island in Late Cretaceous Europe, the one Mesozoic environment known to lack theropod dinosaurs. A single primate fossil in the Hațeg deposits of Romania would be direct evidence; a related prediction of an early-Paleocene sea-level decline is already confirmed in the geological record at roughly 65.95 million years ago.</p>
+
+    <p class="nx-link-line"><a href="/nexic-reasoning-guide.html">Full Nexic Reasoning Guide →</a></p>
+  </div>
+</details>
 
 <hr>
 
 <h2>Where to Go Next</h2>
 
 <div class="next-links">
-  <a href="https://aethus.org/aethic-reasoning-guide.html#explorer" class="next-link">
+  <a href="/aethic-reasoning-guide.html#explorer" class="next-link">
     <div>
       <div class="nl-label">Aethic Reasoning Guide</div>
       <div class="nl-desc">The full ten-layer interactive walkthrough, from first principles through the Quantum Nexus integral.</div>
     </div>
     <span class="nl-arrow">→</span>
   </a>
-  <a href="https://aethus.org/nexic-reasoning-guide.html" class="next-link">
+  <a href="/aethic-code/demo.html" class="next-link">
+    <div>
+      <div class="nl-label">Interactive Aethic Pruning Demo</div>
+      <div class="nl-desc">Watch the second and third postulates sort the powerset of slit-traversal cases into valid, P2, and P3 — live.</div>
+    </div>
+    <span class="nl-arrow">→</span>
+  </a>
+  <a href="/nexic-reasoning-guide.html" class="next-link">
     <div>
       <div class="nl-label">Nexic Reasoning Guide</div>
       <div class="nl-desc">The extension to natural history, the Fermi paradox, and paleontological predictions.</div>
     </div>
     <span class="nl-arrow">→</span>
   </a>
-  <a href="https://aethus.org/faq.html" class="next-link">
+  <a href="/faq.html" class="next-link">
     <div>
-      <div class="nl-label">Questions & Context</div>
+      <div class="nl-label">Questions &amp; Context</div>
       <div class="nl-desc">The hardest questions a scientifically literate reader will ask, answered directly.</div>
     </div>
     <span class="nl-arrow">→</span>
@@ -379,25 +608,25 @@ body {
   <a href="https://philpapers.org/archive/BENARA-5" target="_blank" rel="noopener" class="next-link">
     <div>
       <div class="nl-label">The Main Paper</div>
-      <div class="nl-desc">The comprehensive treatment on PhilArchive (November 2024).</div>
+      <div class="nl-desc">The comprehensive treatment on PhilArchive, including the section directly addressing the realist program.</div>
     </div>
     <span class="nl-arrow">↗</span>
   </a>
-  <a href="https://aethus.org/glossary.html" class="next-link">
+  <a href="/glossary.html" class="next-link">
     <div>
       <div class="nl-label">Glossary</div>
-      <div class="nl-desc">Every framework-specific term defined in one or two sentences, with cross-references.</div>
+      <div class="nl-desc">Every framework-specific term — Aethus, agreeing superposition, checkmate, reduced form — defined in one or two sentences.</div>
     </div>
     <span class="nl-arrow">→</span>
   </a>
   <a href="https://philpapers.org/archive/BENARA-6.pdf" target="_blank" rel="noopener" class="next-link">
     <div>
       <div class="nl-label">The Short Paper</div>
-      <div class="nl-desc">A condensed companion focused on the double-slit derivation (August 2025).</div>
+      <div class="nl-desc">A condensed companion focused on the double-slit derivation and the union principle (August 2025).</div>
     </div>
     <span class="nl-arrow">↗</span>
   </a>
-  <a href="https://aethus.org/ajax/" class="next-link">
+  <a href="/ajax/" class="next-link">
     <div>
       <div class="nl-label">About Ajax</div>
       <div class="nl-desc">The story behind the research program.</div>
@@ -409,5 +638,5 @@ body {
 </article>
 
 <div class="sh-footer">
-  <a href="https://aethus.org/">← Back to aethus.org</a>
+  <a href="/">← Back to aethus.org</a>
 </div>
