@@ -552,6 +552,18 @@ table.union-table .type-none { color: var(--text-dim); }
 .pst-legend { display: flex; gap: 1.1rem; justify-content: center; margin-bottom: 0.7rem; flex-wrap: wrap; }
 .pst-legend-item { display: flex; align-items: center; gap: 0.35rem; font-size: 0.73rem; color: var(--text-dim); }
 .pst-legend-swatch { width: 11px; height: 11px; border-radius: 3px; }
+.pst-grid-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 0 -0.15rem;
+  padding: 0 0.15rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(167,139,250,0.3) transparent;
+}
+.pst-grid-scroll::-webkit-scrollbar { height: 6px; }
+.pst-grid-scroll::-webkit-scrollbar-track { background: transparent; }
+.pst-grid-scroll::-webkit-scrollbar-thumb { background: rgba(167,139,250,0.3); border-radius: 3px; }
 .pst-powerset-grid { display: grid; gap: 0.32rem; }
 .pst-grid-cell {
   padding: 0.45rem 0.28rem;
@@ -564,10 +576,11 @@ table.union-table .type-none { color: var(--text-dim); }
   gap: 0.3rem;
   position: relative;
   transition: all 0.3s;
+  min-width: 0;
 }
 .pst-cell-circles { display: flex; gap: 0.22rem; }
-.pst-circle { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid; transition: all 0.3s; }
-.pst-cell-label { font-family: 'JetBrains Mono', monospace; font-size: 0.64rem; transition: color 0.3s; }
+.pst-circle { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid; transition: all 0.3s; flex-shrink: 0; }
+.pst-cell-label { font-family: 'JetBrains Mono', monospace; font-size: 0.64rem; transition: color 0.3s; white-space: nowrap; }
 
 /* Valid cells: full opacity, vibrant violet, hover-brightens for non-color confirmation */
 .pst-grid-cell.pst-valid {
@@ -601,10 +614,14 @@ table.union-table .type-none { color: var(--text-dim); }
 
 .pst-x-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
 .pst-caption { text-align: center; font-size: 0.78rem; color: var(--text-dim); line-height: 1.5; margin-top: 0.5rem; }
-.pst-grid-cell.pst-compact { padding: 0.3rem 0.18rem; }
-.pst-grid-cell.pst-compact .pst-circle { width: 9px; height: 9px; }
-.pst-grid-cell.pst-compact .pst-cell-label { font-size: 0.5rem; }
-.pst-grid-cell.pst-compact .pst-cell-circles { gap: 0.15rem; }
+.pst-grid-cell.pst-compact { padding: 0.3rem 0.18rem; gap: 0.2rem; }
+.pst-grid-cell.pst-compact .pst-circle { width: 8px; height: 8px; }
+.pst-grid-cell.pst-compact .pst-cell-label { font-size: 0.52rem; }
+.pst-grid-cell.pst-compact .pst-cell-circles { gap: 0.12rem; }
+.pst-grid-cell.pst-extra-compact { padding: 0.25rem 0.12rem; gap: 0.15rem; }
+.pst-grid-cell.pst-extra-compact .pst-circle { width: 6px; height: 6px; border-width: 1px; }
+.pst-grid-cell.pst-extra-compact .pst-cell-label { font-size: 0.46rem; }
+.pst-grid-cell.pst-extra-compact .pst-cell-circles { gap: 0.08rem; }
 </style>
 
 <!-- ═══ ABOVE-THE-FOLD PITCH ═══ -->
@@ -753,7 +770,9 @@ The realist program asks for the conceptual innovation that distinguishes quantu
       <div class="pst-legend-item"><div class="pst-legend-swatch" style="background:rgba(120,140,180,0.45);border:1px dashed rgba(150,150,165,0.6);"></div>P2&mdash;unknowing</div>
       <div class="pst-legend-item"><div class="pst-legend-swatch" style="background:rgba(180,120,120,0.45);border:1px dashed rgba(150,150,165,0.6);"></div>P3&mdash;checkmate</div>
     </div>
-    <div class="pst-powerset-grid" id="pst-powerset-grid"></div>
+    <div class="pst-grid-scroll">
+      <div class="pst-powerset-grid" id="pst-powerset-grid"></div>
+    </div>
     <p class="pst-caption" id="pst-caption"></p>
   </div>
 </details>
@@ -1062,6 +1081,7 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
     var total = Math.pow(2, nSlits);
     var cols = total <= 8 ? 4 : total <= 16 ? 4 : 8;
     var compact = nSlits >= 5;
+    var extraCompact = nSlits >= 6;
 
     grid.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
     grid.innerHTML = '';
@@ -1076,6 +1096,7 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
       var cell = document.createElement('div');
       cell.className = 'pst-grid-cell ' + (status === 'valid' ? 'pst-valid' : status === 'p2' ? 'pst-invalid-p2' : 'pst-invalid-p3');
       if (compact) cell.classList.add('pst-compact');
+      if (extraCompact) cell.classList.add('pst-extra-compact');
       if (data) {
         cell.title = status === 'valid'
           ? 'Valid ' + label
@@ -1101,7 +1122,7 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
       if (data && status !== 'valid') {
         var x = document.createElement('div');
         x.className = 'pst-x-overlay';
-        var sz = compact ? 24 : 34;
+        var sz = extraCompact ? 18 : compact ? 24 : 34;
         var col = status === 'p2' ? 'rgba(140,160,200,0.9)' : 'rgba(220,150,150,0.95)';
         x.innerHTML = '<svg width="' + sz + '" height="' + sz + '" viewBox="0 0 28 28"><line x1="4" y1="4" x2="24" y2="24" stroke="' + col + '" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="4" x2="4" y2="24" stroke="' + col + '" stroke-width="2.5" stroke-linecap="round"/></svg>';
         cell.appendChild(x);
