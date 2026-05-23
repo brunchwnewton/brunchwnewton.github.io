@@ -324,6 +324,44 @@ table.union-table .type-none { color: var(--text-dim); }
   margin-bottom: 0.45rem;
   font-weight: 600;
 }
+.pc-deeper {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(96,165,250,0.18);
+  padding-top: 0.75rem;
+}
+.pc-deeper > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent-6);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+.pc-deeper > summary::-webkit-details-marker { display: none; }
+.pc-deeper > summary::marker { content: ""; }
+.pc-deeper > summary:hover { color: var(--text-bright); }
+.pc-deeper .pcd-chevron {
+  font-size: 0.7rem;
+  transition: transform 0.22s ease;
+  color: var(--text-dim);
+}
+.pc-deeper[open] .pcd-chevron { transform: rotate(90deg); }
+.pc-deeper .pcd-body {
+  margin-top: 0.95rem;
+  font-size: 0.95em;
+  line-height: 1.72;
+  color: var(--text-dim);
+}
+.pc-deeper .pcd-body p { margin: 0.7rem 0; }
+.pc-deeper .pcd-body p:first-child { margin-top: 0; }
+.pc-deeper .pcd-body p:last-child { margin-bottom: 0; }
+.pc-deeper .pcd-body strong { color: var(--text-bright); font-weight: 600; }
+.pc-deeper .pcd-body em { color: var(--text); font-style: italic; }
 
 /* ─── NEXIC DRAWER ─── */
 .nexic-drawer {
@@ -782,6 +820,18 @@ The realist program asks for the conceptual innovation that distinguishes quantu
 <div class="program-callout">
 <span class="pc-label">Why this answers the program</span>
 This is the framework's proposed <em>exotic but realist</em> causation and inference. When two distant measurements come out correlated, no superluminal influence is invoked and no signal is sent: the correlation is simply what is left once the validity-preserving pruning has eliminated every jointly contradictory configuration. Inference still runs <em>stepwise</em> through the Aethic structure, and correlations still receive a genuine structural explanation—the two things the program treats as the essence of realism—but the substrate doing the explaining is the lattice of valid and invalid Aethae, not a set of hidden variables evolving by functions. The Powerset Invalidation Theorem also makes the pinpointing concrete: the quantum–classical boundary is not a fixed threshold of energy or scale. It sits wherever the informational coupling between system and detector places it. Add a detector, split an equivalence class, and the boundary moves.
+
+<details class="pc-deeper">
+  <summary><span class="pcd-chevron">▸</span>One layer deeper—the substrate beneath</summary>
+  <div class="pcd-body">
+    <p>The pruning above is the realization of the program at the level of <em>correlations</em>. The framework's deeper move runs one layer beneath that, at the level of the logical substrate itself—and it is the part most likely to land for a reader of the realist program.</p>
+    <p>It is a two-step maneuver, neither half of which looks like much in isolation. <strong>First, narrow:</strong> configurations the classical paradigm calls contradictions—"the electron went through Slit A and not through Slit A"—are reclassified by the Union Principle as Aethic superpositions, not contradictions at all. Only configurations of multiple genuinely disjoint stated-attributes co-stated in the same Aethus survive as formal Aethic contradictions. <strong>Second, broaden:</strong> the narrowed concept is generalized to <em>invalid Aethus</em>, of which formal Aethic contradiction is just one base case among several. Third-postulate pruning, second-postulate over-specification, and recursive descendant failures are all modes of invalidity; the classical contradiction is the recursion's leaf, not its root.</p>
+    <p>The combined move redefines what contradiction <em>is</em>. It is no longer P ∧ ¬P. It is the structural property of being an invalid Aethus, with multiple modes. The third postulate's recursive formulation V[A] ⟹ ∃B ⊂ A, ∀C ⊂ B, V[C] becomes statable only because the maneuver has been completed first—and the reduced form coupling, the Powerset Invalidation Theorem, and the agreeing-superposition category all follow from this single substrate.</p>
+    <p>This is the move the program has described as what we should be looking for: find the assumption nobody articulated; replace the primitive everyone took as given; watch what falls out. In non-Euclidean geometry the move was applied to "point" and "line." Here it is applied to "contradiction." The vantage from which the third postulate then operates is—in Ajax's own phrase—<em>almost disconcertingly unassuming</em>. A small adjustment to a definition. The same structural register as the relativity-of-simultaneity move: in propositional content, modest; in downstream implications, the foundation of an entire reorganized framework.</p>
+    <p>A separate but converging result names what <em>cannot</em> host the nonclassicality once it has been defined this way. The <strong>Determinate Background Paradox</strong> observes that agreeing superpositions are undefinable in any metaphysical picture where reality is assumed epistemologically determinate in the background. An agreeing superposition's job is to convert a permanent absence of accessibility into an ontological primitive—but this conversion fails whenever the elemental unit of reality is taken to be a fully-determined object (a timeline, a hidden state, a self-state over a fixed external background), because every such picture forces the universe into the very determinacy the conversion specifically refuses. The result is a formal impossibility theorem with named ruled-out classes, not a soft preference. The Extrusion Principle is what resolves the paradox for the Aethic framework specifically, by separating <em>ontological completeness</em> from <em>epistemic determinacy</em>: a block universe can be ontologically complete while leaving certain attributes Aethically blank, which licenses the agreeing superposition as a primitive rather than as a wash from another timeline.</p>
+    <p>The structural realization of the program therefore runs at three convergent levels. The reduced form coupling realizes exotic-but-realist <em>causation and inference</em>—Bell correlations, retrocausal patterns, Wigner agreement, even classical Bayesian inference and Newcomb correlations, all as one operation under different weights. The contradiction-displacement realizes the <em>logical substrate beneath that operation</em>—making the redefinition of contradiction the methodological move that licenses the entire apparatus. And the Determinate Background Paradox names the formal impossibility result that explains why the alternative metaphysical pictures cannot reach the same place by other routes. The framework is not one structural alternative to classical inference. It is the substrate–correlations–impossibility triple that, together, completes the shape the program has been pointing toward.</p>
+  </div>
+</details>
 </div>
 
 <hr>
