@@ -2,6 +2,8 @@
 layout: default
 title: "aethus.org"
 ---
+<script>(function(){var h=document.head;if(!h)return;function L(rel,type,href,sizes){var l=document.createElement("link");l.rel=rel;if(type)l.type=type;if(sizes)l.setAttribute("sizes",sizes);l.href=href;h.appendChild(l);}var DATA="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0icGEiIGN4PSIzOCUiIGN5PSI0MiUiIHI9IjYyJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM4YTc4ZmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZTVjZmYiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InBiIiBjeD0iNjIlIiBjeT0iNTglIiByPSI2MiUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjNWZlMGQ2Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNGVjZGM0Ii8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzA3MDcwYyIvPgogIDwhLS0gdHdvIHBvY2tldHMgc2hhcmluZyBvbmUgc3BhY2U6IHRoZSBVbmlvbiBQcmluY2lwbGUuIE91dGVyIGRpc2p1bmN0aW9uIHBsYWNlcyBib3RoOwogICAgICAgdGhlIGxlbnMgd2hlcmUgdGhleSBvdmVybGFwIGlzIHRoZSBhZ3JlZWluZyAoaW50ZXJhY3RpbmcpIHJlZ2lvbi4gLS0+CiAgPGNpcmNsZSBjeD0iMjciIGN5PSIzMiIgcj0iMTUiIGZpbGw9InVybCgjcGEpIiBmaWxsLW9wYWNpdHk9IjAuNDIiIHN0cm9rZT0iIzZlNWNmZiIgc3Ryb2tlLXdpZHRoPSIxLjYiLz4KICA8Y2lyY2xlIGN4PSIzNyIgY3k9IjMyIiByPSIxNSIgZmlsbD0idXJsKCNwYikiIGZpbGwtb3BhY2l0eT0iMC40MiIgc3Ryb2tlPSIjNGVjZGM0IiBzdHJva2Utd2lkdGg9IjEuNiIvPgogIDwhLS0gdGhlIHNoYXJlZCBsZW5zLCBicmlnaHRlbmVkOiBwaHlzaWNhbCBBTkQgLS0+CiAgPHBhdGggZD0iTTMyIDIwLjYgQTE1IDE1IDAgMCAxIDMyIDQzLjQgQTE1IDE1IDAgMCAxIDMyIDIwLjYgWiIgZmlsbD0iI2MwODRmYyIgZmlsbC1vcGFjaXR5PSIwLjMwIi8+CiAgPCEtLSBpbnRlcmlvciBuZWdhdGlvbiBtYXJrcyAodGhlIGlubmVyIGNvbmp1bmN0aW9ucyB0aGF0IGtlZXAgcG9ja2V0cyBub24taW50ZXJhY3RpbmcgYXQgdGhlIGVkZ2VzKSAtLT4KICA8Y2lyY2xlIGN4PSIyMC41IiBjeT0iMzIiIHI9IjEuNSIgZmlsbD0iIzhhNzhmZiIvPgogIDxjaXJjbGUgY3g9IjQzLjUiIGN5PSIzMiIgcj0iMS41IiBmaWxsPSIjNWZlMGQ2Ii8+Cjwvc3ZnPgo=";L("icon","image/svg+xml","/favicon.svg");L("icon","image/svg+xml",DATA);L("apple-touch-icon",null,DATA);var m=document.createElement("meta");m.name="theme-color";m.content="#07070c";h.appendChild(m);})();</script>
+
 <style>
 :root {
   --bg: #07070c;
@@ -285,6 +287,7 @@ footer{
         .section{padding:3rem 1.2rem;}
   .hero{padding:5rem 1.2rem 3rem;}
   .banner{min-height:auto;padding:1.5rem;}
+  .cred-strip{grid-template-columns:1fr !important;}
 }
 @media(max-width:500px){
 }
@@ -293,16 +296,39 @@ footer{
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
-  <div class="hero-orb a"></div>
-  <div class="hero-orb b"></div>
-  <div class="hero-orb c"></div>
-  <div class="hero-content">
+  <div class="hero-orb a" style="opacity:0.18;"></div>
+  <div class="hero-orb b" style="opacity:0.16;"></div>
+  <div class="hero-content" style="max-width:860px;">
     <h1>Welcome to <span class="accent">aethus</span>.org</h1>
     <p class="tagline">The research of Ajax Benander. Developing Aethic reasoning: a graph-theoretic framework for quantum foundations, the ontology of time, and the measurement problem.</p>
-    <p style="max-width:620px;margin:1rem auto 0;font-size:0.88rem;color:var(--text-dim);line-height:1.65;">A framework proposing that wavefunction collapse is not a physical process but a <em style="color:var(--text);">logical necessity</em> — the universe enforcing its own consistency. Built on three postulates, it derives the double-slit result, resolves EPR without violating locality, and makes experimentally testable predictions that differ from standard quantum mechanics.</p>
+
+    <!-- Interactive extrusion-principle diagram -->
+    <div id="extrusion-hero" style="margin:2.4rem auto 0;width:100%;"></div>
+
+    <p style="max-width:620px;margin:1.6rem auto 0;font-size:0.88rem;color:var(--text-dim);line-height:1.65;">A framework proposing that wavefunction collapse is not a physical process but a <em style="color:var(--text);">logical necessity</em> — the universe enforcing its own consistency. Built on three postulates, it derives the double-slit result, resolves EPR without violating locality, and makes <em style="color:var(--accent-teal);">experimentally testable predictions that differ from standard quantum mechanics</em>.</p>
     <p class="affil">by <a href="/ajax/" style="color:var(--accent);text-decoration:none;">Ajax Benander</a></p>
   </div>
 </section>
+
+<!-- ═══ CREDIBILITY STRIP ═══ -->
+<div style="max-width:760px;margin:0 auto;padding:0 2rem;">
+  <div class="cred-strip" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+    <div style="padding:1.2rem 1.4rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);">
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-teal);font-weight:600;margin-bottom:0.5rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Falsifiable
+      </div>
+      <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.55;">Unlike most interpretations — which agree on every prediction and differ only in story — this framework predicts a <em style="color:var(--text);">specific, testable deviation</em> from standard quantum mechanics. The <a href="/start-here.html#predictions" style="color:var(--accent-teal);border-bottom:1px solid rgba(78,205,196,0.25);">billiard-ball experiment</a> would either confirm it or kill it.</p>
+    </div>
+    <div style="padding:1.2rem 1.4rem;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);">
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dim);font-weight:600;margin-bottom:0.5rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Status
+      </div>
+      <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.55;">Independent research with public preprints and explicit derivations. <em style="color:var(--text);">Not yet peer-reviewed</em>; no formal response from the physics community has been published. The papers are open — evaluate them on their own terms.</p>
+    </div>
+  </div>
+</div>
 
 <!-- ═══ START HERE ═══ -->
 <div style="max-width:680px;margin:0 auto;padding:0 2rem;">
@@ -420,28 +446,28 @@ footer{
   <div class="section-desc">Core papers developing the Aethic and Nexic reasoning frameworks.</div>
   <div class="papers-grid">
     <a href="https://philpapers.org/archive/BENARA-5" target="_blank" rel="noopener" class="paper-card">
-      <div class="paper-icon">📄</div>
+      <div class="paper-icon" style="color:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
       <div class="paper-info">
         <h4>Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem</h4>
         <div class="meta">November 2024 · Comprehensive paper · PhilPapers</div>
       </div>
     </a>
     <a href="https://philpapers.org/archive/BENNRD.pdf" target="_blank" rel="noopener" class="paper-card">
-      <div class="paper-icon">📄</div>
+      <div class="paper-icon" style="color:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
       <div class="paper-info">
         <h4>Nexic Reasoning: Defining a Generalized Calculus Over Anthropic Parameters</h4>
         <div class="meta">November 2024 · Anthropic reasoning · Fermi paradox · Paleontology</div>
       </div>
     </a>
     <a href="https://philpapers.org/archive/BENARA-6.pdf" target="_blank" rel="noopener" class="paper-card">
-      <div class="paper-icon">📄</div>
+      <div class="paper-icon" style="color:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
       <div class="paper-info">
         <h4>Aethic Reasoning: Addressing the Quantum Observer Effect With Abstract Relational Logic</h4>
         <div class="meta">August 2025 · Condensed companion paper</div>
       </div>
     </a>
     <a href="https://philpapers.org/archive/BENEWD.pdf" target="_blank" rel="noopener" class="paper-card">
-      <div class="paper-icon">📄</div>
+      <div class="paper-icon" style="color:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
       <div class="paper-info">
         <h4>Extrusion Without Duplication: Aethic Time Collapse and Observer-Relative Reality</h4>
         <div class="meta">June 2025 · Dedicated extrusion principle paper</div>
@@ -457,22 +483,22 @@ footer{
   <div class="section-title">Pages</div>
   <div class="pages-grid">
     <a href="/ajax/" class="page-card">
-      <div class="pc-icon">👤</div>
+      <div class="pc-icon" style="color:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
       <h4>About Ajax</h4>
       <p>Background, biography, and the story behind the research program.</p>
     </a>
     <a href="/aethic-code/" class="page-card">
-      <div class="pc-icon">💻</div>
+      <div class="pc-icon" style="color:var(--accent-teal);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 9 5 12 8 15"/><polyline points="16 9 19 12 16 15"/><line x1="13" y1="7" x2="11" y2="17"/></svg></div>
       <h4>Aethic Code</h4>
       <p>Computational tools, simulations, and code implementations of Aethic structures.</p>
     </a>
     <a href="/aethic-reasoning-guide.html#explorer" class="page-card">
-      <div class="pc-icon">🔮</div>
+      <div class="pc-icon" style="color:var(--accent-lavender);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg></div>
       <h4>Aethic Reasoning Guide</h4>
       <p>Interactive layered walkthrough of the full framework.</p>
     </a>
     <a href="/nexic-reasoning-guide.html" class="page-card">
-      <div class="pc-icon">🌍</div>
+      <div class="pc-icon" style="color:var(--accent-teal);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
       <h4>Nexic Reasoning Guide</h4>
       <p>Interactive walkthrough of the anthropic parameter framework.</p>
     </a>
@@ -563,6 +589,236 @@ footer{
 <footer>
   © 2025–2026 Ajax Benander · All rights reserved
 </footer>
+
+<script>
+/* ─── Interactive extrusion-principle hero diagram ─── */
+(function(){
+  const mount = document.getElementById('extrusion-hero');
+  if(!mount) return;
+  const NS="http://www.w3.org/2000/svg", W=720, H=372;
+  const svg=document.createElementNS(NS,"svg");
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  svg.setAttribute("width","100%");
+  svg.setAttribute("role","img");
+  svg.setAttribute("tabindex","0");
+  svg.setAttribute("aria-label","Interactive diagram of the extrusion principle. A parent block universe holds a which-path superposition: two particle paths pass through two slits past a which-path detector. On observation the system extrudes into a child block universe with a definite outcome. The detector can be toggled off to switch from the disagreeing (which-path) case, whose landings build two bands, to the agreeing case, whose landings build interference fringes.");
+  svg.style.cssText="display:block;max-width:720px;margin:0 auto;cursor:pointer;outline:none;";
+  svg.innerHTML=`<defs>
+    <radialGradient id="eOrbA" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#6e5cff" stop-opacity="0.9"/><stop offset="100%" stop-color="#6e5cff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="eOrbT" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4ecdc4" stop-opacity="0.9"/><stop offset="100%" stop-color="#4ecdc4" stop-opacity="0"/></radialGradient>
+    <linearGradient id="eBlock" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6e5cff" stop-opacity="0.55"/><stop offset="100%" stop-color="#4ecdc4" stop-opacity="0.35"/></linearGradient>
+    <filter id="eSoft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>`;
+  function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+  function block(cx,cy,w,h,depth,fill){
+    const g=el("g",{}); const sx=depth*0.6, sy=-depth*0.5;
+    const x0=cx-w/2, y0=cy-h/2;
+    g.appendChild(el("polygon",{points:`${x0},${y0} ${x0+sx},${y0+sy} ${x0+w+sx},${y0+sy} ${x0+w},${y0}`,fill:"rgba(110,92,255,0.10)",stroke:"url(#eBlock)","stroke-width":1}));
+    g.appendChild(el("polygon",{points:`${x0+w},${y0} ${x0+w+sx},${y0+sy} ${x0+w+sx},${y0+h+sy} ${x0+w},${y0+h}`,fill:"rgba(78,205,196,0.06)",stroke:"url(#eBlock)","stroke-width":1}));
+    g.appendChild(el("rect",{x:x0,y:y0,width:w,height:h,rx:8,fill:fill||"rgba(19,19,34,0.85)",stroke:"url(#eBlock)","stroke-width":1.4}));
+    return {g};
+  }
+  // Draw a two-slit wall with gaps at the slit centers (top y=164, bottom y=196).
+  function slitWall(xWall, off){
+    const g=el("g",{});
+    const wc="rgba(200,200,222,0.4)", wsw=3.2;
+    // three segments leaving two gaps (gaps: 157..171 and 189..203)
+    g.appendChild(el("line",{x1:xWall+off,y1:120,x2:xWall+off,y2:157,stroke:wc,"stroke-width":wsw,"stroke-linecap":"round"}));
+    g.appendChild(el("line",{x1:xWall+off,y1:171,x2:xWall+off,y2:189,stroke:wc,"stroke-width":wsw,"stroke-linecap":"round"}));
+    g.appendChild(el("line",{x1:xWall+off,y1:203,x2:xWall+off,y2:240,stroke:wc,"stroke-width":wsw,"stroke-linecap":"round"}));
+    return g;
+  }
+
+  /* ---------- PARENT: which-path superposition (disagreeing) ---------- */
+  const parent=block(170,180,200,150,28);
+  const pInner=el("g",{opacity:"0.92"});
+  pInner.appendChild(el("circle",{cx:100,cy:180,r:4,fill:"#eeeef8"})); // source
+  // straight paths through each slit (slits at y=164 top, y=196 bottom)
+  const pathA=el("path",{d:"M100,180 L165,164 L248,150",fill:"none",stroke:"url(#eOrbA)","stroke-width":2.2,opacity:"0.72","stroke-linejoin":"round"});
+  const pathB=el("path",{d:"M100,180 L165,196 L248,210",fill:"none",stroke:"url(#eOrbT)","stroke-width":2.2,opacity:"0.72","stroke-linejoin":"round"});
+  pInner.appendChild(pathA); pInner.appendChild(pathB);
+  pInner.appendChild(slitWall(165,0));
+  // landing screen (right interior)
+  pInner.appendChild(el("line",{x1:250,y1:124,x2:250,y2:236,stroke:"rgba(200,200,222,0.22)","stroke-width":2}));
+  parent.g.appendChild(pInner);
+  // soft superposition glow centered between slits
+  const supOrb=el("circle",{cx:165,cy:180,r:20,fill:"url(#eOrbA)",filter:"url(#eSoft)"});
+  supOrb.style.mixBlendMode="screen";
+  parent.g.appendChild(supOrb);
+
+  /* which-path DETECTOR on the parent wall — the reason this is disagreeing */
+  const detector=el("g",{});
+  // small sensor box hugging the lower slit (y=196), with a pulsing "eye" dot
+  const detBox=el("rect",{x:172,y:186,width:18,height:20,rx:3,fill:"rgba(255,110,138,0.14)",stroke:"#ff6e8a","stroke-width":1.2});
+  detector.appendChild(detBox);
+  const detDot=el("circle",{cx:181,cy:196,r:2.6,fill:"#ff6e8a"});
+  detector.appendChild(detDot);
+  // little lead line + label
+  const detLead=el("line",{x1:181,y1:206,x2:181,y2:216,stroke:"#ff6e8a","stroke-width":1,opacity:"0.6"});
+  detector.appendChild(detLead);
+  const detLabel=el("text",{x:181,y:227,"text-anchor":"middle",fill:"#ff6e8a","font-size":"9.5","font-family":"DM Sans,system-ui,sans-serif","letter-spacing":"0.06em"});
+  detLabel.textContent="DETECTOR ON"; detector.appendChild(detLabel);
+  detector.setAttribute("id","detToggle"); detector.style.cursor="pointer";
+  parent.g.appendChild(detector);
+
+  const pLabel=el("text",{x:170,y:300,"text-anchor":"middle",fill:"#7a7a96","font-size":"12.5","font-family":"DM Sans,system-ui,sans-serif","letter-spacing":"0.05em"});
+  pLabel.textContent="PARENT · disagreeing superposition"; parent.g.appendChild(pLabel);
+
+  /* ---------- CHILD: one definite straight path through one slit ---------- */
+  const child=block(540,180,200,150,28,"rgba(19,19,34,0.95)");
+  child.g.setAttribute("opacity","0.16");
+  const cInner=el("g",{opacity:"0"});
+  cInner.appendChild(el("circle",{cx:470,cy:180,r:4,fill:"#eeeef8"}));
+  // resolved path is STRAIGHT through one slit (set on observe, landing sampled)
+  const cPath=el("path",{d:"M470,180 L535,164 L618,150",fill:"none",stroke:"#4ecdc4","stroke-width":2.6,opacity:"0.95","stroke-linejoin":"round"});
+  cInner.appendChild(cPath);
+  const cPathB=el("path",{d:"",fill:"none",stroke:"#6e5cff","stroke-width":2.2,opacity:"0","stroke-linejoin":"round"});
+  cInner.appendChild(cPathB);
+  cInner.appendChild(slitWall(535,0));
+  cInner.appendChild(el("line",{x1:620,y1:124,x2:620,y2:236,stroke:"rgba(200,200,222,0.22)","stroke-width":2}));
+  const cDot=el("circle",{cx:618,cy:150,r:5,fill:"#4ecdc4"}); // definite landing
+  cInner.appendChild(cDot);
+  // faint single-slit diffraction envelope on the screen (shows the distribution landing was drawn from)
+  const envelope=el("path",{d:"",fill:"none",stroke:"#4ecdc4","stroke-width":1,opacity:"0"});
+  cInner.appendChild(envelope);
+  cInner.appendChild(cDot);
+  child.g.appendChild(cInner);
+  const cLabel=el("text",{x:540,y:300,"text-anchor":"middle",fill:"#7a7a96","font-size":"12.5","font-family":"DM Sans,system-ui,sans-serif","letter-spacing":"0.05em",opacity:"0"});
+  cLabel.textContent="CHILD · definite path"; child.g.appendChild(cLabel);
+
+  /* ---------- extrude arrow ---------- */
+  const arrow=el("g",{opacity:"0.6"});
+  arrow.appendChild(el("path",{d:"M300,170 C355,156 385,156 430,170",fill:"none",stroke:"#c084fc","stroke-width":1.6,"stroke-dasharray":"4 5"}));
+  arrow.appendChild(el("path",{d:"M424,163 L434,171 L424,178",fill:"none",stroke:"#c084fc","stroke-width":1.6}));
+  const aLabel=el("text",{x:365,y:146,"text-anchor":"middle",fill:"#c084fc","font-size":"11","font-family":"DM Sans,system-ui,sans-serif","font-style":"italic"});
+  aLabel.textContent="extrude"; arrow.appendChild(aLabel);
+
+  const caption=el("text",{x:W/2,y:350,"text-anchor":"middle",fill:"#7a7a96","font-size":"13","font-family":"DM Sans,system-ui,sans-serif"});
+  caption.textContent="Click to observe — the particle never changed; your Aethus did.";
+
+  const hits=el("g",{});
+  const captionHint=el("text",{x:W/2,y:366,"text-anchor":"middle",fill:"#55556e","font-size":"10.5","font-family":"DM Sans,system-ui,sans-serif"});
+  captionHint.textContent="toggle the detector · spam-click to build the pattern";
+  svg.appendChild(parent.g); svg.appendChild(arrow); svg.appendChild(child.g); svg.appendChild(hits); svg.appendChild(caption); svg.appendChild(captionHint);
+  mount.appendChild(svg);
+
+  let phase="super", t0=performance.now(), resolveStart=0, chosen="A", detectorOn=true;
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function ease(p){return p<0.5?2*p*p:1-Math.pow(-2*p+2,2)/2;}
+  function tick(now){
+    const dt=(now-t0)/1000;
+    if(phase==="super" && !reduce){
+      supOrb.setAttribute("r",(16+Math.sin(dt*2.2)*5).toFixed(1));
+      supOrb.setAttribute("opacity",(0.5+0.2*Math.sin(dt*2.2)).toFixed(2));
+      pathA.setAttribute("opacity",(0.52+0.24*Math.sin(dt*1.7)).toFixed(2));
+      pathB.setAttribute("opacity",(0.52+0.24*Math.sin(dt*1.7+1.5)).toFixed(2));
+      detDot.setAttribute("opacity", detectorOn?(0.55+0.45*Math.sin(dt*3.0)).toFixed(2):"0");
+    }
+    if(phase==="resolving"){
+      const p=Math.min((now-resolveStart)/900,1), e=ease(p);
+      supOrb.setAttribute("opacity",(0.55*(1-e)).toFixed(2));
+      if(chosen==="A"){pathB.setAttribute("opacity",(0.72*(1-e)).toFixed(2));}
+      else if(chosen==="B"){pathA.setAttribute("opacity",(0.72*(1-e)).toFixed(2));}
+      child.g.setAttribute("opacity",(0.16+0.84*e).toFixed(2));
+      cInner.setAttribute("opacity",e.toFixed(2));
+      cLabel.setAttribute("opacity",e.toFixed(2));
+      envelope.setAttribute("opacity",(0.32*e).toFixed(2));
+      arrow.setAttribute("opacity",(0.4+0.4*Math.sin(p*Math.PI)).toFixed(2));
+      if(p>=1){phase="resolved"; resolveStart=now;}
+    }
+    if(phase==="resolved" && (now-resolveStart)/1000>3.2){ resetScene(); }
+    requestAnimationFrame(tick);
+  }
+  // single-slit diffraction envelope (sinc^2) + rejection sampler
+  function sinc2(b){ if(Math.abs(b)<1e-9) return 1; const s=Math.sin(b)/b; return s*s; }
+  function sampleLanding(centerY){
+    const ymin=128, ymax=232, scale=20;
+    for(let i=0;i<200;i++){
+      const y=ymin+Math.random()*(ymax-ymin);
+      if(Math.random() < sinc2(Math.PI*(y-centerY)/scale)) return y;
+    }
+    return centerY;
+  }
+  function intensityOff(y){ // two-slit: single-slit envelope × cos² fringes, centered on axis (y=180)
+    return sinc2(Math.PI*(y-180)/34)*Math.pow(Math.cos(Math.PI*(y-180)/16),2);
+  }
+  function sampleInterference(){
+    const ymin=128,ymax=232;
+    for(let i=0;i<400;i++){
+      const y=ymin+Math.random()*(ymax-ymin);
+      if(Math.random()<intensityOff(y)) return y;
+    }
+    return 180;
+  }
+  function drawEnvelope(fn){
+    let d="M";
+    for(let y=128;y<=232;y+=2){
+      const x=620+fn(y)*26;
+      d+=`${(y===128?'':'L')}${x.toFixed(1)},${y} `;
+    }
+    envelope.setAttribute("d",d.trim());
+  }
+  function observe(){
+    if(phase!=="super") return;
+    let landY;
+    if(detectorOn){
+      chosen=Math.random()<0.5?"A":"B";
+      const slitY=(chosen==="A")?164:196, centerY=(chosen==="A")?150:210;
+      landY=sampleLanding(centerY);
+      drawEnvelope(function(y){return sinc2(Math.PI*(y-centerY)/20);});
+      cPath.setAttribute("d",`M470,180 L535,${slitY} L618,${landY.toFixed(1)}`);
+      cPath.setAttribute("opacity","0.95");
+      cPathB.setAttribute("opacity","0");
+      cLabel.textContent="CHILD · definite path";
+    }else{
+      chosen="AB";
+      landY=sampleInterference();
+      drawEnvelope(intensityOff);
+      cPath.setAttribute("d",`M470,180 L535,164 L618,${landY.toFixed(1)}`);
+      cPath.setAttribute("opacity","0.6");
+      cPathB.setAttribute("d",`M470,180 L535,196 L618,${landY.toFixed(1)}`);
+      cPathB.setAttribute("opacity","0.6");
+      cLabel.textContent="CHILD · definite landing — path still agreeing";
+    }
+    cDot.setAttribute("cy",landY.toFixed(1));
+    hits.appendChild(el("circle",{cx:623,cy:landY.toFixed(1),r:1.6,fill:detectorOn?"#4ecdc4":"#c084fc",opacity:"0.5"}));
+    if(hits.childNodes.length>160) hits.removeChild(hits.firstChild);
+    phase="resolving"; resolveStart=performance.now();
+    caption.textContent="Extruding into the block universe where this "+(detectorOn?"path":"landing")+" was always a fact…";
+  }
+  function resetScene(){
+    phase="super"; t0=performance.now();
+    child.g.setAttribute("opacity","0.16"); cInner.setAttribute("opacity","0"); cLabel.setAttribute("opacity","0");
+    envelope.setAttribute("opacity","0");
+    arrow.setAttribute("opacity","0.6"); pathA.setAttribute("opacity","0.72"); pathB.setAttribute("opacity","0.72");
+    cPathB.setAttribute("opacity","0");
+    caption.textContent = hits.childNodes.length>0
+      ? (detectorOn ? "Observe again — landings build the two which-path bands."
+                    : "Observe again — landings build the interference fringes.")
+      : "Click to observe — the particle never changed; your Aethus did.";
+  }
+  function act(){ if(phase==="super"){observe();} else {resetScene(); observe();} }
+  function toggleDetector(){
+    detectorOn=!detectorOn;
+    detBox.setAttribute("stroke",detectorOn?"#ff6e8a":"#7a7a96");
+    detBox.setAttribute("fill",detectorOn?"rgba(255,110,138,0.14)":"rgba(122,122,150,0.08)");
+    detLabel.setAttribute("fill",detectorOn?"#ff6e8a":"#7a7a96");
+    detLabel.textContent=detectorOn?"DETECTOR ON":"DETECTOR OFF";
+    detLead.setAttribute("stroke",detectorOn?"#ff6e8a":"#7a7a96");
+    detDot.setAttribute("opacity",detectorOn?"1":"0");
+    pLabel.textContent=detectorOn?"PARENT · disagreeing superposition":"PARENT · agreeing superposition";
+    while(hits.firstChild) hits.removeChild(hits.firstChild);
+    resetScene();
+    caption.textContent=detectorOn
+      ? "Detector on — observe to land definite which-path outcomes."
+      : "Detector off — observe to build the interference fringes.";
+  }
+  detector.addEventListener("click",function(ev){ev.stopPropagation();toggleDetector();});
+  svg.addEventListener("click",act);
+  svg.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();act();}if(e.key==="d"||e.key==="D"){e.preventDefault();toggleDetector();}});
+  requestAnimationFrame(tick);
+})();
+</script>
 
 <script>
 document.querySelectorAll('a[href^="#"]').forEach(a => {
