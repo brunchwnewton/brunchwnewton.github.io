@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="pa" cx="38%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#8a78ff"/><stop offset="100%" stop-color="#6e5cff"/>
+    </radialGradient>
+    <radialGradient id="pb" cx="62%" cy="58%" r="62%">
+      <stop offset="0%" stop-color="#5fe0d6"/><stop offset="100%" stop-color="#4ecdc4"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#07070c"/>
+  <!-- two pockets sharing one space: the Union Principle. Outer disjunction places both;
+       the lens where they overlap is the agreeing (interacting) region. -->
+  <circle cx="27" cy="32" r="15" fill="url(#pa)" fill-opacity="0.42" stroke="#6e5cff" stroke-width="1.6"/>
+  <circle cx="37" cy="32" r="15" fill="url(#pb)" fill-opacity="0.42" stroke="#4ecdc4" stroke-width="1.6"/>
+  <!-- the shared lens, brightened: physical AND -->
+  <path d="M32 20.6 A15 15 0 0 1 32 43.4 A15 15 0 0 1 32 20.6 Z" fill="#c084fc" fill-opacity="0.30"/>
+  <!-- interior negation marks (the inner conjunctions that keep pockets non-interacting at the edges) -->
+  <circle cx="20.5" cy="32" r="1.5" fill="#8a78ff"/>
+  <circle cx="43.5" cy="32" r="1.5" fill="#5fe0d6"/>
+</svg>
