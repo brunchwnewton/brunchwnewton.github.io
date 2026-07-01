@@ -1,7 +1,3 @@
----
-layout: default
-title: "Start Here—Aethic Reasoning and the Realist Program"
----
 <!doctype html>
 <html lang="en">
 <head>
@@ -603,7 +599,7 @@ window.MathJax = {
 .pst-grid-cell.pst-extra-compact .pst-cell-circles { gap: 0.08rem; }
 </style>
 </head>
-<body class="mode-start">
+<body class="mode-brief">
 
 <div class="progress" id="progress" aria-hidden="true"></div>
 
@@ -614,11 +610,11 @@ window.MathJax = {
       <h1 class="title">Aethic&nbsp;Reasoning</h1>
       <p class="dek"><span class="only-brief">A Framework for Realist Quantum Foundations and Counterfactual Semantics</span><span class="only-start">A proposed realist answer to the quantum measurement problem &mdash; reasoning from what an observer can <em>know</em>, not from what the universe is assumed to <em>be</em>.</span></p>
       <div class="switch" role="tablist" aria-label="Choose a version">
-        <button class="switch__btn is-on" id="sw-start" type="button" role="tab" aria-selected="true" onclick="setEdition('start')">
+        <button class="switch__btn" id="sw-start" type="button" role="tab" aria-selected="false" onclick="setEdition('start', true)">
           <span class="switch__lbl">Start Here</span>
           <span class="switch__sub">a gentler on-ramp</span>
         </button>
-        <button class="switch__btn" id="sw-brief" type="button" role="tab" aria-selected="false" onclick="setEdition('brief')">
+        <button class="switch__btn is-on" id="sw-brief" type="button" role="tab" aria-selected="true" onclick="setEdition('brief', true)">
           <span class="switch__lbl">The Skeptic&rsquo;s Brief</span>
           <span class="switch__sub">the rigorous short case</span>
         </button>
@@ -1337,7 +1333,7 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
 
 <script>
 /* ---- edition switcher ---- */
-function setEdition(name){
+function setEdition(name, updateHash){
   if(name!=='start' && name!=='brief') return;
   var b=document.body;
   b.classList.remove('mode-start','mode-brief');
@@ -1346,19 +1342,27 @@ function setEdition(name){
   var isStart=(name==='start');
   if(s){ s.classList.toggle('is-on', isStart); s.setAttribute('aria-selected', isStart?'true':'false'); }
   if(r){ r.classList.toggle('is-on', !isStart); r.setAttribute('aria-selected', !isStart?'true':'false'); }
+  if(updateHash){
+    try{ history.replaceState(null, '', location.pathname + location.search + '#' + name); }
+    catch(e){ location.hash = name; }
+  }
   try{ window.dispatchEvent(new Event('resize')); }catch(e){}
 }
-/* ---- cross-edition deep links: if the hash points into the hidden edition, switch to it ---- */
+/* ---- URL tags (#skeptic|#brief, #start|#newcomer) + cross-edition deep links ---- */
 (function(){
-  setEdition(document.body.classList.contains('mode-brief') ? 'brief' : 'start');
+  var MODE_TAGS = { brief:'brief', skeptic:'brief', skeptics:'brief', start:'start', newcomer:'start' };
   function route(){
-    var h = location.hash ? location.hash.slice(1) : '';
-    var el = h ? document.getElementById(h) : null;
+    var raw = location.hash ? location.hash.slice(1) : '';
+    if(!raw) return;
+    var tag = MODE_TAGS[raw.toLowerCase()];
+    if(tag){ setEdition(tag, false); return; }
+    var el = document.getElementById(raw);
     if(!el) return;
-    if(el.closest('.edition--brief')) setEdition('brief');
-    else if(el.closest('.edition--start')) setEdition('start');
+    if(el.closest('.edition--brief')) setEdition('brief', false);
+    else if(el.closest('.edition--start')) setEdition('start', false);
     requestAnimationFrame(function(){ try{ el.scrollIntoView(); }catch(e){} });
   }
+  setEdition(document.body.classList.contains('mode-brief') ? 'brief' : 'start', false);
   route();
   window.addEventListener('hashchange', route);
 })();
