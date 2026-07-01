@@ -1,3 +1,7 @@
+---
+layout: default
+title: "Start Here—Aethic Reasoning and the Realist Program"
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -209,14 +213,14 @@ window.MathJax = {
 
   /* ---- edition visibility ---- */
   .edition{ display:none; }
-  body.mode-brief .edition--brief{ display:block; }
+  body.mode-overview .edition--overview{ display:block; }
   body.mode-start .edition--start{ display:block; }
-  .only-brief, .only-start{ display:none; }
-  body.mode-brief .only-brief{ display:inline; }
+  .only-overview, .only-start{ display:none; }
+  body.mode-overview .only-overview{ display:inline; }
   body.mode-start .only-start{ display:inline; }
   body.mode-start nav.toc{ display:none; }
   body.mode-start .wrap{ grid-template-columns:minmax(0, 720px); justify-content:center; }
-  .edition--brief > section:first-of-type h2{ margin-top:.3em; }
+  .edition--overview > section:first-of-type h2{ margin-top:.3em; }
 
   /* ---- masthead switch control (sits on the dark block) ---- */
   .switch{ display:inline-flex; margin-top:30px; padding:4px; gap:4px; border-radius:13px;
@@ -599,24 +603,24 @@ window.MathJax = {
 .pst-grid-cell.pst-extra-compact .pst-cell-circles { gap: 0.08rem; }
 </style>
 </head>
-<body class="mode-brief">
+<body class="mode-overview">
 
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="masthead">
   <div class="masthead__inner">
     <div class="masthead__text">
-      <p class="eyebrow"><span class="only-brief">An Introduction to the Framework</span><span class="only-start">The Core Idea &middot; Start Here</span></p>
+      <p class="eyebrow"><span class="only-overview">An Introduction to the Framework</span><span class="only-start">The Core Idea &middot; Start Here</span></p>
       <h1 class="title">Aethic&nbsp;Reasoning</h1>
-      <p class="dek"><span class="only-brief">A Framework for Realist Quantum Foundations and Counterfactual Semantics</span><span class="only-start">A proposed realist answer to the quantum measurement problem &mdash; reasoning from what an observer can <em>know</em>, not from what the universe is assumed to <em>be</em>.</span></p>
+      <p class="dek"><span class="only-overview">A Framework for Realist Quantum Foundations and Counterfactual Semantics</span><span class="only-start">A proposed realist answer to the quantum measurement problem &mdash; reasoning from what an observer can <em>know</em>, not from what the universe is assumed to <em>be</em>.</span></p>
       <div class="switch" role="tablist" aria-label="Choose a version">
         <button class="switch__btn" id="sw-start" type="button" role="tab" aria-selected="false" onclick="setEdition('start', true)">
           <span class="switch__lbl">Start Here</span>
           <span class="switch__sub">a gentler on-ramp</span>
         </button>
-        <button class="switch__btn is-on" id="sw-brief" type="button" role="tab" aria-selected="true" onclick="setEdition('brief', true)">
-          <span class="switch__lbl">The Skeptic&rsquo;s Brief</span>
-          <span class="switch__sub">the rigorous short case</span>
+        <button class="switch__btn is-on" id="sw-overview" type="button" role="tab" aria-selected="true" onclick="setEdition('overview', true)">
+          <span class="switch__lbl">Overview</span>
+          <span class="switch__sub">the complete case</span>
         </button>
       </div>
     </div>
@@ -633,140 +637,437 @@ window.MathJax = {
 <div class="wrap">
   <main class="doc">
 
-  <div class="edition edition--brief" data-edition="brief">
+  <div class="edition edition--overview" data-edition="overview">
 
     <section id="the-one-idea">
       <h2>The one idea</h2>
-      <p class="lead">Almost every framework in physics and metaphysics shares a hidden bookkeeping convention: it indexes facts to spacetime. A fact, once located somewhere in the block universe, is determinate full stop; influence travels along worldlines from past to future; alternatives, if they exist at all, live <em>elsewhere</em> — other worlds, other branches, other timelines.</p>
-
-      <p>Aethic reasoning makes exactly one move. It relocates the index of reality from spacetime to an observer's information state, called the <strong>Aethus</strong>. Determinacy stops being a property an attribute has <em>simpliciter</em> and becomes a <em>relation</em> between an attribute and an Aethus. The four-dimensional block universe survives untouched; what varies is not which world exists but which of that one block's co-present decompositions is <em>yours</em> — indexed by your Aethus, selected by the acquisition of information rather than by motion through time. A word to head off the obvious question, because the framework's realism is specific: this is neither a branching multiverse nor idealism. There is one underlying physical block — one spacetime — and the alternative &ldquo;block universes&rdquo; are co-present <em>pockets</em> within it — where a pocket is a definite algebraic object, not a spatial or possible-worlds metaphor (defined precisely under the Union Principle below): a maximal internally-consistent attribute-assignment summed into the one block. They are held apart not by any external wall but by each pocket internally negating the others. The Aethus <em>indexes</em> which pocket is yours the way a reference frame coordinatizes spacetime; it does not conjure it. Gaining information is reselection among physically pre-existing pockets — not the proliferation of new worlds (contra Everett), and not the mind-dependent creation of facts (contra idealism). The framework's name for this is <em>plurality without duplication</em>. What an observer experiences as the passage of time is transit along a chain of such observer-indexed block universes, driven by new information; <strong>what they experience as collapse is a transition between block universes, never an event within one.</strong></p>
-
-      <p>This sounds like a slogan, so let me show immediately that it is precise rather than vague, because that precision is the whole claim. The framework does three concrete things with the inversion, and the rest is consequence:</p>
-
-      <ol class="enum">
-        <li>It supplies a <strong>formal semantics for counterfactuals</strong> in which the Lewis–Stalnaker similarity ordering is not refined but <em>deleted</em>, and replaced by two quantities the framework already owns — validity and weight.</li>
-        <li>It <strong>reconstructs</strong> wavefunction collapse — not as a physical mechanism appended to the Schrödinger equation, but as a greatest-fixed-point pruning condition on a graph of information states.</li>
-        <li>It identifies a <em>single operation</em> (the &ldquo;reduced form&rdquo;) that, run under different weighting regimes, produces quantum entanglement, ordinary Bayesian updating, and the resolution of delayed-choice and Wigner's-friend paradoxes as the same structural phenomenon.</li>
-      </ol>
-
-      <p>I will take these in turn, with one worked example carried to a payoff, and I will be explicit about what is derived versus assumed, because a pitch that overclaims is one a skeptical reader is right to discard.</p>
-    </section>
-
-    <section id="at-a-glance">
-      <h2>At a glance</h2>
-      <table class="glance">
-        <tbody>
-          <tr><td>Primitive objects</td><td>attributes; Aethae (and pseudo-Aethae); validity; weight; pockets</td></tr>
-          <tr><td>Assumed</td><td>the three postulates; the weight–probability equivalence; the realization principle (invalid &rArr; physically unrealizable)</td></tr>
-          <tr><td>Derived</td><td>collapse (as a fixed-point <em>structure</em>); counterfactual residues; reduced-form coupling; the quantum–classical boundary; multi-observer consistency</td></tr>
-          <tr><td>Open — the quantum program</td><td>the Born rule and amplitude kernel; the greatest-fixed-point equivalence lemma; completeness / decidability</td></tr>
-        </tbody>
-      </table>
+<p class="lead">Almost every framework in physics and metaphysics shares a hidden
+bookkeeping convention: it indexes facts to spacetime. A fact, once
+located somewhere in the block universe, is determinate full stop;
+influence travels along worldlines from past to future; alternatives, if
+they exist at all, live <em>elsewhere</em> — other worlds, other
+branches, other timelines.</p>
+<p>Aethic reasoning makes exactly one move, and everything else is a
+consequence of it. It relocates the index of reality from spacetime to
+an observer’s information state, called the <strong>Aethus</strong>.
+Determinacy stops being a property an attribute has <em>simpliciter</em>
+and becomes a <em>relation</em> between an attribute and an Aethus.
+Crucially, the four-dimensional block universe survives untouched: what
+varies is not <em>which world exists</em> but which of that one block’s
+co-present decompositions is <em>yours</em> — indexed by your Aethus,
+selected by the acquisition of information rather than by motion through
+time.</p>
+<p>Because the framework’s realism is specific, let me head off the
+obvious question at once: this is neither a branching multiverse nor
+idealism. There is one underlying physical block — one spacetime — and
+the alternative “block universes” are co-present <em>pockets</em> within
+it, where a pocket is a definite algebraic object rather than a spatial
+or possible-worlds metaphor (defined precisely under the Union Principle
+below): a maximal internally-consistent attribute-assignment summed into
+the one block. Pockets are held apart not by any external wall but by
+each one internally negating the others. The Aethus <em>indexes</em>
+which pocket is yours the way a reference frame coordinatizes spacetime;
+it does not conjure it. Gaining information is <em>reselection</em>
+among physically pre-existing pockets — not the proliferation of new
+worlds (contra Everett), and not the mind-dependent creation of facts
+(contra idealism). The framework’s name for this is <strong>plurality
+without duplication</strong>. What an observer experiences as the
+passage of time is transit along a chain of such observer-indexed block
+universes, driven by new information; <strong>what they experience as
+collapse is a transition between block universes, never an event within
+one.</strong></p>
+<p>This sounds like a slogan, so let me show immediately that it is
+precise rather than vague — that precision is the whole claim. The
+framework does three concrete things with the inversion, and the rest is
+consequence:</p>
+<ol class="enum">
+<li>It supplies a <strong>formal semantics for counterfactuals</strong>
+in which the Lewis–Stalnaker similarity ordering is not refined but
+<em>deleted</em>, and replaced by two quantities the framework already
+owns — validity and weight.</li>
+<li>It <strong>reconstructs</strong> wavefunction collapse — not as a
+physical mechanism appended to the Schrödinger equation, but as a
+greatest-fixed-point pruning condition on a graph of information
+states.</li>
+<li>It identifies a <em>single operation</em> (the “reduced form”) that,
+run under different weighting regimes, yields ordinary Bayesian
+updating, aims to recover quantum entanglement, and resolves the
+delayed-choice and Wigner’s-friend paradoxes as one structural
+phenomenon.</li>
+</ol>
+<p>The claim to your attention, here and throughout, is
+<strong>compression</strong> — in the sense that general relativity
+compressed gravity into geometry: several apparently independent
+problems turning out to be one problem, solvable once. I will take the
+three in turn, carry one worked example to a payoff, and be explicit
+about what is derived versus assumed, because a pitch that overclaims is
+one a skeptical reader is right to discard.</p>
     </section>
 
     <section id="what-an-aethus-is">
       <h2>What an Aethus is, minimally</h2>
-      <p>An Aethus is not a mind, a belief set, or a &ldquo;point of view.&rdquo; It is a mathematical object: the <strong>closure under deduction of a set of <em>stated-attributes</em></strong> — resolved answers equipped with the machinery to say which combinations are jointly realizable. Crucially the basic object is the <strong>attribute</strong> — a question-shaped thing with a fixed set of possible values — not the <strong>event</strong> (an occurrence in spacetime). &ldquo;Which slit did it take?&rdquo; is an attribute with values {1, 2}; &ldquo;spin along <em>z</em>?&rdquo; has values {up, down}; &ldquo;did Caesar cross the Rubicon?&rdquo; has values {yes, no}. A <em>stated-attribute</em> is one of these questions with its value resolved; a <em>blank</em> is the same question left open. Events survive as the special case of attributes projected into spacetime, but the attribute idiom also handles identities, dispositions, historical unknowns, and counterfactual structure within one calculus. This is load-bearing rather than aesthetic: equivalence classes drawn &ldquo;by feel&rdquo; shift under redescription, whereas a coarse-graining of attributes is a genuine quotient that inherits its validity facts from the postulates.</p>
-
-      <p>The framework runs on three postulates. The <strong>first postulate</strong> is the relocation itself: every attribution of reality is a statement of relation to a particular Aethus — so &ldquo;the tree is five meters tall&rdquo; is not a free-standing fact <em>simpliciter</em> but a determinate attribution relative to an informational perspective. Since the entire framework is an elaboration of this one principle, I state it once and focus below on the second and third postulates, which do the downstream work — and inventory honesty matters:</p>
-
-      <ul class="deflist">
-        <li><strong>Second postulate:</strong> if an Aethus is valid, an attribute is in superposition relative to it <em>if and only if</em> it is absent (blank) from it. Ignorance is not epistemic veil over a determinate fact; blankness <em>is</em> superposition.</li>
-        <li><strong>Third postulate:</strong> the collapse condition, derived below.</li>
-      </ul>
-
-      <p>A note on tense the reader should keep in mind throughout: blankness carries no tense. An attribute can be unresolved regardless of where it sits in proper time. This is why, relative to your Aethus of thirty seconds ago, your friend's parked car remains in disagreeing superposition even though right now you are staring at a determinate one — and symmetrically why a sinkhole's entire underground history can sit in superposition until the moment you learn of it, &ldquo;collapsing&rdquo; backward into determinacy across the block. The past you have not yet learned is as open as the future you have not yet formed — &ldquo;open&rdquo; in the informational sense, not the metaphysical one: the block is complete, and what is unsettled is only which block is yours. That symmetry is not a quirky add-on; it falls directly out of indexing reality to information rather than to a moving present.</p>
+<p>An Aethus is not a mind, a belief set, or a “point of view.” It is a
+mathematical object: the <strong>closure under deduction of a set of
+<em>stated-attributes</em></strong> — resolved answers equipped with the
+machinery to say which combinations are jointly realizable. Crucially
+the basic object is the <strong>attribute</strong> — a question-shaped
+thing with a fixed set of possible values — not the
+<strong>event</strong> (an occurrence in spacetime). “Which slit did it
+take?” is an attribute with values {1, 2}; “spin along <em>z</em>?” has
+values {up, down}; “did Caesar cross the Rubicon?” has values {yes, no}.
+A <em>stated-attribute</em> is one of these questions with its value
+resolved; a <em>blank</em> is the same question left open. Events
+survive as the special case of attributes projected into spacetime, but
+the attribute idiom also handles identities, dispositions, historical
+unknowns, and counterfactual structure within one calculus. This is
+load-bearing rather than aesthetic: equivalence classes drawn “by feel”
+shift under redescription, whereas a coarse-graining of attributes is a
+genuine quotient that inherits its validity facts from the
+postulates.</p>
+<p>The framework runs on three postulates. The <strong>first
+postulate</strong> is the relocation itself: every attribution of
+reality is a statement of relation to a particular Aethus — so “the tree
+is five meters tall” is not a free-standing fact <em>simpliciter</em>,
+but a determinate attribution relative to an informational perspective.
+Since the whole framework is an elaboration of this one principle, I
+state it once and put the working weight on the other two:</p>
+<ul class="deflist">
+<li><strong>Second postulate:</strong> if an Aethus is valid, an
+attribute is in superposition relative to it <em>if and only if</em> it
+is absent (blank) from it. Ignorance is not an epistemic veil over a
+determinate fact; blankness <em>is</em> superposition.</li>
+<li><strong>Third postulate:</strong> the collapse condition,
+reconstructed below.</li>
+</ul>
+<p>A note on tense to keep in mind throughout: blankness carries no
+tense. An attribute can be unresolved regardless of where it sits in
+proper time. This is why, relative to your Aethus of thirty seconds ago,
+your friend’s parked car remains in disagreeing superposition even
+though right now you are staring at a determinate one — and
+symmetrically why a sinkhole’s entire underground history can sit in
+superposition until the moment you learn of it, “collapsing” backward
+into determinacy across the block. The past you have not yet learned is
+as open as the future you have not yet formed — “open” in the
+informational sense, not the metaphysical one: the block is complete,
+and what is unsettled is only which block is yours. That symmetry is not
+a quirky add-on; it falls directly out of indexing reality to
+information rather than to a moving present.</p>
     </section>
 
     <section id="deleting-the-similarity-ordering">
       <h2>Deleting the similarity ordering</h2>
-      <p>Start with the counterfactual problem, because it is the cleanest demonstration that this is a real framework and not a posture, and because it consumes no physics. If you want a single result to stress-test before granting anything else, make it this one: it is the framework's most self-contained claim, it leans on none of the still-open machinery, and if the deletion of the similarity ordering fails here, the program is in doubt regardless of what the physics chapters promise. The rest of the document is best read as: the same pruning that does this work, run under other weights, is what produces collapse, the powerset classification, and the reduced-form unification.</p>
-
-      <p>The reigning theory of &ldquo;had A been the case, B would have held&rdquo; is the possible-world semantics of Stalnaker and Lewis: the counterfactual is true iff B holds at the <em>closest</em> A-worlds under a similarity ordering over worlds. This has been enormously productive. Its acknowledged soft spot is the ordering itself. Lewis did define it — explicitly, with priority weights on respects of similarity; the elevator-pitch charge that &ldquo;closest was never defined&rdquo; is a strawman and I want to avoid it. The precise charge is that the ordering has never been <em>non-arbitrarily specified</em>: fifty years of literature has probed it with a standard battery (failures of antecedent strengthening, transitivity, contraposition; the would/might distinction; tie cases like Bizet–Verdi; backtracking ambiguity) and refined, restricted, and contextualized it, but never derived it from anything deeper. It remains a free parameter dressed as an analysis.</p>
-
-      <p>Aethic reasoning deletes it. The &ldquo;worlds&rdquo; relocate from elsewhere into co-present <em>pockets</em> of the one block universe; closeness becomes validity-plus-weight; and Lewis's &ldquo;small miracle&rdquo; becomes an auditable operation called <em>perturbation</em>. To evaluate a counterfactual whose antecedent is already settled the other way, you ascend the genealogy of your information state to the nearest ancestor Aethus in which the antecedent attribute was still blank, restate it to the counterfactual value, hold an explicit informational boundary fixed (which attributes you refuse to reopen), and re-run the pruning postulates over the result. The surviving weighted structure is the <strong>residue</strong>. The clauses are then read directly off it:</p>
-
-      <ul class="deflist">
-        <li><strong>Would:</strong> true iff B holds on every non-negligible-weight pocket of the residue.</li>
-        <li><strong>Might:</strong> true iff B holds on some non-null pocket.</li>
-        <li><strong>Grade:</strong> the value is the Aethic weight of B over the residue — a genuinely graded, chancy counterfactual, first-class rather than an afterthought.</li>
-      </ul>
-
-      <p>The claim to your attention, here as everywhere in the framework, is compression: what this buys is that the standard battery comes out <em>structurally</em> rather than by patch. Antecedent strengthening fails because a strengthened antecedent is a <em>different</em> perturbation generating a <em>different</em> residue, so no monotonicity ever gets off the ground. The Bizet–Verdi tie (&ldquo;had they been compatriots…&rdquo;) lands as a theorem about superposition structure: both would-counterfactuals fail while both might-counterfactuals hold, and that asymmetry <em>is</em> the resolution Lewis's tie-breaking machinery struggled to motivate. Backtracking readings are not outlawed and not mishandled — they are alternative choices of the held-fixed boundary, made explicit and movable instead of hidden inside a metric. The honest inventory: the semantics adds exactly <em>one</em> modal primitive, the perturbation operator. Rounding that to zero would be a refutable boast; the theory is stronger admitting it.</p>
-
-      <p>And here is the bridge to physics, stated carefully because it is the part a physicist will test hardest: a perturbed attribute can land in a residue whose pocket structure is an <em>agreeing</em> superposition — multiple values genuinely co-present and interacting. In that case there is no single definite value the attribute &ldquo;would have had.&rdquo; That is exactly the premise Bell-type arguments require — counterfactual <em>definiteness</em> — and it fails natively here. Yet the discourse stays fully truth-apt: the would-counterfactual is <em>false</em> (not gap-valued), the mights are true, the grade is defined. Counterfactual substance without counterfactual definiteness. The literature coordinates are Peres (&ldquo;unperformed experiments have no results&rdquo;) and Fine's theorem (CHSH satisfiability is equivalent to the existence of a joint distribution over the four counterfactual outcomes) — and within the framework this receives a direct Aethic correlate: a Bell violation obtains precisely when the Aethic intersection of the relevant counterfactual stated-attributes is an invalid Aethus.</p>
+<p>Start with the counterfactual problem, because it is the cleanest
+demonstration that this is a real framework and not a posture, and
+because it consumes no physics. If you want a single result to
+stress-test before granting anything else, make it this one: it is the
+framework’s most self-contained claim, and it leans on none of the
+still-open machinery.</p>
+<p>The reigning theory of “had A been the case, B would have held” is
+the possible-world semantics of Stalnaker and Lewis: the counterfactual
+is true iff B holds at the <em>closest</em> A-worlds under a similarity
+ordering over worlds. This has been enormously productive. Its
+acknowledged soft spot is the ordering itself. Lewis did define it —
+explicitly, with priority weights on respects of similarity; the
+elevator-pitch charge that “closest was never defined” is a strawman,
+and I want to avoid it. The precise charge is that the ordering has
+never been <em>non-arbitrarily specified</em>: fifty years of literature
+has probed it with a standard battery (failures of antecedent
+strengthening, transitivity, contraposition; the would/might
+distinction; tie cases like Bizet–Verdi; backtracking ambiguity) and
+refined, restricted, and contextualized it, but never derived it from
+anything deeper. It remains a free parameter dressed as an analysis.</p>
+<p>Aethic reasoning deletes it. The “worlds” relocate from elsewhere
+into co-present <em>pockets</em> of the one block universe; closeness
+becomes validity-plus-weight; and Lewis’s “small miracle” becomes an
+auditable operation called <em>perturbation</em>. To evaluate a
+counterfactual whose antecedent is already settled the other way, you
+ascend the genealogy of your information state to the nearest ancestor
+Aethus in which the antecedent attribute was still blank, restate it to
+the counterfactual value, hold an explicit informational boundary fixed
+(which attributes you refuse to reopen), and re-run the pruning
+postulates over the result. The surviving weighted structure is the
+<strong>residue</strong>. The three clauses are read directly off
+it:</p>
+<ul class="deflist">
+<li><strong>Would:</strong> true iff B holds on every
+non-negligible-weight pocket of the residue.</li>
+<li><strong>Might:</strong> true iff B holds on some non-null
+pocket.</li>
+<li><strong>Grade:</strong> the value is the Aethic weight of B over the
+residue — a genuinely graded, chancy counterfactual, first-class rather
+than an afterthought.</li>
+</ul>
+<p>What this buys is compression again: the standard battery comes out
+<em>structurally</em> rather than by patch. Antecedent strengthening
+fails because a strengthened antecedent is a <em>different</em>
+perturbation generating a <em>different</em> residue, so no monotonicity
+ever gets off the ground. The Bizet–Verdi tie (“had they been
+compatriots…”) lands as a theorem about superposition structure: both
+would-counterfactuals fail while both might-counterfactuals hold, and
+that asymmetry <em>is</em> the resolution Lewis’s tie-breaking machinery
+struggled to motivate. Backtracking readings are not outlawed and not
+mishandled — they are alternative choices of the held-fixed boundary,
+made explicit and movable instead of hidden inside a metric. The honest
+inventory: the semantics adds exactly <em>one</em> modal primitive, the
+perturbation operator. Rounding that to zero would be a refutable boast;
+the theory is stronger admitting it.</p>
+<p>And here is the bridge to physics, stated carefully because it is the
+part a physicist will test hardest: a perturbed attribute can land in a
+residue whose pocket structure is an <em>agreeing</em> superposition —
+multiple values genuinely co-present and interacting. In that case there
+is no single definite value the attribute “would have had.” That is
+exactly the premise Bell-type arguments require — counterfactual
+<em>definiteness</em> — and it fails natively here. Yet the discourse
+stays fully truth-apt: the would-counterfactual is <em>false</em> (not
+gap-valued), the mights are true, the grade is defined. Counterfactual
+substance without counterfactual definiteness. The literature
+coordinates are Peres (“unperformed experiments have no results”) and
+Fine’s theorem (CHSH satisfiability is equivalent to the existence of a
+joint distribution over the four counterfactual outcomes) — and within
+the framework this receives a direct Aethic correlate: a Bell violation
+obtains precisely when the Aethic intersection of the relevant
+counterfactual stated-attributes is an invalid Aethus.</p>
     </section>
 
     <section id="the-union-principle">
       <h2>Why two pockets in one place do not see each other: the Union Principle</h2>
-      <p>Before collapse, I owe the reader an account of why, if both outcomes are physically here, you only see one. This is the <strong>Union Principle</strong>, and it is the framework's most genuinely alien claim, so I will state it plainly. Classical ontology assumes alternatives are kept apart by sitting in different places or different worlds; the Union Principle proposes the reverse — alternatives coexist in the same physical space, and their apparent mutual exclusivity arises from the internal structure of each alternative rather than from any external separation between them.</p>
-
-      <p>The proposal is that <em>physical &ldquo;or&rdquo; does not exist</em>. Every logical operation — disjunction and conjunction alike — manifests as physical co-occupation of the block universe (&ldquo;physical AND&rdquo;). What looks like classical mutual exclusivity is not a physical primitive; it is a matter of <em>algebraic nesting</em>. A <strong>disagreeing superposition</strong> places its alternatives in the same physical space but has each pocket <em>internally</em> negate the others ($A_i \cap \bigcap_{j\neq i}\neg A_j$). The non-interactivity that makes the road sign appear on only one side comes from the <em>interior</em> of each pocket, not from any exterior wall between them. Remove those interior negations and you get an <strong>agreeing superposition</strong>: the alternatives now interact — quantum interference is what that interaction looks like empirically.</p>
-
-      <p>The claim compresses into a single table — the framework's canonical statement of the principle:</p>
-
-      <div class="tablewrap">
-        <table class="canonical">
-          <thead>
-            <tr>
-              <th scope="col">Logical</th>
-              <th scope="col" class="phys">Physical</th>
-              <th scope="col">Type</th>
-              <th scope="col">Mathematical form</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Logical OR</td><td class="phys">Physical AND</td><td>Agreeing</td><td>$\bigcup_i A_i$</td></tr>
-            <tr><td>Logical AND (quantum)</td><td class="phys">Physical AND</td><td>Agreeing</td><td>$\bigcup_i A_i$</td></tr>
-            <tr><td>Logical AND (classical)</td><td class="phys">Physical AND</td><td>—</td><td>$\bigcap_i A_i$</td></tr>
-            <tr><td>Classical &ldquo;OR&rdquo;</td><td class="phys">Physical AND</td><td>Disagreeing</td><td>$\bigcup_i\left(A_i \cap \bigcap_{j\neq i}\neg A_j\right)$</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p>Read down the <em>Physical</em> column: one entry, four times over — <strong>AND</strong>. There is no row whose physical manifestation is OR. That is the entire content of the principle. Logical structure is one thing (the <em>Logical</em> and <em>Mathematical form</em> columns, where OR and AND genuinely differ); physical presence is another (co-occupation of the block, always &ldquo;AND&rdquo;). What classical physics calls mutual exclusivity is not a physical primitive but the bottom row's <em>shape</em> — a union of pockets each of which internally negates the rest.</p>
-
-      <p>It is worth being exact about what a &ldquo;pocket&rdquo; is here, since it is load-bearing and not a figure of speech. Formally, a pocket is one term $A_i \cap \bigcap_{j\neq i}\neg A_j$ of the block's disagreeing-superposition decomposition: a maximal internally-consistent assignment of stated-attributes that asserts one outcome and negates the disjoint alternatives. Its index is in general a <em>pseudo-Aethus</em> — a pair $\langle$template, Aethus$\rangle$ recording which attributes are held in agreeing superposition rather than pruned — and a full <strong>block universe</strong> is the special case whose index is a genuine Aethus (closed under deduction, and the only kind an observer can actually occupy; the pseudo-Aethus is a construction device that always compiles back into one). These terms sum, under Aethic union, to reconstitute the parent block. So the answer to <em>co-present as what?</em> is definite: co-present as summands of one block's algebraic decomposition, indexed into the same spacetime manifold — not as decoherent branches, not as regions sitting elsewhere, and not as Lewisian worlds. They occupy the same physical space precisely because the outer sum <em>realizes</em> as physical co-presence, and they fail to interact only because each interior negates the others.</p>
-
-      <p>And the principle is not introduced to manufacture interference; it is <em>forced</em> — and the same stroke that forces it relieves the outer &ldquo;or&rdquo; of a double duty it was never suited for. Ask what a universe must look like if it is to be <strong>both</strong> logically realist — preserving non-contradiction, honoring the post-Jevons inclusive disjunction — <strong>and</strong> able to hold co-present alternatives inside one spacetime rather than farm them out to separate worlds. The non-interactivity we observe between alternatives has to be seated <em>somewhere</em>. In the classical picture the <strong>exterior</strong> &ldquo;or&rdquo; carries it, which forces that &ldquo;or&rdquo; into one-or-the-other choosiness — precisely the <em>exclusive</em> disjunction Jevons's reform discredited, and we have too much faith in inclusive sentential logic to accept a physical &ldquo;or&rdquo; that violates it. The only remaining seat is the <strong>interior</strong> of each pocket (the $\neg A_j$ terms). Move the non-interaction there and two things happen in one motion: mutual exclusivity is explained without any external wall, and the outer disjunction, relieved of the enforcement job, keeps only the job of joining and locating the pockets — so it can at last be a genuine <em>inclusive</em> &ldquo;or,&rdquo; coalescent rather than exclusive. That relocation <em>is</em> the Union Principle — reached by elimination, not by decree.</p>
-
-      <p>The reason to take this seriously rather than as wordplay: it is precisely the reform Jevons made to Boole's logic, transplanted to physical ontology. Boole's own &ldquo;+&rdquo; was <em>exclusive</em> (defined only for disjoint classes); Jevons's inclusive disjunction, with $X+X=X$, is the version the world now (mis)calls &ldquo;Boolean,&rdquo; and Boole rejected it in correspondence rather than accept it. The Union Principle claims the physical timeline ontology never underwent the analogous reform — it still treats combinatory operations as choosy rather than coalescent. Bell violations then become not an embarrassment but an expected feature of any world instantiating agreeing-superposition structure — an empirical signature that no assignment of single hidden values could reproduce.</p>
+<p>Before collapse, I owe you an account of why, if both outcomes are
+physically here, you see only one. Here is the intuition first, because
+the formal claim sounds alien without it. Classical ontology assumes
+alternatives are kept apart by sitting in different places or different
+worlds; the Union Principle proposes the reverse — alternatives coexist
+in the same physical space, and their apparent mutual exclusivity arises
+from the <em>internal</em> structure of each alternative rather than
+from any external separation between them. Remove that internal
+structure and the alternatives stop being kept apart: they interact, and
+that interaction is what quantum interference <em>is</em>. This is the
+framework’s most genuinely alien claim, so let me now state it
+plainly.</p>
+<p>The proposal is that <em>physical “or” does not exist</em>. Every
+logical operation — disjunction and conjunction alike — manifests as
+physical co-occupation of the block universe (“physical AND”). What
+looks like classical mutual exclusivity is not a physical primitive; it
+is a matter of <em>algebraic nesting</em>. A <strong>disagreeing
+superposition</strong> places its alternatives in the same physical
+space but has each pocket <em>internally</em> negate the others (\(A_i \cap \bigcap_{j\neq i}\neg A_j\)). The
+non-interactivity that makes a road sign appear on only one side comes
+from the <em>interior</em> of each pocket, not from any exterior wall
+between them. Remove those interior negations and you get an
+<strong>agreeing superposition</strong>: the alternatives now interact —
+quantum interference is what that interaction looks like
+empirically.</p>
+<p>The reason to take this seriously rather than as wordplay: it is
+precisely the reform Jevons made to Boole’s logic, transplanted to
+physical ontology. Boole’s own “+” was <em>exclusive</em> (defined only
+for disjoint classes); Jevons’s inclusive disjunction, with \(X+X=X\), is the version the world now
+(mis)calls “Boolean,” and Boole rejected it in correspondence rather
+than accept it. The Union Principle claims the physical timeline
+ontology never underwent the analogous reform — it still treats
+combinatory operations as choosy rather than coalescent. Bell violations
+then become not an embarrassment but a <em>prediction</em>: they are the
+empirical signature of agreeing-superposition structure that no
+assignment of single hidden values could reproduce.</p>
     </section>
 
     <section id="deriving-collapse">
       <h2>Deriving collapse: the third postulate as a fixed point</h2>
-      <p>Here is the part that most distinguishes this from interpretive overlays. Collapse is <em>derived</em> — in the precise sense pinned down below.</p>
-
-      <p>The setup (the &ldquo;Oliver's soccer field&rdquo; thought experiment) macroscopic-izes the double slit: people through two doors, an organizer who must see particle-like clustering, never interference. Oliver, blindfolded, runs the experiment; if he removes the blindfold and sees an interference pattern, he can walk over and ask any friend which door they used, and their answer produces an Aethic contradiction with the interference pattern. The puzzle, sharpened, is an <strong>inheritance paradox</strong>. If a contradiction in a <em>future</em> information state could simply be backtracked to invalidate a present one, then — because the framework grants no privilege to &ldquo;the same observer later&rdquo; over any other Aethus — contradiction could pass between <em>arbitrary</em> unrelated Aethae, which collapses the whole relational structure back into a single objective reality. So contradictions may <em>not</em> pass arbitrarily backward. Yet the macroscopic interference state must somehow be invalid from the start.</p>
-
-      <p>The resolution is a two-generational condition with a chess reading. An Aethus is in &ldquo;check&rdquo; if a contradiction is <em>possible</em> but escapable (some child information-state avoids it). It is in &ldquo;checkmate&rdquo; if <em>every</em> child still leaves a contradiction <em>accessible</em>. Checkmate is invalidity. The key recognition is that the threat is <em>self-similar</em>: every version of Oliver who has not yet asked the question is structurally identical, as an Oliver's Aethus, to the original — and the ∀–∃ quantifier alternation of the postulate captures this self-similarity exactly. Formally:</p>
-
-      <div class="eq">$$\mathbf{V}[A] \implies \exists B \subset A,\ \forall C \subset B,\ \mathbf{V}[C]$$</div>
-
-      <p>&ldquo;A valid Aethus must have some child all of whose children are valid&rdquo; — equivalently, <em>it should not be impossible to make a contradiction impossible.</em> The macroscopic interference state is invalid because at every step the which-path information remains retrievable in principle (ask, or read entropic traces), so there is no escape — checkmate — while the classical clustering pattern has a clean future and survives.</p>
-
-      <p>What lifts this above storytelling is that the recursive structure has a <em>standard mathematical form</em>. Define the doomed set of Aethae as the least fixed point</p>
-
-      <div class="eq">$$D = \mu X.\big(\mathrm{Base}\cup\{A : \forall B\subset A,\ \exists C\subset B,\ C\in X\}\big),$$</div>
-
-      <p>where Base collects the direct contradictions and second-postulate violations. Validity is the complement of $D$ — the <em>greatest</em> fixed point of the dual safety operator. This is exactly the shape of a safety property in the modal μ-calculus, or of the set of non-losing positions in a two-player game against nature, which makes the chess idiom literal: checkmate <em>is</em> membership in $D$. By Knaster–Tarski the fixed points exist for arbitrary branching, so nothing presupposes finiteness. For finitely-branching trees, König's lemma collapses the closure ordinal to at most ω, and the one-step ∀–∃ statement coincides with the fixed-point version; for infinitely-branching cases the ordinal may exceed ω, and the framework holds non-Archimedean weight capacity in reserve for exactly such stratification.</p>
-
-      <p>It is worth being exact about what this does and does not derive, because a logician's first reaction will be that the fixed point merely re-dresses the third postulate in μ-calculus notation. The third postulate on its own supplies a <em>local</em> validity condition — a one-step constraint relating an Aethus to its immediate descendants. The fixed-point construction is not a second axiom stacked on top; it is the <em>minimal closure</em> of that local condition under arbitrary chains of informational descent, forced by two facts the framework already owns: invalidity propagates upward (an invalid Aethus is never a centric-unfolding destination, so a blocked child blocks its parent), and reachability runs the other way. What is derived is therefore not validity itself — that is posited, locally — but the <em>global</em> collapse structure that iterating the local condition to its greatest fixed point generates. Collapse is the shape of that closure, not a fresh posit.</p>
-
-      <p>I will be honest about the status: a full formal equivalence proof between the postulate-as-stated and the greatest-fixed-point formulation under explicit branching conditions is a clean lemma that the framework flags as natural rather than as completed. The architecture is committed; that particular proof is owed. But the structural payoff is already in hand — wavefunction collapse is not a primitive appended to the dynamics; the framework reconstructs it as the observable shadow of this pruning operation. Decoherence is not disputed (environmental coupling is exactly the mechanism that makes distinguishing information accessible-in-principle); the framework's contribution is to derive from a deeper informational principle <em>why</em> accessible information destroys coherence — what the standard account already captures as a dynamical consequence.</p>
+<p>Here is the part that most distinguishes this from an interpretive
+overlay: collapse is <em>derived</em> from a consistency condition, with
+no new physical mechanism and no free parameters.</p>
+<p>The setup (the “Oliver’s soccer field” thought experiment)
+macroscopic-izes the double slit: people through two doors, an organizer
+who must see particle-like clustering, never interference. Sharpened,
+the puzzle is an <strong>inheritance paradox</strong>. If a
+contradiction in a <em>future</em> information state could simply be
+backtracked to invalidate a present one, then — because the framework
+grants no privilege to “the same observer later” over any other Aethus —
+contradiction could pass between <em>arbitrary</em> unrelated Aethae,
+which collapses the whole relational structure back into a single
+objective reality. So contradictions may <em>not</em> pass arbitrarily
+backward. Yet the macroscopic interference state must somehow be invalid
+from the start.</p>
+<p>The resolution is a two-generational condition with a chess reading.
+An Aethus is in “check” if a contradiction is <em>possible</em> but
+escapable (some child information-state avoids it). It is in “checkmate”
+if <em>every</em> child still leaves a contradiction
+<em>accessible</em>. Checkmate is invalidity. Formally:</p>
+<div class="eq">$$\mathbf{V}[A] \implies \exists B \subset A,\ \forall C \subset B,\ \mathbf{V}[C]$$</div>
+<p>“A valid Aethus must have some child all of whose children are valid”
+— equivalently, <em>it should not be impossible to make a contradiction
+impossible.</em> The macroscopic interference state is invalid because
+at every step the which-path information remains retrievable in
+principle (ask, or read entropic traces), so there is no escape —
+checkmate — while the classical clustering pattern has a clean future
+and survives.</p>
+<p>What lifts this above storytelling is that the recursive structure
+has a <em>standard mathematical form</em> — and the framework flags this
+itself, which is the point: it is not invented mathematics but a
+well-known family of objects. Define the doomed set as the least fixed
+point \(D = \mu X.(\mathrm{Base}\cup\{A :
+\forall B\subset A,\ \exists C\subset B,\ C\in X\})\), where Base
+collects the non-recursive contradictions. Validity is the complement —
+the <em>greatest</em> fixed point of the dual safety operator. This is
+exactly the shape of a safety property in the modal μ-calculus, or of
+the non-losing positions of a game against nature, which makes the chess
+idiom literal: checkmate <em>is</em> membership in \(D\). By Knaster–Tarski the fixed points
+exist for arbitrary branching, so nothing presupposes finiteness; for
+infinitely branching trees the closure ordinal can exceed ω, and the
+framework keeps non-Archimedean weight structure in reserve for exactly
+that gradation. I will be honest about the status: a full formal
+equivalence proof between the postulate-as-stated and the
+greatest-fixed-point formulation under explicit branching conditions is
+a clean lemma the framework flags as natural rather than as completed.
+The architecture is committed; that particular proof is owed.</p>
+<p>A skeptical reader who saw only this much once remarked that it makes
+the residue a <em>relative greatest fixed point</em>: you perturb the
+structure, recompute the largest recursively safe substructure, and read
+modality, probability, and validity off it. That is the right reading,
+and it is the framework’s actual ambition.</p>
+<p>Two clarifications the move invites, since “collapse” is a loaded
+word. First, decoherence is not disputed: environmental coupling is
+exactly the mechanism that makes distinguishing information
+accessible-in-principle; the framework’s contribution is to say
+<em>why</em> accessible information destroys coherence — which the
+standard account records as a dynamical consequence but does not derive
+from a deeper principle. Second, this is not objective branching
+sneaking back in: the pockets are observer-indexed decompositions of one
+block, not mind-independent worlds that split, which is exactly what
+keeps the prior block a permanent, independently legible reality rather
+than a discarded artifact.</p>
     </section>
 
-    <section id="powerset-invalidation-theorem">
-      <h2>The Powerset Invalidation Theorem</h2>
-      <p>To see the pruning as a real theorem rather than a story, take the multi-slit generalization. Give <em>n</em> slits and any configuration of &ldquo;OR-type&rdquo; detectors. Define each slit's <em>detector signature</em> (which detectors fire on it) and the induced equivalence classes (slits with identical signatures are permanently indistinguishable). The <strong>Powerset Invalidation Theorem</strong> states that every subset <em>T</em> of the <em>n</em> slits falls into exactly one of three categories:</p>
+    <section id="reduced-form-coupling">
+      <h2>One operation, many phenomena: the reduced form coupling</h2>
+<p>The <strong>reduced form</strong> of an Aethus is the largest
+substructure surviving this pruning — formally, the supremum, by Aethic
+parentage, of the proper children all of whose children are valid — and
+it is provably equivalent (at the appropriate “validity” tier, agreement
+of <em>realizable</em> content, blind to invalid labels) to the
+original. When pruning eliminates joint configurations of attributes,
+the survivors exhibit a <em>correlation</em> that no one put in by hand.
+Call it <strong>reduced form coupling</strong>. The claim is that this
+single operation, varying only in the <em>weights</em> the coupling
+carries, produces phenomena standardly treated as unrelated. Here the
+framework is at its most compressive, which is exactly the signature of
+a foundational theory when it succeeds — Maxwell making electricity and
+magnetism one, Noether making conservation laws symmetry.</p>
+<p>Let me carry one example to a payoff, deliberately a
+<em>classical</em> one, to show the mechanism is not smuggling quantum
+physics. Take <strong>Monty Hall</strong>. Begin with the uniform prior
+as an Aethus: \(\frac13 B_1 + \frac13 B_2 +
+\frac13 B_3\) (car behind door \(i\)). Intersect with the host’s response
+structure — if the car is behind your chosen Door 1 he opens 2 or 3 with
+equal weight; otherwise he is forced to the one goat door. Expanding the
+product gives a linear combination over all joint \((B_i, O_j)\) configurations. Now take the
+reduced form: configurations that are Aethic contradictions (the host
+opening the car’s door; the car behind two doors) carry zero weight and
+<em>drop out</em>. After the host opens Door 3, what survives,
+normalized, is</p>
+<div class="eq">$$\tfrac13 B_1 O_3 + \tfrac23 B_2 O_3.$$</div>
+<p>The familiar two-thirds is not produced by a conditioning formula; it
+is the <em>residue</em> of crossed-out joint configurations, their
+weight flowing to the survivors. “Where the car is” and “which door was
+opened” are now coupled — by the validity-preserving pruning alone, no
+causal mechanism invoked.</p>
+<p>Now swap the weights. Under Feynman amplitudes rather than classical
+probabilities, the <em>same</em> operation is proposed to produce
+quantum entanglement: Bell correlations as reduced form coupling
+carrying probability-amplitude weights. I flag the status plainly — this
+is the program’s aim, and the amplitude kernel is exactly the input
+listed as open below — but the compression claim is precise: the
+coupling is one mechanism, and only the weights change. The coupling’s
+<em>indifference to proper-time ordering</em> dissolves delayed-choice
+retrocausality — and the reason is a genuine <em>bilayer</em>:
+information transfer is local, bounded by light cones, while validity
+coupling is global and ordering-indifferent, so what is called quantum
+“nonlocality” is the shadow cast when the second layer is mistaken for
+the first. The coupling is fixed over the block; only the random outcome
+may be gathered in either temporal order. The same machinery enforces
+Wigner’s-friend and Frauchiger–Renner agreement: any pocket in which two
+observers’ reports would contradict is pruned by the third postulate,
+leaving only the consistent ones.</p>
+<p>The methodological point the framework presses, and I find it the
+honest one: the reduced form was <em>not</em> engineered to unify these.
+It was defined for an independent reason (it is just the third postulate
+stated positively), and the unification fell out afterward — mild
+evidence it tracks real structure rather than post-hoc convenience.</p>
+    </section>
 
-      <ol class="enum">
-        <li><strong>Valid</strong>: <em>T</em> is empty or equals one full equivalence class.</li>
-        <li><strong>Second-postulate invalid</strong>: <em>T</em> is a nonempty <em>proper subset</em> of a single class (over-specification among indistinguishable slits).</li>
-        <li><strong>Third-postulate invalid</strong>: <em>T</em> spans two or more classes (a combination a detector can later expose as contradictory).</li>
-      </ol>
+    <section id="positioned-not-strawmanned">
+      <h2>Positioned, not strawmanned: EPR, RQM, QBism, PBR, Wood–Spekkens</h2>
+<p>The framework earns credibility by placing itself against the
+literature precisely rather than by dismissal; I will keep this
+compact.</p>
+<p><strong>EPR.</strong> The primary move is <em>not</em> “locality is
+preserved” (that is a corollary) but the dissolution of the
+<strong>preferred-foliation problem</strong>. Copenhagen needs a
+privileged spacetime slice to define an objective “first measurement”;
+relativity forbids one for spacelike-separated events. Making collapse
+an observer-relative transit between block universes rather than an
+event on any slice removes the need for a privileged foliation; locality
+then follows.</p>
+<p><strong>Relational Quantum Mechanics</strong> is the closest
+ancestor, and I will not claim more novelty than exists. RQM pioneered
+the dissolving insight — quantum states are observer-relative, so no
+objective collapse propagates — and Aethic reasoning extends from it.
+The specific differences it claims: RQM interprets the existing
+formalism, whereas this framework aims to derive quantum phenomena from
+an information-ontological base prior to the formalism; it supplies a
+concrete perspectival-change mechanism (extrusion) where RQM leaves the
+process unspecified; and it treats multi-observer consistency (RQM’s
+known pressure point) through the third postulate’s algebraic pruning
+rather than by auxiliary axiom.</p>
+<p><strong>QBism</strong> shares the agent-centered, informational
+reading of the state but parts on ontology: QBism is deliberately silent
+about what the information is <em>about</em>, whereas Aethic reasoning
+builds an explicit ontology and treats informational structure as
+ontologically primary. It is, notably, neither naively ψ-epistemic nor
+ψ-ontic — it has an irreducibly ontic component (agreeing
+superpositions, which exist independently of your knowledge) tied to an
+epistemic one by the first postulate, which is why the
+<strong>Pusey–Barrett–Rudolph</strong> theorem does not bite: PBR
+quantifies over ontic-state backgrounds that the framework’s central
+category refuses.</p>
+<p><strong>Wood–Spekkens / Allen et al.</strong> showed that no
+classical causal story (A→B, B→A, or common cause) explains Bell
+correlations without fine-tuning, and called for an exotic-but-realist
+notion of causation. The framework offers the reduced form coupling as
+exactly that realist causal substrate — neither signal nor shared
+antecedent, but validity-preserving pruning — with the honest caveat
+that the precise density-operator correspondence to the quantum
+Reichenbach condition of Allen et al. is stated as a
+<em>conjecture</em>, not a theorem.</p>
+    </section>
 
-      <p>These are mutually exclusive and jointly exhaustive, with an explicit count (valid non-empty cases = number of classes; P2 cases = $\sum_j (2^{|E_j|} - 2)$; P3 the remainder). The theorem's interest is not its difficulty — it is short once the postulates are granted — but its content: the two postulates carve the invalid region into <em>complementary, non-overlapping</em> halves (&ldquo;too narrow&rdquo; and &ldquo;too broad&rdquo;), and the two limiting cases fall out cleanly. No detectors: one class, only the empty set and the full set valid — pure interference. One detector per slit: every singleton its own class, all multi-slit subsets P3 — pure particle pattern. Every configuration in between fixes the quantum–classical boundary <em>discretely</em>, as a property of the informational coupling between slits and detectors, not of scale. This is the framework's relocation of the quantum–classical boundary from <em>size</em> to <em>informational accessibility</em>, made combinatorially explicit and exact rather than asymptotic — which also, in this finite setting, supplies the <em>preferred basis</em> (the detector-induced partition itself) that einselection dynamics is often charged with being unable to select on its own.</p>
+    <section id="the-quantum-wing">
+      <h2>The quantum wing: a checkable result, an amplitude object, and honest boundaries</h2>
+<p>Two things anchor the quantum side — one finite and fully proved, one
+continuous and still partly axiomatic — and taking them in that order is
+the honest way to present them.</p>
+<p>The finite anchor is the <strong>Powerset Invalidation
+Theorem</strong>, a clean and checkable result. Give <em>n</em> slits
+and any configuration of “OR-type” detectors. Define each slit’s
+<em>detector signature</em> (which detectors fire on it) and the induced
+equivalence classes (slits with identical signatures are permanently
+indistinguishable). The theorem states that every subset <em>T</em> of
+the <em>n</em> slits falls into exactly one of three categories:
+<strong>valid</strong> (empty, or one full equivalence class);
+<strong>second-postulate-invalid</strong> (a nonempty proper subset of a
+class — over-specification among indistinguishable slits);
+<strong>third-postulate-invalid</strong> (spanning two or more classes —
+a combination a detector can later expose as contradictory). These are
+mutually exclusive and jointly exhaustive, with an explicit count. Its
+interest is not difficulty — it is short once the postulates are granted
+— but content: the two postulates carve the invalid region into
+<em>complementary, non-overlapping</em> halves (“too narrow” and “too
+broad”), and the limiting cases fall out cleanly. No detectors: only the
+empty set and the full set valid — pure interference. One detector per
+slit: every multi-slit subset invalid — pure particle clustering.
+Everything in between fixes the quantum–classical boundary
+<em>discretely</em>, as a property of informational coupling rather than
+of scale, and in the same finite setting hands back the <em>preferred
+basis</em> (the detector-induced partition itself) that einselection is
+often charged with being unable to select on its own.</p>
 
       <details class="pst-drawer">
         <summary>
@@ -802,67 +1103,99 @@ window.MathJax = {
           <p class="pst-caption" id="pst2-caption"></p>
         </div>
       </details>
-    </section>
 
-    <section id="reduced-form-coupling">
-      <h2>One operation, many phenomena: the reduced form coupling</h2>
-      <p>The <strong>reduced form</strong> of an Aethus is the largest substructure surviving this pruning — formally, the supremum, by Aethic parentage, of the proper children all of whose children are valid — and it is provably equivalent (at the appropriate &ldquo;validity&rdquo; tier — agreement of <em>realizable</em> content, blind to invalid labels) to the original. When pruning eliminates joint configurations of attributes, the survivors exhibit a <em>correlation</em> that no one put in by hand. Call it <strong>reduced form coupling</strong>. The claim is that this single operation, varying only in the <em>weights</em> the coupling carries, produces phenomena standardly treated as unrelated. Here the framework is at its most compressive, which is exactly the signature of a foundational theory when it succeeds — Maxwell making electricity and magnetism one, Noether making conservation laws symmetry.</p>
-
-      <p>Let me carry one example to a payoff, deliberately a <em>classical</em> one, to show the mechanism is not smuggling quantum physics. Take <strong>Monty Hall</strong>. Begin with the uniform prior as an Aethus: $\frac13 B_1 + \frac13 B_2 + \frac13 B_3$ (car behind door $i$). Intersect with the host's response structure — if the car is behind your chosen Door 1 he opens 2 or 3 with equal weight; otherwise he is forced to the one goat door. Expanding the product gives a linear combination over all joint $(B_i, O_j)$ configurations. Now take the reduced form: configurations that are Aethic contradictions (the host opening the car's door; the car behind two doors) carry zero weight and <em>drop out</em>. After the host opens Door 3, what survives, normalized, is</p>
-
-      <div class="eq">$$\tfrac13 B_1 O_3 + \tfrac23 B_2 O_3.$$</div>
-
-      <p>The familiar two-thirds is not produced by a conditioning formula. It is the <em>residue</em> of crossed-out joint configurations, their weight flowing to the survivors. The &ldquo;where the car is&rdquo; and &ldquo;which door was opened&rdquo; attributes are now coupled — by the validity-preserving pruning alone, no causal mechanism invoked.</p>
-
-      <p>Now swap the weights. Here the framework's quantum program <em>aims to recover</em> entanglement as this same operation under Feynman amplitudes rather than classical probabilities; the conjecture is that Bell correlations arise from reduced-form coupling endowed with amplitude weights. This is the program's aim, not a discharged proof — the amplitude kernel and the Born measure are exactly the inputs flagged as open below — but the compression claim is precise: the coupling is one mechanism, and only the weights change. The coupling's <em>indifference to proper-time ordering</em> dissolves delayed-choice retrocausality — and the reason is a genuine <em>bilayer</em>: information transfer is local, bounded by light cones, while validity coupling is global and ordering-indifferent, so what is called quantum &ldquo;nonlocality&rdquo; is the shadow cast when the second layer is mistaken for the first. The coupling is fixed over the block; only the random outcome may be gathered in either temporal order. The same machinery enforces Wigner's-friend and Frauchiger–Renner agreement: any pocket in which two observers' reports would contradict is pruned by the third postulate, leaving only the consistent ones.</p>
-
-      <p>The quantum instantiation is not merely gestured at — the framework writes it down. Endow the same coupling with Feynman weights and the object is the <strong>Quantum Nexus</strong>, an Aethus-valued path integral:</p>
-
-      <div class="eq">$$N \;\propto\; \int\limits_{\mathcal{P}(X)} \!\!\! \iint A(T)\,\chi_T(q_1)\,\chi_T(q_2)\,\cos\!\Big(\tfrac{1}{\hbar}\big(S[q_1(t)] - S[q_2(t)]\big)\Big)\,\mathcal{D}[q_2(t)]\,\mathcal{D}[q_1(t)]\,d\mu(T)$$</div>
-
-      <p>Here $X$ is the set of all continuous spacetime paths, $\mathcal{P}(X)$ its powerset, $T$ a subset of paths, $A(T)$ the Aethus asserting that exactly the paths in $T$ are co-taken in agreeing superposition, $\chi_T$ the indicator of $T$, and $\mu$ a measure over $\mathcal{P}(X)$. It sits two visible steps from the ordinary Feynman integral $\psi \propto \int \mathcal{D}[q]\,e^{iS[q]/\hbar}$: expand the Born rule through the identity $\big|\sum_a a\big|^2 = \sum_{a,b} |a|\,|b|\cos(\arg a - \arg b)$ into the real, double-path form $p \propto \iint \mathcal{D}[q_1]\,\mathcal{D}[q_2]\,\cos\!\big(\tfrac1\hbar (S[q_1]-S[q_2])\big)$, then attach the Aethus factor $A(T)$ and integrate over the powerset.</p>
-
-      <p>This is the framework's answer to the natural objection that <em>a union of pockets cannot see phase</em>. The phase is neither absent nor carried by any pocket: it lives inside the cosine kernel, as the <strong>action difference</strong> $S[q_1]-S[q_2]$ between the two paths — the real part of the histories-program interference kernel, and what fixes fringe spacing and visibility. Phase is therefore <em>integrand</em> content interior to a single agreeing element, never a weight attached to an Aethus — which is exactly how the Aethus-level weight calculus stays non-negative while the theory remains contextual, complying with Spekkens's negativity-equals-contextuality result rather than evading it. And the $A(T)$ factor is what makes the pruning act <em>upstream and wholesale</em>: the third postulate voids an entire powerset element the instant any of its joint claims is contradictory, dropping that element to zero measure rather than cancelling terms inside a Born expansion. Binary validity on the Aethus; continuous geometry in the kernel.</p>
-
-      <p>Because $A(T)$ <em>absorbs</em> the squared-modulus structure into the pruning, what remains genuinely axiomatic is narrower than &ldquo;the amplitude machinery&rdquo;: it is the Feynman weighting itself (deriving the kernel from something deeper) and the construction of the measure $\mu$, both deferred to the successor program (<em>active reasoning</em>). The object exists and does structural work now; its kernel is what is owed.</p>
-
-      <p>The methodological point the framework presses, and I find it the honest one: the reduced form was <em>not</em> engineered to unify these. It was defined for an independent reason (it is just the third postulate stated positively), and the unification fell out afterward — which is mild evidence it tracks real structure rather than post-hoc convenience.</p>
-    </section>
-
-    <section id="positioned-not-strawmanned">
-      <h2>Positioned, not strawmanned: RQM, QBism, EPR, Wood–Spekkens</h2>
-      <p>The framework positions itself carefully, not by dismissal.</p>
-
-      <p><strong>Relational Quantum Mechanics (Rovelli).</strong> RQM is the closest ancestor and is credited as such: its insight that quantum states are observer-relative dissolves EPR nonlocality by <em>removing</em> the assumption of an observer-independent state rather than adding machinery. Aethic reasoning extends from precisely this. The declared differences are specific: RQM interprets the existing formalism, whereas this framework aims to derive quantum phenomena from an informational ontology prior to the formalism; it supplies a concrete mechanism for perspectival change (the block-universe reselection RQM leaves unspecified); and it addresses the multi-observer consistency problem — RQM's known pressure point, where recent work adds auxiliary axioms — through the third postulate, under which contradictory Aethae are structurally barred from interacting as an algebraic consequence.</p>
-
-      <p><strong>QBism.</strong> Shared: agent-centrality and the informational character of the state. The parting: QBism is deliberately silent on ontology; this framework is explicitly ontological — informational structure is a feature of reality, not merely of an agent's expectations. It is, in fact, <em>not</em> naively ψ-epistemic (nor ψ-ontic): it has an irreducibly ontic component (agreeing superpositions, which exist independently of your knowledge) tied to an epistemic one by the first postulate — which is exactly why the Pusey–Barrett–Rudolph theorem does not bite, since PBR quantifies over ontic-state backgrounds that the framework's central category refuses.</p>
-
-      <p><strong>Wood–Spekkens / Allen et al.</strong> on quantum causation showed that no classical causal story (A→B, B→A, or common cause) explains Bell correlations without fine-tuning, and called for an exotic-but-logically-realist notion of causation. The framework explicitly answers Spekkens's stated criterion — offering the reduced form coupling as the realist causal substrate, with a <em>conjecture</em> (clearly labeled as such) that the quantum-Reichenbach factorization condition of Allen et al. is the density-operator image of reduced form coupling across a shared parent Aethus.</p>
-
-      <p><strong>The EPR resolution itself.</strong> The primary claim is <em>not</em> locality preservation (a corollary) but dissolution of the <em>preferred-foliation problem</em>. Copenhagen needs a privileged spacetime slice to define an objective &ldquo;first measurement&rdquo;; relativity forbids one for spacelike-separated events. By making collapse an observer-relative transit between block universes rather than an event on any slice, no privileged foliation is needed. Relative to Alice's prior Aethus, Bob's outcome is in superposition; relative to her subsequent Aethus, it is represented as having been determinate all along — so the prior Aethus is genuinely non-hidden-variables while the subsequent one is effectively a hidden-variables model, and Bell's theorem (which rules out any <em>single</em> local hidden-variables theory) is untouched because the framework offers not one theory but two mutually irreducible descriptions indexed to different Aethae.</p>
-    </section>
-
-    <section id="derived-assumed-open">
-      <h2>What is derived, what is assumed, what is open</h2>
-      <p>Credibility here requires the ledger. The framework also carries a more ambitious object at its quantum wing — the <strong>Quantum Nexus</strong>, a path-integral expression in which an Aethus-valued factor $A(T)$ multiplies each subset $T$ of paths, so that invalidating an Aethus drops the entire powerset element to zero measure and the pruning acts <em>inside</em> the integral. It is branded an offshoot, not part of Aethic reasoning proper: removing it does not collapse the framework. With that noted, the honest accounting:</p>
-
-      <div class="ledger">
-        <p><em class="led">Derived from the postulates</em>: collapse as a fixed-point pruning <em>structure</em> (modulo the flagged lemma below — and note that its <em>physical</em> bite, that pruned Aethae do not occur, is supplied by the <em>realization principle</em>, which is assumed rather than derived); decoherence's efficacy; the quantum–classical boundary's location; the counterfactual battery; Bayesian updating as reduced-form coupling under classical weights; the <em>structural</em> multi-observer consistency results — Wigner's-friend and Frauchiger–Renner report-agreement, as the pruning of every pocket in which reports would contradict — together with the ordering-indifference that dissolves delayed-choice retrocausality; the block-universe ontology (independently of the relativity-of-simultaneity route, which then serves as confirmation).</p>
-
-        <p><em class="led">Assumed / axiomatic</em>: the three postulates themselves; the weight–probability equivalence; a <em>realization principle</em> explicitly flagged as a &ldquo;hypotheses non fingo&rdquo; bridge — invalidity is a <em>label</em> in the formalism, and the claim that a labeled-invalid Aethus is physically unrealizable is injected, not derived. The weighted structure is built as a commutative <em>semiring</em>, deliberately without additive inverses, so that invalid Aethae keep unique identities (a design choice the framework argues for, not a lapse).</p>
-
-        <p><em class="led">Open</em>: the <strong>quantum program</strong> proper — the amplitude-weighted instantiation of reduced-form coupling that would <em>quantitatively</em> recover entanglement and Bell correlations (and the fully quantum forms of delayed choice and Frauchiger–Renner) — is only partially in hand, and rests on the items that follow; the Born rule — the framework absorbs the squared-modulus structure into the Quantum Nexus, but the <em>kernel</em> and the measure remain axiomatic input, deferred to a successor program (active reasoning); the greatest-fixed-point equivalence lemma; the &ldquo;coherent/quadratic&rdquo; half of the polarizer program. There is no completeness theorem and no decidability result for the modal fragment, and the framework deliberately does not claim one. These are named as frontiers, not papered over.</p>
-      </div>
+      <p>The continuous object is the <strong>Quantum Nexus</strong>, and it
+is where the framework’s amplitude content actually lives — worth
+stressing, because the natural first objection is that an ontology of
+co-present pockets has no room for quantum <em>phase</em>. The Nexus is
+a path-integral in which an Aethus-valued factor multiplies each subset
+of paths, so that invalidating an Aethus drops that entire term to zero
+measure and the pruning acts <em>inside</em> the integral rather than
+deleting terms after the fact. It is two steps from the ordinary Feynman
+integral: expand the Born rule into a real, double-path cosine form,
+then attach the Aethus factor and integrate over the powerset of paths.
+The phase objection is answered by where the phase sits: relative phase
+lives <em>inside</em> that cosine kernel, as the action difference
+between two paths — integrand content interior to a single agreeing
+element, never a weight attached to a pocket. So the pocket-level weight
+calculus stays non-negative while the theory remains contextual, and
+continuous interference (in the kernel) coexists with binary validity
+(on the Aethus) without either collapsing into the other. Run through
+this object, the construction recovers pure and mixed states (mixedness
+emerging attribute-relative, which also settles the non-uniqueness of
+ensemble decompositions) and supplies a <em>lawful</em> converter for
+Bell’s “and/or” objection: the third postulate fires exactly when a
+partner attribute’s distinguishing information becomes permanently
+accessible, turning an improper mixture into a proper one by postulate
+rather than by assertion.</p>
+<p>Now the boundaries, stated because a credible framework states its
+own:</p>
+<ul class="deflist">
+<li>The Quantum Nexus is taken as an <strong>axiom</strong>, not
+derived. By the framework’s own admission it sits where Newton’s law of
+gravitation sat — a thornier fourth postulate beside three cleaner ones,
+awaiting its general-relativity-style motivation. It is <em>not</em>
+part of Aethic reasoning proper; removing it does not collapse the
+framework, which is why it is branded an offshoot.</li>
+<li>The Feynman weighting and the measure over the path powerset are
+<strong>inputs</strong>, not outputs. Because the Aethus factor absorbs
+the Born rule’s squared-modulus structure into the pruning, what remains
+genuinely open is narrower than “the amplitude machinery”: specifically
+the kernel’s derivation from something deeper and the construction of
+the measure, both deferred to a successor program (“active
+reasoning”).</li>
+<li>The greatest-fixed-point equivalence to the third postulate is a
+<strong>flagged lemma</strong>, not a finished proof.</li>
+<li>There is <strong>no completeness theorem and no decidability
+result</strong> for the modal fragment, and the framework deliberately
+does not claim one.</li>
+<li>The weight structure’s most general (non-Archimedean, fractal)
+elaborations are <strong>capacity held in reserve</strong>, not
+load-bearing for the foundational results.</li>
+</ul>
+<p>What <em>is</em> delivered, on the framework’s own terms: collapse
+reconstructed from a consistency condition with no new physical
+mechanism or free parameters; a counterfactual semantics that handles
+the standard battery with the similarity ordering removed rather than
+tuned; an ontological reading of probability (weight on the tree,
+conditional by construction, unifying single-event and frequency
+readings) adoptable independently of the rest; and the reduced-form
+unification of Bayesian updating, entanglement, and delayed choice as
+one operation under different weights.</p>
     </section>
 
     <section id="why-this-is-worth-a-skeptics-time">
-      <h2>Why this is worth a skeptic's time</h2>
-      <p>The honest summary is that this is a single structural inversion — index reality to the observer's information state rather than to spacetime — pursued with unusual discipline through modal metaphysics, probability, and quantum foundations, and that several apparently independent results turn out to be the same result in different costume. What it is <em>not</em> is vague: the postulates are stated, the pruning is a greatest fixed point, the reduced form is a supremum, the counterfactual clauses have truth conditions, and the theorem has a proof. Whether it is right would take years of scrutiny — the axiom at the quantum wing must be motivated, the flagged lemmas closed, the conjectures discharged. But the architecture is precise, the central claims are stated at the grain at which they are actually true, and the framework is forthright about exactly where its commitments outrun its proofs.</p>
-
-      <p>If it is right, the historical description would not be &ldquo;a new interpretation of quantum mechanics&rdquo; but <strong>a new language in which a family of foundational problems becomes one fixed-point construction.</strong> And if the program fails, it will fail at a named joint — concretely, at whether amplitude-weighted reduced-form coupling can <em>uniquely</em> recover the Born rule and the Bell statistics with no further hidden structure; if it cannot, the quantum wing falls, and with it the claim that these phenomena are one construction. That the failure point is nameable in advance is the minimum a serious framework owes, and the basis on which it asks for a reader's attention rather than their agreement.</p>
+      <h2>Why this is worth a skeptic’s time</h2>
+<p>The honest summary is that this is a single structural inversion —
+index reality to the observer’s information state rather than to
+spacetime — pursued with unusual discipline through modal metaphysics,
+probability, and quantum foundations, and that several apparently
+independent results turn out to be the same result in different costume.
+What it is <em>not</em> is vague: the postulates are stated, the pruning
+is a greatest fixed point, the reduced form is a supremum, the
+counterfactual clauses have truth conditions, and the finite theorem has
+a proof. Whether it is right would take years of scrutiny — the axiom at
+the quantum wing must be motivated, the flagged lemmas closed, the
+conjectures discharged. But the architecture is precise, the central
+claims are stated at the grain at which they are actually true, and the
+framework is forthright about exactly where its commitments outrun its
+proofs.</p>
+<p>If it is right, the historical description would not be “a new
+interpretation of quantum mechanics” but <strong>a new language in which
+a family of foundational problems becomes one fixed-point
+construction.</strong> And if the program fails, it will fail at a
+nameable joint — concretely, whether amplitude-weighted reduced-form
+coupling can <em>uniquely</em> recover the Born rule and the Bell
+statistics with no further hidden structure. Two claims survive every
+attempt to compress the framework, and they are the ones worth carrying
+away: <em>the similarity ordering is deleted, not refined</em>, and
+<em>counterfactual substance survives without counterfactual
+definiteness</em>. That a serious program can name its own point of
+failure in advance is the basis on which it asks for a reader’s
+attention rather than their agreement.</p>
     </section>
 
-  </div><!-- /brief -->
+  </div><!-- /overview -->
 
 <div class="edition edition--start" data-edition="start">
 <div class="pitch">
@@ -1286,16 +1619,14 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
     <p class="toc__title">Contents</p>
     <ol>
       <li><a href="#the-one-idea">The one idea</a></li>
-      <li><a href="#at-a-glance">At a glance</a></li>
       <li><a href="#what-an-aethus-is">What an Aethus is</a></li>
       <li><a href="#deleting-the-similarity-ordering">Deleting the ordering</a></li>
       <li><a href="#the-union-principle">The Union Principle</a></li>
       <li><a href="#deriving-collapse">Deriving collapse</a></li>
-      <li><a href="#powerset-invalidation-theorem">Powerset theorem</a></li>
       <li><a href="#reduced-form-coupling">Reduced-form coupling</a></li>
       <li><a href="#positioned-not-strawmanned">Positioning</a></li>
-      <li><a href="#derived-assumed-open">Derived / assumed / open</a></li>
-      <li><a href="#why-this-is-worth-a-skeptics-time">Why it's worth it</a></li>
+      <li><a href="#the-quantum-wing">The quantum wing</a></li>
+      <li><a href="#why-this-is-worth-a-skeptics-time">Why it&rsquo;s worth it</a></li>
     </ol>
   </nav>
 </div>
@@ -1325,7 +1656,7 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
   var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
   var map = {};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-  var secs = Array.prototype.slice.call(document.querySelectorAll('.edition--brief section[id]'));
+  var secs = Array.prototype.slice.call(document.querySelectorAll('.edition--overview section[id]'));
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
@@ -1344,11 +1675,11 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
 <script>
 /* ---- edition switcher ---- */
 function setEdition(name, updateHash){
-  if(name!=='start' && name!=='brief') return;
+  if(name!=='start' && name!=='overview') return;
   var b=document.body;
-  b.classList.remove('mode-start','mode-brief');
+  b.classList.remove('mode-start','mode-overview');
   b.classList.add('mode-'+name);
-  var s=document.getElementById('sw-start'), r=document.getElementById('sw-brief');
+  var s=document.getElementById('sw-start'), r=document.getElementById('sw-overview');
   var isStart=(name==='start');
   if(s){ s.classList.toggle('is-on', isStart); s.setAttribute('aria-selected', isStart?'true':'false'); }
   if(r){ r.classList.toggle('is-on', !isStart); r.setAttribute('aria-selected', !isStart?'true':'false'); }
@@ -1358,9 +1689,9 @@ function setEdition(name, updateHash){
   }
   try{ window.dispatchEvent(new Event('resize')); }catch(e){}
 }
-/* ---- URL tags (#skeptic|#brief, #start|#newcomer) + cross-edition deep links ---- */
+/* ---- URL tags (#overview default; #brief|#skeptic aliased; #start|#newcomer) + cross-edition deep links ---- */
 (function(){
-  var MODE_TAGS = { brief:'brief', skeptic:'brief', skeptics:'brief', start:'start', newcomer:'start' };
+  var MODE_TAGS = { overview:'overview', brief:'overview', skeptic:'overview', skeptics:'overview', main:'overview', start:'start', newcomer:'start' };
   function route(){
     var raw = location.hash ? location.hash.slice(1) : '';
     if(!raw) return;
@@ -1368,11 +1699,11 @@ function setEdition(name, updateHash){
     if(tag){ setEdition(tag, false); return; }
     var el = document.getElementById(raw);
     if(!el) return;
-    if(el.closest('.edition--brief')) setEdition('brief', false);
+    if(el.closest('.edition--overview')) setEdition('overview', false);
     else if(el.closest('.edition--start')) setEdition('start', false);
     requestAnimationFrame(function(){ try{ el.scrollIntoView(); }catch(e){} });
   }
-  setEdition(document.body.classList.contains('mode-brief') ? 'brief' : 'start', false);
+  setEdition(document.body.classList.contains('mode-overview') ? 'overview' : 'start', false);
   route();
   window.addEventListener('hashchange', route);
 })();
