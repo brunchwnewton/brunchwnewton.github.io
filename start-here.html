@@ -215,12 +215,24 @@ window.MathJax = {
   .edition{ display:none; }
   body.mode-overview .edition--overview{ display:block; }
   body.mode-start .edition--start{ display:block; }
-  .only-overview, .only-start{ display:none; }
+  body.mode-advanced .edition--advanced{ display:block; }
+  .only-overview, .only-start, .only-advanced{ display:none; }
   body.mode-overview .only-overview{ display:inline; }
   body.mode-start .only-start{ display:inline; }
+  body.mode-advanced .only-advanced{ display:inline; }
   body.mode-start nav.toc{ display:none; }
+  nav.toc--advanced{ display:none; }
+  body.mode-advanced nav.toc--overview{ display:none; }
+  body.mode-advanced nav.toc--advanced{ display:block; }
   body.mode-start .wrap{ grid-template-columns:minmax(0, 720px); justify-content:center; }
   .edition--overview > section:first-of-type h2{ margin-top:.3em; }
+  .edition--advanced > section:first-of-type h2{ margin-top:.3em; }
+
+  /* ---- advanced edition (the plain-English pitch) ---- */
+  .pitchnote{ font-style:italic; color:var(--ink-2); font-size:.95rem; line-height:1.7;
+    border-bottom:1px solid var(--rule); padding:0 0 1.5rem; margin:0 0 2.3rem; }
+  .pitchnote--end{ border-bottom:0; border-top:1px solid var(--rule); padding:1.5rem 0 0; margin:2.5rem 0 0; }
+  .edition--advanced .openline{ font-style:italic; font-size:1.26rem; line-height:1.55; margin-bottom:1rem; }
 
   /* ---- masthead switch control (sits on the dark block) ---- */
   .switch{ display:inline-flex; margin-top:30px; padding:4px; gap:4px; border-radius:13px;
@@ -236,8 +248,8 @@ window.MathJax = {
   .switch__btn:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
   .dek em{ font-style:normal; }
   @media (max-width:520px){
-    .switch{ width:100%; }
-    .switch__btn{ flex:1; }
+    .switch{ width:100%; flex-wrap:wrap; }
+    .switch__btn{ flex:1 1 46%; min-width:128px; }
   }
   @media print{ .switch{ display:none; } }
 
@@ -610,9 +622,9 @@ window.MathJax = {
 <header class="masthead">
   <div class="masthead__inner">
     <div class="masthead__text">
-      <p class="eyebrow"><span class="only-overview">An Introduction to the Framework</span><span class="only-start">The Core Idea &middot; Start Here</span></p>
+      <p class="eyebrow"><span class="only-overview">An Introduction to the Framework</span><span class="only-start">The Core Idea &middot; Start Here</span><span class="only-advanced">An Advanced Introduction</span></p>
       <h1 class="title">Aethic&nbsp;Reasoning</h1>
-      <p class="dek"><span class="only-overview">A Framework for Realist Quantum Foundations and Counterfactual Semantics</span><span class="only-start">A proposed realist answer to the quantum measurement problem &mdash; reasoning from what an observer can <em>know</em>, not from what the universe is assumed to <em>be</em>.</span></p>
+      <p class="dek"><span class="only-overview">A Framework for Realist Quantum Foundations and Counterfactual Semantics</span><span class="only-start">A proposed realist answer to the quantum measurement problem &mdash; reasoning from what an observer can <em>know</em>, not from what the universe is assumed to <em>be</em>.</span><span class="only-advanced">Reality, Indexed &mdash; the case for the framework argued in full, from an everyday sentence to the measurement problem, in plain English.</span></p>
       <div class="switch" role="tablist" aria-label="Choose a version">
         <button class="switch__btn" id="sw-start" type="button" role="tab" aria-selected="false" onclick="setEdition('start', true)">
           <span class="switch__lbl">Start Here</span>
@@ -621,6 +633,10 @@ window.MathJax = {
         <button class="switch__btn is-on" id="sw-overview" type="button" role="tab" aria-selected="true" onclick="setEdition('overview', true)">
           <span class="switch__lbl">Overview</span>
           <span class="switch__sub">the complete case</span>
+        </button>
+        <button class="switch__btn" id="sw-advanced" type="button" role="tab" aria-selected="false" onclick="setEdition('advanced', true)">
+          <span class="switch__lbl">Advanced Intro</span>
+          <span class="switch__sub">the case, argued in full</span>
         </button>
       </div>
     </div>
@@ -1613,9 +1629,490 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
 </article>
 </div><!-- /start -->
 
+  <div class="edition edition--advanced" data-edition="advanced">
+
+    <p class="pitchnote">A plain-English pitch, based on Ajax Benander’s 2026 draft paper “Aethic Reasoning in Brief: From a Counterfactual Semantics to the Quantum Measurement Problem.” Everything below is a proposal under active scrutiny, not settled science. The author would insist on that framing — and by the end, you’ll see why that insistence is part of the pitch.</p>
+
+    <section id="a-sentence-you-say-every-day">
+      <h2>1. A sentence you say every day</h2>
+<p class="openline">“If I’d left ten minutes earlier, I would have caught the train.”</p>
+<p class="lead">Nothing could be more ordinary. Sentences like this — philosophers
+call them <em>counterfactuals</em>, statements about what would have
+happened if things had gone differently — are the load-bearing beams of
+human thought. Blame runs on them: the accident was your fault because
+if you hadn’t been texting, you’d have braked in time. Science runs on
+them: to say smoking causes cancer is to say something about what would
+have happened to the smokers had they not smoked. Engineering, law,
+medicine, regret, gratitude, planning — all of it leans on our ability
+to reason about events that never occurred.</p>
+<p>Which raises a question so simple it’s embarrassing: when you say “I
+would have caught the train,” what are you talking about? There is no
+such train-catching anywhere in the world. You never caught it. So what
+makes the sentence <em>true</em> — as it obviously is — rather than a
+noise about nothing?</p>
+<p>Philosophy’s standard answer, refined over fifty years, is genuinely
+startling if you’ve never heard it. And a 2026 draft paper argues that
+the standard answer got one thing deeply wrong — and that fixing it,
+with a single conceptual move, does something nobody expected: it
+dissolves the most famous unsolved puzzle in physics. This document is a
+tour of that claim.</p>
+    </section>
+
+    <section id="the-official-story">
+      <h2>2. The official story, and its itch</h2>
+<p>The dominant account, built by philosophers David Lewis and Robert
+Stalnaker in the late 1960s and early ’70s, says this: to evaluate “if
+the light had been red, I would have stopped,” look at <em>other
+possible worlds</em> — complete alternative universes — find the ones
+where the light is red, pick out those <em>most similar</em> to our own,
+and check whether you stop there. If you stop in all the closest
+red-light worlds, the sentence is true.</p>
+<p>As machinery, it works remarkably well. As an explanation, it has an
+itch that never went away: the notion of “similarity” is doing all the
+work, and nobody ever derived it from anything. Which respects of
+resemblance count? Do the laws of nature matter more than particular
+facts? Does a perfect match of history outweigh a small miracle? For
+five decades, philosophers hand-tuned the similarity ruler to make the
+verdicts come out right — adjusting a parameter that was <em>imposed
+on</em> the theory rather than <em>earned by</em> it. Nothing in the
+picture ever said why similarity, or which similarity, tracks the truth
+of what-ifs.</p>
+<p>The Aethic proposal begins by refusing the whole setup. The
+alternatives, it says, don’t live in other universes. They live here, in
+this one — filed under something you carry with you everywhere.</p>
+    </section>
+
+    <section id="one-move-and-a-set-of-books">
+      <h2>3. One move, and a set of books</h2>
+<p>Here is the entire framework in a sentence, straight from the paper:
+<strong>determinacy is a relation between a question and an information
+state — never a free-standing property of facts.</strong></p>
+<p>Unpack it slowly. We normally assume that every well-posed question
+about the world — where is the car parked? which door did she use? — has
+a definite answer, full stop, whether or not anyone knows it. Facts are
+just <em>there</em>, settled, and knowledge is a flashlight we sweep
+across them. The Aethic move denies exactly this. Being settled, it
+says, is like being <em>to the left of</em>: it takes two things. A
+question is never just “settled” — it is settled <em>relative to a body
+of information</em>, or open relative to it. Drop the second term and
+you haven’t said something modest; you’ve said something ungrammatical,
+like announcing that Chicago is to the left.</p>
+<p>The framework’s central object makes this concrete. Take an observer
+at a moment and collect everything their situation settles — every
+question their information answers, directly or by logical consequence.
+Call that totality their <em>ledger</em>, or their <em>books</em>. (The
+paper’s term of art is <em>Aethus</em>, and it invents only three or
+four such words total, on principle.) Your books are not your beliefs
+and not your mental state; they’re the complete set of
+facts-<em>for-you</em>, including consequences you haven’t bothered to
+compute. And — this is the crucial design choice — every question your
+books don’t settle is left <em>genuinely blank</em>. Not “answered
+somewhere, pending lookup.” Blank.</p>
+<p>One more piece of stage-setting. Modern physics pictures the universe
+as a single four-dimensional object — all of space and all of history
+laid out together, past and future equally real. Physicists call this
+the <em>block universe</em>. The Aethic framework keeps the block but
+indexes it: one block <em>per ledger</em>, with the open questions
+carried as genuinely open entries of that block’s description. As you
+learn, you move — your life is a chain of ledgers, each a refinement of
+the last, each with fewer blanks.</p>
+<p>That’s the move. Everything else in this pitch — including the
+physics — is that one sentence read at different sites.</p>
+    </section>
+
+    <section id="two-consequences">
+      <h2>4. Two consequences that should bother you</h2>
+<p>If the move is right, two strange things follow immediately, and the
+paper wants you to feel their strangeness rather than slide past it.</p>
+<p><strong>First: the past can be open.</strong> Whether a question is
+blank on your books has nothing to do with when the event happened. A
+road collapses into a sinkhole; the erosion that caused it ran
+underground, unobserved, for decades. Relative to every ledger along
+that road before the collapse, the erosion questions were <em>blank</em>
+— which, on this framework, means the decades-deep history was genuinely
+open, unsettled, right up until the collapse settled it for whoever
+learned of it. Your unexamined past is exactly as open as your unformed
+future. Openness was never really about time; it’s about the ledger, and
+the framework lets time carry nothing but geometry.</p>
+<p><strong>Second: blank does not mean hidden.</strong> A blank entry is
+not a gap concealing a definite value. It is a complete entry in its own
+right — the world’s state relative to those books, with <em>no
+determinate value underneath</em>. The alternatives a blank carries (car
+in the garage; car on the street) are co-present contents of the one
+block, held open.</p>
+<p>At this point every sane reader has the same reaction: <em>but the
+erosion was really happening all along!</em> Surely “blank” is just a
+ten-dollar word for “unknown,” and unknown things have answers we
+haven’t checked. Hold that objection carefully — don’t let it go. The
+paper’s hinge is a proof that you cannot keep it. The proof runs through
+a physics laboratory, and it’s coming in Section 6.</p>
+    </section>
+
+    <section id="what-ifs-without-leaving-home">
+      <h2>5. What-ifs without leaving home</h2>
+<p>First, the payoff for counterfactuals, because it’s what the
+machinery was built for. To evaluate “if the light had been red, I would
+have stopped,” the framework never visits another world. It performs an
+<em>audit on your own books</em>, in three steps.</p>
+<p><strong>Reopen.</strong> Find the page where “light: green” is
+stated. Erase it — along with everything that rested on it, such as
+“proceeded through the intersection” — and nothing else.
+<strong>Restate.</strong> Write “red.” <strong>Re-prune.</strong> Let
+consistency do its work: your standing habits and dispositions are also
+on the books, and when they meet “red,” every surviving version of
+events has you stopping. Read the verdict off what survives:
+<em>would</em> means the outcome holds in every surviving pocket of
+alternatives; <em>might</em> means it holds in some; the
+<em>probability</em> is its weighted share. One operation, read at three
+grains.</p>
+<p>Watch it handle a famous tie. “If the composers Bizet (French) and
+Verdi (Italian) had been compatriots, they would have been French.”
+Reopen the nationality question and the survivors split: some pockets
+have both French, some both Italian. So both <em>would</em> claims come
+out false, both <em>might</em> claims true, and the odds sit in between
+— which is exactly the right verdict, delivered with nothing to
+adjudicate. And notice what’s absent: no similarity ruler anywhere. The
+framework doesn’t refine Lewis’s ordering; it <em>deletes</em> it,
+splitting its work among structures the books already carry — which
+entries rest on which, the binary fact of surviving the pruning, and the
+weights on what survives.</p>
+<p>An honest asterisk the paper itself insists on: formal results from
+the 1980s show that ordering-free machinery of this general kind can
+often be translated back into ordering machinery. So is the ruler really
+gone, or just hidden in the walls? The framework’s answer is that any
+ranking-like structure it uses is <em>computed from stated content</em>
+(a law of nature outranks a particular fact because a law quantifies —
+that’s readable off the entry itself, not imposed from outside), and it
+stakes a named mathematical challenge on the difference. Experts will
+fight there. Laymen just need the shape: the parameter philosophers
+tuned for fifty years is claimed to be an artifact of housing
+alternatives <em>elsewhere</em> — and it vanishes the moment the
+alternatives come home.</p>
+    </section>
+
+    <section id="the-trap-door">
+      <h2>6. The trap door: why “it’s just ignorance” is experimentally dead</h2>
+<p>Now the objection you’ve been holding. <em>Your “blank” is relabeled
+ignorance. The car is in the garage or it isn’t; the erosion was
+happening or it wasn’t. Unknown things have answers.</em></p>
+<p>If that translation works, this entire framework is wallpaper —
+classical thinking with new vocabulary. The paper’s response is not a
+philosophical maneuver. It is a short argument that ends in a
+laboratory.</p>
+<p>Suppose the translation works: every blank secretly carries a
+definite answer. Then take stock of what that means globally. All those
+secret answers <em>coexist</em> — one grand master answer sheet for the
+universe, on which every measurable question has its value written down,
+whether or not anyone ever looks.</p>
+<p>In 1964, the physicist John Bell proved a theorem about master answer
+sheets. Take pairs of particles prepared together and then separated;
+measure each with a choice of settings; combine the results into a
+particular coordination score. Bell showed that <em>any</em> world
+running on a master sheet — any world where all those measurement
+outcomes have simultaneous definite values — is mathematically capped:
+the score cannot exceed a fixed ceiling, no matter how the sheet is
+filled in. This isn’t a claim about technology or cleverness. It’s
+arithmetic about lists.</p>
+<p>Since the 1980s, experiments have measured that score. Nature sails
+over the ceiling — decisively, repeatedly, in tests rigorous enough to
+earn the 2022 Nobel Prize in physics. The master answer sheet is not
+old-fashioned. It is <em>refuted</em>.</p>
+<p>Here is how the Aethic framework escapes, and it’s the framework’s
+most elegant lock. The relabeling — “was open, then became settled”
+rewritten as “was settled all along, merely unknown” — only works if
+learning <em>overwrites</em>: if the old blank page is destroyed and
+replaced by the value, leaving one ledger and no trace of the openness.
+But on this framework, learning never overwrites. You transit to a
+<em>new</em> ledger; relative to your old one, the question stays open
+<em>forever</em>. The paper calls this <em>permanence</em>: determinacy
+gained is always indexed to the ledger that gained it. The “before” page
+is never destroyed — so the translation has nowhere to act, and no
+master sheet ever assembles.</p>
+<p>One escape hatch remains for a careful skeptic: concede genuine
+openness for exotic particles but keep secret answers for everyday
+things like eroding soil. The paper closes it with a fork. Keep hidden
+answers <em>always and everywhere</em>, and you’ve adopted a known
+theory (Bohmian mechanics) that survives Bell by paying a different bill
+— a layer of reality no experiment ever reads, plus a preferred
+universal clock that relativity spent a century dismantling. Or draw the
+line between “secretly answered” and “genuinely open” by <em>what
+records exist</em> — and you’ve just conceded the framework’s entire
+thesis, because a line drawn by records is an informational line.</p>
+<p>The prize this purchases has a name in the paper — <em>counterfactual
+substance without counterfactual definiteness</em> — and it’s worth a
+plain-English paraphrase, because it is the exact combination physics
+has needed for a century: what-ifs that remain fully meaningful, with
+truth values and odds, <em>without</em> any hidden answer sheet for
+Bell’s theorem to kill. Hidden-variable theories give you the answer
+sheet and die by it. “Shut up and calculate” gives you neither. This
+gives you meaningful what-ifs and no sheet.</p>
+    </section>
+
+    <section id="the-secret-life-of-or">
+      <h2>7. The secret life of “or”</h2>
+<p>The proof just forced something remarkable: a blank’s alternatives
+are <em>really there</em> — co-present contents of the one universe, not
+bookkeeping fictions. Which creates an urgent debt. If the car-in-garage
+alternative and the car-on-street alternative are both physically
+present, why does anyone ever see just one car?</p>
+<p>Classical thinking never had to ask, because it treated mutual
+exclusivity as primitive: alternatives exclude each other <em>by
+nature</em>; that’s just what “or” means. The framework inverts this —
+and the inversion is where the physics will come from. Listing a
+question’s alternatives is one job, it says. Keeping those alternatives
+<em>from interacting</em> is a separate job — and that second job is
+done, when it is done, by an entry on the books. Where “these
+alternatives don’t interact” is <em>stated</em>, they behave
+classically: co-present but walled off, mutually inert, and you see
+exactly one. Where that interior entry is <em>blank</em> — nothing on
+any books walls them off — the co-present alternatives genuinely
+mingle.</p>
+<p>So openness comes in two kinds. The paper calls them
+<em>disagreeing</em> (walls stated — the alternatives exclude; this is
+every uncertainty you’ve ever felt, from coin flips to car keys) and
+<em>agreeing</em> (walls blank — the alternatives interact). One entry’s
+worth of difference. Hold that thought; it is about to carry the entire
+divide between the ordinary world and the quantum one.</p>
+<p>There’s even a precedent for how such a reform hides in plain sight
+for generations. George Boole — founder of the logic that runs your
+computer — originally defined logical “or” as <em>exclusive only</em>,
+and rejected the reform when a younger logician, William Jevons,
+proposed the inclusive “or” we all use now. Logic made its passage from
+choosy to coalescent combination 150 years ago. The ontology of physical
+alternatives, the paper argues, never did — and quantum weirdness is
+what the world looks like once it finally does. Exclusivity isn’t the
+default; it’s <em>manufactured</em>. The everyday world isn’t where the
+mingling stops applying — it’s where the walls are relentlessly
+enforced. By what? Keep reading.</p>
+    </section>
+
+    <section id="checkmate-where-collapse-comes-from">
+      <h2>8. Checkmate: where collapse comes from</h2>
+<p>Time to earn the framework’s third and final law, because the paper
+refuses to postulate it — it derives it from a thought experiment you
+could actually run.</p>
+<p>Fifty volunteers are secretly assigned one of two doors and a precise
+position to walk to on a field beyond. An organizer sits blindfolded
+until everyone is in place. On the organizer’s books, every which-door
+question is blank — so by the framework’s rules, each volunteer is in
+superposition, alternatives co-present. And yet it is
+<em>guaranteed</em> that when the blindfold comes off, the organizer
+sees people bunched in two tidy clusters — never the striped
+mingling-pattern that co-present alternatives paint in the particle
+version of this experiment (next section). Why? What enforces the
+walls?</p>
+<p>The tempting answer: because the organizer could later just
+<em>ask</em> a volunteer which door they took, and the answer would
+contradict a mingled state — so the mingled state was never allowed.
+Tempting, but as stated it proves too much: the contradiction lives in a
+<em>future</em> ledger, and the framework’s first rule forbids facts in
+one ledger from freely reaching into another (that back-channel is
+exactly how an absolute background reality would sneak back in). So the
+puzzle is sharp: how can a merely <em>possible future</em> contradiction
+constrain the present books, without cheating?</p>
+<p>The paper’s resolution is a chess distinction. Call a state of the
+books <em>in check</em> when some way of refining it leads to
+contradiction. Check is survivable — you escape by refining differently.
+Call a state <em>checkmated</em> when every way forward leads to a
+position that is itself doomed: when it is <em>impossible to escape the
+possibility</em> of contradiction. The law — the framework’s third
+postulate — is then one sentence: <strong>it must not be impossible to
+make contradiction impossible.</strong> Checkmate, not check, is what
+invalidates.</p>
+<p>Run the field experiment through it. The mingled version of the
+organizer’s books is checkmated: whatever happens next, the which-door
+information remains retrievable <em>somewhere</em> — ask a volunteer,
+read footprints, consult memories, follow the physical traces — so every
+path forward keeps the contradiction live, forever. No escape. The
+two-clusters version has a clean future and survives. Notice what the
+argument never mentioned: size, mass, the number of volunteers, or
+anyone’s consciousness. Only <em>information</em> — what records exist
+and what they could expose.</p>
+<p>This is the paper’s sharpest boast: the “collapse” of possibilities
+into one outcome, the thing textbooks bolt onto quantum theory as a
+mysterious extra rule, falls out here as a <em>theorem about which
+bookkeeping states have escape routes</em>.</p>
+    </section>
+
+    <section id="the-two-slit-experiment">
+      <h2>9. The two-slit experiment, and the boundary that moves</h2>
+<p>Now the puzzle this was all for. Fire particles — electrons, say —
+one at a time at a barrier with two narrow slits, and record where each
+lands on a screen behind. With no detectors at the slits, the landing
+spots build up <em>stripes</em>: bands of many hits alternating with
+bands of none, the signature pattern of overlapping ripples, as if each
+single particle went through both slits and mingled with itself. Install
+a detector to see which slit each particle uses, and the stripes vanish
+— you get two plain bands, one per slit. A century of interpreters have
+chewed on this: does observation create reality? Does looking change the
+world?</p>
+<p>On the Aethic accounting it is a one-page corollary. With no
+detector, no record <em>anywhere, ever</em> — present or future — could
+say which slit was used: the two paths are permanently
+indistinguishable. So “both paths, walls blank” is a <em>valid</em>
+entry on the experimenter’s books; the co-present paths genuinely mingle
+(Section 7); and the stripes on the screen are simply what mingling
+looks like when the alternatives are paths. Switch the detector on, and
+a record now exists: the mingled option is checkmated (Section 8); the
+survivors are the walled-off one-path alternatives; two plain bands.
+Degrade the detector so it only <em>partly</em> distinguishes the paths,
+and the stripes fade <em>continuously</em> — precisely as real
+experiments show.</p>
+<p>The paper’s centerpiece theorem — the Powerset Invalidation Theorem —
+makes this exact. Take every candidate claim of the form “the particle
+takes exactly <em>these</em> paths, mingling,” for every combination of
+paths. The theorem proves each claim falls into exactly one of three
+bins. It <em>survives</em>. Or it’s <em>over-specified</em> — it insists
+on a distinction between paths that no possible record could ever
+support, a difference that isn’t a difference. Or it’s <em>doomed</em> —
+it mingles paths that some record <em>can</em> tell apart: checkmate.
+That’s the complete list, and here is the punchline: <strong>move a
+detector, and the claims re-sort.</strong> The boundary between quantum
+behavior (mingling) and classical behavior (walls) is not drawn by size,
+mass, or scale. It is drawn by what the apparatus makes recordable — and
+it moves whenever the records move, which is exactly what a century of
+experiments has shown and what “big things are classical” was never able
+to say.</p>
+<p>Why, then, does the everyday world look so relentlessly classical?
+Because the environment — air molecules, stray light, dust, your own
+retinas — is a compulsive record-keeper. Big things constantly shed
+which-way information into their surroundings, so their alternative
+configurations get walled off wholesale, and the ordinary world of
+definite objects is the pruned remainder. Conversely, if a detector’s
+record is genuinely erased before any trace escapes, the blank returns
+and the stripes come back — real experiments do this. Even the notorious
+“delayed choice” version, where the decision to detect is made
+<em>after</em> the particle passes the slits, loses its spookiness:
+nothing travels backward in time, because blanks were never dated by
+clock time in the first place (Section 4). A boundary condition was
+being mistaken for a signal.</p>
+    </section>
+
+    <section id="one-machine-game-shows-to-entanglement">
+      <h2>10. One machine, from game shows to entanglement</h2>
+<p>A framework claiming this much should also handle the humble cases,
+and the paper makes a point of running its machine on one everybody
+knows: the Monty Hall problem. Three doors, one car; you pick door 1;
+the host — who knows where the car is and never opens your door or the
+car’s — opens door 3, revealing a goat. Switch?</p>
+<p>The Aethic method: write out all the joint possibilities (where the
+car is × which door the host opens), <em>cross out</em> every
+combination the stated rules contradict, then cross out everything
+inconsistent with the new observation “door 3 opened,” and reweight what
+survives. The crossed-out weight flows to the survivors, and out comes
+the famous answer: switching wins two-thirds of the time. No
+conditional-probability formula was invoked; the formula <em>falls
+out</em> of pruning-plus-reweighting — the paper proves that in general.
+Bayesian updating, the workhorse of all statistical reasoning, is a
+theorem here, not an added rule.</p>
+<p>Now the kicker: run the <em>identical</em> crossing-out machine with
+quantum weights instead of the game-show’s simple ones, and the
+surviving joint outcomes exhibit the famous “spooky” correlations of
+entangled particles. Nothing signals anything; the combinations that
+would break the correlation are simply crossed out, being checkmated.
+One operation, spanning game shows, statistics, and Bell correlations.
+Along the way, an old civil war in the philosophy of probability quietly
+ends: single-case chance, long-run frequency, and degree-of-belief turn
+out to be one structural quantity — weight on the surviving alternatives
+— read in different ways.</p>
+    </section>
+
+    <section id="what-you-get">
+      <h2>11. What you get, and the one axiom that buys the numbers</h2>
+<p>Collect the winnings. The measurement problem — <em>when, where, and
+why</em> does quantum possibility become definite fact? — dissolves:
+collapse is an <em>indexing transition</em>, the answer to “which block
+is yours?” changing as you learn, never a physical event happening
+anywhere in spacetime. Because nothing happens <em>on a slice of space
+at a moment</em>, the old collision between collapse and relativity
+(whose “now” does the collapse happen on?) never gets started. The
+paradoxes of nested observers — Wigner’s famous friend, who measures
+inside a sealed lab while Wigner treats the whole lab as unresolved —
+are <em>denied assembly</em>: “the friend has measured” isn’t even a
+well-formed sentence until you say <em>relative to whose books</em>, and
+stitching two ledgers into one is precisely the forbidden move.</p>
+<p>And the worldview underneath: one block universe, objective and
+independent — but containing <em>many legitimate determinate realities
+at once</em>, each indexed to a ledger, none outranking the others. This
+is not classical realism (there is no single master catalogue of facts)
+and emphatically not idealism (no mind creates anything; the block is
+there regardless; the indexing is informational, not mental). It’s a
+third setting of the dial: <strong>reality independent, determinacy
+indexed.</strong> Even the flow of time survives, relocated — not inside
+any block, but as your transit between them.</p>
+<p>Everything so far is structure without numbers. The quantitative
+layer enters through exactly one flagged axiom, which the paper names
+the <em>Quantum Nexus</em>: the standard quantum weighting rule
+(Feynman’s, for the physicists) installed as the weights over surviving
+alternatives, with all the interference arithmetic quarantined inside
+it. That one axiom checkably buys the numbers — the textbook law for
+light through polarizers, for instance, arrives as a theorem rather than
+a lab-by-lab stipulation. The paper’s own analogy is exact: the Nexus
+stands to these three postulates as Newton’s law of gravitation stood to
+his three laws of motion — empirically load-bearing, openly awaiting a
+deeper explanation, and cleanly detachable from the framework it
+serves.</p>
+    </section>
+
+    <section id="the-price-tag-posted">
+      <h2>12. The price tag, posted</h2>
+<p>Here is what distinguishes this paper’s rhetoric, and it deserves to
+be part of the pitch: the claims are stated at full strength, <em>and so
+is the bill</em>.</p>
+<p>Three costs, in the paper’s own accounting. The quantum weights are
+posited, not derived — calibrating them from something deeper is a named
+open program, not an achievement. The framework assumes a fixed
+spacetime and says nothing yet about quantum gravity. And — the strange
+one — it fights the grammar of every human language: our modal talk
+(“would,” “might,” “actually”) is built on exactly the
+absolute-determinacy picture the framework deletes, so the resistance
+you have felt while reading is not a failure of exposition but <em>your
+grammar objecting</em>. (A tantalizing footnote: roughly a quarter of
+the world’s languages grammatically <em>require</em> speakers to mark
+how they know what they’re saying — a fossil gesture toward the ledger —
+while stopping one step short of making determinacy itself
+relational.)</p>
+<p>Beyond the three costs, the paper posts its full inventory of
+assumptions — one new modal primitive, one dependency structure on the
+books, one declared convention, one individuation principle, three
+postulates, one bridge principle, one algebraic design choice, one
+separable axiom — and invites the reader to audit the claims against the
+ledger. Several load-bearing proofs are explicitly IOUs. Whether the
+whole thing is revolutionary or merely a brilliant reorganization hangs
+on named, checkable targets. In an interpretation-of-quantum-mechanics
+literature famous for unfalsifiable vibes, a posted price list is itself
+a contribution.</p>
+    </section>
+
+    <section id="why-this-matters">
+      <h2>13. Why this matters</h2>
+<p>In 1905, Einstein produced no new experimental numbers. The formulas
+of special relativity already existed. What he did was relativize
+something everyone had assumed was absolute — <em>simultaneity</em>, the
+universal “now” — and physics reorganized around the insight. Aethic
+reasoning is a bid for a move of the same shape: same quantum
+predictions, but <em>determinacy itself</em> relativized to information
+states. If it fails, it will fail at a posted address, and we’ll learn
+exactly which assumption the world refuses. If it holds, then the
+deepest puzzle in physics was never a puzzle about physics at all — it
+was a century-long bill for one bad habit of thought, the habit of
+hearing “unknown” as “settled but unrevealed.”</p>
+<p>And the universe it leaves you in is this: one block, real and
+independent, containing many determinate realities at once — the
+sinkhole’s past genuinely open until the road gave way, the electron’s
+path genuinely open until the record existed, your own unlearned history
+exactly as unwritten as your future. Yours is the one indexed to what
+you know. That is either the strangest idea you’ve read this year, or
+the moment quantum physics finally stopped being out of place. The
+paper’s wager is that those are the same thing.</p>
+<p class="pitchnote pitchnote--end">The full technical development — formal definitions, proofs, and the complete assumption ledger — is in Benander’s long paper, “Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem.”</p>
+    </section>
+
+  </div><!-- /advanced -->
+
   </main>
 
-  <nav class="toc" aria-label="Contents">
+  <nav class="toc toc--overview" aria-label="Contents">
     <p class="toc__title">Contents</p>
     <ol>
       <li><a href="#the-one-idea">The one idea</a></li>
@@ -1627,6 +2124,25 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
       <li><a href="#positioned-not-strawmanned">Positioning</a></li>
       <li><a href="#the-quantum-wing">The quantum wing</a></li>
       <li><a href="#why-this-is-worth-a-skeptics-time">Why it&rsquo;s worth it</a></li>
+    </ol>
+  </nav>
+
+  <nav class="toc toc--advanced" aria-label="Contents">
+    <p class="toc__title">Contents</p>
+    <ol>
+      <li><a href="#a-sentence-you-say-every-day">An everyday sentence</a></li>
+      <li><a href="#the-official-story">The official story</a></li>
+      <li><a href="#one-move-and-a-set-of-books">One move, a set of books</a></li>
+      <li><a href="#two-consequences">Two consequences</a></li>
+      <li><a href="#what-ifs-without-leaving-home">What-ifs at home</a></li>
+      <li><a href="#the-trap-door">The trap door</a></li>
+      <li><a href="#the-secret-life-of-or">The secret life of &ldquo;or&rdquo;</a></li>
+      <li><a href="#checkmate-where-collapse-comes-from">Checkmate: collapse</a></li>
+      <li><a href="#the-two-slit-experiment">Two slits, moving boundary</a></li>
+      <li><a href="#one-machine-game-shows-to-entanglement">One machine</a></li>
+      <li><a href="#what-you-get">What you get</a></li>
+      <li><a href="#the-price-tag-posted">The price tag</a></li>
+      <li><a href="#why-this-matters">Why this matters</a></li>
     </ol>
   </nav>
 </div>
@@ -1656,7 +2172,7 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
   var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
   var map = {};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-  var secs = Array.prototype.slice.call(document.querySelectorAll('.edition--overview section[id]'));
+  var secs = Array.prototype.slice.call(document.querySelectorAll('.edition--overview section[id], .edition--advanced section[id]'));
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
@@ -1673,25 +2189,28 @@ This is the framework's proposed <em>exotic but realist</em> causation and infer
 </script>
 
 <script>
-/* ---- edition switcher ---- */
+/* ---- edition switcher (three editions) ---- */
+var EDITIONS = ['start', 'overview', 'advanced'];
 function setEdition(name, updateHash){
-  if(name!=='start' && name!=='overview') return;
-  var b=document.body;
-  b.classList.remove('mode-start','mode-overview');
+  if(EDITIONS.indexOf(name) === -1) return;
+  var b=document.body, i, n, btn, on;
+  for(i=0;i<EDITIONS.length;i++){ b.classList.remove('mode-'+EDITIONS[i]); }
   b.classList.add('mode-'+name);
-  var s=document.getElementById('sw-start'), r=document.getElementById('sw-overview');
-  var isStart=(name==='start');
-  if(s){ s.classList.toggle('is-on', isStart); s.setAttribute('aria-selected', isStart?'true':'false'); }
-  if(r){ r.classList.toggle('is-on', !isStart); r.setAttribute('aria-selected', !isStart?'true':'false'); }
+  for(i=0;i<EDITIONS.length;i++){
+    n=EDITIONS[i]; btn=document.getElementById('sw-'+n);
+    if(btn){ on=(n===name); btn.classList.toggle('is-on', on); btn.setAttribute('aria-selected', on?'true':'false'); }
+  }
   if(updateHash){
     try{ history.replaceState(null, '', location.pathname + location.search + '#' + name); }
     catch(e){ location.hash = name; }
   }
   try{ window.dispatchEvent(new Event('resize')); }catch(e){}
 }
-/* ---- URL tags (#overview default; #brief|#skeptic aliased; #start|#newcomer) + cross-edition deep links ---- */
+/* ---- URL tags (#overview default; #brief|#skeptic aliased; #advanced|#pitch; #start|#newcomer) + cross-edition deep links ---- */
 (function(){
-  var MODE_TAGS = { overview:'overview', brief:'overview', skeptic:'overview', skeptics:'overview', main:'overview', start:'start', newcomer:'start' };
+  var MODE_TAGS = { overview:'overview', brief:'overview', skeptic:'overview', skeptics:'overview', main:'overview',
+                    advanced:'advanced', pitch:'advanced', intro:'advanced',
+                    start:'start', newcomer:'start' };
   function route(){
     var raw = location.hash ? location.hash.slice(1) : '';
     if(!raw) return;
@@ -1700,10 +2219,13 @@ function setEdition(name, updateHash){
     var el = document.getElementById(raw);
     if(!el) return;
     if(el.closest('.edition--overview')) setEdition('overview', false);
+    else if(el.closest('.edition--advanced')) setEdition('advanced', false);
     else if(el.closest('.edition--start')) setEdition('start', false);
     requestAnimationFrame(function(){ try{ el.scrollIntoView(); }catch(e){} });
   }
-  setEdition(document.body.classList.contains('mode-overview') ? 'overview' : 'start', false);
+  var initial = 'overview';
+  for(var i=0;i<EDITIONS.length;i++){ if(document.body.classList.contains('mode-'+EDITIONS[i])){ initial = EDITIONS[i]; break; } }
+  setEdition(initial, false);
   route();
   window.addEventListener('hashchange', route);
 })();
