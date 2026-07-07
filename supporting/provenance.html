@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Provenance Record — Aethic Reasoning</title>
+<style>
+  :root {
+    --bg: #14120f;
+    --panel: #1d1a15;
+    --ink: #e8e2d5;
+    --dim: #a89f8c;
+    --gold: #c9a545;
+    --line: #3a352b;
+    --good: #7fae6a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.65; font-size: 17px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
+  h1 { font-size: 2rem; color: var(--gold); margin: 0 0 4px; font-weight: normal; letter-spacing: 0.5px; }
+  .subtitle { color: var(--dim); font-style: italic; margin-bottom: 36px; }
+  h2 { font-size: 1.25rem; color: var(--gold); margin: 44px 0 12px; font-weight: normal; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+  p { margin: 12px 0; }
+  a { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+  a:hover { border-bottom-style: solid; }
+  .timeline { margin: 24px 0; padding: 0; list-style: none; }
+  .timeline li { display: flex; gap: 18px; padding: 10px 0; border-left: 2px solid var(--line); padding-left: 20px; margin-left: 8px; position: relative; }
+  .timeline li::before { content: ""; position: absolute; left: -6px; top: 20px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
+  .timeline .date { min-width: 128px; color: var(--gold); font-variant: small-caps; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; }
+  th { text-align: left; color: var(--gold); font-weight: normal; font-variant: small-caps; border-bottom: 1px solid var(--line); padding: 8px 10px 6px; }
+  td { border-bottom: 1px solid var(--line); padding: 10px; vertical-align: top; }
+  td.auth { color: var(--dim); font-size: 0.92em; }
+  .claim { background: var(--panel); border-left: 3px solid var(--gold); padding: 14px 18px; margin: 16px 0; }
+  .claim b { color: var(--gold); font-weight: normal; }
+  .check { color: var(--good); }
+  .note { color: var(--dim); font-size: 0.92em; font-style: italic; }
+  .qa { margin: 18px 0; }
+  .qa .q { color: var(--gold); font-style: italic; }
+  footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--dim); font-size: 0.9em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Provenance Record</h1>
+<div class="subtitle">Aethic Reasoning — a one-page evidentiary index of the framework's origin, development, and the scope of AI involvement. Every claim below links to a dated, independently hosted record. Last updated July 2026.</div>
+
+<p>This page exists to answer one question completely and briefly: <i>who originated this framework, and what role did AI play?</i> The short answer: the framework's conceptual core — its three postulates, its central invalidation argument, and its re-indexing semantics — was developed and published by the author alone in <b>May 2023</b>, before any AI collaboration; development continued solo through a public, institutionally timestamped version record from 2024 to 2026; AI assistance (Claude, Anthropic) began in <b>early 2026</b> — first Claude Opus 4.6, later Claude Fable 5 — and was confined to formalization, algorithmic streamlining of the author's own deductions, prose drafting under direction, and literature interface, with the direction of authority documented inside the papers themselves, timestamped to the minute. The records below let a skeptical reader verify each clause of that sentence in minutes.</p>
+
+<h2>Timeline</h2>
+<ul class="timeline">
+  <li><span class="date">pre-2019</span><span>Grade-school and high-school mathematical notebooks establishing the long arc of the author's independent derivation habit. <a href="https://aethus.org/aethic-code/history/ajax-grade-school-ideas.html">Documentation</a>.</span></li>
+  <li><span class="date">May 2023</span><span>The original paper: three postulates, the detector-invalidation argument, observer re-indexing, Aethic vs. coordinate time, the consistency lemma — the complete conceptual skeleton of everything later formalized. <a href="https://aethus.org/aethic-code/files/Original_Aethic.pdf">Original PDF</a> · <a href="https://aethus.org/aethic-code/history/marked_original.html">Annotated edition</a> marking the point-by-point correspondence to the mature theory.</span></li>
+  <li><span class="date">2023</span><span>The video series: the framework explained orally, at length, on platform-timestamped uploads predating any AI involvement. <a href="https://youtube.com/playlist?list=PL1NA36JDv_T_1gJnzWhevIafOe0x4Q1yC">YouTube playlist</a>.</span></li>
+  <li><span class="date">2024–2026</span><span>Continuous solo development in public: hundreds of timestamped versions of the main paper on PhilArchive — third-party, institutional dating of every revision. <a href="https://philarchive.org/versions/BENARA-5">Version record</a>.</span></li>
+  <li><span class="date">early 2026</span><span>First AI-assistance phase (Claude Opus 4.6), credited in-paper at the exact point of use: the Powerset Invalidation Theorem's classification footnote specifies what the author supplied (the postulates, the four-slit OR-detector analysis, the invalidation principle) and what the model contributed (compacting the author's detector-by-detector deduction into the equivalence-class algorithm). The version immediately preceding this assistance — <a href="https://philarchive.org/archive/BENARA-5v135">v135</a> — shows the author's own construction and worked case, publicly timestamped before the model touched it.</span></li>
+  <li><span class="date">mid 2026</span><span>Second AI-assistance phase (Claude Fable 5). Scope, method, and direction of authority documented inside the papers: the colophon's device-by-device disclosure, and a journal footnote reproducing the author's verbatim constraint-dictation messages with UTC timestamps — including the model's errors and the moves of its own it was directed to drop.</span></li>
+</ul>
+
+<h2>The evidence, itemized</h2>
+<table>
+  <tr><th>Record</th><th>What it establishes</th><th>Date authority</th></tr>
+  <tr>
+    <td><a href="https://aethus.org/aethic-code/files/Original_Aethic.pdf">Original paper (May 2023)</a></td>
+    <td>Conceptual priority: the postulates, the invalidation argument, and the re-indexing semantics all present three years before AI involvement, in a form and voice unmistakably pre-AI.</td>
+    <td class="auth">Internal PDF metadata: created and modified 23 May 2023, 1:10:04&nbsp;PM, identical to the second (untouched since compilation), produced by MiKTeX pdfTeX-1.40.24 — a toolchain fingerprint consistent with the date; corroborated by the Google Drive upload record (May 2023) and content-level priority via the annotated correspondence below.</td>
+  </tr>
+  <tr>
+    <td><a href="https://aethus.org/aethic-code/history/marked_original.html">Annotated original</a></td>
+    <td>The point-by-point mapping from the 2023 text to the mature framework — each 2023 passage marked with the formal structure it became. The priority instrument.</td>
+    <td class="auth">Derivative of the 2023 document; the mapping is checkable by any reader against both texts.</td>
+  </tr>
+  <tr>
+    <td><a href="https://philarchive.org/versions/BENARA-5">PhilArchive version record</a></td>
+    <td>Continuous, incremental, solo development 2024–2026 — the gradual accretion pattern that fabricated or generated work does not exhibit.</td>
+    <td class="auth">PhilArchive (institutional, third-party) — the strongest single dating authority on this page.</td>
+  </tr>
+  <tr>
+    <td><a href="https://youtube.com/playlist?list=PL1NA36JDv_T_1gJnzWhevIafOe0x4Q1yC">2023 video series</a></td>
+    <td>The framework explained extemporaneously, orally, in the author's voice, before AI collaboration existed — live command of the ideas, platform-dated.</td>
+    <td class="auth">YouTube upload timestamps (platform, third-party).</td>
+  </tr>
+  <tr>
+    <td><a href="https://aethus.org/aethic-code/history/ajax-grade-school-ideas.html">Grade-school documentation</a></td>
+    <td>The pre-college record of the same independent-derivation method later applied to physics — the arc, not the theory.</td>
+    <td class="auth">Scanned contemporaneous notebooks.</td>
+  </tr>
+  <tr>
+    <td>Alternating version pairs</td>
+    <td>The author's standing practice: an idea enters the public record in the author's own form first; the AI-assisted refinement appears in a subsequent version, credited in-paper at the point of use. The pairs let any reader diff exactly what AI contributed. Worked example: <a href="https://philarchive.org/archive/BENARA-5v135">v135</a> (the author's pre-AI OR-detector construction and worked case) against the succeeding versions' Opus-streamlined equivalence-class proof, footnoted as such.</td>
+    <td class="auth">PhilArchive per-version timestamps on both sides of each pair.</td>
+  </tr>
+  <tr>
+    <td>Sequential-achievement chat record</td>
+    <td>The hash-sealed transcript of the AI collaboration behind the sequential-achievement paper (see the section below the claims): selected excerpts (forthcoming) with per-message SHA-256 hashes; the full record held in private escrow, verifiable against the per-message fingerprints on legitimate request.</td>
+    <td class="auth">Anthropic export timestamps (UTC, to the microsecond) on all 322 messages; integrity chain generated and independently timestamped July 2026.</td>
+  </tr>
+  <tr>
+    <td>In-paper journal & AI documentation</td>
+    <td>Selected journal entries reproduced within the main papers; the 2026 colophon disclosing AI scope device-by-device; the constraint-dictation footnote with verbatim, UTC-timestamped messages showing the human supplying the constraints and verdicts and the model executing under correction. Further private journal entries exist and can be produced on legitimate scholarly request.</td>
+    <td class="auth">In-paper, within the PhilArchive-timestamped versions — so the disclosures themselves carry third-party dates.</td>
+  </tr>
+</table>
+
+<h2>What the record establishes</h2>
+<div class="claim"><b>1 — Conceptual priority (2023).</b> The three postulates (including the two-generation quantifier structure later formalized as the Powerset Invalidation Theorem's engine), the detector-on invalidation argument with the destroyed-data case, the observer re-indexing semantics, and the Alice–Bob consistency treatment are all present in the May 2023 original. See the <a href="https://aethus.org/aethic-code/history/marked_original.html">annotated edition</a> for the passage-level mapping.</div>
+<div class="claim"><b>2 — Continuous solo development (2023–2026).</b> The PhilArchive record shows hundreds of incremental public revisions across two years — the signature of a single person grinding on a living document, independently dated at every step. The 2023 videos show the same ideas commanded orally, live.</div>
+<div class="claim"><b>3 — The AI phase's scope and direction (2026).</b> When AI assistance began, it was disclosed rather than discovered: the papers themselves document which passages the model drafted, under what instruction, with the author's constraint messages timestamped to the microsecond — including the model's failures and the author's overrulings. The discovery predates the tool; the tool's contribution is itemized.</div>
+
+<h2>Verify it yourself in five minutes</h2>
+<p>1. Open the <a href="https://philarchive.org/versions/BENARA-5">PhilArchive version record</a> and read the dates. 2. Open the <a href="https://aethus.org/aethic-code/history/marked_original.html">annotated original</a> and check any three marked correspondences against the 2023 text. 3. Open any <a href="https://youtube.com/playlist?list=PL1NA36JDv_T_1gJnzWhevIafOe0x4Q1yC">2023 video</a> and compare the postulates stated there with the current papers. Each check is independent of this page's claims and of the author's own hosting.</p>
+
+<h2>Beyond the Aethic papers</h2>
+<p>The author's separate paper on sequential achievement was, by contrast, <i>heavily</i> AI-assisted in its formal construction — and is documented under the same discipline. The concept (an exponential-to-linear transition in the time complexity of multi-step intellectual work) was first recorded in the author's journal on <b>Sep 25, 2024, 2:16&nbsp;PM</b>; the first quantitative attempt (a quantile-based interpolation) on <b>Sep 30, 2024, 2:56&nbsp;PM</b> — by the author's own account, crude relative to the final form; the idea then developed across months of journal entries. The formalization was a single documented collaboration (Claude Opus 4.6) to which the author brought a completed graph of constraints and logical dependencies with deliberately blank edges, and the model's role was to fill those edges with the standard statistical machinery. The record shows the division concretely. The author specifies the interface and the model must find the formula: <i>"I don't know but want to know the mean and standard deviation of A&hellip; What I DO know, though, is the mode of B, what the quantile of the mode of B is in A, and a single data point for the highest performer"</i> (msg&nbsp;3). The author audits the model's output empirically and interrogates the mathematics rather than accepting it: <i>"when I ran this, I got z_q about 4.2 and z_max at roughly 6.3&hellip; why does that consistency constraint between them have to hold so fiercely?"</i> (msg&nbsp;17). The author overrides on conceptual grounds — challenging the normality assumption with a Pareto intuition — and then issues the acceptance verdict on the model's proposed resolution in ontological, not formal, terms: <i>"We keep the normal distribution, physically reinterpret the parameter itself&hellip; AND we sort of get an emergent Pareto picture"</i> (msgs&nbsp;19&ndash;21). And the author sets the model's parameters from his own data where the model has none: <i>"I actually think Einstein SHOULD have crossed into the linear regime&hellip; we have to tweak the n number of steps"; "n&nbsp;=&nbsp;~60 is what it took me, so let's go with that"</i> (msgs&nbsp;77&ndash;79). Each quotation is verifiable against the sealed record by its per-message hash. The full chat record of that collaboration has been recovered from the official account export and preserved under a hash-sealed archive: a single conversation (March 13–26, 2026), 322 messages in near-even alternation (160 human, 162 model), reconstructed by parent-pointer traversal and sealed with a SHA-256 integrity chain — a hash of the source export file, a hash of the reconstructed thread, and a hash of every individual message, with the fingerprints independently timestamped. The record shows the dense correction-and-verdict pattern the account above describes: the author repeatedly overriding the model's formal choices on conceptual grounds, the model supplying the statistical machinery under those verdicts. Selected excerpts — the author's constraint and correction messages, verbatim, each carrying its per-message hash — will be published here; the complete record is held privately and is available to legitimate verifiers under confidentiality, where the per-message hashes permit exact verification of every excerpt against it.</p>
+
+<h2>Two questions, answered plainly</h2>
+<div class="qa"><span class="q">Did an AI make this discovery?</span><br>No. The framework's core was published in May 2023, predating the collaboration by three years and predating any model capable of contributing to work of this kind. The dates are third-party.</div>
+<div class="qa"><span class="q">Did an AI write parts of the 2026 papers?</span><br>Yes — and the papers say so, in detail, with timestamps, including what the model got wrong. That disclosure is the point: the collaboration is documented, not discovered. The scope was formalization and drafting under direction; the constraints, the verdicts, and the framework were the author's.</div>
+
+<footer>
+Maintained by the author. Corrections and verification inquiries welcome. Additional records — private journal entries, correspondence, file hashes — available on legitimate scholarly request.<br>
+<span class="note">Readers are encouraged to verify this page and its linked records against Internet Archive snapshots.</span>
+</footer>
+
+</div>
+</body>
+</html>
