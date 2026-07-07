@@ -1183,6 +1183,14 @@ extra_head: |
     transition: background 0.5s;
   }
 
+  /* When a deep link jumps straight to an entry (e.g. #entry-25), offset the
+     landing so the entry's TITLE sits just below the sticky top chrome
+     (site topnav + filter bar) instead of hiding behind it. The value is kept
+     in sync with the live chrome height by setupDeepLinkLanding() below. */
+  .entry {
+    scroll-margin-top: var(--entry-anchor-offset, 96px);
+  }
+
 </style>
 
 <div class="container">
@@ -6720,6 +6728,126 @@ extra_head: |
     window.addEventListener('resize', syncStickyOffset, {passive: true});
     // Re-measure after fonts/images load in case topnav height shifts
     window.addEventListener('load', syncStickyOffset);
+  })();
+
+  // === Deep-link landing (compendium cross-links) ==========================
+  // When the page is opened at a specific entry — either #entry-<id> or a
+  // #sequence=...&current=<n> link — do two things:
+  //   1. start with the filter bar ("navigator") collapsed, for reading room;
+  //   2. scroll so that entry's TITLE sits just below the sticky top chrome
+  //      (site topnav + filter bar), instead of hiding behind it.
+  // Only entry-targeting hashes trigger this; visiting the compendium normally
+  // (no hash) is left completely untouched.
+  (function setupDeepLinkLanding() {
+    var GAP = 14; // breathing room between the sticky chrome and the title
+
+    function filterBar() { return document.querySelector('nav.filters'); }
+
+    // Live height of everything pinned to the top of the viewport.
+    function topChromeHeight() {
+      var topnav = document.querySelector('.topnav');
+      var topH = topnav ? topnav.getBoundingClientRect().height : 0;
+      var bar = filterBar();
+      var barH = bar ? bar.getBoundingClientRect().height : 0;
+      return topH + barH;
+    }
+
+    // Keep the CSS scroll-margin (used by native #entry-<id> jumps) matched to
+    // the current chrome height, so those jumps also land below the bar.
+    function syncAnchorOffset() {
+      var px = Math.round(topChromeHeight() + GAP);
+      document.documentElement.style.setProperty('--entry-anchor-offset', px + 'px');
+    }
+
+    function collapseFilters() {
+      if (!document.body.classList.contains('filters-collapsed')) {
+        document.body.classList.add('filters-collapsed');
+      }
+      var btn = document.getElementById('collapseBtn');
+      if (btn) {
+        btn.textContent = 'Expand \u25BC';
+        btn.setAttribute('aria-label', 'Expand filter bar');
+      }
+    }
+
+    function entryElById(id) {
+      if (!id) return null;
+      var span = document.querySelector('.entry-num[data-id="' + id + '"]');
+      return span ? span.closest('.entry') : null;
+    }
+
+    // Which entry (if any) does the current URL hash point at?
+    function targetIdFromHash() {
+      var h = (window.location.hash || '').replace(/^#/, '');
+      if (!h) return null;
+      var m = h.match(/^entry-(.+)$/);
+      if (m) return decodeURIComponent(m[1]);
+      if (/(^|&)sequence=/.test(h)) {
+        var parts = {};
+        h.split('&').forEach(function (p) {
+          var eq = p.indexOf('=');
+          if (eq > 0) parts[p.slice(0, eq)] = decodeURIComponent(p.slice(eq + 1));
+        });
+        if (parts.sequence) {
+          var seq = parts.sequence.split(',').filter(Boolean);
+          var cur = parts.current != null ? parseInt(parts.current, 10) : 0;
+          if (isNaN(cur) || cur < 0) cur = 0;
+          if (cur > seq.length - 1) cur = seq.length - 1;
+          return seq[cur] || null;
+        }
+      }
+      return null;
+    }
+
+    function bringTitleToTop(id, smooth) {
+      var el = entryElById(id);
+      if (!el) return;
+      if (el.offsetParent === null) el.style.display = ''; // un-hide if a filter hid it
+      syncAnchorOffset();
+      var y = el.getBoundingClientRect().top + window.pageYOffset - topChromeHeight() - GAP;
+      if (y < 0) y = 0;
+      window.scrollTo({ top: y, behavior: smooth ? 'smooth' : 'auto' });
+      // Reuse the gold flash used elsewhere so the landing entry is obvious.
+      var prev = document.querySelectorAll('.entry.highlighted');
+      for (var i = 0; i < prev.length; i++) prev[i].classList.remove('highlighted');
+      el.classList.add('highlighted');
+      setTimeout(function () { el.classList.remove('highlighted'); }, 2400);
+    }
+
+    function land(smooth) {
+      var id = targetIdFromHash();
+      if (!id) return;
+      collapseFilters();
+      // Let the collapse reflow (bar shrinks) before measuring and scrolling.
+      setTimeout(function () { bringTitleToTop(id, smooth); }, 60);
+    }
+
+    // Keep the native-anchor offset correct as the chrome changes size.
+    syncAnchorOffset();
+    window.addEventListener('resize', syncAnchorOffset, { passive: true });
+    window.addEventListener('load', syncAnchorOffset);
+    var collapseBtn = document.getElementById('collapseBtn');
+    if (collapseBtn) collapseBtn.addEventListener('click', function () { setTimeout(syncAnchorOffset, 0); });
+    var modeToggle = document.getElementById('modeToggle');
+    if (modeToggle) modeToggle.addEventListener('click', function () { setTimeout(syncAnchorOffset, 80); });
+
+    // Initial landing when the page is opened straight at an entry.
+    if (targetIdFromHash()) {
+      // Collapse synchronously so the tall bar never flashes, and so the
+      // sequence manager's own on-load scroll already measures the short bar.
+      collapseFilters();
+      syncAnchorOffset();
+      // Position authoritatively once layout/fonts have settled and after the
+      // sequence manager's on-load scroll (~500ms) for #sequence links.
+      if (document.readyState === 'complete') {
+        setTimeout(function () { land(false); }, 120);
+      } else {
+        window.addEventListener('load', function () { setTimeout(function () { land(false); }, 120); });
+      }
+    }
+
+    // Following another cross-link (or using back/forward) once already here.
+    window.addEventListener('hashchange', function () { land(true); });
   })();
 
 })();
