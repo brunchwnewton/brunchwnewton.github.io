@@ -1,834 +1,426 @@
 ---
 layout: default
-title: "aethus.org"
+title: "aethus.org — Reality, Indexed"
 ---
-<script>(function(){var h=document.head;if(!h)return;function L(rel,type,href,sizes){var l=document.createElement("link");l.rel=rel;if(type)l.type=type;if(sizes)l.setAttribute("sizes",sizes);l.href=href;h.appendChild(l);}var DATA="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0icGEiIGN4PSIzOCUiIGN5PSI0MiUiIHI9IjYyJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM4YTc4ZmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZTVjZmYiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InBiIiBjeD0iNjIlIiBjeT0iNTglIiByPSI2MiUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjNWZlMGQ2Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNGVjZGM0Ii8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzA3MDcwYyIvPgogIDwhLS0gdHdvIHBvY2tldHMgc2hhcmluZyBvbmUgc3BhY2U6IHRoZSBVbmlvbiBQcmluY2lwbGUuIE91dGVyIGRpc2p1bmN0aW9uIHBsYWNlcyBib3RoOwogICAgICAgdGhlIGxlbnMgd2hlcmUgdGhleSBvdmVybGFwIGlzIHRoZSBhZ3JlZWluZyAoaW50ZXJhY3RpbmcpIHJlZ2lvbi4gLS0+CiAgPGNpcmNsZSBjeD0iMjciIGN5PSIzMiIgcj0iMTUiIGZpbGw9InVybCgjcGEpIiBmaWxsLW9wYWNpdHk9IjAuNDIiIHN0cm9rZT0iIzZlNWNmZiIgc3Ryb2tlLXdpZHRoPSIxLjYiLz4KICA8Y2lyY2xlIGN4PSIzNyIgY3k9IjMyIiByPSIxNSIgZmlsbD0idXJsKCNwYikiIGZpbGwtb3BhY2l0eT0iMC40MiIgc3Ryb2tlPSIjNGVjZGM0IiBzdHJva2Utd2lkdGg9IjEuNiIvPgogIDwhLS0gdGhlIHNoYXJlZCBsZW5zLCBicmlnaHRlbmVkOiBwaHlzaWNhbCBBTkQgLS0+CiAgPHBhdGggZD0iTTMyIDIwLjYgQTE1IDE1IDAgMCAxIDMyIDQzLjQgQTE1IDE1IDAgMCAxIDMyIDIwLjYgWiIgZmlsbD0iI2MwODRmYyIgZmlsbC1vcGFjaXR5PSIwLjMwIi8+CiAgPCEtLSBpbnRlcmlvciBuZWdhdGlvbiBtYXJrcyAodGhlIGlubmVyIGNvbmp1bmN0aW9ucyB0aGF0IGtlZXAgcG9ja2V0cyBub24taW50ZXJhY3RpbmcgYXQgdGhlIGVkZ2VzKSAtLT4KICA8Y2lyY2xlIGN4PSIyMC41IiBjeT0iMzIiIHI9IjEuNSIgZmlsbD0iIzhhNzhmZiIvPgogIDxjaXJjbGUgY3g9IjQzLjUiIGN5PSIzMiIgcj0iMS41IiBmaWxsPSIjNWZlMGQ2Ii8+Cjwvc3ZnPgo=";L("icon","image/svg+xml","/favicon.svg");L("icon","image/svg+xml",DATA);L("apple-touch-icon",null,DATA);var m=document.createElement("meta");m.name="theme-color";m.content="#07070c";h.appendChild(m);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,420;9..144,560&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg: #07070c;
-  --bg-elevated: #0e0e18;
-  --bg-card: #131322;
-  --bg-card-hover: #191930;
-  --text: #c8c8de;
-  --text-dim: #7a7a96;
-  --text-bright: #eeeef8;
-  --accent: #6e5cff;
-  --accent-glow: rgba(110,92,255,0.15);
-  --accent-warm: #ff6e8a;
-  --accent-teal: #4ecdc4;
-  --accent-gold: #ffd93d;
-  --accent-lavender: #c084fc;
-  --border: rgba(110,92,255,0.12);
-  --border-subtle: rgba(200,200,222,0.06);
-  --radius: 12px;
-  --radius-sm: 8px;
+/* KIT */
+:root{
+  --ink:#1A1B18;--ink-2:#43443E;--ink-3:#6E6F65;
+  --paper:#EEEDE6;--paper-2:#F7F6F0;--paper-3:#E7E5DB;
+  --rule:#D6D4C9;--rule-2:#E4E2D7;
+  --garnet:#7E1D2E;--garnet-2:#9C2A3C;--garnet-wash:rgba(126,29,46,.07);
+  --block:#151610;--block-2:#20211A;--on-block:#EAE9E1;--on-block-2:#9C9A8D;--on-block-3:#75746A;
+  --gold:#9A7B33;--gold-2:#B8942F;--sel:#E3E0D2;--measure:39rem;
+  --display:"Fraunces",Georgia,serif;--body:"Spectral",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'DM Sans',system-ui,sans-serif;
-  font-size:16px;
-  line-height:1.7;
-  overflow-x:hidden;
-}
-body::before{
-  content:'';position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:9999;
-}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth;}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.66;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-optical-sizing:auto;}
+::selection{background:var(--sel);}
 a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;letter-spacing:-.012em;line-height:1.08;margin:0;}
+em,i{font-style:italic;}strong,b{font-weight:600;}sup{font-size:.66em;line-height:0;}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 1.6rem;}
+.wide{max-width:66rem;margin:0 auto;padding:0 1.6rem;}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--garnet);font-weight:500;}
+.eyebrow-dim{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
+a.link{color:var(--garnet);background-image:linear-gradient(var(--garnet),var(--garnet));background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .25s ease;}
+a.link:hover{background-size:100% 1px;}
+a:focus-visible{outline:2px solid var(--garnet);outline-offset:3px;border-radius:1px;}
+.rel{font-family:var(--mono);white-space:nowrap;}
+.rel .bar{color:var(--garnet);padding:0 .1em;font-weight:600;}
 
-/* ─── TOP NAV ─── */
+/* HERO */
+.hero{background:var(--block);color:var(--on-block);position:relative;overflow:hidden;padding:clamp(3.4rem,9vw,6.5rem) 0 clamp(3rem,7vw,5rem);}
+.hero::after{content:"";position:absolute;left:calc(50% - 33rem);top:0;bottom:0;width:1px;background:var(--garnet);opacity:.9;}
+@media(max-width:1090px){.hero::after{left:1.6rem;}}
+.hero .wide{position:relative;z-index:2;}
+.hero .site-id{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--on-block-2);}
+.hero .site-id b{color:var(--on-block);font-weight:500;}
+.hero-formula{font-family:var(--mono);font-size:clamp(1.1rem,3.4vw,1.65rem);color:var(--on-block-2);margin:2.4rem 0 1.3rem;letter-spacing:.02em;}
+.hero-formula .lit{color:var(--on-block);}
+.hero-formula .bar{color:var(--garnet-2);font-weight:600;}
+.hero h1{font-size:clamp(2.7rem,8vw,5.3rem);color:var(--on-block);letter-spacing:-.02em;line-height:.98;font-weight:340;}
+.hero h1 em{font-style:italic;color:var(--on-block);}
+.hero-sub{max-width:33rem;margin:1.7rem 0 0;font-size:clamp(1.05rem,2.4vw,1.28rem);color:var(--on-block);line-height:1.5;}
+.hero-sub .dim{color:var(--on-block-2);}
+.hero-by{margin-top:1.7rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--on-block-3);}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.4rem;}
+.btn{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;padding:.75rem 1.2rem;border:1px solid var(--on-block-3);color:var(--on-block);transition:.2s;display:inline-flex;align-items:center;gap:.6ch;}
+.btn:hover{border-color:var(--on-block);background:rgba(255,255,255,.04);}
+.btn.pri{background:var(--garnet);border-color:var(--garnet);color:#fff;}
+.btn.pri:hover{background:var(--garnet-2);border-color:var(--garnet-2);}
 
-/* ─── HERO ─── */
-.hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;
-  justify-content:center;align-items:center;
-  text-align:center;padding:6rem 2rem 4rem;
-  position:relative;overflow:hidden;
-}
-.hero-orb{
-  position:absolute;border-radius:50%;
-  filter:blur(80px);opacity:0.35;pointer-events:none;
-  animation:drift 20s ease-in-out infinite alternate;
-}
-.hero-orb.a{width:420px;height:420px;background:var(--accent);top:15%;left:20%;animation-delay:0s;}
-.hero-orb.b{width:320px;height:320px;background:var(--accent-teal);bottom:20%;right:15%;animation-delay:-7s;}
-.hero-orb.c{width:260px;height:260px;background:var(--accent-warm);top:60%;left:55%;animation-delay:-13s;opacity:0.2;}
-@keyframes drift{
-  0%{transform:translate(0,0) scale(1);}
-  100%{transform:translate(30px,-20px) scale(1.15);}
-}
-.hero-content{position:relative;z-index:1;max-width:720px;}
-.hero h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(3rem,7vw,5.5rem);
-  font-weight:300;color:var(--text-bright);
-  letter-spacing:-0.03em;line-height:1.08;
-}
-.hero h1 .accent{color:var(--accent);font-weight:400;}
-.hero .tagline{
-  font-size:1.15rem;color:var(--text-dim);
-  margin-top:1.5rem;max-width:520px;margin-inline:auto;
-  line-height:1.65;
-}
-.hero .affil{
-  font-size:0.78rem;color:var(--text-dim);
-  margin-top:2rem;letter-spacing:0.08em;
-  text-transform:uppercase;opacity:0.7;
-}
+/* SECTIONS */
+section{padding:clamp(3rem,7vw,5rem) 0;border-bottom:1px solid var(--rule);}
+.sec-head{margin-bottom:2.2rem;}
+.sec-head .eyebrow{display:block;margin-bottom:.9rem;}
+.sec-head h2{font-size:clamp(1.7rem,4vw,2.4rem);letter-spacing:-.015em;}
+.sec-head p{max-width:40rem;margin:1rem 0 0;color:var(--ink-2);font-size:1.06rem;line-height:1.55;}
+.prose p{margin:0 0 1.1em;color:var(--ink-2);}
+.prose p.lead{font-size:1.28rem;line-height:1.5;color:var(--ink);}
+.prose strong{color:var(--ink);}
+.prose a{color:var(--garnet);background-image:linear-gradient(var(--garnet),var(--garnet));background-size:100% 1px;background-repeat:no-repeat;background-position:0 100%;}
 
-/* ─── SECTION FRAMEWORK ─── */
-.section{
-  max-width:1100px;margin:0 auto;
-  padding:4rem 2rem;
-}
-.section-label{
-  font-size:0.68rem;text-transform:uppercase;
-  letter-spacing:0.18em;color:var(--accent);
-  margin-bottom:0.6rem;font-weight:600;
-}
-.section-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.8rem,3.5vw,2.6rem);
-  font-weight:400;color:var(--text-bright);
-  line-height:1.2;margin-bottom:1rem;
-}
-.section-desc{
-  color:var(--text-dim);max-width:600px;
-  font-size:0.95rem;margin-bottom:2.5rem;
-}
-.divider{
-  border:none;border-top:1px solid var(--border-subtle);
-  margin:0 auto;max-width:1100px;
-}
+/* THREE MOVES */
+.moves{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1rem;}
+.move{background:var(--paper-2);padding:1.7rem 1.5rem;}
+.move .n{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--garnet);}
+.move h3{font-size:1.16rem;margin:.7rem 0 .5rem;letter-spacing:0;}
+.move p{margin:0;font-size:.97rem;color:var(--ink-2);line-height:1.55;}
 
-/* ─── FEATURE BANNERS (Aethic / Nexic guides) ─── */
-.banners{
-  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;
-}
-.banner{
-  position:relative;overflow:hidden;
-  border-radius:var(--radius);
-  border:1px solid var(--border);
-  background:var(--bg-card);
-  padding:2.2rem 2rem;
-  transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;
-  cursor:pointer;
-  display:flex;flex-direction:column;justify-content:space-between;
-  min-height:260px;
-}
-.banner:hover{
-  border-color:rgba(110,92,255,0.3);
-  transform:translateY(-3px);
-  box-shadow:0 8px 40px rgba(110,92,255,0.1);
-}
-.banner .banner-glow{
-  position:absolute;inset:0;opacity:0;
-  background:radial-gradient(ellipse at 30% 20%, var(--accent-glow) 0%, transparent 70%);
-  transition:opacity 0.4s;pointer-events:none;
-}
-.banner:hover .banner-glow{opacity:1;}
-.banner .tag{
-  font-size:0.65rem;text-transform:uppercase;
-  letter-spacing:0.14em;font-weight:600;
-  padding:0.25rem 0.6rem;border-radius:4px;
-  display:inline-block;width:fit-content;margin-bottom:1rem;
-}
-.banner.aethic .tag{color:var(--accent);background:rgba(110,92,255,0.12);}
-.banner.nexic .tag{color:var(--accent-teal);background:rgba(78,205,196,0.12);}
-.banner h3{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.55rem;font-weight:500;
-  color:var(--text-bright);line-height:1.25;
-  margin-bottom:0.6rem;position:relative;
-}
-.banner p{
-  color:var(--text-dim);font-size:0.88rem;
-  line-height:1.55;position:relative;flex:1;
-}
-.banner .arrow{
-  margin-top:1.2rem;font-size:0.8rem;
-  color:var(--accent);font-weight:500;
-  position:relative;transition:gap 0.2s;
-  display:flex;align-items:center;gap:0.4rem;
-}
-.banner:hover .arrow{gap:0.7rem;}
-.banner.nexic .arrow{color:var(--accent-teal);}
+/* STATUS split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.split>div{background:var(--paper-2);padding:1.7rem 1.5rem;}
+.split h3{font-size:1.14rem;margin:.6rem 0 .7rem;letter-spacing:0;}
+.split p{margin:0 0 .8em;font-size:.97rem;color:var(--ink-2);line-height:1.55;}
+.split p:last-child{margin-bottom:0;}
 
-/* ─── PAPERS GRID ─── */
-.papers-grid{
-  display:grid;grid-template-columns:1fr;gap:1rem;
-}
-.paper-card{
-  display:flex;align-items:flex-start;gap:1.2rem;
-  padding:1.3rem 1.5rem;
-  border-radius:var(--radius-sm);
-  border:1px solid var(--border-subtle);
-  background:var(--bg-elevated);
-  transition:border-color 0.2s,background 0.2s;
-}
-.paper-card:hover{
-  border-color:var(--border);
-  background:var(--bg-card);
-}
-.paper-icon{
-  font-size:1.4rem;margin-top:0.15rem;
-  min-width:1.8rem;text-align:center;
-}
-.paper-info h4{
-  font-size:0.95rem;color:var(--text-bright);
-  font-weight:500;line-height:1.35;
-}
-.paper-info .meta{
-  font-size:0.75rem;color:var(--text-dim);
-  margin-top:0.25rem;
-}
+/* comparison table */
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.tbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.78rem;min-width:44rem;}
+.tbl th,.tbl td{text-align:left;padding:.62rem .75rem;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.tbl thead th{border-bottom:1.5px solid var(--ink);font-weight:600;}
+.tbl tbody tr:last-child td{border-bottom:none;}
+.tbl .me{background:var(--garnet-wash);}
+.tbl .me td:first-child{color:var(--garnet);font-weight:600;}
+.tbl-cap{font-family:var(--mono);font-size:.74rem;color:var(--ink-3);margin-top:.9rem;line-height:1.5;}
 
-/* ─── QUICK LINKS / PAGES ─── */
-.pages-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;
-}
-.page-card{
-  padding:1.5rem;
-  border-radius:var(--radius-sm);
-  border:1px solid var(--border-subtle);
-  background:var(--bg-elevated);
-  transition:all 0.2s;
-}
-.page-card:hover{
-  border-color:var(--border);
-  background:var(--bg-card);
-  transform:translateY(-2px);
-}
-.page-card .pc-icon{
-  font-size:1.5rem;margin-bottom:0.6rem;
-}
-.page-card h4{
-  font-size:0.92rem;color:var(--text-bright);
-  font-weight:500;margin-bottom:0.3rem;
-}
-.page-card p{
-  font-size:0.78rem;color:var(--text-dim);
-  line-height:1.5;
-}
+/* papers */
+.papers{border-top:1.5px solid var(--ink);}
+.paper{display:block;border-bottom:1px solid var(--rule);padding:1.25rem 0;transition:.15s;}
+.paper:hover{background:var(--paper-2);padding-left:.6rem;padding-right:.6rem;}
+.paper .pt{font-family:var(--display);font-size:1.14rem;color:var(--ink);line-height:1.25;letter-spacing:-.01em;}
+.paper .pm{font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;color:var(--ink-3);margin-top:.45rem;}
+.paper.newest .pt{color:var(--garnet);}
+.paper .flag{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--garnet);padding:.12em .55ch;margin-left:.6ch;vertical-align:middle;}
 
-/* ─── UPDATES / FEED ─── */
-.feed{display:flex;flex-direction:column;gap:1rem;}
-.feed-item{
-  display:flex;gap:1.2rem;align-items:flex-start;
-  padding:1.2rem 1.4rem;
-  border-radius:var(--radius-sm);
-  border:1px solid var(--border-subtle);
-  background:var(--bg-elevated);
-  transition:border-color 0.2s;
-}
-.feed-item:hover{border-color:var(--border);}
-.feed-date{
-  font-family:'JetBrains Mono',monospace;
-  font-size:0.7rem;color:var(--text-dim);
-  min-width:5.5rem;padding-top:0.15rem;
-  letter-spacing:0.02em;
-}
-.feed-body h4{
-  font-size:0.88rem;color:var(--text-bright);
-  font-weight:500;line-height:1.35;
-}
-.feed-body p{
-  font-size:0.8rem;color:var(--text-dim);
-  margin-top:0.2rem;line-height:1.5;
-}
-.feed-badge{
-  font-size:0.6rem;text-transform:uppercase;
-  letter-spacing:0.1em;font-weight:600;
-  padding:0.15rem 0.45rem;border-radius:3px;
-  display:inline-block;margin-bottom:0.3rem;
-}
-.feed-badge.paper{color:var(--accent);background:rgba(110,92,255,0.1);}
-.feed-badge.event{color:var(--accent-gold);background:rgba(255,217,61,0.1);}
-.feed-badge.talk{color:var(--accent-teal);background:rgba(78,205,196,0.1);}
-.feed-badge.update{color:var(--accent-lavender);background:rgba(192,132,252,0.1);}
+/* nav grid (site pages) */
+.navgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.navgrid a{background:var(--paper-2);padding:1.4rem 1.4rem;transition:.15s;}
+.navgrid a:hover{background:#fff;}
+.navgrid .nt{font-family:var(--display);font-size:1.12rem;color:var(--ink);letter-spacing:-.01em;}
+.navgrid .nd{font-size:.92rem;color:var(--ink-3);margin-top:.35rem;line-height:1.5;}
+.navgrid .arr{color:var(--garnet);}
 
-/* ─── CONTACT ─── */
-.contact-row{
-  display:flex;flex-wrap:wrap;gap:1rem;
-}
-.contact-pill{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  padding:0.55rem 1.1rem;
-  border-radius:6px;
-  border:1px solid var(--border-subtle);
-  background:var(--bg-elevated);
-  font-size:0.82rem;color:var(--text-dim);
-  transition:all 0.2s;
-}
-.contact-pill svg{flex-shrink:0;opacity:0.6;}
-.contact-pill:hover svg{opacity:1;}
-.contact-pill:hover{
-  border-color:var(--border);color:var(--text-bright);
-  background:var(--bg-card);
-}
+/* nexic band */
+.nexic{background:var(--block);color:var(--on-block);border-bottom:none;}
+.nexic .eyebrow{color:var(--gold-2);}
+.nexic h2{color:var(--on-block);}
+.nexic .sec-head p{color:var(--on-block-2);}
+.nexic .prose p{color:var(--on-block-2);}
+.nexic .prose strong{color:var(--on-block);}
+.nexic .stat{font-family:var(--mono);color:var(--gold-2);}
+.nexic a.link{color:var(--gold-2);}
+.nexic .btn{border-color:var(--on-block-3);color:var(--on-block);}
+.nexic .btn:hover{border-color:var(--gold-2);}
 
-/* ─── FOOTER ─── */
-footer{
-  text-align:center;padding:3rem 2rem 4rem;
-  color:var(--text-dim);font-size:0.75rem;
-  border-top:1px solid var(--border-subtle);
-  max-width:1100px;margin:4rem auto 0;
-}
+.notebar{font-family:var(--mono);font-size:.82rem;color:var(--ink-3);line-height:1.6;border-left:2px solid var(--rule);padding-left:1.1rem;margin-top:1.4rem;}
 
-/* ─── RESPONSIVE ─── */
-@media(max-width:768px){
-  .banners{grid-template-columns:1fr;}
-        .section{padding:3rem 1.2rem;}
-  .hero{padding:5rem 1.2rem 3rem;}
-  .banner{min-height:auto;padding:1.5rem;}
-  .cred-strip{grid-template-columns:1fr !important;}
+/* footer */
+footer.site{background:var(--block);color:var(--on-block-2);padding:3.2rem 0 2.4rem;font-size:.9rem;border-top:1px solid #2a2b22;}
+footer.site a{color:var(--on-block);}footer.site a:hover{color:#fff;}
+footer.site .foot-grid{display:flex;flex-wrap:wrap;gap:2.4rem 3.5rem;justify-content:space-between;}
+footer.site h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-block-3);margin:0 0 .9rem;font-weight:500;}
+footer.site ul{list-style:none;margin:0;padding:0;line-height:2;}
+footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid #2a2b22;font-size:.82rem;line-height:1.6;}
+
+@media(max-width:820px){
+  .moves,.split,.navgrid{grid-template-columns:1fr;}
 }
-@media(max-width:500px){
-}
+@media(max-width:720px){body{font-size:17.5px;}}
 </style>
 
-
-<!-- ═══ HERO ═══ -->
-<section class="hero">
-  <div class="hero-orb a" style="opacity:0.18;"></div>
-  <div class="hero-orb b" style="opacity:0.16;"></div>
-  <div class="hero-content" style="max-width:860px;">
-    <h1>Welcome to <span class="accent">aethus</span>.org</h1>
-    <p class="tagline">The research of Ajax Benander. Developing Aethic reasoning: a graph-theoretic framework for quantum foundations, the ontology of time, and the measurement problem.</p>
-
-    <!-- Interactive extrusion-principle diagram -->
-    <div id="extrusion-hero" style="margin:2.4rem auto 0;width:100%;"></div>
-
-    <p style="max-width:620px;margin:1.6rem auto 0;font-size:0.88rem;color:var(--text-dim);line-height:1.65;">A framework proposing that wavefunction collapse is not a physical process but a <em style="color:var(--text);">logical necessity</em> — the universe enforcing its own consistency. Built on three postulates, it derives the double-slit result, resolves EPR without violating locality, and makes <em style="color:var(--accent-teal);">experimentally testable predictions that differ from standard quantum mechanics</em>.</p>
-    <p class="affil">by <a href="/ajax/" style="color:var(--accent);text-decoration:none;">Ajax Benander</a></p>
-  </div>
-</section>
-
-<!-- ═══ CREDIBILITY STRIP ═══ -->
-<div style="max-width:760px;margin:0 auto;padding:0 2rem;">
-  <div class="cred-strip" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-    <div style="padding:1.2rem 1.4rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);">
-      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-teal);font-weight:600;margin-bottom:0.5rem;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        Falsifiable
-      </div>
-      <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.55;">Unlike most interpretations — which agree on every prediction and differ only in story — this framework predicts a <em style="color:var(--text);">specific, testable deviation</em> from standard quantum mechanics. The <a href="/start-here.html#predictions" style="color:var(--accent-teal);border-bottom:1px solid rgba(78,205,196,0.25);">billiard-ball experiment</a> would either confirm it or kill it.</p>
-    </div>
-    <div style="padding:1.2rem 1.4rem;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);">
-      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dim);font-weight:600;margin-bottom:0.5rem;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-        Status
-      </div>
-      <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.55;">Independent research with public preprints and explicit derivations. <em style="color:var(--text);">Not yet peer-reviewed</em>; no formal response from the physics community has been published. The papers are open — evaluate them on their own terms.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ START HERE ═══ -->
-<div style="max-width:680px;margin:0 auto;padding:0 2rem;">
-  <a href="/start-here.html" style="display:block;padding:1.3rem 1.8rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='var(--bg-card-hover)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg-card)';this.style.transform='none'">
-    <div style="display:flex;align-items:center;gap:1rem;">
-      <div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);font-weight:600;white-space:nowrap;">New here?</div>
-      <div>
-        <div style="font-size:0.92rem;color:var(--text-bright);font-weight:500;">Aethic Reasoning in Five Minutes</div>
-        <div style="font-size:0.78rem;color:var(--text-dim);margin-top:0.15rem;">The measurement problem, natural history, and why this might matter — in a single read.</div>
-      </div>
-      <div style="margin-left:auto;color:var(--text-dim);font-size:0.85rem;">→</div>
-    </div>
-  </a>
-</div>
-
-<!-- ═══ INTERACTIVE GUIDES ═══ -->
-<hr class="divider">
-<section class="section" id="guides">
-  <div class="section-label">Interactive Guides</div>
-  <div class="section-title">Walk through the frameworks</div>
-  <div class="section-desc">Layer-by-layer explanations of the core ideas, from first principles through formal derivations, with thought experiments along the way.</div>
-  <div class="banners">
-    <a href="/aethic-reasoning-guide.html#explorer" class="banner aethic">
-      <div class="banner-glow"></div>
-      <div>
-        <div class="tag">Aethic Reasoning</div>
-        <h3>How Aethic Reasoning Works</h3>
-        <p>Ten layers from the Extrusion Principle through the Quantum Nexus integral. Includes the three postulates, the union principle, the reduced form, and the double-slit derivation.</p>
-      </div>
-      <div class="arrow">Explore the guide <span>→</span></div>
-    </a>
-    <a href="/nexic-reasoning-guide.html" class="banner nexic">
-      <div class="banner-glow"></div>
-      <div>
-        <div class="tag">Nexic Reasoning</div>
-        <h3>How Nexic Reasoning Works</h3>
-        <p>Extending anthropic reasoning to circumstantial parameters: the Accordance Principle, Optimation, the Dark Era hypothesis, and a derivation of the Rare Earth hypothesis.</p>
-      </div>
-      <div class="arrow">Explore the guide <span>→</span></div>
-    </a>
-  </div>
-
-  <!-- Our Place teaser -->
-  <div style="margin-top:1.5rem;padding:1.3rem 1.8rem;background:var(--bg-card);border:1px solid rgba(255,217,61,0.12);border-radius:var(--radius);max-width:680px;">
-    <div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,217,61,0.6);font-weight:600;margin-bottom:0.4rem;">From the Nexic Paper</div>
-    <a href="/our-place.html" style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--text-bright);font-weight:400;line-height:1.45;margin-bottom:0.5rem;display:block;text-decoration:none;">Our Place in the Universe</a>
-    <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.55;margin-bottom:0.6rem;">The Nexic derivation of the Rare Earth hypothesis reveals the cosmos as an unthinkably vast graveyard, making the fact that you are alive not a coincidence but a mathematical coupling between your existence and the specific history that produced you.</p>
-    <a href="/our-place.html" style="font-size:0.78rem;color:rgba(255,217,61,0.6);border-bottom:1px solid rgba(255,217,61,0.2);">Read more →</a>
-  </div>
-</section>
-
-<!-- ═══ ABOUT THE FRAMEWORK ═══ -->
-<hr class="divider">
-<section class="section" id="about">
-  <div class="section-label">About</div>
-  <div class="section-title">How it compares</div>
-  <div class="section-desc">Aethic reasoning produces predictions <em>different from</em> standard QM, placing it in a fundamentally different category from existing interpretations.</div>
-  <div style="overflow-x:auto;margin-top:1.5rem;">
-    <table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
-      <thead>
-        <tr>
-          <th style="text-align:left;padding:0.6rem 0.7rem;border-bottom:1px solid rgba(110,92,255,0.15);color:var(--text-dim);font-weight:500;">Framework</th>
-          <th style="text-align:left;padding:0.6rem 0.7rem;border-bottom:1px solid rgba(110,92,255,0.15);color:var(--text-dim);font-weight:500;">Collapse</th>
-          <th style="text-align:left;padding:0.6rem 0.7rem;border-bottom:1px solid rgba(110,92,255,0.15);color:var(--text-dim);font-weight:500;">Observer</th>
-          <th style="text-align:left;padding:0.6rem 0.7rem;border-bottom:1px solid rgba(110,92,255,0.15);color:var(--text-dim);font-weight:500;">Relativity</th>
-          <th style="text-align:left;padding:0.6rem 0.7rem;border-bottom:1px solid rgba(110,92,255,0.15);color:var(--text-dim);font-weight:500;">New predictions?</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="border-bottom:1px solid var(--border-subtle);">
-          <td style="padding:0.55rem 0.7rem;color:var(--text);">Copenhagen</td>
-          <td style="padding:0.55rem 0.7rem;color:var(--text-dim);">Unexplained axiom</td>
-          <td style="padding:0.55rem 0.7rem;color:var(--text-dim);">Special, undefined</td>
-          <td style="padding:0.55rem 0.7rem;color:rgba(255,217,61,0.7);">Problematic</td>
-          <td style="padding:0.55rem 0.7rem;color:rgba(255,110,138,0.6);">No</td>
-        </tr>
-        <tr style="border-bottom:1px solid var(--border-subtle);">
-          <td style="padding:0.55rem 0.7rem;color:var(--text);">Many-Worlds</td>
-          <td style="padding:0.55rem 0.7rem;color:var(--text-dim);">None (branching)</td>
-          <td style="padding:0.55rem 0.7rem;color:var(--text-dim);">Minimal</td>
-          <td style="padding:0.55rem 0.7rem;color:rgba(255,217,61,0.7);">Problematic</td>
-          <td style="padding:0.55rem 0.7rem;color:rgba(255,110,138,0.6);">No</td>
-        </tr>
-        <tr style="border-bottom:1px solid var(--border-subtle);">
-          <td style="padding:0.55rem 0.7rem;color:var(--text);">RQM</td>
-          <td style="padding:0.55rem 0.7rem;color:var(--text-dim);">Relational</td>
-          <td style="padding:0.55rem 0.7rem;color:var(--text-dim);">Central</td>
-          <td style="padding:0.55rem 0.7rem;color:rgba(78,205,196,0.7);">Good</td>
-          <td style="padding:0.55rem 0.7rem;color:rgba(255,110,138,0.6);">No</td>
-        </tr>
-        <tr style="border-bottom:1px solid var(--border-subtle);">
-          <td style="padding:0.55rem 0.7rem;color:var(--text);">QBism</td>
-          <td style="padding:0.55rem 0.7rem;color:var(--text-dim);">Belief update</td>
-          <td style="padding:0.55rem 0.7rem;color:var(--text-dim);">Central (subjective)</td>
-          <td style="padding:0.55rem 0.7rem;color:rgba(78,205,196,0.7);">Good</td>
-          <td style="padding:0.55rem 0.7rem;color:rgba(255,110,138,0.6);">No</td>
-        </tr>
-        <tr style="background:rgba(110,92,255,0.06);border-bottom:1px solid rgba(110,92,255,0.15);">
-          <td style="padding:0.55rem 0.7rem;color:var(--accent);font-weight:500;">Aethic</td>
-          <td style="padding:0.55rem 0.7rem;color:var(--accent);">Checkmate (logical)</td>
-          <td style="padding:0.55rem 0.7rem;color:var(--accent);">Central (Aethus)</td>
-          <td style="padding:0.55rem 0.7rem;color:rgba(78,205,196,0.8);">Excellent</td>
-          <td style="padding:0.55rem 0.7rem;color:rgba(78,205,196,0.8);font-weight:500;">Yes (billiard ball experiment)</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- ═══ RESEARCH ═══ -->
-<hr class="divider">
-<section class="section" id="research">
-  <div class="section-label">Research</div>
-  <div class="section-title">Papers & manuscripts</div>
-  <div class="section-desc">Core papers developing the Aethic and Nexic reasoning frameworks.</div>
-  <div class="papers-grid">
-    <a href="https://philpapers.org/archive/BENARA-5" target="_blank" rel="noopener" class="paper-card">
-      <div class="paper-icon" style="color:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
-      <div class="paper-info">
-        <h4>Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem</h4>
-        <div class="meta">November 2024 · Comprehensive paper · PhilPapers</div>
-      </div>
-    </a>
-    <a href="https://philpapers.org/archive/BENNRD.pdf" target="_blank" rel="noopener" class="paper-card">
-      <div class="paper-icon" style="color:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
-      <div class="paper-info">
-        <h4>Nexic Reasoning: Defining a Generalized Calculus Over Anthropic Parameters</h4>
-        <div class="meta">November 2024 · Anthropic reasoning · Fermi paradox · Paleontology</div>
-      </div>
-    </a>
-    <a href="https://philpapers.org/archive/BENARA-6.pdf" target="_blank" rel="noopener" class="paper-card">
-      <div class="paper-icon" style="color:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
-      <div class="paper-info">
-        <h4>Aethic Reasoning: Addressing the Quantum Observer Effect With Abstract Relational Logic</h4>
-        <div class="meta">August 2025 · Condensed companion paper</div>
-      </div>
-    </a>
-    <a href="https://philpapers.org/archive/BENEWD.pdf" target="_blank" rel="noopener" class="paper-card">
-      <div class="paper-icon" style="color:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg></div>
-      <div class="paper-info">
-        <h4>Extrusion Without Duplication: Aethic Time Collapse and Observer-Relative Reality</h4>
-        <div class="meta">June 2025 · Dedicated extrusion principle paper</div>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- ═══ SITE PAGES ═══ -->
-<hr class="divider">
-<section class="section" id="pages">
-  <div class="section-label">Site</div>
-  <div class="section-title">Pages</div>
-  <div class="pages-grid">
-    <a href="/ajax/" class="page-card">
-      <div class="pc-icon" style="color:var(--accent);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-      <h4>About Ajax</h4>
-      <p>Background, biography, and the story behind the research program.</p>
-    </a>
-    <a href="/aethic-code/" class="page-card">
-      <div class="pc-icon" style="color:var(--accent-teal);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 9 5 12 8 15"/><polyline points="16 9 19 12 16 15"/><line x1="13" y1="7" x2="11" y2="17"/></svg></div>
-      <h4>Aethic Code</h4>
-      <p>Computational tools, simulations, and code implementations of Aethic structures.</p>
-    </a>
-    <a href="/aethic-reasoning-guide.html#explorer" class="page-card">
-      <div class="pc-icon" style="color:var(--accent-lavender);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg></div>
-      <h4>Aethic Reasoning Guide</h4>
-      <p>Interactive layered walkthrough of the full framework.</p>
-    </a>
-    <a href="/nexic-reasoning-guide.html" class="page-card">
-      <div class="pc-icon" style="color:var(--accent-teal);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-      <h4>Nexic Reasoning Guide</h4>
-      <p>Interactive walkthrough of the anthropic parameter framework.</p>
-    </a>
-  </div>
-</section>
-
-<!-- ═══ UPDATES FEED ═══ -->
-<hr class="divider">
-<section class="section" id="updates">
-  <div class="section-label">Updates</div>
-  <div class="section-title">Recent activity</div>
-  <div class="section-desc">Papers, talks, events, and project milestones. This section will grow as the research program expands.</div>
-  <div class="feed">
-    <div class="feed-item">
-      <div class="feed-date">2025</div>
-      <div class="feed-body">
-        <span class="feed-badge paper">Paper</span>
-        <h4>Short Aethic paper and Extrusion paper released</h4>
-        <p>“Addressing the Quantum Observer Effect With Abstract Relational Logic” and “Extrusion Without Duplication: Aethic Time Collapse and Observer-Relative Reality” archived on PhilPapers.</p>
+<style>
+/* ─── shared top nav ─── */
+.topnav{position:sticky;top:0;z-index:100;background:rgba(21,22,16,.93);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid #2a2b22;transition:box-shadow .3s;}
+.topnav.scrolled{box-shadow:0 2px 22px rgba(0,0,0,.4);}
+.topnav-in{max-width:72rem;margin:0 auto;padding:.62rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:1.5rem;}
+.topnav-brand{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-block);text-decoration:none;white-space:nowrap;}
+.topnav-brand b{color:#fff;font-weight:600;}
+.topnav-brand .bar{color:var(--garnet-2);}
+.topnav-links{display:flex;align-items:center;gap:1.25rem;}
+.topnav-links a{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;color:var(--on-block-2);text-decoration:none;position:relative;transition:color .15s;white-space:nowrap;}
+.topnav-links a:hover{color:var(--on-block);}
+.topnav-links a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--garnet-2);transition:width .25s;}
+.topnav-links a:hover::after{width:100%;}
+.topnav-more{position:relative;}
+.topnav-more-btn{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;color:var(--on-block-2);background:none;border:none;cursor:pointer;padding:0;transition:color .15s;}
+.topnav-more-btn:hover{color:var(--on-block);}
+.topnav-dropdown{display:none;position:absolute;top:calc(100% + 10px);right:0;background:#12130d;border:1px solid #33342a;padding:.35rem 0;min-width:12.5rem;box-shadow:0 10px 30px rgba(0,0,0,.5);}
+.topnav-more.open .topnav-dropdown{display:block;}
+.topnav-dropdown a{display:block;padding:.5rem 1rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--on-block-2);text-decoration:none;transition:background .12s,color .12s;}
+.topnav-dropdown a:hover{color:#fff;background:rgba(158,42,60,.14);}
+.topnav-dropdown a::after{display:none;}
+.topnav-dropdown .sep{height:1px;background:#2a2b22;margin:.35rem 0;}
+@media(max-width:900px){ .topnav-links{gap:.95rem;} .tn-md{display:none;} }
+@media(max-width:640px){ .topnav-in{padding:.62rem 1rem;} .topnav-links{gap:.85rem;} .tn-sm{display:none;} }
+@media(max-width:400px){ .topnav-links{gap:.7rem;} .topnav-links a,.topnav-more-btn{font-size:.68rem;letter-spacing:.03em;} .topnav-brand{font-size:.68rem;letter-spacing:.12em;} }
+</style>
+<nav class="topnav" id="topnav">
+  <div class="topnav-in">
+    <a class="topnav-brand" href="/"><b>aethus</b><span class="bar">.</span>org</a>
+    <div class="topnav-links">
+      <a href="/start-here.html">Start Here</a>
+      <a href="/aethic-reasoning-guide.html#explorer">Aethic Guide</a>
+      <a href="/nexic-reasoning-guide.html" class="tn-sm">Nexic Guide</a>
+      <a href="/faq.html" class="tn-sm">FAQ</a>
+      <a href="/aethic-code/" class="tn-md">Aethic Code</a>
+      <a href="/ajax/" class="tn-md">About Ajax</a>
+      <div class="topnav-more">
+        <button class="topnav-more-btn" onclick="this.parentElement.classList.toggle('open')" aria-haspopup="true" aria-expanded="false">More &#9662;</button>
+        <div class="topnav-dropdown">
+          <a href="/nexic-reasoning-guide.html">Nexic Guide</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/aethic-code/">Aethic Code</a>
+          <a href="/glossary.html">Glossary</a>
+          <a href="/principles_compendium.html">Principles Compendium</a>
+          <a href="/constraints_map.html">Constraints Map</a>
+          <a href="/ajax/">About Ajax</a>
+          <div class="sep"></div>
+          <a href="/supporting/provenance.html">Provenance</a>
+          <a href="https://philpeople.org/profiles/ajax-benander" target="_blank" rel="noopener">Papers &#8599;</a>
+        </div>
       </div>
     </div>
-    <div class="feed-item">
-      <div class="feed-date">Nov 2024</div>
-      <div class="feed-body">
-        <span class="feed-badge paper">Paper</span>
-        <h4>Comprehensive Aethic Reasoning paper posted to PhilArchive</h4>
-        <p>Full derivation of the collapse postulate from three postulates, including the double-slit derivation, the reduced form, the powerset invalidation theorem, and the Quantum Nexus integral.</p>
-      </div>
-    </div>
-    <div class="feed-item">
-      <div class="feed-date">Nov 2024</div>
-      <div class="feed-body">
-        <span class="feed-badge paper">Paper</span>
-        <h4>Nexic Reasoning manuscript completed</h4>
-        <p>Generalized calculus over anthropic parameters: the Accordance Principle, Optimation, the Dark Era hypothesis, derivation of the Rare Earth hypothesis, and primate cladogenesis on Hațeg Island.</p>
-      </div>
-    </div>
-    <!--
-    ═══ TEMPLATE FOR FUTURE ENTRIES ═══
-    Copy and paste this block, then edit the date, badge class, and content.
-    Badge classes: paper, event, talk, update
-
-    <div class="feed-item">
-      <div class="feed-date">2026 Mar</div>
-      <div class="feed-body">
-        <span class="feed-badge event">Event</span>
-        <h4>Title of the event or update</h4>
-        <p>Brief description of the event, conference, or milestone.</p>
-      </div>
-    </div>
-    -->
   </div>
-</section>
-
-<!-- ═══ CONTACT ═══ -->
-<hr class="divider">
-<section class="section" id="contact">
-  <div class="section-label">Contact</div>
-  <div class="section-title">Get in touch</div>
-  <div class="contact-row">
-    <a href="/ajax/" class="contact-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> About Ajax</a>
-
-    <a id="email-link" href="#" class="contact-pill">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect width="20" height="16" x="2" y="4" rx="2"/>
-      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-    </svg>
-    <span id="email-text">Email</span>
-  </a>
-  <noscript>Email: akb9408 [at] rit [dot] edu</noscript>
-    <script>
-      (function() {
-        var user = "akb" + "9408";
-        var domain = "rit" + "." + "edu";
-        var link = document.getElementById("email-link");
-        link.href = "mai" + "lto:" + user + "@" + domain;
-        link.textContent = user + "@" + domain;
-      })();
-    </script>
-    
-    <a href="https://philpeople.org/profiles/ajax-benander" target="_blank" rel="noopener" class="contact-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> PhilPeople</a>
-    <a href="https://youtube.com/@BrunchWithNewton" target="_blank" rel="noopener" class="contact-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg> YouTube</a>
-    <a href="https://bsky.app/profile/ajax-science.bsky.social" target="_blank" rel="noopener" class="contact-pill"><svg width="16" height="16" viewBox="0 0 600 530" fill="currentColor"><path d="M135.7 44.3C202 98 274 210 300 261c26-51 98-163 164.3-216.7C491.5 22 568-3.5 568 67.5c0 14.3-8.2 120-13 137.2-16.7 60-77.4 75.3-131.5 66 94.5 16.1 118.6 69.5 66.6 123-99 101.5-142.3-25.5-153.4-58-.7-2-2-2-2.7 0-11.1 32.5-54.4 159.5-153.4 58C128.9 340.2 153 286.8 247.5 270.7c-54.1 9.3-114.8-5.9-131.5-66C111.2 187.5 103 81.8 103 67.5c0-71 76.5-45.5 32.7-23.2z"/></svg> Bluesky</a>
-    <a href="https://linkedin.com/in/ajax-benander-5aaa65260" target="_blank" rel="noopener" class="contact-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
-  </div>
-</section>
-
-<footer>
-  © 2025–2026 Ajax Benander · All rights reserved
-</footer>
-
+</nav>
 <script>
-/* ─── Interactive extrusion-principle hero diagram ─── */
 (function(){
-  const mount = document.getElementById('extrusion-hero');
-  if(!mount) return;
-  const NS="http://www.w3.org/2000/svg", W=720, H=372;
-  const svg=document.createElementNS(NS,"svg");
-  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
-  svg.setAttribute("width","100%");
-  svg.setAttribute("role","img");
-  svg.setAttribute("tabindex","0");
-  svg.setAttribute("aria-label","Interactive diagram of the extrusion principle. A parent block universe holds a which-path superposition: two particle paths pass through two slits past a which-path detector. On observation the system extrudes into a child block universe with a definite outcome. The detector can be toggled off to switch from the disagreeing (which-path) case, whose landings build two bands, to the agreeing case, whose landings build interference fringes.");
-  svg.style.cssText="display:block;max-width:720px;margin:0 auto;cursor:pointer;outline:none;";
-  svg.innerHTML=`<defs>
-    <radialGradient id="eOrbA" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#6e5cff" stop-opacity="0.9"/><stop offset="100%" stop-color="#6e5cff" stop-opacity="0"/></radialGradient>
-    <radialGradient id="eOrbT" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4ecdc4" stop-opacity="0.9"/><stop offset="100%" stop-color="#4ecdc4" stop-opacity="0"/></radialGradient>
-    <linearGradient id="eBlock" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6e5cff" stop-opacity="0.55"/><stop offset="100%" stop-color="#4ecdc4" stop-opacity="0.35"/></linearGradient>
-    <filter id="eSoft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
-  </defs>`;
-  function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
-  function block(cx,cy,w,h,depth,fill){
-    const g=el("g",{}); const sx=depth*0.6, sy=-depth*0.5;
-    const x0=cx-w/2, y0=cy-h/2;
-    g.appendChild(el("polygon",{points:`${x0},${y0} ${x0+sx},${y0+sy} ${x0+w+sx},${y0+sy} ${x0+w},${y0}`,fill:"rgba(110,92,255,0.10)",stroke:"url(#eBlock)","stroke-width":1}));
-    g.appendChild(el("polygon",{points:`${x0+w},${y0} ${x0+w+sx},${y0+sy} ${x0+w+sx},${y0+h+sy} ${x0+w},${y0+h}`,fill:"rgba(78,205,196,0.06)",stroke:"url(#eBlock)","stroke-width":1}));
-    g.appendChild(el("rect",{x:x0,y:y0,width:w,height:h,rx:8,fill:fill||"rgba(19,19,34,0.85)",stroke:"url(#eBlock)","stroke-width":1.4}));
-    return {g};
-  }
-  // Draw a two-slit wall with gaps at the slit centers (top y=164, bottom y=196).
-  function slitWall(xWall, off){
-    const g=el("g",{});
-    const wc="rgba(200,200,222,0.4)", wsw=3.2;
-    // three segments leaving two gaps (gaps: 157..171 and 189..203)
-    g.appendChild(el("line",{x1:xWall+off,y1:120,x2:xWall+off,y2:157,stroke:wc,"stroke-width":wsw,"stroke-linecap":"round"}));
-    g.appendChild(el("line",{x1:xWall+off,y1:171,x2:xWall+off,y2:189,stroke:wc,"stroke-width":wsw,"stroke-linecap":"round"}));
-    g.appendChild(el("line",{x1:xWall+off,y1:203,x2:xWall+off,y2:240,stroke:wc,"stroke-width":wsw,"stroke-linecap":"round"}));
-    return g;
-  }
-
-  /* ---------- PARENT: which-path superposition (disagreeing) ---------- */
-  const parent=block(170,180,200,150,28);
-  const pInner=el("g",{opacity:"0.92"});
-  pInner.appendChild(el("circle",{cx:100,cy:180,r:4,fill:"#eeeef8"})); // source
-  // straight paths through each slit (slits at y=164 top, y=196 bottom)
-  const pathA=el("path",{d:"M100,180 L165,164 L248,150",fill:"none",stroke:"url(#eOrbA)","stroke-width":2.2,opacity:"0.72","stroke-linejoin":"round"});
-  const pathB=el("path",{d:"M100,180 L165,196 L248,210",fill:"none",stroke:"url(#eOrbT)","stroke-width":2.2,opacity:"0.72","stroke-linejoin":"round"});
-  pInner.appendChild(pathA); pInner.appendChild(pathB);
-  pInner.appendChild(slitWall(165,0));
-  // landing screen (right interior)
-  pInner.appendChild(el("line",{x1:250,y1:124,x2:250,y2:236,stroke:"rgba(200,200,222,0.22)","stroke-width":2}));
-  parent.g.appendChild(pInner);
-  // soft superposition glow centered between slits
-  const supOrb=el("circle",{cx:165,cy:180,r:20,fill:"url(#eOrbA)",filter:"url(#eSoft)"});
-  supOrb.style.mixBlendMode="screen";
-  parent.g.appendChild(supOrb);
-
-  /* which-path DETECTOR on the parent wall — the reason this is disagreeing */
-  const detector=el("g",{});
-  // small sensor box hugging the lower slit (y=196), with a pulsing "eye" dot
-  const detBox=el("rect",{x:172,y:186,width:18,height:20,rx:3,fill:"rgba(255,110,138,0.14)",stroke:"#ff6e8a","stroke-width":1.2});
-  detector.appendChild(detBox);
-  const detDot=el("circle",{cx:181,cy:196,r:2.6,fill:"#ff6e8a"});
-  detector.appendChild(detDot);
-  // little lead line + label
-  const detLead=el("line",{x1:181,y1:206,x2:181,y2:216,stroke:"#ff6e8a","stroke-width":1,opacity:"0.6"});
-  detector.appendChild(detLead);
-  const detLabel=el("text",{x:181,y:227,"text-anchor":"middle",fill:"#ff6e8a","font-size":"9.5","font-family":"DM Sans,system-ui,sans-serif","letter-spacing":"0.06em"});
-  detLabel.textContent="DETECTOR ON"; detector.appendChild(detLabel);
-  detector.setAttribute("id","detToggle"); detector.style.cursor="pointer";
-  parent.g.appendChild(detector);
-
-  const pLabel=el("text",{x:170,y:300,"text-anchor":"middle",fill:"#7a7a96","font-size":"12.5","font-family":"DM Sans,system-ui,sans-serif","letter-spacing":"0.05em"});
-  pLabel.textContent="PARENT · disagreeing superposition"; parent.g.appendChild(pLabel);
-
-  /* ---------- CHILD: one definite straight path through one slit ---------- */
-  const child=block(540,180,200,150,28,"rgba(19,19,34,0.95)");
-  child.g.setAttribute("opacity","0.16");
-  const cInner=el("g",{opacity:"0"});
-  cInner.appendChild(el("circle",{cx:470,cy:180,r:4,fill:"#eeeef8"}));
-  // resolved path is STRAIGHT through one slit (set on observe, landing sampled)
-  const cPath=el("path",{d:"M470,180 L535,164 L618,150",fill:"none",stroke:"#4ecdc4","stroke-width":2.6,opacity:"0.95","stroke-linejoin":"round"});
-  cInner.appendChild(cPath);
-  const cPathB=el("path",{d:"",fill:"none",stroke:"#6e5cff","stroke-width":2.2,opacity:"0","stroke-linejoin":"round"});
-  cInner.appendChild(cPathB);
-  cInner.appendChild(slitWall(535,0));
-  cInner.appendChild(el("line",{x1:620,y1:124,x2:620,y2:236,stroke:"rgba(200,200,222,0.22)","stroke-width":2}));
-  const cDot=el("circle",{cx:618,cy:150,r:5,fill:"#4ecdc4"}); // definite landing
-  cInner.appendChild(cDot);
-  // faint single-slit diffraction envelope on the screen (shows the distribution landing was drawn from)
-  const envelope=el("path",{d:"",fill:"none",stroke:"#4ecdc4","stroke-width":1,opacity:"0"});
-  cInner.appendChild(envelope);
-  cInner.appendChild(cDot);
-  child.g.appendChild(cInner);
-  const cLabel=el("text",{x:540,y:300,"text-anchor":"middle",fill:"#7a7a96","font-size":"12.5","font-family":"DM Sans,system-ui,sans-serif","letter-spacing":"0.05em",opacity:"0"});
-  cLabel.textContent="CHILD · definite path"; child.g.appendChild(cLabel);
-
-  /* ---------- extrude arrow ---------- */
-  const arrow=el("g",{opacity:"0.6"});
-  arrow.appendChild(el("path",{d:"M300,170 C355,156 385,156 430,170",fill:"none",stroke:"#c084fc","stroke-width":1.6,"stroke-dasharray":"4 5"}));
-  arrow.appendChild(el("path",{d:"M424,163 L434,171 L424,178",fill:"none",stroke:"#c084fc","stroke-width":1.6}));
-  const aLabel=el("text",{x:365,y:146,"text-anchor":"middle",fill:"#c084fc","font-size":"11","font-family":"DM Sans,system-ui,sans-serif","font-style":"italic"});
-  aLabel.textContent="extrude"; arrow.appendChild(aLabel);
-
-  const caption=el("text",{x:W/2,y:350,"text-anchor":"middle",fill:"#7a7a96","font-size":"13","font-family":"DM Sans,system-ui,sans-serif"});
-  caption.textContent="Click to observe — the particle never changed; your Aethus did.";
-
-  const hits=el("g",{});
-  const captionHint=el("text",{x:W/2,y:366,"text-anchor":"middle",fill:"#55556e","font-size":"10.5","font-family":"DM Sans,system-ui,sans-serif"});
-  captionHint.textContent="toggle the detector · spam-click to build the pattern";
-  svg.appendChild(parent.g); svg.appendChild(arrow); svg.appendChild(child.g); svg.appendChild(hits); svg.appendChild(caption); svg.appendChild(captionHint);
-  mount.appendChild(svg);
-
-  let phase="super", t0=performance.now(), resolveStart=0, chosen="A", detectorOn=true;
-  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function ease(p){return p<0.5?2*p*p:1-Math.pow(-2*p+2,2)/2;}
-  function tick(now){
-    const dt=(now-t0)/1000;
-    if(phase==="super" && !reduce){
-      supOrb.setAttribute("r",(16+Math.sin(dt*2.2)*5).toFixed(1));
-      supOrb.setAttribute("opacity",(0.5+0.2*Math.sin(dt*2.2)).toFixed(2));
-      pathA.setAttribute("opacity",(0.52+0.24*Math.sin(dt*1.7)).toFixed(2));
-      pathB.setAttribute("opacity",(0.52+0.24*Math.sin(dt*1.7+1.5)).toFixed(2));
-      detDot.setAttribute("opacity", detectorOn?(0.55+0.45*Math.sin(dt*3.0)).toFixed(2):"0");
-    }
-    if(phase==="resolving"){
-      const p=Math.min((now-resolveStart)/900,1), e=ease(p);
-      supOrb.setAttribute("opacity",(0.55*(1-e)).toFixed(2));
-      if(chosen==="A"){pathB.setAttribute("opacity",(0.72*(1-e)).toFixed(2));}
-      else if(chosen==="B"){pathA.setAttribute("opacity",(0.72*(1-e)).toFixed(2));}
-      child.g.setAttribute("opacity",(0.16+0.84*e).toFixed(2));
-      cInner.setAttribute("opacity",e.toFixed(2));
-      cLabel.setAttribute("opacity",e.toFixed(2));
-      envelope.setAttribute("opacity",(0.32*e).toFixed(2));
-      arrow.setAttribute("opacity",(0.4+0.4*Math.sin(p*Math.PI)).toFixed(2));
-      if(p>=1){phase="resolved"; resolveStart=now;}
-    }
-    if(phase==="resolved" && (now-resolveStart)/1000>3.2){ resetScene(); }
-    requestAnimationFrame(tick);
-  }
-  // single-slit diffraction envelope (sinc^2) + rejection sampler
-  function sinc2(b){ if(Math.abs(b)<1e-9) return 1; const s=Math.sin(b)/b; return s*s; }
-  function sampleLanding(centerY){
-    const ymin=128, ymax=232, scale=20;
-    for(let i=0;i<200;i++){
-      const y=ymin+Math.random()*(ymax-ymin);
-      if(Math.random() < sinc2(Math.PI*(y-centerY)/scale)) return y;
-    }
-    return centerY;
-  }
-  function intensityOff(y){ // two-slit: single-slit envelope × cos² fringes, centered on axis (y=180)
-    return sinc2(Math.PI*(y-180)/34)*Math.pow(Math.cos(Math.PI*(y-180)/16),2);
-  }
-  function sampleInterference(){
-    const ymin=128,ymax=232;
-    for(let i=0;i<400;i++){
-      const y=ymin+Math.random()*(ymax-ymin);
-      if(Math.random()<intensityOff(y)) return y;
-    }
-    return 180;
-  }
-  function drawEnvelope(fn){
-    let d="M";
-    for(let y=128;y<=232;y+=2){
-      const x=620+fn(y)*26;
-      d+=`${(y===128?'':'L')}${x.toFixed(1)},${y} `;
-    }
-    envelope.setAttribute("d",d.trim());
-  }
-  function observe(){
-    if(phase!=="super") return;
-    let landY;
-    if(detectorOn){
-      chosen=Math.random()<0.5?"A":"B";
-      const slitY=(chosen==="A")?164:196, centerY=(chosen==="A")?150:210;
-      landY=sampleLanding(centerY);
-      drawEnvelope(function(y){return sinc2(Math.PI*(y-centerY)/20);});
-      cPath.setAttribute("d",`M470,180 L535,${slitY} L618,${landY.toFixed(1)}`);
-      cPath.setAttribute("opacity","0.95");
-      cPathB.setAttribute("opacity","0");
-      cLabel.textContent="CHILD · definite path";
-    }else{
-      chosen="AB";
-      landY=sampleInterference();
-      drawEnvelope(intensityOff);
-      cPath.setAttribute("d",`M470,180 L535,164 L618,${landY.toFixed(1)}`);
-      cPath.setAttribute("opacity","0.6");
-      cPathB.setAttribute("d",`M470,180 L535,196 L618,${landY.toFixed(1)}`);
-      cPathB.setAttribute("opacity","0.6");
-      cLabel.textContent="CHILD · definite landing — path still agreeing";
-    }
-    cDot.setAttribute("cy",landY.toFixed(1));
-    hits.appendChild(el("circle",{cx:623,cy:landY.toFixed(1),r:1.6,fill:detectorOn?"#4ecdc4":"#c084fc",opacity:"0.5"}));
-    if(hits.childNodes.length>160) hits.removeChild(hits.firstChild);
-    phase="resolving"; resolveStart=performance.now();
-    caption.textContent="Extruding into the block universe where this "+(detectorOn?"path":"landing")+" was always a fact…";
-  }
-  function resetScene(){
-    phase="super"; t0=performance.now();
-    child.g.setAttribute("opacity","0.16"); cInner.setAttribute("opacity","0"); cLabel.setAttribute("opacity","0");
-    envelope.setAttribute("opacity","0");
-    arrow.setAttribute("opacity","0.6"); pathA.setAttribute("opacity","0.72"); pathB.setAttribute("opacity","0.72");
-    cPathB.setAttribute("opacity","0");
-    caption.textContent = hits.childNodes.length>0
-      ? (detectorOn ? "Observe again — landings build the two which-path bands."
-                    : "Observe again — landings build the interference fringes.")
-      : "Click to observe — the particle never changed; your Aethus did.";
-  }
-  function act(){ if(phase==="super"){observe();} else {resetScene(); observe();} }
-  function toggleDetector(){
-    detectorOn=!detectorOn;
-    detBox.setAttribute("stroke",detectorOn?"#ff6e8a":"#7a7a96");
-    detBox.setAttribute("fill",detectorOn?"rgba(255,110,138,0.14)":"rgba(122,122,150,0.08)");
-    detLabel.setAttribute("fill",detectorOn?"#ff6e8a":"#7a7a96");
-    detLabel.textContent=detectorOn?"DETECTOR ON":"DETECTOR OFF";
-    detLead.setAttribute("stroke",detectorOn?"#ff6e8a":"#7a7a96");
-    detDot.setAttribute("opacity",detectorOn?"1":"0");
-    pLabel.textContent=detectorOn?"PARENT · disagreeing superposition":"PARENT · agreeing superposition";
-    while(hits.firstChild) hits.removeChild(hits.firstChild);
-    resetScene();
-    caption.textContent=detectorOn
-      ? "Detector on — observe to land definite which-path outcomes."
-      : "Detector off — observe to build the interference fringes.";
-  }
-  detector.addEventListener("click",function(ev){ev.stopPropagation();toggleDetector();});
-  svg.addEventListener("click",act);
-  svg.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();act();}if(e.key==="d"||e.key==="D"){e.preventDefault();toggleDetector();}});
-  requestAnimationFrame(tick);
+  var tn=document.getElementById('topnav');
+  if(tn){window.addEventListener('scroll',function(){tn.classList.toggle('scrolled',window.scrollY>30);});}
+  document.addEventListener('click',function(e){
+    var m=document.querySelector('.topnav-more');
+    if(m&&!m.contains(e.target)){m.classList.remove('open');var b=m.querySelector('.topnav-more-btn');if(b)b.setAttribute('aria-expanded','false');}
+  });
+  var mb=document.querySelector('.topnav-more-btn');
+  if(mb){mb.addEventListener('click',function(){mb.setAttribute('aria-expanded', mb.parentElement.classList.contains('open')?'true':'false');});}
 })();
 </script>
 
-<script>
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href').substring(1);
-    const target = document.getElementById(id);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-</script>
+<header class="hero">
+  <div class="wide">
+    <div class="site-id"><b>aethus.org</b> · the research of Ajax Benander</div>
+    <div class="hero-formula"><span class="lit">determinacy</span>( q <span class="bar">∣</span> A )&nbsp;&nbsp;—&nbsp;&nbsp;a two-place relation, never a property of q alone</div>
+    <h1>Reality,<br><em>indexed.</em></h1>
+    <p class="hero-sub">A realist answer to the quantum measurement problem, built from a single move: <span class="dim">stop indexing facts to spacetime, and index them to an observer's information state instead.</span> Collapse becomes an indexing transition, not a physical event; counterfactuals stop needing possible worlds; and one four-dimensional block turns out to hold many legitimate determinate realities at once.</p>
+    <div class="hero-by">Aethic reasoning · developed by Ajax Benander, 2022–2023 · public preprints, explicit derivations</div>
+    <div class="hero-cta">
+      <a class="btn pri" href="/start-here.html">Start here — the five-minute case →</a>
+      <a class="btn" href="/aethic-reasoning-guide.html#explorer">The guide, layer by layer</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wide">
+    <div class="sec-head">
+      <span class="eyebrow">The one move</span>
+      <h2>One inversion, run from modality to measurement.</h2>
+      <p>Almost every framework in physics and metaphysics shares a hidden bookkeeping convention: it fixes facts to spacetime. Aethic reasoning relocates the index of reality to the <em>Aethus</em> — an observer's complete information state — and follows the consequence. The block universe survives untouched; what varies is which of its co-present decompositions is <em>yours</em>.</p>
+    </div>
+    <div class="moves">
+      <div class="move">
+        <div class="n">01 · Modality</div>
+        <h3>Counterfactuals without possible worlds</h3>
+        <p>The Lewis–Stalnaker similarity ordering is <em>deleted</em>, not refined — its work redistributed across validity, weight, and the books' own dependency structure. "What would have happened" becomes an audit on your own ledger, not travel to a neighbouring world.</p>
+      </div>
+      <div class="move">
+        <div class="n">02 · Logic</div>
+        <h3>The union move</h3>
+        <p>Physical "or" does not exist. Alternatives are co-present in one block; mutual exclusivity is manufactured from the <em>interior</em> of each pocket, not an exterior wall. Remove those interior negations and the alternatives interact — and that interaction is quantum interference.</p>
+      </div>
+      <div class="move">
+        <div class="n">03 · Measurement</div>
+        <h3>Collapse, derived</h3>
+        <p>A two-generational consistency condition — a logical "checkmate" — prunes the states that can never make a contradiction impossible. Collapse falls out as a theorem about which bookkeeping states have escape routes. No new physical mechanism, no free parameters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wide">
+    <div class="sec-head">
+      <span class="eyebrow">What kind of claim this is</span>
+      <h2>A unification, priced honestly.</h2>
+    </div>
+    <div class="split">
+      <div>
+        <span class="eyebrow-dim">The claim</span>
+        <h3>Compression, not a rival to QM's numbers</h3>
+        <p>The framework reproduces standard quantum phenomenology in every case it treats — the double slit, Bell/EPR correlations, delayed choice, Wigner's friend — and shows that several problems long treated as separate are one problem, solvable once. In the spirit of relativity compressing gravity into geometry.</p>
+        <p>Its two structural headlines survive every attempt to compress it: <strong>the similarity ordering is deleted, not refined</strong>, and the framework buys <strong>counterfactual substance without counterfactual definiteness</strong> — exactly the combination Bell-type theorems demand and hidden-variable programs cannot supply.</p>
+      </div>
+      <div>
+        <span class="eyebrow-dim">The status</span>
+        <h3>Independent, unreviewed, open</h3>
+        <p>This is independent research with public preprints and step-by-step derivations. It has <strong>not been peer-reviewed</strong>; no physicist or philosopher has published a response. The papers are open — the honest thing is provisional interest paired with the caution that the absence of review calls for.</p>
+        <p>What the framework offers in place of authority is a <strong>posted price list</strong>: every load-bearing assumption is stated, and the places where its commitments outrun its proofs are named rather than hidden. The <a class="link" href="/faq.html">Questions &amp; Context</a> page takes the hardest objections head-on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wide">
+    <div class="sec-head">
+      <span class="eyebrow">How it is tested</span>
+      <h2>Where the framework meets a lab.</h2>
+      <p>Aethic reasoning shares every standard prediction it treats, so it is not tested by a single decisive tabletop experiment. Its empirical exposure is a portfolio, and its sharpest fork runs against the spontaneous-collapse programs.</p>
+    </div>
+    <div class="prose" style="max-width:41rem;">
+      <p>Objective-collapse models — GRW, continuous spontaneous localization, the gravitational variants of Diósi and Penrose — predict a <em>scale-induced</em> breakdown of superposition that no quality of information-erasure can prevent. Aethic reasoning predicts the opposite: <strong>no breakdown ever, given genuinely permanent inaccessibility of the distinguishing information</strong>, with all apparent scale-dependence exhausted by informational accessibility.</p>
+      <p>The frontier where those predictions diverge today is real and active: <strong>matter-wave interferometry of ever-more-massive systems</strong> and its levitated-optomechanics descendants. Each confirmed extension of coherence to larger masses under controlled erasure is evidence for the informational boundary and against the collapse family; a reproducible breakdown not attributable to residual environmental records would falsify the framework outright.</p>
+      <p>The idealized endpoint of that program — a fully hidden macroscopic scenario that interacts with its own alternatives, with no wave pattern — is the framework's <strong>Class C</strong> regime. Its realizability is an explicitly open engineering-and-theory question (the exact conditions of in-principle irretrievability), flagged in the papers rather than papered over. Nearer to hand, a two-tag interferometry setup prices the framework's central distinction — between the coherent "agreeing" regime and the classical "disagreeing" one — directly on the wall, and the framework's non-negative weight algebra is a standing structural commitment at the negativity–contextuality joint, not a preference.</p>
+      <div class="notebar">On the billiard-ball scenario: in the current papers it is the idealized endpoint of the matter-wave program above — the fully-hidden macroscopic limit, one theatre among several — not a near-term falsification test. Because the framework reproduces standard quantum predictions, no single tabletop result decides it: the flagship posture is unification, and the sharp falsifiable commitments are the collapse-model fork and the negativity–contextuality structural claim.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wide">
+    <div class="sec-head">
+      <span class="eyebrow">How it compares</span>
+      <h2>Positioned against the field, not above it.</h2>
+    </div>
+    <div class="tbl-scroll">
+      <table class="tbl">
+        <thead>
+          <tr><th>Framework</th><th>Collapse is…</th><th>Observer</th><th>Determinacy indexed?</th><th>Central open problem</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Copenhagen</td><td>a physical event</td><td>special, undefined</td><td>no</td><td>the shifty quantum–classical split</td></tr>
+          <tr><td>GRW / collapse</td><td>a physical stochastic event</td><td>none</td><td>no</td><td>new dynamics; fit to relativity</td></tr>
+          <tr><td>Everett (MWI)</td><td>eliminated (branching)</td><td>minimal</td><td>—</td><td>probability from branch-counting</td></tr>
+          <tr><td>Bohm</td><td>eliminated</td><td>minimal</td><td>no</td><td>preferred foliation + hidden values</td></tr>
+          <tr><td>RQM</td><td>relational</td><td>central</td><td>yes, postulated</td><td>cross-observer consistency, patched</td></tr>
+          <tr><td>QBism</td><td>a belief update</td><td>central (subjective)</td><td>yes, epistemic</td><td>silent on what states are about</td></tr>
+          <tr class="me"><td>Aethic</td><td>an indexing transit (derived)</td><td>central (the Aethus)</td><td>yes, derived</td><td>the amplitude kernel (one axiom)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-cap">The base-rate against a new interpretation is brutal, and the framework grants it. Its answer is concrete rather than statistical: the central problems of the best existing attempts fall, one and all, to the same two moves — the informational boundary and the observer indexing — which is at least evidence about where the difficulty always lived.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wide">
+    <div class="sec-head">
+      <span class="eyebrow">Read the framework</span>
+      <h2>Three depths, one architecture.</h2>
+    </div>
+    <div class="navgrid">
+      <a href="/start-here.html">
+        <div class="nt">Start Here — Reality, Indexed <span class="arr">→</span></div>
+        <div class="nd">The complete case in plain English, from an everyday counterfactual to the measurement problem. The gentlest on-ramp; ~20 minutes.</div>
+      </a>
+      <a href="/aethic-reasoning-guide.html#explorer">
+        <div class="nt">The Aethic Guide <span class="arr">→</span></div>
+        <div class="nd">A layered walkthrough from the Extrusion Principle to the Quantum Nexus, with an interactive Powerset Invalidation demo. Explorer or Technical mode.</div>
+      </a>
+      <a href="/constraints_map.html">
+        <div class="nt">Threading the Needle <span class="arr">→</span></div>
+        <div class="nd">A close reading of how the framework was actually derived — the constraint-fields each move had to satisfy, and the cognitive pattern behind them.</div>
+      </a>
+      <a href="/principles_compendium.html">
+        <div class="nt">The Compendium <span class="arr">→</span></div>
+        <div class="nd">A filterable encyclopedia of every principle, postulate, theorem, definition, and thought experiment, tiered by how much of the framework rests on it.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="nexic">
+  <div class="wide">
+    <div class="sec-head">
+      <span class="eyebrow">The companion framework</span>
+      <h2>Nexic reasoning: the same logic, aimed at deep time.</h2>
+      <p>If reality is indexed to what an observer can know, there is no principled line between the physical constants anthropic reasoning already studies and the contingent historical events that produced us. Both are requisites for your existence; both are anthropic parameters.</p>
+    </div>
+    <div class="prose" style="max-width:41rem;">
+      <p>The <strong>Accordance Principle</strong> is the engine: applied one attribute at a time, it says to expect each feature of your natural history to be the <em>likelier</em> route to observers — a deductive generalization of survivorship bias, run as an optimization query over the fossil record rather than a wait for the next dig. The <strong>Theorem of Aimless Optimation</strong> supplies a built-in control: for any history statistically independent of observers, the baseline and the survivorship-weighted expectation must agree. Sister clades are the natural test — Old World monkeys diverged from our lineage ~25 million years ago and, across 100-plus species since, not one reached ape-level intelligence.</p>
+      <p>Cascaded across the independent "Miracles" our existence required — the K–Pg extinction, the Chicxulub impactor's specific mass, a single gene loss in our primate ancestors — the per-biosphere probability of observers compresses to something near <span class="stat">10⁻²⁷ per planet</span>. On that arithmetic the Fermi silence is not a paradox but a prediction, and the Rare Earth hypothesis is <em>derived</em> rather than assumed.</p>
+    </div>
+    <div class="hero-cta">
+      <a class="btn" href="/nexic-reasoning-guide.html">The Nexic Guide →</a>
+      <a class="btn" href="/our-place.html">Our place in the universe</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wide">
+    <div class="sec-head">
+      <span class="eyebrow">The papers</span>
+      <h2>Public preprints.</h2>
+      <p>All manuscripts are archived and openly downloadable. Newest first; the compressed "In Brief" is the recommended entry point, with the Comprehensive paper as its full companion.</p>
+    </div>
+    <div class="papers">
+      <a class="paper newest" href="https://philpapers.org/rec/BENARI-3">
+        <div class="pt">Aethic Reasoning in Brief: From a Counterfactual Semantics to the Quantum Measurement Problem <span class="flag">Newest · start here</span></div>
+        <div class="pm">July 2026 · compressed companion · the framework's main line in one read</div>
+      </a>
+      <a class="paper" href="https://philpapers.org/rec/BENARA-5">
+        <div class="pt">Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem</div>
+        <div class="pm">Nov 2024, revised through 2026 · the full development · every claim at native resolution</div>
+      </a>
+      <a class="paper" href="https://philpeople.org/profiles/ajax-benander">
+        <div class="pt">Extrusion Without Duplication: Aethic Time, Collapse, and Observer-Relative Reality</div>
+        <div class="pm">June 2025 · the extrusion principle, standalone</div>
+      </a>
+      <a class="paper" href="https://philpapers.org/rec/BENNRD">
+        <div class="pt">Nexic Reasoning: Defining a Generalized Calculus Over Anthropic Parameters</div>
+        <div class="pm">Nov 2024 · anthropic reasoning · the Fermi paradox · paleontology</div>
+      </a>
+      <a class="paper" href="https://philpeople.org/profiles/ajax-benander">
+        <div class="pt">Aethic Reasoning: Addressing the Quantum Observer Effect With Abstract Relational Logic</div>
+        <div class="pm">Aug 2025 · an earlier condensed companion (predates the current framing)</div>
+      </a>
+    </div>
+    <div class="notebar" style="margin-top:2rem;">
+      Provenance, stated plainly because it can be checked. The framework's fundamentals and its extrusion principle date to August 2022; the three postulates and their applications to time, logic, probability, and the double slit were established by May 2023, and the complete formalism was deposited at PhilArchive in November 2024 — nineteen months before any AI involvement. Successive deposits (July 2025, January 2026, April 2026) date the later-coined terms — the reduced form, the Quantum Nexus, the Powerset Invalidation Theorem — to the author ahead of any exchange. The 2026 assistance was recognition and translation, not construction: it identified the standing literatures the author's structures turned out to inhabit and rendered the already-outlined derivations in their standard terminology. The Comprehensive paper has quietly passed 3,600 downloads on PhilArchive in its first eighteen months, currently running above 500 a month, without author promotion.
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wide">
+    <div class="foot-grid">
+      <div>
+        <h4>The framework</h4>
+        <ul>
+          <li><a href="/start-here.html">Start Here</a></li>
+          <li><a href="/aethic-reasoning-guide.html">Aethic Guide</a></li>
+          <li><a href="/nexic-reasoning-guide.html">Nexic Guide</a></li>
+          <li><a href="/constraints_map.html">Threading the Needle</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul>
+          <li><a href="/principles_compendium.html">Compendium</a></li>
+          <li><a href="/glossary.html">Glossary</a></li>
+          <li><a href="/faq.html">Questions &amp; Context</a></li>
+          <li><a href="/supporting/provenance.html">Provenance</a></li>
+<li><a href="/aethic-code/">Aethic Code</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ajax Benander</h4>
+        <ul>
+          <li><a href="/ajax/">About Ajax</a></li>
+          <li><a href="https://philpeople.org/profiles/ajax-benander">PhilPeople &#8599;</a></li>
+          <li><a href="https://philpapers.org/rec/BENARA-5">PhilPapers &#8599;</a></li>
+          <li><a href="mailto:akb9408@rit.edu">akb9408 [at] rit.edu</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">&copy; 2025&ndash;2026 Ajax Benander. Independent research, openly licensed under CC BY-NC-SA 4.0. The framework&rsquo;s fundamentals date to 2022&ndash;2023 and were deposited at PhilArchive in November 2024, nineteen months before any AI involvement; the 2026 assistance was recognition and translation, not construction. Not peer-reviewed &mdash; evaluate the papers on their own terms.</div>
+  </div>
+</footer>
