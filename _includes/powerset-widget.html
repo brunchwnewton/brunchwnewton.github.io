@@ -1,0 +1,367 @@
+<!-- ═══════════════════════════════════════════════════════════════════
+     POWERSET INVALIDATION WIDGET — aethus.org
+     The theorem as a working instrument, packaged as a single include.
+
+     Usage (Jekyll): place this file in _includes/ and drop
+         {% raw %}{% include powerset-widget.html %}{% endraw %}
+     wherever the widget should appear. Currently used on
+     /start-here.html and /aethic-reasoning-guide.html.
+
+     Self-contained: styles, markup, and script ship together; every
+     var() carries the design-system value as a fallback, and the
+     script no-ops safely if the markup is absent.
+     ═══════════════════════════════════════════════════════════════════ -->
+<style>
+/* ===== Full-generality Powerset widget ===== */
+.pst-drawer{margin:2rem 0;border:1px solid var(--ink,#1A1B18);background:var(--paper-2,#F7F6F0);}
+.pst-drawer>summary{list-style:none;cursor:pointer;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;}
+.pst-drawer>summary::-webkit-details-marker{display:none;}
+.pst-drawer>summary::marker{content:"";}
+.pst-drawer>summary:hover{background:var(--paper-3,#E7E5DB);}
+.pst-kicker{font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--garnet,#7E1D2E);font-weight:600;margin-bottom:.3rem;}
+.pst-title{font-family:var(--display,"Fraunces",Georgia,serif);font-size:1.18rem;color:var(--ink,#1A1B18);line-height:1.3;}
+.pst-sub{font-size:.82rem;color:var(--ink-3,#6E6F65);margin-top:.25rem;line-height:1.5;}
+.pst-chevron{margin-left:auto;color:var(--garnet,#7E1D2E);font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:1rem;transition:transform .2s ease;flex-shrink:0;}
+.pst-drawer[open] .pst-chevron{transform:rotate(90deg);}
+@media (prefers-reduced-motion: reduce){.pst-chevron{transition:none;}}
+.pst-widget{padding:.6rem 1.4rem 1.4rem;border-top:1px solid var(--rule,#D6D4C9);color:var(--ink-2,#43443E);}
+.pst-widget h4{font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--garnet,#7E1D2E);margin:1.2rem 0 .55rem;font-weight:600;}
+.pst-widget h4:first-child{margin-top:.7rem;}
+.pst-slit-selector{display:flex;gap:.4rem;margin-bottom:.8rem;}
+.pst-slit-selector button{flex:1;padding:.45rem;background:var(--paper,#EEEDE6);border:1px solid var(--rule,#D6D4C9);color:var(--ink,#1A1B18);cursor:pointer;font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.85rem;transition:.14s;}
+.pst-slit-selector button:hover{color:var(--ink,#1A1B18);border-color:var(--ink-3,#6E6F65);}
+.pst-slit-selector button.active{background:var(--garnet,#7E1D2E);border-color:var(--garnet,#7E1D2E);color:#fff;}
+.pst-slit-viz{margin-bottom:.9rem;display:flex;justify-content:center;}
+.pst-detector-list{margin-bottom:.75rem;}
+.pst-detector-card{background:var(--paper,#EEEDE6);border:1px solid var(--rule,#D6D4C9);padding:.7rem .85rem;margin-bottom:.45rem;}
+.pst-detector-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;}
+.pst-detector-name{font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.82rem;color:var(--ink,#1A1B18);font-weight:600;}
+.pst-detector-summary{font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.74rem;color:var(--ink-2,#43443E);flex:1;}
+.pst-btn-remove{background:transparent;border:none;color:var(--ink-2,#43443E);cursor:pointer;font-size:1.1rem;padding:0 .3rem;line-height:1;}
+.pst-btn-remove:hover{color:var(--garnet,#7E1D2E);}
+.pst-slit-toggles{display:flex;gap:.3rem;flex-wrap:wrap;}
+.pst-slit-toggle{padding:.3rem .6rem;background:var(--paper-2,#F7F6F0);border:1px solid var(--rule,#D6D4C9);color:var(--ink-2,#43443E);cursor:pointer;font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.76rem;transition:.14s;}
+.pst-slit-toggle:hover{color:var(--ink,#1A1B18);}
+.pst-slit-toggle.on{background:var(--garnet,#7E1D2E);border-color:var(--garnet,#7E1D2E);color:#fff;}
+.pst-empty-state{padding:.8rem;border:1px dashed var(--rule,#D6D4C9);text-align:center;color:var(--ink-3,#6E6F65);font-size:.82rem;}
+.pst-btn-row{display:flex;gap:.5rem;flex-wrap:wrap;}
+.pst-btn{padding:.5rem 1rem;cursor:pointer;font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.78rem;letter-spacing:.02em;border:1px solid transparent;transition:.14s;}
+.pst-btn-add{background:var(--paper,#EEEDE6);border-color:var(--rule,#D6D4C9);color:var(--ink-2,#43443E);}
+.pst-btn-add:hover{border-color:var(--ink-3,#6E6F65);}
+.pst-btn-apply{background:var(--garnet,#7E1D2E);border-color:var(--garnet,#7E1D2E);color:#fff;font-weight:600;}
+.pst-btn-apply:hover{background:var(--garnet-2,#9C2A3C);}
+.pst-btn-reset{background:transparent;border-color:var(--rule,#D6D4C9);color:var(--ink-3,#6E6F65);}
+.pst-btn-reset:hover{color:var(--ink,#1A1B18);}
+.pst-legend{display:flex;gap:1.1rem;justify-content:center;margin-bottom:.75rem;flex-wrap:wrap;}
+.pst-legend-item{display:flex;align-items:center;gap:.4rem;font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.68rem;color:var(--ink-3,#6E6F65);}
+.pst-legend-swatch{width:11px;height:11px;}
+.pst-legend-swatch.sw-valid{background:rgba(126,29,46,.12);border:1px solid var(--garnet,#7E1D2E);}
+.pst-legend-swatch.sw-p2{background:var(--paper-3,#E7E5DB);border:1px dashed var(--ink-3,#6E6F65);}
+.pst-legend-swatch.sw-p3{background:rgba(126,29,46,.10);border:1px dashed var(--garnet,#7E1D2E);}
+.pst-grid-scroll{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--rule,#D6D4C9) transparent;}
+.pst-grid-scroll::-webkit-scrollbar{height:6px;}
+.pst-grid-scroll::-webkit-scrollbar-track{background:transparent;}
+.pst-grid-scroll::-webkit-scrollbar-thumb{background:var(--rule,#D6D4C9);}
+.pst-powerset-grid{display:grid;gap:.35rem;}
+.pst-grid-cell{padding:.5rem .3rem;background:var(--paper,#EEEDE6);border:1px solid var(--rule,#D6D4C9);display:flex;flex-direction:column;align-items:center;gap:.32rem;position:relative;transition:background .2s,border-color .2s;min-width:0;}
+.pst-cell-circles{display:flex;gap:.22rem;}
+.pst-circle{width:11px;height:11px;border-radius:50%;border:1.5px solid;transition:.2s;flex-shrink:0;}
+.pst-cell-label{font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.64rem;white-space:nowrap;}
+.pst-grid-cell.pst-valid{background:rgba(126,29,46,.05);border-color:var(--garnet,#7E1D2E);}
+.pst-grid-cell.pst-valid:hover{background:rgba(126,29,46,.12);}
+.pst-grid-cell.pst-valid .pst-circle{border-color:var(--garnet,#7E1D2E);}
+.pst-grid-cell.pst-valid .pst-circle.filled{background:var(--garnet,#7E1D2E);}
+.pst-grid-cell.pst-valid .pst-cell-label{color:var(--garnet,#7E1D2E);font-weight:600;}
+.pst-grid-cell.pst-invalid-p2,.pst-grid-cell.pst-invalid-p3{opacity:.5;background:var(--paper-2,#F7F6F0);border-style:dashed;border-color:var(--rule,#D6D4C9);}
+.pst-grid-cell.pst-invalid-p2 .pst-circle,.pst-grid-cell.pst-invalid-p3 .pst-circle{border-color:var(--ink-3,#6E6F65);}
+.pst-grid-cell.pst-invalid-p2 .pst-circle.filled{background:var(--ink-3,#6E6F65);border-color:var(--ink-3,#6E6F65);}
+.pst-grid-cell.pst-invalid-p3 .pst-circle.filled{background:var(--garnet-2,#9C2A3C);border-color:var(--garnet-2,#9C2A3C);}
+.pst-grid-cell.pst-invalid-p2 .pst-cell-label{color:var(--ink-3,#6E6F65);text-decoration:line-through;text-decoration-thickness:1px;}
+.pst-grid-cell.pst-invalid-p3 .pst-cell-label{color:var(--garnet-2,#9C2A3C);text-decoration:line-through;text-decoration-thickness:1px;}
+.pst-x-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+.pst-caption{text-align:center;font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.72rem;color:var(--ink-3,#6E6F65);line-height:1.55;margin-top:.6rem;}
+.pst-grid-cell.pst-compact{padding:.32rem .18rem;gap:.2rem;}
+.pst-grid-cell.pst-compact .pst-circle{width:8px;height:8px;}
+.pst-grid-cell.pst-compact .pst-cell-label{font-size:.52rem;}
+.pst-grid-cell.pst-compact .pst-cell-circles{gap:.12rem;}
+.pst-grid-cell.pst-extra-compact{padding:.26rem .12rem;gap:.15rem;}
+.pst-grid-cell.pst-extra-compact .pst-circle{width:6px;height:6px;border-width:1px;}
+.pst-grid-cell.pst-extra-compact .pst-cell-label{font-size:.46rem;}
+.pst-grid-cell.pst-extra-compact .pst-cell-circles{gap:.08rem;}
+</style>
+
+<details class="pst-drawer">
+  <summary>
+    <div>
+      <div class="pst-kicker">The full instrument</div>
+      <div class="pst-title">Powerset Invalidation, in full generality</div>
+      <div class="pst-sub">The Powerset Invalidation Theorem as a working instrument &mdash; the general case, with full control. Choose two to six slits, wire detectors to <em>any</em> combination of them (a detector can blink for A&thinsp;&or;&thinsp;B), then apply the postulates and watch the powerset prune &mdash; P2 strikes the too-narrow, P3 checkmates the too-broad.</div>
+    </div>
+    <span class="pst-chevron">&rsaquo;</span>
+  </summary>
+  <div class="pst-widget">
+    <h4>Slits</h4>
+    <div class="pst-slit-selector" id="pst-slit-selector"></div>
+    <div class="pst-slit-viz" id="pst-slit-viz"></div>
+
+    <h4>Detectors</h4>
+    <div class="pst-detector-list" id="pst-detector-list"></div>
+    <div class="pst-btn-row">
+      <button class="pst-btn pst-btn-add" id="pst-add-btn">+ Add Detector</button>
+      <button class="pst-btn pst-btn-apply" id="pst-apply-btn">Apply Postulates</button>
+      <button class="pst-btn pst-btn-reset" id="pst-reset-btn">Reset</button>
+    </div>
+
+    <h4>Powerset</h4>
+    <div class="pst-legend" id="pst-legend" style="display:none;">
+      <div class="pst-legend-item"><div class="pst-legend-swatch sw-valid"></div>Valid</div>
+      <div class="pst-legend-item"><div class="pst-legend-swatch sw-p2"></div>P2&mdash;unknowing</div>
+      <div class="pst-legend-item"><div class="pst-legend-swatch sw-p3"></div>P3&mdash;checkmate</div>
+    </div>
+    <div class="pst-grid-scroll">
+      <div class="pst-powerset-grid" id="pst-powerset-grid"></div>
+    </div>
+    <p class="pst-caption" id="pst-caption"></p>
+  </div>
+</details>
+
+<script>
+/* Powerset Invalidation Theorem widget — adapted from aethus.org/powerset-invalidation-demo */
+(function() {
+  var sel = document.getElementById('pst-slit-selector');
+  if (!sel) return; // widget not present on this page
+
+  var _css = getComputedStyle(document.documentElement);
+  function _v(name, fb){ var x=_css.getPropertyValue(name).trim(); return x || fb; }
+  var INK    = _v('--ink',    '#1A1B18');
+  var INK3   = _v('--ink-3',  '#6E6F65');
+  var RULE   = _v('--rule',   '#D6D4C9');
+  var PAPER3 = _v('--paper-3','#E7E5DB');
+  var GARNET = _v('--garnet-2','#9C2A3C');
+
+  var LABELS = ['A','B','C','D','E','F'];
+  var nSlits = 3;
+  var detectors = []; // each: Set of slit indices
+
+  function init() {
+    detectors = [];
+    buildSlitSelector();
+    buildSlitViz();
+    buildDetectorList();
+    buildGrid(null);
+    document.getElementById('pst-legend').style.display = 'none';
+  }
+
+  function buildSlitSelector() {
+    var el = document.getElementById('pst-slit-selector');
+    el.innerHTML = '';
+    for (var n = 2; n <= 6; n++) {
+      var btn = document.createElement('button');
+      btn.textContent = n;
+      if (n === nSlits) btn.classList.add('active');
+      (function(val) {
+        btn.addEventListener('click', function() { nSlits = val; init(); });
+      })(n);
+      el.appendChild(btn);
+    }
+  }
+
+  function buildSlitViz() {
+    var el = document.getElementById('pst-slit-viz');
+    var w = Math.min(440, el.offsetWidth || 440);
+    var gap = w / (nSlits + 1);
+    var slitW = 26;
+    var dim = INK3;
+    var svg = '<svg width="' + w + '" height="108" viewBox="0 0 ' + w + ' 108">';
+    svg += '<rect x="10" y="18" width="' + (w-20) + '" height="72" rx="4" fill="' + PAPER3 + '" stroke="' + RULE + '" stroke-width="1"/>';
+    for (var i = 0; i < nSlits; i++) {
+      var cx = gap * (i + 1);
+      svg += '<rect x="' + (cx-slitW/2) + '" y="18" width="' + slitW + '" height="72" rx="2" fill="rgba(126,29,46,0.07)" stroke="' + GARNET + '" stroke-width="1.5"/>';
+      svg += '<text x="' + cx + '" y="60" text-anchor="middle" fill="' + INK + '" font-family="monospace" font-size="13" font-weight="600">' + LABELS[i] + '</text>';
+      svg += '<line x1="' + cx + '" y1="6" x2="' + cx + '" y2="18" stroke="' + RULE + '" stroke-width="1" stroke-dasharray="3,3"/>';
+      svg += '<line x1="' + cx + '" y1="90" x2="' + cx + '" y2="104" stroke="' + RULE + '" stroke-width="1" stroke-dasharray="3,3"/>';
+    }
+    svg += '<text x="' + (w/2) + '" y="10" text-anchor="middle" fill="' + dim + '" font-size="9.5">particle source</text>';
+    svg += '<text x="' + (w/2) + '" y="106" text-anchor="middle" fill="' + dim + '" font-size="9.5">detector screen</text>';
+    svg += '</svg>';
+    el.innerHTML = svg;
+  }
+
+  function buildDetectorList() {
+    var el = document.getElementById('pst-detector-list');
+    el.innerHTML = '';
+    if (detectors.length === 0) {
+      el.innerHTML = '<div class="pst-empty-state">No detectors. Click &ldquo;+ Add Detector&rdquo; to wire one up, or press Apply to see the unobserved case.</div>';
+      return;
+    }
+    detectors.forEach(function(det, di) {
+      var card = document.createElement('div');
+      card.className = 'pst-detector-card';
+
+      var hdr = document.createElement('div');
+      hdr.className = 'pst-detector-header';
+      var name = document.createElement('span');
+      name.className = 'pst-detector-name';
+      name.textContent = String.fromCharCode(0x03B1 + di) + ' blinks if:';
+      hdr.appendChild(name);
+
+      var summary = document.createElement('span');
+      summary.className = 'pst-detector-summary';
+      var arr = [];
+      det.forEach(function(s) { arr.push(s); });
+      arr.sort(function(a,b){ return a-b; });
+      summary.textContent = arr.length > 0 ? arr.map(function(s){return LABELS[s];}).join(' \u2228 ') : '(none)';
+      hdr.appendChild(summary);
+
+      var rm = document.createElement('button');
+      rm.className = 'pst-btn-remove';
+      rm.textContent = '\u00D7';
+      (function(idx) {
+        rm.addEventListener('click', function() { detectors.splice(idx, 1); buildDetectorList(); });
+      })(di);
+      hdr.appendChild(rm);
+      card.appendChild(hdr);
+
+      var toggles = document.createElement('div');
+      toggles.className = 'pst-slit-toggles';
+      for (var s = 0; s < nSlits; s++) {
+        var btn = document.createElement('button');
+        btn.className = 'pst-slit-toggle' + (det.has(s) ? ' on' : '');
+        btn.textContent = LABELS[s];
+        (function(slitIdx, d) {
+          btn.addEventListener('click', function() {
+            if (d.has(slitIdx)) d.delete(slitIdx); else d.add(slitIdx);
+            buildDetectorList();
+          });
+        })(s, det);
+        toggles.appendChild(btn);
+      }
+      card.appendChild(toggles);
+      el.appendChild(card);
+    });
+  }
+
+  function classify() {
+    var total = Math.pow(2, nSlits);
+    var signatures = [];
+    for (var s = 0; s < nSlits; s++) {
+      signatures.push(detectors.map(function(det){ return det.has(s); }).join(','));
+    }
+    var classMap = {};
+    for (var s2 = 0; s2 < nSlits; s2++) {
+      if (!classMap[signatures[s2]]) classMap[signatures[s2]] = [];
+      classMap[signatures[s2]].push(s2);
+    }
+    var eqClasses = Object.values(classMap);
+
+    function isExactClass(slitSet) {
+      return eqClasses.some(function(cls) {
+        if (cls.length !== slitSet.length) return false;
+        var a = slitSet.slice().sort(); var b = cls.slice().sort();
+        return a.every(function(v,i){ return v===b[i]; });
+      });
+    }
+    function isWithinOneClass(slitSet) {
+      if (slitSet.length === 0) return true;
+      var first = signatures[slitSet[0]];
+      return slitSet.every(function(s){ return signatures[s]===first; });
+    }
+
+    var results = [];
+    for (var i = 0; i < total; i++) {
+      var bits = [];
+      for (var b = nSlits - 1; b >= 0; b--) bits.push((i >> b) & 1);
+      var active = [];
+      bits.forEach(function(b,j){ if (b) active.push(j); });
+      var status;
+      if (active.length === 0) status = 'valid';
+      else if (isExactClass(active)) status = 'valid';
+      else if (isWithinOneClass(active)) status = 'p2';
+      else status = 'p3';
+      results.push({ bits: bits, active: active, status: status });
+    }
+    return { results: results, eqClasses: eqClasses };
+  }
+
+  function buildGrid(data) {
+    var grid = document.getElementById('pst-powerset-grid');
+    var caption = document.getElementById('pst-caption');
+    var total = Math.pow(2, nSlits);
+    var cols = total <= 8 ? 4 : total <= 16 ? 4 : 8;
+    var compact = nSlits >= 5;
+    var extraCompact = nSlits >= 6;
+
+    grid.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
+    grid.innerHTML = '';
+
+    for (var i = 0; i < total; i++) {
+      var bits = [];
+      for (var b = nSlits - 1; b >= 0; b--) bits.push((i >> b) & 1);
+      var active = bits.map(function(b,j){ return b ? LABELS[j] : null; }).filter(Boolean);
+      var label = active.length === 0 ? '\u2205' : '{' + active.join(',\u2009') + '}';
+
+      var status = data ? data.results[i].status : 'valid';
+      var cell = document.createElement('div');
+      cell.className = 'pst-grid-cell ' + (status === 'valid' ? 'pst-valid' : status === 'p2' ? 'pst-invalid-p2' : 'pst-invalid-p3');
+      if (compact) cell.classList.add('pst-compact');
+      if (extraCompact) cell.classList.add('pst-extra-compact');
+      if (data) {
+        cell.title = status === 'valid'
+          ? 'Valid ' + label
+          : status === 'p2'
+            ? 'P2-invalid (unknowing): ' + label + ' is a proper part of an equivalence class.'
+            : 'P3-invalid (checkmate): ' + label + ' spans multiple equivalence classes.';
+      }
+
+      var circles = document.createElement('div');
+      circles.className = 'pst-cell-circles';
+      bits.forEach(function(bit) {
+        var c = document.createElement('div');
+        c.className = 'pst-circle' + (bit ? ' filled' : '');
+        circles.appendChild(c);
+      });
+      cell.appendChild(circles);
+
+      var lbl = document.createElement('div');
+      lbl.className = 'pst-cell-label';
+      lbl.textContent = label;
+      cell.appendChild(lbl);
+
+      if (data && status !== 'valid') {
+        var x = document.createElement('div');
+        x.className = 'pst-x-overlay';
+        var sz = extraCompact ? 18 : compact ? 24 : 34;
+        var col = status === 'p2' ? INK3 : GARNET;
+        x.innerHTML = '<svg width="' + sz + '" height="' + sz + '" viewBox="0 0 28 28"><line x1="4" y1="4" x2="24" y2="24" stroke="' + col + '" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="4" x2="4" y2="24" stroke="' + col + '" stroke-width="2.5" stroke-linecap="round"/></svg>';
+        cell.appendChild(x);
+      }
+      grid.appendChild(cell);
+    }
+
+    if (!data) {
+      caption.textContent = 'All ' + total + ' elements of the powerset. Add detectors and press Apply to see the postulates in action.';
+    } else {
+      var v = data.results.filter(function(r){ return r.status === 'valid'; }).length;
+      var p2 = data.results.filter(function(r){ return r.status === 'p2'; }).length;
+      var p3 = data.results.filter(function(r){ return r.status === 'p3'; }).length;
+      var eqStr = data.eqClasses.map(function(cls){
+        return '{' + cls.map(function(s){ return LABELS[s]; }).join(',') + '}';
+      }).join(', ');
+      caption.textContent = 'Reduced form: ' + v + ' valid, ' + p2 + ' pruned by P2 (unknowing), ' + p3 + ' pruned by P3 (checkmate). Equivalence classes: ' + eqStr + '.';
+    }
+  }
+
+  document.getElementById('pst-add-btn').addEventListener('click', function() {
+    detectors.push(new Set());
+    buildDetectorList();
+  });
+  document.getElementById('pst-apply-btn').addEventListener('click', function() {
+    var data = classify();
+    buildGrid(data);
+    document.getElementById('pst-legend').style.display = 'flex';
+  });
+  document.getElementById('pst-reset-btn').addEventListener('click', init);
+
+  init();
+})();
+</script>
