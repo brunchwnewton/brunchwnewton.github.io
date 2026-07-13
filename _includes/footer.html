@@ -1,0 +1,58 @@
+<!-- ═══════════════════════════════════════════════════════════════════
+     SHARED FOOTER — aethus.org
+     Drop this once into your layout, at the bottom of <body>
+     (after {{ content }}). The eleven rebuilt pages no longer carry
+     their own footer — this include is the single source.
+
+     Self-contained: styles ship with it, and every var() carries the
+     design-system value as a fallback, so it renders identically on
+     pages with or without the site kit.
+     ═══════════════════════════════════════════════════════════════════ -->
+<style>
+/* ─── shared footer ─── */
+footer.site{background:var(--block,#151610);color:var(--on-block-2,#9C9A8D);padding:3.2rem 0 2.4rem;font-size:.9rem;border-top:1px solid #2a2b22;}
+footer.site .foot-in{max-width:72rem;margin:0 auto;padding:0 1.6rem;}
+footer.site a{color:var(--on-block,#EAE9E1);text-decoration:none;}
+footer.site a:hover{color:#fff;}
+footer.site .foot-grid{display:flex;flex-wrap:wrap;gap:2.4rem 3.5rem;justify-content:space-between;}
+footer.site h4{font-family:var(--mono,"IBM Plex Mono",ui-monospace,Menlo,monospace);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-block-3,#75746A);margin:0 0 .9rem;font-weight:500;}
+footer.site ul{list-style:none;margin:0;padding:0;line-height:2;}
+footer.site .foot-note{color:var(--on-block-3,#75746A);margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid #2a2b22;font-size:.82rem;line-height:1.6;max-width:52rem;}
+footer.site .foot-note a{color:var(--on-block-2,#9C9A8D);border-bottom:1px solid #3a3b30;}
+footer.site .foot-note a:hover{color:#fff;border-color:var(--garnet-2,#9C2A3C);}
+</style>
+<footer class="site">
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div>
+        <h4>The framework</h4>
+        <ul>
+          <li><a href="/start-here.html">Start Here</a></li>
+          <li><a href="/aethic-reasoning-guide.html">Aethic Guide</a></li>
+          <li><a href="/nexic-reasoning-guide.html">Nexic Guide</a></li>
+          <li><a href="/constraints_map.html">Threading the Needle</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul>
+          <li><a href="/principles_compendium.html">Compendium</a></li>
+          <li><a href="/glossary.html">Glossary</a></li>
+          <li><a href="/faq.html">Questions &amp; Context</a></li>
+          <li><a href="/supporting/provenance.html">Provenance</a></li>
+          <li><a href="/aethic-code/">Aethic Code</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ajax Benander</h4>
+        <ul>
+          <li><a href="/ajax/">About Ajax</a></li>
+          <li><a href="https://philpeople.org/profiles/ajax-benander">PhilPeople &#8599;</a></li>
+          <li><a href="https://philpapers.org/rec/BENARA-5">PhilPapers &#8599;</a></li>
+          <li><a href="mailto:akb9408@rit.edu">akb9408 [at] rit.edu</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">&copy; 2025&ndash;2026 Ajax Benander. Independent research, openly licensed under CC BY-NC-SA 4.0. The framework&rsquo;s conceptual core was published in May 2023, three years before any AI involvement; the 2026 assistance was formalization and drafting under the author&rsquo;s direction, itemized in the <a href="/supporting/provenance.html">provenance record</a>. Not yet peer-reviewed &mdash; evaluate the papers on their own terms.</div>
+  </div>
+</footer>
