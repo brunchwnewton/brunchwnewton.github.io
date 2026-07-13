@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Start Here — Reality, Indexed | aethus.org"
-description: "The complete case for Aethic reasoning in plain English, from an everyday counterfactual to the quantum measurement problem. The gentlest on-ramp."
+title: "Start Here — Aethic Reasoning in Three Minutes | aethus.org"
+description: "The core of Aethic reasoning in a three-minute read: the single move, why it isn't just ignorance, how collapse becomes bookkeeping, and what it costs — with links one level deeper at every step."
 ---
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,12 +65,16 @@ a:focus-visible{outline:2px solid var(--garnet);outline-offset:3px;border-radius
 .hero-sub .dim{color:var(--on-block-2);}
 .hero-by{margin-top:1.6rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;color:var(--on-block-3);line-height:1.7;}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.3rem;}
-.btn{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;padding:.72rem 1.15rem;border:1px solid var(--on-block-3);color:var(--on-block);transition:.2s;display:inline-flex;align-items:center;gap:.6ch;cursor:pointer;background:none;}
-.btn:hover{border-color:var(--on-block);background:rgba(255,255,255,.04);}
+.btn{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;padding:.72rem 1.15rem;border:1px solid var(--ink-3);color:var(--ink);transition:.2s;display:inline-flex;align-items:center;gap:.6ch;cursor:pointer;background:none;}
+.btn:hover{border-color:var(--ink);background:var(--paper-2);}
+.mast .btn,.demo-head .btn{border-color:var(--on-block-3);color:var(--on-block);}
+.mast .btn:hover,.demo-head .btn:hover{border-color:var(--ink);background:var(--paper-2);}
 .btn.pri{background:var(--garnet);border-color:var(--garnet);color:#fff;}
 .btn.pri:hover{background:var(--garnet-2);border-color:var(--garnet-2);}
 .btn.dark{border-color:var(--rule);color:var(--ink);}
 .btn.dark:hover{border-color:var(--ink);background:var(--paper-2);}
+.mast .btn,.band .btn,.demo-head .btn{border-color:var(--on-block-3);color:var(--on-block);}
+.mast .btn:hover,.band .btn:hover,.demo-head .btn:hover{border-color:var(--on-block);background:rgba(255,255,255,.04);}
 
 /* ---- paper masthead variant (reading pages) ---- */
 .mast{position:relative;padding:clamp(2.8rem,7vw,5rem) 0 clamp(2rem,4vw,3rem);border-bottom:1px solid var(--rule);}
@@ -241,377 +245,62 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
 
 <header class="mast indexed">
   <div class="wide">
-    <div class="kicker">Start here &middot; the gentlest on-ramp &middot; ~20 minutes</div>
-    <h1>Reality,<br><em>indexed.</em></h1>
-    <p class="standfirst">A realist answer to the quantum measurement problem, built in plain English from a single move &mdash; starting with a sentence you say every day, and ending at the double slit. No physics background assumed; every technical term is introduced only where ordinary language runs out.</p>
+    <div class="kicker">Start here &middot; the core idea &middot; a three-minute read</div>
+    <h1>One move,<br><em>plainly.</em></h1>
+    <p class="standfirst">The whole of Aethic reasoning compresses to a single move about what facts are pinned to. Here is that move, why it isn&rsquo;t a trick of ignorance, what it does to quantum mechanics, and the price it pays &mdash; in three minutes, no formalism. Everything deeper is one click away.</p>
     <div class="meta">
       <span>Aethic reasoning</span>
       <span class="rel">determinacy( q <span class="bar">&#8739;</span> A )</span>
       <span>by Ajax Benander</span>
-      <span>plain-language walkthrough</span>
+      <span>no background assumed</span>
     </div>
   </div>
 </header>
 
-<section class="tight">
-  <div class="wide">
-    <div class="prose" style="max-width:41rem;">
-      <p class="lead">Here is the whole idea in one sentence, which will mean more by the end than it does now: <strong>whether something is definite is not a fact about the thing &mdash; it is a fact about the thing together with who is asking.</strong></p>
-      <p>Physics usually assumes the opposite. It assumes there is one complete list of what is definitely the case, the same for everyone, pinned to points in space and time. This walkthrough follows what happens if you drop that one assumption and index definiteness to an observer's information instead. The surprise is that you don't have to add anything to make quantum mechanics come out. You have to <em>subtract</em> something &mdash; and the thing you subtract is a habit so deep it's built into grammar.</p>
-      <p>We'll build slowly. If a step feels too fast, it's a bug in the writing, not in you.</p>
+<section>
+  <div class="wide" style="max-width:44rem;">
+    <div class="prose">
+      <h3>The problem, in three sentences</h3>
+      <p>Quantum mechanics is the most precisely confirmed theory in science, and it describes a world of held-open alternatives &mdash; superpositions &mdash; that evolve smoothly and never pick. Yet every measurement ever made returns exactly one definite outcome. Where the picking happens, and what counts as a &ldquo;measurement&rdquo; &mdash; that is the measurement problem; a century on, every interpretation still pays a famous price to answer it.</p>
+
+      <h3>The move</h3>
+      <p>Physics habitually pins facts to points in space and time. Aethic reasoning pins them to <strong>information states</strong> instead. Determinacy becomes a two-place relation &mdash; <span class="rel">determinate( q <span class="bar">&#8739;</span> A )</span> &mdash; a fact <em>q</em> is settled <em>relative to</em> a body of records <em>A</em>, never absolutely. Picture reality as kept in books: every attribute is either <strong>stated</strong> in your books or genuinely <strong>blank</strong>. And a blank is not a secret value waiting to be looked up. It is open &mdash; and openness has physical consequences.</p>
+
+      <h3>Why a blank is not just ignorance</h3>
+      <p>&ldquo;Surely the value is there and you merely don&rsquo;t know it&rdquo; is a testable claim: it requires learning to work by <em>overwrite</em> &mdash; destroying the open description and writing a value in its place &mdash; and the world refuses. Interference is what open alternatives <em>do</em>; it is the receipt the world prints when a distinction is blank, and erasing the record brings the receipt back. Ignorance about a definite value predicts no such receipt. The blank is real.</p>
+
+      <h3>&ldquo;Or,&rdquo; taken seriously &mdash; and collapse as bookkeeping</h3>
+      <p>A superposition is nothing exotic: it is alternatives held together while the attribute distinguishing them stays blank &mdash; the word <em>or</em>, taken with full seriousness. A detector <em>states</em> the distinguishing attribute. Once stated, the held-together combination can never again agree with any future record: it is <strong>checkmated</strong> &mdash; invalidated the way an inconsistent position is, not crushed by a mysterious physical process. Collapse is pruning. Determinism lives <em>within</em> an information state; the randomness lives <em>across</em> them.</p>
+
+      <h3>The theorem that runs the machine</h3>
+      <p>Run that rule systematically &mdash; over the <strong>powerset</strong> of a particle&rsquo;s paths, every combination of alternatives at once &mdash; and each combination lands in exactly one of three bins: <em>valid</em>, <em>too narrow</em> (it asserts a distinction no record could ever support), or <em>too broad</em> (a future record can catch it in a contradiction). Move or erase a detector and the bins re-sort. The quantum&ndash;classical boundary is literal re-classification &mdash; no size, mass, or conscious observer consulted &mdash; and the preferred basis every rival account struggles for falls out free. The theorem is <a class="link" href="/aethic-reasoning-guide.html">playable, live, in the guide</a>.</p>
+
+      <h3>What it buys, and what it costs</h3>
+      <p>Bought: the measurement problem dissolved rather than decorated; Monty Hall, Bayesian updating, entanglement, and Wigner&rsquo;s friend as <em>one</em> pruning operation under different weights; and the block universe kept whole &mdash; one objective reality, many legitimate determinacies: <strong>reality independent, determinacy indexed.</strong> The price is posted, not hidden: one separable weight axiom (the Quantum Nexus) adopted the way Newton adopted gravitation; a standing falsifiable fork against spontaneous-collapse models at the matter-wave frontier; and the work is independent research, <strong>not yet peer-reviewed</strong> &mdash; evaluate the papers on their own terms.</p>
     </div>
   </div>
 </section>
 
-<!-- 1 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">01</div>
-    <div class="body">
-      <h2>A sentence you say every day</h2>
-      <div class="prose">
-        <p>"If I'd left five minutes earlier, I would have caught the train." You understand that instantly, and you'd be prepared to argue about whether it's true. But look at what it asks you to do. It asks you to consider a situation that did not happen &mdash; you leaving early &mdash; and report what would have followed.</p>
-        <p>The standard philosophical account of how such sentences work is surprisingly extravagant. To evaluate "if X had happened, Y would have," you're told to look at <em>other possible worlds</em>: complete alternate universes, as real as this one, differing in whether X happened. Find the possible worlds most similar to ours where X holds, and check whether Y holds there too. If it does, the counterfactual is true.</p>
-        <p>This is the Lewis&ndash;Stalnaker picture, and it has been the workhorse of the field for fifty years. It works. But it runs on a piece of machinery that should make you itch, and the next section is that itch.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 2 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">02</div>
-    <div class="body">
-      <h2>The official story, and its itch</h2>
-      <div class="prose">
-        <p>The itch is the word <em>similar</em>. Which possible worlds count as "most similar" to ours? A world where you left early but a freak gust also delayed the train? A world where you left early and everything else is identical? The theory needs a <strong>similarity ordering</strong> &mdash; a ranking of all possible worlds by closeness &mdash; and it simply helps itself to one.</p>
-        <p>Fifty years of refinement went into tuning that ranking: laws of nature should count more than particular facts, an exact match should beat an approximate one, and so on. But no amount of tuning ever answered the structural complaint, which is simply: <strong>nothing in the picture explains why similarity, or which similarity, should track the truth about what would have happened.</strong> The ranking is imposed from outside. It is put in by hand because the answers come out right, not because anything more basic generates it.</p>
-        <p>Hold onto that complaint. The framework's first real result is that this ranking can be <em>deleted</em> &mdash; not replaced by a better ranking, but removed entirely, its work done by structure you needed anyway. To see how, we need to change what a counterfactual is evaluated <em>against</em>.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 3 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">03</div>
-    <div class="body">
-      <h2>One move, and a set of books</h2>
-      <div class="prose">
-        <p>Instead of evaluating a counterfactual against a space of possible worlds, evaluate it against <strong>an observer's information</strong> &mdash; the complete set of facts their situation settles.</p>
-        <p>Make that precise. Take an observer at a moment and collect everything their situation fixes: every question whose answer their information determines, directly or by logical consequence. Call that totality their <strong>Aethus</strong> (plural <em>Aethae</em>; it rhymes with "aether"). It is the framework's one genuinely new object, and it's worth stating what it is <em>not</em>: it is not a belief, not a guess, not a probability in someone's head. It is the complete set of facts-for-them, closed under deduction.</p>
-        <p>The units filling an Aethus are <strong>attributes</strong> &mdash; question-shaped pieces of description. <em>Where is the car parked. Which slit did the electron go through.</em> An attribute is <span class="tok stated">stated</span> in an Aethus when that Aethus carries its answer, and <span class="tok blank">blank</span> when it does not.</p>
-        <div class="callout">
-          <span class="h">The one move</span>
-          <p><strong>Determinacy is a two-place relation</strong> &mdash; between an attribute and an information state &mdash; never a one-place property an attribute carries on its own. Written as a relation: <span class="rel">determinacy( q <span class="bar">&#8739;</span> A )</span>. Everything in this walkthrough is that single sentence, read at one site after another.</p>
-        </div>
-        <p>Each observer, then, comes with a set of books: the stated attributes are the filled-in entries, the blank ones are open entries, and the books are closed under deduction (if the filled entries jointly force an answer, that answer is filled in too). We haven't said where the alternatives to a blank entry "live" yet &mdash; that's deliberately left open until section 6, where it turns out to matter enormously.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 4 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">04</div>
-    <div class="body">
-      <h2>Two consequences that should bother you</h2>
-      <div class="prose">
-        <p>Two features of this bookkeeping do early work, and both cut against intuition.</p>
-        <h4>Blankness has nothing to do with time.</h4>
-        <p>An attribute is blank or stated relative to an Aethus &mdash; and where the event it concerns sits in time is a completely separate matter. Your <em>unlearned past</em> is exactly as open, on this accounting, as your unformed future. A road eroding underground for decades, unobserved, is blank relative to every observer who hasn't learned of it &mdash; and so, on this framework, genuinely open, resolving not when the road collapses but when someone finds out. Where classical metaphysics lets time carry openness, this framework makes openness a fact about the index, and lets time carry nothing but geometry.</p>
-        <h4>A blank is not a hidden answer.</h4>
-        <p>This is the load-bearing one. The classical habit is to hear "unknown" as "determinate, but not yet revealed" &mdash; there's a definite fact, you just don't have it. This framework denies that. A blank attribute is a <strong>complete entry in its own right</strong>, encoding the state of the world relative to that Aethus, with <em>no determinate value underneath waiting to be uncovered</em>.</p>
-        <p>That probably sounds like a stylistic preference &mdash; a fancy way of saying "unknown." Section 6 proves it is not a preference. It is forced, on pain of contradiction with experiment. But first, what these books let us <em>do</em>.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 5 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">05</div>
-    <div class="body">
-      <h2>What-ifs without leaving home</h2>
-      <div class="prose">
-        <p>Here is the counterfactual machinery, and the headline is that <strong>none of it is travel to another world.</strong> To evaluate "if X had happened, Y would have," starting from your Aethus:</p>
-        <ol>
-          <li><strong>Reopen</strong> the antecedent. Take the page of your books where X's attribute is settled, and return it to blank &mdash; along with whatever rests on it, and nothing else.</li>
-          <li><strong>Restate</strong> it to the counterfactual value: set X to what the "if" clause supposes.</li>
-          <li><strong>Re-prune.</strong> Let the framework's consistency rules eliminate the alternatives that can no longer stand, and read what survives &mdash; the <strong>reduced form</strong>, the residue of surviving possibilities.</li>
-        </ol>
-        <p>Now read the residue at three grains, and you get three everyday notions for free:</p>
-        <div class="grid3">
-          <div><div class="n">Every survivor</div><h3>Would</h3><p>If every surviving possibility settles Y, then Y <em>would</em> have happened. A universal claim over the residue.</p></div>
-          <div><div class="n">Some survivor</div><h3>Might</h3><p>If some surviving possibility settles Y, then Y <em>might</em> have. An existential claim over the residue.</p></div>
-          <div><div class="n">The proportion</div><h3>Probability</h3><p>The weighted fraction of the residue settling Y is the <em>probability</em> of Y. One structure, measured.</p></div>
-        </div>
-        <p style="margin-top:1.4rem;"><em>Would</em>, <em>might</em>, and <em>probability</em> turn out to be one operation read at three resolutions. And where the residue genuinely splits &mdash; where the surviving possibilities disagree &mdash; the framework doesn't force a yes-or-no verdict. It reports the graded fact, which is exactly what you'd want for a chaotic system: "had the pendulum started a degree to the left, it would (0.98, at two seconds; 0.03, at two minutes) have ended on the right." A time-resolved answer that a ranking of whole worlds could never produce.</p>
-        <div class="callout">
-          <span class="h">Where the fifty-year-old ranking went</span>
-          <p>Notice what just happened to the similarity ordering. It's <strong>gone</strong> &mdash; it appears in none of the three steps. Its work is split among structures we needed anyway: the books' own dependency structure (what rests on what) fixes the reopening; validity (does a possibility survive at all?) does the pruning; and weight measures what survives. Nothing ranks the survivors against an ideal of "closeness." They survive or they don't. This is the framework's <strong>first headline</strong>: the ordering is deleted, not refined &mdash; and it lands twice, once in philosophy and once in the standard linguistics of modal words, because it was the same imported ranking both times.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 6 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">06</div>
-    <div class="body">
-      <h2>The trap door: why "it's just ignorance" is experimentally dead</h2>
-      <div class="prose">
-        <p>By now a skeptical reader has a ready objection, and everything downstream depends on answering it. The objection: <em>this is all classical metaphysics with new labels. Call an attribute "blank" if you like &mdash; a blank is just an unknown, an unknown has a definite value behind it, and your "superpositions" are ignorance dressed up in vocabulary.</em></p>
-        <p>If that deflation worked, this whole framework would be a notational variant of the possible-worlds picture, and the physics ahead would be sleight of hand. So it has to be closed. The closing argument is short.</p>
-        <p>The deflation needs one specific thing: <strong>overwrite</strong>. It needs learning to work by revision-in-place &mdash; when you learn a blank attribute's value, the old "open" description is destroyed and replaced by the value, in one standing ledger. Under overwrite, the before and after never coexist, so nothing distinguishes "was genuinely open, then became <em>x</em>" from "was <em>x</em> all along, merely unknown." That indistinguishability is exactly the relabeling the skeptic wants.</p>
-        <p>But here is the thing the framework was built to notice: <strong>learning does not overwrite.</strong> When you learn, you transit to a <em>new</em> Aethus &mdash; a new set of books &mdash; and relative to the <em>prior</em> Aethus, the superposition still stands, permanently. Determinacy gained is always indexed to the information state that gained it. The "before" description is never destroyed, so the skeptic's coordinate-transform has nowhere to act.</p>
-        <div class="callout">
-          <span class="h">Why this isn't a philosopher's stalemate</span>
-          <p>The reason it isn't just one intuition against another is that the deflated version makes a <strong>testable</strong> commitment. If every blank secretly has one definite value on a single shared menu of possibilities, then measurement statistics have to obey the Bell-type inequalities &mdash; a hard mathematical bound, via the work of Boole, Fine, and Pitowsky. And those inequalities are <strong>violated in the laboratory</strong>, repeatedly, decisively. So the "it's just ignorance" reading isn't merely inelegant. It predicts the wrong experimental numbers. The trap door is nailed shut by data, not taste.</p>
-        </div>
-        <p>The framework is careful about the boundary of this argument: it kills the innocent relabeling of blanks as determinate-but-unknown. It does not claim to rule out every hidden-variable theory &mdash; Bohmian mechanics, for instance, survives it (at a price paid later). But the escape routes narrow to a hard dilemma with no comfortable exit: hold that positions are <em>always</em> definite, and you have Bohm's theory with its preferred slicing of spacetime; draw the line by what's accessible instead, and you've conceded the framework's whole thesis, that the boundary is informational. There is no third address.</p>
-        <p>This earns the <strong>second headline</strong>: the framework delivers <strong>counterfactual substance without counterfactual definiteness</strong>. You can still say what an experiment would have shown &mdash; the <em>would</em> and <em>might</em> have verdicts &mdash; while there is no hidden table of simultaneous definite values for a theorem to forbid. That exact combination is what the quantum realist has always needed and never had: hidden-variable theories buy the definiteness and lose the substance; instrumentalism has neither; this structure has both.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 7 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">07</div>
-    <div class="body">
-      <h2>The secret life of "or"</h2>
-      <div class="prose">
-        <p>The last section left a debt. If the alternatives to a blank are genuinely co-present &mdash; really here, not off in some other world &mdash; then why does anyone ever see just one? Why isn't the car parked in two spots at once?</p>
-        <p>The answer reforms the word <em>or</em>, and it's the move that carries the physics.</p>
-        <p>Classical metaphysics treats mutual exclusivity as built in: alternatives exclude each other by their nature, and physical "or" inherits that. The framework inverts it. Listing a blank's alternatives is one job. Whether those alternatives <em>interact</em> is a <em>separate</em> job &mdash; and that second job is handled by what's written <em>inside</em> each alternative, not by any wall between them.</p>
-        <div class="grid2">
-          <div>
-            <h3>Disagreeing superposition</h3>
-            <p>Each alternative <em>states</em>, internally, that it doesn't interact with the others. They are co-present but mutually inert &mdash; exclusive branches. This is the ordinary case: the car is here, <em>or</em> there, and the two don't talk. Its everyday ubiquity is what makes classical intuition feel like plain truth.</p>
-          </div>
-          <div>
-            <h3>Agreeing superposition</h3>
-            <p>Nothing in the books states that the alternatives are inert. The non-interaction entry is left <span class="tok blank">blank</span>. So the co-present alternatives genuinely <em>interact</em>. One attribute's worth of difference from the case above &mdash; and it carries the entire divide between classical and quantum.</p>
-          </div>
-        </div>
-        <p style="margin-top:1.4rem;">Written as algebra, the whole content is <em>where the negations sit</em>:</p>
-        <div class="formula">
-          <span class="lbl">the placement of the negations is the entire content</span>
-          agreeing:&nbsp;&nbsp;&#8899;<sub>i</sub> A<sub>i</sub><br>
-          disagreeing:&nbsp;&nbsp;&#8899;<sub>i</sub> ( A<sub>i</sub> &#8898; <span class="g">&#8899;<sub>j&#8800;i</sub> &not;A<sub>j</sub></span> )
-        </div>
-        <p>In the disagreeing form, each pocket carries interior negations of all the others &mdash; the exclusivity is manufactured, from the inside. Remove those interior negations and the alternatives interact. So there is no physical "or" holding things apart; there is only co-presence, with or without interior negations. <strong>Interaction is the default; exclusivity is the special case you have to build.</strong></p>
-        <p>The historical rhyme is exact. Boole's original "+" was exclusive &mdash; defined only for disjoint classes &mdash; and it took Jevons's reform to inclusive "or" (where X + X = X) to give us the algebra we now call Boolean. Boole rejected the reform when Jevons pressed it. The union move is that same reform, applied one layer deeper: sentential logic went from choosy to inclusive combination a century and a half ago; the ontology of physical alternatives never did. The claim is that <strong>quantum interference is what the world looks like once it does.</strong></p>
-        <div class="callout">
-          <span class="h">The sentence to keep</span>
-          <p>The classical logic of exclusive alternatives is <strong>the logic of the reduced form</strong> &mdash; of reality <em>after</em> the pruning &mdash; not of the underlying structure. Our intuitions about "or" are faithful reports of the shadow, not of the object casting it.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 8 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">08</div>
-    <div class="body">
-      <h2>Checkmate: where collapse comes from</h2>
-      <div class="prose">
-        <p>We've been using a pruning rule &mdash; "let the surviving possibilities be the ones that survive." Now we say precisely what survives, and this is the framework's sharpest claim: <strong>collapse is derived, not added.</strong> No new physical mechanism, no threshold, no free parameters.</p>
-        <p>Run the double-slit experiment in a deliberately silly macroscopic costume. Participants are each secretly assigned one of two doors and a spot to walk to; an organizer sits blindfolded until the end. The organizer's books leave the which-door attributes blank, so by the blank-is-superposition rule they're in superposition &mdash; and yet it is guaranteed that when the blindfold comes off, the organizer sees two clusters of people and <em>never</em> an interference pattern. Why?</p>
-        <p>The tempting answer &mdash; "a future organizer could just ask someone, and the answer would contradict interference, so interference is impossible" &mdash; fails, and the failure is the whole lesson. That contradiction lives in a <em>future</em> information state, and the framework flatly forbids exporting contradictions between information states willy-nilly. (If a clash in any one set of books could invalidate any other, you'd have smuggled a single observer-independent reality back in through the plumbing.) So the puzzle is sharp: a <em>possible future</em> contradiction has to constrain the present without that illegal cross-talk.</p>
-        <p>The right rule is found by elimination:</p>
-        <ul>
-          <li><strong>"Invalid if some refinement is invalid"</strong> &mdash; too strong. If a parent has one bad child and one healthy child, this strikes the parent, which drags the healthy child down too (every child of an invalid state is invalid). One bad option condemns its innocent siblings. Invalidity would flow from child to parent, which it must never do.</li>
-          <li><strong>"Invalid only if all refinements are outright contradictions"</strong> &mdash; too weak. The organizer can always just wait, so there's always a not-yet-contradictory refinement; the rule never fires, and the states that should ground each other's invalidity do so in a circle with no floor.</li>
-          <li><strong>The fix</strong> comes from noticing the bad states are <em>self-similar</em>: every non-contradictory refinement of the organizer's interference-state is another state of the same kind, facing the same trap. Fold that self-similarity into "each such state has some contradictory refinement," and you get a <strong>two-generational</strong> condition.</li>
-        </ul>
-        <div class="formula">
-          <span class="lbl">the third postulate (pruning)</span>
-          V[A]&nbsp;&#8658;&nbsp;<span class="g">&#8707;</span> B &#8849; A,&nbsp; <span class="g">&#8704;</span> C &#8849; B,&nbsp; V[C]
-          <br><span class="c">a valid state must have a refinement all of whose refinements are valid</span>
-        </div>
-        <p>The chess reading is then literal, not decorative. <em>Check</em> is the escapable possibility of contradiction. <em>Checkmate</em> is the impossibility of escaping that possibility. And checkmate is invalidity. The postulate says, in four words: <strong>it must not be impossible to make contradiction impossible.</strong> The organizer's interference-state is checkmated &mdash; every refinement leaves which-door information retrievable in principle &mdash; while the two-cluster state has a clean future and survives. Collapse, in this costume, is a theorem about which bookkeeping states have escape routes.</p>
-        <div class="note">For the mathematically inclined: this recursion is exactly a <b>safety property in the modal &mu;-calculus</b>, and the doomed states are a least fixed point. The Knaster&ndash;Tarski theorem guarantees it's well-defined even for infinite branching ("checkmate in &omega; moves"), and the weight structure keeps non-Archimedean capacity in reserve for that case. "Checkmate is membership in the doomed set" is a precise statement, not a metaphor.</div>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 9 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">09</div>
-    <div class="body">
-      <h2>The two-slit experiment, and the boundary that moves</h2>
-      <div class="prose">
-        <p>Now the payoff theorem &mdash; the point where everything downstream gets organized. Take a particle with some available paths (slits), and instead of considering the paths one at a time, consider the <strong>powerset</strong>: every combination of paths held together as a candidate for co-present, interacting content. Ask the framework's rules which combinations survive.</p>
-        <p>Give each slit a <em>detector signature</em>: the record of which detectors would fire if that slit alone were taken. Slits with identical signatures are permanently indistinguishable &mdash; no record, now or ever, can separate them &mdash; so the signatures sort the slits into classes. The theorem sorts every candidate combination against those classes into exactly three bins:</p>
-        <div class="ledger">
-          <div class="row"><div class="q">i</div><div class="d"><b>Valid.</b> The combination is empty, or exactly one full class of indistinguishable slits. Every branch produces the same total record, so no future refinement can catch it in a contradiction. It has a clean future.</div><div class="t">survives</div></div>
-          <div class="row"><div class="q">ii</div><div class="d"><b>Invalid, too narrow.</b> A combination that splits a single class &mdash; insisting on a distinction that no possible record could ever support. It over-specifies, and dies by the blank rule.</div><div class="t">over-specified</div></div>
-          <div class="row"><div class="q">iii</div><div class="d"><b>Invalid, too broad.</b> A combination spanning two or more classes &mdash; mixing alternatives that some record <em>can</em> tell apart. A future record can expose the maintained coherence as contradictory: checkmate.</div><div class="t">checkmated</div></div>
-        </div>
-        <p>The bins are mutually exclusive and cover every case. And a one-sentence corollary carries the framework's central physical claim: <strong>move or erase a detector, and you redraw the signatures &mdash; which re-sorts the powerset.</strong> The quantum&ndash;classical boundary is literal re-classification.</p>
-        <p>The double slit is now a one-page reading:</p>
-        <div class="grid2">
-          <div><h3>No detector</h3><p>Nothing records the path. The both-slits combination survives as an <em>agreeing</em> superposition &mdash; and by section 7, co-present alternatives with blank interior non-interaction interact. That interaction, when the alternatives are paths, is the interference pattern.</p></div>
-          <div><h3>Detector on</h3><p>A record now exists. The both-slits combination's interior non-interaction becomes stated; it's invalidated; the survivors are the one-slit alternatives in <em>disagreeing</em> superposition. The screen shows two lumps.</p></div>
-        </div>
-        <p style="margin-top:1.4rem;">Degrade the detector to partial which-path information, and the boundary slides continuously &mdash; fringe visibility falling as the "stated" spreads through the powerset. That's the familiar complementarity trade-off, read as bookkeeping. Decoherence is the same sentence at environmental scale: the environment is a relentless keeper of records, so macroscopic combinations get their interiors stated wholesale, and <strong>the classical world is simply the powerset pruned down to its disagreeing remainder.</strong></p>
-        <p>Nothing anywhere in that consulted a size, a mass, or a conscious observer. The theorem even hands you, for free, the thing decoherence has to argue for &mdash; the <em>preferred basis</em>, here just the detector-induced classification, selected by the very same rule that does the collapse.</p>
-        <div class="callout">
-          <span class="h">The central physical claim, plainly</span>
-          <p>There is no quantum world and classical world divided by scale. There is <strong>one world, described relative to information</strong> &mdash; the agreeing regime where interiors are blank, the disagreeing regime where they're stated &mdash; and every experiment that moves a detector moves the boundary, which is exactly what experiments have always shown and what scale-based intuitions have always struggled to say.</p>
-        </div>
-        <p style="margin-top:1.4rem;">Rather than take that on faith, run it. Below is the <strong>Powerset Invalidation Theorem</strong> as a live instrument &mdash; the same one embedded in the <a class="link" href="/aethic-reasoning-guide.html#explorer">Aethic Guide</a>. Set up the slits, wire the detectors, apply the postulates, and watch the three bins sort themselves &mdash; then move a detector and watch the boundary move.</p>
-{% include powerset-widget.html %}
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 10 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">10</div>
-    <div class="body">
-      <h2>One machine, from game shows to entanglement</h2>
-      <div class="prose">
-        <p>When the pruning eliminates joint combinations of several attributes, the survivors show a correlation nobody put in by hand &mdash; certain values of one attribute now only ever appear with certain values of another, not because anything signaled anything, but because the combinations that would have broken the correlation got crossed out. Call it <strong>reduced-form coupling</strong>, and watch it run on the humblest possible case before it's claimed for anything quantum.</p>
-        <h4>Monty Hall, slowly.</h4>
-        <p>You pick Door 1; the host, who knows where the car is, opens a different door to reveal a goat; should you switch? The famous answer is yes, two-thirds. Here's where the two-thirds comes from on this framework. Start with the car equally likely behind each door. The host's rule has two constraints baked in as <em>contradictions</em>: he never opens your door, and he never opens the car's door. Those joint configurations aren't unlikely &mdash; they never enter the structure at all. When the host opens Door 3, you cross out every surviving configuration inconsistent with that, and the weight of the crossed-out pockets doesn't vanish into a formula &mdash; it's simply gone, and the survivors rescale to fill the gap. Divide through, and switching wins two-thirds of the residue.</p>
-        <div class="callout">
-          <span class="h">A theorem hiding in a game show</span>
-          <p>The familiar two-thirds is not produced by a conditioning formula &mdash; it's the residue of crossed-out joint configurations, their weight flowing to the survivors. The long paper proves the general fact this displays: <strong>Bayesian conditioning is pruning-plus-renormalization</strong>, an emergent theorem rather than an added rule. And the same one object turns out to unify single-case chance, long-run frequency, credence-updating, and quantum probability &mdash; four readings of one weight structure.</p>
-        </div>
-        <p>Now change <em>only the weights</em> &mdash; swap the plain weights for the quantum amplitude kernel &mdash; and the identical "cross out the joint configurations" operation becomes:</p>
-        <ul>
-          <li><strong>Entanglement.</strong> Bell correlations are reduced-form coupling carrying quantum weights: the surviving joint outcomes are exactly the ones no future information state can catch in a contradiction. Because blanks are timeless, the coupling doesn't care about temporal order &mdash; which is precisely what dissolves the delayed-choice experiment's apparent retrocausality. A boundary-value fact was mistaken for a backwards-traveling influence.</li>
-          <li><strong>Wigner's friend, and its sharpenings.</strong> Run across observers, the same coupling enforces consistency: every possibility in which two observers' eventual reports would contradict is pruned, so the observers who can ever meet are exactly the ones who agree. The famous no-go theorem (Frauchiger&ndash;Renner) needs to stitch two observers' books into one ledger to derive its contradiction &mdash; which is exactly the move the indexing forbids. The contradiction dies for want of a sentence to express it.</li>
-        </ul>
-        <p>The methodological point is the heart of the compression claim: the reduced form was <em>not</em> engineered to unify these. It's one deductive step from the postulates, and the unification fell out afterward &mdash; which is at least mild evidence that it tracks a real structure rather than bookkeeping convenience. One operation; four literatures.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 11 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">11</div>
-    <div class="body">
-      <h2>What you get, and the one axiom that buys the numbers</h2>
-      <div class="prose">
-        <p>Everything so far ran on the three postulates and plain enumeration &mdash; no quantum-specific input at all. The <em>numbers</em> enter through exactly one further axiom, and the framework flags it in bright ink rather than hiding it.</p>
-        <p>It's called the <strong>Quantum Nexus</strong>: the Feynman path-integral kernel installed as the weight structure over the powerset of paths, with interference carried by the kernel's cross-terms. Give it the weights, and the standard quantum statistics come out &mdash; the per-polarizer cos&sup2;/sin&sup2; probabilities arrive as the kernel's own overlaps, Malus's law becomes a theorem rather than an input, and full polarizer chains fall out as sequential pruning.</p>
-        <div class="callout">
-          <span class="h">Why the axiom is quarantined, honestly</span>
-          <p>The Nexus is the framework's <strong>single flagged axiomatic input</strong>, and it is <em>separable</em>: remove it and the entire ontology of parts one and two still stands (you keep the counterfactual semantics, the probability story, the whole conceptual apparatus); install it and the numbers arrive. Deriving it from something deeper is explicitly assigned to a successor program. On the framework's own analogy, the Nexus sits where Newton's law of gravitation sat beside his three laws of motion &mdash; empirically load-bearing, conceptually awaiting its deeper motivation. That's a promissory note, and it's written as one.</p>
-        </div>
-        <p>One consequence of installing it is worth stating, because it corrects a mistake every major interpretation shares. Everyone assumes there's <em>one entity</em> &mdash; the wavefunction &mdash; that persists through measurement, which makes collapse a problem about what happens to it. Aethic reasoning <strong>demotes the wavefunction</strong>: it's derived bookkeeping over an agreeing superposition, so the real commitment attaches to the superposition, never to its wavefunction summary. And once nothing fundamental persists through measurement, there's no transition to trigger and no threshold to find. Agreeing superpositions never "collapse" toward one outcome (there's no fact of the branch to select); a record just invalidates them whole. The randomness of measurement lives one level up &mdash; in the disagreeing superposition <em>over</em> the possible determinate outcomes. <strong>Predetermination per information-state, randomness across information-states</strong>: the two never compete, because they never described the same thing.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 12 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">12</div>
-    <div class="body">
-      <h2>The price tag, posted</h2>
-      <div class="prose">
-        <p>A framework that claims this much owes you its full bill of assumptions, stated plainly rather than buried. Here is the complete ledger &mdash; and the discipline is that <em>nothing load-bearing appears anywhere in the building that isn't on this list.</em></p>
-        <div class="ledger">
-          <div class="row"><div class="q">1</div><div class="d"><b>One modal primitive</b> &mdash; the perturbation operation itself (reopen, restate, re-prune). Validity, weight, and pruning are inherited from machinery needed for independent reasons, not added here.</div><div class="t">new</div></div>
-          <div class="row"><div class="q">2</div><div class="d"><b>One dependency structure</b> on the books &mdash; which entries rest on which. This is exactly where an ordering-theorist will look for the deleted ranking's ghost, so it's booked openly.</div><div class="t">booked</div></div>
-          <div class="row"><div class="q">3</div><div class="d"><b>One scope-and-policy convention</b> for reopening &mdash; one parameter, three named settings, selected by grammatical mood. Visible and movable, never hidden inside a metric.</div><div class="t">convention</div></div>
-          <div class="row"><div class="q">4</div><div class="d"><b>One individuation principle</b> &mdash; alternatives are individuated by their possible records (no possible record, no distinction). Plausibly derivable from the blank rule; until that's written, it stands booked.</div><div class="t">booked</div></div>
-          <div class="row"><div class="q">5</div><div class="d"><b>Three postulates</b> &mdash; indexing (P1), blanks-are-superposition (P2), and pruning (P3). The codified laws of the whole ontology.</div><div class="t">core</div></div>
-          <div class="row"><div class="q">6</div><div class="d"><b>One weight&ndash;probability identification</b> &mdash; probability <em>is</em> weight over informational structure, defined rather than interpreted.</div><div class="t">identity</div></div>
-          <div class="row"><div class="q">7</div><div class="d"><b>One bridge principle</b> &mdash; the map turning formal "invalidity" into physical unrealizability, in two stages (compilation, then realization). Injected as a principle, and flagged where it binds.</div><div class="t">bridge</div></div>
-          <div class="row"><div class="q">8</div><div class="d"><b>One algebraic design choice</b> &mdash; the weighted states form a commutative semiring <em>without</em> additive inverses, on purpose, so no weight is ever signed. This is what the negativity-compliance rides on.</div><div class="t">design</div></div>
-          <div class="row"><div class="q">9</div><div class="d"><b>One separable axiom</b> &mdash; the Quantum Nexus (the amplitude kernel). Removing it leaves the ontology standing; installing it delivers the numbers.</div><div class="t">separable</div></div>
-        </div>
-        <p>Three costs deserve to be named out loud rather than left in the ledger's shorthand. <strong>First</strong>, the quantum weights are posited, not derived &mdash; that's the Nexus, and its derivation is the framework's headline open problem. <strong>Second</strong>, a fixed spacetime is assumed throughout; the framework says nothing yet about quantum gravity beyond a methodological preference. <strong>Third</strong> &mdash; the strange one &mdash; the framework <em>fights the grammar of every human language</em>. The deletion in section 5 lands not just on a philosophical tradition but on the working semantics of the species' own modal talk, so the conceptual resistance you may feel reading this is not a failure of exposition; it's the grammar itself objecting. The framework asks for reasoning natural language was not built to express, and prices that honestly.</p>
-        <p>Alongside the costs sit four <strong>named open constructions</strong> &mdash; determinate mathematical targets, not vague hopes: a measure-invariance proof, a fully in-formalism definition of distinguishability, the kernel's derivation, and the exact conditions of in-principle irretrievability. Each is a specific thing that could be finished or could fail.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 13 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">13</div>
-    <div class="body">
-      <h2>Why this matters</h2>
-      <div class="prose">
-        <p>Step back and notice the shape of the whole trip, because the expository order here &mdash; semantics first, physics after &mdash; is the reverse of the order of discovery. The real backbone is old-fashioned inductive reasoning, and it runs on one inversion. Where every standard program asks <em>what universe can be inferred from quantum mechanics</em>, Aethic reasoning asks the opposite: <strong>what universe infers quantum mechanics?</strong> What must a universe look like for quantum physics to be not weird, not paradoxical, but exactly what you'd expect?</p>
-        <p>The answer put the pieces in place. Quantum mechanics under classical assumptions is logically anti-realist &mdash; it refuses to be a story about a definite world &mdash; and the postulates are the shape that ends the anti-realism. It's the same kind of move Newton made when he unscrambled "things fall down" and "the moon goes around" into one law that made neither out of place. Not the additive work of piling up new equations, but the subtractive work of unscrambling our own priors.</p>
-        <div class="pull">The block universe survives untouched &mdash; and becomes categorically stranger: one four-dimensional reality holding <em>many</em> legitimate determinate realities at once, each indexed to an information state, none outranking the others.</div>
-        <p>This is worth being precise about, because it's easy to under-read and easy to over-read. It is <strong>not</strong> classical realism &mdash; there is no single catalogue of definite facts. It is emphatically <strong>not</strong> idealism &mdash; no mind creates anything; the block is there, independent, and the index is any record-bearing structure, a collimator as readily as a scientist. It is a <em>third setting of the realism dial</em>: <strong>reality independent, determinacy indexed.</strong> The traditional debates in the metaphysics of spacetime &mdash; substance versus relation, present versus eternal &mdash; are old axes; this proposes a new one rather than taking a side on an old one.</p>
-        <p>And the base-rate skepticism you should rightly bring to any new interpretation &mdash; "what are the odds this one is right?" &mdash; inverts into something more interesting. The central problem of every leading interpretation (Copenhagen's shifty split, Everett's probability puzzle, Bohm's preferred slicing, the collapse theories' new dynamics) falls to the <em>same two moves</em>: the informational boundary, and the observer indexing. That's not proof. But it's evidence about where the difficulty always lived.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- falsifiability -->
 <section>
   <div class="wide">
-    <div class="sec-head">
-      <span class="eyebrow">How it could be wrong</span>
-      <h2>Where the framework meets a lab.</h2>
-      <p>Because it reproduces the standard predictions in every case it treats, the framework isn't decided by one dramatic tabletop experiment. Its empirical exposure is a portfolio &mdash; and it's honest about which of its commitments are sharp and which are idealized.</p>
-    </div>
-    <div class="prose" style="max-width:41rem;">
-      <p>The sharpest fork runs against the <strong>spontaneous-collapse programs</strong> &mdash; GRW, continuous spontaneous localization, and the gravitational variants of Di&oacute;si and Penrose. They predict a <em>scale-induced</em> breakdown of superposition that no quality of information-erasure can prevent. Aethic reasoning predicts the opposite: <strong>no breakdown ever, given genuinely permanent inaccessibility of the distinguishing information</strong>, with all apparent scale-dependence exhausted by informational accessibility.</p>
-      <p>The frontier where those diverge is real and active today: <strong>matter-wave interferometry of ever-more-massive systems</strong>, and its levitated-optomechanics descendants. Each confirmed extension of coherence to larger masses under controlled erasure is evidence for the informational boundary and against the collapse family; a reproducible breakdown <em>not</em> attributable to residual environmental records would falsify the framework outright.</p>
-      <p>Nearer to hand, a <strong>two-tag interferometry setup</strong> prices the framework's central distinction &mdash; between the coherent "agreeing" regime and the classical "disagreeing" one &mdash; directly on the wall, on the one quantity that lives on measurements you didn't perform. And the non-negative weight algebra is a <strong>standing structural commitment</strong> at the negativity&ndash;contextuality joint, not a tunable preference.</p>
-      <div class="note"><b>On the billiard-ball scenario.</b> Because the framework reproduces standard quantum predictions, no single tabletop result decides it &mdash; so in the current papers the scenario is the idealized endpoint of the matter-wave program above &mdash; the "Class C" regime, one theatre among several &mdash; rather than a proposed near-term experiment; its exact realizability is one of the four named open constructions, not a claim. The flagship posture is unification; the falsifiable commitments are the collapse-model fork and the negativity&ndash;contextuality structure.</div>
-    </div>
-  </div>
-</section>
-
-<!-- where next -->
-<section>
-  <div class="wide">
-    <div class="sec-head">
-      <span class="eyebrow">Where to go next</span>
-      <h2>Three depths, one architecture.</h2>
-      <p>You've read the plain-English case. Everything below develops it &mdash; at more formality, more breadth, or from the inside of how it was built.</p>
-    </div>
+    <div class="sec-head"><span class="eyebrow">Go deeper</span><h2>One click down.</h2></div>
     <div class="navgrid">
-      <a href="/aethic-reasoning-guide.html#explorer">
+      <a href="/aethic-reasoning-guide.html">
         <div class="nt">The Aethic Guide <span class="arr">&rarr;</span></div>
-        <div class="nd">A layered walkthrough from the Extrusion Principle to the Quantum Nexus, with an interactive Powerset Invalidation demo. Read in Explorer or Technical mode.</div>
+        <div class="nd">The full walkthrough &mdash; thirteen steps in plain English from an everyday sentence to the double slit, with the Powerset Invalidation Theorem as a live instrument.</div>
       </a>
-      <a href="/constraints_map.html">
-        <div class="nt">Threading the Needle <span class="arr">&rarr;</span></div>
-        <div class="nd">A close reading of how the framework was actually derived &mdash; the constraint-fields each move had to satisfy at once, and the cognitive pattern behind them.</div>
+      <a href="https://philpapers.org/rec/BENARI-3">
+        <div class="nt">&ldquo;In Brief&rdquo; &mdash; the paper &#8599;</div>
+        <div class="nd">The source: fifteen pages from a counterfactual semantics to the measurement problem, at native resolution.</div>
       </a>
-      <a href="/principles_compendium.html">
-        <div class="nt">The Compendium <span class="arr">&rarr;</span></div>
-        <div class="nd">A filterable encyclopedia of every principle, postulate, theorem, and thought experiment, tiered by how much of the framework rests on it.</div>
+      <a href="/nexic-reasoning-guide.html">
+        <div class="nt">The Nexic Guide <span class="arr">&rarr;</span></div>
+        <div class="nd">The other wing: what your existence lets you deduce about the history that produced it &mdash; and the arithmetic of how rare that history was.</div>
       </a>
       <a href="/faq.html">
         <div class="nt">Questions &amp; Context <span class="arr">&rarr;</span></div>
-        <div class="nd">The hardest objections taken head-on &mdash; and the human story of where the framework came from, in Ajax's own account.</div>
+        <div class="nd">The hardest objections answered directly &mdash; Many-Worlds, Bell, peer review &mdash; plus the human story behind the work.</div>
       </a>
-    </div>
-    <div style="margin-top:2rem;" class="prose">
-      <p>Or read the source. The compressed <a class="link" href="https://philpapers.org/rec/BENARI-3">&ldquo;Aethic Reasoning in Brief&rdquo;</a> (July 2026) is the recommended entry point &mdash; this walkthrough follows its line &mdash; with the full <a class="link" href="https://philpapers.org/rec/BENARA-5">Comprehensive paper</a> as its complete companion.</p>
     </div>
   </div>
 </section>
