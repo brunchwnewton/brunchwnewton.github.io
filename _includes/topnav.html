@@ -20,8 +20,9 @@
 .topnav-dropdown a:hover{color:#fff;background:rgba(156,42,60,.14);}
 .topnav-dropdown a::after{display:none;}
 .topnav-dropdown .sep{height:1px;background:#2a2b22;margin:.35rem 0;}
-@media(max-width:900px){ .topnav-links{gap:.95rem;} .tn-md{display:none;} }
-@media(max-width:640px){ .topnav-in{padding:.62rem 1rem;} .topnav-links{gap:.85rem;} .tn-sm{display:none;} }
+.topnav-dropdown .dd-sm,.topnav-dropdown .dd-md{display:none;}
+@media(max-width:900px){ .topnav-links{gap:.95rem;} .tn-md{display:none;} .topnav-dropdown .dd-md{display:block;} }
+@media(max-width:640px){ .topnav-in{padding:.62rem 1rem;} .topnav-links{gap:.85rem;} .tn-sm{display:none;} .topnav-dropdown .dd-sm{display:block;} }
 @media(max-width:400px){ .topnav-links{gap:.7rem;} .topnav-links a,.topnav-more-btn{font-size:.68rem;letter-spacing:.03em;} .topnav-brand{font-size:.68rem;letter-spacing:.12em;} }
 </style>
 <nav class="topnav" id="topnav">
@@ -37,13 +38,13 @@
       <div class="topnav-more">
         <button class="topnav-more-btn" onclick="this.parentElement.classList.toggle('open')" aria-haspopup="true" aria-expanded="false">More &#9662;</button>
         <div class="topnav-dropdown">
-          <a href="/nexic-reasoning-guide.html">Nexic Guide</a>
-          <a href="/faq.html">FAQ</a>
-          <a href="/aethic-code/">Aethic Code</a>
+          <a class="dd-sm" href="/nexic-reasoning-guide.html">Nexic Guide</a>
+          <a class="dd-sm" href="/faq.html">FAQ</a>
+          <a class="dd-md" href="/aethic-code/">Aethic Code</a>
+          <a class="dd-md" href="/ajax/">About Ajax</a>
           <a href="/glossary.html">Glossary</a>
           <a href="/principles_compendium.html">Principles Compendium</a>
           <a href="/constraints_map.html">Constraints Map</a>
-          <a href="/ajax/">About Ajax</a>
           <div class="sep"></div>
           <a href="/supporting/provenance.html">Provenance</a>
           <a href="https://philpeople.org/profiles/ajax-benander" target="_blank" rel="noopener">Papers &#8599;</a>
