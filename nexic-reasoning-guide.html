@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "The Nexic Guide — How Nexic Reasoning Works | aethus.org"
-description: "A layered walkthrough of Nexic reasoning: the Accordance Principle, the Theorem of Aimless Optimation, the three Nexae, exotic structure and the Miracles, with a live Miracle-cascade calculator — followed by the secular Miracleism reading, kept separate from the calculus."
+description: "A faithful walkthrough of Nexic reasoning: the Accordance Principle over the space of natural histories, the three Nexae and Optimation, the Optimation Fallacy and its Aimless-Optimation control, the Exotic Principle's categorical regime, the intrinsic-vs-realized frequency gap demonstrated on sea level, the High-Contrast Earth Hypothesis and Optimal-Earth calculus, and the Spark Ontology that links it to Aethic reasoning."
 ---
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,12 +65,16 @@ a:focus-visible{outline:2px solid var(--garnet);outline-offset:3px;border-radius
 .hero-sub .dim{color:var(--on-block-2);}
 .hero-by{margin-top:1.6rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;color:var(--on-block-3);line-height:1.7;}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.3rem;}
-.btn{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;padding:.72rem 1.15rem;border:1px solid var(--on-block-3);color:var(--on-block);transition:.2s;display:inline-flex;align-items:center;gap:.6ch;cursor:pointer;background:none;}
-.btn:hover{border-color:var(--on-block);background:rgba(255,255,255,.04);}
+.btn{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;padding:.72rem 1.15rem;border:1px solid var(--ink-3);color:var(--ink);transition:.2s;display:inline-flex;align-items:center;gap:.6ch;cursor:pointer;background:none;}
+.btn:hover{border-color:var(--ink);background:var(--paper-2);}
+.mast .btn,.demo-head .btn{border-color:var(--on-block-3);color:var(--on-block);}
+.mast .btn:hover,.demo-head .btn:hover{border-color:var(--ink);background:var(--paper-2);}
 .btn.pri{background:var(--garnet);border-color:var(--garnet);color:#fff;}
 .btn.pri:hover{background:var(--garnet-2);border-color:var(--garnet-2);}
 .btn.dark{border-color:var(--rule);color:var(--ink);}
 .btn.dark:hover{border-color:var(--ink);background:var(--paper-2);}
+.mast .btn,.band .btn,.demo-head .btn{border-color:var(--on-block-3);color:var(--on-block);}
+.mast .btn:hover,.band .btn:hover,.demo-head .btn:hover{border-color:var(--on-block);background:rgba(255,255,255,.04);}
 
 /* ---- paper masthead variant (reading pages) ---- */
 .mast{position:relative;padding:clamp(2.8rem,7vw,5rem) 0 clamp(2rem,4vw,3rem);border-bottom:1px solid var(--rule);}
@@ -238,22 +242,8 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
 @media(max-width:820px){.moves,.grid3,.split,.grid2,.navgrid{grid-template-columns:1fr;}}
 @media(max-width:720px){body{font-size:17.5px;}}
 </style>
-
 <style>
 /* nexic guide — deep-time / gold accent */
-.mode-bar{position:sticky;top:38px;z-index:30;background:var(--paper);border-bottom:1px solid var(--rule);}
-.mode-bar .in{max-width:66rem;margin:0 auto;padding:.6rem 1.6rem;display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;}
-.mode-bar .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);}
-.seg{display:inline-flex;border:1px solid var(--rule);}
-.seg button{font-family:var(--mono);font-size:.74rem;padding:.44rem 1rem;background:none;border:none;color:var(--ink-3);cursor:pointer;border-right:1px solid var(--rule);}
-.seg button:last-child{border-right:none;}
-.seg button[aria-pressed="true"]{background:var(--gold-2);color:#fff;}
-.mode-bar .hint{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);margin-left:auto;}
-@media(max-width:640px){.mode-bar .hint{display:none;}}
-.tech-only{display:none;}
-body.mode-tech .tech-only{display:block;}
-body.mode-tech .exp-only{display:none;}
-
 .mast.gold h1 em{color:var(--gold-2);}
 .mast.gold .kicker{color:var(--gold);}
 .chapter.nx .idx{color:var(--gold-2);border-color:var(--gold);}
@@ -266,54 +256,62 @@ body.mode-tech .exp-only{display:none;}
 .meaning-flag{border:1px solid var(--gold);background:linear-gradient(180deg,rgba(154,123,51,.08),transparent 70%);padding:1.2rem 1.4rem;margin:1.4rem 0;}
 .meaning-flag .h{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);font-weight:600;margin-bottom:.5rem;}
 .meaning-flag p{margin:0;color:var(--ink-2);font-size:.98rem;line-height:1.6;}
+.nexae{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.5rem 0;}
+.nexae>div{background:var(--paper-2);padding:1.1rem 1.15rem;}
+.nexae .nx-h{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;color:var(--gold-2);font-weight:600;margin-bottom:.45rem;}
+.nexae .nx-d{font-size:.9rem;line-height:1.5;color:var(--ink-2);}
+@media(max-width:640px){.nexae{grid-template-columns:1fr;}}
+.regime{border:1px solid var(--ink);background:var(--paper-2);margin:1.6rem 0;padding:1.3rem 1.4rem;}
+.regime .rl{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.9rem;}
+.regime .track{position:relative;height:2.3rem;background:linear-gradient(90deg,var(--paper-3) 0%,var(--paper-3) 62%,rgba(154,123,51,.16) 68%,var(--gold) 100%);border:1px solid var(--rule);}
+.regime .shift{position:absolute;left:65%;top:-.4rem;bottom:-.4rem;width:2px;background:var(--garnet);}
+.regime .shift span{position:absolute;left:.4rem;top:-.1rem;font-family:var(--mono);font-size:.62rem;color:var(--garnet);white-space:nowrap;}
+.regime .lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.68rem;color:var(--ink-3);margin-top:.5rem;}
+.gap-fig{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.4rem 0;}
+.gap-fig>div{background:var(--paper-2);padding:1rem 1.15rem;}
+.gap-fig .gv{font-family:var(--mono);font-size:1.5rem;color:var(--gold-2);line-height:1;}
+.gap-fig .gk{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.4rem;}
+.gap-fig .gd{font-size:.86rem;color:var(--ink-2);margin-top:.35rem;line-height:1.45;}
 
-/* cascade interactive */
-.cascade{border:1px solid var(--ink);background:var(--paper-2);margin:2rem 0;}
-.cascade .ctop{background:var(--block);color:var(--on-block);padding:1.1rem 1.4rem;}
-.cascade .ctop .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);}
-.cascade .ctop h3{color:var(--on-block);font-size:1.24rem;margin:.35rem 0 .3rem;}
-.cascade .ctop p{margin:0;color:var(--on-block-2);font-size:.92rem;line-height:1.5;}
-.cascade .cbody{padding:1.3rem 1.4rem;}
-.factor{display:grid;grid-template-columns:1.7rem 1fr 5.5rem;gap:.8rem;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--rule);}
-.factor .fchk{width:1.15rem;height:1.15rem;accent-color:var(--gold-2);cursor:pointer;}
-.factor .fname{font-size:.92rem;color:var(--ink);line-height:1.3;}
-.factor .fname .fsub{display:block;font-family:var(--mono);font-size:.68rem;color:var(--ink-3);}
-.factor .fprob{font-family:var(--mono);font-size:.82rem;color:var(--gold-2);text-align:right;font-weight:600;}
-.factor.off{opacity:.4;}
-.factor input[type=range]{width:100%;accent-color:var(--gold-2);}
-.cascade .readout{margin-top:1.3rem;background:var(--block);color:var(--on-block);padding:1.2rem 1.4rem;text-align:center;}
-.cascade .readout .rl{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-block-2);}
-.cascade .readout .rv{font-family:var(--mono);font-size:1.9rem;color:var(--gold-2);margin:.3rem 0;line-height:1;}
-.cascade .readout .rsub{font-size:.86rem;color:var(--on-block-2);line-height:1.5;max-width:34rem;margin:.5rem auto 0;}
-.cascade .fermi{display:flex;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1.1rem;}
-.cascade .fermi>div{background:var(--paper);flex:1;padding:.8rem;text-align:center;}
-.cascade .fermi .fn{font-family:var(--mono);font-size:1.15rem;color:var(--gold-2);}
-.cascade .fermi .fc{font-size:.7rem;color:var(--ink-3);margin-top:.25rem;line-height:1.3;}
+/* high-contrast interactive */
+.hce{border:1px solid var(--ink);background:var(--paper-2);margin:2rem 0;}
+.hce .ctop{background:var(--block);color:var(--on-block);padding:1.1rem 1.4rem;}
+.hce .ctop .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);}
+.hce .ctop h3{color:var(--on-block);font-size:1.24rem;margin:.35rem 0 .3rem;}
+.hce .ctop p{margin:0;color:var(--on-block-2);font-size:.92rem;line-height:1.5;}
+.hce .cbody{padding:1.3rem 1.4rem;}
+.hce .scale{position:relative;height:3.2rem;border-bottom:1px solid var(--ink-3);margin:2.4rem 0 .3rem;}
+.hce .tick{position:absolute;bottom:0;transform:translateX(-50%);font-family:var(--mono);font-size:.6rem;color:var(--ink-3);}
+.hce .tick::after{content:'';position:absolute;left:50%;bottom:100%;width:1px;height:.35rem;background:var(--rule);}
+.hce .draw{position:absolute;bottom:.1rem;transform:translateX(-50%);width:0;}
+.hce .draw .dot{width:.85rem;height:.85rem;border-radius:50%;transform:translateX(-50%);}
+.hce .draw .dl{position:absolute;bottom:1.0rem;left:0;transform:translateX(-50%);font-family:var(--mono);font-size:.62rem;white-space:nowrap;}
+.hce .dA .dot{background:var(--gold-2);} .hce .dA .dl{color:var(--gold-2);}
+.hce .dB .dot{background:var(--ink);} .hce .dB .dl{color:var(--ink);}
+.hce .ratio{background:var(--block);color:var(--on-block);padding:1.1rem 1.3rem;margin-top:1.5rem;text-align:center;}
+.hce .ratio .rv{font-family:var(--mono);font-size:1.7rem;color:var(--gold-2);line-height:1;}
+.hce .ratio .rd{font-size:.86rem;color:var(--on-block-2);margin-top:.5rem;line-height:1.5;max-width:34rem;margin-left:auto;margin-right:auto;}
+.hce .hbtns{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem;}
+.hce .hbtn{font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;padding:.55rem 1rem;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer;}
+.hce .hbtn:hover{background:var(--ink);color:var(--paper);}
+.hce .hstat{display:flex;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1.2rem;}
+.hce .hstat>div{background:var(--paper);flex:1;padding:.75rem;text-align:center;}
+.hce .hstat .hn{font-family:var(--mono);font-size:1.15rem;color:var(--gold-2);}
+.hce .hstat .hc{font-size:.66rem;color:var(--ink-3);margin-top:.25rem;line-height:1.3;}
 </style>
 
 <header class="mast indexed gold">
   <div class="wide">
     <div class="kicker">The Nexic guide &middot; a layered walkthrough</div>
     <h1>How Nexic<br>reasoning <em>works.</em></h1>
-    <p class="standfirst">Anthropic reasoning extended from the physical constants to the whole contingent history that made a mind possible &mdash; the calculus first, then the meaning it has been read to carry. Read it plainly, or switch on the formalism.</p>
-    <div class="meta"><span>the calculus</span><span>one live cascade</span><span>and the meaning</span></div>
+    <p class="standfirst">Not a Drake-style tally of hospitable planets. Nexic reasoning turns anthropic selection into a deductive query over the <em>space of possible natural histories</em> &mdash; with a built-in control, a categorical line between the ordinary and the exotic, and a forward-running predictive calculus. This walkthrough follows the paper&rsquo;s own architecture.</p>
+    <div class="meta"><span>the calculus</span><span>one live figure</span><span>and the meaning</span></div>
   </div>
 </header>
 
-<div class="mode-bar">
-  <div class="in">
-    <span class="lbl">Reading mode</span>
-    <div class="seg" role="group" aria-label="Reading mode">
-      <button id="btn-exp" aria-pressed="true" onclick="setMode('explorer')">Explorer</button>
-      <button id="btn-tech" aria-pressed="false" onclick="setMode('tech')">Technical</button>
-    </div>
-    <span class="hint">Technical adds the formal bounds and definitions.</span>
-  </div>
-</div>
-
 <section class="tight">
   <div class="wide" style="max-width:44rem;">
-    <div class="prose"><p class="lead">Aethic reasoning re-indexes <em>reality</em> to an observer. Nexic reasoning asks the next question: given that an observer exists, what does that fact let you <em>infer</em> about the history that produced it? The answer turns anthropic reasoning &mdash; usually confined to the fine-tuned constants &mdash; into a deductive query run over the fossil record.</p></div>
+    <div class="prose"><p class="lead">Aethic reasoning re-indexes <em>reality</em> to an observer. Nexic reasoning asks what an observer&rsquo;s existence lets you <em>infer</em> &mdash; and answers it not by scoring planets on hand-picked factors, but by reading the attribute-content of a natural history directly, minimizing the human inference that a Drake-style equation smuggles in through its choice of terms. The result is a calculus, not a checklist.</p></div>
   </div>
 </section>
 
@@ -321,102 +319,161 @@ body.mode-tech .exp-only{display:none;}
   <div class="wide" style="max-width:44rem;">
     <div class="mv-eyebrow">Movement I</div>
     <h2 class="mv">The calculus.</h2>
-    <p style="color:var(--ink-2);font-size:1.02rem;line-height:1.6;margin:0;">A deductive engine with a built-in control, run over the events that had to happen for you to be here.</p>
+    <p style="color:var(--ink-2);font-size:1.02rem;line-height:1.6;margin:0;">Nine named principles that turn out, on inspection, to be one object seen from different angles &mdash; built up in the order the paper builds them.</p>
   </div>
 </div>
 
 <div class="episodes-wrap">
 
 <article class="chapter nx"><div class="wide"><div class="idx">N1</div><div class="body">
-  <h2>The Accordance Principle</h2>
+  <h2>From mediocrity to Accordance</h2>
   <div class="prose">
-    <p>Ordinary mediocrity reasoning says &ldquo;assume you&rsquo;re typical&rdquo; &mdash; but typical <em>among what</em>? The reference class is never fixed, and different choices give wildly different answers. The Accordance Principle removes the choice: apply survivorship reasoning <strong>one attribute at a time</strong>, restricted to the <em>requisites</em> for your existence. Expect each feature of your natural history to have been the likelier route to observers, because you are here to ask.</p>
-    <div class="callout gold exp-only"><span class="h">In one line</span><p>For each thing that had to happen for you to exist, bet it happened the more probable way &mdash; and check that bet against what the rocks actually record.</p></div>
-    <div class="formula nx tech-only"><span class="lbl">the accordance bound</span>For an attribute A of Earth&rsquo;s history, <span class="op">P(H&#8739;A&prime;) / P(H&#8739;A) &le; P(A) / (1&minus;P(A))</span><br><span class="c">where H is the existence of observers and A&prime; the negation of A. The survivorship update on any requisite is bounded by the requisite&rsquo;s own prior &mdash; no reference class required.</span></div>
-    <p>There is no population to choose, only the specific historical entries your existence required. That is what makes this deductive rather than statistical &mdash; a query over what happened, not a bet on a crowd.</p>
+    <p>The mediocrity principle says: assume your observations are typical, not privileged. Usually it ranges over <em>location</em> &mdash; don&rsquo;t assume Earth sits at a special place, or you at a special cosmic time. The <strong>Accordance Principle</strong> extends the same logic to a new domain: the space of possible natural histories. The question is no longer &ldquo;where am I among all places?&rdquo; but <strong>&ldquo;which natural history am I in, among all histories capable of producing an observer to ask?&rdquo;</strong></p>
+    <p>By mediocrity the answer is &ldquo;the typical one&rdquo; &mdash; but typicality among observer-producing histories is not uniform, and that non-uniformity is the whole engine. The principle is a bound, not a slogan.</p>
+    <div class="formula nx"><span class="lbl">the Accordance bound (Principle 5)</span>For an attribute A of Earth&rsquo;s history and H = human existence: <span class="op">P(H&#8739;A&prime;) / P(H&#8739;A) &#8818; P(A) / (1&minus;P(A))</span><br><span class="c">holds more often than not, with P(A) run against the Cosmic Nexus so no A-free conditional violates the first postulate. Survivorship reasoning, one attribute at a time, over histories rather than a crowd.</span></div>
   </div>
 </div></div></article>
 
 <article class="chapter nx"><div class="wide"><div class="idx">N2</div><div class="body">
-  <h2>The control: Aimless Optimation</h2>
+  <h2>Three Nexae, one intermediate</h2>
   <div class="prose">
-    <p>A query that always finds optimization is untestable. The Accordance Principle escapes that by carrying its own contrapositive &mdash; the <strong>Theorem of Aimless Optimation</strong>: for any history statistically <em>independent</em> of observers, the survivorship-weighted expectation and the baseline must <em>agree</em>, showing no optimization signal at all.</p>
-    <div class="callout gold"><span class="h">The sharp, falsifiable prediction</span><p>Sister clades are the natural test bed. Old World monkeys diverged from our lineage about 25 million years ago and, across more than a hundred species since, not one reached ape-level intelligence. A lineage off the route to us should show no drive toward minds &mdash; and none does.</p></div>
-    <p>This is the difference between Nexic reasoning and a story that always confirms itself: it says, in advance, exactly where the signal should <em>vanish</em>, and the record obliges.</p>
+    <p>Conditioning on existence happens against different <em>objects</em>, and Nexic reasoning keeps them distinct. A <strong>Nexus</strong> is what an Aethus is given to operate over. There are three, and the third is the one that does the work.</p>
+    <div class="nexae">
+      <div><div class="nx-h">Cosmic Nexus</div><div class="nx-d">Ranges strictly over volumes of spacetime &mdash; the constants and large-scale conditions. The &ldquo;intrinsic&rdquo; base rate.</div></div>
+      <div><div class="nx-h">Aetherian Nexus</div><div class="nx-d">Matches an observing biological entity itself &mdash; the strict anthropic condition.</div></div>
+      <div><div class="nx-h">Nexus of Optimation</div><div class="nx-d">The intermediate: Aethae that <em>share a biosphere</em> with an observer, without being one. The mechanism of natural history.</div></div>
+    </div>
+    <p>Optimation is the pivotal notion &mdash; an intimate, in-biosphere connection that is neither the whole cosmos nor the observer alone. Almost every Nexic move is a statement about when Optimation and the Cosmic Nexus <em>agree</em>, and when they part.</p>
   </div>
 </div></div></article>
 
 <article class="chapter nx"><div class="wide"><div class="idx">N3</div><div class="body">
-  <h2>The three Nexae</h2>
+  <h2>The Optimation Fallacy</h2>
   <div class="prose">
-    <p>Filtering happens at more than one level, and lumping them muddles the reasoning. Nexic reasoning partitions the conditioning of existence into three independent <strong>Nexae</strong>: the <strong>Cosmic</strong> (the constants and large-scale conditions), the <strong>Aetherian</strong> (the planetary and biospheric stage), and the <strong>Optimation</strong> (the specific historical optimizations toward observers). Each is a distinct nexus of requisites at its own scale.</p>
-    <div class="formula nx tech-only"><span class="lbl">the non-triviality guard</span><span class="op">Aetherian Independence:</span> the Cosmic Nexus is statistically independent of the Aetherian Nexus &mdash; so the middle level contributes a genuinely separate factor rather than collapsing into the constants. This independence is exactly the condition under which Aimless Optimation&rsquo;s control is meaningful.</div>
-    <p>Together the three exhaust the routes by which existence is conditioned, and each feeds the accordance query at its own scale rather than repeating it.</p>
+    <p>Here is the error the framework is built to correct: <strong>applying the Cosmic Nexus where the Nexus of Optimation belongs.</strong> Do that and you commit survivorship bias &mdash; not on a sample of survivors, but <em>on the entire biosphere</em>.</p>
+    <div class="callout gold"><span class="h">The fallacy, named</span><p>&ldquo;Evolution tends toward humans.&rdquo; &ldquo;Life climbs the evolutionary ladder.&rdquo; Because our own past followed Optimation, we see things align toward us and mistake it for a cosmic tendency. In fact the tendency is the reverse: life overwhelmingly <em>stagnates</em> on the ladder. The ascent in our history is a selection effect, not a drive.</p></div>
+    <p>Every downstream tool exists to hold this line &mdash; to say precisely when a fact about our past is a genuine feature of the universe, and when it is an artifact of our being here to look.</p>
   </div>
 </div></div></article>
 
 <article class="chapter nx"><div class="wide"><div class="idx">N4</div><div class="body">
-  <h2>Intrinsic hazard rates, not realized frequencies</h2>
+  <h2>The control: Aimless Optimation</h2>
   <div class="prose">
-    <p>The natural quantity here is the <strong>hazard rate</strong> &mdash; the chance of an event in a moment relative to itself &mdash; not the ordinary probability density. The author treats hazard functions as fundamental because they have a property densities lack: they are <em>intrinsic to a time</em>, uninfluenced by other times. A density must integrate to one, which quietly smuggles in the false belief that some times are more valuable than others; the hazard rate carries no such bias.</p>
-    <p>So a Nexic probability records how likely an event was <em>in its own moment</em>, relative to itself rather than to an outside viewer &mdash; the same move the Aethic side makes when it indexes reality to an observer, applied now to time.</p>
+    <p>A query that always finds design is untestable. Optimation carries its own control. The key identity: <strong>the Nexus of Optimation is just the Cosmic Nexus plus one Aethic attribute, H<sub>N</sub></strong> &mdash; that an observer exists somewhere in your biosphere, past, present, or future.</p>
+    <div class="formula nx"><span class="lbl">Theorem of Aimless Optimation (Theorem 3)</span>If an attribute X is statistically independent of H<sub>N</sub>, then <span class="op">X operates under N<sub>O</sub> exactly as under N<sub>0</sub></span> &mdash; the two Nexae are guaranteed to agree. The <em>methodological</em> Accordance Principle is the contrapositive: unequal weights under N<sub>0</sub> and N<sub>O</sub> entail that X is <em>not</em> independent of H<sub>N</sub>.</div>
+    <div class="callout gold"><span class="h">The falsifiable control, in the field</span><p>Sister clades are the test bed. A lineage that split off <em>before</em> the route to us &mdash; Old World monkeys, over a hundred species since diverging ~25 Mya &mdash; is statistically independent of our observer-existence, so it should show <em>no</em> optimization signal. And it doesn&rsquo;t: none climbed to our kind of mind. When the two Nexae must agree, they do.</p></div>
+    <p>So the framework says, in advance, exactly where the signal should <em>vanish</em>. That is what separates it from a story that confirms itself.</p>
   </div>
 </div></div></article>
 
 <article class="chapter nx"><div class="wide"><div class="idx">N5</div><div class="body">
-  <h2>Exotic structure and the bimodal signature</h2>
+  <h2>The Exotic Principle: a categorical line</h2>
   <div class="prose">
-    <p>Not all improbability is alike. Nexic reasoning distinguishes <strong>common structure</strong> &mdash; the ordinary, high-probability configuration space &mdash; from <strong>exotic structure</strong>, the imported, extraordinarily improbable region that observers require. The signature that separates them is a <strong>bimodal hazard-rate regime</strong>: two well-separated modes rather than one, with a characteristically empty gap between.</p>
-    <div class="callout gold exp-only"><span class="h">Where you can see it</span><p>Read on molecules, the signature appears as an assembly index; read on histories, it marks the events that qualify as Miracles. Optimation is the mechanism that threads a lineage from the common region into the exotic one.</p></div>
-    <p>The emptiness of the intermediate region is itself a claim: observer-ward optimization does not proceed by gentle gradients but by rare, discrete crossings into the exotic.</p>
+    <p>Now the paper&rsquo;s sharpest structural claim. Some events are so far removed in likelihood &mdash; on any timescale near billions of years &mdash; that their very occurrence renders them <strong>categorically separate</strong> from the ordinary constituents of the universe. Our existence is a system jointly built from <strong>common structure</strong> and <strong>exotic structure</strong>.</p>
+    <div class="regime">
+      <div class="rl">hazard rate of occurrence &mdash; one axis, two regimes</div>
+      <div class="track"><div class="shift"><span>the regime shift</span></div></div>
+      <div class="lbl"><span>common structure &mdash; ordinary Cosmic-Nexus rates</span><span>exotic &mdash; tangled with a Miracle</span></div>
+    </div>
+    <p>The claim is that <em>every</em> instance of exotic structure is almost surely traceable to co-existing with a <strong>Miracle</strong> &mdash; or to nothing at all. Even the K&ndash;Pg extinction has a Cosmic-Nexus hazard rate perhaps on the order of quadrillions of years, placing it north of the shift. A Miracle, then, is not a big unlikely event among others: it is a <strong>categorically alien probabilistic regime, implanted into the background universe</strong> in a form that looks phenomenologically ordinary.</p>
+    <div class="formula nx"><span class="lbl">Exotic Principle of Optimation (Principle 7)</span>The probabilistic object constituting a Nexic Miracle sits so deep in the tail that it is effectively a separate category, not a point in the common distribution. A <span class="op">Nexic Miracle</span> = an event that is both exotic (north of the regime shift) and an anthropic prerequisite.</div>
   </div>
 </div></div></article>
 
 <article class="chapter nx"><div class="wide"><div class="idx">N6</div><div class="body">
-  <h2>What a Miracle is</h2>
+  <h2>Intrinsic vs. realized frequency</h2>
   <div class="prose">
-    <p>A <strong>Miracle</strong> is a defined technical term, not a supernatural one: an event meeting two formal criteria &mdash; <em>cosmic rarity</em> (deep in exotic structure, by the bimodal signature) and <em>anthropic prerequisite</em> (genuinely necessary for observers). Nothing invokes an agent or a suspension of law; a Miracle is an ordinary physical event &mdash; an extinction, an impactor of a particular mass, a single gene loss &mdash; that happens to be both extraordinarily improbable and required for minds like ours.</p>
-    <div class="formula nx tech-only"><span class="lbl">the two-step inference</span>1. <span class="op">Exotic status</span> &mdash; establish the event sits deep in exotic structure (the rarity conjunct).<br>2. <span class="op">Nexic prerequisite</span> &mdash; establish the event was necessary for observers (the anthropic conjunct).<br><span class="c">Both must hold; a Miracle is the conjunction, reached in that order.</span></div>
-    <p>The word does real work precisely because it is defined. It lets the calculus name the events that carry the most inferential weight without importing anything mystical.</p>
+    <p>How do you <em>detect</em> exotic structure without knowing the cosmic hazard rate in advance? Through a gap you can measure. The <strong>Intrinsic Frequency Principle</strong>: natural history is full of events whose intrinsic base rate under the Cosmic Nexus is drastically lower than the frequency with which they actually occurred in our block-universe past.</p>
+    <p>The relationship is the one between a quantum wavefunction and its Born-rule masses: the <strong>intrinsic frequency</strong> is the upstream object where the substance lives; the <strong>realized frequency</strong> is the downstream readout. Rare Earth-style probability scalars have been read at the wrong level &mdash; as realized counts &mdash; when the inference belongs upstream, at the intrinsic rate.</p>
+    <div class="gap-fig">
+      <div><div class="gk">intrinsic (Cosmic Nexus)</div><div class="gv">0.0134</div><div class="gd">per-realization probability of the Late-Cretaceous sea-level signature, from IAAFT surrogates &mdash; 95% CI [0.0106, 0.0170].</div></div>
+      <div><div class="gk">realized (our past)</div><div class="gv">it happened</div><div class="gd">the seven-criterion signature occurs once in the Phanerozoic record &mdash; a sustained-high, tightly-bounded regime over &ge;&thinsp;23.75 Myr.</div></div>
+    </div>
+    <p>That measured gap &mdash; run over sea level, an attribute with nothing to do with anyone&rsquo;s intentions &mdash; is a concrete counterexample to reading realized frequency as intrinsic, and the empirical entry point for everything categorical downstream.</p>
   </div>
 </div></div></article>
 
 <article class="chapter nx"><div class="wide"><div class="idx">N7</div><div class="body">
-  <h2>Worked: Hațeg Island, then the dinosaurs</h2>
+  <h2>Why this is not the Drake equation</h2>
   <div class="prose">
-    <p>Run the move on a single event. <strong>Hațeg Island</strong> was a small landmass in late-Cretaceous Europe that, alone among comparable Northern-Hemisphere environments, lacked large theropod dinosaurs. Independent paleontological work implies an island like Hațeg would form roughly <strong>6% of the time</strong> under the Cosmic Nexus &mdash; unlikely, but not vanishingly so. On its own, a modest anthropic prerequisite; a clean, small instance of the accordance query.</p>
-    <p>Then scale up. The dinosaurian circumstance is a <em>two-node</em> requisite &mdash; the long Mesozoic suppression of mammalian ascent, and the specific impactor that ended it. Chain the nodes, each with its own hazard, and the probabilities multiply. A single event is a coin-flip; the requisite history is a product of coin-flips, and the product is where the arithmetic turns severe.</p>
+    <p>It is worth stating the contrast the paper draws itself. The Drake equation reaches a result by <em>hand-picking structural evaluations</em> &mdash; choosing factors and estimating each from human judgment about what makes a planet hospitable. Nexic reasoning aims at <strong>precisely the opposite effect</strong>.</p>
+    <div class="pull">By minimizing the contribution of human inference over the direct attribute-contents of a natural history, the method emulates an impartial style &mdash; deriving hospitality from the Aethus itself rather than from a chosen list of terms.</div>
+    <p>The difference is not cosmetic. Drake multiplies estimates; Nexic reasoning runs a deductive query with a control (Aimless Optimation), a categorical criterion (the Exotic Principle), and a measurable entry point (the intrinsic&ndash;realized gap). No factor is chosen because it seems important; the apparatus reads what the history states.</p>
   </div>
 </div></div></article>
 
 <article class="chapter nx"><div class="wide"><div class="idx">N8</div><div class="body">
-  <h2>The cascade, and the silence it predicts</h2>
+  <h2>The High-Contrast Earth Hypothesis</h2>
   <div class="prose">
-    <p>Cascade the independent Miracles &mdash; each a requisite, each rare &mdash; and the per-biosphere probability of observers compresses toward something near <strong>10&minus;&sup2;&#8311; per planet</strong>. On that number the Rare Earth hypothesis is <em>derived</em> rather than assumed, and the Fermi silence is a <em>prediction</em> rather than a paradox: a galaxy of ordinary worlds, almost none of which ever cross into the exotic structure a mind requires. Try it:</p>
+    <p>This is the conceptual pivot &mdash; and it is a claim about <em>geometry</em>, not hospitality. It says two sufficiently complex natural histories, differing by even a single attribute, almost certainly hold <strong>vastly different</strong> probabilities of producing an observer &mdash; not because one is more hostile, but because each probability is effectively a random draw on a <em>logarithmic</em> scale, and two independent log-scale draws almost never land near each other.</p>
+    <p><strong>The contrast is prior to the direction.</strong> The hypothesis fixes only the <em>magnitude</em> of the ratio; which history holds the larger probability is a separate question, answered afterward by the Accordance Principle. Draw the two histories and watch:</p>
   </div>
 
-  <div class="cascade" id="cascade">
+  <div class="hce" id="hce">
     <div class="ctop">
-      <div class="k">Live &middot; the Miracle cascade</div>
-      <h3>Multiplying the requisites</h3>
-      <p>Toggle the independent requisite events, adjust each one&rsquo;s probability, and watch the product collapse &mdash; then read the Fermi consequence across the worlds of the observable universe.</p>
+      <div class="k">Live &middot; contrast before direction</div>
+      <h3>Two histories, two draws</h3>
+      <p>Each natural history&rsquo;s probability of producing an observer is a draw on a log scale. Sample a pair and read the ratio &mdash; then let the Accordance Principle pick which one is ours.</p>
     </div>
     <div class="cbody">
-      <div id="factors"></div>
-      <div class="readout">
-        <div class="rl">Per-biosphere probability of observers</div>
-        <div class="rv" id="product">&mdash;</div>
-        <div class="rsub" id="prodNote"></div>
+      <div class="scale" id="hscale"></div>
+      <div style="text-align:center;font-family:var(--mono);font-size:.66rem;color:var(--ink-3);margin-top:.2rem;">log&#8321;&#8320; P(observer)  &mdash;  from vanishing (left) to near-certain (right)</div>
+      <div class="ratio">
+        <div class="rv" id="hratio">&mdash;</div>
+        <div class="rd" id="hnote">Sample a pair to see how far apart two independent histories land.</div>
       </div>
-      <div class="fermi">
-        <div><div class="fn" id="fGalaxy">&mdash;</div><div class="fc">expected observer worlds<br>in the Milky Way (~10&#185;&#185; planets)</div></div>
-        <div><div class="fn" id="fUniverse">&mdash;</div><div class="fc">expected observer worlds<br>in the observable universe (~10&sup2;&#8308; planets)</div></div>
+      <div class="hbtns">
+        <button class="hbtn" onclick="hceSample()">Sample a new pair</button>
+        <button class="hbtn" onclick="hceAccord()">Apply the Accordance Principle &rarr;</button>
+        <button class="hbtn" onclick="hceRun()">Run 1,000 pairs</button>
+      </div>
+      <div class="hstat">
+        <div><div class="hn" id="hmed">&mdash;</div><div class="hc">median separation<br>(orders of magnitude)</div></div>
+        <div><div class="hn" id="hnear">&mdash;</div><div class="hc">pairs landing within<br>1 order of magnitude</div></div>
       </div>
     </div>
   </div>
 
   <div class="prose">
-    <p>The default factors are illustrative, not the paper&rsquo;s final figures &mdash; the point is structural: independent requisites multiply, and a handful of rare crossings is enough to empty a galaxy. The <a class="link" href="/aethic-code/">dinosaur-recalibration work</a> supplies one node&rsquo;s empirical grounding; the <a class="link" href="/principles_compendium.html">compendium</a> catalogues the rest.</p>
+    <p>The lesson the figure makes concrete: the improbability of our history is not, at root, a fact about any single lucky attribute. It is a fact about the <em>shape</em> of the landscape &mdash; a contrast so extreme that whichever peak we occupy is effectively isolated. Rare Earth then <em>descends</em> from this, rather than being argued attribute by attribute.</p>
+  </div>
+</div></div></article>
+
+<article class="chapter nx"><div class="wide"><div class="idx">N9</div><div class="body">
+  <h2>IMD, and the forward-running calculus</h2>
+  <div class="prose">
+    <p>Name the alternatives. An <strong>Imperfection Magnitude Drop (IMD)</strong> is a natural history whose joint probability with observers, P(H&#8745;A<sub>i</sub>), is drastically minute but never quite zero &mdash; reached as a targeted perturbation away from our own ontological Aethus. The High-Contrast Earth Hypothesis says the space around us is densely populated with IMDs.</p>
+    <p>Combine the two facts and the calculus turns forward:</p>
+    <div class="formula nx"><span class="lbl">the Optimal-Earth move</span>1. <span class="op">Contrast</span> (High-Contrast Earth): changing an attribute produces an enormous probability ratio.<br>2. <span class="op">Direction</span> (Accordance): of two histories with vastly different observer-probabilities, ours holds the greater.<br>&#8756; the <span class="op">Strong Accordance Principle</span> / Optimal-Earth Conjecture: the loose &ldquo;more often than not&rdquo; bound tightens into a near-certainty, attribute by attribute.</div>
+    <p>This is what converts Accordance from a <em>retrospective</em> constraint into a <strong>predictive calculus</strong>: walk down Earth&rsquo;s attributes one at a time, and treat each as the higher-probability option against its alternatives. Nexic reasoning stops being only an explanation of the past and starts issuing paleontological predictions.</p>
+  </div>
+</div></div></article>
+
+<article class="chapter nx"><div class="wide"><div class="idx">N10</div><div class="body">
+  <h2>The worked case: the dinosaurian prerequisite</h2>
+  <div class="prose">
+    <p>Run the calculus on the record. The dinosaurian circumstance is a <strong>two-node</strong> requisite: the long Mesozoic suppression of mammalian ascent, and the specific impactor that ended it. Bounding the &ldquo;never-dinosaur&rdquo; and &ldquo;never-extinct&rdquo; counterfactuals chains their hazards into a cascade &mdash; each node an inference, the product severe.</p>
+    <div class="callout gold"><span class="h">A prediction with a number on it</span><p>The Chicxulub impactor&rsquo;s <em>mass</em> is not incidental. With crater frequency scaling as diameter&#8315;&sup3; and impactor radius tracking crater diameter, the Strong Accordance Principle predicts the impactor should sit near the smallest mass sufficient to end the dinosaurian regime &mdash; the least-improbable adequate cause. The framework also predicts a small, theropod-poor refugium such as primate-bearing Ha&#803;teg Island, and specific biosphere-doomsday pacing.</p></div>
+    <p>These are the framework&rsquo;s falsifiable commitments: not &ldquo;life is rare&rdquo; in the abstract, but the mass of a particular rock and the ecology of a particular island, derived rather than assumed.</p>
+  </div>
+</div></div></article>
+
+<article class="chapter nx"><div class="wide"><div class="idx">N11</div><div class="body">
+  <h2>Nine principles, one object</h2>
+  <div class="prose">
+    <p>The framework names many things &mdash; Optimation, Aimless Optimation, the Optimal-Earth Conjecture, the High-Contrast Earth Hypothesis, the IMD principle, the ontological and methodological Accordance Principles. They read like nine independent ideas that happen to sit together. They are not.</p>
+    <div class="pull">They are one object, <em>projected</em> onto different operational questions &mdash; the way one theorem casts different shadows depending on what you ask of it.</div>
+    <p>Aimless Optimation is the projection onto the <em>null</em> question (when do the two Nexae agree?). The methodological Accordance Principle is its contrapositive &mdash; the <em>detection</em> question (what to infer when they disagree?). The Optimal-Earth Conjecture is the <em>prediction</em> question (how to infer per attribute?). The High-Contrast Earth Hypothesis is the <em>applicability</em> question (which attributes is prediction licensed on?). Seeing the projections is what makes the apparatus feel inevitable rather than assembled.</p>
+    <div class="callout gold"><span class="h">The Miracle Identification Pipeline</span><p>Deploying it is a four-stage procedure that deliberately separates empirical from ontological commitments, mirroring how Bell-type arguments gate a strong categorical claim behind a tractable empirical inequality. Stage one is the Intrinsic Frequency Principle &mdash; the measurable gap. If the empirical entry point fails, the categorical conclusions downstream fall with it. The ontology is answerable to a number.</p></div>
+  </div>
+</div></div></article>
+
+<article class="chapter nx"><div class="wide"><div class="idx">N12</div><div class="body">
+  <h2>The spark: what licenses treating the past this way</h2>
+  <div class="prose">
+    <p>One objection sits under all of this: the past already happened &mdash; how can observer-selection reach back and shape inference about fixed events? The answer is the <strong>Aethic Indiscriminate Time Principle</strong>: real-time witnessing and retrospective learning are not different <em>kinds</em> of epistemic event. Deduced from the Extrusion Principle and the structure of Aethic superpositions, it decouples &ldquo;reveal time&rdquo; from &ldquo;real time&rdquo; &mdash; so learning the past is on the same footing as watching the present.</p>
+    <div class="formula nx"><span class="lbl">Spark Ontology Principle (Principle 15)</span>The &ldquo;spark&rdquo; that grants Optimation ontological standing over our biosphere and its proper-time past is <span class="op">the Accordance Principle itself</span>, driven by the Indiscriminate Time Principle. Nexic reasoning is licensed by Aethic reasoning at exactly this joint.</div>
+    <p>This is where the two frameworks meet. Aethic reasoning indexes reality to information; the Indiscriminate Time Principle makes the fixed past a live object of that indexing; and on that ground the whole Nexic calculus stands. The spark is not a new posit &mdash; it is Accordance, seen as ontology rather than method.</p>
   </div>
 </div></div></article>
 
@@ -434,7 +491,7 @@ body.mode-tech .exp-only{display:none;}
   <div class="wide" style="max-width:44rem;">
     <div class="meaning-flag">
       <div class="h">A boundary, stated plainly</div>
-      <p>Everything below is <strong>Miracleism</strong> &mdash; a secular, post-religious reading of what the cascade implies. It is <em>not</em> part of the formal Nexic framework, invokes nothing supernatural, and can be declined entirely without touching the calculus. It is included because the arithmetic provokes the question, and the author answers it directly.</p>
+      <p>Everything below is <strong>Miracleism</strong> &mdash; a secular, post-religious reading of what the framework implies. It is <em>not</em> part of the formal Nexic calculus, invokes nothing supernatural, and can be declined entirely without touching the mathematics. It is included because the arithmetic provokes the question, and the author answers it directly.</p>
     </div>
   </div>
 </section>
@@ -445,7 +502,8 @@ body.mode-tech .exp-only{display:none;}
   <h2>The negative correlation, and the pale blue dot</h2>
   <div class="prose">
     <p>For five hundred years, scientific accuracy and human significance ran in opposite directions: from Copernicus through Weinberg, each step toward the truth seemed to shrink our place. The canonical statement of that mood is the pale blue dot &mdash; the cosmos as the primary fact, Earth as a contingent guest, its human contents precious for what they are and not for where they are.</p>
-    <p>Nexic reasoning rereads the passage. If the cascade is right, the dot is not a mote that happens to hold something precious &mdash; it is the exceedingly rare crossing into exotic structure that a mind requires. Its <em>whereness</em> is not incidental to its preciousness; it is the whole of it.</p>
+    <p>Nexic reasoning rereads the passage. If the framework is right, the dot is not a mote that happens to hold something precious &mdash; it is the exceedingly rare crossing into exotic structure that a mind requires. Its <em>whereness</em> is not incidental to its preciousness; it is the whole of it.</p>
+    <p>And <strong>exotic structure at large</strong> is stranger than &ldquo;very improbable.&rdquo; A Miracle drops a categorically alien probabilistic regime into the background universe the way an energy density dropped into spacetime kicks up curvature &mdash; its mere presence forces a dynamical cascade, and its source is borderline-mystical in the sheer depth of falloff between its probabilistic substance and anything else the universe contains. Two far-removed islands, implanted into an otherwise continuous spectrum, with nothing intermediate to soften the edge. The pale blue dot is one of those islands.</p>
   </div>
 </div></div></article>
 
@@ -455,6 +513,7 @@ body.mode-tech .exp-only{display:none;}
     <p>Here is the structural claim: if Miracleism captures something real, the historical correlation between scientific accuracy and existential significance can <em>reverse</em>. The deeper the math goes, the larger the miracle it reveals &mdash; the descent bottoms out and begins to climb.</p>
     <div class="pull">Not a return to the unearned confidence of a pre-scientific age &mdash; but the hard-won, scientifically licensed significance that comes only <em>after</em> the descent has been completed. The trough is what comes before the curve bends back up.</div>
     <p>The trajectory&rsquo;s low point &mdash; the present cultural moment, in which accuracy and meaning feel opposed &mdash; is, on this reading, the turning rather than the terminus.</p>
+    <p>What bends the curve is a claim about where the improbability actually lives. On the standard Rare Earth reading, our specialness is assembled <em>constructively</em> &mdash; a pile of lucky low-probability events. Optimation reads it the other way: our world is an <strong>eliminative filter</strong>, and the depth of that filter is quantifiable. The paper calls this <strong>computational divinity</strong> &mdash; the K&ndash;Pg day is a Miracle whose every fractal face we can still count in the rocks, an achievement whose stakes the greatest resources of human ingenuity are simply too inadequate to process. The awe is not mystical; it is measured.</p>
   </div>
 </div></div></article>
 
@@ -463,6 +522,7 @@ body.mode-tech .exp-only{display:none;}
   <div class="prose">
     <p>Between two exhausted options &mdash; traditional realism about cosmic meaning, and the nihilism that tends to follow its collapse &mdash; Miracleism proposes a third. It grants the science entirely: the universe is overwhelmingly empty, and no purpose was written into it. It simply reads a different consequence from the emptiness.</p>
     <p>The author is direct that realizing how empty of life the universe is can be one of the more destabilizing moments in an intellectual life. But the prevailing response &mdash; a pessimistic dread that curdles into one form or another of nihilism &mdash; is, on this view, exactly backwards.</p>
+    <p>And it inverts a habit of thought. We tend to picture ourselves as the only brains in the operation and the natural world as a blundering servant to be exploited. When the deciding entity is instead a Miracle &mdash; a state of computational super-ability we would elsewhere call divinity or omniscience &mdash; that picture flips: the natural world becomes the greatest deciding entity, and we the improbable beneficiaries of its verdict.</p>
   </div>
 </div></div></article>
 
@@ -470,14 +530,16 @@ body.mode-tech .exp-only{display:none;}
   <h2>The cosmic graveyard as evidence</h2>
   <div class="prose">
     <p>The emptiness is not the point; what you make of having crossed it is. Against a cosmic graveyard, your existence is a triumph over the ultimate improbability &mdash; and the fitting response is optimism on the same scale as the arithmetic. The very silence that reads as bleak is, reread, the measure of the achievement your being here represents.</p>
-    <div class="callout gold"><span class="h">In the author&rsquo;s framing</span><p>Sure &mdash; we are surrounded by a cosmic graveyard. But you made it, across a fantastic journey and a triumph against the ultimate challenge. There is something in that which words can scarcely hold, and you are a part of it.</p></div>
+    <div class="callout gold"><span class="h">In the author&rsquo;s own words</span><p>&ldquo;Sure, we&rsquo;re surrounded by a cosmic graveyard. But guess what? You made it &mdash; a fantastic journey and triumph against the ultimate challenge. And by ultimate, I mean ultimate. There&rsquo;s something beautiful and unprecedented about this world that words can scarcely depict. And here you are, a part of that world &mdash; living and breathing with it. You have no idea how special you are.&rdquo;</p></div>
   </div>
 </div></div></article>
 
 <article class="chapter nx"><div class="wide"><div class="idx">M5</div><div class="body">
   <h2>Too vast to be conveyed, too personal to be named</h2>
   <div class="prose">
-    <p>The Nexic paper closes on the cumulative cascade with a single line, and it is the right note to end on. <strong>Too vast to be conveyed</strong> &mdash; the end-to-end probability exceeds anything the human mind is built to hold; comprehension at that scale is simply not available to entities like us. <strong>And yet too personal to be named</strong> &mdash; because the cascade is, from beginning to end, about <em>you</em> specifically, and naming it impersonally would falsify what it actually is.</p>
+    <p><strong>Too vast to be conveyed.</strong> The end-to-end improbability is not a number you can feel your way around. The paper reaches for the only honest comparison &mdash; trying in vain to parse the magnitude of <strong>Graham&rsquo;s number</strong>, where all one can realize is that such magnitudes outmatch every attempt at reconciliation before they even begin. Comprehension at that scale is simply not available to minds like ours.</p>
+    <p><strong>And yet too personal to be named.</strong> The whole of it is, from beginning to end, about <em>you</em> specifically. And the reason is structural, not sentimental: with the Aethic and Nexic paradigms running together, you are not a fluttering inscription on the hull of the cosmos who merely happens to be aboard.</p>
+    <div class="pull">We are the embodiment of the universe itself &mdash; not because we happen to be here, but because, in some profound sense, we were intertwined with it all along.</div>
     <p>That is where the calculus and its meaning meet: an arithmetic too large to feel, describing an outcome too intimate to abstract. The framework can compute the one; only you can stand in the other.</p>
   </div>
 </div></div></article>
@@ -486,78 +548,67 @@ body.mode-tech .exp-only{display:none;}
 
 <section>
   <div class="wide">
-    <div class="sec-head"><span class="eyebrow">Go further</span><h2>From the cascade outward.</h2></div>
+    <div class="sec-head"><span class="eyebrow">Go further</span><h2>From the calculus outward.</h2></div>
     <div class="navgrid">
-      <a href="/aethic-reasoning-guide.html#explorer"><div class="nt">The Aethic Guide <span class="arr">&rarr;</span></div><div class="nd">The other wing: how reality gets re-indexed to an observer, with a live pruning demo.</div></a>
-      <a href="/aethic-code/"><div class="nt">The dinosaur work <span class="arr">&rarr;</span></div><div class="nd">The recalibration paper and interactive charts behind the dinosaurian node.</div></a>
-      <a href="/principles_compendium.html"><div class="nt">The Compendium <span class="arr">&rarr;</span></div><div class="nd">Every Nexic principle and empirical postulate, tiered and filterable.</div></a>
-      <a href="/glossary.html"><div class="nt">The Glossary <span class="arr">&rarr;</span></div><div class="nd">Every term above, defined and cross-referenced.</div></a>
+      <a href="/aethic-reasoning-guide.html"><div class="nt">The Aethic Guide <span class="arr">&rarr;</span></div><div class="nd">The other wing: how reality gets re-indexed to an observer &mdash; the Indiscriminate Time Principle that grounds the spark, with a live pruning demo.</div></a>
+      <a href="/aethic-code/"><div class="nt">The dinosaur work <span class="arr">&rarr;</span></div><div class="nd">The recalibration paper and interactive charts behind the dinosaurian node and the Dark Era.</div></a>
+      <a href="/principles_compendium.html"><div class="nt">The Compendium <span class="arr">&rarr;</span></div><div class="nd">Every Nexic principle and empirical postulate named here, tiered and filterable.</div></a>
+      <a href="/glossary.html"><div class="nt">The Glossary <span class="arr">&rarr;</span></div><div class="nd">Optimation, Aimless Optimation, exotic structure, IMD, the Nexae &mdash; every term, defined.</div></a>
     </div>
   </div>
 </section>
 
 <script>
 (function(){
-  window.setMode=function(m){
-    document.body.classList.toggle('mode-tech', m==='tech');
-    document.getElementById('btn-tech').setAttribute('aria-pressed', m==='tech');
-    document.getElementById('btn-exp').setAttribute('aria-pressed', m!=='tech');
-  };
+  // ── High-Contrast Earth: log-scale draws ──
+  var LO=-60, HI=0;           // log10 P(observer): 10^-60 .. 10^0
+  function draw(){ return LO + Math.random()*(HI-LO); }   // uniform on log scale
+  function pos(v){ return 4 + ((v-LO)/(HI-LO))*92; }  // inset 4% each side so edge labels never spill
+  var A=null,B=null,claimed=false;
 
-  // ---- Miracle cascade ----
-  // illustrative independent requisite probabilities (exponents adjustable)
-  const factors=[
-    {name:'Habitable world forms &amp; persists', sub:'Aetherian Nexus', on:true, exp:-2},
-    {name:'Abiogenesis in the window', sub:'origin of life, post-Hadean', on:true, exp:-3},
-    {name:'Eukaryotic transition', sub:'the Goldilocks timing', on:true, exp:-4},
-    {name:'Mesozoic suppression of mammals', sub:'the long dinosaurian night', on:true, exp:-3},
-    {name:'The right impactor, on time', sub:'Chicxulub-mass, K\u2013Pg', on:true, exp:-3},
-    {name:'Ha\u021beg-type refugium', sub:'~6% under the Cosmic Nexus', on:true, exp:-1.2},
-    {name:'GGTA1-type immune crossing', sub:'a single gene loss', on:true, exp:-2},
-    {name:'Lineage climbs to intelligence', sub:'against Aimless Optimation', on:true, exp:-9}
-  ];
-  const el=document.getElementById('factors');
-  function fmtExp(e){ // format 10^e nicely
-    const m=Math.pow(10, e-Math.floor(e));
-    const mant=(Math.round(m*100)/100);
-    return mant.toFixed(2)+'\u00d710'+sup(Math.floor(e));
-  }
-  function sup(n){
-    const map={'-':'\u207B','0':'\u2070','1':'\u00b9','2':'\u00b2','3':'\u00b3','4':'\u2074','5':'\u2075','6':'\u2076','7':'\u2077','8':'\u2078','9':'\u2079'};
-    return String(n).split('').map(c=>map[c]||c).join('');
-  }
-  function render(){
-    el.innerHTML='';
-    factors.forEach((f,i)=>{
-      const row=document.createElement('div'); row.className='factor'+(f.on?'':' off');
-      row.innerHTML=
-        '<input type="checkbox" class="fchk" '+(f.on?'checked':'')+'>'+
-        '<div><div class="fname">'+f.name+'<span class="fsub">'+f.sub+'</span></div>'+
-          '<input type="range" min="-12" max="0" step="0.1" value="'+f.exp+'"></div>'+
-        '<div class="fprob">'+fmtExp(f.exp)+'</div>';
-      row.querySelector('.fchk').onchange=(e)=>{ f.on=e.target.checked; render(); };
-      row.querySelector('input[type=range]').oninput=(e)=>{ f.exp=parseFloat(e.target.value); render(); };
-      el.appendChild(row);
+  function ticks(){
+    var sc=document.getElementById('hscale'); sc.innerHTML='';
+    [-60,-45,-30,-15,0].forEach(function(v){
+      var t=document.createElement('div'); t.className='tick'; t.style.left=pos(v)+'%';
+      t.textContent='10'+sup(v); sc.appendChild(t);
     });
-    // product (sum of exponents)
-    let sumExp=0; factors.forEach(f=>{ if(f.on) sumExp+=f.exp; });
-    const prod=document.getElementById('product');
-    prod.innerHTML = factors.some(f=>f.on) ? ('&#8776; 10'+sup(Math.round(sumExp))+' / planet') : '1 (no requisites)';
-    document.getElementById('prodNote').textContent =
-      'Product of '+factors.filter(f=>f.on).length+' independent requisites. The paper\u2019s cascade lands near 10\u207B\u00b2\u2077; this configuration gives 10'+supPlain(Math.round(sumExp))+'.';
-    // Fermi: planets * prob
-    const galaxyPlanets=11, universePlanets=24; // log10
-    const g=galaxyPlanets+sumExp, u=universePlanets+sumExp;
-    document.getElementById('fGalaxy').innerHTML = fmtCount(g);
-    document.getElementById('fUniverse').innerHTML = fmtCount(u);
   }
-  function supPlain(n){ return sup(n); }
-  function fmtCount(logv){
-    if(!factors.some(f=>f.on)) return '\u2014';
-    if(logv < -0.5) return '\u226a 1';
-    if(logv < 0.5) return '\u2248 1';
-    return '\u2248 10'+sup(Math.round(logv));
+  function sup(n){var m={'-':'\u207B','0':'\u2070','1':'\u00b9','2':'\u00b2','3':'\u00b3','4':'\u2074','5':'\u2075','6':'\u2076'};return String(n).split('').map(function(c){return m[c]||c}).join('');}
+
+  function place(){
+    ticks();
+    var sc=document.getElementById('hscale');
+    [['A',A],['B',B]].forEach(function(pair){
+      if(pair[1]===null) return;
+      var d=document.createElement('div'); d.className='draw d'+pair[0]; d.style.left=pos(pair[1])+'%';
+      var lbl = 'History '+pair[0];
+      if(claimed){ lbl += (pair[1]===Math.max(A,B) ? ' \u2014 ours' : ' \u2014 an IMD'); }
+      d.innerHTML='<div class="dl">'+lbl+'</div><div class="dot"></div>';
+      sc.appendChild(d);
+    });
   }
-  render();
+  window.hceSample=function(){
+    A=draw(); B=draw(); claimed=false; place();
+    var sep=Math.abs(A-B);
+    document.getElementById('hratio').textContent='ratio \u2248 10'+sup(Math.round(sep));
+    document.getElementById('hnote').textContent='Two independent histories, '+sep.toFixed(1)+' orders of magnitude apart. Neither is "more hostile" \u2014 the gap is just what independent log-scale draws do.';
+  };
+  window.hceAccord=function(){
+    if(A===null){ window.hceSample(); }
+    claimed=true; place();
+    var hi=Math.max(A,B), lo=Math.min(A,B);
+    document.getElementById('hratio').textContent='ours: 10'+sup(Math.round(hi));
+    document.getElementById('hnote').textContent='The Accordance Principle supplies direction: of the two, ours is the higher-probability history. The other is an Imperfection Magnitude Drop \u2014 minute, but never quite zero.';
+  };
+  window.hceRun=function(){
+    var seps=[],near=0,N=1000;
+    for(var i=0;i<N;i++){ var s=Math.abs(draw()-draw()); seps.push(s); if(s<1) near++; }
+    seps.sort(function(a,b){return a-b});
+    var med=seps[Math.floor(N/2)];
+    document.getElementById('hmed').textContent='\u2248 '+med.toFixed(0);
+    document.getElementById('hnear').textContent=(near/N*100).toFixed(1)+'%';
+    document.getElementById('hnote').textContent='Across 1,000 pairs, the typical separation is ~'+med.toFixed(0)+' orders of magnitude, and only '+(near/N*100).toFixed(1)+'% land within a single order. High contrast is the rule, not the exception \u2014 which is the hypothesis.';
+  };
+  ticks();
 })();
 </script>
