@@ -1,6 +1,20 @@
 ---
 layout: default
 title: "aethus.org — Reality, Indexed"
+# PhilPapers URL templates (defined once; every paper link below is built from these)
+pp_pdf: "https://philpapers.org/archive/"
+pp_rec: "https://philpapers.org/rec/"
+# Paper code mapping — update a code here and every link to that paper follows
+papers:
+  semantics: "BENCEB-2"
+  exclusivity: "BENEAA-9"
+  boundary: "BENTQB"
+  newcomb: "BENNPW"
+  causality: "BENCWT-4"
+  copernican: "BENTCM-7"
+  inbrief: "BENARI-3"
+  comprehensive: "BENARA-5"
+  nexic: "BENNRD"
 ---
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,9 +92,23 @@ section{padding:clamp(3rem,7vw,5rem) 0;border-bottom:1px solid var(--rule);}
 .trio-card p{margin:0 0 1.2rem;font-size:.95rem;color:var(--ink-2);line-height:1.56;}
 .trio-card .tfoot{margin-top:auto;padding-top:.85rem;border-top:1px solid var(--rule-2);}
 .trio-card .tmeta{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink-3);line-height:1.6;}
-.trio-card .tlink{display:inline-block;font-family:var(--mono);font-size:.78rem;color:var(--garnet);font-weight:600;margin-top:.5rem;}
-.trio-card:hover .tlink{color:var(--garnet-2);}
+.trio-card .tlinks{display:flex;flex-wrap:wrap;gap:.3rem 1.6ch;align-items:baseline;margin-top:.55rem;}
+.trio-card .tlink{font-family:var(--mono);font-size:.78rem;color:var(--garnet);font-weight:600;}
+.trio-card .tlink:hover{color:var(--garnet-2);}
+.trio-card .tlink.alt{color:var(--ink-3);font-weight:500;}
+.trio-card .tlink.alt:hover{color:var(--garnet);}
 .trio-cap{font-family:var(--mono);font-size:.74rem;color:var(--ink-3);margin-top:.9rem;line-height:1.5;}
+.trio-rowhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1.2ch;font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--ink-3);margin:0 0 .8rem;}
+.trio-rowhead .rl{color:var(--ink);}
+.trio-rowhead .rn{text-transform:none;letter-spacing:.03em;}
+.trio-row2{margin-top:2.8rem;}
+.trio-row2 .trio{border-top:1px solid var(--rule);margin-top:0;}
+.trio-row2 .trio-card{background:var(--paper-3);}
+.trio-row2 .trio-card:hover{background:var(--paper-2);}
+.trio-card.wing-nexic .tn,.trio-card.wing-nexic .tlink{color:var(--gold);}
+.trio-card.wing-nexic .tlink:hover{color:var(--gold-2);}
+.trio-card.wing-nexic .tlink.alt{color:var(--ink-3);}
+.trio-card.wing-nexic .tlink.alt:hover{color:var(--gold);}
 
 /* STATUS split */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
@@ -106,6 +134,8 @@ section{padding:clamp(3rem,7vw,5rem) 0;border-bottom:1px solid var(--rule);}
 .paper .pt{font-family:var(--display);font-size:1.14rem;color:var(--ink);line-height:1.25;letter-spacing:-.01em;}
 .paper .pm{font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;color:var(--ink-3);margin-top:.45rem;}
 .paper.newest .pt{color:var(--garnet);}
+.paper .pt a:hover{color:var(--garnet);}
+.plink{color:var(--garnet);}
 .paper .flag{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--garnet);padding:.12em .55ch;margin-left:.6ch;vertical-align:middle;}
 
 /* nav grid (site pages) */
@@ -164,41 +194,95 @@ footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6
     <div class="sec-head">
       <span class="eyebrow">Start here · the paper trio</span>
       <h2>One inversion, three moves — one paper each.</h2>
-      <p>Almost every framework in physics and metaphysics shares a hidden bookkeeping convention: it fixes facts to spacetime. Aethic reasoning relocates the index of reality to the <em>Aethus</em> — an observer's complete information state — and follows the consequence. Its three load-bearing moves now stand as three self-contained papers, each arguing one move on its home field's terms. Read them in № order to follow the derivation, or enter through the field you know best.</p>
+      <p>Almost every framework in physics and metaphysics shares a hidden bookkeeping convention: it fixes facts to spacetime. Aethic reasoning relocates the index of reality to the <em>Aethus</em> — an observer's complete information state — and follows the consequence. Its three load-bearing moves stand as three self-contained papers, each arguing one move on its home field's terms. Read them in № order to follow the derivation, or enter through the field you know best. Three further papers, below, run the same relocation at problems in other fields.</p>
     </div>
+    <p class="trio-rowhead"><span class="rl">The derivation</span> <span class="rn">— three moves, in order</span></p>
     <div class="trio">
-      <a class="trio-card" href="https://philpapers.org/archive/BENCEB-2.pdf">
+      <div class="trio-card">
         <span class="tn">№ 1 · Modality</span>
         <h3>Counterfactual Evaluation by Perturbation of Information States</h3>
         <div class="tsub">Deleting the ordering, not refining it</div>
         <p>"What would have happened" is evaluated without ever leaving the evaluator: reopen the antecedent's entry in your own information state, restate it, re-prune, and read the verdict off what survives. The Lewis–Stalnaker similarity ordering appears nowhere — its work split across dependency structure, validity, and weight — and <em>would</em>, <em>might</em>, and <em>the probability that</em> become one operator read at three grains.</p>
         <div class="tfoot">
           <div class="tmeta">Home field: semantics of conditionals · assumes no physics · preprint, July 2026</div>
-          <span class="tlink">Read the paper (PDF) →</span>
+          <div class="tlinks">
+            <a class="tlink" href="{{ page.pp_pdf }}{{ page.papers.semantics }}.pdf">Read the paper (PDF) →</a>
+            <a class="tlink alt" href="{{ page.pp_rec }}{{ page.papers.semantics }}">record ↗</a>
+          </div>
         </div>
-      </a>
-      <a class="trio-card" href="https://philpapers.org/archive/BENEAA-9.pdf">
+      </div>
+      <div class="trio-card">
         <span class="tn">№ 2 · Logic</span>
         <h3>Exclusivity as Achievement</h3>
         <div class="tsub">Relocating mutual exclusion to the interior, and the logical primitive that falls out</div>
         <p>Mutual exclusivity is not the nature of <em>or</em>; it is stated content carried on the interior of each alternative — an achievement, and so removable. Decline to state those negations and a second composition regime falls out, fixed against the classical one by a one-statement test. The relocation reclassifies the color-exclusion problem that fractured the Tractatus and supplies the determinable-indeterminacy literature with its missing composition story.</p>
         <div class="tfoot">
           <div class="tmeta">Home field: logic &amp; metaphysics · the physics quarantined · preprint, July 2026</div>
-          <span class="tlink">Read the paper (PDF) →</span>
+          <div class="tlinks">
+            <a class="tlink" href="{{ page.pp_pdf }}{{ page.papers.exclusivity }}.pdf">Read the paper (PDF) →</a>
+            <a class="tlink alt" href="{{ page.pp_rec }}{{ page.papers.exclusivity }}">record ↗</a>
+          </div>
         </div>
-      </a>
-      <a class="trio-card" href="https://philpapers.org/archive/BENTQB.pdf">
+      </div>
+      <div class="trio-card">
         <span class="tn">№ 3 · Measurement</span>
         <h3>The Quantum–Classical Boundary as an Informational Classification</h3>
         <div class="tsub">A derivation from three consistency postulates on observer-indexed information states</div>
         <p>Three postulates — no dynamics, no Hilbert space, no scale parameter — yield a classification theorem sorting every candidate superposition into three bins, the quantum–classical boundary arriving as a discrete informational fact that moves with the detectors, never with size or mass. One flagged axiom then buys the standard interference statistics; what is posited and what is derived is inventoried on the paper's face.</p>
         <div class="tfoot">
           <div class="tmeta">Home field: quantum foundations · assumptions inventoried · preprint, July 2026</div>
-          <span class="tlink">Read the paper (PDF) →</span>
+          <div class="tlinks">
+            <a class="tlink" href="{{ page.pp_pdf }}{{ page.papers.boundary }}.pdf">Read the paper (PDF) →</a>
+            <a class="tlink alt" href="{{ page.pp_rec }}{{ page.papers.boundary }}">record ↗</a>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
-    <p class="trio-cap">Direct PDFs from the PhilPapers archive. The № order is the derivation's own — modality, then logic, then measurement — but each paper stands alone, with its own provenance note at the end.</p>
+    <div class="trio-row2">
+      <p class="trio-rowhead"><span class="rl">The applications</span> <span class="rn">— the same relocation, run at three standing problems</span></p>
+      <div class="trio">
+        <div class="trio-card">
+          <span class="tn">Decision theory</span>
+          <h3>Newcomb's Problem Without a Fixed Past</h3>
+          <div class="tsub">A decision rule from observer-indexed determinacy</div>
+          <p>Both camps in the fifty-year deadlock share one premise: that the predictor's past choice is settled at the moment you decide. Drop it — an unread outcome is a blank entry, and blanks lack tense — and one-boxing follows without news value and without backward causation. The same criterion sorts the smoking lesion and the transparent variant, and prices its own premises.</p>
+          <div class="tfoot">
+            <div class="tmeta">Home field: decision theory · assumes no physics · preprint, July 2026</div>
+            <div class="tlinks">
+            <a class="tlink" href="{{ page.pp_pdf }}{{ page.papers.newcomb }}.pdf">Read the paper (PDF) →</a>
+            <a class="tlink alt" href="{{ page.pp_rec }}{{ page.papers.newcomb }}">record ↗</a>
+          </div>
+        </div>
+      </div>
+        <div class="trio-card">
+          <span class="tn">Causation</span>
+          <h3>Causality Without the Classical Triad</h3>
+          <div class="tsub">Reichenbach's principle as a theorem, and the Bell correlations as its regime boundary</div>
+          <p>No causal arrow appears anywhere in the analysis. With the two causal horns defined by their behavior under conditioning, Reichenbach's common-cause principle becomes a theorem — the screening certificate arriving as a one-line factorization — and the folk triad is recovered as narration: five stories, two arrangements, one signature. The Bell correlations sit exactly at that theorem's boundary.</p>
+          <div class="tfoot">
+            <div class="tmeta">Home field: causation · answers the Wood–Spekkens diagnosis · preprint, July 2026</div>
+            <div class="tlinks">
+            <a class="tlink" href="{{ page.pp_pdf }}{{ page.papers.causality }}.pdf">Read the paper (PDF) →</a>
+            <a class="tlink alt" href="{{ page.pp_rec }}{{ page.papers.causality }}">record ↗</a>
+          </div>
+        </div>
+      </div>
+        <div class="trio-card wing-nexic">
+          <span class="tn">Anthropics · the Nexic wing</span>
+          <h3>The Copernican Method Against the Copernican Principle</h3>
+          <div class="tsub">Anthropic typicality over partial information states</div>
+          <p>Three commitments cannot all hold: that your own situation is typical among observers, that typicality is assessed under the cosmic weighting, and that Earth-like environments are common. The typicality principle is derived rather than postulated — one application of Bayes' theorem from two mediocrity commitments — and the reference-class problem is diagnosed as an artifact of reasoning over completed histories.</p>
+          <div class="tfoot">
+            <div class="tmeta">Home field: anthropic reasoning · the framework's second wing · preprint, July 2026</div>
+            <div class="tlinks">
+            <a class="tlink" href="{{ page.pp_pdf }}{{ page.papers.copernican }}.pdf">Read the paper (PDF) →</a>
+            <a class="tlink alt" href="{{ page.pp_rec }}{{ page.papers.copernican }}">record ↗</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <p class="trio-cap">PDF links go straight to the manuscript; the record link beside each is its PhilPapers page, for citation and versions. Every paper stands alone and carries its own provenance note at the end.</p>
   </div>
 </section>
 
@@ -317,26 +401,38 @@ footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6
     <div class="sec-head">
       <span class="eyebrow">The papers</span>
       <h2>Public preprints.</h2>
-      <p>All manuscripts are archived and openly downloadable, newest first. New readers should start with the July 2026 trio — three self-contained extractions, one per load-bearing move — then <em>In Brief</em> for the framework's main line in one read, with the Comprehensive paper as the full development.</p>
+      <p>All manuscripts are archived and openly downloadable, newest first. New readers should start with the July 2026 trio — three self-contained extractions, one per load-bearing move — then the three application papers, then <em>In Brief</em> for the framework's main line in one read, with the Comprehensive paper as the full development.</p>
     </div>
     <div class="papers">
-      <a class="paper newest" href="https://philpapers.org/archive/BENCEB-2.pdf">
-        <div class="pt">Counterfactual Evaluation by Perturbation of Information States: Deleting the Ordering, Not Refining It <span class="flag">Trio · № 1</span></div>
-        <div class="pm">July 2026 · extraction paper · semantics of conditionals · direct PDF</div>
-      </a>
-      <a class="paper newest" href="https://philpapers.org/archive/BENEAA-9.pdf">
-        <div class="pt">Exclusivity as Achievement: Relocating Mutual Exclusion to the Interior, and the Logical Primitive That Falls Out <span class="flag">Trio · № 2</span></div>
-        <div class="pm">July 2026 · extraction paper · logic &amp; metaphysics · direct PDF</div>
-      </a>
-      <a class="paper newest" href="https://philpapers.org/archive/BENTQB.pdf">
-        <div class="pt">The Quantum–Classical Boundary as an Informational Classification: A Derivation from Three Consistency Postulates on Observer-Indexed Information States <span class="flag">Trio · № 3</span></div>
-        <div class="pm">July 2026 · extraction paper · quantum foundations · direct PDF</div>
-      </a>
-      <a class="paper" href="https://philpapers.org/rec/BENARI-3">
+      <div class="paper newest">
+        <div class="pt"><a href="{{ page.pp_pdf }}{{ page.papers.semantics }}.pdf">Counterfactual Evaluation by Perturbation of Information States: Deleting the Ordering, Not Refining It</a> <span class="flag">Trio · № 1</span></div>
+        <div class="pm">July 2026 · extraction paper · semantics of conditionals · direct PDF · <a class="plink" href="{{ page.pp_rec }}{{ page.papers.semantics }}">record</a></div>
+      </div>
+      <div class="paper newest">
+        <div class="pt"><a href="{{ page.pp_pdf }}{{ page.papers.exclusivity }}.pdf">Exclusivity as Achievement: Relocating Mutual Exclusion to the Interior, and the Logical Primitive That Falls Out</a> <span class="flag">Trio · № 2</span></div>
+        <div class="pm">July 2026 · extraction paper · logic &amp; metaphysics · direct PDF · <a class="plink" href="{{ page.pp_rec }}{{ page.papers.exclusivity }}">record</a></div>
+      </div>
+      <div class="paper newest">
+        <div class="pt"><a href="{{ page.pp_pdf }}{{ page.papers.boundary }}.pdf">The Quantum–Classical Boundary as an Informational Classification: A Derivation from Three Consistency Postulates on Observer-Indexed Information States</a> <span class="flag">Trio · № 3</span></div>
+        <div class="pm">July 2026 · extraction paper · quantum foundations · direct PDF · <a class="plink" href="{{ page.pp_rec }}{{ page.papers.boundary }}">record</a></div>
+      </div>
+      <div class="paper">
+        <div class="pt"><a href="{{ page.pp_pdf }}{{ page.papers.newcomb }}.pdf">Newcomb's Problem Without a Fixed Past: A Decision Rule From Observer-Indexed Determinacy</a></div>
+        <div class="pm">July 2026 · extraction paper · decision theory · direct PDF · <a class="plink" href="{{ page.pp_rec }}{{ page.papers.newcomb }}">record</a></div>
+      </div>
+      <div class="paper">
+        <div class="pt"><a href="{{ page.pp_pdf }}{{ page.papers.causality }}.pdf">Causality Without the Classical Triad: Reichenbach's Principle as a Theorem, and the Bell Correlations as Its Regime Boundary</a></div>
+        <div class="pm">July 2026 · extraction paper · causation · direct PDF · <a class="plink" href="{{ page.pp_rec }}{{ page.papers.causality }}">record</a></div>
+      </div>
+      <div class="paper">
+        <div class="pt"><a href="{{ page.pp_pdf }}{{ page.papers.copernican }}.pdf">The Copernican Method Against the Copernican Principle: Anthropic Typicality over Partial Information States</a></div>
+        <div class="pm">July 2026 · extraction paper · anthropics, the Nexic wing · direct PDF · <a class="plink" href="{{ page.pp_rec }}{{ page.papers.copernican }}">record</a></div>
+      </div>
+      <a class="paper" href="{{ page.pp_rec }}{{ page.papers.inbrief }}">
         <div class="pt">Aethic Reasoning in Brief: From a Counterfactual Semantics to the Quantum Measurement Problem</div>
         <div class="pm">July 2026 · compressed companion · the framework's main line in one read</div>
       </a>
-      <a class="paper" href="https://philpapers.org/rec/BENARA-5">
+      <a class="paper" href="{{ page.pp_rec }}{{ page.papers.comprehensive }}">
         <div class="pt">Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem</div>
         <div class="pm">Nov 2024, revised through 2026 · the full development · every claim at native resolution</div>
       </a>
@@ -344,7 +440,7 @@ footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6
         <div class="pt">Extrusion Without Duplication: Aethic Time, Collapse, and Observer-Relative Reality</div>
         <div class="pm">June 2025 · the extrusion principle, standalone</div>
       </a>
-      <a class="paper" href="https://philpapers.org/rec/BENNRD">
+      <a class="paper" href="{{ page.pp_rec }}{{ page.papers.nexic }}">
         <div class="pt">Nexic Reasoning: Defining a Generalized Calculus Over Anthropic Parameters</div>
         <div class="pm">Nov 2024 · anthropic reasoning · the Fermi paradox · paleontology</div>
       </a>
