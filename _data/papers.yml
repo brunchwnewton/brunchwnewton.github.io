@@ -22,12 +22,13 @@ directory:
     reality to the <em>Aethus</em> — an observer's complete information state — and
     follows the consequence. Its three load-bearing moves stand as three self-contained
     papers, each arguing one move on its home field's terms; four further papers run the
-    same relocation at standing problems elsewhere. Read the first row in № order to
-    follow the derivation, or enter through the field you know best.
+    same relocation at standing problems elsewhere, and one develops the formal apparatus
+    the others share. Read the first row in № order to follow the derivation, or enter
+    through the field you know best.
   caption: >-
     PDF links go straight to the manuscript; the record link beside each is its
-    PhilPapers page, for citation and versions. Every paper stands alone and carries its
-    own provenance note at the end.
+    PhilPapers page, for citation and versions. Every paper stands alone and carries its own provenance note at
+    the end.
 
 # --- The rows -------------------------------------------------------------
 rows:
@@ -162,6 +163,31 @@ rows:
         meta: "Home field: anthropic reasoning · builds on the foundation beside it · preprint, July 2026"
         list_title: "The Optimal Earth: A Paradigmatic Re-Rendition of Natural History from Coupled Improbability"
         list_meta: "July 2026 · extraction paper · anthropics, the Nexic wing · direct PDF"
+
+  - id: apparatus
+    label: "The apparatus"
+    note: "— the formal face of the same states"
+    cols: 1
+    modifier: "pdir-row-alt"
+    papers:
+
+      - key: weightalgebra
+        code: "BENTWA-5"
+        label: "Algebra"
+        title: "The Weight Algebra of Information States"
+        subtitle: "A two-layer commutative semiring for superposition and pruning"
+        blurb: >-
+          The algebra face of the states the first paper perturbs. Unweighted states form
+          a commutative semiring — addition the informational union, multiplication joint
+          assertion — and a weighted layer built over it is quotiented so that sums always
+          reduce through last-common-ancestor factorization rather than combining freely.
+          Additive inverses are forbidden rather than declined, since they would collapse
+          the uniqueness of invalid states; probability then appears as a
+          congruence-respecting homomorphism, and the pruning postulate as a greatest
+          fixed point.
+        meta: "Home field: algebra · the formal companion to № 1 · preprint, July 2026"
+        list_title: "The Weight Algebra of Information States: A Two-Layer Commutative Semiring for Superposition and Pruning"
+        list_meta: "July 2026 · extraction paper · algebra · direct PDF"
 
 # --- Longer works, linked by record page ----------------------------------
 companions:
