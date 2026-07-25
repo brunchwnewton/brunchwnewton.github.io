@@ -119,7 +119,7 @@ footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6
 {% include paper-directory.html
    id="trio"
    eyebrow="Start here · the short papers"
-   heading="One inversion, three moves — then four applications." %}
+   heading="One inversion, three moves, and what follows from them." %}
 
 <section style="padding:1.6rem 0;border-bottom:1px solid var(--rule);">
   <div class="wide">
@@ -250,8 +250,8 @@ footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6
       {%- assign D = site.data.papers -%}
       {% for row in D.rows %}{% for p in row.papers %}
       <div class="paper{% if p.newest %} newest{% endif %}">
-        <div class="pt"><a href="{{ D.pp_pdf }}{{ p.code }}.pdf">{{ p.list_title }}</a>{% if p.flag %} <span class="flag">{{ p.flag }}</span>{% endif %}</div>
-        <div class="pm">{{ p.list_meta }} · <a class="plink" href="{{ D.pp_rec }}{{ p.code }}">record</a></div>
+        <div class="pt">{% if p.code %}<a href="{{ D.pp_pdf }}{{ p.code }}.pdf">{{ p.list_title }}</a>{% else %}{{ p.list_title }}{% endif %}{% if p.flag %} <span class="flag">{{ p.flag }}</span>{% endif %}</div>
+        <div class="pm">{{ p.list_meta }}{% if p.code %} · <a class="plink" href="{{ D.pp_rec }}{{ p.code }}">record</a>{% endif %}</div>
       </div>
       {% endfor %}{% endfor %}
       <a class="paper" href="{{ site.data.papers.pp_rec }}{{ site.data.papers.companions.inbrief }}">
