@@ -1,0 +1,170 @@
+# ============================================================================
+# THE PAPER DIRECTORY — single source of truth
+# Used by _includes/paper-directory.html (the cards) and by index.html's
+# archive list. Add a paper here and it appears in every place that draws
+# from this file; nothing else needs editing.
+#
+# Every link is built as {template}{code}, so a code appears exactly once.
+#   PDF    -> pp_pdf + code + ".pdf"
+#   record -> pp_rec + code
+# ============================================================================
+
+pp_pdf: "https://philpapers.org/archive/"
+pp_rec: "https://philpapers.org/rec/"
+
+# --- Section framing (overridable per page via include parameters) ---------
+directory:
+  eyebrow: "Start here · the short papers"
+  heading: "One inversion, one paper at a time."
+  intro: >-
+    Almost every framework in physics and metaphysics shares a hidden bookkeeping
+    convention: it fixes facts to spacetime. Aethic reasoning relocates the index of
+    reality to the <em>Aethus</em> — an observer's complete information state — and
+    follows the consequence. Its three load-bearing moves stand as three self-contained
+    papers, each arguing one move on its home field's terms; four further papers run the
+    same relocation at standing problems elsewhere. Read the first row in № order to
+    follow the derivation, or enter through the field you know best.
+  caption: >-
+    PDF links go straight to the manuscript; the record link beside each is its
+    PhilPapers page, for citation and versions. Every paper stands alone and carries its
+    own provenance note at the end.
+
+# --- The rows -------------------------------------------------------------
+rows:
+  - id: derivation
+    label: "The derivation"
+    note: "— three moves, in order"
+    cols: 3
+    papers:
+
+      - key: semantics
+        code: "BENCEB-2"
+        label: "№ 1 · Modality"
+        title: "Counterfactual Evaluation by Perturbation of Information States"
+        subtitle: "Deleting the ordering, not refining it"
+        blurb: >-
+          "What would have happened" is evaluated without ever leaving the evaluator:
+          reopen the antecedent's entry in your own information state, restate it,
+          re-prune, and read the verdict off what survives. The Lewis–Stalnaker
+          similarity ordering appears nowhere — its work split across dependency
+          structure, validity, and weight — and <em>would</em>, <em>might</em>, and
+          <em>the probability that</em> become one operator read at three grains.
+        meta: "Home field: semantics of conditionals · assumes no physics · preprint, July 2026"
+        newest: true
+        flag: "Trio · № 1"
+        list_title: "Counterfactual Evaluation by Perturbation of Information States: Deleting the Ordering, Not Refining It"
+        list_meta: "July 2026 · extraction paper · semantics of conditionals · direct PDF"
+
+      - key: exclusivity
+        code: "BENEAA-9"
+        label: "№ 2 · Logic"
+        title: "Exclusivity as Achievement"
+        subtitle: "Relocating mutual exclusion to the interior, and the logical primitive that falls out"
+        blurb: >-
+          Mutual exclusivity is not the nature of <em>or</em>; it is stated content
+          carried on the interior of each alternative — an achievement, and so removable.
+          Decline to state those negations and a second composition regime falls out,
+          fixed against the classical one by a one-statement test. The relocation
+          reclassifies the color-exclusion problem that fractured the Tractatus and
+          supplies the determinable-indeterminacy literature with its missing composition
+          story.
+        meta: "Home field: logic &amp; metaphysics · the physics quarantined · preprint, July 2026"
+        newest: true
+        flag: "Trio · № 2"
+        list_title: "Exclusivity as Achievement: Relocating Mutual Exclusion to the Interior, and the Logical Primitive That Falls Out"
+        list_meta: "July 2026 · extraction paper · logic &amp; metaphysics · direct PDF"
+
+      - key: boundary
+        code: "BENTQB"
+        label: "№ 3 · Measurement"
+        title: "The Quantum–Classical Boundary as an Informational Classification"
+        subtitle: "A derivation from three consistency postulates on observer-indexed information states"
+        blurb: >-
+          Three postulates — no dynamics, no Hilbert space, no scale parameter — yield a
+          classification theorem sorting every candidate superposition into three bins,
+          the quantum–classical boundary arriving as a discrete informational fact that
+          moves with the detectors, never with size or mass. One flagged axiom then buys
+          the standard interference statistics; what is posited and what is derived is
+          inventoried on the paper's face.
+        meta: "Home field: quantum foundations · assumptions inventoried · preprint, July 2026"
+        newest: true
+        flag: "Trio · № 3"
+        list_title: "The Quantum–Classical Boundary as an Informational Classification: A Derivation from Three Consistency Postulates on Observer-Indexed Information States"
+        list_meta: "July 2026 · extraction paper · quantum foundations · direct PDF"
+
+  - id: applications
+    label: "The applications"
+    note: "— the same relocation, run at standing problems in four fields"
+    cols: 2
+    modifier: "pdir-row-alt"
+    papers:
+
+      - key: newcomb
+        code: "BENNPW"
+        label: "Decision theory"
+        title: "Newcomb's Problem Without a Fixed Past"
+        subtitle: "A decision rule from observer-indexed determinacy"
+        blurb: >-
+          Both camps in the fifty-year deadlock share one premise: that the predictor's
+          past choice is settled at the moment you decide. Drop it — an unread outcome is
+          a blank entry, and blanks lack tense — and one-boxing follows without news value
+          and without backward causation. The same criterion sorts the smoking lesion and
+          the transparent variant, and prices its own premises.
+        meta: "Home field: decision theory · assumes no physics · preprint, July 2026"
+        list_title: "Newcomb's Problem Without a Fixed Past: A Decision Rule From Observer-Indexed Determinacy"
+        list_meta: "July 2026 · extraction paper · decision theory · direct PDF"
+
+      - key: causality
+        code: "BENCWT-4"
+        label: "Causation"
+        title: "Causality Without the Classical Triad"
+        subtitle: "Reichenbach's principle as a theorem, and the Bell correlations as its regime boundary"
+        blurb: >-
+          No causal arrow appears anywhere in the analysis. With the two causal horns
+          defined by their behavior under conditioning, Reichenbach's common-cause
+          principle becomes a theorem — the screening certificate arriving as a one-line
+          factorization — and the folk triad is recovered as narration: five stories, two
+          arrangements, one signature. The Bell correlations sit exactly at that theorem's
+          boundary.
+        meta: "Home field: causation · answers the Wood–Spekkens diagnosis · preprint, July 2026"
+        list_title: "Causality Without the Classical Triad: Reichenbach's Principle as a Theorem, and the Bell Correlations as Its Regime Boundary"
+        list_meta: "July 2026 · extraction paper · causation · direct PDF"
+
+      - key: copernican
+        code: "BENTCM-7"
+        wing: nexic
+        label: "Anthropics · the Nexic wing · foundation"
+        title: "The Copernican Method Against the Copernican Principle"
+        subtitle: "Anthropic typicality over partial information states"
+        blurb: >-
+          Three commitments cannot all hold: that your own situation is typical among
+          observers, that typicality is assessed under the cosmic weighting, and that
+          Earth-like environments are common. The typicality principle is derived rather
+          than postulated — one application of Bayes' theorem from two mediocrity
+          commitments — and the reference-class problem is diagnosed as an artifact of
+          reasoning over completed histories.
+        meta: "Home field: anthropic reasoning · the Nexic wing's foundation · preprint, July 2026"
+        list_title: "The Copernican Method Against the Copernican Principle: Anthropic Typicality over Partial Information States"
+        list_meta: "July 2026 · extraction paper · anthropics, the Nexic wing · direct PDF"
+
+      - key: optimalearth
+        code: "BENTOE-4"
+        wing: nexic
+        label: "Anthropics · the Nexic wing · natural history"
+        title: "The Optimal Earth"
+        subtitle: "A paradigmatic re-rendition of natural history from coupled improbability"
+        blurb: >-
+          Runs the typicality constraint forward onto Earth's record. A lucky history
+          stops being a tally of independent steps to be multiplied and becomes a single
+          coupled set of improbabilities forced to arrive together — miracles come in
+          linked sets, zero or two, never one — occupying a sharply isolated optimum.
+          Earth is not the improbable thing; the shape of the space of alternatives is.
+        meta: "Home field: anthropic reasoning · builds on the foundation beside it · preprint, July 2026"
+        list_title: "The Optimal Earth: A Paradigmatic Re-Rendition of Natural History from Coupled Improbability"
+        list_meta: "July 2026 · extraction paper · anthropics, the Nexic wing · direct PDF"
+
+# --- Longer works, linked by record page ----------------------------------
+companions:
+  inbrief: "BENARI-3"
+  comprehensive: "BENARA-5"
+  nexic: "BENNRD"
