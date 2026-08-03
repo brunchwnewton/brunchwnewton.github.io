@@ -2,7 +2,52 @@
 layout: default
 title: "aethus.org — Reality, Indexed"
 ---
-{% include site-base.html %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,420;9..144,560&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ==== KIT (inlined; was site-base include) ==== */
+:root{
+  --ink:#1A1B18;--ink-2:#43443E;--ink-3:#6E6F65;
+  --paper:#EEEDE6;--paper-2:#F7F6F0;--paper-3:#E7E5DB;
+  --rule:#D6D4C9;--rule-2:#E4E2D7;
+  --garnet:#7E1D2E;--garnet-2:#9C2A3C;--garnet-wash:rgba(126,29,46,.07);
+  --block:#151610;--block-2:#20211A;--on-block:#EAE9E1;--on-block-2:#9C9A8D;--on-block-3:#75746A;
+  --gold:#9A7B33;--gold-2:#B8942F;--sel:#E3E0D2;--measure:39rem;
+  --display:"Fraunces",Georgia,serif;--body:"Spectral",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth;}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.66;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-optical-sizing:auto;}
+::selection{background:var(--sel);}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;letter-spacing:-.012em;line-height:1.08;margin:0;}
+em,i{font-style:italic;}strong,b{font-weight:600;}sup{font-size:.66em;line-height:0;}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 1.6rem;}
+.wide{max-width:66rem;margin:0 auto;padding:0 1.6rem;}
+.mid{max-width:52rem;margin:0 auto;padding:0 1.6rem;}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--garnet);font-weight:500;}
+.eyebrow-dim{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
+a.link{color:var(--garnet);background-image:linear-gradient(var(--garnet),var(--garnet));background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .25s ease;}
+a.link:hover{background-size:100% 1px;}
+a:focus-visible{outline:2px solid var(--garnet);outline-offset:3px;border-radius:1px;}
+.rel{font-family:var(--mono);white-space:nowrap;}
+.rel .bar{color:var(--garnet);padding:0 .12em;font-weight:600;}
+.mono{font-family:var(--mono);}
+/* ---- top nav bar ---- */
+.topbar{position:sticky;top:0;z-index:40;background:rgba(21,22,16,.94);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #2a2b22;}
+.topbar .in{max-width:72rem;margin:0 auto;padding:.62rem 1.6rem;display:flex;align-items:center;gap:1.4rem;}
+.topbar a{color:var(--on-block-2);font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;transition:color .15s;}
+.topbar a:hover{color:var(--on-block);}
+.topbar .brand{color:var(--on-block);letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;}
+.topbar .brand b{color:#fff;font-weight:600;}
+.topbar .brand .bar{color:var(--garnet-2);}
+.topbar nav{margin-left:auto;display:flex;gap:1.3rem;flex-wrap:wrap;}
+@media(max-width:680px){.topbar nav{display:none;}}
+
+</style>
 
 <style>
 /* HERO */
@@ -108,10 +153,10 @@ footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6
     <div class="hero-formula"><span class="lit">determinacy</span>( q <span class="bar">∣</span> A )&nbsp;&nbsp;—&nbsp;&nbsp;a two-place relation, never a property of q alone</div>
     <h1>Reality,<br><em>indexed.</em></h1>
     <p class="hero-sub">A realist answer to the quantum measurement problem, built from a single move: <span class="dim">stop indexing facts to spacetime, and index them to an observer's information state instead.</span> Collapse becomes an indexing transition, not a physical event; counterfactuals stop needing possible worlds; and one four-dimensional block turns out to hold many legitimate determinate realities at once.</p>
-    <div class="hero-by">Aethic reasoning · developed by Ajax Benander, 2022–2023 · public preprints, explicit derivations</div>
+    <div class="hero-by">Aethic reasoning · developed by Ajax Benander, 2022–2026 · public preprints, explicit derivations</div>
     <div class="hero-cta">
       <a class="btn pri" href="#trio">Start here — the short papers ↓</a>
-      <a class="btn" href="/start-here.html">The five-minute case, in plain English</a>
+      <a class="btn" href="/start-here.html">The three-minute core, in plain English</a>
     </div>
   </div>
 </header>
@@ -197,17 +242,17 @@ footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6
   <div class="wide">
     <div class="sec-head">
       <span class="eyebrow">Read the framework</span>
-      <h2>Three depths, one architecture.</h2>
+      <h2>Five companions, one architecture.</h2>
       <p>The site's guided companions to the papers — the same architecture in the browser, from plain English to the full technical apparatus.</p>
     </div>
     <div class="navgrid">
       <a href="/start-here.html">
         <div class="nt">Start Here — Reality, Indexed <span class="arr">→</span></div>
-        <div class="nd">The complete case in plain English, from an everyday counterfactual to the measurement problem. The gentlest on-ramp; ~20 minutes.</div>
+        <div class="nd">The complete case in plain English, from an everyday counterfactual to the measurement problem. The gentlest on-ramp; ~3 minutes.</div>
       </a>
-      <a href="/aethic-reasoning-guide.html#explorer">
+      <a href="/aethic-reasoning-guide.html">
         <div class="nt">The Aethic Guide <span class="arr">→</span></div>
-        <div class="nd">A layered walkthrough from the Extrusion Principle to the Quantum Nexus, with an interactive Powerset Invalidation demo. Explorer or Technical mode.</div>
+        <div class="nd">The framework at six depths on one page — first contact, one sitting, philosophy, physics, research grade, and the papers as level six. Each level self-contained; the Powerset demo stays live at Level 4.</div>
       </a>
       <a href="/constraints_map.html">
         <div class="nt">Threading the Needle <span class="arr">→</span></div>
@@ -216,6 +261,14 @@ footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6
       <a href="/principles_compendium.html">
         <div class="nt">The Compendium <span class="arr">→</span></div>
         <div class="nd">A filterable encyclopedia of every principle, postulate, theorem, definition, and thought experiment, tiered by how much of the framework rests on it.</div>
+      </a>
+      <a href="/aethic_genealogy.html">
+        <div class="nt">The Genealogy <span class="arr">→</span></div>
+        <div class="nd">How the framework came to exist, dated and checkable — eleven hubs around the August 2022 epiphany, the 2021 dependency graph rendered live, every certificate recomputable.</div>
+      </a>
+      <a href="/short-papers/">
+        <div class="nt">The Short Papers <span class="arr">→</span></div>
+        <div class="nd">All eight extractions on one shareable page — one self-contained paper per load-bearing move, with the longer works behind them.</div>
       </a>
     </div>
   </div>
@@ -276,7 +329,7 @@ footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6
       </a>
     </div>
     <div class="notebar" style="margin-top:2rem;">
-      Provenance, stated plainly because it can be checked. The framework's fundamentals and its extrusion principle date to August 2022; the three postulates, the invalidation argument, and the re-indexing semantics were published in May 2023 — three years before any AI involvement — and the complete formalism was deposited at PhilArchive in November 2024. Successive deposits (July 2025, January 2026, April 2026) date the later-coined terms — the reduced form, the Quantum Nexus, the Powerset Invalidation Theorem — to the author ahead of any exchange. The 2026 AI assistance was confined to formalization, algorithmic streamlining of the author's own deductions, prose drafting under direction, and literature interface — credited in the papers at the point of use and itemized in the <a class="link" href="/supporting/provenance.html">provenance record</a>. The Comprehensive paper has quietly passed 3,600 downloads on PhilArchive in its first eighteen months, currently running above 500 a month, without author promotion.
+      Provenance, stated plainly because it can be checked. The framework's fundamentals and its extrusion principle date to August 2022; the three postulates, the invalidation argument, and the re-indexing semantics were published in May 2023 — three years before any AI involvement — and the complete formalism was deposited at PhilArchive in November 2024. Successive deposits (July 2025, January 2026, April 2026) date the later-coined terms — the reduced form, the Quantum Nexus, the Powerset Invalidation Theorem — to the author ahead of any exchange. The 2026 AI assistance was confined to formalization, algorithmic streamlining of the author's own deductions, prose drafting under direction, and literature interface — credited in the papers at the point of use and itemized in the <a class="link" href="/supporting/provenance.html">provenance record</a>, with the full dated reconstruction on the <a class="link" href="/aethic_genealogy.html">genealogy page</a>. The Comprehensive paper has quietly passed 3,600 downloads on PhilArchive in its first eighteen months, currently running above 500 a month, without author promotion.
     </div>
   </div>
 </section>
