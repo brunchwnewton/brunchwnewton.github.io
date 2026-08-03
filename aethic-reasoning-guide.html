@@ -1,43 +1,36 @@
 ---
 layout: default
-title: "The Aethic Guide — How Aethic Reasoning Works | aethus.org"
-description: "The full walkthrough of Aethic reasoning in plain English — thirteen steps from a sentence you say every day to the quantum measurement problem, with the Powerset Invalidation Theorem as a live instrument along the way."
+title: "The Aethic Guide — The Framework at Six Depths | aethus.org"
+description: "Aethic reasoning told five times at increasing resolution — first contact to research grade — with the papers as level six. The same claims at every depth; nothing softened, only unpacked."
 ---
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,420;9..144,560&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,420;9..144,560;9..144,640&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
 
 <style>
-/* ============ KIT — "Reality, Indexed" ============ */
 :root{
-  --ink:#1A1B18;--ink-2:#43443E;--ink-3:#6E6F65;
-  --paper:#EEEDE6;--paper-2:#F7F6F0;--paper-3:#E7E5DB;
-  --rule:#D6D4C9;--rule-2:#E4E2D7;
+  --ink:#1C2333;--ink-2:#3A4256;--ink2:#3A4256;--ink-3:#69707F;
+  --paper:#F6F7F4;--paper2:#FDFDFB;--paper-2:#FDFDFB;--paper-3:#EDEFE8;
+  --rule:#D8DAD2;--rule-2:#E6E8E2;--line:#D8DAD2;--stamp:#EDEFE8;
   --garnet:#7E1D2E;--garnet-2:#9C2A3C;--garnet-wash:rgba(126,29,46,.07);
   --block:#151610;--block-2:#20211A;--on-block:#EAE9E1;--on-block-2:#9C9A8D;--on-block-3:#75746A;
-  --gold:#9A7B33;--gold-2:#B8942F;--sel:#E3E0D2;--measure:39rem;
-  --display:"Fraunces",Georgia,serif;--body:"Spectral",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gold:#9A7B33;--gold-2:#B8942F;--sel:#DCE2F0;
+  --indigo:#2E4374;--verdigris:#3E7C6B;--rust:#A6503C;--violet:#7A5C93;--graphite:#69707F;
+  --display:"Fraunces",Georgia,serif;--body:"Newsreader",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --disp:var(--display);
 }
 *{box-sizing:border-box;}
 html{-webkit-text-size-adjust:100%;}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth;}}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.66;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-optical-sizing:auto;}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.64;-webkit-font-smoothing:antialiased;font-optical-sizing:auto;}
 ::selection{background:var(--sel);}
-a{color:inherit;text-decoration:none;}
-h1,h2,h3,h4{font-family:var(--display);font-weight:400;letter-spacing:-.012em;line-height:1.08;margin:0;}
-em,i{font-style:italic;}strong,b{font-weight:600;}sup{font-size:.66em;line-height:0;}
-.wrap{max-width:var(--measure);margin:0 auto;padding:0 1.6rem;}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;letter-spacing:-.012em;line-height:1.1;margin:0;}
+strong,b{font-weight:600;} sup{font-size:.66em;line-height:0;}
 .wide{max-width:66rem;margin:0 auto;padding:0 1.6rem;}
-.mid{max-width:52rem;margin:0 auto;padding:0 1.6rem;}
-.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--garnet);font-weight:500;}
-.eyebrow-dim{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
-a.link{color:var(--garnet);background-image:linear-gradient(var(--garnet),var(--garnet));background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .25s ease;}
-a.link:hover{background-size:100% 1px;}
-a:focus-visible{outline:2px solid var(--garnet);outline-offset:3px;border-radius:1px;}
-.rel{font-family:var(--mono);white-space:nowrap;}
-.rel .bar{color:var(--garnet);padding:0 .12em;font-weight:600;}
-.mono{font-family:var(--mono);}
-
+a:focus-visible,button:focus-visible{outline:2px solid var(--indigo);outline-offset:3px;border-radius:1px;}
 /* ---- top nav bar ---- */
 .topbar{position:sticky;top:0;z-index:40;background:rgba(21,22,16,.94);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #2a2b22;}
 .topbar .in{max-width:72rem;margin:0 auto;padding:.62rem 1.6rem;display:flex;align-items:center;gap:1.4rem;}
@@ -49,572 +42,243 @@ a:focus-visible{outline:2px solid var(--garnet);outline-offset:3px;border-radius
 .topbar nav{margin-left:auto;display:flex;gap:1.3rem;flex-wrap:wrap;}
 @media(max-width:680px){.topbar nav{display:none;}}
 
-/* ---- hero / masthead ---- */
-.hero{background:var(--block);color:var(--on-block);position:relative;overflow:hidden;padding:clamp(3.4rem,9vw,6.5rem) 0 clamp(3rem,7vw,5rem);}
-.hero::after{content:"";position:absolute;left:calc(50% - 33rem);top:0;bottom:0;width:1px;background:var(--garnet);opacity:.9;}
-@media(max-width:1090px){.hero::after{left:1.6rem;}}
-.hero .wide{position:relative;z-index:2;}
-.hero .site-id{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--on-block-2);}
-.hero .site-id b{color:var(--on-block);font-weight:500;}
-.hero-formula{font-family:var(--mono);font-size:clamp(1.05rem,3.2vw,1.6rem);color:var(--on-block-2);margin:2.2rem 0 1.2rem;letter-spacing:.02em;}
-.hero-formula .lit{color:var(--on-block);}
-.hero-formula .bar{color:var(--garnet-2);font-weight:600;}
-.hero h1{font-size:clamp(2.6rem,8vw,5.1rem);color:var(--on-block);letter-spacing:-.02em;line-height:.98;font-weight:340;}
-.hero h1 em{font-style:italic;color:var(--on-block);}
-.hero-sub{max-width:34rem;margin:1.6rem 0 0;font-size:clamp(1.02rem,2.3vw,1.24rem);color:var(--on-block);line-height:1.5;}
-.hero-sub .dim{color:var(--on-block-2);}
-.hero-by{margin-top:1.6rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;color:var(--on-block-3);line-height:1.7;}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.3rem;}
-.btn{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;padding:.72rem 1.15rem;border:1px solid var(--ink-3);color:var(--ink);transition:.2s;display:inline-flex;align-items:center;gap:.6ch;cursor:pointer;background:none;}
-.btn:hover{border-color:var(--ink);background:var(--paper-2);}
-.mast .btn,.demo-head .btn{border-color:var(--on-block-3);color:var(--on-block);}
-.mast .btn:hover,.demo-head .btn:hover{border-color:var(--ink);background:var(--paper-2);}
-.btn.pri{background:var(--garnet);border-color:var(--garnet);color:#fff;}
-.btn.pri:hover{background:var(--garnet-2);border-color:var(--garnet-2);}
-.btn.dark{border-color:var(--rule);color:var(--ink);}
-.btn.dark:hover{border-color:var(--ink);background:var(--paper-2);}
-.mast .btn,.band .btn,.demo-head .btn{border-color:var(--on-block-3);color:var(--on-block);}
-.mast .btn:hover,.band .btn:hover,.demo-head .btn:hover{border-color:var(--on-block);background:rgba(255,255,255,.04);}
-
-/* ---- paper masthead variant (reading pages) ---- */
-.mast{position:relative;padding:clamp(2.8rem,7vw,5rem) 0 clamp(2rem,4vw,3rem);border-bottom:1px solid var(--rule);}
-.mast .wide{position:relative;}
-.mast .kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--garnet);}
-.mast h1{font-size:clamp(2.4rem,6.4vw,4.4rem);margin:1.1rem 0 0;letter-spacing:-.02em;line-height:1.0;max-width:20ch;}
-.mast h1 em{font-style:italic;}
-.mast .standfirst{max-width:42rem;margin:1.5rem 0 0;font-size:clamp(1.1rem,2.2vw,1.32rem);line-height:1.5;color:var(--ink-2);}
-.mast .meta{margin-top:1.6rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.04em;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;}
-.mast .meta .rel{color:var(--ink-2);}
-.mast.indexed{padding-left:0;}
-.mast.indexed::before{content:"";position:absolute;left:calc(50% - 33rem);top:clamp(2.8rem,7vw,5rem);bottom:1.5rem;width:2px;background:var(--garnet);}
-@media(max-width:1120px){.mast.indexed::before{left:1.6rem;}}
-
-/* ---- sections ---- */
-section{padding:clamp(3rem,7vw,5rem) 0;border-bottom:1px solid var(--rule);}
-section.tight{padding:clamp(2.2rem,5vw,3.4rem) 0;}
-.sec-head{margin-bottom:2.2rem;}
-.sec-head .eyebrow,.sec-head .eyebrow-dim{display:block;margin-bottom:.9rem;}
-.sec-head h2{font-size:clamp(1.7rem,4vw,2.4rem);letter-spacing:-.015em;}
-.sec-head p{max-width:40rem;margin:1rem 0 0;color:var(--ink-2);font-size:1.06rem;line-height:1.55;}
-
-/* ---- prose ---- */
-.prose p{margin:0 0 1.15em;color:var(--ink-2);}
-.prose p.lead{font-size:1.24rem;line-height:1.52;color:var(--ink);}
-.prose h3{font-size:1.34rem;margin:2.2em 0 .5em;color:var(--ink);letter-spacing:-.01em;}
-.prose h4{font-size:1.06rem;margin:1.8em 0 .4em;color:var(--ink);font-family:var(--body);font-weight:600;letter-spacing:0;}
-.prose strong{color:var(--ink);}
-.prose em{color:inherit;}
-.prose a{color:var(--garnet);background-image:linear-gradient(var(--garnet),var(--garnet));background-size:100% 1px;background-repeat:no-repeat;background-position:0 100%;}
-.prose ul,.prose ol{margin:0 0 1.15em;padding-left:1.3em;color:var(--ink-2);}
-.prose li{margin:.3em 0;}
-.prose ul li::marker{color:var(--garnet);}
-.prose>*:first-child{margin-top:0;}
-
-/* ---- numbered reading sections with index rail ---- */
-.chapter{padding:clamp(2.6rem,6vw,4.2rem) 0;border-bottom:1px solid var(--rule);}
-.chapter .wide{display:grid;grid-template-columns:4.5rem 1fr;gap:0;align-items:start;}
-.chapter .idx{font-family:var(--mono);font-size:.82rem;color:var(--garnet);font-weight:600;letter-spacing:.06em;position:relative;padding-top:.35rem;}
-.chapter .idx::after{content:"";position:absolute;left:.05rem;top:2.2rem;bottom:-4.2rem;width:1px;background:var(--rule);}
-.chapter:last-of-type .idx::after{display:none;}
-.chapter .body{max-width:39rem;}
-.chapter h2{font-size:clamp(1.55rem,3.6vw,2.15rem);letter-spacing:-.015em;margin-bottom:1.1rem;}
-.chapter .body>.prose>p:first-child{margin-top:0;}
-@media(max-width:720px){
-  .chapter .wide{grid-template-columns:1fr;gap:0;}
-  .chapter .idx{padding-top:0;margin-bottom:.7rem;}
-  .chapter .idx::after{display:none;}
-}
-
-/* ---- callouts / figures / ledger ---- */
-.callout{border-left:2px solid var(--garnet);background:var(--garnet-wash);padding:1.15rem 1.3rem;margin:1.7rem 0;font-size:.99rem;line-height:1.58;color:var(--ink-2);}
-.callout .h{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--garnet);display:block;margin-bottom:.5rem;font-weight:600;}
-.callout p{margin:0 0 .7em;}.callout p:last-child{margin-bottom:0;}
-.callout strong{color:var(--ink);}
-
-.note{border-left:2px solid var(--rule);padding:1.05rem 1.25rem;margin:1.7rem 0;font-family:var(--mono);font-size:.82rem;line-height:1.62;color:var(--ink-3);}
-.note b{color:var(--ink-2);font-weight:600;}
-.notebar{font-family:var(--mono);font-size:.82rem;color:var(--ink-3);line-height:1.6;border-left:2px solid var(--rule);padding-left:1.1rem;margin-top:1.4rem;}
-
-.formula{font-family:var(--mono);background:var(--paper-2);border:1px solid var(--rule);padding:1.1rem 1.3rem;margin:1.6rem 0;font-size:.92rem;line-height:1.7;color:var(--ink);overflow-x:auto;}
-.formula .c{color:var(--ink-3);}
-.formula .g{color:var(--garnet);font-weight:600;}
-.formula .lbl{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.55rem;}
-
-.figure{margin:1.8rem 0;border:1px solid var(--rule);background:var(--paper-2);}
-.figure .cap{font-family:var(--mono);font-size:.74rem;color:var(--ink-3);line-height:1.55;padding:.85rem 1.1rem;border-top:1px solid var(--rule);}
-.figure .cap b{color:var(--ink-2);}
-.figure svg{display:block;width:100%;height:auto;}
-
-/* ---- attribute tokens (blank vs stated) ---- */
-.tok{font-family:var(--mono);font-size:.82em;padding:.08em .5ch;border:1px solid var(--garnet);white-space:nowrap;}
-.tok.blank{color:var(--garnet);border-style:dashed;background:none;}
-.tok.stated{color:#fff;background:var(--garnet);border-color:var(--garnet);}
-
-/* ---- three-up / two-up grids ---- */
-.moves,.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1rem;}
-.move,.grid3>div{background:var(--paper-2);padding:1.7rem 1.5rem;}
-.move .n,.grid3 .n{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--garnet);}
-.move h3,.grid3 h3{font-size:1.16rem;margin:.7rem 0 .5rem;letter-spacing:0;}
-.move p,.grid3 p{margin:0;font-size:.97rem;color:var(--ink-2);line-height:1.55;}
-.split,.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
-.split>div,.grid2>div{background:var(--paper-2);padding:1.7rem 1.5rem;}
-.split h3,.grid2 h3{font-size:1.14rem;margin:.6rem 0 .7rem;letter-spacing:0;}
-.split p,.grid2 p{margin:0 0 .8em;font-size:.97rem;color:var(--ink-2);line-height:1.55;}
-.split p:last-child,.grid2 p:last-child{margin-bottom:0;}
-
-/* ---- tables ---- */
-.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0;}
-.tbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.78rem;min-width:44rem;}
-.tbl th,.tbl td{text-align:left;padding:.62rem .75rem;border-bottom:1px solid var(--rule-2);vertical-align:top;}
-.tbl thead th{border-bottom:1.5px solid var(--ink);font-weight:600;}
-.tbl tbody tr:last-child td{border-bottom:none;}
-.tbl .me{background:var(--garnet-wash);}
-.tbl .me td:first-child{color:var(--garnet);font-weight:600;}
-.tbl-cap{font-family:var(--mono);font-size:.74rem;color:var(--ink-3);margin-top:.9rem;line-height:1.5;max-width:44rem;}
-
-/* ---- ledger (posted price list) ---- */
-.ledger{border-top:1.5px solid var(--ink);margin:1.4rem 0;}
-.ledger .row{display:grid;grid-template-columns:2.4rem 1fr auto;gap:1rem;align-items:baseline;padding:.72rem 0;border-bottom:1px solid var(--rule);}
-.ledger .q{font-family:var(--mono);font-size:.8rem;color:var(--garnet);font-weight:600;}
-.ledger .d{color:var(--ink-2);font-size:.98rem;line-height:1.45;}
-.ledger .d b{color:var(--ink);}
-.ledger .t{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap;text-align:right;}
-@media(max-width:600px){.ledger .row{grid-template-columns:2rem 1fr;}.ledger .t{grid-column:2;text-align:left;margin-top:.15rem;}}
-
-/* ---- papers ---- */
-.papers{border-top:1.5px solid var(--ink);}
-.paper{display:block;border-bottom:1px solid var(--rule);padding:1.25rem 0;transition:.15s;}
-.paper:hover{background:var(--paper-2);padding-left:.6rem;padding-right:.6rem;}
-.paper .pt{font-family:var(--display);font-size:1.14rem;color:var(--ink);line-height:1.25;letter-spacing:-.01em;}
-.paper .pm{font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;color:var(--ink-3);margin-top:.45rem;}
-.paper.newest .pt{color:var(--garnet);}
-.paper .flag{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--garnet);padding:.12em .55ch;margin-left:.6ch;vertical-align:middle;}
-
-/* ---- nav grid ---- */
-.navgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
-.navgrid a{background:var(--paper-2);padding:1.4rem 1.4rem;transition:.15s;}
-.navgrid a:hover{background:#fff;}
-.navgrid .nt{font-family:var(--display);font-size:1.12rem;color:var(--ink);letter-spacing:-.01em;}
-.navgrid .nd{font-size:.92rem;color:var(--ink-3);margin-top:.35rem;line-height:1.5;}
-.navgrid .arr{color:var(--garnet);}
-
-/* ---- dark band (nexic / deep-time) ---- */
-.band{background:var(--block);color:var(--on-block);border-bottom:none;}
-.band .eyebrow{color:var(--gold-2);}
-.band h2,.band h3{color:var(--on-block);}
-.band .sec-head p,.band .prose p{color:var(--on-block-2);}
-.band .prose strong{color:var(--on-block);}
-.band .stat{font-family:var(--mono);color:var(--gold-2);}
-.band a.link{color:var(--gold-2);}
-.band .btn{border-color:var(--on-block-3);color:var(--on-block);}
-.band .btn:hover{border-color:var(--gold-2);}
-.band .callout{border-left-color:var(--gold);background:rgba(154,123,51,.09);color:var(--on-block-2);}
-.band .callout .h{color:var(--gold-2);}
-.band .callout strong{color:var(--on-block);}
-
-/* ---- disclosure ---- */
-details.disc{border-top:1px solid var(--rule);}
-details.disc>summary{cursor:pointer;list-style:none;padding:1rem 0;display:flex;gap:.9rem;align-items:baseline;font-family:var(--display);font-size:1.1rem;color:var(--ink);transition:color .15s;}
-details.disc>summary:hover{color:var(--garnet);}
-details.disc>summary::-webkit-details-marker{display:none;}
-details.disc>summary .qn{font-family:var(--mono);font-size:.78rem;color:var(--garnet);font-weight:600;flex:none;width:2.4rem;}
-details.disc>summary .mk{margin-left:auto;font-family:var(--mono);color:var(--ink-3);flex:none;transition:transform .2s;}
-details.disc[open]>summary .mk{transform:rotate(45deg);}
-details.disc .ans{padding:0 0 1.5rem 3.3rem;max-width:42rem;}
-details.disc .ans>.prose>p:first-child{margin-top:0;}
-@media(max-width:600px){details.disc .ans{padding-left:0;}}
-
-/* ---- pull quote ---- */
-.pull{font-family:var(--display);font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.24;letter-spacing:-.015em;color:var(--ink);max-width:30ch;margin:2.2rem 0;padding-left:1.3rem;border-left:2px solid var(--garnet);}
-.pull em{font-style:italic;}
-
-/* ---- footer ---- */
+/* footer */
 footer.site{background:var(--block);color:var(--on-block-2);padding:3.2rem 0 2.4rem;font-size:.9rem;border-top:1px solid #2a2b22;}
 footer.site a{color:var(--on-block);}footer.site a:hover{color:#fff;}
 footer.site .foot-grid{display:flex;flex-wrap:wrap;gap:2.4rem 3.5rem;justify-content:space-between;}
 footer.site h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-block-3);margin:0 0 .9rem;font-weight:500;}
 footer.site ul{list-style:none;margin:0;padding:0;line-height:2;}
-footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid #2a2b22;font-size:.82rem;line-height:1.6;max-width:52rem;}
+footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid #2a2b22;font-size:.82rem;line-height:1.6;}
 
-/* ---- utility ---- */
-.stack>*+*{margin-top:1.1rem;}
-hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
-@media(max-width:820px){.moves,.grid3,.split,.grid2,.navgrid{grid-template-columns:1fr;}}
-@media(max-width:720px){body{font-size:17.5px;}}
+header.hero{background:var(--block);color:var(--on-block);position:relative;overflow:hidden;padding:clamp(3rem,7.5vw,5.2rem) 0 clamp(2.4rem,5.5vw,4rem);}
+header.hero::after{content:"";position:absolute;left:calc(50% - 33rem);top:0;bottom:0;width:1px;background:var(--indigo);opacity:.9;}
+@media(max-width:1090px){header.hero::after{left:1.6rem;}}
+.site-id{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--on-block-2);}
+.site-id b{color:var(--on-block);font-weight:500;}
+.hero-formula{font-family:var(--mono);font-size:clamp(.98rem,2.6vw,1.3rem);color:var(--on-block-2);margin:1.9rem 0 1rem;letter-spacing:.02em;}
+.hero-formula .lit{color:var(--on-block);} .hero-formula .bar{color:#8EA3D8;font-weight:600;}
+header.hero h1{font-size:clamp(2.3rem,6.4vw,4.1rem);color:var(--on-block);letter-spacing:-.02em;line-height:1.0;font-weight:340;max-width:22ch;}
+header.hero h1 em{font-style:italic;}
+.deck{max-width:38rem;margin:1.5rem 0 0;font-size:clamp(1.02rem,2.2vw,1.2rem);color:var(--on-block-2);line-height:1.55;font-style:italic;}
+.deck em{font-style:normal;color:var(--on-block);}
+.meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin:1.8rem 0 0;font:400 12px/1.6 var(--mono);color:var(--on-block-3);letter-spacing:.06em;text-transform:uppercase;}
+.meta b{color:var(--on-block);font-weight:500;}
+.notebar{font-family:var(--mono);font-size:.82rem;color:var(--graphite);line-height:1.65;border-left:2px solid var(--rule);padding-left:1.1rem;margin:3rem 0 4rem;}
+.notebar a{color:var(--indigo);}
+
+/* ---- page ---- */
+a{color:var(--indigo);text-decoration:none;background-image:linear-gradient(var(--indigo),var(--indigo));background-size:100% 1px;background-repeat:no-repeat;background-position:0 100%;}
+header.hero a,.tabs a{background:none;}
+
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
+a:hover{color:#22335c} .wrap{max-width:47.5rem;margin:0 auto;padding:0 24px}
+header.hero{padding:58px 0 0}
+.eyebrow{font:500 11.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
+.eyebrow b{color:var(--indigo);font-weight:500}
+h1{font:640 clamp(32px,4.6vw,52px)/1.08 var(--disp);letter-spacing:-.012em;margin:.35em 0 .4em}
+.deck{font-size:20px;color:var(--ink2);font-style:italic;margin:0 0 26px}
+/* ---- depth gauge tab rail ---- */
+.rail{position:sticky;top:0;z-index:9;background:linear-gradient(var(--paper) 82%,transparent);padding:10px 0 14px;margin:6px 0 8px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{appearance:none;border:1px solid var(--line);background:var(--paper2);border-radius:9px;cursor:pointer;
+  padding:9px 13px 8px;text-align:left;min-width:104px;flex:1 1 auto;transition:border-color .18s, transform .12s}
+.tab:hover{transform:translateY(-1px);border-color:var(--graphite)}
+.tab .lv{display:block;font:500 10.5px var(--mono);letter-spacing:.14em;color:var(--graphite)}
+.tab .nm{display:block;font:560 15px/1.2 var(--disp);color:var(--ink);margin-top:2px}
+.tab[aria-selected="true"]{background:var(--indigo);border-color:var(--indigo)}
+.tab[aria-selected="true"] .lv{color:#BFC9E6}
+.tab[aria-selected="true"] .nm{color:var(--paper2)}
+.tab.l6 .nm::after{content:" ↗"; font-size:.8em}
+.gauge{height:3px;background:var(--line);border-radius:2px;margin-top:10px;position:relative;overflow:hidden}
+.gauge i{position:absolute;top:0;bottom:0;left:0;background:var(--indigo);border-radius:2px;transition:width .35s}
+/* ---- panels ---- */
+.panel{display:none;padding:6px 0 80px}
+.panel.on{display:block}
+.stampline{display:flex;gap:10px;align-items:baseline;font:400 12px var(--mono);letter-spacing:.06em;color:var(--graphite);
+  text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:12px;margin:10px 0 6px}
+.stampline b{color:var(--paper2);background:var(--verdigris);border-radius:4px;padding:2.5px 8px;font-weight:500;letter-spacing:.1em;text-transform:none}
+h2{font:600 30px/1.15 var(--disp);letter-spacing:-.01em;margin:1.1em 0 .55em}
+h3{font:560 20.5px/1.3 var(--disp);margin:1.8em 0 .5em}
+p{margin:.85em 0} strong{font-weight:600} 
+ul,ol{padding-left:1.25em;margin:.9em 0} li{margin:.5em 0}
+li::marker{color:var(--indigo)} ol li::marker{font:500 .78em var(--mono);color:var(--indigo)}
+.panel>p:first-of-type::first-letter{font:640 3em/0.86 var(--disp);float:left;padding:5px 9px 0 0;color:var(--indigo)}
+figure.dg{margin:1.6em 0;background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:14px 14px 6px}
+figure.dg svg{width:100%;height:auto;display:block}
+figure.dg figcaption{font:400 13.5px/1.55 var(--mono);color:var(--ink2);padding:8px 6px 8px}
+mjx-container[display="true"]{overflow-x:auto;padding:6px 0}
+footer{border-top:1px solid var(--line);padding:26px 0 60px;font-size:15px;color:var(--graphite)}
+@media (max-width:620px){ body{font-size:17.5px} .tab{min-width:86px;padding:8px 10px} .tab .nm{font-size:13.5px} }
+
+/* light hero (Aethic pages) */
+header.hero{background:none;color:var(--ink);padding:58px 0 0;overflow:visible;}
+header.hero::after{display:none;}
+header.hero .eyebrow{font:500 11.5px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--graphite);}
+header.hero .eyebrow b{color:var(--indigo);font-weight:500;}
+header.hero h1{font:640 clamp(32px,4.6vw,52px)/1.08 var(--disp);color:var(--ink);letter-spacing:-.012em;margin:.35em 0 .4em;max-width:none;}
+.deck{font-size:20px;color:var(--ink2);font-style:italic;margin:0 0 26px;max-width:none;line-height:1.55;}
+.deck em{font-style:normal;color:var(--ink);}
 </style>
-
-<header class="mast indexed" id="explorer">
-  <div class="wide">
-    <div class="kicker">The Aethic guide &middot; the full walkthrough &middot; ~20 minutes</div>
-    <h1>How Aethic<br>reasoning <em>works.</em></h1>
-    <p class="standfirst">A realist answer to the quantum measurement problem, built in plain English from a single move &mdash; starting with a sentence you say every day, and ending at the double slit. No physics background assumed; every technical term is introduced only where ordinary language runs out.</p>
-    <div class="meta">
-      <span>Aethic reasoning</span>
-      <span class="rel">determinacy( q <span class="bar">&#8739;</span> A )</span>
-      <span>by Ajax Benander</span>
-      <span>one live instrument</span>
-    </div>
-  </div>
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">aethus.org · <b>the framework</b> · one theory, six depths · <span class="mono" style="letter-spacing:.02em;text-transform:none;">determinacy( q <span style="color:var(--indigo);font-weight:600">∣</span> A )</span></div>
+  <h1>Aethic Reasoning: The Framework at Six Depths</h1>
+  <p class="deck">One framework, told five times at increasing resolution — the same claims at every level, with nothing softened, only unpacked. Pick the depth that matches what you already know; each level is self-contained, and Level 6 is the papers themselves.</p>
 </header>
-
-<section class="tight">
-  <div class="wide">
-    <div class="prose" style="max-width:41rem;">
-      <p class="lead">Here is the whole idea in one sentence, which will mean more by the end than it does now: <strong>whether something is definite is not a fact about the thing &mdash; it is a fact about the thing together with who is asking.</strong></p>
-      <p>Physics usually assumes the opposite. It assumes there is one complete list of what is definitely the case, the same for everyone, pinned to points in space and time. This walkthrough follows what happens if you drop that one assumption and index definiteness to an observer's information instead. The surprise is that you don't have to add anything to make quantum mechanics come out. You have to <em>subtract</em> something &mdash; and the thing you subtract is a habit so deep it's built into grammar.</p>
-      <p>We'll build slowly. If a step feels too fast, it's a bug in the writing, not in you.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 1 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">01</div>
-    <div class="body">
-      <h2>A sentence you say every day</h2>
-      <div class="prose">
-        <p>"If I'd left five minutes earlier, I would have caught the train." You understand that instantly, and you'd be prepared to argue about whether it's true. But look at what it asks you to do. It asks you to consider a situation that did not happen &mdash; you leaving early &mdash; and report what would have followed.</p>
-        <p>The standard philosophical account of how such sentences work is surprisingly extravagant. To evaluate "if X had happened, Y would have," you're told to look at <em>other possible worlds</em>: complete alternate universes, as real as this one, differing in whether X happened. Find the possible worlds most similar to ours where X holds, and check whether Y holds there too. If it does, the counterfactual is true.</p>
-        <p>This is the Lewis&ndash;Stalnaker picture, and it has been the workhorse of the field for fifty years. It works. But it runs on a piece of machinery that should make you itch, and the next section is that itch.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 2 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">02</div>
-    <div class="body">
-      <h2>The official story, and its itch</h2>
-      <div class="prose">
-        <p>The itch is the word <em>similar</em>. Which possible worlds count as "most similar" to ours? A world where you left early but a freak gust also delayed the train? A world where you left early and everything else is identical? The theory needs a <strong>similarity ordering</strong> &mdash; a ranking of all possible worlds by closeness &mdash; and it simply helps itself to one.</p>
-        <p>Fifty years of refinement went into tuning that ranking: laws of nature should count more than particular facts, an exact match should beat an approximate one, and so on. But no amount of tuning ever answered the structural complaint, which is simply: <strong>nothing in the picture explains why similarity, or which similarity, should track the truth about what would have happened.</strong> The ranking is imposed from outside. It is put in by hand because the answers come out right, not because anything more basic generates it.</p>
-        <p>Hold onto that complaint. The framework's first real result is that this ranking can be <em>deleted</em> &mdash; not replaced by a better ranking, but removed entirely, its work done by structure you needed anyway. To see how, we need to change what a counterfactual is evaluated <em>against</em>.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 3 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">03</div>
-    <div class="body">
-      <h2>One move, and a set of books</h2>
-      <div class="prose">
-        <p>Instead of evaluating a counterfactual against a space of possible worlds, evaluate it against <strong>an observer's information</strong> &mdash; the complete set of facts their situation settles.</p>
-        <p>Make that precise. Take an observer at a moment and collect everything their situation fixes: every question whose answer their information determines, directly or by logical consequence. Call that totality their <strong>Aethus</strong> (plural <em>Aethae</em>; it rhymes with "aether"). It is the framework's one genuinely new object, and it's worth stating what it is <em>not</em>: it is not a belief, not a guess, not a probability in someone's head. It is the complete set of facts-for-them, closed under deduction.</p>
-        <p>The units filling an Aethus are <strong>attributes</strong> &mdash; question-shaped pieces of description. <em>Where is the car parked. Which slit did the electron go through.</em> An attribute is <span class="tok stated">stated</span> in an Aethus when that Aethus carries its answer, and <span class="tok blank">blank</span> when it does not.</p>
-        <div class="callout">
-          <span class="h">The one move</span>
-          <p><strong>Determinacy is a two-place relation</strong> &mdash; between an attribute and an information state &mdash; never a one-place property an attribute carries on its own. Written as a relation: <span class="rel">determinacy( q <span class="bar">&#8739;</span> A )</span>. Everything in this walkthrough is that single sentence, read at one site after another.</p>
-        </div>
-        <p>Each observer, then, comes with a set of books: the stated attributes are the filled-in entries, the blank ones are open entries, and the books are closed under deduction (if the filled entries jointly force an answer, that answer is filled in too). We haven't said where the alternatives to a blank entry "live" yet &mdash; that's deliberately left open until section 6, where it turns out to matter enormously.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 4 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">04</div>
-    <div class="body">
-      <h2>Two consequences that should bother you</h2>
-      <div class="prose">
-        <p>Two features of this bookkeeping do early work, and both cut against intuition.</p>
-        <h4>Blankness has nothing to do with time.</h4>
-        <p>An attribute is blank or stated relative to an Aethus &mdash; and where the event it concerns sits in time is a completely separate matter. Your <em>unlearned past</em> is exactly as open, on this accounting, as your unformed future. A road eroding underground for decades, unobserved, is blank relative to every observer who hasn't learned of it &mdash; and so, on this framework, genuinely open, resolving not when the road collapses but when someone finds out. Where classical metaphysics lets time carry openness, this framework makes openness a fact about the index, and lets time carry nothing but geometry.</p>
-        <h4>A blank is not a hidden answer.</h4>
-        <p>This is the load-bearing one. The classical habit is to hear "unknown" as "determinate, but not yet revealed" &mdash; there's a definite fact, you just don't have it. This framework denies that. A blank attribute is a <strong>complete entry in its own right</strong>, encoding the state of the world relative to that Aethus, with <em>no determinate value underneath waiting to be uncovered</em>.</p>
-        <p>That probably sounds like a stylistic preference &mdash; a fancy way of saying "unknown." Section 6 proves it is not a preference. It is forced, on pain of contradiction with experiment. But first, what these books let us <em>do</em>.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 5 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">05</div>
-    <div class="body">
-      <h2>What-ifs without leaving home</h2>
-      <div class="prose">
-        <p>Here is the counterfactual machinery, and the headline is that <strong>none of it is travel to another world.</strong> To evaluate "if X had happened, Y would have," starting from your Aethus:</p>
-        <ol>
-          <li><strong>Reopen</strong> the antecedent. Take the page of your books where X's attribute is settled, and return it to blank &mdash; along with whatever rests on it, and nothing else.</li>
-          <li><strong>Restate</strong> it to the counterfactual value: set X to what the "if" clause supposes.</li>
-          <li><strong>Re-prune.</strong> Let the framework's consistency rules eliminate the alternatives that can no longer stand, and read what survives &mdash; the <strong>reduced form</strong>, the residue of surviving possibilities.</li>
-        </ol>
-        <p>Now read the residue at three grains, and you get three everyday notions for free:</p>
-        <div class="grid3">
-          <div><div class="n">Every survivor</div><h3>Would</h3><p>If every surviving possibility settles Y, then Y <em>would</em> have happened. A universal claim over the residue.</p></div>
-          <div><div class="n">Some survivor</div><h3>Might</h3><p>If some surviving possibility settles Y, then Y <em>might</em> have. An existential claim over the residue.</p></div>
-          <div><div class="n">The proportion</div><h3>Probability</h3><p>The weighted fraction of the residue settling Y is the <em>probability</em> of Y. One structure, measured.</p></div>
-        </div>
-        <p style="margin-top:1.4rem;"><em>Would</em>, <em>might</em>, and <em>probability</em> turn out to be one operation read at three resolutions. And where the residue genuinely splits &mdash; where the surviving possibilities disagree &mdash; the framework doesn't force a yes-or-no verdict. It reports the graded fact, which is exactly what you'd want for a chaotic system: "had the pendulum started a degree to the left, it would (0.98, at two seconds; 0.03, at two minutes) have ended on the right." A time-resolved answer that a ranking of whole worlds could never produce.</p>
-        <div class="callout">
-          <span class="h">Where the fifty-year-old ranking went</span>
-          <p>Notice what just happened to the similarity ordering. It's <strong>gone</strong> &mdash; it appears in none of the three steps. Its work is split among structures we needed anyway: the books' own dependency structure (what rests on what) fixes the reopening; validity (does a possibility survive at all?) does the pruning; and weight measures what survives. Nothing ranks the survivors against an ideal of "closeness." They survive or they don't. This is the framework's <strong>first headline</strong>: the ordering is deleted, not refined &mdash; and it lands twice, once in philosophy and once in the standard linguistics of modal words, because it was the same imported ranking both times.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 6 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">06</div>
-    <div class="body">
-      <h2>The trap door: why "it's just ignorance" is experimentally dead</h2>
-      <div class="prose">
-        <p>By now a skeptical reader has a ready objection, and everything downstream depends on answering it. The objection: <em>this is all classical metaphysics with new labels. Call an attribute "blank" if you like &mdash; a blank is just an unknown, an unknown has a definite value behind it, and your "superpositions" are ignorance dressed up in vocabulary.</em></p>
-        <p>If that deflation worked, this whole framework would be a notational variant of the possible-worlds picture, and the physics ahead would be sleight of hand. So it has to be closed. The closing argument is short.</p>
-        <p>The deflation needs one specific thing: <strong>overwrite</strong>. It needs learning to work by revision-in-place &mdash; when you learn a blank attribute's value, the old "open" description is destroyed and replaced by the value, in one standing ledger. Under overwrite, the before and after never coexist, so nothing distinguishes "was genuinely open, then became <em>x</em>" from "was <em>x</em> all along, merely unknown." That indistinguishability is exactly the relabeling the skeptic wants.</p>
-        <p>But here is the thing the framework was built to notice: <strong>learning does not overwrite.</strong> When you learn, you transit to a <em>new</em> Aethus &mdash; a new set of books &mdash; and relative to the <em>prior</em> Aethus, the superposition still stands, permanently. Determinacy gained is always indexed to the information state that gained it. The "before" description is never destroyed, so the skeptic's coordinate-transform has nowhere to act.</p>
-        <div class="callout">
-          <span class="h">Why this isn't a philosopher's stalemate</span>
-          <p>The reason it isn't just one intuition against another is that the deflated version makes a <strong>testable</strong> commitment. If every blank secretly has one definite value on a single shared menu of possibilities, then measurement statistics have to obey the Bell-type inequalities &mdash; a hard mathematical bound, via the work of Boole, Fine, and Pitowsky. And those inequalities are <strong>violated in the laboratory</strong>, repeatedly, decisively. So the "it's just ignorance" reading isn't merely inelegant. It predicts the wrong experimental numbers. The trap door is nailed shut by data, not taste.</p>
-        </div>
-        <p>The framework is careful about the boundary of this argument: it kills the innocent relabeling of blanks as determinate-but-unknown. It does not claim to rule out every hidden-variable theory &mdash; Bohmian mechanics, for instance, survives it (at a price paid later). But the escape routes narrow to a hard dilemma with no comfortable exit: hold that positions are <em>always</em> definite, and you have Bohm's theory with its preferred slicing of spacetime; draw the line by what's accessible instead, and you've conceded the framework's whole thesis, that the boundary is informational. There is no third address.</p>
-        <p>This earns the <strong>second headline</strong>: the framework delivers <strong>counterfactual substance without counterfactual definiteness</strong>. You can still say what an experiment would have shown &mdash; the <em>would</em> and <em>might</em> have verdicts &mdash; while there is no hidden table of simultaneous definite values for a theorem to forbid. That exact combination is what the quantum realist has always needed and never had: hidden-variable theories buy the definiteness and lose the substance; instrumentalism has neither; this structure has both.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 7 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">07</div>
-    <div class="body">
-      <h2>The secret life of "or"</h2>
-      <div class="prose">
-        <p>The last section left a debt. If the alternatives to a blank are genuinely co-present &mdash; really here, not off in some other world &mdash; then why does anyone ever see just one? Why isn't the car parked in two spots at once?</p>
-        <p>The answer reforms the word <em>or</em>, and it's the move that carries the physics.</p>
-        <p>Classical metaphysics treats mutual exclusivity as built in: alternatives exclude each other by their nature, and physical "or" inherits that. The framework inverts it. Listing a blank's alternatives is one job. Whether those alternatives <em>interact</em> is a <em>separate</em> job &mdash; and that second job is handled by what's written <em>inside</em> each alternative, not by any wall between them.</p>
-        <div class="grid2">
-          <div>
-            <h3>Disagreeing superposition</h3>
-            <p>Each alternative <em>states</em>, internally, that it doesn't interact with the others. They are co-present but mutually inert &mdash; exclusive branches. This is the ordinary case: the car is here, <em>or</em> there, and the two don't talk. Its everyday ubiquity is what makes classical intuition feel like plain truth.</p>
-          </div>
-          <div>
-            <h3>Agreeing superposition</h3>
-            <p>Nothing in the books states that the alternatives are inert. The non-interaction entry is left <span class="tok blank">blank</span>. So the co-present alternatives genuinely <em>interact</em>. One attribute's worth of difference from the case above &mdash; and it carries the entire divide between classical and quantum.</p>
-          </div>
-        </div>
-        <p style="margin-top:1.4rem;">Written as algebra, the whole content is <em>where the negations sit</em>:</p>
-        <div class="formula">
-          <span class="lbl">the placement of the negations is the entire content</span>
-          agreeing:&nbsp;&nbsp;&#8899;<sub>i</sub> A<sub>i</sub><br>
-          disagreeing:&nbsp;&nbsp;&#8899;<sub>i</sub> ( A<sub>i</sub> &#8898; <span class="g">&#8899;<sub>j&#8800;i</sub> &not;A<sub>j</sub></span> )
-        </div>
-        <p>In the disagreeing form, each pocket carries interior negations of all the others &mdash; the exclusivity is manufactured, from the inside. Remove those interior negations and the alternatives interact. So there is no physical "or" holding things apart; there is only co-presence, with or without interior negations. <strong>Interaction is the default; exclusivity is the special case you have to build.</strong></p>
-        <p>The historical rhyme is exact. Boole's original "+" was exclusive &mdash; defined only for disjoint classes &mdash; and it took Jevons's reform to inclusive "or" (where X + X = X) to give us the algebra we now call Boolean. Boole rejected the reform when Jevons pressed it. The union move is that same reform, applied one layer deeper: sentential logic went from choosy to inclusive combination a century and a half ago; the ontology of physical alternatives never did. The claim is that <strong>quantum interference is what the world looks like once it does.</strong></p>
-        <div class="callout">
-          <span class="h">The sentence to keep</span>
-          <p>The classical logic of exclusive alternatives is <strong>the logic of the reduced form</strong> &mdash; of reality <em>after</em> the pruning &mdash; not of the underlying structure. Our intuitions about "or" are faithful reports of the shadow, not of the object casting it.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 8 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">08</div>
-    <div class="body">
-      <h2>Checkmate: where collapse comes from</h2>
-      <div class="prose">
-        <p>We've been using a pruning rule &mdash; "let the surviving possibilities be the ones that survive." Now we say precisely what survives, and this is the framework's sharpest claim: <strong>collapse is derived, not added.</strong> No new physical mechanism, no threshold, no free parameters.</p>
-        <p>Run the double-slit experiment in a deliberately silly macroscopic costume. Participants are each secretly assigned one of two doors and a spot to walk to; an organizer sits blindfolded until the end. The organizer's books leave the which-door attributes blank, so by the blank-is-superposition rule they're in superposition &mdash; and yet it is guaranteed that when the blindfold comes off, the organizer sees two clusters of people and <em>never</em> an interference pattern. Why?</p>
-        <p>The tempting answer &mdash; "a future organizer could just ask someone, and the answer would contradict interference, so interference is impossible" &mdash; fails, and the failure is the whole lesson. That contradiction lives in a <em>future</em> information state, and the framework flatly forbids exporting contradictions between information states willy-nilly. (If a clash in any one set of books could invalidate any other, you'd have smuggled a single observer-independent reality back in through the plumbing.) So the puzzle is sharp: a <em>possible future</em> contradiction has to constrain the present without that illegal cross-talk.</p>
-        <p>The right rule is found by elimination:</p>
-        <ul>
-          <li><strong>"Invalid if some refinement is invalid"</strong> &mdash; too strong. If a parent has one bad child and one healthy child, this strikes the parent, which drags the healthy child down too (every child of an invalid state is invalid). One bad option condemns its innocent siblings. Invalidity would flow from child to parent, which it must never do.</li>
-          <li><strong>"Invalid only if all refinements are outright contradictions"</strong> &mdash; too weak. The organizer can always just wait, so there's always a not-yet-contradictory refinement; the rule never fires, and the states that should ground each other's invalidity do so in a circle with no floor.</li>
-          <li><strong>The fix</strong> comes from noticing the bad states are <em>self-similar</em>: every non-contradictory refinement of the organizer's interference-state is another state of the same kind, facing the same trap. Fold that self-similarity into "each such state has some contradictory refinement," and you get a <strong>two-generational</strong> condition.</li>
-        </ul>
-        <div class="formula">
-          <span class="lbl">the third postulate (pruning)</span>
-          V[A]&nbsp;&#8658;&nbsp;<span class="g">&#8707;</span> B &#8849; A,&nbsp; <span class="g">&#8704;</span> C &#8849; B,&nbsp; V[C]
-          <br><span class="c">a valid state must have a refinement all of whose refinements are valid</span>
-        </div>
-        <p>The chess reading is then literal, not decorative. <em>Check</em> is the escapable possibility of contradiction. <em>Checkmate</em> is the impossibility of escaping that possibility. And checkmate is invalidity. The postulate says, in four words: <strong>it must not be impossible to make contradiction impossible.</strong> The organizer's interference-state is checkmated &mdash; every refinement leaves which-door information retrievable in principle &mdash; while the two-cluster state has a clean future and survives. Collapse, in this costume, is a theorem about which bookkeeping states have escape routes.</p>
-        <div class="note">For the mathematically inclined: this recursion is exactly a <b>safety property in the modal &mu;-calculus</b>, and the doomed states are a least fixed point. The Knaster&ndash;Tarski theorem guarantees it's well-defined even for infinite branching ("checkmate in &omega; moves"), and the weight structure keeps non-Archimedean capacity in reserve for that case. "Checkmate is membership in the doomed set" is a precise statement, not a metaphor.</div>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 9 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">09</div>
-    <div class="body">
-      <h2>The two-slit experiment, and the boundary that moves</h2>
-      <div class="prose">
-        <p>Now the payoff theorem &mdash; the point where everything downstream gets organized. Take a particle with some available paths (slits), and instead of considering the paths one at a time, consider the <strong>powerset</strong>: every combination of paths held together as a candidate for co-present, interacting content. Ask the framework's rules which combinations survive.</p>
-        <p>Give each slit a <em>detector signature</em>: the record of which detectors would fire if that slit alone were taken. Slits with identical signatures are permanently indistinguishable &mdash; no record, now or ever, can separate them &mdash; so the signatures sort the slits into classes. The theorem sorts every candidate combination against those classes into exactly three bins:</p>
-        <div class="ledger">
-          <div class="row"><div class="q">i</div><div class="d"><b>Valid.</b> The combination is empty, or exactly one full class of indistinguishable slits. Every branch produces the same total record, so no future refinement can catch it in a contradiction. It has a clean future.</div><div class="t">survives</div></div>
-          <div class="row"><div class="q">ii</div><div class="d"><b>Invalid, too narrow.</b> A combination that splits a single class &mdash; insisting on a distinction that no possible record could ever support. It over-specifies, and dies by the blank rule.</div><div class="t">over-specified</div></div>
-          <div class="row"><div class="q">iii</div><div class="d"><b>Invalid, too broad.</b> A combination spanning two or more classes &mdash; mixing alternatives that some record <em>can</em> tell apart. A future record can expose the maintained coherence as contradictory: checkmate.</div><div class="t">checkmated</div></div>
-        </div>
-        <p>The bins are mutually exclusive and cover every case. And a one-sentence corollary carries the framework's central physical claim: <strong>move or erase a detector, and you redraw the signatures &mdash; which re-sorts the powerset.</strong> The quantum&ndash;classical boundary is literal re-classification.</p>
-        <p>The double slit is now a one-page reading:</p>
-        <div class="grid2">
-          <div><h3>No detector</h3><p>Nothing records the path. The both-slits combination survives as an <em>agreeing</em> superposition &mdash; and by section 7, co-present alternatives with blank interior non-interaction interact. That interaction, when the alternatives are paths, is the interference pattern.</p></div>
-          <div><h3>Detector on</h3><p>A record now exists. The both-slits combination's interior non-interaction becomes stated; it's invalidated; the survivors are the one-slit alternatives in <em>disagreeing</em> superposition. The screen shows two lumps.</p></div>
-        </div>
-        <p style="margin-top:1.4rem;">Degrade the detector to partial which-path information, and the boundary slides continuously &mdash; fringe visibility falling as the "stated" spreads through the powerset. That's the familiar complementarity trade-off, read as bookkeeping. Decoherence is the same sentence at environmental scale: the environment is a relentless keeper of records, so macroscopic combinations get their interiors stated wholesale, and <strong>the classical world is simply the powerset pruned down to its disagreeing remainder.</strong></p>
-        <p>Nothing anywhere in that consulted a size, a mass, or a conscious observer. The theorem even hands you, for free, the thing decoherence has to argue for &mdash; the <em>preferred basis</em>, here just the detector-induced classification, selected by the very same rule that does the collapse.</p>
-        <div class="callout">
-          <span class="h">The central physical claim, plainly</span>
-          <p>There is no quantum world and classical world divided by scale. There is <strong>one world, described relative to information</strong> &mdash; the agreeing regime where interiors are blank, the disagreeing regime where they're stated &mdash; and every experiment that moves a detector moves the boundary, which is exactly what experiments have always shown and what scale-based intuitions have always struggled to say.</p>
-        </div>
-        <p style="margin-top:1.4rem;">Rather than take that on faith, run it. Below is the <strong>Powerset Invalidation Theorem</strong> as a live instrument. Set up the slits, wire the detectors, apply the postulates, and watch the three bins sort themselves &mdash; then move a detector and watch the boundary move.</p>
-{% include powerset-widget.html %}
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 10 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">10</div>
-    <div class="body">
-      <h2>One machine, from game shows to entanglement</h2>
-      <div class="prose">
-        <p>When the pruning eliminates joint combinations of several attributes, the survivors show a correlation nobody put in by hand &mdash; certain values of one attribute now only ever appear with certain values of another, not because anything signaled anything, but because the combinations that would have broken the correlation got crossed out. Call it <strong>reduced-form coupling</strong>, and watch it run on the humblest possible case before it's claimed for anything quantum.</p>
-        <h4>Monty Hall, slowly.</h4>
-        <p>You pick Door 1; the host, who knows where the car is, opens a different door to reveal a goat; should you switch? The famous answer is yes, two-thirds. Here's where the two-thirds comes from on this framework. Start with the car equally likely behind each door. The host's rule has two constraints baked in as <em>contradictions</em>: he never opens your door, and he never opens the car's door. Those joint configurations aren't unlikely &mdash; they never enter the structure at all. When the host opens Door 3, you cross out every surviving configuration inconsistent with that, and the weight of the crossed-out pockets doesn't vanish into a formula &mdash; it's simply gone, and the survivors rescale to fill the gap. Divide through, and switching wins two-thirds of the residue.</p>
-        <div class="callout">
-          <span class="h">A theorem hiding in a game show</span>
-          <p>The familiar two-thirds is not produced by a conditioning formula &mdash; it's the residue of crossed-out joint configurations, their weight flowing to the survivors. The long paper proves the general fact this displays: <strong>Bayesian conditioning is pruning-plus-renormalization</strong>, an emergent theorem rather than an added rule. And the same one object turns out to unify single-case chance, long-run frequency, credence-updating, and quantum probability &mdash; four readings of one weight structure.</p>
-        </div>
-        <p>Now change <em>only the weights</em> &mdash; swap the plain weights for the quantum amplitude kernel &mdash; and the identical "cross out the joint configurations" operation becomes:</p>
-        <ul>
-          <li><strong>Entanglement.</strong> Bell correlations are reduced-form coupling carrying quantum weights: the surviving joint outcomes are exactly the ones no future information state can catch in a contradiction. Because blanks are timeless, the coupling doesn't care about temporal order &mdash; which is precisely what dissolves the delayed-choice experiment's apparent retrocausality. A boundary-value fact was mistaken for a backwards-traveling influence.</li>
-          <li><strong>Wigner's friend, and its sharpenings.</strong> Run across observers, the same coupling enforces consistency: every possibility in which two observers' eventual reports would contradict is pruned, so the observers who can ever meet are exactly the ones who agree. The famous no-go theorem (Frauchiger&ndash;Renner) needs to stitch two observers' books into one ledger to derive its contradiction &mdash; which is exactly the move the indexing forbids. The contradiction dies for want of a sentence to express it.</li>
-        </ul>
-        <p>The methodological point is the heart of the compression claim: the reduced form was <em>not</em> engineered to unify these. It's one deductive step from the postulates, and the unification fell out afterward &mdash; which is at least mild evidence that it tracks a real structure rather than bookkeeping convenience. One operation; four literatures.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 11 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">11</div>
-    <div class="body">
-      <h2>What you get, and the one axiom that buys the numbers</h2>
-      <div class="prose">
-        <p>Everything so far ran on the three postulates and plain enumeration &mdash; no quantum-specific input at all. The <em>numbers</em> enter through exactly one further axiom, and the framework flags it in bright ink rather than hiding it.</p>
-        <p>It's called the <strong>Quantum Nexus</strong>: the Feynman path-integral kernel installed as the weight structure over the powerset of paths, with interference carried by the kernel's cross-terms. Give it the weights, and the standard quantum statistics come out &mdash; the per-polarizer cos&sup2;/sin&sup2; probabilities arrive as the kernel's own overlaps, Malus's law becomes a theorem rather than an input, and full polarizer chains fall out as sequential pruning.</p>
-        <div class="callout">
-          <span class="h">Why the axiom is quarantined, honestly</span>
-          <p>The Nexus is the framework's <strong>single flagged axiomatic input</strong>, and it is <em>separable</em>: remove it and the entire ontology of parts one and two still stands (you keep the counterfactual semantics, the probability story, the whole conceptual apparatus); install it and the numbers arrive. Deriving it from something deeper is explicitly assigned to a successor program. On the framework's own analogy, the Nexus sits where Newton's law of gravitation sat beside his three laws of motion &mdash; empirically load-bearing, conceptually awaiting its deeper motivation. That's a promissory note, and it's written as one.</p>
-        </div>
-        <p>One consequence of installing it is worth stating, because it corrects a mistake every major interpretation shares. Everyone assumes there's <em>one entity</em> &mdash; the wavefunction &mdash; that persists through measurement, which makes collapse a problem about what happens to it. Aethic reasoning <strong>demotes the wavefunction</strong>: it's derived bookkeeping over an agreeing superposition, so the real commitment attaches to the superposition, never to its wavefunction summary. And once nothing fundamental persists through measurement, there's no transition to trigger and no threshold to find. Agreeing superpositions never "collapse" toward one outcome (there's no fact of the branch to select); a record just invalidates them whole. The randomness of measurement lives one level up &mdash; in the disagreeing superposition <em>over</em> the possible determinate outcomes. <strong>Predetermination per information-state, randomness across information-states</strong>: the two never compete, because they never described the same thing.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 12 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">12</div>
-    <div class="body">
-      <h2>The price tag, posted</h2>
-      <div class="prose">
-        <p>A framework that claims this much owes you its full bill of assumptions, stated plainly rather than buried. Here is the complete ledger &mdash; and the discipline is that <em>nothing load-bearing appears anywhere in the building that isn't on this list.</em></p>
-        <div class="ledger">
-          <div class="row"><div class="q">1</div><div class="d"><b>One modal primitive</b> &mdash; the perturbation operation itself (reopen, restate, re-prune). Validity, weight, and pruning are inherited from machinery needed for independent reasons, not added here.</div><div class="t">new</div></div>
-          <div class="row"><div class="q">2</div><div class="d"><b>One dependency structure</b> on the books &mdash; which entries rest on which. This is exactly where an ordering-theorist will look for the deleted ranking's ghost, so it's booked openly.</div><div class="t">booked</div></div>
-          <div class="row"><div class="q">3</div><div class="d"><b>One scope-and-policy convention</b> for reopening &mdash; one parameter, three named settings, selected by grammatical mood. Visible and movable, never hidden inside a metric.</div><div class="t">convention</div></div>
-          <div class="row"><div class="q">4</div><div class="d"><b>One individuation principle</b> &mdash; alternatives are individuated by their possible records (no possible record, no distinction). Plausibly derivable from the blank rule; until that's written, it stands booked.</div><div class="t">booked</div></div>
-          <div class="row"><div class="q">5</div><div class="d"><b>Three postulates</b> &mdash; indexing (P1), blanks-are-superposition (P2), and pruning (P3). The codified laws of the whole ontology.</div><div class="t">core</div></div>
-          <div class="row"><div class="q">6</div><div class="d"><b>One weight&ndash;probability identification</b> &mdash; probability <em>is</em> weight over informational structure, defined rather than interpreted.</div><div class="t">identity</div></div>
-          <div class="row"><div class="q">7</div><div class="d"><b>One bridge principle</b> &mdash; the map turning formal "invalidity" into physical unrealizability, in two stages (compilation, then realization). Injected as a principle, and flagged where it binds.</div><div class="t">bridge</div></div>
-          <div class="row"><div class="q">8</div><div class="d"><b>One algebraic design choice</b> &mdash; the weighted states form a commutative semiring <em>without</em> additive inverses, on purpose, so no weight is ever signed. This is what the negativity-compliance rides on.</div><div class="t">design</div></div>
-          <div class="row"><div class="q">9</div><div class="d"><b>One separable axiom</b> &mdash; the Quantum Nexus (the amplitude kernel). Removing it leaves the ontology standing; installing it delivers the numbers.</div><div class="t">separable</div></div>
-        </div>
-        <p>Three costs deserve to be named out loud rather than left in the ledger's shorthand. <strong>First</strong>, the quantum weights are posited, not derived &mdash; that's the Nexus, and its derivation is the framework's headline open problem. <strong>Second</strong>, a fixed spacetime is assumed throughout; the framework says nothing yet about quantum gravity beyond a methodological preference. <strong>Third</strong> &mdash; the strange one &mdash; the framework <em>fights the grammar of every human language</em>. The deletion in section 5 lands not just on a philosophical tradition but on the working semantics of the species' own modal talk, so the conceptual resistance you may feel reading this is not a failure of exposition; it's the grammar itself objecting. The framework asks for reasoning natural language was not built to express, and prices that honestly.</p>
-        <p>Alongside the costs sit four <strong>named open constructions</strong> &mdash; determinate mathematical targets, not vague hopes: a measure-invariance proof, a fully in-formalism definition of distinguishability, the kernel's derivation, and the exact conditions of in-principle irretrievability. Each is a specific thing that could be finished or could fail.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 13 -->
-<article class="chapter">
-  <div class="wide">
-    <div class="idx">13</div>
-    <div class="body">
-      <h2>Why this matters</h2>
-      <div class="prose">
-        <p>Step back and notice the shape of the whole trip, because the expository order here &mdash; semantics first, physics after &mdash; is the reverse of the order of discovery. The real backbone is old-fashioned inductive reasoning, and it runs on one inversion. Where every standard program asks <em>what universe can be inferred from quantum mechanics</em>, Aethic reasoning asks the opposite: <strong>what universe infers quantum mechanics?</strong> What must a universe look like for quantum physics to be not weird, not paradoxical, but exactly what you'd expect?</p>
-        <p>The answer put the pieces in place. Quantum mechanics under classical assumptions is logically anti-realist &mdash; it refuses to be a story about a definite world &mdash; and the postulates are the shape that ends the anti-realism. It's the same kind of move Newton made when he unscrambled "things fall down" and "the moon goes around" into one law that made neither out of place. Not the additive work of piling up new equations, but the subtractive work of unscrambling our own priors.</p>
-        <div class="pull">The block universe survives untouched &mdash; and becomes categorically stranger: one four-dimensional reality holding <em>many</em> legitimate determinate realities at once, each indexed to an information state, none outranking the others.</div>
-        <p>This is worth being precise about, because it's easy to under-read and easy to over-read. It is <strong>not</strong> classical realism &mdash; there is no single catalogue of definite facts. It is emphatically <strong>not</strong> idealism &mdash; no mind creates anything; the block is there, independent, and the index is any record-bearing structure, a collimator as readily as a scientist. It is a <em>third setting of the realism dial</em>: <strong>reality independent, determinacy indexed.</strong> The traditional debates in the metaphysics of spacetime &mdash; substance versus relation, present versus eternal &mdash; are old axes; this proposes a new one rather than taking a side on an old one.</p>
-        <p>And the base-rate skepticism you should rightly bring to any new interpretation &mdash; "what are the odds this one is right?" &mdash; inverts into something more interesting. The central problem of every leading interpretation (Copenhagen's shifty split, Everett's probability puzzle, Bohm's preferred slicing, the collapse theories' new dynamics) falls to the <em>same two moves</em>: the informational boundary, and the observer indexing. That's not proof. But it's evidence about where the difficulty always lived.</p>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- falsifiability -->
-<section>
-  <div class="wide">
-    <div class="sec-head">
-      <span class="eyebrow">How it could be wrong</span>
-      <h2>Where the framework meets a lab.</h2>
-      <p>Because it reproduces the standard predictions in every case it treats, the framework isn't decided by one dramatic tabletop experiment. Its empirical exposure is a portfolio &mdash; and it's honest about which of its commitments are sharp and which are idealized.</p>
-    </div>
-    <div class="prose" style="max-width:41rem;">
-      <p>The sharpest fork runs against the <strong>spontaneous-collapse programs</strong> &mdash; GRW, continuous spontaneous localization, and the gravitational variants of Di&oacute;si and Penrose. They predict a <em>scale-induced</em> breakdown of superposition that no quality of information-erasure can prevent. Aethic reasoning predicts the opposite: <strong>no breakdown ever, given genuinely permanent inaccessibility of the distinguishing information</strong>, with all apparent scale-dependence exhausted by informational accessibility.</p>
-      <p>The frontier where those diverge is real and active today: <strong>matter-wave interferometry of ever-more-massive systems</strong>, and its levitated-optomechanics descendants. Each confirmed extension of coherence to larger masses under controlled erasure is evidence for the informational boundary and against the collapse family; a reproducible breakdown <em>not</em> attributable to residual environmental records would falsify the framework outright.</p>
-      <p>Nearer to hand, a <strong>two-tag interferometry setup</strong> prices the framework's central distinction &mdash; between the coherent "agreeing" regime and the classical "disagreeing" one &mdash; directly on the wall, on the one quantity that lives on measurements you didn't perform. And the non-negative weight algebra is a <strong>standing structural commitment</strong> at the negativity&ndash;contextuality joint, not a tunable preference.</p>
-    </div>
-  </div>
-</section>
-
-<!-- where next -->
-<section>
-  <div class="wide">
-    <div class="sec-head">
-      <span class="eyebrow">Where to go next</span>
-      <h2>Three depths, one architecture.</h2>
-      <p>You've read the full plain-English case. Everything below develops it &mdash; at native formality, more breadth, or from the inside of how it was built.</p>
-    </div>
-    <div class="navgrid">
-      <a href="https://philpapers.org/rec/BENARI-3">
-        <div class="nt">&ldquo;In Brief&rdquo; &mdash; the paper &#8599;</div>
-        <div class="nd">The same arc at native resolution &mdash; fifteen pages, then the Comprehensive paper behind it. Where every claim above is argued in full.</div>
-      </a>
-      <a href="/constraints_map.html">
-        <div class="nt">Threading the Needle <span class="arr">&rarr;</span></div>
-        <div class="nd">A close reading of how the framework was actually derived &mdash; the constraint-fields each move had to satisfy at once, and the cognitive pattern behind them.</div>
-      </a>
-      <a href="/principles_compendium.html">
-        <div class="nt">The Compendium <span class="arr">&rarr;</span></div>
-        <div class="nd">A filterable encyclopedia of every principle, postulate, theorem, and thought experiment, tiered by how much of the framework rests on it.</div>
-      </a>
-      <a href="/faq.html">
-        <div class="nt">Questions &amp; Context <span class="arr">&rarr;</span></div>
-        <div class="nd">The hardest objections taken head-on &mdash; and the human story of where the framework came from, in Ajax's own account.</div>
-      </a>
-    </div>
-    <div style="margin-top:2rem;" class="prose">
-      <p>Or read the source. The compressed <a class="link" href="https://philpapers.org/rec/BENARI-3">&ldquo;Aethic Reasoning in Brief&rdquo;</a> (July 2026) is the recommended entry point &mdash; this walkthrough follows its line &mdash; with the full <a class="link" href="https://philpapers.org/rec/BENARA-5">Comprehensive paper</a> as its complete companion.</p>
-    </div>
-  </div>
-</section>
+<nav class="rail" aria-label="Depth levels">
+  <div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" aria-controls="p1"><span class="lv">LEVEL 1</span><span class="nm">First contact</span></button><button class="tab" role="tab" aria-selected="false" aria-controls="p2"><span class="lv">LEVEL 2</span><span class="nm">One sitting</span></button><button class="tab" role="tab" aria-selected="false" aria-controls="p3"><span class="lv">LEVEL 3</span><span class="nm">Philosophy</span></button><button class="tab" role="tab" aria-selected="false" aria-controls="p4"><span class="lv">LEVEL 4</span><span class="nm">Physics</span></button><button class="tab" role="tab" aria-selected="false" aria-controls="p5"><span class="lv">LEVEL 5</span><span class="nm">Research grade</span></button><button class="tab l6" role="tab" aria-selected="false" aria-controls="p6"><span class="lv">LEVEL 6</span><span class="nm">The papers</span></button></div>
+  <div class="gauge" aria-hidden="true"><i id="gfill"></i></div>
+</nav>
+<main>
+<section class="panel on" id="p1" role="tabpanel"><div class="stampline"><b>LEVEL 1</b><span>Assumes nothing. Leaves you with the one move and why it matters.</span></div><h2>The idea, in plain sight</h2>
+<p>Flip a coin and cover it. Ask yourself what, exactly, is under your hand.</p>
+<p>The answer everyone carries — so old it doesn't feel like an answer — is that there's a fact under there, heads or tails, and you just don't know it yet. The world finished the job; your knowledge is lagging behind. On this picture, "what could have happened" lives somewhere else: other ways the whole world might have gone, other timelines, other branches. Reality is a corridor of settled facts, and possibility is the wallpaper of corridors you're not in.</p>
+<p>Aethic reasoning makes one move against that picture, and everything else in the framework is the consequence of the move. The move: <strong>the alternatives are not somewhere else.</strong> The openness of the covered coin is not your ignorance of a finished fact — it is a piece of the <em>structure of the room you are standing in</em>, relative to you. The framework's own aphorism puts it in nine words: <strong>the multiverse does not contain the room; the room contains the multiverse.</strong></p>
+<p>Here is the same move said carefully. Your situation, at any moment, is an information state — everything settled for you, plus everything genuinely open to you. Call that state your <strong>Aethus</strong>. The claim is that reality is indexed to that state: what is determinate is determinate <em>relative to an Aethus</em>, and where your Aethus has a blank — an entry with no value written in — the world, relative to you, holds the open alternatives as real structure, all of them, in this room, not in distant copies of it. When you uncover the coin and see heads, nothing anywhere "collapses" or splits. You step into a block universe — a complete, permanent, four-dimensional world — in which the coin <em>was always heads</em>, and the prior state of affairs, the one holding both alternatives open, remains exactly what it was: a different, permanent structure, now simply no longer yours. Learning is re-indexing, not overwriting.</p>
+<p>One more picture, because it converts the move from strange to almost familiar. You're driving past a forest. At 2:00 you glance left and see a young tree; at 2:05 you glance again and see an old one. The standard story says the car was parked and one tree grew. This framework says <em>you moved</em> — you were always looking at two different trees. Learning is that: motion along a dimension your speedometer doesn't show, past complete and permanent scenes. The multiverse starts at the edge of your senses, not the edge of the cosmos.</p>
+<p>Three things follow immediately, and they're the reasons anyone should care.</p>
+<p>First, the notorious weirdness of quantum mechanics stops being an exception and becomes the visible tip of a general fact. In the double-slit experiment, an unwatched particle behaves as if it took every path at once, and watching it changes that. On the standard picture this is scandalous. On the Aethic picture it is the <em>one place in nature where the openness of a blank entry leaves a visible fingerprint</em> — interference — because the particle's path is the rare kind of fact that no one, even in principle, could ever check. Your friend's location right now is also open relative to you, and also, on this view, a real superposition — but clues about your friend are everywhere (footprints, phone records, the memory of a passing seagull, so to speak), so the alternatives can't stay consistently open; the structure prunes itself. The quantum/classical divide isn't about size. It's about whether the information is reachable <em>in principle</em>. The whole experiment in one sentence: unknown → superposition; knowable → no superposition.</p>
+<p>Second, the past gets stranger and more solid at the same time. Whatever you have seen is permanent — no take-backs, ever, on this view; that part is <em>more</em> rigid than common sense. But whatever no one could ever check about the past was never settled in the first place — not hidden, <em>open</em> — which is less rigid than common sense. Settledness was never about time. It was about information.</p>
+<p>Third, none of this is offered as mysticism, and it comes with ways to be wrong. The framework is built from three explicit postulates, it forbids things (no signaling through any of this, no consciousness magic, no changing what's been recorded), and it stakes claims that data could kill — including one it argues data <em>already</em> kills for the main rival way of reading the same idea. If you take nothing else from this level, take the shape of the move: not a new ingredient added to physics, but an old assumption removed — the assumption that "the way things are" comes stamped on the world rather than indexed to the one holding the question.</p>
+<p>The next level tells you the actual rules.</p></section>
+<section class="panel" id="p2" role="tabpanel"><div class="stampline"><b>LEVEL 2</b><span>Assumes general-reader comfort. Leaves you with the three postulates, the two superpositions, and the boundary.</span></div><h2>The framework in one sitting</h2>
+<h3>The object everything is indexed to</h3>
+<p>An <strong>Aethus</strong> is an information state: a set of attribute-entries, each either <strong>stated</strong> (a value written in: <em>the coin: heads</em>) or <strong>blank</strong> (no value: <em>the coin: —</em>). Anything that keeps records has one — you, a lab notebook, a detector, a grain of rock bearing an isotope ratio. Two bookkeeping rules matter. An Aethus is closed under deduction: everything your entries jointly imply is part of the state, whether or not you've noticed. And two Aethae presenting the same total information are the same Aethus — the state is the equivalence class, not any particular list.</p>
+<p>One distinction carries the whole construction, and a small example fixes it. Suppose all you know about your friend Tim is that he has a dog named Biscuit. What color is Biscuit? "Brown and not-brown at once" is a contradiction — forbidden, absolutely, everywhere in this framework. But <em>no color entered at all</em> is not a contradiction. It is a <strong>blank</strong>, a single consistent entry in its own right — formally missing, yet a first-class constituent, not an absence. <strong>"Brown and not brown" is forbidden; blank is allowed</strong> — and standard set-vocabulary cannot hold that difference, which is precisely why the Aethus exists as a new object: no contradiction is ever stored in the state, and yet the stored blank <em>presents</em>, in the reality the state indexes, as the alternatives co-present. Contradiction and superposition come apart cleanly, and the entire measurement problem, on this diagnosis, lived in their conflation.</p>
+<p><strong>Postulate 1.</strong> <em>Anything is real only relative to an Aethus.</em> There is no view from nowhere against which your indexed picture is a mere approximation; the index is not a limitation on the description — it is the description's fundamental parameter. The site's own compression is worth adopting here: <strong>determinacy(q | A)</strong> — a two-place relation, never a property of q alone. And a rabbit fixes what this does <em>not</em> mean. Kevin sits in a field; a hawk circles. Kevin's chance of being eaten differs from the hawk's assessment of it — so there is no Platonic, camera-above-everything answer. But Kevin's chance is utterly indifferent to Kevin's <em>opinions</em>: a confident rabbit and a terrified rabbit are equally catchable, so this is no Protagorean relativism either. What remains is the framework's actual position — perspectival realism: indexed to an information state, and structurally constrained once indexed, the way a speed is always relative to something and yet never a matter of taste.</p>
+<p><strong>Postulate 2.</strong> <em>Relative to a valid Aethus, an attribute is in superposition exactly when it is blank.</em> This is the radical one, so state it at full strength: blankness is not ignorance of a fact. Blankness is the fact. Where your state carries no value, the world relative to you carries the open alternatives as constituents — real, co-present, weighted structure occupying this space. (The early papers phrased the condition as statistical independence; blankness is the mature, more primitive dress of the same content.)</p>
+<h3>The extrusion principle, and what happens when you learn</h3>
+<p>The <strong>extrusion principle</strong> is the move from Level 1 made ontological. Each resolution of a blank is a transition between complete, permanent block universes. The one you leave — in which the attribute was genuinely open — is not erased or falsified; it stands, walled off, no longer yours. The one you enter has the value written in <em>tenselessly</em>: in the heads-universe, the coin was always heads, all the way back. The framework calls your walk through this sequence <strong>centric unfolding</strong>, and it distinguishes the <strong>dark multiverse</strong> (the open alternatives co-present in your current structure — real, ahead of you, so to speak) from the <strong>lost multiverse</strong> (the structures your transitions have walled off — real, permanent, behind you). Nothing ever splits, and nothing ever travels between pockets: the only thing that moves is the index.</p>
+<p>Notice what this deletes. The question "but which one was it <em>really</em>, before you looked?" presupposes exactly the unindexed stamp Postulate 1 removed. And notice what it keeps rigid: <strong>permanence</strong>. Once an attribute is stated in your Aethus, no later transition unsays it. History, relative to you, is immutable — and <em>also</em>, wherever it was never checkable, indeterminate. Immutable and open are compatible because settledness was never a property of pastness.</p>
+<h3>Two kinds of superposition — the framework's signature distinction</h3>
+<p>Not all open structure composes the same way, and the difference carries the physics.</p>
+<p><figure class="dg"><svg viewBox="0 0 720 240" role="img" aria-label="Agreeing versus disagreeing superposition">
+<defs><style>.t{font:500 12px 'IBM Plex Mono',monospace;fill:#1C2333}.s{font:400 11px 'IBM Plex Mono',monospace;fill:#69707F}</style></defs>
+<text class="t" x="178" y="24" text-anchor="middle">AGREEING — one pocket, flat union</text>
+<g opacity="0.9">
+<ellipse cx="140" cy="118" rx="86" ry="58" fill="#3E7C6B22" stroke="#3E7C6B" stroke-width="1.6"/>
+<ellipse cx="216" cy="118" rx="86" ry="58" fill="#2E437422" stroke="#2E4374" stroke-width="1.6"/>
+<text class="t" x="118" y="122">A</text><text class="t" x="234" y="122">B</text>
+<text class="s" x="178" y="196" text-anchor="middle">no interior negations — the composition is one object</text>
+<text class="s" x="178" y="214" text-anchor="middle">interference lives here</text></g>
+<line x1="360" y1="16" x2="360" y2="224" stroke="#D8DAD2" stroke-width="1.4"/>
+<text class="t" x="540" y="24" text-anchor="middle">DISAGREEING — co-present pockets</text>
+<g>
+<rect x="404" y="62" width="120" height="110" rx="10" fill="#FDFDFB" stroke="#A6503C" stroke-width="1.6"/>
+<rect x="556" y="62" width="120" height="110" rx="10" fill="#FDFDFB" stroke="#7A5C93" stroke-width="1.6"/>
+<text class="t" x="464" y="108" text-anchor="middle">A · ¬B</text>
+<text class="t" x="616" y="108" text-anchor="middle">B · ¬A</text>
+<text class="s" x="464" y="132" text-anchor="middle">pocket 1</text>
+<text class="s" x="616" y="132" text-anchor="middle">pocket 2</text>
+<text class="s" x="540" y="196" text-anchor="middle">exclusions carried inside — nested, non-interacting</text>
+<text class="s" x="540" y="214" text-anchor="middle">observation selects a pocket</text></g>
+</svg><figcaption>The framework's signature distinction: (A ∧ ¬B) ∨ (B ∧ ¬A) is not the same object as (A ∧ B). Classical thought only ever had the left-hand form's cousin on the right — and mistook it for the nature of “or.”</figcaption></figure></p>
+<p>In a <strong>disagreeing superposition</strong>, the alternatives carry their mutual exclusions <em>internally</em>: one pocket says "heads, and not tails," the other says "tails, and not heads." The pockets are co-present but non-interacting — nested, negation-separated block-universe candidates sharing one physical space. This is the generic case: your covered coin, your friend's location, Schrödinger's cat. In an <strong>agreeing superposition</strong>, the alternatives are composed <em>without</em> interior negations — a flat union, one pocket, the alternatives standing together with nothing stated against each other. This is the exotic case, and it is where quantum interference lives: the double slit's unwatched particle holds <em>slit A and slit B</em> in agreeing composition, and the interference pattern is that composition's empirical fingerprint. The algebra of the distinction fits in one line: (A and not-B) or (B and not-A) is not the same object as (A and B) — and the framework's claim is that classical thought only ever had the first, mistaking it for the nature of "or" itself.</p>
+<h3>The boundary, relocated</h3>
+<p>Why is your coin disagreeing while the particle is agreeing? Walk the framework's founding thought experiment: rebuild the double slit with a hundred people walking through two doors, their door assignments quantum-generated, the observer blindfolded. Will the wall show interference? No — and the reason is the whole theory. With people, clues are everywhere: you could ask them, check footprints, interview bystanders. Somewhere, some accessible chain of information distinguishes the alternatives — and that is enough to force the exclusions inside, collapsing the composition to the disagreeing kind. With the particle, <em>nothing in the universe, even in principle</em>, carries which-slit information — and only that total in-principle silence lets the agreeing composition stand. <strong>The quantum/classical boundary is informational, not physical</strong>: it moves when you add a detector, and it never moves because something got bigger, heavier, or more conscious.</p>
+<p><strong>Postulate 3</strong> is what enforces this, and it is the framework's engine. In loose form: <em>a valid Aethus must have at least one child state — one way of resolving into the future — all of whose own children remain consistent with what stands.</em> Two generations deep, not one: an alternative isn't killed by being false now; it's killed when every way of continuing it runs into contradiction — checkmate, not capture. This <strong>pruning</strong> is what converts "the clues are out there" into "the superposition cannot be agreeing": if any accessible future could contradict a component, the composition holding that component uncontradicted is invalid, and the structure reduces. Collapse, in this framework, is nothing but pruning read through a transition. (Why two generations rather than one is a real derivation with a real history — the one-generation and ancestral versions each fail for stated reasons — and Level 5 walks it.)</p>
+<h3>What the rules buy immediately</h3>
+<p><strong>Schrödinger's cat</strong>, without paradox: the cat is in <em>disagreeing</em> superposition relative to the outside experimenter — decoherence inside the box plays the detector's role, so the agreeing option is pruned — which means "alive and dead at once" was always the wrong reading; two negation-separated pockets, one of which the opening of the box indexes you into, retroactively-tenselessly. <strong>Wigner and his friend</strong> each hold correct, complete descriptions relative to their own Aethae, with a consistency coupling (Level 4) guaranteeing their reports can never be caught disagreeing. <strong>Your unread email, the far side of the Moon at this instant, everything unrecorded</strong> — all of it open structure, almost all of it disagreeing, none of it spooky. And a first taste of the framework's reach beyond measurement: flip a switch that time-reverses the outside universe, and the framework predicts events would <em>not</em> run backward — velocities kick, then entropy keeps increasing — because the second law rides your centric unfolding, not the coordinate clock. That is the <strong>entropic principle</strong>, and it's the sort of consequence you get once determinacy is indexed to information states rather than to time.</p>
+<h3>Three miniatures that make it concrete</h3>
+<p><strong>Zoe's password</strong> makes the divergence quantitative in a toy. Zoe must crack a five-option password and owns a device that jumps her back five minutes. Classically she runs elimination — wrong guesses accumulate as knowledge, expected success in about three tries. Aethically, each jump returns her to a block universe in which the answer's attribute is blank again relative to her — the entry re-rolls — and she faces a fresh one-in-five each round: five expected tries, geometrically distributed, not three. Two ontologies, two different numbers, one toy.</p>
+<p><strong>Jenny's Japanese</strong> runs the same machinery at identity, and it is the framework's most unsettling licensed hypothetical. Your lifelong friend Jenny stuns her thirtieth birthday party by speaking fluent Japanese — a secret twenty-year project, she explains afterward. That night you accidentally trigger Zoe's device and land three hours back, before the reveal. The secret was never transferred to you — so relative to you it is blank again, and it re-rolls: at the candles, Jenny blinks at Japanese... and answers your brother-in-law's <em>Italian</em> fluently. Rewind further and progressively more of her unshared interior re-opens — identity interpolating, Ship-of-Theseus style, rather than flipping all-or-nothing. Read it honestly: this is an imagined-Aethus evaluation of a stipulated hypothetical, not a claim that such devices exist — its work is to dramatize that <em>blanks lack tense</em>: what was never checkable about the past was never settled, however long ago it "happened."</p>
+<p><strong>Monty Hall</strong>, finally, previews the probability story: lay out the alternatives, cross off what the host's reveal contradicts, redistribute the weight over what survives. On this framework that is not a trick for one puzzle — it is what probability <em>is</em>: weighted structure under pruning. The full algebra lives at Level 4.</p>
+<h3>What is not being claimed</h3>
+<p>No signaling: the consistency machinery forbids using any of this to transmit information. No consciousness-collapses-anything: a rock's isotope record indexes as well as a mind does. No retrocausation: what looks like backward influence is a tenseless consistency constraint misread through a timeline. No many-worlds splitting: pockets never multiply by dynamics; the count of alternatives only ever goes <em>down</em>, by pruning and by your transitions. And no free pass: the framework binds itself to falsifiable posture where it can — Level 4 shows where data already had a vote, and Level 5 lists what remains open on the framework's own books.</p></section>
+<section class="panel" id="p3" role="tabpanel"><div class="stampline"><b>LEVEL 3</b><span>Assumes comfort with modal metaphysics and formal philosophy. Leaves you with the semantics, the causation result, the logic claim, and the decision theory.</span></div><h2>For the philosopher: modality brought indoors</h2>
+<h3>The containment inversion</h3>
+<p>Every standing treatment of alternatives — Lewis's concrete worlds, Everett's branches, branching-time logics, the growing block, ordinary tense talk — shares one architectural commitment so old it is rarely stated: <em>the completed world is the unit of alternative-hood.</em> Alternatives are other ways the whole might be; the philosophical work then goes into the relation between the units (concreteness, branching, accessibility). Aethic reasoning inverts the containment: alternatives are entries <em>inside</em> the observer's information state, and the completed world — the finished history, Lewis's world, Everett's branch — is demoted from unit to ill-formed idealization. Nothing in the framework quantifies over completed histories; the papers decline them as objects rather than merely avoiding them. Indexicality is thereby promoted from a feature of reference to the architecture of modality itself. (From this vantage, Lewis and Everett read as one move in two vocabularies — worlds multiplied for modality, branches multiplied for unitarity, one inherited unit under both; the genealogy page's closing sections argue why that sameness is nearly invisible from inside either camp, and what stands checkable regardless.)</p>
+<p>Two immediate consequences discipline everything downstream. <strong>Modal collapse of the middle category</strong>: the framework recognizes co-present alternatives (real, weighted, in the structure) and invalid ones (pruned, weight zero, retained only as labels) — and nothing else. "Mere possibility," the merely-conceivable-but-unreal, has no address; what survives pruning is in the room, and what doesn't is nowhere. <strong>Blanks lack tense</strong>: an attribute's openness is a property of the indexing state, not of any clock reading — the <strong>indiscriminate time principle</strong> — so the deep past can be exactly as open as next Tuesday, wherever it was never checkable, and "before" and "after" split into two non-redundant indices (coordinate time, ordering events within a block; <strong>Aethic time</strong>, ordering your resolutions across blocks) with only a loose, <em>entropic rather than categorical</em> monotonicity coupling them.</p>
+<h3>The counterfactual semantics: deletion, not refinement</h3>
+<p>The framework's first extraction paper does the modal work with no physics in the room, and its central act is a deletion. Lewis's similarity ordering — the graded ranking of worlds against actuality that his clauses quantify over — "appears nowhere: its work split across dependency structure, validity, and weight." In its place, the <strong>perturbation operator</strong>: to evaluate "had A been the case," you never leave the evaluating Aethus. Reopen the antecedent's entry in your own books <em>at a declared scope</em>; restate it to the counterfactual value; hold an explicit informational boundary fixed (the entries the evaluation keeps, stated as a parameter rather than smuggled as "similarity"); re-run the second- and third-postulate pruning over the result. What survives is the <strong>residue</strong> — a weighted, generally multi-pocket structure — and the clauses read directly off it: <strong>would</strong> is truth on every non-negligible pocket; <strong>might</strong> is truth on some non-null pocket; <strong>the graded counterfactual</strong> is the residue weight itself. One operator, three grains; chancy counterfactuals are first-class citizens rather than an afterthought.</p>
+<p>Three features distinguish this from the neighbors. Against Lewis–Stalnaker: the ordering is deleted, and the framework stakes a standing formal challenge that no ordering semantics generates the indexed, weighted, multi-pocket verdict function — with the classification argument (a Cautious Monotony countermodel places the Aethic conditional outside the preferential family that similarity semantics lives in) as the down payment. Against structural-equations/interventionism (Pearl, Woodward, Halpern): the perturbation is intervention-<em>shaped</em> — clear, set, re-run — but the graph consulted is the evaluator's own stated content (deductive-and-causal-as-stated, provenance from the books rather than the modeler), the reopening is tense-free (any point in the block, no "before the miracle" rigidity), and the output is a weighted residue rather than a single surgically revised model. Against the epistemic readings: verdicts are evaluated <em>at</em> states, never stored <em>in</em> them as entries — conditionals are not bookable attributes — which is what keeps the Ramsey-test triviality results from getting started. Two structural theses ride along. <strong>Counterfactual substance without definiteness</strong>: the framework grants counterfactuals ontological standing (they are structure in the room) while denying them classical definiteness — the combination Fine's theorem punishes every classical-realist rival for lacking. And <strong>evaluation is synchronic in both temporal directions</strong>: the semantics never walks the unfolding backward to a branch point, and projection never walks it forward through a chain — the tree consulted as structure, never as itinerary.</p>
+<h3>Causation on two layers, and Reichenbach as a theorem</h3>
+<p>The causation extraction runs the same relocation at the classical triad — causes precede effects, causes screen off, no action at a distance — and its finding is that the triad was three stories about two layers. The <strong>information layer</strong> is tensed, light-cone-respecting, where signaling lives and relativity legislates. The <strong>validity layer</strong> is tenseless and absolute: reduced-form couplings — consistency constraints surviving the pruning — that bind attributes across any separation without carrying one bit. No causal arrow appears anywhere in the analysis; the two causal "horns" are <em>defined by their behavior under conditioning</em>, and with that definition <strong>Reichenbach's common-cause principle becomes a theorem</strong> — the screening-off certificate a one-line factorization — valid exactly up to the regime where alternatives co-obtain. The Bell correlations sit precisely at that boundary: not a violation of causal reasoning but the marker of where the single-layer assumption's writ runs out. This is the framework's direct answer to the Wood–Spekkens diagnosis — the fine-tuning no-go that afflicts causal accounts of Bell correlations assumes the one-layer picture the bilayer declines — and it is why apparent retrocausality (delayed choice included) dissolves: a tenseless validity constraint, gathered in whatever proper-time order, was being narrated as a signal.</p>
+<h3>The union principle: a sister taxon in logic</h3>
+<p>The logic extraction states the framework's deepest structural claim in a physics-quarantined form. <strong>Mutual exclusivity is not the nature of "or"; it is stated content</strong> — negations carried on the <em>interior</em> of each alternative — and therefore an achievement, and therefore removable. Decline to write the interior negations and a second composition regime falls out: alternatives standing together with nothing stated against each other, fixed against the classical regime by a <strong>one-statement test</strong> (writing in a single negation changes the composed object, which no mere gain of information about an antecedently exclusive situation could do). The claim at full taxonomic strength: this joint regime is a <strong>sister taxon</strong> to the entire classical catalogue of alternatives — "indecomposable without being simple," elemental yet internally structured — not a variant or a limiting case of anything catalogued. Interior silence is <em>compositional determinacy</em>, not indeterminacy: the absence of negations is part of the composition's content. The coordinates against the neighbors are stated, not gestured: quantum logic obtains its non-classical disjunction by revising the connectives (surrendering distributivity); here no connective is touched and classical logic holds throughout — what varies is noncontradiction's <em>domain</em>. The determinable-based indeterminacy literature is credited as the nearest family — it characterizes the single open state well — and charged with lacking exactly the missing chapter this paper supplies: the composition story, the algebra of open alternatives standing together, the boundary between the two forms. Physics enters only as an addendum: the agreeing superposition is this regime's instance in nature, and interference its fingerprint — the "or" of the unwatched double slit realizing, physically, as an "and."</p>
+<p>For the logician, the cumulative effect indexes as <strong>eight load-bearing departures from sentential logic</strong>, each enabling the next: (1) the unit of fact — stated-attributes with dependency structure, not propositions; (2) the layered container — states within Aethae, not sentences in a valuation; (3) the formal/empirical separation — the apparatus defined prior to, and only then confronted with, observation; (4) blankness as a constructive primitive rather than any negation; (5) disjunction split into the two composition regimes; (6) conjunction made directional by the assertion structure; (7) contradiction transposed from a syntactic clash to a structural, propagating invalidity; (8) static truth-tables replaced by the third postulate's dynamic validity check. The difference from Boolean practice is operational, not stylistic — and the classical behavior is recovered exactly where the classical assumptions hold.</p>
+<h3>Truth, logic's two faces, and identity</h3>
+<p>Three shorter theses complete the philosophical frame. <strong>Truth as an intersection-test outcome</strong>: a claim's truth, relative to an Aethus, is read off the validity of intersecting its content with the state — degrees of abstraction handled by what the intersection is taken against, which is how the framework keeps realism about logic while indexing everything else (the worked showpiece: "Batman exists" receives a graded, population-indexed verdict rather than a shrug). <strong>The dual logic principle</strong>: abstract logic (unindexed implication among contents) and causal logic (what pruning enforces in the world's structure) are distinguished and then systematically related — the framework's answer to why logic seems both about thought and about the world. And <strong>identity without rigid designation</strong>: the possible-worlds-to-Aethae switch denies the cross-world "categorical substance" rigid designators would point to; Kripke's linguistics survives untouched while his metaphysical presupposition is declined, and <strong>task-objects</strong> — objects individuated by a contribution relative to a designated root Aethus — become fundamental, with rigid-designator talk licensed as shorthand. Perturb Aristotle and his identity measurably shifts; whether he is "still Aristotle" is a question about which task-Aristotle your discourse designated.</p>
+<h3>Decision theory: the fifty-year deadlock's shared premise</h3>
+<p>The Newcomb extraction is the cleanest self-contained payoff. Causal and evidential decision theory have contested the predictor problem for half a century while jointly granting one premise: <em>the prediction, being past, is determinate at the moment you choose.</em> The framework prices the premise instead of presupposing it: an unread outcome is a blank entry, and blanks lack tense — so the prediction's content, relative to the chooser, is open, coupled to the choice by the validity layer rather than by any backward signal. <strong>One-boxing follows without news value and without retrocausation</strong>, in the zero-error limit outright and above a stated accuracy threshold in general. The same instrument — a <strong>binding criterion</strong> sorting which act-outcome couplings are act-robust — then runs the standard battery: one-box on Newcomb, smoke on the smoking lesion (the lesion coupling is not act-robust), two-box on the transparent variant, which is exactly where this framework and functional decision theory part company, with the divergence stated rather than smoothed. A second, independent route reaches the same verdict through the anthropic wing (the predictor's track record as reference-class information under the Accordance Principle), and the convergence of a modal route and a typicality route on one verdict is offered as evidence the move is structural. The diagnosis generalizes: the standard apparatus is the Aethic one with the past artificially completed, "and its familiar paradoxes are manufactured at exactly the point of completion."</p>
+<h3>Where this sits, and what a decliner keeps</h3>
+<p>Comparisons, stated with their deltas: <strong>RQM</strong> shares the relational indexing but keeps event-relative facts without the permanence, the pruning engine, or the modal semantics; <strong>QBism</strong> shares the agent-centering but reads states doxastically where Aethic states are ontic and non-doxastic (the framework's 2023 QBism dress was an on-ramp, retired); <strong>Everett</strong> shares the realism about superposition but branches at spacetime where this framework "branches" — misleadingly said — at the observer's Aethus, with nothing ever splitting; <strong>Tappenden's Unitary Mind</strong> and the <strong>Carroll–Sebens</strong> separability principle are credited as the literature's closest approach, blocked from the full inversion by many-worlds' objective branch points; <strong>Müller's algorithmic idealism</strong> is engaged with a two-way trade (the weighted layer answers the branch-weight problem; the attribute-grain tracking is offered back). And the honesty clause the corpus itself insists on: every collapse-of-a-debate claimed above is <em>conditional on the inversion</em>. A reader who declines observer-indexed determinacy keeps Lewis, keeps the CDT/EDT standoff, keeps the triad — and keeps, unconditionally, only the structural observations (shared quantification over completed histories; shared premises never contested) that are checkable against the texts with no Aethic commitment in hand.</p></section>
+<section class="panel" id="p4" role="tabpanel"><div class="stampline"><b>LEVEL 4</b><span>Assumes quantum-mechanics literacy. Leaves you with the measurement analysis, the Nexus, the boundary theorem, and the falsifiable joints.</span></div><h2>For the physicist: measurement without a transition</h2>
+<h3>The classification, before any dynamics</h3>
+<p>Start where the third extraction paper starts: with no Hilbert space, no dynamics, no scale parameter — only the three consistency postulates on observer-indexed information states — and derive what "quantum versus classical" even sorts. The result is a classification theorem: every candidate superposition falls into one of three bins. Valid <strong>agreeing</strong> compositions (the alternatives jointly uncontradictable by any in-principle-accessible information — the quantum case). Valid <strong>disagreeing</strong> compositions (exclusions forced interior by accessible distinguishing chains — the generic macroscopic case). Invalid compositions (pruned outright). The boundary between the first two is a <em>discrete informational fact that moves with the detectors</em> — never with mass, size, temperature, or consciousness — and the paper inventories on its face what is posited versus derived, with exactly <strong>one flagged axiom</strong> purchasing the standard interference statistics (the Feynman weighting; more below). Everything in this level is that classification cashed against the standard puzzles. And the classification generalizes past physics on its face: wherever information is hidden <em>in principle</em>, the framework asserts agreeing structure — alternatives interacting — in any domain whatsoever; one contrary observation anywhere kills it.</p>
+<h3>The community's goalposts</h3>
+<p>In 2022 Hance and Hossenfelder published five requirements any genuine solution to the measurement problem must meet — the physics community's goalposts, not this framework's. Where each is addressed here, with grading carried from the papers: <strong>R1</strong> (agree with all existing data) — the deflation argument and the status verdict below: equivalent where tested, with the divergences named rather than hidden. <strong>R2</strong> (reproduce quantum mechanics, collapse postulate and Born rule included, in a well-defined limit) — the Quantum Nexus supplies the interference statistics with its one axiom flagged; the Born rule arrives through the weight–probability homomorphism; collapse is reproduced as pruning read through a transition, exactly and only where the standard theory deploys it. <strong>R3</strong> (say unambiguously what a measurement device is) — the classification theorem's cleanest dividend: a measurement device is <em>any in-principle-accessible record-former</em> — detector, environment, colleague — with no further properties required; unambiguous precisely because it is informational and detector-relative rather than dynamical. <strong>R4</strong> (reproduce classical physics in a well-defined limit) — the disagreeing regime is that limit's structure, the fundamental theorem gives its mechanism (macroscopic attributes stated by excess of deductive avenues), and the remaining macroscopic-regime work is booked on the open ledger rather than claimed. <strong>R5</strong> (reconcile nonlocal collapse with local conservation) — dissolved rather than balanced: no dynamical collapse process exists to conflict with anything; observation is re-indexing, the nonlocal correlations ride the tenseless validity layer, and the information layer — where conservation and signaling live — is never touched.</p>
+<h3>Measurement as two steps; determinate nodes as boundary conditions</h3>
+<p>The <strong>Aethic Sifting Principle</strong> replaces the measurement event with two separated operations: <strong>measurement</strong> is the agreeing-to-disagreeing structural transition (forced wherever accessibility appears — a detector, decoherence into an accessible environment, a friend inside a box), and <strong>observation</strong> is the subsequent pocket selection (your transition into one block universe of the disagreeing set). Nothing dynamical happens at observation; the continuity desideratum a century of interpretation co-signed — a persisting medium carrying the state through collapse — is demoted as a category error rather than satisfied. The structural residue of measurements is the framework's key physical object: a <strong>determinate node</strong> — a locus whose attribute the pruning has fixed (or mutually-exclusively partitioned) relative to any observer whose Aethus constrains the corresponding measurement. Determinate nodes function as <em>Aethic boundary conditions</em>: the intermediate quantum structure is not independently posited but is whatever survives the reduced integral <strong>threading between the nodes</strong> — which displaces the background time parameter as the fundamental sequencing layer, and does so foliation-independently, since nodes are defined against spacetime proper.</p>
+<h3>The Quantum Nexus</h3>
+<p>The framework's path-integral face renders the one flagged axiom explicit. Probability having been identified with Aethic weight, the weight on the Aethus in which a given <em>subset of paths</em> is taken in agreeing superposition is written as an Aethus-valued integral over the powerset of all paths:</p>
+<p>\[ N \;\propto\; \int_{\mathcal{P}(X)} \iint A(T)\, \chi_T(q_1)\, \chi_T(q_2)\, \cos\!\Big( \tfrac{1}{\hbar}\big( S[q_1(t)] - S[q_2(t)] \big) \Big)\, \mathcal{D}[q_2(t)]\, \mathcal{D}[q_1(t)]\, d\mu(T) \]</p>
+<p>Read it as the framework does. \(X\) is the exhaustive set of continuous, simply connected paths — feasibility deliberately not presupposed, since "discounting impossibilities is the work of the subsequent reduced form." \(T\) ranges over the powerset; \(A(T)\) is the Aethus asserting that exactly the paths in \(T\) are taken in agreeing superposition — the term that makes the whole integral an Aethus-valued object, so that <strong>Aethic pruning can act directly on the summed terms</strong>. The cosine of the action difference is the Feynman weighting, and its status is stated with unusual bluntness: it is <em>axiomatic at this stage</em> — the framework's one purchased empirical input, booked as an Open Construction (the "kernel") rather than smuggled as derived. An arbitrary quantum system's Aethus is then the reduced form of the intersection of this <strong>Quantum Nexus</strong> with an Aethus holding the initial conditions and whatever else is stated. Observables fall out as <em>conventions</em> — selections of determinately valued attributes relative to an Aethus — rather than derivational primitives.</p>
+<h3>The powerset invalidation, worked</h3>
+<p>The classification theorem's engine is a counting argument any reader can re-run. Take four slits with detectors that cannot distinguish slits within class \(E_1 = \{1,2\}\) or within \(E_2 = \{3,4\}\), but can distinguish across the classes. Then of the \(2^4 - 1 = 15\) non-empty path-subsets: exactly \(k = 2\) are valid (the full classes — agreeing superposition within a class); \( \sum_j (2^{|E_j|} - 2) = 4 \) are pruned by the second postulate (proper subsets of a class assert a specificity no Aethus could ever support — the which-slit attribute within a class being <em>permanently blank</em>); and the remaining \(9\) are pruned by the third postulate (subsets spanning classes admit a child Aethus — a detector firing — that contradicts them: "Aethic checkmate"). The preferred basis thereby arrives <em>informationally</em>: the detector configuration, not a dynamical superselection, fixes which decomposition survives. Slide the detectors and the boundary slides with them — which is the theorem's standing falsifiable edge: <strong>exhibit interference across in-principle-distinguishable alternatives and the framework is dead.</strong></p>
+<figure class="dg"><figcaption style="padding-bottom:10px">The theorem, playable: place and remove detectors and watch every subset re-sort between the three bins live.</figcaption>{% include powerset-widget.html %}</figure>
+<h3>The standard puzzles, run through</h3>
+<p><strong>Delayed choice</strong>: the which-path attribute is coupled absolutely by a reduced-form constraint whose two halves may be gathered in either proper-time order — "the coupling is absolute over the Aethic structure, but the particular random outcome may be gathered in either temporal ordering" — so the retrocausal narration was a tense imposed on a tenseless constraint. <strong>Wigner's friend and Frauchiger–Renner</strong>: the paradox is manufactured by five unexamined classical assumptions (the friend's proper-time past carrying the unmeasured period; an agreeing-to-disagreeing transition <em>at</em> measurement; the particle as monolithic rather than an attribute constellation; proper-time ordering as determinacy's arbiter; a privileged shared description) — remove them and the contradiction's chain loses its starting point, with cross-observer agreement guaranteed not by a collapse anyone performs but by the <strong>reduced-form coupling</strong> invalidating every pocket in which the reports could meet in conflict. The Heisenberg cut is thereby not relocated but disallowed: placing one between observers violates the third postulate exactly as a detector-with-interference would. <strong>Elitzur–Vaidman</strong>: consequences can be real without constituting collapse-grade information gain — knowing <em>that</em> an effect occurred need not reveal <em>which</em> alternative produced it — so interaction-free measurement exhibits, rather than embarrasses, the agreeing structure the third postulate leaves standing. <strong>Guard rails, stated</strong>: no observer is ever themselves in an agreeing superposition; observers hold agreeing superpositions <em>of systems</em>, stand toward one another in disagreeing superposition, and collapse-grade selection runs over disagreeing superpositions only.</p>
+<h3>Spin, the Bloch sphere, and an honest retirement</h3>
+<p>Sequential spin measurements were the framework's hardest case, and the record keeps its repair history public. An early treatment (the "stackal transform" — convert any sequential update-process into a fills-blanks-only form, with falsifiability staked on the conversion) was <strong>dropped entirely in February 2026</strong>. What replaced it is better and different in kind: through the Berry-phase path-integral treatment, spin measurements are <strong>re-arenaed</strong> — node-anchored paths on the Bloch sphere, met by the Quantum Nexus exactly as spacetime paths are, with a <strong>transfer criterion</strong> enforcing the symmetry: any tool or ontology respecting the Nexus proper must carry between arenas, and whatever refuses to transfer is thereby exposed as no part of the shared machinery. Exactly one thing refuses: the kernel's weighting itself — which is how the axiom/application boundary gets <em>located</em> rather than assumed. The apparent extra Hilbert-space dimensions of the sequential picture are diagnosed as "an artifact of refusing the arena," and the sequence-versus-geometry lesson generalizes: uncertainty lives in the <em>forecast</em> of subsequent measurements, never as fuzz in the record — the measurements themselves are determinate.</p>
+<h3>The deflation claim: where data already voted</h3>
+<p>The framework's permanence commitment is not a taste, and the argument deserves its full shape because it is the framework's proudest empirical anchor. Suppose the rival reading of observer-indexed determinacy: <strong>overwrite semantics</strong>, on which learning replaces the prior state of affairs rather than re-indexing among permanent ones. The papers show this relabels, structurally, onto a classical hidden-value model — each attribute secretly determinate, "superposition" mere bookkeeping over ignorance. But that model class is exactly what the CHSH experiments refute. Therefore the soft, deflationary version of "reality is relative to information" is <em>empirically dead</em>, and the extrusion architecture — permanent co-present structure, re-indexing without overwriting — is not one stylistic option among several but the version the data force on anyone who wants the indexing at all. Bell, in this framework, is not a puzzle to be survived; it is the argument's load-bearing premise.</p>
+<h3>The weight layer: probability as a homomorphism, weights as gauge</h3>
+<p>The apparatus paper gives the states their algebra, and the commitments are sharp enough to be attacked. Unweighted states form a <strong>commutative semiring</strong> — addition the informational union, multiplication joint assertion — and the weighted layer over it is quotiented so sums reduce through last-common-ancestor factorization (shared information counted once). <strong>Additive inverses are forbidden rather than declined</strong>: a ring would collapse the uniqueness of invalid states, and the semiring-not-ring commitment is staked as structural, sitting directly against the negativity–contextuality joint (a framework whose weights must go negative to fit the phenomena is, on these books, falsified at this joint, not patched). The <strong>Nexus Principle</strong> requires every blank attribute of a <em>physically</em> existent Aethus to carry a weighting scheme — the scheme being what a Nexus is — with merely mathematical Aethae exempt, deliberately. The <strong>weight–probability equivalence</strong> then states that the canonical probability functional is a congruence-respecting semiring homomorphism, conditionalization implemented as restriction-plus-normalization, with the <strong>Probabilistic Identity</strong> \( \mathrm{P}(A\mid B) = \mathrm{P}(B\mid A) = 1 \iff A \equiv B \) doing real derivational work (it powers the third postulate's own derivation). And the <strong>Relational Weight Principle</strong> fixes the gauge philosophy: no Aethus carries an absolute scale; weights are checkable only as ratios; a global rescaling is an exact invariance; the unit Aethus is a gauge choice, not an ontological category. Together with the Nexus-side identification of below-record-resolution weighting as gauge, the two say in one voice: <em>the physical content of the weight structure is exhausted by relational, record-resolved ratios.</em> Aethic Bayesianism (Monty Hall as the worked classical case) and the two-tag CHSH deduction (amplitude arithmetic inside the agreeing pair, weight arithmetic across ports) are the same machinery at its two extremes.</p>
+<h3>Status, graded</h3>
+<p>The consolidated verdict against standard quantum mechanics, in the corpus's own words: <strong>equivalent where tested, divergent at named frontiers, and inexpressible-in-Copenhagen outright</strong> — the last because the collapse axiom fails well-definedness on this analysis, so isomorphism claims are well-posed only against realist formulations. The named frontiers, honestly: the <strong>Tsirelson bound</strong> has moved from deferred to well-posed, with the layer doctrine standing as a <em>candidate</em> principle, not a derivation; the <strong>kernel</strong> (why the cosine-of-action weighting) is the flagship Open Construction; the <strong>measure</strong> \( d\mu(T) \), the <strong>Bloch-sphere underpinnings</strong>, the <strong>realization principle</strong>, and the <strong>macroscopic regime</strong> complete the open ledger. A calibration governs every macroscopic hypothetical the framework entertains: any claimed cross-scenario effect must already exist, in some form, at the quantum scale — where coherent effects are easier, not harder — and at that scale the kernel supplies interference and only interference. The second law arrives as a theorem of the ontology (Boltzmann's statistical reading derived from centric unfolding over microstate-weighted disagreeing structure), the entropic principle as its signature prediction, and a proposal (surrogate Aethus strings) stands for replacing the past-hypothesis axiom — proposal-grade, and labeled so.</p></section>
+<section class="panel" id="p5" role="tabpanel"><div class="stampline"><b>LEVEL 5</b><span>Assumes both prior levels. Leaves you with the derivational spine, the exact postulate forms, the anthropic wing, the open-construction ledger, and how to attack it.</span></div><h2>For the researcher: the spine, the exact forms, the frontier</h2>
+<h3>The derivational spine</h3>
+<p><figure class="dg"><svg viewBox="0 0 1040 120" role="img" aria-label="The settled derivational spine"><defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0L8,4L0,8z" fill="#1C2333" opacity=".55"/></marker></defs><rect x="76" y="42" width="130" height="34" rx="8" fill="#FDFDFB" stroke="#2E4374" stroke-width="1.7"/><text x="141" y="63.5" text-anchor="middle" style="font:500 12px 'IBM Plex Mono',monospace;fill:#1C2333">extrusion ⟷ P2</text><path d="M205,59 L232,59" stroke="#1C2333" stroke-opacity=".5" stroke-width="1.4" marker-end="url(#ar)"/><rect x="239" y="42" width="137" height="34" rx="8" fill="#FDFDFB" stroke="#3E7C6B" stroke-width="1.7"/><text x="308" y="63.5" text-anchor="middle" style="font:500 12px 'IBM Plex Mono',monospace;fill:#1C2333">Union Principle</text><path d="M376,59 L403,59" stroke="#1C2333" stroke-opacity=".5" stroke-width="1.4" marker-end="url(#ar)"/><rect x="410" y="42" width="137" height="34" rx="8" fill="#FDFDFB" stroke="#3E7C6B" stroke-width="1.7"/><text x="479" y="63.5" text-anchor="middle" style="font:500 12px 'IBM Plex Mono',monospace;fill:#1C2333">third postulate</text><path d="M547,59 L574,59" stroke="#1C2333" stroke-opacity=".5" stroke-width="1.4" marker-end="url(#ar)"/><rect x="581" y="42" width="78" height="34" rx="8" fill="#FDFDFB" stroke="#3E7C6B" stroke-width="1.7"/><text x="620" y="63.5" text-anchor="middle" style="font:500 12px 'IBM Plex Mono',monospace;fill:#1C2333">pruning</text><path d="M659,59 L686,59" stroke="#1C2333" stroke-opacity=".5" stroke-width="1.4" marker-end="url(#ar)"/><rect x="693" y="42" width="115" height="34" rx="8" fill="#FDFDFB" stroke="#3E7C6B" stroke-width="1.7"/><text x="751" y="63.5" text-anchor="middle" style="font:500 12px 'IBM Plex Mono',monospace;fill:#1C2333">reduced form</text><path d="M808,59 L835,59" stroke="#1C2333" stroke-opacity=".5" stroke-width="1.4" marker-end="url(#ar)"/><rect x="842" y="42" width="122" height="34" rx="8" fill="#FDFDFB" stroke="#2E4374" stroke-width="1.7"/><text x="903" y="63.5" text-anchor="middle" style="font:500 12px 'IBM Plex Mono',monospace;fill:#1C2333">Quantum Nexus</text></svg><figcaption>The settled spine; topology beyond it flagged loose in the corpus, the full diagram deliberately deferred. The root is a coupled pair, not a single axiom.</figcaption></figure></p>
+<p>The settled dependency structure, in one pass. The <strong>extrusion principle</strong> and the <strong>second postulate</strong> are coupled at the root — permanence and blank-as-superposition each ill-motivated without the other (permanence without ontic blanks deflates to hidden variables; ontic blanks without permanence collapse to overwrite semantics, and Level 4's CHSH argument kills that). The second postulate feeds the <strong>Union Principle</strong>: agreeing superpositions require the blanks-retrieve-as-substance reading before interior silence can be <em>compositional</em> rather than epistemic. The Union Principle enables the <strong>third postulate</strong>'s statement (the two composition regimes are what the pruning discriminates), the third postulate defines <strong>pruning</strong>, pruning's fixed-point reading is the <strong>reduced form</strong>, and the reduced form powers the <strong>Quantum Nexus</strong>. Two annotations the corpus insists on: the topology is flagged as loose beyond this spine (the full diagram deliberately deferred until settled), and the spine's central faculty runs <em>twice</em> — one question, "what must a universe look like which is both logically realist and able to host co-presence," answered by extrusion for modality-and-causation and by the Union Principle for logic, the two superposition kinds falling out as exactly the two answers' regimes.</p>
+<h3>The third postulate, exactly</h3>
+<p>The mature form is a two-generation existential–universal alternation: <em>for a valid Aethus \(A\), there exists a child \(B\) of \(A\) such that every child \(C\) of \(B\) is valid</em> — with childhood the one-entry refinement relation (its reflexive–transitive closure a <em>different</em> postulate; jeopardy at distance two separates them), invalidity-inheritance lemmas beneath it, and the empty-property device letting an Aethus stand as its own child so the quantifier never trivializes. The form is reached by elimination, and both failed candidates are dated artifacts: the <strong>one-generation</strong> version is too weak (contradiction one step out survives), the <strong>ancestral/parent-directed</strong> version — publicly on the page in the January 2023 print — is too strong and mislocates the action (invalid Aethae acting on the parent-direction superposition; the author's own retrospective files this as the charming-stage error). The two-generation form is the unique fixed-point-generating middle: an alternative dies only when <em>every</em> continuation of some continuation contradicts the standing structure — and this is not a rule about the tree so much as the definition of an effective fixed point for validity, which is why the corpus insists the <strong>reduced form</strong> (the pruned, stabilized object) was the discovery and the postulate its statement: "without the reduced form idea there would be no third postulate." <strong>Reduced-form coupling</strong> is the workhorse corollary: perturb attribute \(a\), read attribute \(b\)'s status off the residue — the single mechanism under delayed choice, Wigner-chain consistency, Monty Hall, and the EPR correlations, with only the weighting scheme varying across them.</p>
+<h3>The ladder ontology, and the imagined Aethus</h3>
+<p>Pockets of a disagreeing superposition are Aethus-valued, occupiable, co-spatial block-universe candidates — the <strong>ladder ontology</strong> — and this is the precise content of "more information in one physical space than classical physics admitted": spacetime's contents were never rigid enough to forbid arbitrarily different perspectival block universes over one matter-and-energy distribution. Rung-changing is re-indexing; nothing traverses. The <strong>imagined Aethus</strong> (2023's "pretend Aethus," renamed) is the licensed instrument for hypotheticals: a deliberately constructed state evaluated by the same machinery, which is how imagination, prediction, and fiction get non-magical treatments — and how the framework keeps a hard line between evaluating a structure and occupying one.</p>
+<h3>Active reasoning: the opening move</h3>
+<p>The research program past the Nexus begins with a dated journal move (April 9, 2024, generalized February 2026): since the Nexus recasts all dynamical content as (Lagrangian, node placement), the full empirical content is reproducible under a transformation \( (\mathrm{Lagrangian}, \mathrm{Spacetime}) \mapsto (\widetilde{\mathrm{L}}\mathrm{agrangian}_i, \mathrm{Active\ Space}_i) \), spacetime points corresponding to well-defined subspaces that determinate nodes must respect without partitioning. The choice of arena thereby becomes a <strong>gauge freedom</strong>, and the hinge is exact: <em>determinate nodes are what make discriminations between spacetime points non-arbitrary</em> — we never observe spacetime, only matter's dynamical transfer, and what mediates that transfer is displacement between nodes, so whatever carries the nodes carries the spaciousness. The program's honesty clauses travel with it: the recovery of the classical continuum is stated as an explicit constraint (active space under full pruning must return spacetime up to empirical inference — node density under pruning the control parameter), stating the requirement is not meeting it, and the Huggett–Wüthrich local-beables demand arrives pre-answered architecturally (nodes are records; records are where observation lives; the edifice was observer-indexed from Postulate 1). The rare currency claimed: a primitive motivated by independent work (the Nexus's pruning architecture) that turns out to carry spacetime as a byproduct, rather than one staged to yield it.</p>
+<h3>The Nexic wing, coupled</h3>
+<p>The anthropic wing is the same relocation run at typicality, and after 2022 the wings are not separable — which has one spectacular consequence. Foundation first: the <strong>Accordance Principle</strong> is <em>derived</em>, not postulated — one application of Bayes from two mediocrity commitments (self-mediocrity among observers; cosmic mediocrity of environments), with the reference-class problem diagnosed as an artifact of reasoning over completed histories (the classical class was never the right unit; typicality descends from the unfolding's tendency toward likelier children). Three 2021-era laws thereby dissolve for three different structural reasons — one becomes definitional, one the three-line Theorem of Aimless Optimation, one the two-line Accordance derivation. The method then runs forward onto the record: improbabilities arrive in <strong>coupled sets</strong> ("zero or two, never one" — labeling one filter incurs a debt discharged only by labeling another, the full set the closure of root attributions under that step), Earth's record reading as a sharply isolated optimum where "Earth is not the improbable thing; the shape of the space of alternatives is." The falsifiable posture is concrete and unusual: named paleontological falsifiers (a Hațeg-class deposit yielding the wrong fauna), a computed surrogate test (the sea-level analysis, realized-to-intrinsic rate near 1/75), three charted dead zones on the instrument's own face — and, because the 2022 inversion made the Indiscriminate Time Principle the deductive root with Accordance's licensing its consequence, <strong>paleontological validation of the Accordance Principle is indirect empirical validation of an ontology of time</strong>. A dig site bears on temporal metaphysics; no other position known to this corpus converts fossils into that kind of evidence. Two honesty clauses ride the coupling: the consolidation is the Aethic ontology's doing, so the wing's economy is <em>not independent evidence</em> for that ontology; and assumption was relocated, not eliminated — the Copernican draw is one exposed die-roll where there were formerly three, a gain in auditability, not certainty.</p>
+<h3>The open-construction ledger, and how to attack this</h3>
+<p>Standing open, on the framework's own books: the <strong>kernel</strong> (derive, or further constrain, the cosine-of-action weighting — the one purchased axiom); the <strong>measure</strong> \( d\mu(T) \) on the powerset; the <strong>Bloch-sphere underpinnings</strong> (the arena's uncertainty source, post-stackal); the <strong>realization principle</strong> (what selects occupancy among pockets — deliberately unforced); and the <strong>macroscopic regime</strong> (the Class-C calibration governing every hypothetical there). Standing <em>falsifiable</em>, by the framework's own designations: interference across in-principle-distinguishable alternatives (kills the classification theorem); a negativity-forced weight assignment (kills the semiring stake at the contextuality joint); the named paleontological fronts (hit the coupled wing, and through the inversion, the time ontology); and the <strong>lookout principle</strong> — the mature descendant of the retired stackal gamble — keeping a standing watch for any sequential process that resists the framework's treatment. The recommended attack surfaces, in the corpus's own spirit: the two-generation form's uniqueness argument; the Cautious Monotony classification (find the ordering semantics that generates the verdict function and the deletion claim dies); the Reichenbach regime boundary; the deflation argument's relabeling step; and every recomputable certificate in the genealogy, which the record built precisely so that the biography could be audited instead of believed. What you should <em>not</em> expect to find: a similarity metric, a collapse dynamics, a preferred foliation, an observer made of anything special, or a promise that the five open constructions are small. The framework's wager is stated once and kept: scientific progress is only ever as good as its ontological content — and everything above is offered as content, priced.</p></section>
+<section class="panel" id="p6" role="tabpanel"><div class="stampline"><b>LEVEL 6</b><span>The sources themselves — every claim above, argued on its home field&#x27;s terms.</span></div><h2>Level six is the literature</h2>
+<p>Everything on this page compresses documents that argue their claims properly — derivations displayed, assumptions inventoried, provenance notes attached. The extractions are built to stand alone; enter through the field you know best, or read the derivation row in order.</p>
+<p><strong>The derivation — three moves, in order</strong></p>
+<ul>
+<li><strong>№ 1 · Modality — Counterfactual Evaluation by Perturbation of Information States.</strong> The semantics of Level 3, with the ordering-deletion argued and the standard problem cases re-run. <a href="https://philpapers.org/archive/BENCEB-2.pdf">PDF</a> · <a href="https://philpapers.org/rec/BENCEB-2">record</a></li>
+<li><strong>№ 2 · Logic — Exclusivity as Achievement.</strong> The Union Principle at full strength: the relocation of mutual exclusion, the one-statement test, the sister taxon. <a href="https://philpapers.org/archive/BENEAA-9.pdf">PDF</a> · <a href="https://philpapers.org/rec/BENEAA-9">record</a></li>
+<li><strong>№ 3 · Measurement — The Quantum–Classical Boundary as an Informational Classification.</strong> The three-postulate derivation and the classification theorem of Level 4, assumptions inventoried on the paper's face. <a href="https://philpapers.org/archive/BENTQB.pdf">PDF</a> · <a href="https://philpapers.org/rec/BENTQB">record</a></li>
+</ul>
+<p><strong>The applications — the same relocation, at standing problems</strong></p>
+<ul>
+<li><strong>Decision theory — Newcomb's Problem Without a Fixed Past.</strong> <a href="https://philpapers.org/archive/BENNPW.pdf">PDF</a> · <a href="https://philpapers.org/rec/BENNPW">record</a></li>
+<li><strong>Causation — Causality Without the Classical Triad.</strong> Reichenbach as a theorem; Bell as the regime boundary. <a href="https://philpapers.org/archive/BENCWT-4.pdf">PDF</a> · <a href="https://philpapers.org/rec/BENCWT-4">record</a></li>
+<li><strong>Anthropics, foundation — The Copernican Method Against the Copernican Principle.</strong> <a href="https://philpapers.org/archive/BENTCM-7.pdf">PDF</a> · <a href="https://philpapers.org/rec/BENTCM-7">record</a></li>
+<li><strong>Anthropics, natural history — The Optimal Earth.</strong> Coupled improbability run on the actual record. <a href="https://philpapers.org/archive/BENTOE-4.pdf">PDF</a> · <a href="https://philpapers.org/rec/BENTOE-4">record</a></li>
+</ul>
+<p><strong>The apparatus</strong></p>
+<ul>
+<li><strong>Algebra — The Weight Algebra of Information States.</strong> The two-layer semiring, the homomorphism, the fixed point. <a href="https://philpapers.org/archive/BENTWA-5.pdf">PDF</a> · <a href="https://philpapers.org/rec/BENTWA-5">record</a></li>
+</ul>
+<p><strong>The longer works behind the extractions</strong>: <a href="https://philpapers.org/rec/BENARI-3">Aethic Reasoning in Brief</a>, the comprehensive development (<a href="https://philpapers.org/rec/BENARA-5">PhilArchive record</a>), and <a href="https://philpapers.org/rec/BENNRD">Nexic Reasoning</a> for the anthropic wing. The full set, with abstracts and one-line orientations, lives at <a href="https://aethus.org/short-papers/">aethus.org/short-papers</a> — and for how all of this came to exist, dated and checkable, see <a href="https://aethus.org/aethic_genealogy.html">the genealogy</a>.</p></section>
+</main>
+<div class="notebar">Drafted within the framework's AI-assisted collaboration (Claude Fable 5, August 2026) as a leveled compression of the author's papers; every claim traces to the sources at Level 6, which carry the derivations, the assumption inventories, and the provenance notes. Not yet peer-reviewed — evaluate the papers on their own terms. Companion page: <a href="https://aethus.org/aethic_genealogy.html">the genealogy of the framework</a>.</div>
+</div>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  var g=document.getElementById('gfill');
+  function pick(i,push){
+    tabs.forEach(function(t,j){t.setAttribute('aria-selected',String(i===j))});
+    panels.forEach(function(p,j){p.classList.toggle('on',i===j)});
+    g.style.width=((i+1)/tabs.length*100)+'%';
+    if(push!==false){ try{history.replaceState(null,'','#l'+(i+1));}catch(e){} }
+    window.scrollTo({top:0,behavior:'auto'});
+    if(window.MathJax&&MathJax.typesetPromise){MathJax.typesetPromise([panels[i]]);}
+  }
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){pick(i)})});
+  var m=(location.hash||'').match(/^#l([1-6])$/);
+  pick(m?(+m[1]-1):0,false);
+})();
+</script>
