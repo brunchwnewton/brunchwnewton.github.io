@@ -7,7 +7,7 @@ description: "Aethic reasoning in one scroll: the idea in plain sight, the frame
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,420;9..144,560;9..144,640&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],macros:{Cl:'\\mathrm{Cl}',lca:'\\operatorname{lca}',Base:'\\mathrm{Base}',Rf:'\\mathcal{R}',ind:'\\perp\\!\\!\\!\\perp',cf:'\\mathrel{\\square\\!\\!\\rightarrow}',mf:'\\mathrel{\\lozenge\\!\\!\\rightarrow}',res:'\\upharpoonright',snk:'{\\mathrel{|\\!\\sim}}',nsnk:'{\\mathrel{\\,\\cancel{|\\!\\sim}\\,}}'}},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js"></script>
 
 <style>
 :root{
@@ -103,7 +103,7 @@ li::marker{color:var(--indigo)} ol li::marker{font:500 .78em var(--mono);color:v
 figure.dg{margin:1.6em 0;background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:14px 14px 6px}
 figure.dg svg{width:100%;height:auto;display:block}
 figure.dg figcaption{font:400 13.5px/1.55 var(--mono);color:var(--ink2);padding:8px 6px 8px}
-mjx-container[display="true"]{overflow-x:auto;padding:6px 0}
+mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;padding:6px 0;max-width:100%}
 footer{border-top:1px solid var(--line);padding:26px 0 60px;font-size:15px;color:var(--graphite)}
 @media (max-width:620px){ body{font-size:17.5px} .tab{min-width:86px;padding:8px 10px} .tab .nm{font-size:13.5px} }
 
@@ -605,7 +605,7 @@ section.node-sec h2.t{font:600 26px/1.18 var(--disp);letter-spacing:-.01em;margi
   <p>Why <em>that</em> matters will only become visible much later, at the negativity–contextuality joint: the framework's weights can never be signed, and this is carried as a standing, falsifiable structural commitment rather than a preference — one of the few places the ontology exposes itself to a clean no-go confrontation and says so.</p>
   <p>The order that matters throughout is refinement — a proper child is its parent plus more specificity — and its branching structure is the <strong>Aethic tree</strong>. When two weighted Aethae are summed, their shared information is exhibited once at the <strong>last common ancestor</strong>, extracted as a common factor: basic factoring, an identity of the multiplication rather than an accounting rule imposed on the sum.</p>
   <div class="eq"><span class="tag">(LCA)</span>
-  $$\alpha X + \beta Y \;\equiv\; C \cdot \big(\alpha X' + \beta Y'\big), \qquad C = \lca(X, Y),$$
+  $$\alpha X + \beta Y \;\equiv\; C \cdot \big(\alpha X^{\prime} + \beta Y^{\prime}\big), \qquad C = \lca(X, Y),$$
   <span class="cap">Inheritance exhibited: the shared information sits at the last common ancestor, written once, each summand carrying only what refines beyond it. Dependency is what the quotient quotients by.</span>
   </div>
   <p>The slogan the construction earns: <em>dependency is what the quotient quotients by</em> — shared information is located at the shared ancestor and counted once, the way a family tree writes the shared childhood at the fork rather than twice in the branches. The quotient proper is deliberately small (same-state weights add; zero-weight terms delete), and its well-definedness runs through the FTAE's closure-identity, which is what makes the last common ancestor <em>unique</em>.</p>
@@ -636,16 +636,13 @@ section.node-sec h2.t{font:600 26px/1.18 var(--disp);letter-spacing:-.01em;margi
   </div>
   <p>Everything to this point ran without amplitudes. The quantitative layer enters through exactly one further axiom, flagged as such: install, as the weight structure over the <strong>powerset of paths</strong>, the Feynman pairing kernel —</p>
   <div class="eq"><span class="tag">(K)</span>
-  $$W(T) \;=\; \iint_{T \times T} \cos\!\Big(\tfrac{S[q_1] - S[q_2]}{\hbar}\Big)\, \mathcal{D}[q_1]\,\mathcal{D}[q_2] \;=\; \Big|\sum_{p \in T} e^{\,i S[p]/\hbar}\Big|^{2},$$
+  $$W(T) \;=\; \iint_{T \times T} \cos\!\Big(\tfrac{S[q_1] - S[q_2]}{\hbar}\Big)\, \mathcal{D}[q_1]\,\mathcal{D}[q_2] \;=\; \left|\, \sum_{p \in T} e^{\,i S[p]/\hbar} \right|^{2},$$
   <span class="cap">The pairing kernel — the coherent square written out, its imaginary part vanishing under path exchange. No negative weight hides among the cosine cross-terms, they being constituents of one squared modulus.</span>
   </div>
   <p>with the weight attached to <em>whole surviving powerset elements</em> — interference carried by cross-terms within one element, never by any fraction of validity. The kernel is installed universally, once, as a single weighted object over the entire powerset (the <strong>Quantum Nexus</strong>), and a system's valid weighted outcomes are obtained by <em>intersection</em> with it — never inserted by hand:</p>
   <div class="eq"><span class="tag">(N)</span>
-  $$\begin{gathered}
-  N \;\propto\; \int_{\mathcal{P}(X)} \iint A(T)\, \chi_T(q_1)\, \chi_T(q_2)\, \cos\!\Big( \tfrac{1}{\hbar}\big( S[q_1] - S[q_2] \big) \Big)\, \mathcal{D}[q_2]\, \mathcal{D}[q_1]\; d\mu(T),\\[5pt]
-  \mathrm{residue} \;=\; \sum_{T\ \mathrm{valid}} W(T)\, T.
-  \end{gathered}$$
-  <span class="cap">The Nexus in full: the factor \(A(T)\) makes the integral an Aethus-valued object — so pruning acts directly on the summed terms — with \(\chi_T\) restricting the pairing to \(T\) and the measure \(d\mu(T)\) booked open. The residue delivers each surviving cluster weighted whole.</span>
+  $$N \;\propto\; \int_{\mathcal{P}(X)} W(T)\, A(T)\; d\mu(T)\,, \qquad\qquad \mathrm{residue} \;=\; \sum_{T\ \mathrm{valid}} W(T)\, T.$$
+  <span class="cap">The Nexus in closed form: the expanded writing&#x27;s inner double integral — indicator functions \(\chi_T(q_1)\chi_T(q_2)\) over all path pairs — is exactly the kernel (K) on the restricted domain \(T \times T\), so the indicators absorb and the Nexus is the kernel-weighted, Aethus-valued integral over the powerset. \(A(T)\) is what keeps the object Aethus-valued — pruning acts directly on the summed terms — and the measure \(d\mu(T)\) stays booked open; the expanded \(\chi_T\) writing, with its guided term-by-term reading, is in <a href="#wing-phys">the physicist&#x27;s wing</a>. The residue delivers each surviving cluster weighted whole.</span>
   </div>
   <span class="lead-in">Why element-whole validity matters · the exact departure from decoherence</span>
   <p>Decoherence theory deletes matrix <em>entries</em> — continuously suppressing, then discarding, interference structure within one compressed state description. This framework deletes powerset <em>elements</em>, discretely and whole: a cluster survives with its interior cross-terms intact as constituents of its single weight, or dies entire, and no amplitude is ever edited anywhere. The appearance of entry-decay is, on this account, the compression's shadow of element loss. The consequence is structural, not cosmetic: the quantum–classical boundary drawn here is a <em>classification</em> boundary, not a dynamical one — a discrete combinatorial fact about which elements stand, sliding when the record configuration changes, rather than a rate at which coherence leaks. The two mechanisms are easily conflated and must not be; the entire theorem below depends on the difference.</p>
@@ -666,7 +663,7 @@ section.node-sec h2.t{font:600 26px/1.18 var(--disp);letter-spacing:-.01em;margi
   &\text{chord (pre-kernel):} \qquad && V + D \;=\; 1\\[2pt]
   &\text{triangle (classical frontier):} \qquad && V + D \;\le\; 1\,, \quad V,\,D \;\ge\; 0\\[2pt]
   &\text{circle (post-kernel):} \qquad && V^{2} + D^{2} \;\le\; 1\\[2pt]
-  &\text{lens (the kernel's signature):} \qquad && 1 - D \;\le\; V \;\le\; \sqrt{1 - D^{2}}
+  &\text{lens (kernel signature):} \qquad && 1 - D \;\le\; V \;\le\; \sqrt{1 - D^{2}}
   \end{aligned}$$
   <span class="cap">The complementarity budget split along the axiom line. Pre-kernel physics lives in the triangle; the one axiom buys the lens — the precise quantitative daylight between a classical-information world and a quantum one.</span>
   </div>
@@ -685,7 +682,7 @@ section.node-sec h2.t{font:600 26px/1.18 var(--disp);letter-spacing:-.01em;margi
   </div>
   <p>The orthodox semantics evaluates "had \(X\) happened, \(Y\) would have happened" by travel: locate the closest possible worlds where \(X\) holds, ask whether \(Y\) holds there, with <em>closest</em> supplied by a similarity ordering. Fifty years of refinement adjusted the ordering's weights without dislodging the structural complaint the tradition itself registers: the ordering is imposed rather than derived, and nothing in the picture says why similarity, or which similarity, tracks the truth of counterfactuals. For contrast, Lewis's official clause:</p>
   <div class="eq"><span class="tag">(Lewis)</span>
-  $$w \models X \cf Y \quad\Longleftrightarrow\quad \exists\, w' \in [\![\,X \wedge Y\,]\!]\ \ \forall\, w'' \in [\![\,X \wedge \neg Y\,]\!]:\ \ w' \lt_{w} w''.$$
+  $$w \models X \cf Y \quad\Longleftrightarrow\quad \exists\, w^{\prime} \in [\![\,X \wedge Y\,]\!]\ \ \forall\, w^{\prime\prime} \in [\![\,X \wedge \neg Y\,]\!]:\ \ w^{\prime} \lt_{w} w^{\prime\prime}.$$
   <span class="cap">The incumbent, in its formal clause. Set it against the Aethic clauses below and perform the visual audit: the ordering parameter \(\lt_w\) appears nowhere on the right-hand side of anything that follows.</span>
   </div>
   <p>The Aethic alternative never leaves the evaluator's own structure. The evaluation is three steps, none of them travel: <strong>reopen</strong> the antecedent attribute — pass to the maximal deductively closed restriction of \(A\) in which it stands genuinely blank; <strong>restate</strong> it to the antecedent's value; <strong>re-prune</strong> — let the consistency constraints eliminate what can no longer stand:</p>
@@ -861,7 +858,7 @@ section.node-sec h2.t{font:600 26px/1.18 var(--disp);letter-spacing:-.01em;margi
   <span class="lead-in">The typicality face</span>
   <p>A second route reaches the same verdict through the <strong>Accordance Principle</strong> — typicality extended from locations within one history to the space of observer-indexed situations across possible histories, read attribute by attribute over a <em>partial</em> state, never as a global optimization over complete histories:</p>
   <div class="eq"><span class="tag">(AP, applied)</span>
-  $$\frac{P(H \mid A')}{P(H \mid A)} \;\lesssim\; \frac{P(A)}{P(A')},$$
+  $$\frac{P(H \mid A^{\prime})}{P(H \mid A)} \;\lesssim\; \frac{P(A)}{P(A^{\prime})},$$
   <span class="cap">For a natural-historical attribute A with alternative A′ and H the production of an observer: do not expect your situation to be the special one. Applied to Newcomb, the two-boxer is betting on being the lone exception to a near-perfect record.</span>
   </div>
   <p>Two relocations carry the whole distance from standard observation-selection theory — the reference class ranges over observer-situations across histories rather than positions within one fixed history, and the object of reasoning is a partial state rather than a completed timeline — with the diagnosis that the tradition's reference-class disease is an artifact of the completion. Why the convergence matters: the agreement is numerical, not merely directional — the two-boxer's implicit bet has positive expected value exactly when the exception probability exceeds the identical threshold displayed above, now derived from the typicality side. The two routes agree on the number, not just the sign; the value claimed is coherence, and it is claimed as exactly that. The principle itself — its derivation from the two mediocrity commitments, the exceedance form that makes the tolerance exact, and the coupled-set consequence that opens the anthropic wing — is <a href="#sec-13">the next section</a>.</p>
@@ -879,8 +876,8 @@ section.node-sec h2.t{font:600 26px/1.18 var(--disp);letter-spacing:-.01em;margi
   </div>
   <p>Anthropic reasoning trades on typicality: whatever else is uncertain, one should not expect to be a wild exception among observers. The anthropic wing is the single inversion run at exactly that commitment — the unit of typicality corrected from the completed history to the partial state — and the correction is not decoration. It is where the principle comes from, where the tradition&#x27;s characteristic diseases are diagnosed, and where the wing&#x27;s deepest consequence opens. Two mediocrity commitments, each of which every party to the observation-selection debates already grants in some form, become statable cleanly over the corrected unit: <strong>self-mediocrity</strong> (one&#x27;s own situation is typical among observer-situations under the operative weighting — each interrogated attribute&#x27;s realized value distributed as a draw from the observer-conditioned weighting over its answer space, the <em>Copernican draw</em>) and <strong>cosmic-mediocrity</strong> (the operative weighting is the occurrence-weighted cosmic one — the unique non-tailored choice, what forbids gerrymandering). One application of Bayes later:</p>
   <div class="eq"><span class="tag">(AP)</span>
-  $$\frac{P(A' \mid H)}{P(A \mid H)} \;=\; \underbrace{\frac{P(H \mid A')}{P(H \mid A)}}_{\text{observer-relevance}} \cdot\, \frac{P(A')}{P(A)} \;\;\overset{\mathrm{(P1)}}{\lesssim}\;\; 1 \qquad\Longleftrightarrow\qquad \frac{P(H \mid A')}{P(H \mid A)} \;\lesssim\; \frac{P(A)}{P(A')}.$$
-  <span class="cap">The Accordance Principle, derived — (P1) the self-mediocrity step, the weighting fixed by P2: the prior improbability of a realized attribute must be accorded — compensated — by its relevance to the production of observers. The alternative \(A&#x27;\) is canonical — the complement — so no analyst ever chooses it; every probability is taken relative to a declared background state in which the interrogated attribute is blank.</span>
+  $$\frac{P(A^{\prime} \mid H)}{P(A \mid H)} \;=\; \underbrace{\frac{P(H \mid A^{\prime})}{P(H \mid A)}}_{\text{observer-relevance}} \cdot\, \frac{P(A^{\prime})}{P(A)} \;\;\overset{\mathrm{(P1)}}{\lesssim}\;\; 1 \qquad\Longleftrightarrow\qquad \frac{P(H \mid A^{\prime})}{P(H \mid A)} \;\lesssim\; \frac{P(A)}{P(A^{\prime})}.$$
+  <span class="cap">The Accordance Principle, derived — (P1) the self-mediocrity step, the weighting fixed by P2: the prior improbability of a realized attribute must be accorded — compensated — by its relevance to the production of observers. The alternative \(A^{\prime}\) is canonical — the complement — so no analyst ever chooses it; every probability is taken relative to a declared background state in which the interrogated attribute is blank.</span>
   </div>
   <span class="lead-in">Why derived-not-postulated matters</span>
   <p>The principle is not a new axiom grafted onto anthropic reasoning; it is one Bayes application away from commitments its practitioners standardly already hold, once the object those commitments range over is corrected. So rejecting the principle means surrendering a mediocrity commitment — and the pricing of that surrender is exactly the theorem&#x27;s business below, which is what converts the principle from a proposal into a fork. A provenance note the corpus keeps in the open: the principle predates the framework entirely — a 2019–2020 argument about an infinite universe in which every possibility happens somewhere — and the retrospective finding is that it was accidentally Aethic all along: the discriminating attribute valued as <em>non-exhaustive</em>, everything neither specified by nor deducible from it standing in superposition relative to it, unrecognized at the time under a still-classical paradigm.</p>
@@ -888,8 +885,8 @@ section.node-sec h2.t{font:600 26px/1.18 var(--disp);letter-spacing:-.01em;margi
   <p>The relation \(\lesssim\) carries the principle&#x27;s modality, and it is not left as a fudge. The formal content of self-mediocrity is the Copernican draw — the position of a point dropped at random on an interval partitioned into spans, expected in each span with that span&#x27;s measure, hence expected in the larger — and on that formalization the bound has an exact exceedance form, with a one-line proof: at most one member of a pair can carry observer-conditioned weight strictly below \(1/(1+\kappa)\), and under the draw it is realized with probability equal to its own weight.</p>
   <div class="eq"><span class="tag">(κ)</span>
   $$\begin{gathered}
-  \Pr\!\left[\ \frac{P(H \mid A')}{P(H \mid A)} \;>\; \kappa\, \frac{P(A)}{P(A')}\ \right] \;\le\; \frac{1}{1+\kappa} \qquad (\kappa \ge 1),\\[5pt]
-  \mathbb{E}\,\big[\ \#\{\kappa\text{-fold violations among } n \text{ pairs}\}\ \big] \;\le\; \frac{n}{1+\kappa}.
+  \Pr\!\left[\ \frac{P(H \mid A^{\prime})}{P(H \mid A)} \;>\; \kappa\, \frac{P(A)}{P(A^{\prime})}\ \right] \;\le\; \frac{1}{1+\kappa} \qquad (\kappa \ge 1),\\[5pt]
+  \mathbb{E}\left[\, \#\{\kappa\text{-fold violations among } n \text{ pairs}\} \,\right] \;\le\; \frac{n}{1+\kappa}.
   \end{gathered}$$
   <span class="cap">The exceedance form, by which ≲ is henceforth defined: violations are not forbidden but priced, the entire tail profile fixed, no free tolerance anywhere. The κ = 1 reading recovers the display — the realized member sits on the majority side of its pair except on posterior measure at most one half.</span>
   </div>
@@ -899,7 +896,7 @@ section.node-sec h2.t{font:600 26px/1.18 var(--disp);letter-spacing:-.01em;margi
   <span class="lead-in">The two relocations, and the diseases they cure</span>
   <p>The tradition — Carter&#x27;s anthropic principle, Bostrom&#x27;s observation-selection apparatus — reasons over reference classes of observers situated <em>within complete histories</em>, and its central internal debate, self-sampling against self-indication, is a debate about which such class to sample from with the completed unit held fixed by both parties. The completed unit is not an idle assumption; it is where the tradition&#x27;s troubles are manufactured, on both horns. Self-sampling over a completed history is what exposes the Doomsday inference in its most criticized form — one&#x27;s birth-rank treated as a random draw from a completed roster — while self-indication, adopted largely to escape it, purchases the escape at the price of the presumptuous-philosopher pattern, weighting hypotheses by the observer-counts of completed worlds. Each horn inherits its embarrassment from the same source: a reference class read off a totality. The present framework differs by two relocations: the reference class ranges over observer-situations <em>across possible histories</em>, and the object of reasoning is the partial state itself, never its completion. From this vantage the standard apparatus is the artificially completed limiting case, the reference-class problem is diagnosed as an artifact of the completion — a debate over which classical class to sample from cannot close, because the classical class was never the right unit — and the tradition&#x27;s rescue constructions are epicycles in the strict historical sense; the present move is not a further epicycle but the replacement of the deferent. The discipline cuts both ways: the global birth-rank inference is deliberately <em>not</em> recovered — &quot;being in the first ten percent of all humans&quot; fails as an attribute, since its answer space presupposes the completed roster it was meant to replace — so the framework&#x27;s verdict on its founding relative is adoption of the method with retirement of that application&#x27;s unit. Nor is the cosmic weighting exotic; it is what the familiar corrections already presuppose in the small:</p>
   <div class="eq"><span class="tag">(Surv)</span>
-  $$\frac{P(A \mid S)}{P(A' \mid S)} \;=\; \frac{P(S \mid A)}{P(S \mid A')} \cdot \frac{P(A)}{P(A')}$$
+  $$\frac{P(A \mid S)}{P(A^{\prime} \mid S)} \;=\; \frac{P(S \mid A)}{P(S \mid A^{\prime})} \cdot \frac{P(A)}{P(A^{\prime})}$$
   <span class="cap">Survivorship bias — the textbook correction every practitioner accepts — is the constraint collapsed to its coarsest limit: one history, the graded H degenerated to a binary survival event S. The Accordance Principle is the same identity read in the other direction, with S regraded to H and the single history reopened to the space of histories.</span>
   </div>
   <span class="lead-in">The theorem, and the method turned</span>
