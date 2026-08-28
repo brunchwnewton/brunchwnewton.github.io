@@ -21,9 +21,10 @@ directory:
     convention: it fixes facts to spacetime. Aethic reasoning relocates the index of
     reality to the <em>Aethus</em> — an observer's complete information state — and
     follows the consequence. Its three load-bearing moves stand as three self-contained
-    papers, each arguing one move on its home field's terms; four further papers run the
-    same relocation at standing problems elsewhere, and one develops the formal apparatus
-    the others share. Read the first row in № order to follow the derivation, or enter
+    papers, each arguing one move on its home field's terms; the payoff — a realist
+    interpretation of quantum mechanics with the standard paradox set dissolved — is
+    stated whole in a paper of its own; four further papers run the same relocation at
+    standing problems elsewhere, and one develops the formal apparatus the others share. Read the first row in № order to follow the derivation, or enter
     through the field you know best.
   caption: >-
     PDF links go straight to the manuscript; the record link beside each is its
@@ -92,6 +93,34 @@ rows:
         flag: "Trio · № 3"
         list_title: "The Quantum–Classical Boundary as an Informational Classification: A Derivation from Three Consistency Postulates on Observer-Indexed Information States"
         list_meta: "July 2026 · extraction paper · quantum foundations · direct PDF"
+
+  - id: interpretation
+    label: "The payoff"
+    note: "— what the relocation buys in quantum mechanics, stated whole"
+    cols: 1
+    papers:
+
+      - key: determinacy
+        code: "BENTRO-72"
+        label: "Quantum interpretation · the flagship claim"
+        title: "Determinacy as a Two-Place Relation"
+        subtitle: "The category mistake in quantum interpretation, and the dissolution of the paradox set"
+        blurb: >-
+          A realist wants two things the standard interpretations will not sell together:
+          counterfactual structure enough to say what an unperformed experiment would have
+          shown, and no hidden valuation for the Bell theorems to kill. Both follow from one
+          correction — determinacy is not a one-place property that facts have or lack, but a
+          two-place relation between an attribute and an information state. A no-go theorem
+          closes the deflationary exit (determinate-but-unknown requires overwrite semantics
+          the framework forbids, and lands on the single-sample-space statistics the
+          Boole–Fine–Pitowsky correspondence excludes), and the same correction, fixed in
+          advance with nothing added per case, dissolves delayed choice, the cat, Wigner's
+          friend, EPR and its foliation worry, PBR, and the proper/improper mixtures — each
+          dissolution graded, Frauchiger–Renner honestly marked as the contested case.
+        meta: "Home field: quantum interpretation · the incumbents read as four defenses of one wrong entry · preprint, August 2026"
+        newest: true
+        list_title: "Determinacy as a Two-Place Relation: The Category Mistake in Quantum Interpretation, and the Dissolution of the Paradox Set"
+        list_meta: "August 2026 · extraction paper · quantum interpretation · direct PDF"
 
   - id: applications
     label: "The applications"
