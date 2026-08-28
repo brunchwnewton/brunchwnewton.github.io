@@ -24,8 +24,9 @@ directory:
     papers, each arguing one move on its home field's terms; the payoff — a realist
     interpretation of quantum mechanics with the standard paradox set dissolved — is
     stated whole in a paper of its own; four further papers run the same relocation at
-    standing problems elsewhere, and one develops the formal apparatus the others share. Read the first row in № order to follow the derivation, or enter
-    through the field you know best.
+    standing problems elsewhere, and one develops the formal apparatus the others share. The whole arc — reach included — is compressed in a single overview paper, which
+    stands first below; read it for the shape, then the first row in № order for the
+    derivation, or enter through the field you know best.
   caption: >-
     PDF links go straight to the manuscript; the record link beside each is its
     PhilPapers page, for citation and versions. Every paper stands alone and carries its own provenance note at
@@ -33,6 +34,32 @@ directory:
 
 # --- The rows -------------------------------------------------------------
 rows:
+  - id: overview
+    label: "The overview"
+    note: "— the whole framework in one sitting"
+    cols: 1
+    papers:
+
+      - key: inbrief
+        code: "BENARI-3"
+        label: "Start here · Overview"
+        title: "Aethic Reasoning in Brief"
+        subtitle: "From a counterfactual semantics to the quantum measurement problem"
+        blurb: >-
+          One framework, compressed to its main line — and the one paper that shows the
+          whole reach. It begins as a semantics for counterfactuals evaluated inside the
+          evaluator's own information state, relocates exclusivity into the interiors of
+          alternatives, codifies both moves as postulates, and then follows them out: the
+          quantum–classical boundary relocated from scale to information, collapse read as
+          an indexing transition, probability given an ontology as weight, the standard
+          paradox set dissolved with each dissolution graded, and the Quantum Nexus sketched
+          at the far end. Every claim here receives its complete development in the
+          comprehensive treatment; this is the map.
+        meta: "The compressed companion · reach included · preprint, July 2026"
+        flag: "Start here"
+        list_title: "Aethic Reasoning in Brief: From a Counterfactual Semantics to the Quantum Measurement Problem"
+        list_meta: "July 2026 · overview · the compressed companion · direct PDF"
+
   - id: derivation
     label: "The derivation"
     note: "— three moves, in order"
@@ -93,6 +120,7 @@ rows:
         flag: "Trio · № 3"
         list_title: "The Quantum–Classical Boundary as an Informational Classification: A Derivation from Three Consistency Postulates on Observer-Indexed Information States"
         list_meta: "July 2026 · extraction paper · quantum foundations · direct PDF"
+
 
   - id: interpretation
     label: "The payoff"
@@ -220,6 +248,8 @@ rows:
 
 # --- Longer works, linked by record page ----------------------------------
 companions:
+  # inbrief now ALSO carries the first card above (promoted Aug 26, 2026), so this code
+  # appears twice — deliberately. Remove this line only if nothing consumes companions.inbrief.
   inbrief: "BENARI-3"
   comprehensive: "BENARA-5"
   nexic: "BENNRD"
