@@ -24,9 +24,12 @@ directory:
     papers, each arguing one move on its home field's terms; the payoff — a realist
     interpretation of quantum mechanics with the standard paradox set dissolved — is
     stated whole in a paper of its own; four further papers run the same relocation at
-    standing problems elsewhere, and one develops the formal apparatus the others share. The whole arc — reach included — is compressed in a single overview paper, which
-    stands first below; read it for the shape, then the first row in № order for the
-    derivation, or enter through the field you know best.
+    standing problems elsewhere, and one develops the formal apparatus the others share.
+    The whole arc stands at two lengths at the top of this directory: the comprehensive
+    treatment, which is the framework's source of record, and the overview that compresses
+    it to a single sitting. Read the overview for the shape and the comprehensive for the
+    derivation at its native resolution — then the first row in № order, or enter through
+    the field you know best.
   caption: >-
     PDF links go straight to the manuscript; the record link beside each is its
     PhilPapers page, for citation and versions. Every paper stands alone and carries its own provenance note at
@@ -35,13 +38,37 @@ directory:
 # --- The rows -------------------------------------------------------------
 rows:
   - id: overview
-    label: "The overview"
-    note: "— the whole framework in one sitting"
-    cols: 1
+    label: "Start here"
+    note: "— the framework whole, at two lengths"
+    cols: 2
     papers:
+
+      # `feature: true` gives a card the attention treatment in the component's CSS
+      # (a resting garnet wash, and a lit border, sheen, and pulse on mouse-over).
+      # Reserved for the two entry points; adding it elsewhere dilutes it.
+      - key: comprehensive
+        code: "BENARA-5"
+        feature: true
+        label: "Start here · The full treatment"
+        title: "Aethic Reasoning"
+        subtitle: "A comprehensive solution to the quantum measurement problem"
+        blurb: >-
+          The framework's source of record and its longest development. The full derivation
+          runs from the definitional hierarchy of the <em>Aethus</em> through the three
+          postulates and their fixed-point characterization to the Quantum Nexus weighting,
+          and then out to everything the relocation touches — causation, probability, the
+          ontology of time, the anthropic wing, and the paradox set case by case. Every
+          claim the shorter papers carry at compression grade is developed here at its
+          native resolution, with the open constructions named on the page rather than
+          smoothed over. Long, and not the quickest way in; the place all the others point.
+        meta: "The comprehensive treatment · source of record · first deposited November 2024 · current version August 2026"
+        flag: "Start here · full"
+        list_title: "Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem"
+        list_meta: "August 2026 · the comprehensive treatment · source of record · direct PDF"
 
       - key: inbrief
         code: "BENARI-3"
+        feature: true
         label: "Start here · Overview"
         title: "Aethic Reasoning in Brief"
         subtitle: "From a counterfactual semantics to the quantum measurement problem"
@@ -248,8 +275,9 @@ rows:
 
 # --- Longer works, linked by record page ----------------------------------
 companions:
-  # inbrief now ALSO carries the first card above (promoted Aug 26, 2026), so this code
-  # appears twice — deliberately. Remove this line only if nothing consumes companions.inbrief.
+  # inbrief and comprehensive BOTH carry cards in the overview row above (inbrief promoted
+  # Aug 26, 2026; comprehensive promoted Aug 29, 2026), so these codes appear twice —
+  # deliberately. Remove either line only if nothing consumes the companions entry.
   inbrief: "BENARI-3"
   comprehensive: "BENARA-5"
   nexic: "BENNRD"
