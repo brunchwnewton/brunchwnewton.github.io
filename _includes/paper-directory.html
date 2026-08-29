@@ -93,10 +93,24 @@
    the same cycle length, feels quicker. Tune both with --pdir-cycle (whole
    cycle) and --pdir-beat (ring/eyebrow breath) below.
 
-   Colour: the light is warm with a faint gold fringe, not pure white, because
-   pure white is the one value not in this palette and it also disappeared
-   against the old flat-white hover background. The lit card now brightens to
-   warm paper instead, so the blade still has something to read against.
+   Colour, and why it is not gold: version 4 used a warm core with a gold
+   fringe, and the core measured a luminance delta of -0.1 against the lit
+   background — invisible. The whole effect was therefore carried by the hue of
+   the fringe alone, which is unreadable to a red-green colour deficiency (an
+   olive gold collapses toward green) and barely there for anyone else.
+
+   The blade is now built on luminance, so it survives greyscale and any colour
+   vision. Against the lit card at ~250 luma it runs 235 (fringe) -> 255 (core)
+   -> 235: a dark-light-dark ripple, which is also closer to how a real specular
+   glint behaves. The hover background drops from #FFFDF7 to #FCFAF3 to give the
+   white core headroom to brighten into. What hue remains is a cool blue, chosen
+   because blue-yellow discrimination is intact in red-green deficiency, so a
+   cool blade against warm cream paper is about the most legible pair available.
+
+   Swap it with the two variables below: --pdir-glint is the core,
+   --pdir-fringe the shoulders. For a fully neutral blade set
+   --pdir-fringe:rgba(203,205,208,.34). The transparent end stops are
+   hardcoded and can stay as they are; at zero alpha their hue never paints.
 
    How the sheen stays inside the card: the card is `position:relative;
    overflow:hidden` and is never transformed, so its box IS its grid cell and
@@ -116,9 +130,9 @@
    Honors prefers-reduced-motion. Meant for the entry points only. */
 .pdir-card.is-feature{position:relative;overflow:hidden;--pdir-cycle:2.2s;--pdir-beat:.95s;--pdir-blade:32%;background:linear-gradient(180deg,var(--garnet-wash,rgba(126,29,46,.07)),transparent 62%),var(--paper-2,#F7F6F0);}
 .pdir-card.is-feature h3{transition:color .18s ease;}
-.pdir-card.is-feature::after{content:"";position:absolute;top:0;bottom:0;left:0;width:var(--pdir-blade,32%);pointer-events:none;opacity:0;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(184,148,47,.15) 34%,rgba(255,253,246,.92) 50%,rgba(184,148,47,.15) 66%,rgba(255,255,255,0) 100%);transform:translateX(-150%) skewX(-14deg);}
+.pdir-card.is-feature::after{content:"";position:absolute;top:0;bottom:0;left:0;width:var(--pdir-blade,32%);pointer-events:none;opacity:0;background:linear-gradient(90deg,rgba(190,206,232,0) 0%,var(--pdir-fringe,rgba(190,206,232,.34)) 30%,var(--pdir-glint,rgba(255,255,255,.98)) 50%,var(--pdir-fringe,rgba(190,206,232,.34)) 70%,rgba(190,206,232,0) 100%);transform:translateX(-150%) skewX(-14deg);}
 .pdir-card.is-feature:hover,
-.pdir-card.is-feature:focus-within{background:linear-gradient(180deg,var(--garnet-wash,rgba(126,29,46,.07)),transparent 62%),#FFFDF7;z-index:3;animation:pdir-glow var(--pdir-beat,.95s) ease-in-out infinite alternate;}
+.pdir-card.is-feature:focus-within{background:linear-gradient(180deg,var(--garnet-wash,rgba(126,29,46,.07)),transparent 62%),#FCFAF3;z-index:3;animation:pdir-glow var(--pdir-beat,.95s) ease-in-out infinite alternate;}
 .pdir-card.is-feature:hover::after{opacity:1;animation:pdir-sweep var(--pdir-cycle,2.2s) cubic-bezier(.22,.68,.3,1) infinite;}
 .pdir-card.is-feature:hover h3,
 .pdir-card.is-feature:focus-within h3{color:var(--garnet,#7E1D2E);}
