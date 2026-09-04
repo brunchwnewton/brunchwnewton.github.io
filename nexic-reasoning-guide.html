@@ -10,12 +10,12 @@ description: "A faithful walkthrough of Nexic reasoning: the Accordance Principl
 <style>
 /* ============ KIT — "Reality, Indexed" ============ */
 :root{
-  --ink:#1A1B18;--ink-2:#43443E;--ink-3:#6E6F65;
-  --paper:#EEEDE6;--paper-2:#F7F6F0;--paper-3:#E7E5DB;
-  --rule:#D6D4C9;--rule-2:#E4E2D7;
-  --garnet:#7E1D2E;--garnet-2:#9C2A3C;--garnet-wash:rgba(126,29,46,.07);
-  --block:#151610;--block-2:#20211A;--on-block:#EAE9E1;--on-block-2:#9C9A8D;--on-block-3:#75746A;
-  --gold:#9A7B33;--gold-2:#B8942F;--sel:#E3E0D2;--measure:39rem;
+  --ink:#E7ECF5;--ink-2:#B9C3D6;--ink-3:#8593AD;
+  --paper:#0A0A0F;--paper-2:#10101A;--paper-3:#161625;
+  --rule:#2A2A3C;--rule-2:#20202E;
+  --garnet:#F2B84B;--garnet-2:#FBBF24;--garnet-wash:rgba(242,184,75,.10);
+  --block:#06060B;--block-2:#0D0D16;--on-block:#E7ECF5;--on-block-2:#9AA8C4;--on-block-3:#6E7C99;
+  --gold:#D7B56D;--gold-2:#E7C77E;--sel:#2A2A3C;--measure:39rem;
   --display:"Fraunces",Georgia,serif;--body:"Spectral",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box;}
@@ -39,7 +39,7 @@ a:focus-visible{outline:2px solid var(--garnet);outline-offset:3px;border-radius
 .mono{font-family:var(--mono);}
 
 /* ---- top nav bar ---- */
-.topbar{position:sticky;top:0;z-index:40;background:rgba(21,22,16,.94);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #2a2b22;}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(6,6,11,.94);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #20202E;}
 .topbar .in{max-width:72rem;margin:0 auto;padding:.62rem 1.6rem;display:flex;align-items:center;gap:1.4rem;}
 .topbar a{color:var(--on-block-2);font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;transition:color .15s;}
 .topbar a:hover{color:var(--on-block);}
@@ -193,7 +193,7 @@ section.tight{padding:clamp(2.2rem,5vw,3.4rem) 0;}
 /* ---- nav grid ---- */
 .navgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
 .navgrid a{background:var(--paper-2);padding:1.4rem 1.4rem;transition:.15s;}
-.navgrid a:hover{background:#fff;}
+.navgrid a:hover{background:var(--paper-3);}
 .navgrid .nt{font-family:var(--display);font-size:1.12rem;color:var(--ink);letter-spacing:-.01em;}
 .navgrid .nd{font-size:.92rem;color:var(--ink-3);margin-top:.35rem;line-height:1.5;}
 .navgrid .arr{color:var(--garnet);}
@@ -229,18 +229,32 @@ details.disc .ans>.prose>p:first-child{margin-top:0;}
 .pull em{font-style:italic;}
 
 /* ---- footer ---- */
-footer.site{background:var(--block);color:var(--on-block-2);padding:3.2rem 0 2.4rem;font-size:.9rem;border-top:1px solid #2a2b22;}
+footer.site{background:var(--block);color:var(--on-block-2);padding:3.2rem 0 2.4rem;font-size:.9rem;border-top:1px solid #20202E;}
 footer.site a{color:var(--on-block);}footer.site a:hover{color:#fff;}
 footer.site .foot-grid{display:flex;flex-wrap:wrap;gap:2.4rem 3.5rem;justify-content:space-between;}
 footer.site h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-block-3);margin:0 0 .9rem;font-weight:500;}
 footer.site ul{list-style:none;margin:0;padding:0;line-height:2;}
-footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid #2a2b22;font-size:.82rem;line-height:1.6;max-width:52rem;}
+footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid #20202E;font-size:.82rem;line-height:1.6;max-width:52rem;}
 
 /* ---- utility ---- */
 .stack>*+*{margin-top:1.1rem;}
 hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
 @media(max-width:820px){.moves,.grid3,.split,.grid2,.navgrid{grid-template-columns:1fr;}}
 @media(max-width:720px){body{font-size:17.5px;}}
+
+/* ---- reading mode (Explorer / Technical) ---- */
+.modebar{position:sticky;top:0;z-index:39;background:rgba(6,6,11,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule-2);}
+.modebar .in{max-width:72rem;margin:0 auto;padding:.5rem 1.6rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--on-block-2);}
+.modebar .lbl{text-transform:uppercase;letter-spacing:.16em;color:var(--on-block-3);}
+.modebar button{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;padding:.32rem .8rem;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--on-block-2);cursor:pointer;}
+.modebar button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#06101f;font-weight:600;}
+.modebar .status{margin-left:auto;color:var(--on-block-3);}
+body.mode-explorer .technical-only{display:none !important;}
+
+/* ---- explorer track: a complete parallel document ---- */
+.explorer-track{display:none;}
+body.mode-explorer .explorer-track{display:block;}
+body.mode-explorer .technical-track{display:none !important;}
 </style>
 <style>
 /* nexic guide — deep-time / gold accent */
@@ -300,6 +314,14 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
 .hce .hstat .hc{font-size:.66rem;color:var(--ink-3);margin-top:.25rem;line-height:1.3;}
 </style>
 
+<div class="modebar" id="modebar">
+  <div class="in">
+    <span class="lbl">Reading mode</span>
+    <button type="button" id="mode-explorer" aria-pressed="false" onclick="setMode('explorer')">Explorer</button>
+    <button type="button" id="mode-technical" aria-pressed="true" onclick="setMode('technical')">Technical</button>
+    <span class="status" id="mode-status">Showing everything, the formulas included.</span>
+  </div>
+</div>
 <header class="mast indexed gold">
   <div class="wide">
     <div class="kicker">The Nexic guide &middot; a layered walkthrough</div>
@@ -308,6 +330,60 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
     <div class="meta"><span>the calculus</span><span>one live figure</span><span>and the meaning</span></div>
   </div>
 </header>
+<div class="explorer-track" id="explorer-track">
+
+<section class="tight" id="x-start"><div class="wide" style="max-width:46rem;"><div class="prose">
+<div class="sec-head"><span class="eyebrow">Explorer · 1</span><h2>Start with the dinosaurs.</h2></div>
+<p>Here is a question a high-school student asked in 2018, and this whole wing of the framework is what happened when he refused to let it go. <em>Did the dinosaurs have to exist, and then have to die, for you to be here?</em> Not &ldquo;did they happen to&rdquo; &mdash; everyone knows they did. <em>Had to.</em> Is there any sense in which, given that you exist and are asking, an asteroid hitting the Yucat&aacute;n sixty-six million years ago was a <em>prerequisite</em> rather than a coincidence?</p>
+<p>The usual answer is a shrug: history is one damn thing after another, and we are the lucky tally at the end of it. This guide walks you through a different answer, in seven stops. It is a way of reading your own existence as <em>evidence</em> &mdash; not about the future, and not about physical constants, but about the history that produced you. If you want the formulas behind any stop, flip the bar at the top to <strong>Technical</strong>; the same page turns into the full document.</p>
+</div></div></section>
+
+<section class="tight" id="x-typical"><div class="wide" style="max-width:46rem;"><div class="prose">
+<div class="sec-head"><span class="eyebrow">Explorer · 2</span><h2>You are typical. Of what, exactly?</h2></div>
+<p>Physicists already use an argument of this shape for the constants of nature: if the strength of gravity were a little different, no stars, no chemistry, no you &mdash; so the fact that you exist tells you something about the constants. It is called anthropic reasoning, and it comes with a rule attached: <em>assume you are a typical observer</em>, and see what follows. The trouble is that nobody had ever said carefully what &ldquo;typical&rdquo; is typical <em>of</em>. Typical among all possible universes? All possible people? All possible moments?</p>
+<p>Nexic reasoning gives a precise answer, and it is the engine of everything else on this page. You are typical among <em>observer-situations</em> &mdash; among everyone who could be standing where you stand, knowing what you know and not knowing what you don&rsquo;t. Not among complete worlds; among partial information states. (If you have read the Aethic guide, that is the Aethus again, doing the same job.) The rule that says so is the <strong>Accordance Principle</strong>, and once it is stated over partial information instead of complete worlds, something surprising falls out: the argument stops telling you that you are nowhere special, and starts telling you which of your circumstances were <em>prerequisites</em>.</p>
+<div class="callout gold"><strong>The Copernican method is kept; the Copernican principle breaks.</strong> &ldquo;Assume you are nowhere special and see what follows&rdquo; is a method, and it is a good one. &ldquo;Therefore you are nowhere special&rdquo; is a principle, and it does not follow from the method once you run it honestly over what you actually know. A 2026 paper proves this as a theorem: you cannot hold self-typicality, the typicality of your kind, and the standard Copernican principle all at once. Two of the three are well supported. The third is the one that breaks.</div>
+</div></div></section>
+
+<section class="tight" id="x-nexae"><div class="wide" style="max-width:46rem;"><div class="prose">
+<div class="sec-head"><span class="eyebrow">Explorer · 3</span><h2>Three questions, three Nexae.</h2></div>
+<p>&ldquo;Typical among observer-situations&rdquo; hides three different questions, and Nexic reasoning keeps them apart with three names. How common is life in the universe at all? That is the <strong>Cosmic Nexus</strong> &mdash; the population of observers across space. Given that there are observers, what kind are you likely to be? That is the <strong>Aetherian Nexus</strong> &mdash; the population of observers weighted by how many of each kind there are. And given your kind, how did your history have to go? That is the <strong>Optimation</strong> question, and it is the one this wing is about.</p>
+<p>Keeping them apart matters because most anthropic arguments quietly slide from one to another. &ldquo;There are billions of planets, so life must be common&rdquo; is a Cosmic-Nexus claim. &ldquo;We are probably a typical civilization&rdquo; is an Aetherian-Nexus claim. &ldquo;The asteroid was a prerequisite for us&rdquo; is an Optimation claim, and it is the only one of the three that is about <em>your</em> record rather than a population. The framework&rsquo;s position is that the third question is the one you can actually answer from where you stand, because your own history is the one sample you hold in full.</p>
+<div class="callout gold"><strong>The Optimation Fallacy, and its control.</strong> The obvious worry: isn&rsquo;t reading your history as &ldquo;prerequisites&rdquo; just survivorship bias with extra steps &mdash; every survivor thinks their path was necessary? The framework builds the control in. <em>Aimless Optimation</em> is what you get if you run the method on features that <em>weren&rsquo;t</em> prerequisites: the argument returns nothing, correctly. The method only bites on features whose alternatives would have cost observers, and it says so out loud. That is the difference between a bias and a test.</div>
+</div></div></section>
+
+<section class="tight" id="x-contrast"><div class="wide" style="max-width:46rem;"><div class="prose">
+<div class="sec-head"><span class="eyebrow">Explorer · 4</span><h2>Two histories, two draws: why Earth looks so finely suited.</h2></div>
+<p>Picture the space of all the ways Earth&rsquo;s history could have gone as a landscape, where height is <em>how many observers that history produces</em>. The everyday intuition is that the landscape is gently rolling: lots of histories nearly as good as ours, a few better, a few worse. The <strong>High-Contrast Earth Hypothesis</strong> says the landscape is nothing like that. It is a single sharp peak with the alternatives many, many orders of magnitude below it &mdash; not a hill among hills but a needle in a plain.</p>
+<p>Why would that be? Because the things that had to go right are <em>coupled</em>. Commit to &ldquo;the dinosaurs had to go&rdquo; and you have not made one lucky claim; you have made a claim that forces others &mdash; a mammalian radiation, a particular climate window, a particular sequence of dominant clades &mdash; because under the Accordance Principle, fixing one improbability shifts the odds on every attribute correlated with it. Improbabilities don&rsquo;t arrive one at a time to be multiplied. They arrive in linked sets, and the set is a single object.</p>
+<div class="callout gold"><strong>The draw.</strong> There is an interactive version of this in Technical mode: draw two random histories from the landscape and compare them. Almost every draw lands you in the plain, tens of orders of magnitude below the peak, and the two draws differ from each other by far more than they differ from zero. That is what &ldquo;high contrast&rdquo; means, and it is why &ldquo;why is Earth so finely suited?&rdquo; stops being a question you need to explain away and becomes what the constraint <em>predicts</em>.</div>
+</div></div></section>
+
+<section class="tight" id="x-imd"><div class="wide" style="max-width:46rem;"><div class="prose">
+<div class="sec-head"><span class="eyebrow">Explorer · 5</span><h2>Disasters and difficulties are the same thing.</h2></div>
+<p>Here is the idea that turns the landscape into something you can compute with. Call an <strong>Imperfection Magnitude Drop</strong> the amount by which a history&rsquo;s observer-count falls when one thing goes wrong. A gamma-ray burst that sterilizes a planet and a star too dim to keep water liquid look like completely different stories &mdash; one is a catastrophe, the other a permanent difficulty &mdash; but if they produce the same drop, they are, for the purposes of the argument, the same kind of devastation. Disaster and difficulty are unified by what they cost.</p>
+<p>And here is the asymmetry that makes the whole thing work. The severe alternatives to our history are <em>populous</em> &mdash; there are vastly more ways for things to go badly than well &mdash; but each one is <em>suppressed</em>, because a route that has to re-earn a prerequisite (a &ldquo;redo&rdquo;) pays for it twice: a leg of probability <em>p</em> that must be traversed again costs <em>p</em>&sup2;. So the alternatives that multiply are precisely the ones that contribute nothing. Add them all up and the sum collapses onto a single dominant term rather than piling up. The framework proves this as a lemma, and the lemma is what stands under the next stop.</p>
+</div></div></section>
+
+<section class="tight" id="x-optimal"><div class="wide" style="max-width:46rem;"><div class="prose">
+<div class="sec-head"><span class="eyebrow">Explorer · 6</span><h2>The Optimal Earth.</h2></div>
+<p>Put the pieces together. You are typical among observer-situations (Stop 2). The features of your history that had to go right are coupled into one object (Stop 4). The alternatives are populous but each suppressed, so their sum collapses (Stop 5). The conclusion is the <strong>Optimal-Earth Conjecture</strong>: on effectively any attribute of Earth&rsquo;s history that you can actually interrogate, our history is the <em>observer-optimal</em> member of its alternatives &mdash; not luckily so, but forcedly so, and effectively alone in being so.</p>
+<p>Three familiar questions change shape under it. &ldquo;How many great filters are there, and are they ahead of us or behind?&rdquo; becomes malformed, because filters do not come singly. &ldquo;Why is Earth so finely suited to us?&rdquo; inverts: the suiting is what the constraint predicts, not what it has to explain away. And the comforting &ldquo;with enough planets, somebody somewhere is bound to be unremarkable&rdquo; reverses, because the alternatives that multiply are the ones that produce nobody.</p>
+<div class="callout gold"><strong>What the framework claims, and what it fences off.</strong> The conjecture is claimed as a paradigm &mdash; a way of reading the record &mdash; with a ledger that prices every commitment it rests on and says what would falsify each. The quantitative program built on it (numerical bounds; predictions about where fossils should turn up; the mass of the Chicxulub impactor) is deliberately kept in a companion paper, because a paradigm and its numbers deserve to be judged separately. Stop 7 has the predictions if you want them.</div>
+</div></div></section>
+
+<section class="tight" id="x-meaning"><div class="wide" style="max-width:46rem;"><div class="prose">
+<div class="sec-head"><span class="eyebrow">Explorer · 7</span><h2>What it means, and what it predicts.</h2></div>
+<p>The bleak reading comes first, because everyone reaches for it: if our history is a needle in a plain, then the universe is mostly empty of observers, and the Fermi paradox &mdash; where is everybody? &mdash; has a quiet answer. The framework accepts the arithmetic and declines the mood. The same argument that makes observers rare makes <em>you</em> the one who was always going to be here to ask, and it makes your own history legible in a way no tally could: not a list of accidents but a single coupled record that can be read, feature by feature, for what it required.</p>
+<p>And it predicts. If the dinosaurs were a prerequisite, then the mammalian radiation that followed them should show specific signatures; if the accordance structure is right, primate fossils should appear in particular Late Cretaceous deposits (the Ha&#539;eg Island target) and the impactor that ended the dinosaurs should fall in a constrained mass window. These are things the rock can confirm or embarrass. The framework&rsquo;s own falsifier is stated as plainly: a systematic failure of the Accordance Principle across dozens of paleontological test cases is evidence against it.</p>
+<div class="callout gold"><strong>The one principle underneath.</strong> If you have read the Aethic guide, you have met this move already under the name <em>joint invalidity in place of causation</em>. The asteroid did not <em>cause</em> you. Rather, &ldquo;no extinction <em>and</em> a mammalian radiation on this timeline&rdquo; is a combination that is jointly invalid relative to the record you hold, and the coupling of prerequisites is that fact propagated forward &mdash; with no arrow anywhere in it. Deep time and the double slit run on the same rule.</div>
+<p>That is the whole wing. Flip to <strong>Technical</strong> for the calculus, the worked dinosaurian case, the nine principles, and the 2026 papers that put the engine at theorem grade.</p>
+</div></div></section>
+
+</div>
+
+<div class="technical-track">
+
 
 <section class="tight">
   <div class="wide" style="max-width:44rem;">
@@ -330,7 +406,7 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
   <div class="prose">
     <p>The mediocrity principle says: assume your observations are typical, not privileged. Usually it ranges over <em>location</em> &mdash; don&rsquo;t assume Earth sits at a special place, or you at a special cosmic time. The <strong>Accordance Principle</strong> extends the same logic to a new domain: the space of possible natural histories. The question is no longer &ldquo;where am I among all places?&rdquo; but <strong>&ldquo;which natural history am I in, among all histories capable of producing an observer to ask?&rdquo;</strong></p>
     <p>By mediocrity the answer is &ldquo;the typical one&rdquo; &mdash; but typicality among observer-producing histories is not uniform, and that non-uniformity is the whole engine. The principle is a bound, not a slogan.</p>
-    <div class="formula nx"><span class="lbl">the Accordance bound (Principle 5)</span>For an attribute A of Earth&rsquo;s history and H = human existence: <span class="op">P(H&#8739;A&prime;) / P(H&#8739;A) &#8818; P(A) / (1&minus;P(A))</span><br><span class="c">holds more often than not, with P(A) run against the Cosmic Nexus so no A-free conditional violates the first postulate. Survivorship reasoning, one attribute at a time, over histories rather than a crowd.</span></div>
+    <div class="formula nx technical-only"><span class="lbl">the Accordance bound (Principle 5)</span>For an attribute A of Earth&rsquo;s history and H = human existence: <span class="op">P(H&#8739;A&prime;) / P(H&#8739;A) &#8818; P(A) / (1&minus;P(A))</span><br><span class="c">holds more often than not, with P(A) run against the Cosmic Nexus so no A-free conditional violates the first postulate. Survivorship reasoning, one attribute at a time, over histories rather than a crowd.</span></div>
   </div>
 </div></div></article>
 
@@ -360,7 +436,7 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
   <h2>The control: Aimless Optimation</h2>
   <div class="prose">
     <p>A query that always finds design is untestable. Optimation carries its own control. The key identity: <strong>the Nexus of Optimation is just the Cosmic Nexus plus one Aethic attribute, H<sub>N</sub></strong> &mdash; that an observer exists somewhere in your biosphere, past, present, or future.</p>
-    <div class="formula nx"><span class="lbl">Theorem of Aimless Optimation (Theorem 3)</span>If an attribute X is statistically independent of H<sub>N</sub>, then <span class="op">X operates under N<sub>O</sub> exactly as under N<sub>0</sub></span> &mdash; the two Nexae are guaranteed to agree. The <em>methodological</em> Accordance Principle is the contrapositive: unequal weights under N<sub>0</sub> and N<sub>O</sub> entail that X is <em>not</em> independent of H<sub>N</sub>.</div>
+    <div class="formula nx technical-only"><span class="lbl">Theorem of Aimless Optimation (Theorem 3)</span>If an attribute X is statistically independent of H<sub>N</sub>, then <span class="op">X operates under N<sub>O</sub> exactly as under N<sub>0</sub></span> &mdash; the two Nexae are guaranteed to agree. The <em>methodological</em> Accordance Principle is the contrapositive: unequal weights under N<sub>0</sub> and N<sub>O</sub> entail that X is <em>not</em> independent of H<sub>N</sub>.</div>
     <div class="callout gold"><span class="h">The falsifiable control, in the field</span><p>Sister clades are the test bed. A lineage that split off <em>before</em> the route to us &mdash; Old World monkeys, over a hundred species since diverging ~25 Mya &mdash; is statistically independent of our observer-existence, so it should show <em>no</em> optimization signal. And it doesn&rsquo;t: none climbed to our kind of mind. When the two Nexae must agree, they do.</p></div>
     <p>So the framework says, in advance, exactly where the signal should <em>vanish</em>. That is what separates it from a story that confirms itself.</p>
   </div>
@@ -376,7 +452,7 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
       <div class="lbl"><span>common structure &mdash; ordinary Cosmic-Nexus rates</span><span>exotic &mdash; tangled with a Miracle</span></div>
     </div>
     <p>The claim is that <em>every</em> instance of exotic structure is almost surely traceable to co-existing with a <strong>Miracle</strong> &mdash; or to nothing at all. Even the K&ndash;Pg extinction has a Cosmic-Nexus hazard rate perhaps on the order of quadrillions of years, placing it north of the shift. A Miracle, then, is not a big unlikely event among others: it is a <strong>categorically alien probabilistic regime, implanted into the background universe</strong> in a form that looks phenomenologically ordinary.</p>
-    <div class="formula nx"><span class="lbl">Exotic Principle of Optimation (Principle 7)</span>The probabilistic object constituting a Nexic Miracle sits so deep in the tail that it is effectively a separate category, not a point in the common distribution. A <span class="op">Nexic Miracle</span> = an event that is both exotic (north of the regime shift) and an anthropic prerequisite.</div>
+    <div class="formula nx technical-only"><span class="lbl">Exotic Principle of Optimation (Principle 7)</span>The probabilistic object constituting a Nexic Miracle sits so deep in the tail that it is effectively a separate category, not a point in the common distribution. A <span class="op">Nexic Miracle</span> = an event that is both exotic (north of the regime shift) and an anthropic prerequisite.</div>
   </div>
 </div></div></article>
 
@@ -444,7 +520,7 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
   <div class="prose">
     <p>Name the alternatives. An <strong>Imperfection Magnitude Drop (IMD)</strong> is a natural history whose joint probability with observers, P(H&#8745;A<sub>i</sub>), is drastically minute but never quite zero &mdash; reached as a targeted perturbation away from our own ontological Aethus. The High-Contrast Earth Hypothesis says the space around us is densely populated with IMDs.</p>
     <p>Combine the two facts and the calculus turns forward:</p>
-    <div class="formula nx"><span class="lbl">the Optimal-Earth move</span>1. <span class="op">Contrast</span> (High-Contrast Earth): changing an attribute produces an enormous probability ratio.<br>2. <span class="op">Direction</span> (Accordance): of two histories with vastly different observer-probabilities, ours holds the greater.<br>&#8756; the <span class="op">Strong Accordance Principle</span> / Optimal-Earth Conjecture: the loose &ldquo;more often than not&rdquo; bound tightens into a near-certainty, attribute by attribute.</div>
+    <div class="formula nx technical-only"><span class="lbl">the Optimal-Earth move</span>1. <span class="op">Contrast</span> (High-Contrast Earth): changing an attribute produces an enormous probability ratio.<br>2. <span class="op">Direction</span> (Accordance): of two histories with vastly different observer-probabilities, ours holds the greater.<br>&#8756; the <span class="op">Strong Accordance Principle</span> / Optimal-Earth Conjecture: the loose &ldquo;more often than not&rdquo; bound tightens into a near-certainty, attribute by attribute.</div>
     <p>This is what converts Accordance from a <em>retrospective</em> constraint into a <strong>predictive calculus</strong>: walk down Earth&rsquo;s attributes one at a time, and treat each as the higher-probability option against its alternatives. Nexic reasoning stops being only an explanation of the past and starts issuing paleontological predictions.</p>
   </div>
 </div></div></article>
@@ -472,7 +548,7 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
   <h2>The spark: what licenses treating the past this way</h2>
   <div class="prose">
     <p>One objection sits under all of this: the past already happened &mdash; how can observer-selection reach back and shape inference about fixed events? The answer is the <strong>Aethic Indiscriminate Time Principle</strong>: real-time witnessing and retrospective learning are not different <em>kinds</em> of epistemic event. Deduced from the Extrusion Principle and the structure of Aethic superpositions, it decouples &ldquo;reveal time&rdquo; from &ldquo;real time&rdquo; &mdash; so learning the past is on the same footing as watching the present.</p>
-    <div class="formula nx"><span class="lbl">Spark Ontology Principle (Principle 15)</span>The &ldquo;spark&rdquo; that grants Optimation ontological standing over our biosphere and its proper-time past is <span class="op">the Accordance Principle itself</span>, driven by the Indiscriminate Time Principle. Nexic reasoning is licensed by Aethic reasoning at exactly this joint.</div>
+    <div class="formula nx technical-only"><span class="lbl">Spark Ontology Principle (Principle 15)</span>The &ldquo;spark&rdquo; that grants Optimation ontological standing over our biosphere and its proper-time past is <span class="op">the Accordance Principle itself</span>, driven by the Indiscriminate Time Principle. Nexic reasoning is licensed by Aethic reasoning at exactly this joint.</div>
     <p>This is where the two frameworks meet. Aethic reasoning indexes reality to information; the Indiscriminate Time Principle makes the fixed past a live object of that indexing; and on that ground the whole Nexic calculus stands. The spark is not a new posit &mdash; it is Accordance, seen as ontology rather than method.</p>
   </div>
 </div></div></article>
@@ -548,6 +624,12 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
 
 <section>
   <div class="wide">
+    <div class="sec-head"><span class="eyebrow">2026</span><h2>Two papers, and what they add.</h2></div>
+    <div class="prose" style="max-width:44rem;margin-bottom:2.2rem;">
+      <p><strong>The Copernican Method Against the Copernican Principle</strong> puts the engine of this page at theorem grade. Its result is a conditional inconsistency: self-mediocrity, mediocrity of the reference class, and the standard reading of the Copernican principle cannot all be held together once the Accordance Principle &mdash; typicality assessed over observer-situations and their partial information states, not over complete worlds &mdash; is stated exactly. The principle&rsquo;s exceedance form is the multiplicity correction itself, the alternative it compares against is canonical rather than analyst-supplied, and the paper prices the exits: what remains of the third member once its methodological support defects is habit, with the Great Filter as the standing example.</p>
+      <p><strong>The Optimal Earth</strong> re-renders the natural-historical record under that constraint. Where the received reading treats Earth&rsquo;s lucky history as a tally of independent improbabilities to be multiplied, the re-rendition reads it as a single coupled object &mdash; the closure of an initial commitment under a propagation step, in which committing to one filter forces commitments elsewhere in the record. Two further premises about the landscape of alternatives &mdash; its contrast, and the articulation asymmetry that makes severe alternatives populous but each suppressed &mdash; give the sum-collapse lemma, on which the aggregate of alternatives collapses onto one dominant term rather than accumulating. The result is the Optimal-Earth Conjecture: our history is, on effectively any interrogable attribute, the observer-optimal member of its alternatives, not luckily but forcedly, and effectively alone in being so. The natural-historical program built on it &mdash; graded conjectures, bounds, paleontological predictions &mdash; is fenced to the companion; the paper claims the paradigm and closes with a ledger pricing every commitment, each with its grade and its falsifier.</p>
+      <p>Both share the Aethic wing&rsquo;s one principle for correlation &mdash; <em>joint invalidity in place of causation</em> &mdash; run at the scale of deep time: the dinosaurian prerequisite is a joint-validity fact about the record, and the coupling of Miracles is that fact propagated, with no arrow anywhere in the account.</p>
+    </div>
     <div class="sec-head"><span class="eyebrow">Go further</span><h2>From the calculus outward.</h2></div>
     <div class="navgrid">
       <a href="/aethic-reasoning-guide.html"><div class="nt">The Aethic Guide <span class="arr">&rarr;</span></div><div class="nd">The other wing: how reality gets re-indexed to an observer &mdash; the Indiscriminate Time Principle that grounds the spark, with a live pruning demo.</div></a>
@@ -610,5 +692,34 @@ hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
     document.getElementById('hnote').textContent='Across 1,000 pairs, the typical separation is ~'+med.toFixed(0)+' orders of magnitude, and only '+(near/N*100).toFixed(1)+'% land within a single order. High contrast is the rule, not the exception \u2014 which is the hypothesis.';
   };
   ticks();
+})();
+</script>
+
+
+</div>
+<script>
+(function(){
+  function apply(m){
+    document.body.classList.toggle('mode-explorer', m==='explorer');
+    document.getElementById('mode-explorer').setAttribute('aria-pressed', m==='explorer');
+    document.getElementById('mode-technical').setAttribute('aria-pressed', m!=='explorer');
+    document.getElementById('mode-status').textContent = m==='explorer' ? 'Explorer: the wing told from the dinosaurs up, in seven stops. Switch to Technical for the calculus, the worked cases, and the papers.' : 'Showing everything, the formulas included.';
+  }
+  window.setMode=function(m){ try{localStorage.setItem('nexic-guide-mode',m);}catch(e){} apply(m); };
+  var m='technical'; try{ m=localStorage.getItem('nexic-guide-mode')||'technical'; }catch(e){}
+  apply(m);
+})();
+</script>
+
+<script>
+(function(){
+  // keep the mode/tone bar tucked beneath the site's sticky top bar, if the layout has one
+  function tuck(){
+    var bar=document.querySelector('.tonebar, .modebar'); if(!bar) return;
+    var tb=document.querySelector('.topbar, header.site-header, .site-nav');
+    var h=tb? tb.getBoundingClientRect().height : 0;
+    bar.style.top=(h>0? h : 0)+'px'; bar.style.zIndex='39';
+  }
+  window.addEventListener('load', tuck); window.addEventListener('resize', tuck); tuck();
 })();
 </script>
