@@ -1,0 +1,363 @@
+---
+layout: default
+title: "The Central Ideas, Each Priced | aethus.org"
+description: "Seven ideas the framework runs on, each profiled under one test — what it does with how little, why it is forced rather than chosen, what it dissolves, and what it costs — with a note on what is not on the list and why."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,420;9..144,560&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============ KIT — "Reality, Indexed" ============ */
+:root{
+  --ink:#E7ECF5;--ink-2:#B9C3D6;--ink-3:#8593AD;
+  --paper:#0B1220;--paper-2:#111A2C;--paper-3:#182338;
+  --rule:#243250;--rule-2:#1C2740;
+  --garnet:#6FA8FF;--garnet-2:#8FBCFF;--garnet-wash:rgba(111,168,255,.10);
+  --block:#060A12;--block-2:#0D1522;--on-block:#E7ECF5;--on-block-2:#9AA8C4;--on-block-3:#6E7C99;
+  --gold:#D7B56D;--gold-2:#E7C77E;--sel:#243250;--measure:39rem;
+  --display:"Fraunces",Georgia,serif;--body:"Spectral",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth;}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.66;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-optical-sizing:auto;}
+::selection{background:var(--sel);}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;letter-spacing:-.012em;line-height:1.08;margin:0;}
+em,i{font-style:italic;}strong,b{font-weight:600;}sup{font-size:.66em;line-height:0;}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 1.6rem;}
+.wide{max-width:66rem;margin:0 auto;padding:0 1.6rem;}
+.mid{max-width:52rem;margin:0 auto;padding:0 1.6rem;}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--garnet);font-weight:500;}
+.eyebrow-dim{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
+a.link{color:var(--garnet);background-image:linear-gradient(var(--garnet),var(--garnet));background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .25s ease;}
+a.link:hover{background-size:100% 1px;}
+a:focus-visible{outline:2px solid var(--garnet);outline-offset:3px;border-radius:1px;}
+.rel{font-family:var(--mono);white-space:nowrap;}
+.rel .bar{color:var(--garnet);padding:0 .12em;font-weight:600;}
+.mono{font-family:var(--mono);}
+
+/* ---- top nav bar ---- */
+.topbar{position:sticky;top:0;z-index:40;background:rgba(6,10,18,.94);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #1C2740;}
+.topbar .in{max-width:72rem;margin:0 auto;padding:.62rem 1.6rem;display:flex;align-items:center;gap:1.4rem;}
+.topbar a{color:var(--on-block-2);font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;transition:color .15s;}
+.topbar a:hover{color:var(--on-block);}
+.topbar .brand{color:var(--on-block);letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;}
+.topbar .brand b{color:#fff;font-weight:600;}
+.topbar .brand .bar{color:var(--garnet-2);}
+.topbar nav{margin-left:auto;display:flex;gap:1.3rem;flex-wrap:wrap;}
+@media(max-width:680px){.topbar nav{display:none;}}
+
+/* ---- hero / masthead ---- */
+.hero{background:var(--block);color:var(--on-block);position:relative;overflow:hidden;padding:clamp(3.4rem,9vw,6.5rem) 0 clamp(3rem,7vw,5rem);}
+.hero::after{content:"";position:absolute;left:calc(50% - 33rem);top:0;bottom:0;width:1px;background:var(--garnet);opacity:.9;}
+@media(max-width:1090px){.hero::after{left:1.6rem;}}
+.hero .wide{position:relative;z-index:2;}
+.hero .site-id{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--on-block-2);}
+.hero .site-id b{color:var(--on-block);font-weight:500;}
+.hero-formula{font-family:var(--mono);font-size:clamp(1.05rem,3.2vw,1.6rem);color:var(--on-block-2);margin:2.2rem 0 1.2rem;letter-spacing:.02em;}
+.hero-formula .lit{color:var(--on-block);}
+.hero-formula .bar{color:var(--garnet-2);font-weight:600;}
+.hero h1{font-size:clamp(2.6rem,8vw,5.1rem);color:var(--on-block);letter-spacing:-.02em;line-height:.98;font-weight:340;}
+.hero h1 em{font-style:italic;color:var(--on-block);}
+.hero-sub{max-width:34rem;margin:1.6rem 0 0;font-size:clamp(1.02rem,2.3vw,1.24rem);color:var(--on-block);line-height:1.5;}
+.hero-sub .dim{color:var(--on-block-2);}
+.hero-by{margin-top:1.6rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;color:var(--on-block-3);line-height:1.7;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.3rem;}
+.btn{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;padding:.72rem 1.15rem;border:1px solid var(--ink-3);color:var(--ink);transition:.2s;display:inline-flex;align-items:center;gap:.6ch;cursor:pointer;background:none;}
+.btn:hover{border-color:var(--ink);background:var(--paper-2);}
+.mast .btn,.demo-head .btn{border-color:var(--on-block-3);color:var(--on-block);}
+.mast .btn:hover,.demo-head .btn:hover{border-color:var(--ink);background:var(--paper-2);}
+.btn.pri{background:var(--garnet);border-color:var(--garnet);color:#fff;}
+.btn.pri:hover{background:var(--garnet-2);border-color:var(--garnet-2);}
+.btn.dark{border-color:var(--rule);color:var(--ink);}
+.btn.dark:hover{border-color:var(--ink);background:var(--paper-2);}
+.mast .btn,.band .btn,.demo-head .btn{border-color:var(--on-block-3);color:var(--on-block);}
+.mast .btn:hover,.band .btn:hover,.demo-head .btn:hover{border-color:var(--on-block);background:rgba(255,255,255,.04);}
+
+/* ---- paper masthead variant (reading pages) ---- */
+.mast{position:relative;padding:clamp(2.8rem,7vw,5rem) 0 clamp(2rem,4vw,3rem);border-bottom:1px solid var(--rule);}
+.mast .wide{position:relative;}
+.mast .kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--garnet);}
+.mast h1{font-size:clamp(2.4rem,6.4vw,4.4rem);margin:1.1rem 0 0;letter-spacing:-.02em;line-height:1.0;max-width:20ch;}
+.mast h1 em{font-style:italic;}
+.mast .standfirst{max-width:42rem;margin:1.5rem 0 0;font-size:clamp(1.1rem,2.2vw,1.32rem);line-height:1.5;color:var(--ink-2);}
+.mast .meta{margin-top:1.6rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.04em;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;}
+.mast .meta .rel{color:var(--ink-2);}
+.mast.indexed{padding-left:0;}
+.mast.indexed::before{content:"";position:absolute;left:calc(50% - 33rem);top:clamp(2.8rem,7vw,5rem);bottom:1.5rem;width:2px;background:var(--garnet);}
+@media(max-width:1120px){.mast.indexed::before{left:1.6rem;}}
+
+/* ---- sections ---- */
+section{padding:clamp(3rem,7vw,5rem) 0;border-bottom:1px solid var(--rule);}
+section.tight{padding:clamp(2.2rem,5vw,3.4rem) 0;}
+.sec-head{margin-bottom:2.2rem;}
+.sec-head .eyebrow,.sec-head .eyebrow-dim{display:block;margin-bottom:.9rem;}
+.sec-head h2{font-size:clamp(1.7rem,4vw,2.4rem);letter-spacing:-.015em;}
+.sec-head p{max-width:40rem;margin:1rem 0 0;color:var(--ink-2);font-size:1.06rem;line-height:1.55;}
+
+/* ---- prose ---- */
+.prose p{margin:0 0 1.15em;color:var(--ink-2);}
+.prose p.lead{font-size:1.24rem;line-height:1.52;color:var(--ink);}
+.prose h3{font-size:1.34rem;margin:2.2em 0 .5em;color:var(--ink);letter-spacing:-.01em;}
+.prose h4{font-size:1.06rem;margin:1.8em 0 .4em;color:var(--ink);font-family:var(--body);font-weight:600;letter-spacing:0;}
+.prose strong{color:var(--ink);}
+.prose em{color:inherit;}
+.prose a{color:var(--garnet);background-image:linear-gradient(var(--garnet),var(--garnet));background-size:100% 1px;background-repeat:no-repeat;background-position:0 100%;}
+.prose ul,.prose ol{margin:0 0 1.15em;padding-left:1.3em;color:var(--ink-2);}
+.prose li{margin:.3em 0;}
+.prose ul li::marker{color:var(--garnet);}
+.prose>*:first-child{margin-top:0;}
+
+/* ---- numbered reading sections with index rail ---- */
+.chapter{padding:clamp(2.6rem,6vw,4.2rem) 0;border-bottom:1px solid var(--rule);}
+.chapter .wide{display:grid;grid-template-columns:4.5rem 1fr;gap:0;align-items:start;}
+.chapter .idx{font-family:var(--mono);font-size:.82rem;color:var(--garnet);font-weight:600;letter-spacing:.06em;position:relative;padding-top:.35rem;}
+.chapter .idx::after{content:"";position:absolute;left:.05rem;top:2.2rem;bottom:-4.2rem;width:1px;background:var(--rule);}
+.chapter:last-of-type .idx::after{display:none;}
+.chapter .body{max-width:39rem;}
+.chapter h2{font-size:clamp(1.55rem,3.6vw,2.15rem);letter-spacing:-.015em;margin-bottom:1.1rem;}
+.chapter .body>.prose>p:first-child{margin-top:0;}
+@media(max-width:720px){
+  .chapter .wide{grid-template-columns:1fr;gap:0;}
+  .chapter .idx{padding-top:0;margin-bottom:.7rem;}
+  .chapter .idx::after{display:none;}
+}
+
+/* ---- callouts / figures / ledger ---- */
+.callout{border-left:2px solid var(--garnet);background:var(--garnet-wash);padding:1.15rem 1.3rem;margin:1.7rem 0;font-size:.99rem;line-height:1.58;color:var(--ink-2);}
+.callout .h{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--garnet);display:block;margin-bottom:.5rem;font-weight:600;}
+.callout p{margin:0 0 .7em;}.callout p:last-child{margin-bottom:0;}
+.callout strong{color:var(--ink);}
+
+.note{border-left:2px solid var(--rule);padding:1.05rem 1.25rem;margin:1.7rem 0;font-family:var(--mono);font-size:.82rem;line-height:1.62;color:var(--ink-3);}
+.note b{color:var(--ink-2);font-weight:600;}
+.notebar{font-family:var(--mono);font-size:.82rem;color:var(--ink-3);line-height:1.6;border-left:2px solid var(--rule);padding-left:1.1rem;margin-top:1.4rem;}
+
+.formula{font-family:var(--mono);background:var(--paper-2);border:1px solid var(--rule);padding:1.1rem 1.3rem;margin:1.6rem 0;font-size:.92rem;line-height:1.7;color:var(--ink);overflow-x:auto;}
+.formula .c{color:var(--ink-3);}
+.formula .g{color:var(--garnet);font-weight:600;}
+.formula .lbl{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.55rem;}
+
+.figure{margin:1.8rem 0;border:1px solid var(--rule);background:var(--paper-2);}
+.figure .cap{font-family:var(--mono);font-size:.74rem;color:var(--ink-3);line-height:1.55;padding:.85rem 1.1rem;border-top:1px solid var(--rule);}
+.figure .cap b{color:var(--ink-2);}
+.figure svg{display:block;width:100%;height:auto;}
+
+/* ---- attribute tokens (blank vs stated) ---- */
+.tok{font-family:var(--mono);font-size:.82em;padding:.08em .5ch;border:1px solid var(--garnet);white-space:nowrap;}
+.tok.blank{color:var(--garnet);border-style:dashed;background:none;}
+.tok.stated{color:#fff;background:var(--garnet);border-color:var(--garnet);}
+
+/* ---- three-up / two-up grids ---- */
+.moves,.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1rem;}
+.move,.grid3>div{background:var(--paper-2);padding:1.7rem 1.5rem;}
+.move .n,.grid3 .n{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--garnet);}
+.move h3,.grid3 h3{font-size:1.16rem;margin:.7rem 0 .5rem;letter-spacing:0;}
+.move p,.grid3 p{margin:0;font-size:.97rem;color:var(--ink-2);line-height:1.55;}
+.split,.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.split>div,.grid2>div{background:var(--paper-2);padding:1.7rem 1.5rem;}
+.split h3,.grid2 h3{font-size:1.14rem;margin:.6rem 0 .7rem;letter-spacing:0;}
+.split p,.grid2 p{margin:0 0 .8em;font-size:.97rem;color:var(--ink-2);line-height:1.55;}
+.split p:last-child,.grid2 p:last-child{margin-bottom:0;}
+
+/* ---- tables ---- */
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0;}
+.tbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.78rem;min-width:44rem;}
+.tbl th,.tbl td{text-align:left;padding:.62rem .75rem;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.tbl thead th{border-bottom:1.5px solid var(--ink);font-weight:600;}
+.tbl tbody tr:last-child td{border-bottom:none;}
+.tbl .me{background:var(--garnet-wash);}
+.tbl .me td:first-child{color:var(--garnet);font-weight:600;}
+.tbl-cap{font-family:var(--mono);font-size:.74rem;color:var(--ink-3);margin-top:.9rem;line-height:1.5;max-width:44rem;}
+
+/* ---- ledger (posted price list) ---- */
+.ledger{border-top:1.5px solid var(--ink);margin:1.4rem 0;}
+.ledger .row{display:grid;grid-template-columns:2.4rem 1fr auto;gap:1rem;align-items:baseline;padding:.72rem 0;border-bottom:1px solid var(--rule);}
+.ledger .q{font-family:var(--mono);font-size:.8rem;color:var(--garnet);font-weight:600;}
+.ledger .d{color:var(--ink-2);font-size:.98rem;line-height:1.45;}
+.ledger .d b{color:var(--ink);}
+.ledger .t{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap;text-align:right;}
+@media(max-width:600px){.ledger .row{grid-template-columns:2rem 1fr;}.ledger .t{grid-column:2;text-align:left;margin-top:.15rem;}}
+
+/* ---- papers ---- */
+.papers{border-top:1.5px solid var(--ink);}
+.paper{display:block;border-bottom:1px solid var(--rule);padding:1.25rem 0;transition:.15s;}
+.paper:hover{background:var(--paper-2);padding-left:.6rem;padding-right:.6rem;}
+.paper .pt{font-family:var(--display);font-size:1.14rem;color:var(--ink);line-height:1.25;letter-spacing:-.01em;}
+.paper .pm{font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;color:var(--ink-3);margin-top:.45rem;}
+.paper.newest .pt{color:var(--garnet);}
+.paper .flag{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--garnet);padding:.12em .55ch;margin-left:.6ch;vertical-align:middle;}
+
+/* ---- nav grid ---- */
+.navgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.navgrid a{background:var(--paper-2);padding:1.4rem 1.4rem;transition:.15s;}
+.navgrid a:hover{background:var(--paper-3);}
+.navgrid .nt{font-family:var(--display);font-size:1.12rem;color:var(--ink);letter-spacing:-.01em;}
+.navgrid .nd{font-size:.92rem;color:var(--ink-3);margin-top:.35rem;line-height:1.5;}
+.navgrid .arr{color:var(--garnet);}
+
+/* ---- dark band (nexic / deep-time) ---- */
+.band{background:var(--block);color:var(--on-block);border-bottom:none;}
+.band .eyebrow{color:var(--gold-2);}
+.band h2,.band h3{color:var(--on-block);}
+.band .sec-head p,.band .prose p{color:var(--on-block-2);}
+.band .prose strong{color:var(--on-block);}
+.band .stat{font-family:var(--mono);color:var(--gold-2);}
+.band a.link{color:var(--gold-2);}
+.band .btn{border-color:var(--on-block-3);color:var(--on-block);}
+.band .btn:hover{border-color:var(--gold-2);}
+.band .callout{border-left-color:var(--gold);background:rgba(154,123,51,.09);color:var(--on-block-2);}
+.band .callout .h{color:var(--gold-2);}
+.band .callout strong{color:var(--on-block);}
+
+/* ---- disclosure ---- */
+details.disc{border-top:1px solid var(--rule);}
+details.disc>summary{cursor:pointer;list-style:none;padding:1rem 0;display:flex;gap:.9rem;align-items:baseline;font-family:var(--display);font-size:1.1rem;color:var(--ink);transition:color .15s;}
+details.disc>summary:hover{color:var(--garnet);}
+details.disc>summary::-webkit-details-marker{display:none;}
+details.disc>summary .qn{font-family:var(--mono);font-size:.78rem;color:var(--garnet);font-weight:600;flex:none;width:2.4rem;}
+details.disc>summary .mk{margin-left:auto;font-family:var(--mono);color:var(--ink-3);flex:none;transition:transform .2s;}
+details.disc[open]>summary .mk{transform:rotate(45deg);}
+details.disc .ans{padding:0 0 1.5rem 3.3rem;max-width:42rem;}
+details.disc .ans>.prose>p:first-child{margin-top:0;}
+@media(max-width:600px){details.disc .ans{padding-left:0;}}
+
+/* ---- pull quote ---- */
+.pull{font-family:var(--display);font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.24;letter-spacing:-.015em;color:var(--ink);max-width:30ch;margin:2.2rem 0;padding-left:1.3rem;border-left:2px solid var(--garnet);}
+.pull em{font-style:italic;}
+
+/* ---- footer ---- */
+footer.site{background:var(--block);color:var(--on-block-2);padding:3.2rem 0 2.4rem;font-size:.9rem;border-top:1px solid #1C2740;}
+footer.site a{color:var(--on-block);}footer.site a:hover{color:#fff;}
+footer.site .foot-grid{display:flex;flex-wrap:wrap;gap:2.4rem 3.5rem;justify-content:space-between;}
+footer.site h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-block-3);margin:0 0 .9rem;font-weight:500;}
+footer.site ul{list-style:none;margin:0;padding:0;line-height:2;}
+footer.site .foot-note{color:var(--on-block-3);margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid #1C2740;font-size:.82rem;line-height:1.6;max-width:52rem;}
+
+/* ---- utility ---- */
+.stack>*+*{margin-top:1.1rem;}
+hr.div{border:none;border-top:1px solid var(--rule);margin:2.4rem 0;}
+@media(max-width:820px){.moves,.grid3,.split,.grid2,.navgrid{grid-template-columns:1fr;}}
+@media(max-width:720px){body{font-size:17.5px;}}
+</style>
+
+<header class="mast indexed">
+  <div class="wide">
+    <div class="kicker">The central ideas &middot; seven profiles &middot; each priced</div>
+    <h1>Seven ideas,<br><em>each priced.</em></h1>
+    <p class="standfirst">A framework is only as good as the ideas it runs on, and a reader deciding whether to spend an afternoon on this one deserves to see those ideas laid out one at a time, with the test they are being held to stated first. This page does that. Each idea is given in one sentence, then judged on what it accomplishes with how little, on whether it was forced or merely chosen, on what problem it dissolves, and on what it costs &mdash; because every one of them costs something, and the ledger is the point.</p>
+    <div class="meta">
+      <span>Aethic reasoning</span>
+      <span class="rel">determinacy( q <span class="bar">&#8739;</span> A )</span>
+      <span>by Ajax Benander</span>
+      <span>one test, applied seven times</span>
+      <span>not yet peer-reviewed</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wide" style="max-width:44rem;">
+    <div class="prose">
+      <h3>The test, stated before it is applied</h3>
+      <p>An idea earns a place here if it meets three conditions at once. It does a great deal with very little &mdash; one commitment, many consequences. It is <em>forced</em>: the alternatives were tried and failed visibly, so the idea is what remained rather than what was preferred. And it <em>dissolves</em> rather than answers &mdash; the question it addresses stops needing to be asked, instead of receiving one more answer. The three conditions are the reader&rsquo;s to check, not the framework&rsquo;s to assert, and the profiles below are written so that each check can be made from the profile alone. Every idea also carries a line marked <em>cost</em>, naming the posit or convention it consumes; nothing here is free, and the honest presentation of a framework is the list of what it pays.</p>
+
+      <h3>1. Exclusion as an achievement</h3>
+      <p><em>In one sentence.</em> A classical <em>or</em> and a quantum superposition are the same jointness, differing only in whether the alternatives carry their exclusions written inside them. This is the Union Principle.</p>
+      <p><em>What it does with how little.</em> One reform, made one layer below where quantum logic tried to reform, and out fall the two regimes: agreeing superposition, where the alternatives carry no exclusions and interact, and disagreeing superposition, where each alternative says &ldquo;and not the others&rdquo; and the alternatives stand apart. Interference is what the first looks like; the classical world is the second. Distributivity is kept; nothing about the logic changes; only what is written into the alternatives does. Schr&ouml;dinger&rsquo;s cat becomes a classification exercise: the cat&rsquo;s alternatives carry their exclusions &mdash; its body, the counter, the vial are all records &mdash; so it was never in the electron&rsquo;s regime, and the reason is its records, not its size.</p>
+      <p><em>Why it is forced.</em> The extrusion principle, taken seriously, creates a paradox: if blanks are genuinely open, what stops every blank in the world from interfering? The answer had to be a property of the alternatives, not of the world, and this is the property.</p>
+      <p><em>What it dissolves.</em> The quantum&ndash;classical divide as a divide by scale. It is a difference in bookkeeping, and bookkeeping is a matter of records.</p>
+      <p><em>The sentence to quote.</em> &ldquo;The difference between a classical <em>or</em> and a quantum superposition is a difference in what is written into the alternatives, not in the logic that composes them.&rdquo;</p>
+      <p><em>Cost.</em> The primitive jointness of <em>or</em> is a posit, booked on the closing ledger of the long paper as such.</p>
+
+      <h3>2. Validity as a safety property</h3>
+      <p><em>In one sentence.</em> A description is valid exactly when it admits a refinement all of whose further refinements stay valid &mdash; an existential quantifier over a universal one, on the graph of refinements. This is the Third Postulate, and the picture is checkmate rather than check.</p>
+      <p><em>What it does with how little.</em> One quantifier shape supplies the thing the century&rsquo;s vocabulary lacked: a <em>modal</em> grade, the ability to say an alternative is invalid relative to an observer rather than merely improbable. With that grade, collapse is what pruning looks like when a record exists; the projection postulate is pruning followed by renormalization; there is no cut, because the rule fires wherever records escape; and observers cannot contradict one another about anything either has a record of, as a theorem. Formally the rule is a fixed point &mdash; the largest set of states closed under safe refinement &mdash; which is why it is a constraint and not a mechanism.</p>
+      <p><em>Why it is forced.</em> The derivation runs by elimination, and the dated record shows it: a there-exists form refuted by inheritance, a for-all form that cannot be applied to the very state it was written for, and the two-generation form as the only survivor.</p>
+      <p><em>What it dissolves.</em> The measurement problem as a dynamical problem. Nothing happens to any object; a record makes a description invalid relative to every state that can read it, and &ldquo;projection&rdquo; names the residue.</p>
+      <p><em>The sentence to quote.</em> &ldquo;A superposition that any future record could contradict is invalid now.&rdquo;</p>
+      <p><em>Cost.</em> Nothing beyond the Union Principle it consumes, and one physical claim named under idea 5.</p>
+
+      <h3>3. Joint invalidity in place of causation</h3>
+      <p><em>In one sentence.</em> A correlation is accounted for by which combinations are jointly invalid relative to an information state &mdash; no signal, no common cause, no time order &mdash; with &ldquo;A causes B&rdquo; re-read as &ldquo;A-with-not-B is jointly invalid.&rdquo;</p>
+      <p><em>What it does with how little.</em> One principle handles the EPR correlations without a signal, Newcomb&rsquo;s predictor without backward causation, and Reichenbach&rsquo;s common-cause principle as a theorem in the exclusive regime, with the three classical causal readings becoming the ways one may <em>narrate</em> a single joint-validity fact. Its most consequential instance is the vacuum reading: nothing conceals the which-way record of an agreeing superposition, because agreement and any eventual access to the record are jointly invalid and pruned at the root.</p>
+      <p><em>Why it is forced.</em> Each of the three causal readings fails by fine-tuning &mdash; it must tune its parameters to hide the pathway it posits. A statement with no direction in it posits no pathway and has nothing to tune.</p>
+      <p><em>What it dissolves.</em> The correlation-versus-causation distinction as a distinction in the world. Both are the same fact, seen with or without a narration.</p>
+      <p><em>The sentence to quote.</em> &ldquo;The superposition does not keep anyone out; the combinations in which someone was let in were never valid members of its state.&rdquo;</p>
+      <p><em>Cost.</em> The reader&rsquo;s habit. The attached reading &mdash; everything in a block conspires under the constraint that the block exists, more visibility rather than more determinism &mdash; is the framework&rsquo;s deepest departure from the everyday picture, and it should be met knowing that.</p>
+
+      <h3>4. The Born rule absorbed</h3>
+      <p><em>In one sentence.</em> The weights of clusters determine the amplitudes up to a global phase and complex conjugation, so the state vector is a derived bookkeeping object, and the Born rule and the state space are one axiom where the standard presentation has two.</p>
+      <p><em>What it does with how little.</em> A polarization identity a page long reverses the direction of explanation: weights are posited and states derived, where the standard order posits states and derives probabilities. The two freedoms the weights leave open are exactly the two quantum mechanics already has &mdash; the global phase, and the time-reversal ambiguity, which a convention the framework already owned fixes. Probability turns out to be the general structure and amplitudes the special case tailored to one arena, which reverses the usual reading of quantum theory as a generalization of probability.</p>
+      <p><em>Why it is forced.</em> Nothing in the axiom set ever refers to a bare amplitude. If the amplitudes were not recoverable from the weights, the recovery of the standard formalism would be empty. They are.</p>
+      <p><em>What it dissolves.</em> The question of whether the wavefunction is real. It is the polarization of the weights &mdash; bookkeeping for the one part of the kinematics that is still genuinely open.</p>
+      <p><em>The sentence to quote.</em> &ldquo;Only that direction is one on which the amplitude is nobody&rsquo;s content.&rdquo;</p>
+      <p><em>Cost.</em> It makes the kernel&rsquo;s posited status impossible to miss, which is the right cost to pay visibly.</p>
+
+      <h3>5. The boundary as a partition</h3>
+      <p><em>In one sentence.</em> Under any arrangement of detectors, every candidate superposition falls into exactly one of three bins fixed by the partition the records induce, and the quantum&ndash;classical boundary slides with the detectors. This is the Powerset Invalidation Theorem.</p>
+      <p><em>What it does with how little.</em> Combinatorics, plus the two postulates&rsquo; own labels &mdash; over-specification for the second, checkmate for the third &mdash; deliver the double slit, the quantum eraser, and delayed choice as one theorem, give Feynman&rsquo;s indistinguishability rule a ground that does not assume it, and make measurement something derived from records rather than posited. There is no place to put a Heisenberg cut, so none is drawn.</p>
+      <p><em>Why it is forced.</em> The three bins are the only three ways a subset can sit against a partition.</p>
+      <p><em>What it dissolves.</em> The question of where the boundary is. It is wherever the records are, and it moves when they do.</p>
+      <p><em>The sentence to quote.</em> &ldquo;Move a detector and every case re-bins; that is the sliding boundary.&rdquo;</p>
+      <p><em>Cost.</em> One physical claim, stated in the long paper as the framework&rsquo;s sole structural divergence from universal unitarity: that a record-bearing system of observer grade cannot be kept from exporting its records. This is where a physicist who doubts the whole should press, and the framework says so.</p>
+
+      <h3>6. A commitment held everywhere</h3>
+      <p><em>In one sentence.</em> No reality state relative to a standpoint is ever overwritten by what it later turns out to be. This is the Extrusion Principle, and its shape is the equivalence principle&rsquo;s: a commitment nearly vacuous locally that, held without exception, forces a medium.</p>
+      <p><em>What it does with how little.</em> One sentence, plus the decision to insist on it in the ordinary determinate world, and the Second Postulate arrives as the only medium in which the commitment survives without paradox &mdash; blanks that are genuinely open rather than merely unknown, the way curvature arrives as the only medium in which free fall can be inertial everywhere. The split into a bare kernel and the interface that operationalizes it is itself a small instrument of philosophy of science, usable on other principles.</p>
+      <p><em>Why it is forced.</em> The rival &mdash; ignorance about an objective fact &mdash; is refuted by an invariant. An update that only ever adds determinate content can be read as ignorance being filled in; an update that also subtracts, as every learning event does here, cannot.</p>
+      <p><em>What it dissolves.</em> The picture of learning as overwriting. The alternatives to what one knows are standing content of the one block one occupies, relative to one&rsquo;s own index.</p>
+      <p><em>The sentence to quote.</em> &ldquo;The multiverse does not contain the room; the room contains the multiverse.&rdquo;</p>
+      <p><em>Cost.</em> The index &mdash; determinacy as a two-place relation &mdash; which is the price of the whole framework, paid once, here.</p>
+
+      <h3>7. The ordering deleted, and its absence proved</h3>
+      <p><em>In one sentence.</em> Counterfactuals are evaluated by reopening a stated attribute within the evaluator&rsquo;s own structure, restating it, and re-pruning; the resulting consequence relation fails Cautious Monotony, so no similarity ordering could have represented it.</p>
+      <p><em>What it does with how little.</em> A parameter that sixty years of the literature could not justify is not replaced but shown never to have been needed. Grammatical mood &mdash; would, might, if-in-fact &mdash; falls out of the settings of a single scope convention. Causation arrives as a verdict of the semantics rather than an input to it.</p>
+      <p><em>Why it is forced.</em> The ordering was an artifact of housing the alternatives at other worlds; it vanishes the moment they come home.</p>
+      <p><em>What it dissolves.</em> The search for the right similarity metric.</p>
+      <p><em>The sentence to quote.</em> &ldquo;Non-appearance of the parameter is not the standard; non-recoverability is.&rdquo;</p>
+      <p><em>Cost.</em> The scope convention &mdash; the one declared parameter of the semantics, declared as such.</p>
+
+      <h3>Restraint, as an eighth idea</h3>
+      <p>The kernel &mdash; the phase-weighted sum over paths that quantum mechanics already uses &mdash; is the axiom set&rsquo;s one quantitative input, and the framework does not derive it from the postulates. The ruling is that it should not: the postulates are logical in substance, the kernel kinematic, the two meeting at a single door, and deriving one from the other would be a category mistake of the kind that deriving a metric from a logic would be. A framework that tried anyway would produce something ugly. This one names the door, says that the kernel is to be unveiled by geometry the way a metric is, assigns that to a successor program, and stops. Knowing what not to derive belongs on this list.</p>
+
+      <h3>What is not on the list, and why</h3>
+      <p>Two things a reader might expect are absent, for stated reasons. The two-tag construction and its complementarity geometry &mdash; both composition laws in one experiment, closing on the standard relations for reasons that are theorems &mdash; are demonstrations that the machinery has the right grain, not sources of it. And the relativity of determinacy itself, the single inversion at the root, is the framework&rsquo;s foundation rather than one of its ideas; everything above is what it makes possible, and it is treated on its own page.</p>
+      <p>Each profile above is a summary of a result proved or a principle stated in the long paper, at the grade the paper gives it; the grades are the paper&rsquo;s, and the places where a claim outruns its proof are named there rather than here. The long paper&rsquo;s closing ledger is the list of everything these seven consume, and the appropriate posture toward an independent, unreviewed framework is provisional interest with that ledger in hand.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wide">
+    <div class="sec-head"><span class="eyebrow">Go deeper</span><h2>One click down.</h2></div>
+    <div class="navgrid">
+      <a href="/aethic-reasoning-guide.html">
+        <div class="nt">The Aethic Guide <span class="arr">&rarr;</span></div>
+        <div class="nd">The framework at six depths &mdash; pick your level, from first contact to research grade, with the papers as level six and the Powerset Invalidation Theorem live at Level 4. Pick your depth; each level is self-contained.</div>
+      </a>
+      <a href="https://philpapers.org/rec/BENARI-3">
+        <div class="nt">&ldquo;In Brief&rdquo; &mdash; the paper &#8599;</div>
+        <div class="nd">The source: thirty pages from a counterfactual semantics to the axiomatization of quantum mechanics, with the closing ledger that prices all seven.</div>
+      </a>
+      <a href="/nexic-reasoning-guide.html">
+        <div class="nt">The Nexic Guide <span class="arr">&rarr;</span></div>
+        <div class="nd">The other wing: what your existence lets you deduce about the history that produced it &mdash; and the arithmetic of how rare that history was.</div>
+      </a>
+      <a href="/faq.html">
+        <div class="nt">Questions &amp; Context <span class="arr">&rarr;</span></div>
+        <div class="nd">The hardest objections answered directly &mdash; Many-Worlds, Bell, peer review &mdash; plus the human story behind the work.</div>
+      </a>
+      <a href="/aethic_genealogy.html">
+        <div class="nt">The Genealogy <span class="arr">&rarr;</span></div>
+        <div class="nd">How the move was found &mdash; the dated, checkable record of the framework&rsquo;s development, from a preschool epiphany to the papers.</div>
+      </a>
+      <a href="/constraints_map.html">
+        <div class="nt">Threading the Needle <span class="arr">&rarr;</span></div>
+        <div class="nd">How the framework was actually derived &mdash; twenty-four derivations read as constraint-fields, each threaded by a single move.</div>
+      </a>
+    </div>
+  </div>
+</section>
