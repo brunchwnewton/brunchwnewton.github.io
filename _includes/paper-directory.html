@@ -27,7 +27,10 @@
 
   Styling is scoped under .pdir and uses the site's CSS variables with
   fallbacks, so the component looks right even on a page that doesn't
-  define them. The <style> block prints only once per page.
+  define them. Hover, sheen and glow follow the host page's palette: the
+  glow derives from --garnet and --gold, and a page on a dark theme sets
+  --pdir-hover (the card's hover background, default #fff) and --pdir-sheen
+  (the featured card's sweep, default near-opaque white) in its :root. The <style> block prints only once per page.
 ============================================================================
 {%- endcomment -%}
 
@@ -58,7 +61,7 @@
 .pdir-row-alt .pdir-card{background:var(--paper-3,#E7E5DB);}
 .pdir-row-alt .pdir-card:hover{background:var(--paper-2,#F7F6F0);}
 .pdir-card{background:var(--paper-2,#F7F6F0);padding:1.7rem 1.5rem 1.45rem;display:flex;flex-direction:column;transition:.15s;}
-.pdir-card:hover{background:#fff;}
+.pdir-card:hover{background:var(--pdir-hover,#fff);}
 .pdir-card .tn{font-family:var(--mono,ui-monospace,Menlo,monospace);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--garnet,#7E1D2E);font-weight:500;}
 .pdir-card h3{font-family:var(--display,Georgia,serif);font-size:1.2rem;margin:.75rem 0 .25rem;letter-spacing:-.008em;line-height:1.22;color:var(--ink,#1A1B18);}
 .pdir-card .tsub{font-family:var(--display,Georgia,serif);font-style:italic;font-size:.96rem;color:var(--ink-3,#6E6F65);line-height:1.35;margin:0 0 .85rem;}
@@ -89,13 +92,13 @@
    clipper. If that rule ever fails to apply, the band resolves against the page
    instead and slides down the left edge of the whole document. Keep them together. */
 .pdir-card.is-feature{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--garnet-wash,rgba(126,29,46,.07)),transparent 62%),var(--paper-2,#F7F6F0);}
-.pdir-card.is-feature::after{content:"";position:absolute;top:0;left:-60%;width:42%;height:100%;pointer-events:none;opacity:0;transform:skewX(-18deg);background:linear-gradient(100deg,transparent,rgba(255,255,255,.92),transparent);}
-.pdir-card.is-feature:hover{background:#fff;z-index:3;transform:translateY(-3px) scale(1.012);animation:pdir-glow 1.1s ease-in-out infinite alternate;}
+.pdir-card.is-feature::after{content:"";position:absolute;top:0;left:-60%;width:42%;height:100%;pointer-events:none;opacity:0;transform:skewX(-18deg);background:linear-gradient(100deg,transparent,var(--pdir-sheen,rgba(255,255,255,.92)),transparent);}
+.pdir-card.is-feature:hover{background:var(--pdir-hover,#fff);z-index:3;transform:translateY(-3px) scale(1.012);animation:pdir-glow 1.1s ease-in-out infinite alternate;}
 .pdir-card.is-feature:hover::after{opacity:1;animation:pdir-sweep 1.25s ease-in-out infinite;}
 .pdir-card.is-feature:hover h3{color:var(--garnet,#7E1D2E);}
 .pdir-card.is-feature:hover .tn{animation:pdir-flip .66s steps(1,end) infinite;}
 .pdir-card.is-feature:hover .tlink{text-decoration:underline;text-underline-offset:.18em;}
-@keyframes pdir-glow{from{box-shadow:0 0 0 2px var(--garnet,#7E1D2E),0 12px 30px -10px rgba(126,29,46,.40);}to{box-shadow:0 0 0 3px var(--gold,#9A7B33),0 20px 46px -8px rgba(154,123,51,.58);}}
+@keyframes pdir-glow{from{box-shadow:0 0 0 2px var(--garnet,#7E1D2E),0 12px 30px -10px rgba(126,29,46,.40);box-shadow:0 0 0 2px var(--garnet,#7E1D2E),0 12px 30px -10px color-mix(in srgb,var(--garnet,#7E1D2E) 40%,transparent);}to{box-shadow:0 0 0 3px var(--gold,#9A7B33),0 20px 46px -8px rgba(154,123,51,.58);box-shadow:0 0 0 3px var(--gold,#9A7B33),0 20px 46px -8px color-mix(in srgb,var(--gold,#9A7B33) 58%,transparent);}}
 @keyframes pdir-sweep{0%{left:-60%;}100%{left:118%;}}
 @keyframes pdir-flip{0%,49%{color:var(--garnet,#7E1D2E);}50%,100%{color:var(--gold,#9A7B33);}}
 @media(prefers-reduced-motion:reduce){.pdir-card.is-feature:hover{animation:none;transform:none;box-shadow:0 0 0 2px var(--garnet,#7E1D2E);}.pdir-card.is-feature:hover::after{display:none;}.pdir-card.is-feature:hover .tn{animation:none;}}
