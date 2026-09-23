@@ -97,7 +97,7 @@ rows:
         code: "BENCEB-2"
         label: "№ 1 · Modality"
         title: "Counterfactual Evaluation by Perturbation of Information States"
-        subtitle: "Deleting the ordering, not refining it"
+        subtitle: "Deleting the world-similarity ordering, not refining it"
         blurb: >-
           "What would have happened" is evaluated without ever leaving the evaluator:
           reopen the antecedent's entry in your own information state, restate it,
@@ -108,14 +108,14 @@ rows:
         meta: "Home field: semantics of conditionals · assumes no physics · preprint, July 2026"
         newest: true
         flag: "Trio · № 1"
-        list_title: "Counterfactual Evaluation by Perturbation of Information States: Deleting the Ordering, Not Refining It"
+        list_title: "Counterfactual Evaluation by Perturbation of Information States: Deleting the World-Similarity Ordering, Not Refining It"
         list_meta: "July 2026 · extraction paper · semantics of conditionals · direct PDF"
 
       - key: exclusivity
         code: "BENEAA-9"
         label: "№ 2 · Logic"
         title: "Exclusivity as Achievement"
-        subtitle: "Relocating mutual exclusion to the interior, and the logical primitive that falls out"
+        subtitle: "Relocating mutual exclusion to the interior, and the composition regime that falls out"
         blurb: >-
           Mutual exclusivity is not the nature of <em>or</em>; it is stated content
           carried on the interior of each alternative — an achievement, and so removable.
@@ -127,14 +127,14 @@ rows:
         meta: "Home field: logic &amp; metaphysics · the physics quarantined · preprint, July 2026"
         newest: true
         flag: "Trio · № 2"
-        list_title: "Exclusivity as Achievement: Relocating Mutual Exclusion to the Interior, and the Logical Primitive That Falls Out"
+        list_title: "Exclusivity as Achievement: Relocating Mutual Exclusion to the Interior, and the Composition Regime That Falls Out"
         list_meta: "July 2026 · extraction paper · logic &amp; metaphysics · direct PDF"
 
       - key: boundary
         code: "BENTQB"
         label: "№ 3 · Measurement"
-        title: "The Quantum–Classical Boundary as an Informational Classification"
-        subtitle: "A derivation from three consistency postulates on observer-indexed information states"
+        title: "Quantum Mechanics from Records"
+        subtitle: "Three consistency postulates, one composition primitive, and one kernel recover the measurement architecture of the Dirac–von Neumann formalism, with the projection postulate as a theorem"
         blurb: >-
           Three postulates — no dynamics, no Hilbert space, no scale parameter — yield a
           classification theorem sorting every candidate superposition into three bins,
@@ -145,7 +145,7 @@ rows:
         meta: "Home field: quantum foundations · assumptions inventoried · preprint, July 2026"
         newest: true
         flag: "Trio · № 3"
-        list_title: "The Quantum–Classical Boundary as an Informational Classification: A Derivation from Three Consistency Postulates on Observer-Indexed Information States"
+        list_title: "Quantum Mechanics from Records: Three Consistency Postulates, One Composition Primitive, and One Kernel Recover the Measurement Architecture of the Dirac–von Neumann Formalism, with the Projection Postulate as a Theorem"
         list_meta: "July 2026 · extraction paper · quantum foundations · direct PDF"
 
 
@@ -202,8 +202,8 @@ rows:
       - key: causality
         code: "BENCWT-4"
         label: "Causation"
-        title: "Causality Without the Classical Triad"
-        subtitle: "Reichenbach's principle as a theorem, and the Bell correlations as its regime boundary"
+        title: "Screening Without the Classical Triad"
+        subtitle: "Reichenbachian screening as a factorization theorem, and the Bell correlations as its regime boundary"
         blurb: >-
           No causal arrow appears anywhere in the analysis. With the two causal horns
           defined by their behavior under conditioning, Reichenbach's common-cause
@@ -212,7 +212,7 @@ rows:
           arrangements, one signature. The Bell correlations sit exactly at that theorem's
           boundary.
         meta: "Home field: causation · answers the Wood–Spekkens diagnosis · preprint, July 2026"
-        list_title: "Causality Without the Classical Triad: Reichenbach's Principle as a Theorem, and the Bell Correlations as Its Regime Boundary"
+        list_title: "Screening Without the Classical Triad: Reichenbachian Screening as a Factorization Theorem, and the Bell Correlations as Its Regime Boundary"
         list_meta: "July 2026 · extraction paper · causation · direct PDF"
 
       - key: copernican
