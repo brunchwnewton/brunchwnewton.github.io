@@ -1,0 +1,10 @@
+---
+layout: null
+permalink: /claims.json
+---
+{%- assign owners = site.data.compendium.entries | where_exp: "e", "e.claims.size > 0" -%}
+[
+{%- for e in owners -%}{%- assign outer_last = forloop.last -%}{%- for c in e.claims %}
+{"entry": {{ e.id | jsonify }}, "entry_name": {{ e.name | jsonify }}, "claim": {{ c.claim | jsonify }}, "public_wording": {{ c.public_wording | jsonify }}, "status": {{ c.status | jsonify }}, "statement": {{ c.statement | jsonify }}, "assumptions": {{ c.assumptions | jsonify }}, "source": {{ c.source | jsonify }}, "last_checked": {{ c.last_checked | jsonify }}}{% unless outer_last and forloop.last %},{% endunless %}
+{%- endfor -%}{%- endfor %}
+]
