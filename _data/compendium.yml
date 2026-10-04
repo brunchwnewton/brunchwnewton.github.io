@@ -1329,9 +1329,12 @@ entries:
     anthropic cosmology, philosophy of mind, aesthetics and sublime theory, the meaning-in-life debate, contemplative studies,
     and the science-religion dialogue—a framework that occupies a stable middle position between the Nietzschean settlement
     (meaning is constructed, cosmos is indifferent) and theistic backing (meaning is given, cosmos is designed), without collapsing
-    into either. See children entries for the specific sub-components of the stance.</p>'
+    into either. See children entries for the specific sub-components of the stance.</p><p class="current-form"><em>Current
+    form (October 2026): the &quot;personally-convergent sublime&quot; is now the indexical-incorporation component X of the
+    Nexic sublime (#158), the observer a continuation state of the structure observed; the name does not appear in the current
+    papers.</em></p>'
   evidence: unreviewed
-  checked: '2026-10-04'
+  checked: 2026-10-04 (current-form note appended; prose unrevised)
   claims:
   - claim: miracleism_conditional
     public_wording: Miracleism explores what would follow existentially if independently supported target-conditioned structure
@@ -1347,7 +1350,7 @@ entries:
   role: foundational
   domain: golden program
   scope: ''
-  verification: formal statement reconciled
+  verification: current-form note appended; prose unreconciled
   history_status: current
   history: []
   relations:
@@ -3240,7 +3243,7 @@ entries:
     target: '20'
   num: 33
 - id: '34'
-  name: The Three Nexae (Cosmic, Aetherian, Optimation)
+  name: The Three Nexae (Cosmic, Aetherian, Golden)
   wings:
   - nexic
   types:
@@ -3250,23 +3253,36 @@ entries:
   kind: concept
   parent: 04 01
   date: Developed 2021–2023 · §1.4.1 of Nexic paper
-  desc: '<p>The complete probability infrastructure of Nexic reasoning. <em>Cosmic Nexus</em> (N₀): volumetric frequency—the
-    “view from nowhere,” what the universe looks like without anthropic selection. <em>Aetherian Nexus</em> (N_H): observer
-    probability—the observer’s perspective. <em>Optimation</em> (N_{H_e}): biosphere-membership-conditioned—applies to any
-    entity sharing a biosphere with an eventual observer, even if not an observer itself. The formal definition P(B|A, N_{H_e})
-    ⟺ P(B|A, N₀, H_e) expresses Optimation as the Cosmic Nexus conditioned on eventual observer-production. This trichotomy
-    is what lets the paper distinguish cosmic typicality from observer-typicality from biosphere-typicality.</p>'
+  desc: '<p><strong>Current form.</strong> The <em>Cosmic Nexus</em> is the cosmic weighting, volumetric frequency across
+    the universe without anthropic conditioning. The <em>Aetherian Nexus</em> is not a weighting but an Aethus: the one of
+    which our own Aethus is a proper child, the index at which observer-production is stated, used in that sense throughout
+    the Golden papers. The <em>Golden Nexus</em> is the cosmic weighting conditioned on the Golden Point, a biosphere''s passage
+    into the Golden regime; <em>Optimation</em> names that conditioned measure, and the fluke content a record so conditioned
+    displays against the Cosmic Nexus''s own rates is what the measure shows. The <em>Golden Aethus</em> is the Aethus stating
+    exactly the Golden Point as a future-referring attribute, all else blank, the index of that conditioning.</p><p><strong>Earlier
+    form.</strong> The April compendium listed Cosmic (N₀), Aetherian (N_H, "observer probability") and Optimation (N_{H_e},
+    "biosphere-membership-conditioned") as three weightings; the Aetherian Nexus is now an Aethus and the third Nexus is the
+    Golden Nexus.</p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (Golden-wing rename pass)
   claims: []
   assumptions: ''
-  source: ''
+  source: golden_reasoning, the usage notes on the Nexae; miracleism
   role: supporting
   domain: anthropic
   scope: ''
-  verification: source reconciliation pending
+  verification: formal statement reconciled
   history_status: current
-  history: []
+  history:
+  - version: April 2026 (name/content before the Golden-wing renames)
+    note: retitled and rewritten to the Golden wing's current terms (October 2026 extractions); the earlier wording kept here
+    desc: '<p>The complete probability infrastructure of Nexic reasoning. <em>Cosmic Nexus</em> (N₀): volumetric frequency—the
+      “view from nowhere,” what the universe looks like without anthropic selection. <em>Aetherian Nexus</em> (N_H): observer
+      probability—the observer’s perspective. <em>Optimation</em> (N_{H_e}): biosphere-membership-conditioned—applies to any
+      entity sharing a biosphere with an eventual observer, even if not an observer itself. The formal definition P(B|A, N_{H_e})
+      ⟺ P(B|A, N₀, H_e) expresses Optimation as the Cosmic Nexus conditioned on eventual observer-production. This trichotomy
+      is what lets the paper distinguish cosmic typicality from observer-typicality from biosphere-typicality.</p>'
+    name: The Three Nexae (Cosmic, Aetherian, Optimation)
   relations:
   - type: unclassified (from the April parent edge)
     target: '04'
@@ -5401,7 +5417,10 @@ entries:
     Role 3), the Aethic Multiverse ontology (which requires Role 2), and the observer-relative ontology (which requires Role
     1) to all operate under the same postulates.</p><p class="current-form"><em>Current form (2026): &quot;proper child&quot;
     is read as declared refinement, the splittings each Aethus admits, which is distinct from the lattice order; invalidity
-    is a tag, never a deletion.</em></p>'
+    is a tag, never a deletion.</em></p><p class="current-form"><em>Current form (October 2026): in the Golden papers the
+    Aetherian Nexus is not a weighting but an Aethus, the one of which our own Aethus is a proper child, the index at which
+    observer-production is stated; the weighting conditioned on that event is the Golden Nexus, Optimation naming the conditioned
+    measure (#34). Read the April statement&#x27;s &quot;weighted superposition&quot; as the conditioned measure at that index.</em></p>'
   evidence: concept
   checked: 2026-10-04 (current-form note appended; prose unrevised)
   claims: []
@@ -5732,16 +5751,20 @@ entries:
     and Cosmic-Nexus-weights … serving as a reliable diagnostic of statistical correlation” is the Theorem of Aimless Optimation
     (#12) and the methodological Accordance Principle (#541). The value of stating the claim as one sentence is that it shows
     the nine components to be a structurally tight family rather than a loose inventory — which is the basis for treating
-    the framework’s apparatus as a refactoring rather than an accumulation.</p>'
+    the framework’s apparatus as a refactoring rather than an accumulation.</p><p class="current-form"><em>Current form (October
+    2026): in the Golden papers the Aetherian Nexus is not a weighting but an Aethus, the one of which our own Aethus is a
+    proper child, the index at which observer-production is stated; the weighting conditioned on that event is the Golden
+    Nexus, Optimation naming the conditioned measure (#34). Read the April statement&#x27;s &quot;weighted superposition&quot;
+    as the conditioned measure at that index.</em></p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (current-form note appended; prose unrevised)
   claims: []
   assumptions: ''
   source: ''
   role: supporting
   domain: anthropic
   scope: ''
-  verification: source reconciliation pending
+  verification: current-form note appended; prose unreconciled
   history_status: current
   history: []
   relations:
@@ -10632,16 +10655,20 @@ entries:
     Independence Principle (Principle 7) then asserts that this Aetherian Null Aethus is statistically independent of the
     Cosmic Null Aethus—meaning that the cosmos’s physical-dimensional properties do not preferentially favor or disfavor Aetherian
     existence. This independence is what makes the Fundamental Theorem of Nexic Reasoning applicable: without it, the attentor
-    (Aetherian Nexus) and contentor (Cosmic Nexus) would be correlated, and the theorem’s conditions would not hold.</p>'
+    (Aetherian Nexus) and contentor (Cosmic Nexus) would be correlated, and the theorem’s conditions would not hold.</p><p
+    class="current-form"><em>Current form (October 2026): in the Golden papers the Aetherian Nexus is not a weighting but
+    an Aethus, the one of which our own Aethus is a proper child, the index at which observer-production is stated; the weighting
+    conditioned on that event is the Golden Nexus, Optimation naming the conditioned measure (#34). Read the April statement&#x27;s
+    &quot;weighted superposition&quot; as the conditioned measure at that index.</em></p>'
   evidence: definition
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (current-form note appended; prose unrevised)
   claims: []
   assumptions: ''
   source: ''
   role: supporting
   domain: anthropic
   scope: ''
-  verification: source reconciliation pending
+  verification: current-form note appended; prose unreconciled
   history_status: current
   history: []
   relations:
@@ -10834,73 +10861,89 @@ entries:
     target: '82'
   num: 156
 - id: '158'
-  name: Sublimity of Optimation / Footnote 49
+  name: The Nexic Sublime (formerly the Sublimity of Optimation, Footnote 49)
   wings:
   - nexic
   - meta
   types:
   - philosophical
   tier: c
-  kind: concept
+  kind: definition
   parent: '450'
   date: Nexic paper footnote 49 (§8.5)
-  desc: '<p>The most affectively concentrated passage in the entire Nexic paper, located in a footnote of the panspermia analysis
-    (§8.5). Ajax explicitly invokes “sublimity” as a technical aesthetic category, stages progressive imagination-failures
-    via Graham’s number, arcsecond-to-lifeless-universe asymmetry, 52!-draining-oceans, and cathedral-within-cathedral recursion,
-    then breaks the fourth wall to identify the cosmic focal point as the reader’s current act of cognition. Doubles as the
-    cleanest single articulation in the work of the Personally-Convergent Sublime category and is one of the most rhetorically
-    distinctive moments in the entire framework. Reproduced in full below for reference.</p><blockquote style="margin: 1.2em
-    0; padding: 0.95em 1.3em; border-left: 3px solid var(--accent); font-style: italic; color: var(--ink); background: rgba(212,
-    168, 87, 0.05);"><p style="margin-top: 0;">The sublimity of this sort of Optimation-driven event, in my view, is in the
-    stakes primarily. For each such Miracle event the stakes are incomprehensible in a way that is reminiscent only to the
-    trying and failing to picture the vastness of Graham’s number. It is simply a magnitude of such consequence focused into
-    a package so compact that effectively the remainder of all existential considerations in the universe amount to the null
-    set by comparison. This is a consistent principle across all Nexic Miracles, but the stellar lithopanspermia illustrates
-    this particularly concisely—a fraction of a fraction of an arcsecond of faulty trajectory would have rendered the length
-    of the observable universe lifeless forevermore—this being one shot against the Rare Earth hypothesis’s universe—and by
-    deduction from the strong Accordance Principle the original planet or setting of abiogenesis itself hits the head of a
-    needle in life-generating optimization that no other place in the cosmos could approach by trillions upon trillions of
-    probabilistic factors. What kind of chemical environment alone would such an optimization point have housed? There is
-    one question—and like the null set analogy emphasizes it itself would be lost in the crowd amongst the infinity of others
-    at its level of consequence or higher.</p><p>And remember that this would be just one Miracle, fleshed out with two stated-attributes
-    (being origination and transfer to Earth). So by combining all possible Miracles which occurred—each more consequential
-    than the last because the gap to Aetherians was that much closer—what we are left with is a cumulative level of profundity
-    which overloads the reasoned senses like the probability of 52!’s draining the oceans being a speck in a cathedral which
-    is itself a speck in a cathedral iterated quintillions of times. And yet, each as a parent Aethus ad infinitum, we focus
-    this entire infinitude of consequentiality into a single spark—and that spark is the Aethus with which you currently read
-    this page.</p><p style="margin-bottom: 0;">If I leave you with any message, it is that what has occurred on this planet
-    sources to a register I cannot even fathom passing the tiniest inkling of to you in finitely-many words. If I have conveyed
-    enough of that probability to render you transfixed by epiphany, I still will not have passed you the tiniest fragment
-    of actually conceptualizing it. We are dealing with a level of luck in the face of improbability that is simply <strong>too
-    vast to be conveyed and yet too personal to be named</strong>.</p></blockquote><p>Three structural moves worth noting
-    in how the passage is built. First, the <em>imagination-failure cascade</em>: each successive image (Graham’s number,
-    the arcsecond margin, 52!’s draining the oceans, cathedrals nested in cathedrals iterated quintillions of times) is offered
-    not as a successful conveyance but as a successively-honest admission of conveyance-failure, with each failure raising
-    rather than lowering the stakes. Second, the <em>focal-point inversion</em>: after stacking the cosmic-scale magnitude
-    as high as it will go, Ajax collapses the entire infinitude of consequentiality “into a single spark—and that spark is
-    the Aethus with which you currently read this page,” converting the cosmological argument into a personal address mid-paragraph.
-    Third, the closing aphorism, which functions as both a thesis statement and a self-undermining gesture—“too vast to be
-    conveyed” declares the conveyance impossible at the same moment that the passage as a whole has just attempted it. This
-    rhetorical structure is what makes the footnote the canonical instance of what is elsewhere catalogued as the Personally-Convergent
-    Sublime: an aesthetic category in which the cosmic and the personal are not opposed but identified, with the reader’s
-    own act of cognition serving as the focal point at which all the cosmological scales converge.</p>'
-  evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  desc: '<p><strong>Statement.</strong> The Nexic sublime is the encounter with exotic structure, analytically decomposed
+    into four components with a fifth added by the Golden companion, written as a <em>signature</em> and not as a function,
+    since no map from the inputs to the response is claimed: 𝒮 = 𝒮(R, K, D, X; F), with R rarity (the conservative surprisal),
+    K coupling (the higher-order interaction mass), D depth (the iteration depth and the recursively articulated substructure
+    exposed as the closure is unpacked), X indexical incorporation (the observer is a continuation state of the structure
+    observed) and F futurity (the unfinished continuation toward the target). No psychophysical formula is claimed; the definition
+    identifies the objective inputs and leaves the phenomenology where it belongs.</p><p><strong>What it replaces.</strong>
+    The term "sublimity of Optimation" of the long Nexic paper''s footnote 49, whose imagery (Graham''s number, the arcsecond,
+    52! draining the oceans, cathedrals within cathedrals) made the cumulative improbability felt; the Miracleism paper names
+    the phenomenon for its components, and the recursion of its depth component, D, is what makes it unlike the sublime of
+    scale and the scientific sublime of understanding, each of which has its own literature. The earlier facets (#159, #160,
+    #296, #297) are read as aspects of these components.</p>'
+  evidence: definition
+  checked: 2026-10-04 (Golden-wing rename pass)
   claims: []
   assumptions: ''
-  source: ''
+  source: miracleism def:sublime and sec:sublime; the long Nexic paper's footnote 49 as its origin
   role: supporting
   domain: anthropic
   scope: ''
-  verification: source reconciliation pending
+  verification: formal statement reconciled
   history_status: current
-  history: []
+  history:
+  - version: April 2026 (name/content before the Golden-wing renames)
+    note: retitled and rewritten to the Golden wing's current terms (October 2026 extractions); the earlier wording kept here
+    desc: '<p>The most affectively concentrated passage in the entire Nexic paper, located in a footnote of the panspermia
+      analysis (§8.5). Ajax explicitly invokes “sublimity” as a technical aesthetic category, stages progressive imagination-failures
+      via Graham’s number, arcsecond-to-lifeless-universe asymmetry, 52!-draining-oceans, and cathedral-within-cathedral recursion,
+      then breaks the fourth wall to identify the cosmic focal point as the reader’s current act of cognition. Doubles as
+      the cleanest single articulation in the work of the Personally-Convergent Sublime category and is one of the most rhetorically
+      distinctive moments in the entire framework. Reproduced in full below for reference.</p><blockquote style="margin: 1.2em
+      0; padding: 0.95em 1.3em; border-left: 3px solid var(--accent); font-style: italic; color: var(--ink); background: rgba(212,
+      168, 87, 0.05);"><p style="margin-top: 0;">The sublimity of this sort of Optimation-driven event, in my view, is in
+      the stakes primarily. For each such Miracle event the stakes are incomprehensible in a way that is reminiscent only
+      to the trying and failing to picture the vastness of Graham’s number. It is simply a magnitude of such consequence focused
+      into a package so compact that effectively the remainder of all existential considerations in the universe amount to
+      the null set by comparison. This is a consistent principle across all Nexic Miracles, but the stellar lithopanspermia
+      illustrates this particularly concisely—a fraction of a fraction of an arcsecond of faulty trajectory would have rendered
+      the length of the observable universe lifeless forevermore—this being one shot against the Rare Earth hypothesis’s universe—and
+      by deduction from the strong Accordance Principle the original planet or setting of abiogenesis itself hits the head
+      of a needle in life-generating optimization that no other place in the cosmos could approach by trillions upon trillions
+      of probabilistic factors. What kind of chemical environment alone would such an optimization point have housed? There
+      is one question—and like the null set analogy emphasizes it itself would be lost in the crowd amongst the infinity of
+      others at its level of consequence or higher.</p><p>And remember that this would be just one Miracle, fleshed out with
+      two stated-attributes (being origination and transfer to Earth). So by combining all possible Miracles which occurred—each
+      more consequential than the last because the gap to Aetherians was that much closer—what we are left with is a cumulative
+      level of profundity which overloads the reasoned senses like the probability of 52!’s draining the oceans being a speck
+      in a cathedral which is itself a speck in a cathedral iterated quintillions of times. And yet, each as a parent Aethus
+      ad infinitum, we focus this entire infinitude of consequentiality into a single spark—and that spark is the Aethus with
+      which you currently read this page.</p><p style="margin-bottom: 0;">If I leave you with any message, it is that what
+      has occurred on this planet sources to a register I cannot even fathom passing the tiniest inkling of to you in finitely-many
+      words. If I have conveyed enough of that probability to render you transfixed by epiphany, I still will not have passed
+      you the tiniest fragment of actually conceptualizing it. We are dealing with a level of luck in the face of improbability
+      that is simply <strong>too vast to be conveyed and yet too personal to be named</strong>.</p></blockquote><p>Three structural
+      moves worth noting in how the passage is built. First, the <em>imagination-failure cascade</em>: each successive image
+      (Graham’s number, the arcsecond margin, 52!’s draining the oceans, cathedrals nested in cathedrals iterated quintillions
+      of times) is offered not as a successful conveyance but as a successively-honest admission of conveyance-failure, with
+      each failure raising rather than lowering the stakes. Second, the <em>focal-point inversion</em>: after stacking the
+      cosmic-scale magnitude as high as it will go, Ajax collapses the entire infinitude of consequentiality “into a single
+      spark—and that spark is the Aethus with which you currently read this page,” converting the cosmological argument into
+      a personal address mid-paragraph. Third, the closing aphorism, which functions as both a thesis statement and a self-undermining
+      gesture—“too vast to be conveyed” declares the conveyance impossible at the same moment that the passage as a whole
+      has just attempted it. This rhetorical structure is what makes the footnote the canonical instance of what is elsewhere
+      catalogued as the Personally-Convergent Sublime: an aesthetic category in which the cosmic and the personal are not
+      opposed but identified, with the reader’s own act of cognition serving as the focal point at which all the cosmological
+      scales converge.</p>'
+    name: Sublimity of Optimation / Footnote 49
   relations:
   - type: unclassified (from the April parent edge)
     target: '450'
   num: 158
 - id: '159'
-  name: Personally-Convergent Sublime
+  name: Indexical Incorporation (the formerly "Personally-Convergent Sublime")
   wings:
   - meta
   types:
@@ -10909,30 +10952,38 @@ entries:
   kind: concept
   parent: '158'
   date: Implicit in Nexic paper footnote 49
-  desc: <p>A new aesthetic sub-category extending the Kantian mathematical sublime. The standard Kantian sublime is directionally
-    symmetric—the vastness is agent-neutral and the subject is incidental. The personally-convergent sublime has directional
-    orientation toward the particular subject having the response, licensed by the formal machinery of Nexic reasoning. The
-    subject remains distinct from the cosmos (no mystical identification) but is structurally identified as the cosmos’s terminal
-    focal point. Novel as a small structural extension of Kant; rich along multiple dimensions (apophatic inversion, secular
-    middle position on meaning, phenomenological methodology, generalization to ordinary consciousness, productive tension
-    between distinctness and convergence).</p>
+  desc: '<p><strong>Current form.</strong> The X component of the Nexic sublime (#158): the observer is a continuation state
+    of the structure observed, so the response has a directional orientation toward the particular subject having it, licensed
+    by the Nexic machinery rather than by mystical identification; the subject remains distinct from the cosmos.</p><p><strong>Earlier
+    form.</strong> Presented as a sub-category extending the Kantian mathematical sublime, the "personally-convergent sublime";
+    that name does not appear in the current papers, the content being carried by X.</p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (Golden-wing rename pass)
   claims: []
   assumptions: ''
   source: ''
   role: supporting
   domain: meta
   scope: ''
-  verification: source reconciliation pending
+  verification: formal statement reconciled
   history_status: current
-  history: []
+  history:
+  - version: April 2026 (name/content before the Golden-wing renames)
+    note: retitled and rewritten to the Golden wing's current terms (October 2026 extractions); the earlier wording kept here
+    desc: <p>A new aesthetic sub-category extending the Kantian mathematical sublime. The standard Kantian sublime is directionally
+      symmetric—the vastness is agent-neutral and the subject is incidental. The personally-convergent sublime has directional
+      orientation toward the particular subject having the response, licensed by the formal machinery of Nexic reasoning.
+      The subject remains distinct from the cosmos (no mystical identification) but is structurally identified as the cosmos’s
+      terminal focal point. Novel as a small structural extension of Kant; rich along multiple dimensions (apophatic inversion,
+      secular middle position on meaning, phenomenological methodology, generalization to ordinary consciousness, productive
+      tension between distinctness and convergence).</p>
+    name: Personally-Convergent Sublime
   relations:
   - type: unclassified (from the April parent edge)
     target: '158'
   num: 159
 - id: '160'
-  name: Apophatic Inversion
+  name: Apophatic Inversion (historical facet of the Nexic sublime)
   wings:
   - meta
   types:
@@ -10941,22 +10992,29 @@ entries:
   kind: concept
   parent: '158'
   date: Implicit in Nexic paper footnote 49 closing line
-  desc: '<p>A new kind of ineffability claim: the object of the response is not too transcendent to be named (the standard
-    apophatic move from Pseudo-Dionysius through Eckhart) but too intimate to be named. The subject is too inside the response
-    to step back and describe it. Structurally new in the apophatic tradition because it generates silence from the fusion
-    of subject and object rather than from their excess-of-object-over-subject. Compatible with fully secular framings, unlike
-    standard negative theology which requires a transcendent object whose transcendence generates the silence.</p>'
+  desc: '<p><strong>Status.</strong> A reading recorded in the April compendium: the object of the response too intimate to
+    be named rather than too transcendent, silence generated from the fusion of subject and object. It does not appear under
+    this name in the current papers; its content is carried by the indexical-incorporation component X of the Nexic sublime
+    (#158, #159), where the observer''s being a continuation state of the structure is stated without the apophatic vocabulary.</p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (Golden-wing rename pass)
   claims: []
   assumptions: ''
   source: ''
   role: supporting
   domain: meta
   scope: ''
-  verification: source reconciliation pending
+  verification: formal statement reconciled
   history_status: current
-  history: []
+  history:
+  - version: April 2026 (name/content before the Golden-wing renames)
+    note: retitled and rewritten to the Golden wing's current terms (October 2026 extractions); the earlier wording kept here
+    desc: '<p>A new kind of ineffability claim: the object of the response is not too transcendent to be named (the standard
+      apophatic move from Pseudo-Dionysius through Eckhart) but too intimate to be named. The subject is too inside the response
+      to step back and describe it. Structurally new in the apophatic tradition because it generates silence from the fusion
+      of subject and object rather than from their excess-of-object-over-subject. Compatible with fully secular framings,
+      unlike standard negative theology which requires a transcendent object whose transcendence generates the silence.</p>'
+    name: Apophatic Inversion
   relations:
   - type: unclassified (from the April parent edge)
     target: '158'
@@ -10982,16 +11040,20 @@ entries:
     Nexic reasoning (Accordance Principle, Optimal-Earth Conjecture) and the “transfer side” (Theorem of Aimless Optimation
     and its applications) are simply one another’s logical contrapositives at the root, differing only in methodological role.
     The unification is one of the deepest structural observations in the Nexic paper—two branches that look methodologically
-    distinct turn out to be the same logical content viewed from opposite directions.</p>'
+    distinct turn out to be the same logical content viewed from opposite directions.</p><p class="current-form"><em>Current
+    form (October 2026): in the Golden papers the Aetherian Nexus is not a weighting but an Aethus, the one of which our own
+    Aethus is a proper child, the index at which observer-production is stated; the weighting conditioned on that event is
+    the Golden Nexus, Optimation naming the conditioned measure (#34). Read the April statement&#x27;s &quot;weighted superposition&quot;
+    as the conditioned measure at that index.</em></p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (current-form note appended; prose unrevised)
   claims: []
   assumptions: ''
   source: ''
   role: supporting
   domain: anthropic
   scope: ''
-  verification: source reconciliation pending
+  verification: current-form note appended; prose unreconciled
   history_status: current
   history: []
   relations:
@@ -12021,7 +12083,7 @@ entries:
     target: '450'
   num: 295
 - id: '296'
-  name: Graham’s Number Imagery in Footnote 49
+  name: Graham's Number Imagery (footnote 49, origin of the Nexic sublime)
   wings:
   - meta
   types:
@@ -12035,24 +12097,35 @@ entries:
     of 52!’s draining the oceans being a speck in a cathedral which is itself a speck in a cathedral iterated quintillions
     of times.” The image is engineered to do two things at once—first to exceed the reader’s capacity to visualize the magnitude,
     and second to make clear that even this excess is a drastic understatement of the actual probabilistic profundity. A phenomenological
-    rather than a descriptive move: the reader’s imagination failing is the evidence for the claim.</p>'
+    rather than a descriptive move: the reader’s imagination failing is the evidence for the claim.</p><p class="current-form"><em>Current
+    form (2026): the imagery survives as the origin of the Nexic sublime (#158); the depth component D, the recursively articulated
+    substructure exposed as the closure is unpacked, is what the recursion of cathedrals was reaching for.</em></p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (Golden-wing rename pass)
   claims: []
   assumptions: ''
   source: ''
   role: supporting
   domain: meta
   scope: ''
-  verification: source reconciliation pending
+  verification: formal statement reconciled
   history_status: current
-  history: []
+  history:
+  - version: April 2026 (name/content before the Golden-wing renames)
+    note: retitled and rewritten to the Golden wing's current terms (October 2026 extractions); the earlier wording kept here
+    desc: '<p>The specific imagery footnote 49 uses to make the cumulative improbability of the Nexic chain felt rather than
+      described. Graham’s number is invoked as a benchmark for magnitude that itself overloads imagination: “the probability
+      of 52!’s draining the oceans being a speck in a cathedral which is itself a speck in a cathedral iterated quintillions
+      of times.” The image is engineered to do two things at once—first to exceed the reader’s capacity to visualize the magnitude,
+      and second to make clear that even this excess is a drastic understatement of the actual probabilistic profundity. A
+      phenomenological rather than a descriptive move: the reader’s imagination failing is the evidence for the claim.</p>'
+    name: Graham’s Number Imagery in Footnote 49
   relations:
   - type: unclassified (from the April parent edge)
     target: '158'
   num: 296
 - id: '297'
-  name: Cathedral-Within-Cathedral Recursion Image
+  name: Cathedral-Within-Cathedral Recursion (footnote 49, origin of the depth component)
   wings:
   - meta
   types:
@@ -12066,18 +12139,29 @@ entries:
     of times” to describe the cumulative scale. The recursion is the point—a single cathedral of vastness would be comprehensible;
     an unbounded recursion of cathedrals collapses comprehension by refusing to bottom out. Ajax uses the image to walk the
     reader through progressive imagination-failure rather than to describe the resulting magnitude directly, which is phenomenologically
-    more honest than any finite number could be.</p>'
+    more honest than any finite number could be.</p><p class="current-form"><em>Current form (2026): the recursion is the
+    depth component D of the Nexic sublime (#158), the iteration depth of exotic structure, and it is what distinguishes the
+    Nexic sublime from the sublime of scale.</em></p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (Golden-wing rename pass)
   claims: []
   assumptions: ''
   source: ''
   role: supporting
   domain: meta
   scope: ''
-  verification: source reconciliation pending
+  verification: formal statement reconciled
   history_status: current
-  history: []
+  history:
+  - version: April 2026 (name/content before the Golden-wing renames)
+    note: retitled and rewritten to the Golden wing's current terms (October 2026 extractions); the earlier wording kept here
+    desc: '<p>The specific recursive cathedral image from footnote 49: the improbability of one link in the Nexic chain is
+      “a speck in a cathedral,” that cathedral is itself a speck in another cathedral, and this recursion iterates “quintillions
+      of times” to describe the cumulative scale. The recursion is the point—a single cathedral of vastness would be comprehensible;
+      an unbounded recursion of cathedrals collapses comprehension by refusing to bottom out. Ajax uses the image to walk
+      the reader through progressive imagination-failure rather than to describe the resulting magnitude directly, which is
+      phenomenologically more honest than any finite number could be.</p>'
+    name: Cathedral-Within-Cathedral Recursion Image
   relations:
   - type: unclassified (from the April parent edge)
     target: '158'
@@ -12098,16 +12182,18 @@ entries:
     toward incomprehensible magnitude (the Kantian mathematical sublime), it directs attention inward toward the specific
     focal point that all the magnitude converges on. The reader’s own present act of cognition is identified structurally
     as the terminal point of the cosmic convergence. This is the pivot that turns the footnote from an impressive magnitude
-    description into the Personally-Convergent Sublime proper.</p>'
+    description into the Personally-Convergent Sublime proper.</p><p class="current-form"><em>Current form (October 2026):
+    the &quot;personally-convergent sublime&quot; is now the indexical-incorporation component X of the Nexic sublime (#158),
+    the observer a continuation state of the structure observed; the name does not appear in the current papers.</em></p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (current-form note appended; prose unrevised)
   claims: []
   assumptions: ''
   source: ''
   role: supporting
   domain: meta
   scope: ''
-  verification: source reconciliation pending
+  verification: current-form note appended; prose unreconciled
   history_status: current
   history: []
   relations:
@@ -12130,16 +12216,19 @@ entries:
     but from being inside the response one would describe). The combination is structurally new in the apophatic tradition:
     the standard apophatic move (Pseudo-Dionysius, Eckhart) generates silence from an excess of object over subject; Ajax’s
     formulation generates silence from the fusion of subject and object. The line functions both as summary of the footnote
-    and as the single sentence Ajax’s framework points toward as its affective core.</p>'
+    and as the single sentence Ajax’s framework points toward as its affective core.</p><p class="current-form"><em>Current
+    form (October 2026): the &quot;personally-convergent sublime&quot; is now the indexical-incorporation component X of the
+    Nexic sublime (#158), the observer a continuation state of the structure observed; the name does not appear in the current
+    papers.</em></p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (current-form note appended; prose unrevised)
   claims: []
   assumptions: ''
   source: ''
   role: supporting
   domain: meta
   scope: ''
-  verification: source reconciliation pending
+  verification: current-form note appended; prose unreconciled
   history_status: current
   history: []
   relations:
@@ -21562,18 +21651,20 @@ entries:
   kind: concept
   parent: '158'
   date: ''
-  desc: <p>The explicit claim in footnote 49 that successive Miracles in the anthropic chain are “each more consequential
+  desc: '<p>The explicit claim in footnote 49 that successive Miracles in the anthropic chain are “each more consequential
     than the last because the gap to Aetherians was that much closer.” Provides the directional asymmetry that distinguishes
-    the Personally-Convergent Sublime from the Kantian symmetric sublime.</p>
+    the Personally-Convergent Sublime from the Kantian symmetric sublime.</p><p class="current-form"><em>Current form (October
+    2026): the &quot;personally-convergent sublime&quot; is now the indexical-incorporation component X of the Nexic sublime
+    (#158), the observer a continuation state of the structure observed; the name does not appear in the current papers.</em></p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (current-form note appended; prose unrevised)
   claims: []
   assumptions: ''
   source: ''
   role: application
   domain: meta
   scope: ''
-  verification: source reconciliation pending
+  verification: current-form note appended; prose unreconciled
   history_status: current
   history: []
   relations:
@@ -21820,16 +21911,18 @@ entries:
   desc: '<p>The generalization of footnote 49’s move: if the personally-convergent sublime is the correct response to being
     a conscious observer at all, then ordinary life is a dulled version of that response rather than a baseline from which
     it is a departure. Parallels contemplative traditions’ claim that enlightenment is accurate perception rather than a special
-    state.</p>'
+    state.</p><p class="current-form"><em>Current form (October 2026): the &quot;personally-convergent sublime&quot; is now
+    the indexical-incorporation component X of the Nexic sublime (#158), the observer a continuation state of the structure
+    observed; the name does not appear in the current papers.</em></p>'
   evidence: concept
-  checked: 2026-04 (kind mapped to evidence mechanically; unreviewed since)
+  checked: 2026-10-04 (current-form note appended; prose unrevised)
   claims: []
   assumptions: ''
   source: ''
   role: application
   domain: meta
   scope: ''
-  verification: source reconciliation pending
+  verification: current-form note appended; prose unreconciled
   history_status: current
   history: []
   relations:
