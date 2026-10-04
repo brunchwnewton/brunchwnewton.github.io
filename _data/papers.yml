@@ -7,6 +7,11 @@
 # Every link is built as {template}{code}, so a code appears exactly once.
 #   PDF    -> pp_pdf + code + ".pdf"
 #   record -> pp_rec + code
+#
+# Dates: "first posted" is the month of the first deposit. The PDF link reaches
+# the current PhilPapers version, which is later than the first posting for every
+# paper; where a card says "revised", replace it with the linked version's month
+# once read off the record page. Do not date cards by the month they were reviewed.
 # ============================================================================
 
 pp_pdf: "https://philpapers.org/archive/"
@@ -14,26 +19,22 @@ pp_rec: "https://philpapers.org/rec/"
 
 # --- Section framing (overridable per page via include parameters) ---------
 directory:
-  eyebrow: "Start here · the short papers"
+  eyebrow: "Start here · overview and focused papers"
   heading: "One inversion, one paper at a time."
   intro: >-
-    Almost every framework in physics and metaphysics shares a hidden bookkeeping
-    convention: it fixes facts to spacetime. Aethic reasoning relocates the index of
-    reality to the <em>Aethus</em> — an observer's complete information state — and
-    follows the consequence. Its three load-bearing moves stand as three self-contained
-    papers, each arguing one move on its home field's terms; the payoff — a realist
-    interpretation of quantum mechanics with the standard paradox set dissolved — is
-    stated whole in a paper of its own; four further papers run the same relocation at
-    standing problems elsewhere, and one develops the formal apparatus the others share.
-    The whole arc stands at two lengths at the top of this directory: the comprehensive
-    treatment, which is the framework's source of record, and the overview that compresses
-    it to a single sitting. Read the overview for the shape and the comprehensive for the
-    derivation at its native resolution — then the first row in № order, or enter through
-    the field you know best.
+    Aethic reasoning proposes that determinacy belongs to the relation between an
+    attribute and an observer's information state — the <em>Aethus</em>. These papers
+    develop that proposal across counterfactual semantics, the composition of
+    alternatives, and quantum measurement, with further applications to causation,
+    decision theory, and anthropic reasoning. Each distinguishes its formal results from
+    its interpretive commitments and from the physical or empirical questions it leaves
+    open. Start with the overview for the argument's shape, consult the comprehensive
+    treatment for its full development, or enter through your own field.
   caption: >-
     PDF links go straight to the manuscript; the record link beside each is its
-    PhilPapers page, for citation and versions. Every paper stands alone and carries its own provenance note at
-    the end.
+    PhilPapers page, for citation and versions. Each extraction introduces the framework
+    needed for its argument and identifies the results it imports from its companions;
+    each carries its own provenance note at the end.
 
 # --- The rows -------------------------------------------------------------
 rows:
@@ -53,18 +54,17 @@ rows:
         title: "Aethic Reasoning"
         subtitle: "A comprehensive solution to the quantum measurement problem"
         blurb: >-
-          The framework's source of record and its longest development. The full derivation
-          runs from the definitional hierarchy of the <em>Aethus</em> through the three
-          postulates and their fixed-point characterization to the Quantum Nexus weighting,
-          and then out to everything the relocation touches — causation, probability, the
-          ontology of time, the anthropic wing, and the paradox set case by case. Every
-          claim the shorter papers carry at compression grade is developed here at its
-          native resolution, with the open constructions named on the page rather than
-          smoothed over. Long, and not the quickest way in; the place all the others point.
-        meta: "The comprehensive treatment · source of record · first deposited November 2024 · current version August 2026"
+          The fullest development of Aethic reasoning: its information states, composition
+          regimes, consistency postulates, and quantitative weighting, followed through
+          quantum measurement, causation, decision theory, time, and anthropic reasoning.
+          The extraction papers present individual arguments in disciplinary form; this
+          manuscript develops their shared framework and connections, including the
+          assumptions and open constructions on which the program depends. Long, and not
+          the quickest way in; the place all the others point.
+        meta: "The comprehensive treatment · source of record · first deposited November 2024 · revised"
         flag: "Start here · full"
         list_title: "Aethic Reasoning: A Comprehensive Solution to the Quantum Measurement Problem"
-        list_meta: "August 2026 · the comprehensive treatment · source of record · direct PDF"
+        list_meta: "First deposited November 2024, revised · the comprehensive treatment · source of record · direct PDF"
 
       - key: inbrief
         code: "BENARI-3"
@@ -73,19 +73,17 @@ rows:
         title: "Aethic Reasoning in Brief"
         subtitle: "From a counterfactual semantics to the quantum measurement problem"
         blurb: >-
-          One framework, compressed to its main line — and the one paper that shows the
-          whole reach. It begins as a semantics for counterfactuals evaluated inside the
-          evaluator's own information state, relocates exclusivity into the interiors of
-          alternatives, codifies both moves as postulates, and then follows them out: the
-          quantum–classical boundary relocated from scale to information, collapse read as
-          an indexing transition, probability given an ontology as weight, the standard
-          paradox set dissolved with each dissolution graded, and the Quantum Nexus sketched
-          at the far end. Every claim here receives its complete development in the
-          comprehensive treatment; this is the map.
-        meta: "The compressed companion · reach included · preprint, July 2026"
+          The map of the framework: determinacy indexed to information states, mutual
+          exclusion expressed as interior content, and admissibility governed by
+          consistency across declared refinements. The overview connects counterfactual
+          evaluation to the record-based quantum–classical boundary and the finite
+          path-kernel representation of measurement. It identifies which companion owns
+          each result and separates the quantitative axiom, the physical interpretation,
+          and the remaining open questions.
+        meta: "The compressed companion · the map of the framework · first posted July 2026, revised"
         flag: "Start here"
         list_title: "Aethic Reasoning in Brief: From a Counterfactual Semantics to the Quantum Measurement Problem"
-        list_meta: "July 2026 · overview · the compressed companion · direct PDF"
+        list_meta: "First posted July 2026, revised · overview · the compressed companion · direct PDF"
 
   - id: derivation
     label: "The derivation"
@@ -99,17 +97,17 @@ rows:
         title: "Counterfactual Evaluation by Perturbation of Information States"
         subtitle: "Deleting the world-similarity ordering, not refining it"
         blurb: >-
-          "What would have happened" is evaluated without ever leaving the evaluator:
-          reopen the antecedent's entry in your own information state, restate it,
-          re-prune, and read the verdict off what survives. The Lewis–Stalnaker
-          similarity ordering appears nowhere — its work split across dependency
-          structure, validity, and weight — and <em>would</em>, <em>might</em>, and
-          <em>the probability that</em> become one operator read at three grains.
-        meta: "Home field: semantics of conditionals · assumes no physics · preprint, July 2026"
-        newest: true
+          Counterfactuals are evaluated by reopening, restating, and pruning an information
+          state, with <em>would</em>, <em>might</em>, and <em>the probability that</em> read
+          from the surviving alternatives. Under the stated reading of conjunctive
+          antecedents, an explicit countermodel rules out smooth preferential
+          representation of the resulting consequence relation. World-similarity ordering
+          is absent from the clauses; support priorities, scope choices, and quantitative
+          weights remain explicit parts of the proposal.
+        meta: "Home field: semantics of conditionals · assumes no physics · first posted July 2026, revised"
         flag: "Trio · № 1"
         list_title: "Counterfactual Evaluation by Perturbation of Information States: Deleting the World-Similarity Ordering, Not Refining It"
-        list_meta: "July 2026 · extraction paper · semantics of conditionals · direct PDF"
+        list_meta: "First posted July 2026, revised · extraction paper · semantics of conditionals · direct PDF"
 
       - key: exclusivity
         code: "BENEAA-9"
@@ -117,36 +115,34 @@ rows:
         title: "Exclusivity as Achievement"
         subtitle: "Relocating mutual exclusion to the interior, and the composition regime that falls out"
         blurb: >-
-          Mutual exclusivity is not the nature of <em>or</em>; it is stated content
-          carried on the interior of each alternative — an achievement, and so removable.
-          Decline to state those negations and a second composition regime falls out,
-          fixed against the classical one by a one-statement test. The relocation
-          reclassifies the color-exclusion problem that fractured the Tractatus and
-          supplies the determinable-indeterminacy literature with its missing composition
-          story.
-        meta: "Home field: logic &amp; metaphysics · the physics quarantined · preprint, July 2026"
-        newest: true
+          What if alternatives exclude one another because of content they carry, rather
+          than because exclusion is built into their composition? Given a primitive
+          composition of alternatives, the paper distinguishes agreeing and disagreeing
+          regimes by their interior negations. It develops the distinction's implications
+          for color exclusion and metaphysical indeterminacy, while separating the formal
+          proposal from the physical question of its realization.
+        meta: "Home field: logic &amp; metaphysics · the physics quarantined · first posted July 2026, revised"
         flag: "Trio · № 2"
         list_title: "Exclusivity as Achievement: Relocating Mutual Exclusion to the Interior, and the Composition Regime That Falls Out"
-        list_meta: "July 2026 · extraction paper · logic &amp; metaphysics · direct PDF"
+        list_meta: "First posted July 2026, revised · extraction paper · logic &amp; metaphysics · direct PDF"
 
       - key: boundary
         code: "BENTQB"
         label: "№ 3 · Measurement"
         title: "Quantum Mechanics from Records"
-        subtitle: "Three consistency postulates, one composition primitive, and one kernel recover the measurement architecture of the Dirac–von Neumann formalism, with the projection postulate as a theorem"
+        subtitle: "Measurement structure on a finite path-kernel domain"
         blurb: >-
-          Three postulates — no dynamics, no Hilbert space, no scale parameter — yield a
-          classification theorem sorting every candidate superposition into three bins,
-          the quantum–classical boundary arriving as a discrete informational fact that
-          moves with the detectors, never with size or mass. One flagged axiom then buys
-          the standard interference statistics; what is posited and what is derived is
-          inventoried on the paper's face.
-        meta: "Home field: quantum foundations · assumptions inventoried · preprint, July 2026"
-        newest: true
+          On a finite path-kernel domain, consistency constraints classify candidate path
+          sets relative to a complete, persistent record structure. An explicit kernel
+          supplies the quantitative representation: Hilbert states, record observables, and
+          Born statistics. A stipulated record-compatible restriction is represented by
+          Lüders conditioning. The paper distinguishes these results from completeness
+          claims and from the physical assumptions needed to apply the same admissibility
+          criterion to a friend's laboratory.
+        meta: "Home field: quantum foundations · assumptions inventoried · first posted July 2026, revised"
         flag: "Trio · № 3"
-        list_title: "Quantum Mechanics from Records: Three Consistency Postulates, One Composition Primitive, and One Kernel Recover the Measurement Architecture of the Dirac–von Neumann Formalism, with the Projection Postulate as a Theorem"
-        list_meta: "July 2026 · extraction paper · quantum foundations · direct PDF"
+        list_title: "Quantum Mechanics from Records: Measurement Structure on a Finite Path-Kernel Domain"
+        list_meta: "First posted July 2026, revised · extraction paper · quantum foundations · direct PDF"
 
 
   - id: interpretation
@@ -157,25 +153,20 @@ rows:
 
       - key: determinacy
         code: "BENTRO-72"
-        label: "Quantum interpretation · the flagship claim"
+        label: "Quantum interpretation · the central proposal"
         title: "Determinacy as a Two-Place Relation"
         subtitle: "The category mistake in quantum interpretation, and the dissolution of the paradox set"
         blurb: >-
-          A realist wants two things the standard interpretations will not sell together:
-          counterfactual structure enough to say what an unperformed experiment would have
-          shown, and no hidden valuation for the Bell theorems to kill. Both follow from one
-          correction — determinacy is not a one-place property that facts have or lack, but a
-          two-place relation between an attribute and an information state. A no-go theorem
-          closes the deflationary exit (determinate-but-unknown requires overwrite semantics
-          the framework forbids, and lands on the single-sample-space statistics the
-          Boole–Fine–Pitowsky correspondence excludes), and the same correction, fixed in
-          advance with nothing added per case, dissolves delayed choice, the cat, Wigner's
-          friend, EPR and its foliation worry, PBR, and the proper/improper mixtures — each
-          dissolution graded, Frauchiger–Renner honestly marked as the contested case.
-        meta: "Home field: quantum interpretation · the incumbents read as four defenses of one wrong entry · preprint, August 2026"
-        newest: true
+          The paper proposes that determinacy is a relation between an attribute and an
+          information state, and develops its consequences for quantum interpretation. A
+          conditional no-go excludes uniform noncontextual, measurement-independent
+          completions reproducing the relevant quantum statistics; contextual alternatives
+          remain open. The same framework addresses delayed choice, Schrödinger's cat,
+          Wigner's friend, and related cases, with each application's assumptions
+          identified and Frauchiger–Renner's disputed physical premise made explicit.
+        meta: "Home field: quantum interpretation · conditional no-go and worked applications · first posted August 2026, revised"
         list_title: "Determinacy as a Two-Place Relation: The Category Mistake in Quantum Interpretation, and the Dissolution of the Paradox Set"
-        list_meta: "August 2026 · extraction paper · quantum interpretation · direct PDF"
+        list_meta: "First posted August 2026, revised · extraction paper · quantum interpretation · direct PDF"
 
   - id: applications
     label: "The applications"
@@ -190,30 +181,32 @@ rows:
         title: "Newcomb's Problem Without a Fixed Past"
         subtitle: "A decision rule from observer-indexed determinacy"
         blurb: >-
-          Both camps in the fifty-year deadlock share one premise: that the predictor's
-          past choice is settled at the moment you decide. Drop it — an unread outcome is
-          a blank entry, and blanks lack tense — and one-boxing follows without news value
-          and without backward causation. The same criterion sorts the smoking lesion and
-          the transparent variant, and prices its own premises.
-        meta: "Home field: decision theory · assumes no physics · preprint, July 2026"
+          An unread prediction can remain open relative to the deciding agent even when it
+          lies in the past. The paper asks what makes an act-supposition well-defined on
+          such an information state, then develops a branch-conditional settling policy and
+          its benchmark verdicts for Newcomb's problem, the smoking lesion, and transparent
+          variants. Indexed determinacy motivates the policy; the policy and the stated
+          dependence assumptions supply the decisions.
+        meta: "Home field: decision theory · assumes no physics · first posted July 2026, revised"
         list_title: "Newcomb's Problem Without a Fixed Past: A Decision Rule From Observer-Indexed Determinacy"
-        list_meta: "July 2026 · extraction paper · decision theory · direct PDF"
+        list_meta: "First posted July 2026, revised · extraction paper · decision theory · direct PDF"
 
       - key: causality
         code: "BENCWT-4"
         label: "Causation"
-        title: "Screening Without the Classical Triad"
-        subtitle: "Reichenbachian screening as a factorization theorem, and the Bell correlations as its regime boundary"
+        title: "Causality from Indexed Information States"
+        subtitle: "Screening, intervention, and the Bell obstruction"
         blurb: >-
-          No causal arrow appears anywhere in the analysis. With the two causal horns
-          defined by their behavior under conditioning, Reichenbach's common-cause
-          principle becomes a theorem — the screening certificate arriving as a one-line
-          factorization — and the folk triad is recovered as narration: five stories, two
-          arrangements, one signature. The Bell correlations sit exactly at that theorem's
-          boundary.
-        meta: "Home field: causation · answers the Wood–Spekkens diagnosis · preprint, July 2026"
-        list_title: "Screening Without the Classical Triad: Reichenbachian Screening as a Factorization Theorem, and the Bell Correlations as Its Regime Boundary"
-        list_meta: "July 2026 · extraction paper · causation · direct PDF"
+          Indexed information states provide a representation of statistical dependence in
+          which factorization yields screening results. With additional directed mechanism
+          structure, settling reproduces interventions and functional-model
+          counterfactuals. Bell correlations delimit the noncontextual,
+          measurement-independent joint-valuation representation. The philosophical
+          proposal replaces causal production with coupling structure, while keeping that
+          interpretation distinct from the mathematical correspondences.
+        meta: "Home field: causation · answers the Wood–Spekkens diagnosis · first posted July 2026, revised"
+        list_title: "Causality from Indexed Information States: Screening, Intervention, and the Bell Obstruction"
+        list_meta: "First posted July 2026, revised · extraction paper · causation · direct PDF"
 
       - key: copernican
         code: "BENTCM-7"
@@ -222,31 +215,34 @@ rows:
         title: "The Copernican Method Against the Copernican Principle"
         subtitle: "Anthropic typicality over partial information states"
         blurb: >-
-          Three commitments cannot all hold: that your own situation is typical among
-          observers, that typicality is assessed under the cosmic weighting, and that
-          Earth-like environments are common. The typicality principle is derived rather
-          than postulated — one application of Bayes' theorem from two mediocrity
-          commitments — and the reference-class problem is diagnosed as an artifact of
-          reasoning over completed histories.
-        meta: "Home field: anthropic reasoning · the Nexic wing's foundation · preprint, July 2026"
+          The Accordance Principle turns an observer-conditioned sampling model into
+          calibrated constraints on observer abundance. Under stated assumptions about
+          predeclared attributes and their probabilities, rare realized records can reject
+          an abundance hypothesis. The paper develops the resulting statistical challenge
+          to the astrobiological Copernican principle and distinguishes it from a logical
+          contradiction, from an empirically established rarity estimate, and from the
+          elimination of every sampling-measure choice.
+        meta: "Home field: anthropic reasoning · the Nexic wing's foundation · first posted July 2026, revised"
         list_title: "The Copernican Method Against the Copernican Principle: Anthropic Typicality over Partial Information States"
-        list_meta: "July 2026 · extraction paper · anthropics, the Nexic wing · direct PDF"
+        list_meta: "First posted July 2026, revised · extraction paper · anthropics, the Nexic wing · direct PDF"
 
       - key: optimalearth
         code: "BENTOE-4"
         wing: nexic
         label: "Anthropics · the Nexic wing · natural history"
         title: "The Optimal Earth"
-        subtitle: "A paradigmatic re-rendition of natural history from coupled improbability"
+        subtitle: "Conditional concentration of observer-weighted natural histories"
         blurb: >-
-          Runs the typicality constraint forward onto Earth's record. A lucky history
-          stops being a tally of independent steps to be multiplied and becomes a single
-          coupled set of improbabilities forced to arrive together — miracles come in
-          linked sets, zero or two, never one — occupying a sharply isolated optimum.
-          Earth is not the improbable thing; the shape of the space of alternatives is.
-        meta: "Home field: anthropic reasoning · builds on the foundation beside it · preprint, July 2026"
-        list_title: "The Optimal Earth: A Paradigmatic Re-Rendition of Natural History from Coupled Improbability"
-        list_meta: "July 2026 · extraction paper · anthropics, the Nexic wing · direct PDF"
+          Under a stated contrast-distribution hypothesis, Strong Accordance bounds how
+          often a realized side carries little observer-conditioned weight. The paper
+          develops concentration results and, with a separate cumulative-suppression
+          assumption, bounds the aggregate contribution of alternative histories. It
+          proposes that these conditions characterize natural history: a conditional
+          mathematical account of concentration, with its applicability to Earth presented
+          as an empirical conjecture.
+        meta: "Home field: anthropic reasoning · builds on the foundation beside it · first posted July 2026, revised"
+        list_title: "The Optimal Earth: Conditional Concentration of Observer-Weighted Natural Histories"
+        list_meta: "First posted July 2026, revised · extraction paper · anthropics, the Nexic wing · direct PDF"
 
   - id: apparatus
     label: "The apparatus"
@@ -258,20 +254,19 @@ rows:
       - key: weightalgebra
         code: "BENTWA-5"
         label: "Algebra"
-        title: "The Weight Algebra of Information States"
+        title: "The Weight Algebra of Aethae"
         subtitle: "A two-layer commutative semiring for superposition and pruning"
         blurb: >-
-          The algebra face of the states the first paper perturbs. Unweighted states form
-          a commutative semiring — addition the informational union, multiplication joint
-          assertion — and a weighted layer built over it is quotiented so that sums always
-          reduce through last-common-ancestor factorization rather than combining freely.
-          Additive inverses are forbidden rather than declined, since they would collapse
-          the uniqueness of invalid states; probability then appears as a
-          congruence-respecting homomorphism, and the pruning postulate as a greatest
-          fixed point.
-        meta: "Home field: algebra · the formal companion to № 1 · preprint, July 2026"
-        list_title: "The Weight Algebra of Information States: A Two-Layer Commutative Semiring for Superposition and Pruning"
-        list_meta: "July 2026 · extraction paper · algebra · direct PDF"
+          The formal apparatus distinguishes information content, declared refinement, and
+          weighted composition. It constructs a weighted monoid semiring, derives a
+          factorization identity, and gives the consistency rule a fixed-point formulation.
+          The intrinsic semiring requires an explicit distributivity hypothesis; finite
+          models with stated regimes support an exact validity quotient. Algebraic
+          valuations are distinguished from empirical probabilities, with the Born
+          weighting treated in the quantum companion.
+        meta: "Home field: algebra · the formal companion to № 1 · first posted July 2026, revised"
+        list_title: "The Weight Algebra of Aethae: A Two-Layer Commutative Semiring for Superposition and Pruning"
+        list_meta: "First posted July 2026, revised · extraction paper · algebra · direct PDF"
 
 # --- Longer works, linked by record page ----------------------------------
 companions:
