@@ -1,0 +1,11 @@
+{%- comment -%}
+Quote a public claim by its id from _data/compendium.yml.
+Usage, in any page: include claim.html id=quantum_projection
+Options: show=wording (default) | status | full (wording with a status link to the compendium entry)
+{%- endcomment -%}
+{%- for e in site.data.compendium.entries -%}{%- for c in e.claims -%}{%- if c.claim == include.id -%}
+{%- if include.show == "status" -%}{{ c.status }}
+{%- elsif include.show == "full" -%}<span class="claim" data-claim="{{ c.claim }}">{{ c.public_wording }} <a class="claim-src" href="{{ '/principles_compendium.html' | relative_url }}#e{{ e.id }}" title="{{ c.source | escape }}">[{{ c.status }}]</a></span>
+{%- else -%}{{ c.public_wording }}
+{%- endif -%}
+{%- endif -%}{%- endfor -%}{%- endfor -%}
