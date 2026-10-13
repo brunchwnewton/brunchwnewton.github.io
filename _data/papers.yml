@@ -121,7 +121,7 @@ rows:
 
       - key: exclusivity
         code: "BENEAA-9"
-        file: "union"
+        file: "union_principle"
         label: "№ 2 · Logic"
         title: "Exclusivity as Achievement"
         subtitle: "Relocating mutual exclusion to the interior, and the composition regime that falls out"
@@ -225,6 +225,7 @@ rows:
 
       - key: copernican
         code: "BENTCM-7"
+        file: "nexic"
         wing: nexic
         label: "Anthropics · the Nexic wing · foundation"
         title: "The Copernican Method Against the Copernican Principle"
@@ -243,6 +244,7 @@ rows:
 
       - key: optimalearth
         code: "BENTOE-4"
+        file: "optimal_earth"
         wing: nexic
         label: "Anthropics · the Nexic wing · natural history"
         title: "The Optimal Earth"
