@@ -1,8 +1,15 @@
 # ============================================================================
 # THE PAPER DIRECTORY — single source of truth
 # Used by _includes/paper-directory.html (the cards) and by index.html's
-# archive list. Add a paper here and it appears in every place that draws
-# from this file; nothing else needs editing.
+# archive list, and published as /papers.json for the code site's download
+# page. Add a paper here and it appears in every place that draws from this
+# file; nothing else needs editing.
+#
+# `file:` (optional) names the paper's working source in the code repo's
+# development/papers/ folder: the stem, without .tex/.pdf. A list is allowed
+# when a source has had several names. The download page uses it to show the
+# paper's title and record link and to file it under the right wing; a paper
+# without `file:` still downloads, sorted by its filename instead.
 #
 # Every link is built as {template}{code}, so a code appears exactly once.
 #   PDF    -> pp_pdf + code + ".pdf"
@@ -49,6 +56,7 @@ rows:
       # Reserved for the two entry points; adding it elsewhere dilutes it.
       - key: comprehensive
         code: "BENARA-5"
+        file: ["1_Aethic_Reasoning", "Aethic_Reasoning", "aethic_reasoning"]
         feature: true
         label: "Start here · The full treatment"
         title: "Aethic Reasoning"
@@ -128,6 +136,7 @@ rows:
 
       - key: boundary
         code: "BENTQB"
+        file: "quant"            # inferred from the compendium; verify
         label: "№ 3 · Measurement"
         title: "Quantum Mechanics from Records"
         subtitle: "Measurement structure on a finite path-kernel domain"
@@ -153,6 +162,7 @@ rows:
 
       - key: determinacy
         code: "BENTRO-72"
+        file: "realist"          # inferred from the compendium; verify
         label: "Quantum interpretation · the central proposal"
         title: "Determinacy as a Two-Place Relation"
         subtitle: "The category mistake in quantum interpretation, and the dissolution of the paradox set"
@@ -177,6 +187,7 @@ rows:
 
       - key: newcomb
         code: "BENNPW"
+        file: "decision"         # inferred from the compendium; verify
         label: "Decision theory"
         title: "Newcomb's Problem Without a Fixed Past"
         subtitle: "A decision rule from observer-indexed determinacy"
@@ -193,6 +204,7 @@ rows:
 
       - key: causality
         code: "BENCWT-4"
+        file: "quant_causal"     # inferred from the compendium; verify
         label: "Causation"
         title: "Causality from Indexed Information States"
         subtitle: "Screening, intervention, and the Bell obstruction"
