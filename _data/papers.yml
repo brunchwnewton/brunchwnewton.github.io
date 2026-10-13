@@ -76,6 +76,7 @@ rows:
 
       - key: inbrief
         code: "BENARI-3"
+        file: "in_brief"
         feature: true
         label: "Start here · Overview"
         title: "Aethic Reasoning in Brief"
@@ -101,6 +102,7 @@ rows:
 
       - key: semantics
         code: "BENCEB-2"
+        file: "modal"
         label: "№ 1 · Modality"
         title: "Counterfactual Evaluation by Perturbation of Information States"
         subtitle: "Deleting the world-similarity ordering, not refining it"
@@ -119,6 +121,7 @@ rows:
 
       - key: exclusivity
         code: "BENEAA-9"
+        file: "union"
         label: "№ 2 · Logic"
         title: "Exclusivity as Achievement"
         subtitle: "Relocating mutual exclusion to the interior, and the composition regime that falls out"
@@ -136,7 +139,7 @@ rows:
 
       - key: boundary
         code: "BENTQB"
-        file: "quant"            # inferred from the compendium; verify
+        file: "quant"
         label: "№ 3 · Measurement"
         title: "Quantum Mechanics from Records"
         subtitle: "Measurement structure on a finite path-kernel domain"
@@ -162,7 +165,7 @@ rows:
 
       - key: determinacy
         code: "BENTRO-72"
-        file: "realist"          # inferred from the compendium; verify
+        file: "realist"
         label: "Quantum interpretation · the central proposal"
         title: "Determinacy as a Two-Place Relation"
         subtitle: "The category mistake in quantum interpretation, and the dissolution of the paradox set"
@@ -187,7 +190,7 @@ rows:
 
       - key: newcomb
         code: "BENNPW"
-        file: "decision"         # inferred from the compendium; verify
+        file: "decision"
         label: "Decision theory"
         title: "Newcomb's Problem Without a Fixed Past"
         subtitle: "A decision rule from observer-indexed determinacy"
@@ -204,7 +207,7 @@ rows:
 
       - key: causality
         code: "BENCWT-4"
-        file: "quant_causal"     # inferred from the compendium; verify
+        file: "quant_causal"
         label: "Causation"
         title: "Causality from Indexed Information States"
         subtitle: "Screening, intervention, and the Bell obstruction"
@@ -265,6 +268,7 @@ rows:
 
       - key: weightalgebra
         code: "BENTWA-5"
+        file: "aethic_tree"
         label: "Algebra"
         title: "The Weight Algebra of Aethae"
         subtitle: "A two-layer commutative semiring for superposition and pruning"
@@ -288,3 +292,16 @@ companions:
   inbrief: "BENARI-3"
   comprehensive: "BENARA-5"
   nexic: "BENNRD"
+
+# --- Known to the code site's download page, but not drawn as cards -------
+# Same fields as a card (code, file, wing, title, subtitle, blurb); nothing
+# here appears on the main site. Move an entry into `rows` when it gets a card.
+# `kind: main` files a paper under Main on the download page (default: Extraction).
+unlisted:
+  - key: nexiclong
+    code: "BENNRD"            # the same code as companions.nexic above
+    file: ["Nexic_Reasoning_long", "Nexic_Reasoning"]
+    wing: nexic
+    kind: main
+    title: "Nexic Reasoning"
+    subtitle: "Defining a generalized calculus over anthropic parameters"
