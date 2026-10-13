@@ -1,0 +1,10 @@
+---
+layout: null
+permalink: /papers.json
+---
+{%- comment -%}
+  Publishes _data/papers.yml as JSON, the same way /claims.json publishes the
+  compendium. Read by the code site's development/papers/ download page for
+  paper titles, record links and wings. Nothing to edit here.
+{%- endcomment -%}
+{{ site.data.papers | jsonify }}
