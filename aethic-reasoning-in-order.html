@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aethic Reasoning, in Order</title>
-<meta name="description" content="An ordered introduction to Aethic reasoning: the hitchhiker thought experiment, the two-tag deduction, the powerset invalidation theorem, and the validity feedback principle.">
+<meta name="description" content="An ordered introduction to Aethic reasoning: the hitchhiker thought experiment, the two-tag deduction, the powerset invalidation theorem, the validity feedback principle, the counterfactual result, and the axioms and algebra of the Aethic tree.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -194,6 +194,21 @@
   .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.95rem; color: var(--ink-quiet); margin-top: 1rem; }
   .legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
 
+  table.witness { border-collapse: collapse; font-size: 0.97rem; margin: 0.75rem 0 1rem; }
+  table.witness th, table.witness td { text-align: left; vertical-align: top; padding: 0.45rem 1.1rem 0.45rem 0; border-bottom: 1px solid var(--rule); }
+  table.witness th { font-weight: 600; border-bottom: 1px solid var(--ink); }
+  .axioms { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.9rem; margin: 1.25rem 0 1.75rem; }
+  .axiom { border: 1px solid var(--rule); border-left: 3px solid var(--ledger); background: var(--paper-raised); padding: 0.85rem 1.1rem; }
+  .axiom h4 { margin: 0 0 0.35rem; font-size: 1rem; font-weight: 600; }
+  .axiom p { margin: 0; }
+  .axiom .katex-display { margin: 0.6rem 0 0; }
+  dl.unpack { margin: 0 0 1rem; }
+  dl.unpack dt { font-weight: 600; margin-top: 1.1rem; }
+  dl.unpack dd { margin: 0.25rem 0 0; }
+  ol.procedure { padding-left: 1.4rem; }
+  ol.procedure li { margin-bottom: 0.5rem; }
+  ol.procedure li::marker { color: var(--ledger); font-variant-numeric: lining-nums; }
+  .nowrap { white-space: nowrap; }
   .channels { padding-left: 1.2rem; }
   .channels li { margin-bottom: 0.45rem; }
 
@@ -238,12 +253,14 @@
 <main>
   <section class="opening" aria-labelledby="page-title">
     <h1 id="page-title">Aethic reasoning, in order</h1>
-    <p>Four steps, taken in the order that makes the framework legible: a thought experiment, a derivation from the postulates to a measured pattern, the theorem underneath the derivation, and the principle the theorem becomes when it is iterated.</p>
-    <ol class="route" aria-label="The four steps">
+    <p>Six steps, taken in the order that makes the framework legible: a thought experiment, a derivation from the postulates to a measured pattern, the theorem underneath the derivation, the principle the theorem becomes when it is iterated, the same machinery read as a semantics for counterfactuals, and the axioms and algebra everything runs on.</p>
+    <ol class="route" aria-label="The six steps">
       <li><span class="n">1</span><a href="#hitchhiker">The hitchhiker on the backroads</a></li>
       <li><span class="n">2</span><a href="#two-tag">The two-tag deduction</a></li>
       <li><span class="n">3</span><a href="#powerset">The powerset invalidation theorem</a></li>
       <li><span class="n">4</span><a href="#feedback">The validity feedback principle</a></li>
+      <li><span class="n">5</span><a href="#counterfactuals">Counterfactuals by reopening</a></li>
+      <li><span class="n">6</span><a href="#tree">The Aethic tree: axioms and algebra</a></li>
     </ol>
   </section>
 
@@ -463,6 +480,76 @@
       <p>Copenhagen quantum mechanics keeps measurement as a conceptual monolith, marked by hand and qualitatively, and indexes measurements by a sequence that runs forward in proper time only, the Hamiltonian evolving the state between them. Here they are indexed by determinate nodes, with the path integral weighting what passes between nodes, and a verdict can land, across proper time, on an alternative held open since an earlier node.</p>
       <p class="why">The grade is stated with the principle. That validity closes at a fixed point is the postulates’ own demand; which physical processes are channels, and at what rate they pass records, is the physics’ to supply.</p>
       <p class="source">From <a href="https://philpapers.org/rec/BENARA-5"><em>Aethic Reasoning</em></a>, the paradigmatic content of the powerset invalidation theorem; stated also in <a href="https://philpapers.org/rec/BENTQB"><em>Quantum Mechanics from Records</em></a> and <a href="https://philpapers.org/rec/BENARI-3"><em>Aethic Reasoning in Brief</em></a>.</p>
+    </div>
+  </section>
+
+  <!-- 5 ======================================================================================== -->
+  <section class="station" id="counterfactuals" aria-labelledby="h-5">
+    <div class="rail"><div class="rail-inner"><span class="num">5</span><span class="what">The modal face</span></div></div>
+    <div class="body">
+      <h2 id="h-5">Counterfactuals by reopening</h2>
+      <p>The machinery validity feedback runs in physics is first a semantics for counterfactuals, and it needs no similarity ordering over worlds. To evaluate <em>if \(X\) had been the case, \(Y\) would have been</em> at an information state \(A\):</p>
+      <ol class="procedure">
+        <li><em>Reopen.</em> Blank the antecedent’s attributes, clearing what they are declared to rest on, while keeping the content the chosen scope protects. The intermediates are the largest restrictions of \(A\) that do this.</li>
+        <li><em>Restate.</em> Assert the antecedent in each intermediate.</li>
+        <li><em>Prune.</em> Keep the maximal refinements consistent with the standing laws, which are declarations of joint invalidity and are never retracted. These are the pockets of the residue.</li>
+        <li><em>Read the residue.</em> \(X \mathrel{\Box\!\!\rightarrow} Y\) when every visible pocket affirms \(Y\); \(X \mathrel{\Diamond\!\!\rightarrow} Y\) when some does; with a weight kernel, the probability of \(Y\) under \(X\) is \(Y\)’s share of the residue’s weight. Would, might and the probability that are one residue read at three grains.</li>
+      </ol>
+
+      <div class="formal">
+        <p><span class="head">Theorem</span> <em>(non-preferentiality, on the dual-pin reading).</em> Under the dual-pin reading of conjunctive antecedents, there is a finite, fully supported model with a four-attribute state \(A\) on which the would-relation \(\mid\sim_A\) violates Cautious Monotony, and Rational Monotony on the same instance. Consequently no preferential consequence relation in the sense of Kraus, Lehmann and Magidor extends \(\mid\sim_A\), and in particular none induced by Lewis’s or Stalnaker’s semantics.</p>
+      </div>
+
+      <h3>The witness</h3>
+      <p>Four two-valued attributes \(\mathsf{X}, \mathsf{S}, \mathsf{Y}, \mathsf{Z}\). The laws declare \(\{s, \neg y\}\) invalid, so \(s \rightarrow y\), and \(\{x, s, \neg z\}\) invalid. \(\mathsf{S}\) is the sole declared ground of \(\mathsf{Y}\). The state \(A\) states \(s\), and closure adds \(y\); \(\mathsf{X}\) and \(\mathsf{Z}\) are blank.</p>
+      <div class="table-wrap">
+        <table class="witness">
+          <thead><tr><th scope="col">Antecedent</th><th scope="col">Intermediate</th><th scope="col">Pockets of the residue</th></tr></thead>
+          <tbody>
+            <tr><td>\(x\)</td><td>\(\{s, y\}\)</td><td>\((x, s, y, z)\)</td></tr>
+            <tr><td>\(x \wedge y\), dual pin</td><td>\(\varnothing\)</td><td>\((x, s, y, z)\), \((x, \neg s, y, z)\), \((x, \neg s, y, \neg z)\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Under \(x\) the one pocket carries \(y\) and \(z\), so \(x \mid\sim_A y\) and \(x \mid\sim_A z\). Under \(x \wedge y\), reopening \(\mathsf{Y}\) clears its only ground \(s\), and restating \(y\) does not bring \(s\) back; the pocket \((x, \neg s, y, \neg z)\) fails \(z\), so \(x \wedge y \not\mid\sim_A z\), and Cautious Monotony fails at \((x, y, z)\).</p>
+      <p>The representation results of the ordering tradition characterize preferential relations, and this relation lies outside that family, so the absence of a world-similarity ordering is a fact about the relation and not a choice of notation. The result is a result about the dual-pin reading, an interpretive commitment stated as one: under the Boolean reading nothing is cleared and Cautious Monotony holds on the witness, and which reading ordinary-language counterfactuals follow is an empirical question.</p>
+      <p>The physical face runs the same four moves, reopen, restate, prune and read the residue, with one addition the modal face does not need: irreducible agreeing superpositions are sometimes admitted as primitive states.</p>
+      <p class="source">From <a href="https://philpapers.org/rec/BENCEB-2"><em>Counterfactual Evaluation by Reopening Information States</em></a>, with the countermodel recomputed by its accompanying script; the semantics is developed in full in <a href="https://philpapers.org/rec/BENARA-5"><em>Aethic Reasoning</em></a>.</p>
+    </div>
+  </section>
+
+  <!-- 6 ======================================================================================== -->
+  <section class="station" id="tree" aria-labelledby="h-6">
+    <div class="rail"><div class="rail-inner"><span class="num">6</span><span class="what">The axioms</span></div></div>
+    <div class="body">
+      <h2 id="h-6">The Aethic tree: axioms and algebra</h2>
+      <p>Everything above runs on four statements and one composition. They are listed first, in the wording the long paper fixes, and then unpacked as algebra.</p>
+
+      <div class="axioms">
+        <div class="axiom"><h4>First postulate of the Aethus</h4><p>Any attribution of reality is a statement of relation to a particular Aethus.</p></div>
+        <div class="axiom"><h4>Second postulate of the Aethus</h4><p>If an Aethus is valid, then any given attribute will be in Aethic superposition relative to it if and only if it is nonpresent to it.</p></div>
+        <div class="axiom"><h4>The Aethic union principle</h4><p>Jointness is primitive and exclusion is an achievement. A classical <em>or</em> is a jointness whose alternatives carry declared mutual exclusions; a superposition is a jointness whose alternatives do not; and the difference between them is written in the alternatives, not in the logic that composes them.</p></div>
+        <div class="axiom"><h4>Third postulate of the Aethus</h4><p>If some Aethus is valid, then there exists a proper child Aethus to it for which every one of its own proper child Aethae are valid.</p><p>\[ \mathbf{V}[A] \implies \exists B \le A,\ \forall C \le B,\ \mathbf{V}[C] \]</p></div>
+      </div>
+
+      <h3>Unpacked</h3>
+      <dl class="unpack">
+        <dt>States</dt>
+        <dd>An Aethus is a deductively closed partial assignment of values to attributes. What it leaves unanswered is a blank, and by the second postulate a blank is an agreeing superposition over the attribute’s answer space, constructive rather than epistemic, and tense-free: an unlearned past is exactly as open as an unformed future.</dd>
+        <dt>Joint assertion</dt>
+        <dd>The product \(A \cdot B\), the Aethic intersection, has content \(\mathrm{Cl}(\mathrm{C}(A) \cup \mathrm{C}(B))\). A child of \(A\) is \(A \cdot C\) for some \(C\). The product of two distinct determinate states of one attribute is the empty filling \([X : \varnothing]\), an Aethic contradiction, and it stands as a tag: an invalid Aethus keeps its content, and nothing follows from it beyond what it states.</dd>
+        <dt>Union and addition</dt>
+        <dd>The Aethic union \(A \cup B\) is the last common ancestor, with content \(\mathrm{C}(A) \cap \mathrm{C}(B)\). The Aethic addition \(A + B\) keeps both operands as terms. With \(C = A \cup B\), \(A = C \cdot C_A\) and \(B = C \cdot C_B\),
+        \[ A + B = C \cdot (C_A + C_B), \qquad A \cup B = C, \]
+        so the addition retains what each adds beyond the shared parent and the union forgets it. The unweighted universe \((U, \cup, \cdot)\) is a commutative semiring under an explicit distributivity hypothesis, which holds where a carving separates the terms and fails at irreducible superpositions.</dd>
+        <dt>Weights</dt>
+        <dd>The weighted Aethae are the monoid semiring \(T = M[U]\): finite weighted sums over <span class="nowrap">\(U\),</span> multiplied bilinearly. The factorization \(aA + bB = C \cdot (aC_A + bC_B)\) is derived from the multiplication, not imposed beside it, and every weighted sum admits the factored form. Weights live in a semiring without additive inverses, so nothing cancels a valid contribution.</dd>
+        <dt>Validity</dt>
+        <dd>The invalid Aethae form a monoid ideal \(I\) of \((U, \cdot)\), and the sums supported on them, \(M[I]\), form a semiring ideal of \(T\). The validity quotient sends every invalid term to zero and leaves every valid one untouched: it is the contracted monoid semiring, and probability is valued there. Explosion holds on the quotient and not before it: for invalid \(Z\) and any \(A\), \(ZA\) is invalid, so validity-equivalent to \(Z\), and \(A\) is a parent of \(ZA\).</dd>
+        <dt>The third postulate as a fixed point</dt>
+        <dd>Proper children are the visible terms of a parent’s declared decompositions, and the tree is ordered by them. Validity is a two-generation safety property on that order, and where invalidity is generated by the base of contradictions it is exactly the greatest fixed point \(\nu F\) of the safety operator over that base; the doomed Aethae are the least fixed point \(\mu G\) of the dual operator, its complement. Because the order is transitive, both are reached at the first stage, and in a model with finitely many attributes the doomed Aethae are exactly the tagged ones. A superposition every declared refinement keeps a contradicting record for is invalid now: collapse is checkmate, not an event.</dd>
+      </dl>
+      <p class="source">From <a href="https://philpapers.org/rec/BENTWA-5"><em>The Weight Algebra of Aethae</em></a> and <a href="https://philpapers.org/rec/BENARA-5"><em>Aethic Reasoning</em></a>, where the postulates are derived and the posits are audited one by one.</p>
     </div>
   </section>
 </main>
