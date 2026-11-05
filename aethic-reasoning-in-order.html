@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aethic Reasoning, in Order</title>
+<meta name="description" content="An ordered introduction to Aethic reasoning: the hitchhiker thought experiment, the two-tag deduction, the powerset invalidation theorem, and the validity feedback principle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  /* Tokens. Set these to the site's own palette if it differs. */
+  :root {
+    --paper: #eef1ec;
+    --paper-raised: #f6f8f4;
+    --ink: #1a231f;
+    --ink-quiet: #56625b;
+    --rule: #c6d0c8;
+    --ledger: #2b5a87;
+    --valid: #2c6a43;
+    --invalid: #9c3333;
+    --road: #d5dbd5;
+    --measure: 40rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #141917;
+      --paper-raised: #1b2220;
+      --ink: #e1e7e2;
+      --ink-quiet: #9aa69f;
+      --rule: #34403a;
+      --ledger: #8db4dc;
+      --valid: #7fc495;
+      --invalid: #e08b8b;
+      --road: #2a332f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #141917; --paper-raised: #1b2220; --ink: #e1e7e2; --ink-quiet: #9aa69f;
+    --rule: #34403a; --ledger: #8db4dc; --valid: #7fc495; --invalid: #e08b8b; --road: #2a332f;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "STIX Two Text", "STIX Two", Georgia, serif;
+    font-size: 1.125rem;
+    line-height: 1.62;
+    font-variant-numeric: oldstyle-nums;
+  }
+  a { color: var(--ledger); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--ledger); outline-offset: 3px; border-radius: 2px; }
+
+  .site-bar {
+    max-width: 74rem; margin: 0 auto; padding: 1rem 1rem 0;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  .site-bar .home { color: var(--ink); text-decoration: none; font-weight: 600; margin-right: auto; }
+  .site-bar nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
+  .site-bar nav a { color: var(--ink-quiet); text-decoration: none; }
+  .site-bar nav a:hover { color: var(--ledger); text-decoration: underline; }
+
+  main { max-width: 74rem; margin: 0 auto; padding: 0 1rem 4rem; }
+
+  .opening { padding: 3.5rem 0 2.5rem; border-bottom: 1px solid var(--rule); }
+  .opening h1 {
+    font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+    line-height: 1.08; font-weight: 400; letter-spacing: -0.01em;
+    margin: 0 0 1.1rem; max-width: 24ch;
+  }
+  .opening p { max-width: var(--measure); margin: 0; color: var(--ink-quiet); font-size: 1.2rem; }
+  .route { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 0.35rem 2.5rem;
+           grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); max-width: 44rem; }
+  .route li { display: flex; gap: 0.6rem; align-items: baseline; }
+  .route .n { font-variant-numeric: lining-nums; color: var(--ledger); font-weight: 600; min-width: 1ch; }
+  .route a { color: var(--ink); text-decoration: none; }
+  .route a:hover { color: var(--ledger); text-decoration: underline; }
+
+  .station { padding: 3rem 0 3.25rem; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: minmax(0, 1fr); }
+  .station:last-of-type { border-bottom: 0; }
+  .rail { margin-bottom: 1rem; }
+  .rail .num {
+    display: block; font-size: 3.4rem; line-height: 1; font-weight: 400;
+    color: var(--ledger); font-variant-numeric: lining-nums;
+  }
+  .rail .what { display: block; color: var(--ink-quiet); font-style: italic; font-size: 1rem; margin-top: 0.35rem; }
+  .body { min-width: 0; }
+  .body > * { max-width: var(--measure); }
+  .body > .wide { max-width: 50rem; }
+  h2 { font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.18; font-weight: 400; margin: 0 0 1.2rem; letter-spacing: -0.005em; }
+  h3 { font-size: 1.2rem; font-weight: 600; margin: 2.2rem 0 0.6rem; }
+  p { margin: 0 0 1rem; }
+  .why { color: var(--ink-quiet); font-style: italic; }
+  .source { font-size: 0.95rem; color: var(--ink-quiet); margin-top: 1.5rem; }
+
+  .verbatim ol { padding-left: 1.4rem; }
+  .verbatim li { margin-bottom: 0.9rem; padding-left: 0.2rem; }
+  .verbatim li::marker { color: var(--ledger); font-variant-numeric: lining-nums; }
+  .fnref { font-size: 0.75em; vertical-align: super; line-height: 0; text-decoration: none; font-variant-numeric: lining-nums; }
+  .note {
+    font-size: 0.95rem; line-height: 1.55; color: var(--ink-quiet);
+    border-left: 2px solid var(--rule); padding: 0.1rem 0 0.1rem 1rem; margin: 0 0 1.5rem;
+  }
+  .note .label { font-style: italic; color: var(--ink); }
+
+  figure { margin: 2rem 0; }
+  figure svg { width: 100%; height: auto; display: block; }
+  figcaption { font-size: 0.95rem; color: var(--ink-quiet); margin-top: 0.6rem; max-width: var(--measure); }
+  .svg-ink { fill: var(--ink); }
+  .svg-quiet { fill: var(--ink-quiet); }
+  .svg-road { fill: var(--road); }
+  .svg-stroke { stroke: var(--ink); }
+  .svg-line { stroke: var(--paper); }
+  .svg-tag { fill: var(--paper-raised); stroke: var(--rule); }
+  .svg-x { stroke: var(--invalid); }
+  .svg-xbox { stroke: var(--invalid); fill: none; }
+
+  .formal {
+    background: var(--paper-raised); border: 1px solid var(--rule); border-left: 3px solid var(--ledger);
+    padding: 1rem 1.25rem; margin: 1.5rem 0;
+  }
+  .formal .head { font-weight: 700; }
+  .formal .head em { font-weight: 400; }
+  .formal p:last-child { margin-bottom: 0; }
+
+  dl.terms { margin: 0 0 1.25rem; display: grid; grid-template-columns: minmax(0, 1fr); }
+  dl.terms dt { font-style: italic; margin-top: 0.55rem; }
+  dl.terms dd { margin: 0; }
+  @media (min-width: 40rem) {
+    dl.terms { grid-template-columns: 9rem minmax(0, 1fr); column-gap: 1.25rem; }
+    dl.terms dt { margin-top: 0.45rem; }
+    dl.terms dd { margin-top: 0.45rem; }
+  }
+
+  ol.steps { counter-reset: step; list-style: none; padding: 0; margin: 1.25rem 0; }
+  ol.steps > li { counter-increment: step; position: relative; padding-left: 2.6rem; margin-bottom: 1.3rem; }
+  ol.steps > li::before {
+    content: counter(step); position: absolute; left: 0; top: 0.05rem;
+    width: 1.8rem; height: 1.8rem; border: 1px solid var(--ledger); color: var(--ledger);
+    display: grid; place-items: center; font-size: 0.95rem; font-variant-numeric: lining-nums;
+  }
+  ol.steps .t { font-style: italic; }
+
+  .two-laws { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; margin: 1.5rem 0; }
+  @media (min-width: 44rem) { .two-laws { grid-template-columns: 1fr 1fr; } }
+  .two-laws section { border-top: 2px solid var(--ink); padding-top: 0.6rem; }
+  .two-laws h4 { margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 600; }
+  .two-laws p { margin: 0 0 0.5rem; }
+
+  table.audit { width: 100%; border-collapse: collapse; font-size: 0.95rem; line-height: 1.45; margin: 1rem 0 1.5rem; }
+  table.audit th, table.audit td { text-align: left; vertical-align: top; padding: 0.55rem 0.75rem 0.55rem 0; border-bottom: 1px solid var(--rule); }
+  table.audit th { font-weight: 600; border-bottom: 1px solid var(--ink); }
+  .table-wrap { overflow-x: auto; }
+
+  .katex { font-size: 1.04em; }
+  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.15rem 0; margin: 1rem 0; }
+
+  /* Powerset demonstrator */
+  .demo { border: 1px solid var(--rule); background: var(--paper-raised); padding: 1.1rem 1.1rem 1.25rem; margin: 1.75rem 0; }
+  .demo h3 { margin-top: 0; }
+  .controls { display: grid; gap: 0.75rem; margin: 0.75rem 0 1rem; justify-items: start; }
+  table.detectors { border-collapse: collapse; }
+  table.detectors th, table.detectors td { padding: 0.25rem 0.6rem 0.25rem 0; text-align: center; font-weight: 400; }
+  table.detectors th[scope="row"] { text-align: left; font-style: italic; padding-right: 1rem; }
+  table.detectors input { width: 1.15rem; height: 1.15rem; accent-color: var(--ledger); cursor: pointer; }
+  .presets { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .presets button {
+    font: inherit; font-size: 0.95rem; color: var(--ink); background: transparent;
+    border: 1px solid var(--rule); padding: 0.3rem 0.7rem; cursor: pointer;
+  }
+  .presets button:hover { border-color: var(--ledger); color: var(--ledger); }
+  .presets button[aria-pressed="true"] { border-color: var(--ledger); background: var(--paper); color: var(--ledger); }
+  .readout { margin: 0 0 0.9rem; }
+  .lattice { display: grid; gap: 0.55rem; }
+  .rank { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.45rem; }
+  .cell {
+    display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.3rem 0.55rem 0.3rem 0.4rem;
+    border: 1px solid var(--rule); background: var(--paper); font-size: 0.98rem; min-width: 6.4rem;
+  }
+  .cell .set { font-style: italic; }
+  .cell .tag { font-size: 0.78rem; font-variant-numeric: lining-nums; }
+  .cell.valid { border-color: var(--valid); }
+  .cell.valid .tag { color: var(--valid); }
+  .cell.p2 .tag, .cell.p3 .tag { color: var(--invalid); }
+  .mark { width: 1rem; height: 1rem; flex: none; }
+  .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.95rem; color: var(--ink-quiet); margin-top: 1rem; }
+  .legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+  .channels { padding-left: 1.2rem; }
+  .channels li { margin-bottom: 0.45rem; }
+
+  footer.site {
+    max-width: 72rem; width: calc(100% - 2rem); margin: 0 auto; padding: 2rem 0 3rem; border-top: 1px solid var(--rule);
+    font-size: 0.95rem; color: var(--ink-quiet);
+    display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  }
+  footer.site h2 { font-size: 1rem; font-weight: 600; margin: 0 0 0.4rem; color: var(--ink); }
+  footer.site ul { list-style: none; padding: 0; margin: 0; }
+  footer.site li { margin-bottom: 0.25rem; }
+  footer.site .legal { grid-column: 1 / -1; margin: 0; }
+
+  @media (min-width: 66rem) {
+    .station { grid-template-columns: 9rem minmax(0, 1fr); column-gap: 3rem; }
+    .rail { margin: 0; }
+    .rail-inner { position: sticky; top: 1.5rem; }
+    .station-1 .body { display: grid; grid-template-columns: minmax(0, var(--measure)) minmax(0, 17rem); column-gap: 2.5rem; align-items: start; }
+    .station-1 .body > * { grid-column: 1; }
+    .station-1 .body > .side { grid-column: 2; grid-row: 2 / span 2; max-width: none; }
+    .station-1 .body > figure, .station-1 .body > .after { grid-column: 1 / -1; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<header class="site-bar">
+  <a class="home" href="https://aethus.org/">aethus.org</a>
+  <nav aria-label="Site">
+    <a href="https://aethus.org/start-here.html">Start here</a>
+    <a href="https://aethus.org/aethic-reasoning-guide.html">Aethic guide</a>
+    <a href="https://aethus.org/nexic-reasoning-guide.html">Nexic guide</a>
+    <a href="https://aethus.org/faq.html">FAQ</a>
+    <a href="https://aethus.org/glossary.html">Glossary</a>
+    <a href="https://aethus.org/aethic-code/">Aethic code</a>
+    <a href="https://aethus.org/ajax/">About Ajax</a>
+  </nav>
+</header>
+
+<main>
+  <section class="opening" aria-labelledby="page-title">
+    <h1 id="page-title">Aethic reasoning, in order</h1>
+    <p>Four steps, taken in the order that makes the framework legible: a thought experiment, a derivation from the postulates to a measured pattern, the theorem underneath the derivation, and the principle the theorem becomes when it is iterated.</p>
+    <ol class="route" aria-label="The four steps">
+      <li><span class="n">1</span><a href="#hitchhiker">The hitchhiker on the backroads</a></li>
+      <li><span class="n">2</span><a href="#two-tag">The two-tag deduction</a></li>
+      <li><span class="n">3</span><a href="#powerset">The powerset invalidation theorem</a></li>
+      <li><span class="n">4</span><a href="#feedback">The validity feedback principle</a></li>
+    </ol>
+  </section>
+
+  <!-- 1 ======================================================================================== -->
+  <section class="station station-1" id="hitchhiker" aria-labelledby="h-1">
+    <div class="rail"><div class="rail-inner"><span class="num">1</span><span class="what">The thought experiment</span></div></div>
+    <div class="body">
+      <h2 id="h-1">Illustrative thought experiment on the Aethic “Big Three” principles</h2>
+      <div class="verbatim">
+        <p>Alice and Bob drive in their car on the backroads. Alice, the driver, spots a hitchhiker on the side of the road, and mentions this to Bob. Bob (whose Aethus we will call “Bob before”), wonders which side of the road the hitchhiker is on, then immediately afterwards looks out the window. Upon seeing that the hitchhiker is on their side of the road, Bob transitions to the Aethus “Bob after”.</p>
+        <ol>
+          <li><strong>The extrusion principle</strong> states that although relative to Bob after the hitchhiker is on their side of the road, relative to Bob before the hitchhiker is also in Aethic superposition even now of being on the opposite side of the road as well.</li>
+          <li><strong>The principle of centric unfolding</strong> states that Bob was equally likely at the moment of looking to have landed on an alternative after Aethus for which the hitchhiker was on the opposite side of the road from them, even though the hitchhiker would have been there before (in the proper time sense) the car got there and Alice<a class="fnref" href="#fn-alice" id="fnref-alice" aria-describedby="fn-alice-label">1</a> noticed them.</li>
+          <li><strong>The union principle itself</strong> resolves a paradox that seems to appear here: if relative to Bob before the hitchhiker is indeed on both sides of the road, then why do the two multiverse-like copies of themselves not look across the road and see one another? The answer is stunning: to resolve this paradox while remaining consistent with the extrusion principle, we have to conclude that the mutual logical negations blotting out each version of the hitchhiker from the other reality are internal to those respective realities like a ledger entry, rather than an exterior timeline branch which physically separates them. Therefore, each of the two possible after Aethae to Bob, one for each hitchhiker position, explicitly declares that the hitchhiker being at the other position is false, thereby forming exactly the concept of an Aethic disagreeing superposition, for which both outcomes with their histories and all already physically exist in the same physical space (relative to Bob before that is) but internally enforce the logical negation of the other so as to emergently produce their empirical noninteraction. This also means that by simply refraining from stating the mutual negations, we construct the concept of an agreeing superposition, the kinematic powersets over which, upon Aethic filtering, is proposed to produce quantum mechanics proper.</li>
+        </ol>
+      </div>
+
+      <aside class="note side" id="fn-alice" aria-labelledby="fn-alice-label">
+        <p><span class="label" id="fn-alice-label">Note 1, on Alice.</span> Interestingly, whether Alice herself saw the hitchhiker on the left or right side of the road is in disagreeing superposition relative to Bob before, since he himself is not yet Aethically aware. So instead of naively defining “Alice’s Aethus” as her Aethus of the moment, instead we have to define “Alice right” and “Alice left”, and then conclude that Bob before holds both in superposition, specifically coupled as \(\textrm{Hitchhiker right} \times \textrm{Alice right} + \textrm{Hitchhiker left} \times \textrm{Alice left}\). The intuitive concept of “Alice’s Aethus” is therefore more like an equivalence class over these ontologically exact Aethae rather than one of them itself, (in the sense that we implicitly mean that we are referring to any one of them as the “single” Alice Aethus for that consideration). However, before seeing the hitchhiker herself, Alice at Alice before holds Alice right and Alice left in the same superposition that Bob before does (ie as a weighted parent Aethus of Alice before), and so following Alice’s own centric unfolding we reach that her consciousness will find itself with a random probability as either winding up in the Alice right or Alice left Aethus branch upon her looking. When Bob undergoes his own centric unfolding, he simply invalidates relative to him his joint Aethus with the version of Alice who got the opposite answer. <a href="#fnref-alice" aria-label="Back to the text">Back</a></p>
+      </aside>
+
+      <figure>
+        <svg viewBox="0 0 560 272" role="img" aria-labelledby="road-title road-desc">
+          <title id="road-title">One road, both alternatives</title>
+          <desc id="road-desc">A road seen from above. The car drives along it. One hitchhiker stands on the car's side and one on the opposite side, in the same scene. Each carries a ledger entry that crosses out the other position.</desc>
+          <text x="6" y="28" class="svg-quiet" font-size="17" font-style="italic">their side of the road</text>
+          <text x="6" y="264" class="svg-quiet" font-size="17" font-style="italic">the opposite side</text>
+          <rect x="0" y="72" width="560" height="116" class="svg-road"/>
+          <line x1="0" y1="130" x2="560" y2="130" class="svg-line" stroke-width="3" stroke-dasharray="22 18"/>
+          <g transform="translate(60 86)">
+            <rect x="0" y="0" width="100" height="40" rx="11" class="svg-ink"/>
+            <rect x="66" y="6" width="17" height="28" rx="4" class="svg-road"/>
+            <rect x="11" y="8" width="13" height="24" rx="3" class="svg-road"/>
+          </g>
+          <path d="M 172 106 l 46 0" class="svg-stroke" stroke-width="1.5" fill="none" stroke-dasharray="3 5"/>
+          <g transform="translate(318 22)" class="svg-stroke" stroke-width="2.4" fill="none" stroke-linecap="round">
+            <circle cx="0" cy="7" r="7" class="svg-ink" stroke="none"/>
+            <line x1="0" y1="14" x2="0" y2="33"/><line x1="0" y1="33" x2="-7" y2="46"/><line x1="0" y1="33" x2="7" y2="46"/>
+            <line x1="0" y1="19" x2="-12" y2="26"/><line x1="0" y1="19" x2="12" y2="13"/><line x1="12" y1="13" x2="12" y2="7"/>
+          </g>
+          <g transform="translate(346 8)">
+            <rect x="0" y="0" width="206" height="56" class="svg-tag"/>
+            <text x="12" y="23" class="svg-ink" font-size="17">here</text>
+            <rect x="12" y="32" width="14" height="14" class="svg-xbox" stroke-width="1.7"/>
+            <path d="M 12 32 l 14 14 M 26 32 l -14 14" class="svg-x" stroke-width="1.7"/>
+            <text x="34" y="45" class="svg-ink" font-size="17">across the road</text>
+          </g>
+          <g transform="translate(318 202)" class="svg-stroke" stroke-width="2.4" fill="none" stroke-linecap="round">
+            <circle cx="0" cy="7" r="7" class="svg-ink" stroke="none"/>
+            <line x1="0" y1="14" x2="0" y2="33"/><line x1="0" y1="33" x2="-7" y2="46"/><line x1="0" y1="33" x2="7" y2="46"/>
+            <line x1="0" y1="19" x2="-12" y2="26"/><line x1="0" y1="19" x2="12" y2="13"/><line x1="12" y1="13" x2="12" y2="7"/>
+          </g>
+          <g transform="translate(346 196)">
+            <rect x="0" y="0" width="206" height="56" class="svg-tag"/>
+            <text x="12" y="23" class="svg-ink" font-size="17">here</text>
+            <rect x="12" y="32" width="14" height="14" class="svg-xbox" stroke-width="1.7"/>
+            <path d="M 12 32 l 14 14 M 26 32 l -14 14" class="svg-x" stroke-width="1.7"/>
+            <text x="34" y="45" class="svg-ink" font-size="17">across the road</text>
+          </g>
+        </svg>
+        <figcaption>Relative to Bob before, both alternatives stand in one road, and neither is a branch beside the other. Each carries the negation of the other position as an internal ledger entry, which is why the two never see each other across the road.</figcaption>
+      </figure>
+
+      <div class="after">
+        <h3>In the algebra</h3>
+        <p>The footnote’s coupled sum is a product of states, read on the validity quotient. Alice’s record is unresolved for Bob, so it enters as the sum over its two alternatives; that her record is a record <em>of the road</em> makes the two mismatched combinations jointly invalid, and the quotient strikes them:</p>
+        <p>\[ \begin{aligned} &\pi\big((p\,H_R + q\,H_L)(A_R + A_L)\big) \\ &\qquad = p\,H_R A_R + q\,H_L A_L . \end{aligned} \]</p>
+        <p>When Bob looks and finds \(H_R\), multiplying by \(H_R\) strikes the remaining term, the version of Alice who got the opposite answer.</p>
+        <p class="source">From <a href="https://philpapers.org/rec/BENARA-5"><em>Aethic Reasoning</em></a>, the hitchhiker thought experiment and the algebraic form of reduced-form coupling.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 ======================================================================================== -->
+  <section class="station" id="two-tag" aria-labelledby="h-2">
+    <div class="rail"><div class="rail-inner"><span class="num">2</span><span class="what">The derivation</span></div></div>
+    <div class="body">
+      <h2 id="h-2">The two-tag deduction</h2>
+      <p>The polarized double slit, walked from the postulates to both of its empirical faces: the analyzer’s readout probabilities and the screen’s intensity pattern. Every trigonometric factor is the Bloch face’s contribution and every \(x\)-dependence is spacetime’s; the elementary alternatives are their products, a spacetime route through one slit carrying a Bloch route to that slit’s tag.</p>
+
+      <h3>Terms</h3>
+      <dl class="terms">
+        <dt>slit</dt><dd>a spacetime opening, the spacetime arena’s alternative.</dd>
+        <dt>tag</dt><dd>the polarization stamp a slit’s polarizer imposes, a determinate node on the Bloch sphere indexed to that slit. The tags sit at \(\pm\alpha\) from the incident polarization, the <em>bisector</em>.</dd>
+        <dt>tag overlap</dt><dd>\(c = \cos 2\alpha\), how alike the two stamps are.</dd>
+        <dt>analyzer</dt><dd>the final polarizer at angle \(\theta\), read as a which-tag question; write \(c_1 = \cos(\theta - \alpha)\), \(c_2 = \cos(\theta + \alpha)\).</dd>
+        <dt>port, record</dt><dd>a port is one of the analyzer’s two answers, \(\theta\) or \(\perp\); each port outcome is a record, and the ports are the branches of the disagreeing case.</dd>
+        <dt>pair</dt><dd>the agreeing superposition of the two tag-nodes.</dd>
+        <dt>straddle</dt><dd>the analyzer angle Bloch-orthogonal to the bisector, the best which-tag question; the bisector itself is the erasing question.</dd>
+        <dt>capacity</dt><dd>\(D\), how well the record’s answer lets one guess the tag.</dd>
+        <dt>visibility</dt><dd>\(V\), fringe contrast: <em>per-port</em> for the screen sorted by the record, <em>unconditional</em> for the screen ignoring it.</dd>
+      </dl>
+
+      <h3>The deduction</h3>
+      <ol class="steps">
+        <li><span class="t">The pair, by pruning.</span> Determinate nodes form by the pruning of all paths that do not pass through them. The or-form of that pruning keeps exactly the augmented paths through one slit-and-tag or the other: a single agreeing object whose spacetime face spans both slits and whose Bloch face spans both tag nodes. The fundamental theorem protects it for as long as the which-tag attribute stays hidden in principle.</li>
+        <li><span class="t">The record, and where the divide falls.</span> The analyzer ends that hiding by an exact amount: pass-or-block is a record correlated with the tag, so the top-level structure downstream is the disagreeing superposition over the two ports, weighted by Bloch-face numbers alone,
+          \[ p_\theta = \tfrac12\big(c_1^2 + c_2^2\big), \qquad p_\perp = 1 - p_\theta . \]
+          These are the end-analyzer readout probabilities, with no reference to the screen; at \(\alpha = 30^\circ\), \(p_\theta = \tfrac12 + \tfrac14 \cos 2\theta\).</li>
+        <li><span class="t">Within each port, the pair persists, tilted.</span> A pass does not resolve which tag, since both tags project onto the port with nonzero amplitude, so inside each port the agreeing pair stands, tilted to \(c_1^2 : c_2^2\), and amplitudes compose:
+          \[ I_\theta(x) \propto c_1^2 + c_2^2 + 2 c_1 c_2 \cos\big(k\,\Delta(x)\big), \]
+          \[ V_\theta = \frac{2\,|c_1 c_2|}{c_1^2 + c_2^2}, \quad P_\theta = \frac{|c_1^2 - c_2^2|}{c_1^2 + c_2^2} . \]
+          The identity \((2c_1c_2)^2 + (c_1^2 - c_2^2)^2 = (c_1^2 + c_2^2)^2\) gives \(V_\theta^2 + P_\theta^2 = 1\) at every analyzer angle.</li>
+        <li><span class="t">Across ports, weights add.</span> Ports are record-separated branches, so their intensities add with their weights, never their amplitudes,
+          \[ I(x) = p_\theta\, I_\theta(x) + p_\perp\, I_\perp(x), \]
+          and the two ports’ cross-terms sum to \(2\cos 2\alpha\). The unconditional pattern therefore has visibility \(c\) whatever \(\theta\) is: no-signaling arrives as an identity of the construction.</li>
+        <li><span class="t">The resolution ledger.</span> The record’s separating capacity is \(D(\theta) = |\sin 2\theta|\,\sin 2\alpha\): zero at the bisector, where the question erases the tag distinction, and maximal at the straddle, \(D^\star = \sin 2\alpha = \sqrt{1 - c^2}\).</li>
+      </ol>
+
+      <div class="two-laws wide" role="group" aria-label="The two composition laws">
+        <section>
+          <h4>Classical random tagging</h4>
+          <p>Disagreeing, a mixture: weights compose, no kernel.</p>
+          <p>\[ \begin{gathered} D = p, \quad V = 1 - p \\ \Longrightarrow\; V + D = 1 \end{gathered} \]</p>
+          <p>The chord.</p>
+        </section>
+        <section>
+          <h4>Coherent pure tagging</h4>
+          <p>Agreeing: amplitudes compose, kernel overlap \(c\).</p>
+          <p>\[ \begin{gathered} V = c, \quad D^\star = \sqrt{1 - c^2} \\ \Longrightarrow\; V^2 + (D^\star)^2 = 1 \end{gathered} \]</p>
+          <p>The circle.</p>
+        </section>
+      </div>
+
+      <h3>What is derived, and what is imported</h3>
+      <div class="table-wrap wide">
+        <table class="audit">
+          <thead><tr><th scope="col">Result</th><th scope="col">Source in the framework</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><td>\(V + D = 1\), the chord</td><td>convex decomposition of the agreeing and disagreeing sectors, by the relational weight principle</td><td>framework-native, kernel-free</td></tr>
+            <tr><td>\(V = c\)</td><td>coherent marker overlap under the Quantum Nexus, the kernel’s own cross-term</td><td>kernel-dependent; the kernel’s Bloch factor is an axiom, booked as one</td></tr>
+            <tr><td>\(D^\star = \sqrt{1 - c^2}\)</td><td>optimal discrimination of the two marker states</td><td>standard result, used; its in-formalism optimality is open</td></tr>
+            <tr><td>\(V^2 + (D^\star)^2 = 1\)</td><td>the two rows above, combined</td><td>exact, given them</td></tr>
+            <tr><td>\(V_\theta^2 + P_\theta^2 = 1\)</td><td>one normalization identity of the port quantities</td><td>identity of the construction</td></tr>
+            <tr><td>no-signaling under analyzer choice</td><td>the ports’ cross-terms summing to \(2\cos 2\alpha\)</td><td>identity of the construction; possessed by every interpretation</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Not claimed: a prediction of \(V^2 + D^2 \le 1\), which every interpretation inherits from the shared formalism. Claimed: the mapping of the agreeing/disagreeing distinction onto the two composition regimes already visible in the phenomenology, with the chord as the one piece generated without the kernel.</p>
+      <p class="source">From <a href="https://philpapers.org/rec/BENARA-5"><em>Aethic Reasoning</em></a>, “The two-tag deduction: from the postulates to the pattern and the readout,” where each step carries its audit.</p>
+    </div>
+  </section>
+
+  <!-- 3 ======================================================================================== -->
+  <section class="station" id="powerset" aria-labelledby="h-3">
+    <div class="rail"><div class="rail-inner"><span class="num">3</span><span class="what">The theorem underneath</span></div></div>
+    <div class="body">
+      <h2 id="h-3">The powerset invalidation theorem</h2>
+      <p>The two-tag deduction is one instance of a classification that covers every multi-slit experiment under every detector configuration. It replaces the Heisenberg cut with a partition: coherence survives within a class of slits no record can tell apart, and dies across any two classes some record separates. Nothing else decides it: no size, no mass, no observer.</p>
+
+      <div class="formal">
+        <p><span class="head">Definition</span> <em>(detector signature).</em> For an experiment with slits \(s_1, \ldots, s_n\) and detectors \(d_1, \ldots, d_m\), each firing on the traversal of any slit in its designated subset, the signature of a slit is
+        \[ \sigma(s_i) = \big(s_i \in d_1,\; s_i \in d_2,\; \ldots,\; s_i \in d_m\big). \]
+        Two slits are observationally indistinguishable when their signatures agree; the classes of that equivalence, \(E_1, \ldots, E_k\), partition the slits.</p>
+      </div>
+
+      <div class="formal">
+        <p><span class="head">Theorem</span> <em>(Powerset Invalidation).</em> Assume the record structure of the declared configuration is complete and persistent: each slit’s signature includes every record of its traversal accessible within the configuration’s declared refinements, and every declared refinement retains a descendant stating each such record. Then, relative to the Aethus \(A\) doing the classifying, every element \(T\) of the powerset \(\mathcal{P}(\{s_1, \ldots, s_n\})\) falls into exactly one of three categories:</p>
+        <p><strong>Valid.</strong> \(T = \varnothing\), or \(T = E_j\) for some \(j\).<br>
+        <strong>Second-postulate invalidation.</strong> \(\varnothing \ne T \subsetneq E_j\) for some \(j\): over-specification within a class.<br>
+        <strong>Third-postulate invalidation.</strong> \(T \cap E_i \ne \varnothing\) and \(T \cap E_j \ne \varnothing\) for some \(i \ne j\): a combination across classes.</p>
+        <p>The three categories are mutually exclusive and jointly exhaustive.</p>
+      </div>
+
+      <div class="demo wide" id="demo">
+        <h3>Four slits, two detectors</h3>
+        <p>Choose which slits each detector fires on. The signatures, the classes, and the verdict on all sixteen elements of the powerset follow at once.</p>
+        <div class="controls">
+          <table class="detectors" aria-label="Detector coverage">
+            <thead><tr><td></td><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th></tr></thead>
+            <tbody id="det-body"></tbody>
+          </table>
+          <div class="presets" role="group" aria-label="Configurations">
+            <button type="button" data-preset="none">No detector</button>
+            <button type="button" data-preset="or">One detector on A or B</button>
+            <button type="button" data-preset="a">One detector on A</button>
+            <button type="button" data-preset="full">Every slit resolved</button>
+          </div>
+        </div>
+        <p class="readout" id="readout" aria-live="polite"></p>
+        <div class="lattice" id="lattice" aria-label="The sixteen powerset elements and their verdicts"></div>
+        <div class="legend" aria-hidden="true">
+          <span><svg class="mark" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--valid)"/><path d="M4 8.5l2.6 2.6L12 5.4" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--valid)"/></svg>valid</span>
+          <span><svg class="mark" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--invalid)"/><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" style="color:var(--invalid)"/></svg>invalid, second postulate (P2) or third (P3)</span>
+        </div>
+      </div>
+
+      <p>Three things follow. Moving or erasing a detector redraws the partition and re-bins every case, so the double slit, the quantum eraser and delayed choice are one theorem. Feynman’s indistinguishability rule gets a non-circular ground: amplitudes add within a class, probabilities across, and the boundary between the two additions is the partition. And the second and third postulates divide the invalid cases into two complementary regions with no overlap, too narrow within a class and too broad across classes, the only two ways an agreeing superposition can fail.</p>
+      <p class="source">From <a href="https://philpapers.org/rec/BENARA-5"><em>Aethic Reasoning</em></a>, the powerset invalidation theorem, with its proof and the record-individuation lemma; and the extraction <a href="https://philpapers.org/rec/BENTQB"><em>Quantum Mechanics from Records</em></a>.</p>
+    </div>
+  </section>
+
+  <!-- 4 ======================================================================================== -->
+  <section class="station" id="feedback" aria-labelledby="h-4">
+    <div class="rail"><div class="rail-inner"><span class="num">4</span><span class="what">The theorem, iterated</span></div></div>
+    <div class="body">
+      <h2 id="h-4">The validity feedback principle</h2>
+      <p>A record is any degree of freedom correlated with an alternative and stated in some refinement of some Aethus. Nothing called measurement appears in that definition. So once collapse is read as invalidity, anybody gets a say in it.</p>
+
+      <div class="formal">
+        <p><span class="head">The validity feedback principle.</span> The invalidity of the powerset invalidation theorem’s elements can come from any heterogeneous source, including deduction, to a fixed point, from information provided or providable to the Aethus by the quantum system itself.</p>
+        <p>Formally, with \(R(T; \mathcal{V})\) the records the channels make available against a candidate cluster \(T\) when the family of valid clusters is \(\mathcal{V}\), the valid family is the fixed point
+        \[ \mathcal{V} \;=\; \{\, T : \text{no record in } R(T; \mathcal{V}) \text{ separates the alternatives of } T \,\}, \]
+        and quantum collapse is this fixed point, reached by the channels jointly, and not the act of any one of them.</p>
+      </div>
+
+      <p>The channels are heterogeneous in kind:</p>
+      <ul class="channels">
+        <li>decoherence-mediated information gain, as when the charged leptons’ mass splittings are large enough that production and environment record which lepton was made, while the neutrino splittings lie below any accessible record and the flavor superposition stands agreeing and oscillates;</li>
+        <li>a qualitative detector placed at a slit;</li>
+        <li>a gravitational or spacetime-induced passage of a record;</li>
+        <li>the quantum case’s own verdicts fed back into the quantum case, as in the two-tag configuration, where the analyzer’s port record ends the hiding of the which-tag attribute and the agreeing pair persists inside each port, tilted by that verdict;</li>
+        <li>a whole logical circuit of effects an experimenter could set up over detector signatures.</li>
+      </ul>
+      <p>They act not one at a time but in iterative-triggering combination: a channel’s verdict is itself a record, and a record opens or closes further channels. <em>Providable</em> is the third postulate’s reach: information that some refinement would state counts against a cluster now, the postulate quantifying over the whole refinement future of the Aethus at once.</p>
+      <p>General relativity took a monolithic concept, gravitational force, and extended it to a whole medium, a geometry that every source both responds to and shapes. Validity feedback does the same to measurement. It operates iteratively on the powerset invalidation theorem, each verdict a record for the theorem’s next application, and the theorem so iterated supplies at once what the standard formalism supplies by two separate stipulations: the measurement, as the invalidation of the agreeing elements a record separates, and the preferred basis, as the signature partition the records induce.</p>
+      <p>Copenhagen quantum mechanics keeps measurement as a conceptual monolith, marked by hand and qualitatively, and indexes measurements by a sequence that runs forward in proper time only, the Hamiltonian evolving the state between them. Here they are indexed by determinate nodes, with the path integral weighting what passes between nodes, and a verdict can land, across proper time, on an alternative held open since an earlier node.</p>
+      <p class="why">The grade is stated with the principle. That validity closes at a fixed point is the postulates’ own demand; which physical processes are channels, and at what rate they pass records, is the physics’ to supply.</p>
+      <p class="source">From <a href="https://philpapers.org/rec/BENARA-5"><em>Aethic Reasoning</em></a>, the paradigmatic content of the powerset invalidation theorem; stated also in <a href="https://philpapers.org/rec/BENTQB"><em>Quantum Mechanics from Records</em></a> and <a href="https://philpapers.org/rec/BENARI-3"><em>Aethic Reasoning in Brief</em></a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div>
+    <h2>The framework</h2>
+    <ul>
+      <li><a href="https://aethus.org/start-here.html">Start here</a></li>
+      <li><a href="https://aethus.org/aethic-reasoning-guide.html">Aethic reasoning guide</a></li>
+      <li><a href="https://aethus.org/nexic-reasoning-guide.html">Nexic reasoning guide</a></li>
+      <li><a href="https://aethus.org/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+  <div>
+    <h2>Reference</h2>
+    <ul>
+      <li><a href="https://aethus.org/glossary.html">Glossary</a></li>
+      <li><a href="https://aethus.org/principles_compendium.html">Principles compendium</a></li>
+      <li><a href="https://aethus.org/constraints_map.html">Constraints map</a></li>
+      <li><a href="https://aethus.org/supporting/provenance.html">Provenance</a></li>
+    </ul>
+  </div>
+  <div>
+    <h2>Ajax Benander</h2>
+    <ul>
+      <li><a href="https://aethus.org/ajax/">About</a></li>
+      <li><a href="https://philpeople.org/profiles/ajax-benander">Papers</a></li>
+      <li><a href="https://philpapers.org/rec/BENARA-5">Aethic Reasoning, the full development</a></li>
+    </ul>
+  </div>
+  <p class="legal">© 2025–2026 Ajax Benander. Licensed under CC BY-NC-SA 4.0.</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var SLITS = ["A", "B", "C", "D"];
+  var PRESETS = {
+    none: [[0, 0, 0, 0], [0, 0, 0, 0]],
+    or:   [[1, 1, 0, 0], [0, 0, 0, 0]],
+    a:    [[1, 0, 0, 0], [0, 0, 0, 0]],
+    full: [[1, 1, 0, 0], [1, 0, 1, 0]]
+  };
+  var det = PRESETS.or.map(function (r) { return r.slice(); });
+  var body = document.getElementById("det-body");
+  var lattice = document.getElementById("lattice");
+  var readout = document.getElementById("readout");
+  if (!body || !lattice || !readout) return;
+
+  function setName(mask) {
+    if (mask === 0) return "∅";
+    var s = [];
+    for (var i = 0; i < 4; i++) if (mask & (1 << i)) s.push(SLITS[i]);
+    return "{" + s.join(", ") + "}";
+  }
+  function popcount(m) { var c = 0; while (m) { c += m & 1; m >>= 1; } return c; }
+
+  function buildControls() {
+    body.innerHTML = "";
+    det.forEach(function (row, d) {
+      var tr = document.createElement("tr");
+      var th = document.createElement("th");
+      th.scope = "row"; th.textContent = "Detector " + (d + 1);
+      tr.appendChild(th);
+      row.forEach(function (on, i) {
+        var td = document.createElement("td");
+        var cb = document.createElement("input");
+        cb.type = "checkbox"; cb.checked = !!on;
+        cb.setAttribute("aria-label", "Detector " + (d + 1) + " fires on slit " + SLITS[i]);
+        cb.addEventListener("change", function () { det[d][i] = cb.checked ? 1 : 0; markPreset(); render(); });
+        td.appendChild(cb); tr.appendChild(td);
+      });
+      body.appendChild(tr);
+    });
+  }
+
+  function classes() {
+    var groups = {}, order = [];
+    for (var i = 0; i < 4; i++) {
+      var sig = det.map(function (r) { return r[i]; }).join("");
+      if (!(sig in groups)) { groups[sig] = 0; order.push(sig); }
+      groups[sig] |= (1 << i);
+    }
+    return order.map(function (k) { return groups[k]; });
+  }
+
+  function verdict(T, cls) {
+    if (T === 0 || cls.indexOf(T) >= 0) return "valid";
+    for (var k = 0; k < cls.length; k++) if ((T & cls[k]) === T) return "p2";
+    return "p3";
+  }
+
+  function mark(kind) {
+    var ns = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 16 16"); svg.setAttribute("class", "mark"); svg.setAttribute("aria-hidden", "true");
+    var col = kind === "valid" ? "var(--valid)" : "var(--invalid)";
+    var r = document.createElementNS(ns, "rect");
+    r.setAttribute("x", "1.5"); r.setAttribute("y", "1.5"); r.setAttribute("width", "13"); r.setAttribute("height", "13");
+    r.setAttribute("fill", "none"); r.setAttribute("stroke-width", "1.5"); r.style.stroke = col;
+    svg.appendChild(r);
+    var p = document.createElementNS(ns, "path");
+    p.setAttribute("d", kind === "valid" ? "M4 8.5l2.6 2.6L12 5.4" : "M4 4l8 8M12 4l-8 8");
+    p.setAttribute("fill", "none"); p.setAttribute("stroke-width", kind === "valid" ? "1.8" : "1.6"); p.style.stroke = col;
+    svg.appendChild(p);
+    return svg;
+  }
+
+  function render() {
+    var cls = classes();
+    var counts = { valid: 0, p2: 0, p3: 0 };
+    lattice.innerHTML = "";
+    for (var size = 0; size <= 4; size++) {
+      var rank = document.createElement("div"); rank.className = "rank";
+      for (var T = 0; T < 16; T++) {
+        if (popcount(T) !== size) continue;
+        var v = verdict(T, cls); counts[v]++;
+        var cell = document.createElement("div"); cell.className = "cell " + v;
+        var label = v === "valid" ? "valid" : (v === "p2" ? "invalid, second postulate" : "invalid, third postulate");
+        cell.setAttribute("role", "img"); cell.setAttribute("aria-label", setName(T) + ": " + label);
+        cell.appendChild(mark(v));
+        var s = document.createElement("span"); s.className = "set"; s.textContent = setName(T); cell.appendChild(s);
+        if (v !== "valid") { var t = document.createElement("span"); t.className = "tag"; t.textContent = v === "p2" ? "P2" : "P3"; cell.appendChild(t); }
+        rank.appendChild(cell);
+      }
+      lattice.appendChild(rank);
+    }
+    var names = cls.map(setName);
+    var within = cls.filter(function (m) { return popcount(m) > 1; }).map(setName);
+    var text = "Classes: " + names.join(" and ") + ". ";
+    if (within.length) text += "Amplitudes add within " + within.join(" and within ") + ". ";
+    else text += "No two slits share a class, so nothing interferes. ";
+    if (cls.length > 1) text += "Probabilities add across the classes. ";
+    text += counts.valid + " valid, " + counts.p2 + " invalid by the second postulate, " + counts.p3 + " by the third.";
+    readout.textContent = text;
+  }
+
+  function markPreset() {
+    var match = null;
+    Object.keys(PRESETS).forEach(function (k) {
+      if (JSON.stringify(PRESETS[k]) === JSON.stringify(det)) match = k;
+    });
+    document.querySelectorAll(".presets button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.dataset.preset === match ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll(".presets button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      det = PRESETS[b.dataset.preset].map(function (r) { return r.slice(); });
+      buildControls(); markPreset(); render();
+    });
+  });
+
+  buildControls(); markPreset(); render();
+})();
+
+document.addEventListener("DOMContentLoaded", function () {
+  function go() {
+    if (window.renderMathInElement) {
+      renderMathInElement(document.body, {
+        delimiters: [{ left: "\\[", right: "\\]", display: true }, { left: "\\(", right: "\\)", display: false }],
+        throwOnError: false
+      });
+    }
+  }
+  if (window.renderMathInElement) go(); else window.addEventListener("load", go);
+});
+</script>
+</body>
+</html>
